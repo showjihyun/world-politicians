@@ -1,0 +1,35 @@
+name: daily-news
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # 매일 13:00 UTC (미 동부 아침)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch & classify news signals
+        env:
+          NEWS_LLM_API_KEY: ${{ secrets.NEWS_LLM_API_KEY }}
+        run: node --experimental-strip-types scripts/news-pipeline/pipeline.mts
+
+      - name: Commit refreshed signals
+        run: |
+          git config user.name "polaris-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add src/data/news-signals.json
+          git diff --cached --quiet || git commit -m "news: refresh relationship signals [skip ci]"
+          git push

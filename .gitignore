@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.local
+*.local
+scripts/news-pipeline/.raw-cache.json
+scripts/news-pipeline/.signals-cache.json
+scripts/news-pipeline/.dry-output.json
+.DS_Store
+Thumbs.db

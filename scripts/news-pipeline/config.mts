@@ -1,0 +1,174 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+/** 로컬 .env 수동 로드 (CI에서는 실제 env 사용) */
+function loadDotEnv(): void {
+  const p = path.resolve(import.meta.dirname, '../../.env');
+  if (!fs.existsSync(p)) return;
+  for (const line of fs.readFileSync(p, 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    if (m && !(m[1] in process.env)) {
+      process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
+    }
+  }
+}
+loadDotEnv();
+
+export const CONFIG = {
+  windowDays: 30,
+  maxSignals: 300,
+  requestDelayMs: 120,
+
+  /** Top US outlets — 기사 출처 화이트리스트 */
+  allowedSourceHosts: [
+    'apnews.com',
+    'reuters.com',
+    'cnn.com',
+    'foxnews.com',
+    'nbcnews.com',
+    'abcnews.go.com',
+    'cbsnews.com',
+    'npr.org',
+    'politico.com',
+    'thehill.com',
+    'nytimes.com',
+    'washingtonpost.com',
+    'wsj.com',
+  ],
+  allowedSourceNames: [
+    'Associated Press', 'AP News', 'AP', 'Reuters', 'CNN', 'Fox News',
+    'NBC News', 'ABC News', 'CBS News', 'NPR', 'Politico', 'The Hill',
+    'The New York Times', 'The Washington Post', 'The Wall Street Journal',
+  ],
+
+  /** 직접 수집하는 주요 방송국 RSS */
+  outletFeeds: [
+    { name: 'Fox News', url: 'https://feeds.foxnews.com/foxnews/politics' },
+    { name: 'CNN', url: 'http://rss.cnn.com/rss/cnn_allpolitics.rss' },
+    { name: 'NPR', url: 'https://feeds.npr.org/1001/rss.xml' },
+    { name: 'The Hill', url: 'https://thehill.com/feed/' },
+    { name: 'Politico', url: 'https://www.politico.com/rss/politicopicks.xml' },
+  ],
+
+  googleNewsRss: 'https://news.google.com/rss/search',
+
+  llm: {
+    apiKey: process.env.NEWS_LLM_API_KEY ?? '',
+    baseURL: process.env.NEWS_LLM_BASE_URL ?? 'https://integrate.api.nvidia.com/v1',
+    model: process.env.NEWS_LLM_MODEL ?? 'nvidia/nemotron-3-ultra-550b-a55b',
+    temperature: 0.2,
+    maxTokens: 4096,
+    batchSize: 10,
+  },
+
+  paths: {
+    politiciansDir: path.resolve(import.meta.dirname, '../../src/data/politicians'),
+    outJson: path.resolve(import.meta.dirname, '../../src/data/news-signals.json'),
+    rawCache: path.resolve(import.meta.dirname, '.raw-cache.json'),
+  },
+};
+
+/** 인물 매칭용 별칭 — [id, ...검색/매칭 토큰] */
+export const PERSON_ALIASES: Record<string, string[]> = {
+  trump: ['donald trump', 'president trump', 'trump'],
+  vance: ['jd vance', 'j.d. vance', 'vance'],
+  rubio: ['marco rubio', 'rubio'],
+  hegseth: ['pete hegseth', 'hegseth'],
+  'rfk-jr': ['robert f. kennedy', 'rfk jr.', 'rfk jr', 'rfk'],
+  gabbard: ['tulsi gabbard', 'gabbard'],
+  noem: ['kristi noem', 'noem'],
+  bondi: ['pam bondi', 'bondi'],
+  musk: ['elon musk', 'musk'],
+  bannon: ['steve bannon', 'bannon'],
+  biden: ['joe biden', 'biden'],
+  harris: ['kamala harris', 'harris'],
+  obama: ['barack obama', 'obama'],
+  pence: ['mike pence', 'pence'],
+  thune: ['john thune', 'thune'],
+  mcconnell: ['mitch mcconnell', 'mcconnell'],
+  graham: ['lindsey graham', 'sen. graham'],
+  cruz: ['ted cruz', 'cruz'],
+  hawley: ['josh hawley', 'hawley'],
+  cotton: ['tom cotton', 'sen. cotton'],
+  'paul-rand': ['rand paul'],
+  'lee-mike': ['mike lee', 'sen. lee'],
+  ernst: ['joni ernst', 'ernst'],
+  'collins-susan': ['susan collins', 'collins'],
+  murkowski: ['lisa murkowski', 'murkowski'],
+  cassidy: ['bill cassidy', 'cassidy'],
+  tillis: ['thom tillis', 'tillis'],
+  tuberville: ['tommy tuberville', 'tuberville'],
+  britt: ['katie britt', 'britt'],
+  blackburn: ['marsha blackburn', 'blackburn'],
+  schmitt: ['eric schmitt', 'schmitt'],
+  moreno: ['bernie moreno'],
+  'rick-scott': ['rick scott', 'sen. scott'],
+  'tim-scott': ['tim scott', 'sen. tim scott'],
+  schumer: ['chuck schumer', 'schumer'],
+  durbin: ['dick durbin', 'durbin'],
+  warren: ['elizabeth warren', 'warren'],
+  sanders: ['bernie sanders', 'sanders'],
+  klobuchar: ['amy klobuchar', 'klobuchar'],
+  booker: ['cory booker', 'booker'],
+  warnock: ['raphael warnock', 'warnock'],
+  fetterman: ['john fetterman', 'fetterman'],
+  duckworth: ['tammy duckworth', 'duckworth'],
+  schiff: ['adam schiff', 'schiff'],
+  padilla: ['alex padilla', 'padilla'],
+  slotkin: ['elissa slotkin', 'slotkin'],
+  'kim-andy': ['andy kim', 'rep. kim'],
+  markey: ['ed markey', 'markey'],
+  gallego: ['ruben gallego', 'gallego'],
+  'kelly-mark': ['mark kelly', 'sen. kelly'],
+  'murphy-chris': ['chris murphy', 'sen. murphy'],
+  ossoff: ['jon ossoff', 'ossoff'],
+  'johnson-mike': ['mike johnson', 'speaker johnson'],
+  scalise: ['steve scalise', 'scalise'],
+  emmer: ['tom emmer', 'emmer'],
+  stefanik: ['elise stefanik', 'stefanik'],
+  'jordan-jim': ['jim jordan', 'jordan'],
+  mtg: ['marjorie taylor greene', 'mtg'],
+  boebert: ['lauren boebert', 'boebert'],
+  'mace-nancy': ['nancy mace', 'mace'],
+  luna: ['anna paulina luna', 'luna'],
+  massie: ['thomas massie', 'massie'],
+  donalds: ['byron donalds', 'donalds'],
+  'bacon-don': ['don bacon', 'bacon'],
+  fitzpatrick: ['brian fitzpatrick', 'fitzpatrick'],
+  'lawler-mike': ['mike lawler', 'lawler'],
+  jeffries: ['hakeem jeffries', 'jeffries'],
+  pelosi: ['nancy pelosi', 'pelosi'],
+  aoc: ['alexandria ocasio-cortez', 'ocasio-cortez', 'aoc'],
+  'omar-ilhan': ['ilhan omar', 'omar'],
+  tlaib: ['rashida tlaib', 'tlaib'],
+  pressley: ['ayanna pressley', 'pressley'],
+  crockett: ['jasmine crockett', 'crockett'],
+  'frost-maxwell': ['maxwell frost', 'frost'],
+  khanna: ['ro khanna', 'khanna'],
+  'torres-ritchie': ['ritchie torres', 'torres'],
+  'golden-jared': ['jared golden', 'golden'],
+  'perez-marie': ['gluesenkamp perez', 'perez'],
+  newsom: ['gavin newsom', 'newsom'],
+  whitmer: ['gretchen whitmer', 'whitmer'],
+  pritzker: ['jb pritzker', 'pritzker'],
+  shapiro: ['josh shapiro', 'shapiro'],
+  walz: ['tim walz', 'walz'],
+  'moore-wes': ['wes moore', 'moore'],
+  desantis: ['ron desantis', 'desantis'],
+  'abbott-greg': ['greg abbott', 'abbott'],
+  hillary: ['hillary clinton', 'hillary'],
+  'bill-clinton': ['bill clinton', 'president clinton'],
+  'bush-w': ['george w. bush', 'george bush', 'president bush'],
+  'jeb-bush': ['jeb bush', 'jeb'],
+  'dick-cheney': ['dick cheney', 'cheney'],
+  'liz-cheney': ['liz cheney', 'liz cheney'],
+  kinzinger: ['adam kinzinger', 'kinzinger'],
+  romney: ['mitt romney', 'romney'],
+  'mccain-john': ['john mccain', 'mccain'],
+  manchin: ['joe manchin', 'manchin'],
+  sinema: ['kyrsten sinema', 'sinema'],
+  'gaetz-matt': ['matt gaetz', 'gaetz'],
+  'mccarthy-kevin': ['kevin mccarthy', 'mccarthy'],
+  'haley-nikki': ['nikki haley', 'haley'],
+  buttigieg: ['pete buttigieg', 'buttigieg'],
+};
