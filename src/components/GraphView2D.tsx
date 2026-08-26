@@ -66,7 +66,10 @@ export default function GraphView2D() {
 
   useEffect(() => {
     const t = setTimeout(() => fgRef.current?.zoomToFit(900, 70), 1500);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+      document.body.style.cursor = 'default';
+    };
   }, []);
 
   useEffect(() => {
@@ -187,11 +190,9 @@ export default function GraphView2D() {
       }}
       onMouseLeave={() => setMouse(null)}
     >
-      <NodeTooltip
-        node={hoveredNode}
-        x={mouse?.x ?? 0}
-        y={mouse?.y ?? 0}
-      />
+      {mouse && (
+        <NodeTooltip node={hoveredNode} x={mouse.x} y={mouse.y} />
+      )}
       <ForceGraph2D
         ref={fgRef as never}
         width={size.w}

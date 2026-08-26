@@ -3,7 +3,7 @@ import { loadPeople } from './fetch.mts';
 import { CONFIG } from './config.mts';
 import type { SignalsFile } from './merge.mts';
 
-export function validate(file: SignalsFile): boolean {
+export function validate(file: SignalsFile, dry = false): boolean {
   const people = new Set(loadPeople().map((p) => p.id));
   let ok = true;
 
@@ -23,7 +23,8 @@ export function validate(file: SignalsFile): boolean {
     if (!ok) break;
   }
 
-  const sizeKB = Math.round(fs.statSync(CONFIG.paths.outJson).size / 1024);
+  const outPath = dry ? 'scripts/news-pipeline/.dry-output.json' : CONFIG.paths.outJson;
+  const sizeKB = fs.existsSync(outPath) ? Math.round(fs.statSync(outPath).size / 1024) : 0;
   console.log(`[validate] signals=${file.signals.length} classified=${file.stats.classified} ally=${file.stats.ally} feud=${file.stats.feud} size=${sizeKB}KB → ${ok ? 'OK' : 'FAILED'}`);
   return ok;
 }

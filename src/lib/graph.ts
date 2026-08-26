@@ -125,11 +125,12 @@ function topBy<T>(arr: T[], score: (x: T) => number, n = 5): T[] {
 
 export function computeInsights(nodes: GraphNode[], links: GraphLink[]) {
   // conflict hubs — feud-weighted
+  // NOTE: use immutable rel.a/rel.b — force-graph mutates l.source/target into node objects
   const feudWeight = new Map<string, number>();
   for (const l of links) {
     if (l.rel.type !== 'feud') continue;
-    feudWeight.set(l.source, (feudWeight.get(l.source) ?? 0) + l.rel.strength);
-    feudWeight.set(l.target, (feudWeight.get(l.target) ?? 0) + l.rel.strength);
+    feudWeight.set(l.rel.a, (feudWeight.get(l.rel.a) ?? 0) + l.rel.strength);
+    feudWeight.set(l.rel.b, (feudWeight.get(l.rel.b) ?? 0) + l.rel.strength);
   }
   const conflictHubs = topBy(nodes, (n) => feudWeight.get(n.id) ?? 0).filter(
     (n) => (feudWeight.get(n.id) ?? 0) > 0
@@ -142,12 +143,12 @@ export function computeInsights(nodes: GraphNode[], links: GraphLink[]) {
   const bridges = new Map<string, number>();
   for (const l of links) {
     if (l.rel.type !== 'bipartisan' && l.rel.type !== 'ally') continue;
-    const pa = partyOf.get(l.source);
-    const pb = partyOf.get(l.target);
+    const pa = partyOf.get(l.rel.a);
+    const pb = partyOf.get(l.rel.b);
     if (!pa || !pb || pa === pb || pa === 'X' || pb === 'X') continue;
     const w = l.rel.type === 'bipartisan' ? 2 : 1;
-    bridges.set(l.source, (bridges.get(l.source) ?? 0) + w);
-    bridges.set(l.target, (bridges.get(l.target) ?? 0) + w);
+    bridges.set(l.rel.a, (bridges.get(l.rel.a) ?? 0) + w);
+    bridges.set(l.rel.b, (bridges.get(l.rel.b) ?? 0) + w);
   }
   const bridgeBuilders = topBy(nodes, (n) => bridges.get(n.id) ?? 0).filter(
     (n) => (bridges.get(n.id) ?? 0) > 0

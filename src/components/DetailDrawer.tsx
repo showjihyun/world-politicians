@@ -6,7 +6,7 @@ import { useI18n } from '../i18n';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON } from '../data/signals';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
-import { REL_META, type RelType } from '../types';
+import { REL_META, type Party, type RelType } from '../types';
 import { pairKey, type GraphLink, type GraphNode } from '../lib/graph';
 
 type RelRow = { link: GraphLink; other: GraphNode };
@@ -17,6 +17,7 @@ function polarityColor(p?: string): string {
 
 export default function DetailDrawer() {
   const { t, L, locale } = useI18n();
+  const partyLabelOf = (party: Party) => L(PARTY_LABEL[party]);
   const graph = useStore((s) => s.graph);
   const links = useStore((s) => s.links);
   const selectedId = useStore((s) => s.selectedId);
@@ -51,7 +52,6 @@ export default function DetailDrawer() {
     <AnimatePresence>
       {person && (
         <motion.aside
-          key={person.id}
           initial={{ x: 380, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 380, opacity: 0 }}
@@ -77,7 +77,7 @@ export default function DetailDrawer() {
                     backgroundColor: PARTY_COLOR[person.party] + '1c',
                   }}
                 >
-                  {PARTY_LABEL[person.party]}
+                  {partyLabelOf(person.party)}
                 </span>
                 {person.state && (
                   <span className="flex items-center gap-0.5">

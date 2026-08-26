@@ -5,13 +5,14 @@ import { computeInsights } from '../lib/graph';
 import { useI18n } from '../i18n';
 import { LATEST_SIGNALS } from '../data/signals';
 import { PARTY_LABEL } from '../lib/colors';
+import type { Party } from '../types';
 
 function wireDot(p?: string): string {
   return p === 'ally' ? '#34d399' : p === 'feud' ? '#fb7185' : '#94a3b8';
 }
 
 export default function InsightsPanel() {
-  const { t, locale } = useI18n();
+  const { t, L, locale } = useI18n();
   const graph = useStore((s) => s.graph);
   const links = useStore((s) => s.links);
   const select = useStore((s) => s.select);
@@ -22,6 +23,7 @@ export default function InsightsPanel() {
   const bridgeTotal = links.filter((l) => l.rel.type === 'bipartisan').length;
 
   const nameOf = (id: string) => graph.find((g) => g.id === id)?.name[locale] ?? id;
+  const partyLabelOf = (party: Party) => L(PARTY_LABEL[party]);
 
   return (
     <div className="space-y-3">
@@ -74,7 +76,7 @@ export default function InsightsPanel() {
         items={insights.conflictHubs.map((p) => ({
           id: p.id,
           name: p.name[locale],
-          sub: PARTY_LABEL[p.party],
+          sub: partyLabelOf(p.party),
           value: p.feudCount,
           suffix: t.feudCount,
         }))}
@@ -88,7 +90,7 @@ export default function InsightsPanel() {
         items={insights.bridgeBuilders.map((p) => ({
           id: p.id,
           name: p.name[locale],
-          sub: PARTY_LABEL[p.party],
+          sub: partyLabelOf(p.party),
           value: p.bridgeCount,
           suffix: t.bridgesCount,
         }))}
@@ -102,7 +104,7 @@ export default function InsightsPanel() {
         items={insights.connectHubs.map((p) => ({
           id: p.id,
           name: p.name[locale],
-          sub: PARTY_LABEL[p.party],
+          sub: partyLabelOf(p.party),
           value: p.degree,
           suffix: t.tiesCount,
         }))}
@@ -116,7 +118,7 @@ export default function InsightsPanel() {
         items={insights.buzzRanking.map((p) => ({
           id: p.id,
           name: p.name[locale],
-          sub: PARTY_LABEL[p.party],
+          sub: partyLabelOf(p.party),
           value: p.buzz,
           suffix: '',
         }))}

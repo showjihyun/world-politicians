@@ -25,7 +25,7 @@ export default function LinkPopover() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 24, opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="pointer-events-auto absolute bottom-6 left-1/2 z-30 w-[min(92vw,460px)] -translate-x-1/2 rounded-xl border border-slate-400/20 bg-ink-900/95 p-4 shadow-2xl shadow-black/60 backdrop-blur-xl"
+          className="pointer-events-auto absolute bottom-36 left-1/2 z-30 w-[min(92vw,460px)] -translate-x-1/2 rounded-xl border border-slate-400/20 bg-ink-900/95 p-4 shadow-2xl shadow-black/60 backdrop-blur-xl"
         >
           <button
             onClick={() => selectLink(null)}

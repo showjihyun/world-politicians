@@ -2,6 +2,7 @@ import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
 import { FACTION_MAP } from '../data/factions';
 import { useI18n } from '../i18n';
 import type { GraphNode } from '../lib/graph';
+import type { Party } from '../types';
 
 export default function NodeTooltip({
   node,
@@ -13,6 +14,7 @@ export default function NodeTooltip({
   y: number;
 }) {
   const { t, L } = useI18n();
+  const partyLabelOf = (party: Party) => L(PARTY_LABEL[party]);
   if (!node) return null;
 
   const flipX = x > window.innerWidth - 260;
@@ -55,7 +57,7 @@ export default function NodeTooltip({
               backgroundColor: PARTY_COLOR[node.party] + '18',
             }}
           >
-            {PARTY_LABEL[node.party]}
+            {partyLabelOf(node.party)}
           </span>
         </div>
       )}

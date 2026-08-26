@@ -49,7 +49,7 @@ export default function FilterPanel() {
                 color={PARTY_COLOR[p]}
                 onClick={() => toggleFilterItem('parties', p)}
               >
-                {PARTY_LABEL[p]}
+                {L(PARTY_LABEL[p])}
               </Chip>
             );
           })}

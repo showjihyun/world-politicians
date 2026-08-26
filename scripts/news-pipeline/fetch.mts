@@ -86,11 +86,15 @@ export function isAllowedSource(sourceUrl: string, sourceName: string): boolean 
   return false;
 }
 
+function normalizeToken(s: string): string {
+  return ` ${s.toLowerCase().replace(/[^a-z0-9-]+/g, ' ').replace(/\s+/g, ' ').trim()} `;
+}
+
 function matchPeople(title: string, people: Person[]): string[] {
-  const hay = ` ${title.toLowerCase()} `;
+  const hay = normalizeToken(title);
   const matched: string[] = [];
   for (const p of people) {
-    if (p.tokens.some((tk) => hay.includes(` ${tk.toLowerCase()} `))) matched.push(p.id);
+    if (p.tokens.some((tk) => hay.includes(normalizeToken(tk)))) matched.push(p.id);
   }
   return matched;
 }

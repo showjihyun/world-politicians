@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import TopBar from './components/TopBar';
 import FilterPanel from './components/FilterPanel';
 import InsightsPanel from './components/InsightsPanel';
@@ -15,8 +15,18 @@ export default function App() {
   const sidebarOpen = useStore((s) => s.sidebarOpen);
   const setSidebarOpen = useStore((s) => s.setSidebarOpen);
   const storyIndex = useStore((s) => s.storyIndex);
+  const select = useStore((s) => s.select);
   const langMode = useUIStore((s) => s.langMode);
   const [tab, setTab] = useState<'filters' | 'insights'>('filters');
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      select(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [select]);
 
   const dockHidden = storyIndex != null;
 

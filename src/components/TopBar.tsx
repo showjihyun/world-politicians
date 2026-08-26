@@ -112,6 +112,7 @@ export default function TopBar() {
         </div>
 
         <button
+          data-testid="mode-toggle"
           onClick={() => setLangMode(langMode === '2d' ? '3d' : '2d')}
           title={t.dim3d}
           className={`flex h-10 items-center gap-2 rounded-xl border px-3 text-[11px] font-medium backdrop-blur-xl transition-all ${
@@ -128,6 +129,7 @@ export default function TopBar() {
           {(['en', 'ko'] as const).map((loc) => (
             <button
               key={loc}
+              data-testid={`lang-${loc}`}
               onClick={() => setLocale(loc)}
               className={`px-3 transition-all ${
                 locale === loc

@@ -1,4 +1,4 @@
-import type { Party } from '../types';
+import type { LocalizedText, Party } from '../types';
 
 export const PARTY_COLOR: Record<Party, string> = {
   R: '#ef4444',
@@ -7,11 +7,11 @@ export const PARTY_COLOR: Record<Party, string> = {
   X: '#94a3b8',
 };
 
-export const PARTY_LABEL: Record<Party, string> = {
-  R: '공화당',
-  D: '민주당',
-  I: '무소속',
-  X: '비정치',
+export const PARTY_LABEL: Record<Party, LocalizedText> = {
+  R: { en: 'Republican', ko: '공화당' },
+  D: { en: 'Democrat', ko: '민주당' },
+  I: { en: 'Independent', ko: '무소속' },
+  X: { en: 'Non-political', ko: '비정치' },
 };
 
 export const COLORS = {

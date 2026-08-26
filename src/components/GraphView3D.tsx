@@ -100,6 +100,7 @@ export default function GraphView3D() {
   return (
     <div ref={wrapRef} className="absolute inset-0">
       <ForceGraph3D
+        key={locale}
         ref={fgRef as never}
         width={size.w}
         height={size.h}

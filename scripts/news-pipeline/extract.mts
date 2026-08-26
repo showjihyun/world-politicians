@@ -89,7 +89,7 @@ function hash(s: string): string {
 if (process.argv[1]?.endsWith('extract.mts')) {
   const arts: Article[] = JSON.parse(fs.readFileSync(CONFIG.paths.rawCache, 'utf8'));
   extractSignals(arts).then((sigs) => {
-    fs.writeFileSync(CONFIG.paths.rawCache.replace('.raw-cache', '.signals'), JSON.stringify(sigs));
-    console.log(`[extract] signals=${sigs.length}`);
+    fs.writeFileSync(CONFIG.paths.signalsCache, JSON.stringify(sigs));
+    console.log(`[extract] signals=${sigs.length} -> ${CONFIG.paths.signalsCache}`);
   });
 }

@@ -3,6 +3,7 @@ import { fetchAllArticles } from './fetch.mts';
 import { extractSignals } from './extract.mts';
 import { buildFile, writeOutput, type SignalsFile } from './merge.mts';
 import { validate } from './validate.mts';
+import { CONFIG } from './config.mts';
 
 const dry = process.argv.includes('--dry');
 
@@ -11,7 +12,7 @@ async function main(): Promise<void> {
   const articles = await fetchAllArticles();
 
   let signals;
-  const cachePath = 'scripts/news-pipeline/.signals-cache.json';
+  const cachePath = CONFIG.paths.signalsCache;
   if (articles.length > 0) {
     signals = await extractSignals(articles);
     fs.writeFileSync(cachePath, JSON.stringify(signals));
@@ -24,7 +25,7 @@ async function main(): Promise<void> {
 
   const file: SignalsFile = buildFile(signals);
   writeOutput(file, dry);
-  validate(file);
+  validate(file, dry);
 }
 
 main()
