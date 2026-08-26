@@ -29,7 +29,7 @@ export default function InsightsPanel() {
     <div className="space-y-3">
       {LATEST_SIGNALS.length > 0 && (
         <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/[0.05] p-3">
-          <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-cyan-300">
+          <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-cyan-300">
             <Radio size={10} /> {t.wireTitle}
             <span className="ml-auto font-normal normal-case tracking-normal text-slate-600">
               {LATEST_SIGNALS.length}+
@@ -48,10 +48,10 @@ export default function InsightsPanel() {
                     style={{ backgroundColor: wireDot(s.polarity) }}
                   />
                   <span className="min-w-0">
-                    <span className="block truncate text-[10.5px] text-slate-300 group-hover:text-white">
+                    <span className="block truncate text-[12px] text-slate-300 group-hover:text-white">
                       {nameOf(s.pair[0])} × {nameOf(s.pair[1])}
                     </span>
-                    <span className="font-mono text-[8px] uppercase tracking-wider text-slate-600">
+                    <span className="font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
                       {s.date} · {s.source}
                     </span>
                   </span>
@@ -139,10 +139,10 @@ function Stat({
 }) {
   return (
     <div className="rounded-xl border border-slate-400/10 bg-white/[0.03] px-3 py-2">
-      <div className={`font-mono text-lg font-bold leading-none ${accent}`}>
+      <div className={`font-mono text-[19.5px] font-bold leading-none ${accent}`}>
         {value.toLocaleString()}
       </div>
-      <div className="mt-1 text-[9.5px] leading-tight text-slate-500">{label}</div>
+      <div className="mt-1 text-[11px] leading-tight text-slate-500">{label}</div>
     </div>
   );
 }
@@ -170,7 +170,7 @@ function RankList({
         className="flex w-full items-center gap-2 px-3 py-2 text-left hover:bg-white/5"
       >
         {icon}
-        <span className="text-[11px] font-semibold text-slate-200">{title}</span>
+        <span className="text-[12.5px] font-semibold text-slate-200">{title}</span>
         <ChevronDown
           size={12}
           className={`ml-auto text-slate-600 transition-transform ${open ? '' : '-rotate-90'}`}
@@ -178,7 +178,7 @@ function RankList({
       </button>
       {open && (
         <>
-          <p className="px-3 pb-1 text-[9.5px] text-slate-500">{desc}</p>
+          <p className="px-3 pb-1 text-[11px] text-slate-500">{desc}</p>
           <ol className="pb-1.5">
             {items.map((it, i) => (
               <li key={it.id}>
@@ -186,16 +186,16 @@ function RankList({
                   onClick={() => onSelect(it.id)}
                   className="group flex w-full items-center gap-2 px-3 py-1 text-left transition-colors hover:bg-white/5"
                 >
-                  <span className="w-3.5 shrink-0 font-mono text-[9px] text-slate-600">
+                  <span className="w-3.5 shrink-0 font-mono text-[10.5px] text-slate-600">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="truncate text-[11px] text-slate-300 group-hover:text-white">
+                  <span className="truncate text-[12.5px] text-slate-300 group-hover:text-white">
                     {it.name}
                   </span>
-                  <span className="ml-auto shrink-0 font-mono text-[9.5px] text-amber-300/90">
+                  <span className="ml-auto shrink-0 font-mono text-[11px] text-amber-300/90">
                     {it.value}
                     {it.suffix && (
-                      <span className="ml-0.5 text-[8.5px] text-slate-500">{it.suffix}</span>
+                      <span className="ml-0.5 text-[10px] text-slate-500">{it.suffix}</span>
                     )}
                   </span>
                 </button>

@@ -17,6 +17,7 @@ loadDotEnv();
 export const CONFIG = {
   windowDays: 30,
   maxSignals: 300,
+  maxArchive: 1500,
   requestDelayMs: 120,
 
   /** Top US outlets — 기사 출처 화이트리스트 */

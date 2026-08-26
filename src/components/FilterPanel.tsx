@@ -29,11 +29,11 @@ export default function FilterPanel() {
     <div className="space-y-5">
       <Section title={t.filters} icon={<Filter size={12} />}>
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-[10px] uppercase tracking-wider text-slate-500">{t.party}</span>
+          <span className="text-[11.5px] uppercase tracking-wider text-slate-500">{t.party}</span>
           {hasAny ? (
             <button
               onClick={resetFilters}
-              className="flex items-center gap-1 text-[10px] text-slate-500 transition-colors hover:text-amber-300"
+              className="flex items-center gap-1 text-[11.5px] text-slate-500 transition-colors hover:text-amber-300"
             >
               <RotateCcw size={9} /> {t.resetFilters}
             </button>
@@ -55,7 +55,7 @@ export default function FilterPanel() {
           })}
         </div>
 
-        <div className="mb-1.5 mt-4 text-[10px] uppercase tracking-wider text-slate-500">
+        <div className="mb-1.5 mt-4 text-[11.5px] uppercase tracking-wider text-slate-500">
           {t.branch}
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -73,7 +73,7 @@ export default function FilterPanel() {
           })}
         </div>
 
-        <div className="mb-1.5 mt-4 text-[10px] uppercase tracking-wider text-slate-500">
+        <div className="mb-1.5 mt-4 text-[11.5px] uppercase tracking-wider text-slate-500">
           {t.faction}
         </div>
         <div className="flex flex-col gap-1">
@@ -84,7 +84,7 @@ export default function FilterPanel() {
                 key={f.id}
                 onClick={() => toggleFilterItem('factions', f.id)}
                 title={L(f.desc)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[11px] transition-all ${
+                className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-left text-[12.5px] transition-all ${
                   active
                     ? 'bg-white/10 text-white'
                     : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
@@ -95,13 +95,13 @@ export default function FilterPanel() {
                   style={{ backgroundColor: f.color }}
                 />
                 <span>{L(f.label)}</span>
-                <span className="ml-auto font-mono text-[9px] text-slate-600">{f.short}</span>
+                <span className="ml-auto font-mono text-[10.5px] text-slate-600">{f.short}</span>
               </button>
             );
           })}
         </div>
 
-        <div className="mb-1.5 mt-4 text-[10px] uppercase tracking-wider text-slate-500">
+        <div className="mb-1.5 mt-4 text-[11.5px] uppercase tracking-wider text-slate-500">
           {t.relationships}
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -116,7 +116,7 @@ export default function FilterPanel() {
           })}
         </div>
 
-        <label className="mt-3 flex cursor-pointer items-center gap-2 text-[11px] text-slate-400 hover:text-slate-200">
+        <label className="mt-3 flex cursor-pointer items-center gap-2 text-[12.5px] text-slate-400 hover:text-slate-200">
           <input
             type="checkbox"
             checked={filters.strongOnly}
@@ -127,8 +127,8 @@ export default function FilterPanel() {
         </label>
       </Section>
 
-      <Section title={t.legend} icon={<span className="text-xs">◈</span>}>
-        <div className="space-y-1.5 text-[11px] text-slate-400">
+      <Section title={t.legend} icon={<span className="text-[13.5px]">◈</span>}>
+        <div className="space-y-1.5 text-[12.5px] text-slate-400">
           {REL_TYPES.map((rt) => {
             const meta = REL_META[rt];
             return (
@@ -148,7 +148,7 @@ export default function FilterPanel() {
               </div>
             );
           })}
-          <p className="pt-1 text-[10px] leading-relaxed text-slate-500">
+          <p className="pt-1 text-[11.5px] leading-relaxed text-slate-500">
             · {t.edgeWidth}
             <br />· {t.nodeSize}
             <br />· {t.particleNote}
@@ -156,7 +156,7 @@ export default function FilterPanel() {
         </div>
       </Section>
 
-      <Section title={t.stories} icon={<span className="text-xs">✦</span>}>
+      <Section title={t.stories} icon={<span className="text-[13.5px]">✦</span>}>
         <div className="flex flex-col gap-1">
           {STORIES.map((story, i) => (
             <button
@@ -164,10 +164,10 @@ export default function FilterPanel() {
               onClick={() => setStory(i)}
               className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-all hover:bg-white/5"
             >
-              <span className="text-sm" aria-hidden>
+              <span className="text-[15px]" aria-hidden>
                 {story.emoji}
               </span>
-              <span className="truncate text-[11px] text-slate-400 group-hover:text-white">
+              <span className="truncate text-[12.5px] text-slate-400 group-hover:text-white">
                 {L(story.title)}
               </span>
             </button>
@@ -189,7 +189,7 @@ function Section({
 }) {
   return (
     <section>
-      <h3 className="mb-2 flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
+      <h3 className="mb-2 flex items-center gap-1.5 font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-slate-500">
         {icon}
         {title}
       </h3>
@@ -217,7 +217,7 @@ function Chip({
           ? { borderColor: color + '88', backgroundColor: color + '22', color }
           : undefined
       }
-      className={`rounded-full border px-2.5 py-1 text-[10.5px] transition-all ${
+      className={`rounded-full border px-2.5 py-1 text-[12px] transition-all ${
         active
           ? color
             ? ''

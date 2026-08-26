@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
 import { useStore } from '../store/useStore';
 import { useUIStore } from '../store/uiStore';
@@ -7,13 +7,15 @@ import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, COLORS } from '../lib/colors';
 import { REL_META } from '../types';
 import { useVisibleGraph } from '../hooks/useVisibleGraph';
+import { rotateNodes } from '../lib/graph';
 import NodeTooltip from './NodeTooltip';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
 type FG = {
   centerAt: (x: number, y: number, ms?: number) => void;
   zoom: (k: number, ms?: number) => void;
-  zoomToFit: (ms?: number, px?: number) => void;
+  zoomToFit: (ms?: number, px?: number, nodeFilter?: (n: unknown) => boolean) => void;
+  d3Force: (name: string, force?: unknown) => unknown;
 } | null;
 
 function sid(n: unknown): string {
@@ -44,6 +46,7 @@ export default function GraphView2D() {
 
   const { locale } = useI18n();
   const langMode = useUIStore((s) => s.langMode);
+  const autoRotate2d = useUIStore((s) => s.autoRotate2d);
   const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
 
   const [size, setSize] = useState({ w: 800, h: 600 });
@@ -65,12 +68,64 @@ export default function GraphView2D() {
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(() => fgRef.current?.zoomToFit(900, 70), 1500);
+    // 엔진이 멈추지 않는 경우를 위한 안전망 — 정상 경로는 onEngineStop 의 fitVisible
+    const t = setTimeout(() => fitVisible(900), 4200);
     return () => {
       clearTimeout(t);
       document.body.style.cursor = 'default';
     };
   }, []);
+
+  // 링크가 없는(또는 약한) 노드는 charge 반발만 받아 화면 밖으로 밀려난다.
+  // 그 노드들이 bbox 를 부풀려 zoomToFit 이 군집을 화면 구석에 작게 배치하므로,
+  // 원점으로 당기는 약한 힘을 걸어 레이아웃 자체를 모아둔다.
+  useEffect(() => {
+    const fg = fgRef.current;
+    if (!fg?.d3Force) return;
+    let simNodes: GraphNode[] = [];
+    const pullToCenter = (alpha: number) => {
+      for (const n of simNodes) {
+        if (n.x == null || n.y == null) continue;
+        n.vx = (n.vx ?? 0) - n.x * 0.06 * alpha;
+        n.vy = (n.vy ?? 0) - n.y * 0.06 * alpha;
+      }
+    };
+    (pullToCenter as unknown as { initialize: (n: GraphNode[]) => void }).initialize = (n) => {
+      simNodes = n;
+    };
+    fg.d3Force('polarisCenter', pullToCenter);
+  }, []);
+
+  // 숨겨진·고립 노드까지 bbox 에 넣으면 그래프가 한쪽 구석에 작게 남는다.
+  // zoomToFit 의 nodeFilter 로 실제 보이는 노드만 기준 삼는다.
+  const fitVisible = useCallback(
+    (ms: number) =>
+      fgRef.current?.zoomToFit(ms, 80, (n) =>
+        visibleNodes.has((n as GraphNode).id)
+      ),
+    [visibleNodes]
+  );
+
+  // 시뮬레이션이 안정되면 노드를 고정(fx/fy) — 회전이 레이아웃을 흐트러뜨리지 않도록.
+  // onEngineStop 은 ref 메서드가 아니라 prop 이므로 아래 ForceGraph2D 에 직접 전달한다.
+  const pinNodes = useCallback(() => {
+    for (const n of graph) {
+      if (n.x != null && n.y != null) {
+        n.fx = n.x;
+        n.fy = n.y;
+      }
+    }
+    // 레이아웃이 최종 확정된 이 시점에 맞춰야 그래프가 화면 중앙에 꽉 찬다.
+    // (고정 타이머로 맞추면 아직 퍼지는 중인 좌표에 맞춰져 한쪽으로 쏠린 채 남는다)
+    fitVisible(700);
+  }, [graph, fitVisible]);
+
+  // 자동 회전
+  useEffect(() => {
+    if (!autoRotate2d) return;
+    const id = setInterval(() => rotateNodes(graph, 0.8), 50);
+    return () => clearInterval(id);
+  }, [autoRotate2d, graph]);
 
   useEffect(() => {
     if (!selectedId || !fgRef.current) return;
@@ -153,7 +208,7 @@ export default function GraphView2D() {
     }
 
     if (globalScale > 1.35 || node.prominence >= 9 || isHover) {
-      const fs = (isHover ? 12 : 10.5) / globalScale + 2 / globalScale;
+      const fs = (isHover ? 13.5 : 12) / globalScale + 2 / globalScale;
       ctx.font = `600 ${fs}px Pretendard, system-ui, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
@@ -168,7 +223,7 @@ export default function GraphView2D() {
     if (globalScale > 2.6 && node.prominence >= 6) {
       const f = FACTION_MAP[node.faction];
       if (f) {
-        ctx.font = `700 ${7 / globalScale + 1}px "Fira Code", monospace`;
+        ctx.font = `700 ${8 / globalScale + 1}px "Fira Code", monospace`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillStyle = 'rgba(5,7,15,0.92)';
@@ -250,6 +305,7 @@ export default function GraphView2D() {
           selectLink(l.id === selectedLinkId ? null : l.id);
         }}
         onBackgroundClick={() => select(null)}
+        onEngineStop={pinNodes}
         cooldownTime={3600}
         d3VelocityDecay={0.32}
         warmupTicks={60}

@@ -9,6 +9,13 @@ import type { NewsSignal } from '../types';
 export const SIGNALS: NewsSignal[] = ((signalsJson as { signals?: unknown[] }).signals ??
   []) as NewsSignal[];
 
+/** 수집·분석 시점 메타 (화면 타임스탬프 표시용) */
+export const SIGNALS_META = {
+  generatedAt: (signalsJson as { generatedAt?: string | null }).generatedAt ?? null,
+  windowDays: (signalsJson as { windowDays?: number }).windowDays ?? 30,
+  count: ((signalsJson as { signals?: unknown[] }).signals ?? []).length as number,
+};
+
 export const SIGNALS_BY_PERSON = new Map<string, NewsSignal[]>();
 for (const s of SIGNALS) {
   for (const pid of s.people) {
@@ -18,6 +25,15 @@ for (const s of SIGNALS) {
 }
 
 export const LATEST_SIGNALS = [...SIGNALS].slice(0, 6);
+
+/** pairKey → 해당 페어의 모든 시그널 (시계열용) */
+export const SIGNALS_BY_PAIR = new Map<string, NewsSignal[]>();
+for (const s of SIGNALS) {
+  if (!s.pair) continue;
+  const k = pairKey(s.pair[0], s.pair[1]);
+  if (!SIGNALS_BY_PAIR.has(k)) SIGNALS_BY_PAIR.set(k, []);
+  SIGNALS_BY_PAIR.get(k)!.push(s);
+}
 
 /** pairKey → 최신 시그널 */
 export const SIGNAL_BY_PAIR = new Map<string, NewsSignal>();

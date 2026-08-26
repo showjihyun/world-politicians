@@ -15,13 +15,33 @@ export interface SignalsFile {
   signals: Signal[];
 }
 
-export function buildFile(signals: Signal[]): SignalsFile {
+/** 기존 파일과 병합해 시계열 히스토리를 누적 (365일 보관) */
+export function readExisting(): SignalsFile | null {
+  try {
+    return JSON.parse(fs.readFileSync(CONFIG.paths.outJson, 'utf8')) as SignalsFile;
+  } catch {
+    return null;
+  }
+}
+
+export function accumulate(existing: SignalsFile | null, incoming: Signal[]): Signal[] {
+  const map = new Map<string, Signal>();
+  for (const s of existing?.signals ?? []) map.set(s.id, s);
+  for (const s of incoming) map.set(s.id, s);
+  const cutoff = Date.now() - 365 * 86_400_000;
+  return [...map.values()].filter((s) => {
+    const ts = new Date(`${s.date}T00:00:00Z`).getTime();
+    return Number.isNaN(ts) || ts >= cutoff;
+  });
+}
+
+export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFile {
   const sorted = [...signals]
     .sort((a, b) => {
       const rank = (s: Signal) => (s.classified && s.polarity !== 'neutral' ? 0 : 1);
       return rank(a) - rank(b) || (a.date < b.date ? 1 : -1);
     })
-    .slice(0, CONFIG.maxSignals);
+    .slice(0, cap);
 
   return {
     generatedAt: new Date().toISOString(),

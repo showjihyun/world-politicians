@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { fetchAllArticles } from './fetch.mts';
 import { extractSignals } from './extract.mts';
-import { buildFile, writeOutput, type SignalsFile } from './merge.mts';
+import { buildFile, writeOutput, readExisting, accumulate, type SignalsFile } from './merge.mts';
 import { validate } from './validate.mts';
 import { CONFIG } from './config.mts';
 
@@ -23,7 +23,10 @@ async function main(): Promise<void> {
       : [];
   }
 
-  const file: SignalsFile = buildFile(signals);
+  const file: SignalsFile = buildFile(
+    accumulate(readExisting(), signals),
+    CONFIG.maxArchive
+  );
   writeOutput(file, dry);
   validate(file, dry);
 }

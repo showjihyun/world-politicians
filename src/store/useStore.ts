@@ -15,6 +15,7 @@ interface AppState {
   selectedId: string | null;
   selectedLinkId: string | null;
   hoveredId: string | null;
+  watchIds: string[];
 
   filters: Filters;
   colorMode: 'party' | 'faction';
@@ -27,6 +28,7 @@ interface AppState {
   select: (id: string | null) => void;
   selectLink: (id: string | null) => void;
   hover: (id: string | null) => void;
+  toggleWatch: (id: string) => void;
   toggleFilterItem: (
     key: 'parties' | 'branches' | 'factions',
     value: Party | Branch | string
@@ -66,6 +68,7 @@ export const useStore = create<AppState>((set) => ({
   selectedId: null,
   selectedLinkId: null,
   hoveredId: null,
+  watchIds: [],
 
   filters: emptyFilters,
   colorMode: 'party',
@@ -78,6 +81,12 @@ export const useStore = create<AppState>((set) => ({
   select: (id) => set({ selectedId: id, selectedLinkId: null }),
   selectLink: (id) => set({ selectedLinkId: id }),
   hover: (id) => set({ hoveredId: id }),
+  toggleWatch: (id) =>
+    set((s) => ({
+      watchIds: s.watchIds.includes(id)
+        ? s.watchIds.filter((x) => x !== id)
+        : [...s.watchIds, id],
+    })),
   toggleFilterItem: (key, value) =>
     set((s) => {
       const arr = s.filters[key] as string[];

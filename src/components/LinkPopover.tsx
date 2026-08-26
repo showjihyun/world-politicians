@@ -37,7 +37,7 @@ export default function LinkPopover() {
 
           <div className="mb-2 flex items-center gap-2">
             <span
-              className="rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider"
+              className="rounded-full px-2 py-0.5 font-mono text-[10.5px] font-bold uppercase tracking-wider"
               style={{
                 color: REL_META[link.rel.type].color,
                 backgroundColor: REL_META[link.rel.type].color + '1a',
@@ -63,14 +63,14 @@ export default function LinkPopover() {
             </span>
           </div>
 
-          <div className="text-[12.5px] font-semibold text-white">
+          <div className="text-[14px] font-semibold text-white">
             <span>{L(a.name)}</span>
             <span className="mx-1.5 text-slate-500">
               {link.rel.type === 'feud' ? '⇄' : '↔'}
             </span>
             <span>{L(b.name)}</span>
           </div>
-          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-300">
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-slate-300">
             {L(link.rel.note)}
           </p>
 
@@ -82,11 +82,11 @@ export default function LinkPopover() {
                 href={sig.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1.5 text-[9.5px] text-cyan-200 transition-colors hover:bg-cyan-400/[0.12]"
+                className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1.5 text-[11px] text-cyan-200 transition-colors hover:bg-cyan-400/[0.12]"
               >
                 <ExternalLink size={10} className="shrink-0" />
                 <span className="truncate">{sig.title}</span>
-                <span className="ml-auto shrink-0 font-mono text-[8px] uppercase tracking-wider opacity-70">
+                <span className="ml-auto shrink-0 font-mono text-[9.5px] uppercase tracking-wider opacity-70">
                   {sig.date} · {sig.source}
                 </span>
               </a>

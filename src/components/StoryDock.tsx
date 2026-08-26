@@ -18,10 +18,10 @@ export function StoryDock() {
       <div className="mx-auto mb-3 max-w-[min(96vw,980px)] px-2">
         <div className="mb-1.5 flex items-center gap-2 px-1">
           <Compass size={11} className="text-amber-400" />
-          <span className="font-mono text-[9.5px] font-bold uppercase tracking-[0.18em] text-slate-400">
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
             {t.stories}
           </span>
-          <span className="hidden text-[9px] text-slate-600 sm:inline">· {t.storiesDesc}</span>
+          <span className="hidden text-[10.5px] text-slate-600 sm:inline">· {t.storiesDesc}</span>
         </div>
         <div className="flex gap-2 overflow-x-auto pb-1 polaris-scroll" style={{ scrollbarWidth: 'thin' }}>
           {STORIES.map((story, i) => (
@@ -33,14 +33,14 @@ export function StoryDock() {
               onClick={() => setStory(i)}
               className="group flex w-52 shrink-0 items-start gap-2.5 rounded-xl border border-slate-400/15 bg-ink-900/85 p-3 text-left backdrop-blur-xl transition-all hover:border-amber-400/40 hover:bg-ink-850/90"
             >
-              <span className="text-lg leading-none" aria-hidden>
+              <span className="text-[19.5px] leading-none" aria-hidden>
                 {story.emoji}
               </span>
               <span className="min-w-0">
-                <span className="block truncate text-[11.5px] font-semibold text-slate-200 group-hover:text-white">
+                <span className="block truncate text-[13px] font-semibold text-slate-200 group-hover:text-white">
                   {L(story.title)}
                 </span>
-                <span className="mt-0.5 block line-clamp-2 text-[9.5px] leading-snug text-slate-500">
+                <span className="mt-0.5 block line-clamp-2 text-[11px] leading-snug text-slate-500">
                   {L(story.subtitle)}
                 </span>
               </span>
@@ -75,8 +75,8 @@ export function StoryOverlay() {
               {story.emoji}
             </span>
             <div className="min-w-0 flex-1">
-              <h2 className="text-[15px] font-bold leading-snug text-white">{L(story.title)}</h2>
-              <p className="mt-1 text-[10.5px] leading-snug text-slate-400">
+              <h2 className="text-[16.5px] font-bold leading-snug text-white">{L(story.title)}</h2>
+              <p className="mt-1 text-[12px] leading-snug text-slate-400">
                 {L(story.subtitle)}
               </p>
             </div>
@@ -91,16 +91,16 @@ export function StoryOverlay() {
 
           <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 pb-4 polaris-scroll">
             {story.paragraphs.map((para, i) => (
-              <p key={i} className="text-[12px] leading-relaxed text-slate-300">
+              <p key={i} className="text-[13.5px] leading-relaxed text-slate-300">
                 {L(para)}
               </p>
             ))}
 
             <div className="rounded-xl border border-amber-400/25 bg-amber-400/[0.07] p-3">
-              <div className="mb-1 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-amber-300">
+              <div className="mb-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.18em] text-amber-300">
                 ✦ {t.insightLabel}
               </div>
-              <p className="text-[11.5px] font-medium leading-relaxed text-amber-100/90">
+              <p className="text-[13px] font-medium leading-relaxed text-amber-100/90">
                 {L(story.insight)}
               </p>
             </div>
@@ -110,11 +110,11 @@ export function StoryOverlay() {
             <button
               onClick={() => setStory(Math.max(0, (storyIndex ?? 0) - 1))}
               disabled={(storyIndex ?? 0) === 0}
-              className="flex items-center gap-1 rounded-lg px-2 py-1 text-[10.5px] text-slate-400 transition-colors enabled:hover:bg-white/10 enabled:hover:text-white disabled:opacity-30"
+              className="flex items-center gap-1 rounded-lg px-2 py-1 text-[12px] text-slate-400 transition-colors enabled:hover:bg-white/10 enabled:hover:text-white disabled:opacity-30"
             >
               <ChevronLeft size={13} /> {t.storyPrev}
             </button>
-            <span className="font-mono text-[10px] text-slate-500">
+            <span className="font-mono text-[11.5px] text-slate-500">
               {(storyIndex ?? 0) + 1} {t.storyOf} {STORIES.length}
             </span>
             <button
@@ -123,7 +123,7 @@ export function StoryOverlay() {
                   (storyIndex ?? 0) >= STORIES.length - 1 ? null : (storyIndex ?? 0) + 1
                 )
               }
-              className="flex items-center gap-1 rounded-lg bg-blue-500/20 px-2.5 py-1 text-[10.5px] font-medium text-blue-200 transition-colors hover:bg-blue-500/35"
+              className="flex items-center gap-1 rounded-lg bg-blue-500/20 px-2.5 py-1 text-[12px] font-medium text-blue-200 transition-colors hover:bg-blue-500/35"
             >
               {(storyIndex ?? 0) >= STORIES.length - 1 ? t.storyExit : t.storyNext}
               <ChevronRight size={13} />

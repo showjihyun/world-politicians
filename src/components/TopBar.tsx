@@ -59,10 +59,10 @@ export default function TopBar() {
         <div className="flex items-center gap-3 rounded-xl border border-slate-400/15 bg-ink-900/80 px-4 py-2 backdrop-blur-xl">
           <Network size={18} className="text-amber-400" />
           <div className="leading-tight">
-            <div className="font-mono text-[13px] font-bold tracking-[0.22em] text-white">
+            <div className="font-mono text-[14.5px] font-bold tracking-[0.22em] text-white">
               POLARIS
             </div>
-            <div className="text-[10px] text-slate-400">{t.tagline}</div>
+            <div className="text-[11.5px] text-slate-400">{t.tagline}</div>
           </div>
         </div>
       </div>
@@ -84,13 +84,13 @@ export default function TopBar() {
                 if (e.key === 'Escape') setOpen(false);
               }}
               placeholder={t.searchPlaceholder}
-              className="w-full bg-transparent text-xs text-slate-100 placeholder:text-slate-600 focus:outline-none"
+              className="w-full bg-transparent text-[13.5px] text-slate-100 placeholder:text-slate-600 focus:outline-none"
             />
           </div>
           {open && query && (
             <div className="absolute right-0 top-12 w-72 overflow-hidden rounded-xl border border-slate-400/15 bg-ink-900/95 shadow-2xl shadow-black/50 backdrop-blur-xl">
               {results.length === 0 && (
-                <div className="px-4 py-3 text-xs text-slate-500">{t.searchNoResult}</div>
+                <div className="px-4 py-3 text-[13.5px] text-slate-500">{t.searchNoResult}</div>
               )}
               {results.map((p) => (
                 <button
@@ -99,10 +99,10 @@ export default function TopBar() {
                   className="flex w-full items-center gap-2.5 px-3 py-2 text-left transition-colors hover:bg-white/5"
                 >
                   <Dot party={p.party} />
-                  <span className="truncate text-xs text-slate-200">
+                  <span className="truncate text-[13.5px] text-slate-200">
                     {lt(p.name, locale)}
                   </span>
-                  <span className="ml-auto shrink-0 font-mono text-[9px] uppercase text-slate-500">
+                  <span className="ml-auto shrink-0 font-mono text-[10.5px] uppercase text-slate-500">
                     {p.branch}
                   </span>
                 </button>
@@ -115,7 +115,7 @@ export default function TopBar() {
           data-testid="mode-toggle"
           onClick={() => setLangMode(langMode === '2d' ? '3d' : '2d')}
           title={t.dim3d}
-          className={`flex h-10 items-center gap-2 rounded-xl border px-3 text-[11px] font-medium backdrop-blur-xl transition-all ${
+          className={`flex h-10 items-center gap-2 rounded-xl border px-3 text-[12.5px] font-medium backdrop-blur-xl transition-all ${
             langMode === '3d'
               ? 'border-amber-400/40 bg-amber-400/15 text-amber-300'
               : 'border-slate-400/15 bg-ink-900/80 text-slate-300 hover:text-white'
@@ -125,7 +125,7 @@ export default function TopBar() {
           {langMode === '3d' ? '3D' : '2D'}
         </button>
 
-        <div className="flex h-10 overflow-hidden rounded-xl border border-slate-400/15 bg-ink-900/80 font-mono text-[11px] backdrop-blur-xl">
+        <div className="flex h-10 overflow-hidden rounded-xl border border-slate-400/15 bg-ink-900/80 font-mono text-[12.5px] backdrop-blur-xl">
           {(['en', 'ko'] as const).map((loc) => (
             <button
               key={loc}

@@ -8,6 +8,10 @@ export interface SimNodeProps {
   vx?: number;
   vy?: number;
   vz?: number;
+  /** 고정 좌표 (force-graph pin) */
+  fx?: number;
+  fy?: number;
+  fz?: number;
 }
 
 export interface GraphNode extends Politician, SimNodeProps {
@@ -163,4 +167,31 @@ export function computeInsights(nodes: GraphNode[], links: GraphLink[]) {
 
 export function statusRank(s?: PersonStatus): number {
   return s === 'legacy' ? 3 : s === 'departed' ? 2 : 1;
+}
+
+/** 레이아웃 중심점 기준 노드 좌표 회전 (2D 회전 컨트롤용) */
+export function rotateNodes(nodes: GraphNode[], deg: number): void {
+  const withPos = nodes.filter((n) => n.x != null && n.y != null);
+  if (withPos.length === 0) return;
+  let cx = 0;
+  let cy = 0;
+  for (const n of withPos) {
+    cx += n.x!;
+    cy += n.y!;
+  }
+  cx /= withPos.length;
+  cy /= withPos.length;
+  const rad = (deg * Math.PI) / 180;
+  const cos = Math.cos(rad);
+  const sin = Math.sin(rad);
+  for (const n of withPos) {
+    const dx = n.x! - cx;
+    const dy = n.y! - cy;
+    n.x = cx + dx * cos - dy * sin;
+    n.y = cy + dx * sin + dy * cos;
+    if (n.fx != null && n.fy != null) {
+      n.fx = n.x;
+      n.fy = n.y;
+    }
+  }
 }

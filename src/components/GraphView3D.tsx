@@ -7,6 +7,7 @@ import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR } from '../lib/colors';
 import { REL_META } from '../types';
 import { useVisibleGraph } from '../hooks/useVisibleGraph';
+import { useUIStore } from '../store/uiStore';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
 type FG3 = {
@@ -37,7 +38,7 @@ function makeLabelSprite(text: string): THREE.Sprite {
   texture.needsUpdate = true;
   const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
   const sprite = new THREE.Sprite(material);
-  const scale = 26;
+  const scale = 31;
   sprite.scale.set((canvas.width / canvas.height) * scale, scale, 1);
   sprite.position.set(0, 15, 0);
   return sprite;
@@ -55,7 +56,30 @@ export default function GraphView3D() {
   const hover = useStore((s) => s.hover);
 
   const { locale } = useI18n();
+  const autoOrbit3d = useUIStore((s) => s.autoOrbit3d);
   const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
+
+  // 자동 궤도 회전 — 카메라를 Y축 중심으로 선회
+  useEffect(() => {
+    if (!autoOrbit3d) return;
+    let raf = 0;
+    const step = () => {
+      const fg = fgRef.current as unknown as {
+        cameraPosition: () => { x: number; y: number; z: number };
+      } | null;
+      if (fg?.cameraPosition) {
+        const { x, y, z } = fg.cameraPosition();
+        const r = Math.hypot(x, z);
+        const theta = Math.atan2(z, x) + 0.004;
+        (fgRef.current as unknown as {
+          cameraPosition: (p: { x: number; y: number; z: number }) => void;
+        }).cameraPosition({ x: r * Math.cos(theta), y, z: r * Math.sin(theta) });
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [autoOrbit3d]);
 
   useEffect(() => {
     const el = wrapRef.current;

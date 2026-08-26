@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useMemo } from 'react';
-import { X, MapPin, Zap, Crown, Newspaper, ExternalLink } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON } from '../data/signals';
+import { usePortrait } from '../lib/portrait';
+import { siteUrlOf, xSearchUrl, newsSearchUrl } from '../lib/links';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
 import { REL_META, type Party, type RelType } from '../types';
 import { pairKey, type GraphLink, type GraphNode } from '../lib/graph';
@@ -15,6 +17,9 @@ function polarityColor(p?: string): string {
   return p === 'ally' ? '#34d399' : p === 'feud' ? '#fb7185' : '#94a3b8';
 }
 
+const linkChip =
+  'flex items-center gap-1 rounded-full border border-slate-400/15 bg-white/[0.04] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-200';
+
 export default function DetailDrawer() {
   const { t, L, locale } = useI18n();
   const partyLabelOf = (party: Party) => L(PARTY_LABEL[party]);
@@ -23,8 +28,17 @@ export default function DetailDrawer() {
   const selectedId = useStore((s) => s.selectedId);
   const select = useStore((s) => s.select);
   const adjacency = useStore((s) => s.adjacency);
+  const watchIds = useStore((s) => s.watchIds);
+  const toggleWatch = useStore((s) => s.toggleWatch);
+  const [imgFail, setImgFail] = useState(false);
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
+
+  useEffect(() => setImgFail(false), [selectedId]);
+
+  const portrait = usePortrait(person?.id ?? '', person?.enName ?? '');
+  const isWatched = person ? watchIds.includes(person.id) : false;
+  const site = person ? siteUrlOf(person) : undefined;
 
   const relRows = useMemo<RelRow[]>(() => {
     if (!person) return [];
@@ -56,20 +70,32 @@ export default function DetailDrawer() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 380, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-          className="pointer-events-auto absolute right-3 top-3 z-20 flex max-h-[calc(100vh-24px)] w-[min(92vw,360px)] flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/92 shadow-2xl shadow-black/60 backdrop-blur-2xl"
+          className="pointer-events-auto absolute right-3 top-[72px] z-20 flex max-h-[calc(100vh-84px)] w-[min(92vw,392px)] flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/92 shadow-2xl shadow-black/60 backdrop-blur-2xl"
         >
           <div
             className="h-1 w-full shrink-0"
             style={{ backgroundColor: PARTY_COLOR[person.party] }}
           />
           <div className="flex items-start gap-3 p-4 pb-3">
-            <Monogram name={person.enName} party={person.party} size={46} />
+            {portrait.img && !imgFail ? (
+              <img
+                src={portrait.img}
+                alt={L(person.name)}
+                onError={() => setImgFail(true)}
+                className="h-[88px] w-[88px] shrink-0 rounded-xl border border-slate-400/25 object-cover"
+                style={{ boxShadow: `0 0 18px ${PARTY_COLOR[person.party]}33` }}
+              />
+            ) : (
+              <Monogram name={person.enName} party={person.party} size={88} />
+            )}
             <div className="min-w-0 flex-1">
-              <h2 className="truncate text-[15px] font-bold leading-snug text-white">
+              <h2 className="truncate text-[18.5px] font-bold leading-snug text-white">
                 {L(person.name)}
               </h2>
-              <p className="mt-0.5 text-[11px] leading-snug text-slate-400">{L(person.role)}</p>
-              <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[9.5px] text-slate-500">
+              <p className="mt-0.5 text-[14px] leading-snug text-slate-400">
+                {L(person.role)}
+              </p>
+              <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-slate-500">
                 <span
                   className="rounded px-1.5 py-0.5 font-medium"
                   style={{
@@ -96,6 +122,18 @@ export default function DetailDrawer() {
               </div>
             </div>
             <button
+              data-testid="track-btn"
+              onClick={() => person && toggleWatch(person.id)}
+              title={isWatched ? t.tracking : t.track}
+              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-colors ${
+                isWatched
+                  ? 'bg-blue-500/25 text-blue-200'
+                  : 'text-slate-500 hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              {isWatched ? <BookmarkCheck size={14} /> : <BookmarkPlus size={14} />}
+            </button>
+            <button
               onClick={() => select(null)}
               className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-white/10 hover:text-white"
               aria-label={t.close}
@@ -103,6 +141,27 @@ export default function DetailDrawer() {
               <X size={15} />
             </button>
           </div>
+
+          {person && (
+            <div className="flex flex-wrap gap-1.5 px-4 pb-2.5" data-testid="profile-links">
+              {site && (
+                <a href={site} target="_blank" rel="noopener noreferrer" className={linkChip}>
+                  <Globe size={10} /> {t.website}
+                </a>
+              )}
+              {portrait.wikiUrl && (
+                <a href={portrait.wikiUrl} target="_blank" rel="noopener noreferrer" className={linkChip}>
+                  <BookOpen size={10} /> {t.wikipedia}
+                </a>
+              )}
+              <a href={xSearchUrl(person.enName)} target="_blank" rel="noopener noreferrer" className={linkChip}>
+                <AtSign size={10} /> {t.xPosts}
+              </a>
+              <a href={newsSearchUrl(person.enName)} target="_blank" rel="noopener noreferrer" className={linkChip}>
+                <Newspaper size={10} /> {t.newsSearch}
+              </a>
+            </div>
+          )}
 
           <div className="flex gap-1.5 px-4 pb-3">
             <Meter icon={<Zap size={10} />} label={t.buzzScore} value={person.buzz} color="#22d3ee" />
@@ -113,7 +172,7 @@ export default function DetailDrawer() {
               color="#fbbf24"
             />
             <Meter
-              icon={<span className="font-mono text-[8px]">Σ</span>}
+              icon={<span className="font-mono text-[9.5px]">Σ</span>}
               label={t.degree}
               value={(adjacency.get(person.id)?.size ?? 0) * 14}
               color="#34d399"
@@ -122,13 +181,13 @@ export default function DetailDrawer() {
           </div>
 
           <div className="mx-4 mb-3 rounded-xl border border-slate-400/10 bg-white/[0.03] p-3">
-            <p className="text-[11px] leading-relaxed text-slate-300">{L(person.bio)}</p>
+            <p className="text-[12.5px] leading-relaxed text-slate-300">{L(person.bio)}</p>
             {person.tags && person.tags.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1">
                 {person.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="rounded-md bg-slate-100/[0.06] px-1.5 py-0.5 font-mono text-[9px] text-slate-400"
+                    className="rounded-md bg-slate-100/[0.06] px-1.5 py-0.5 font-mono text-[10.5px] text-slate-400"
                   >
                     #{L(tag)}
                   </span>
@@ -139,7 +198,7 @@ export default function DetailDrawer() {
 
           {(SIGNALS_BY_PERSON.get(person.id)?.length ?? 0) > 0 && (
             <div className="mx-4 mb-3 rounded-xl border border-cyan-400/20 bg-cyan-400/[0.05] p-3">
-              <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-cyan-300">
+              <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-cyan-300">
                 <Newspaper size={10} /> {t.wireTitle}
                 <span className="ml-auto font-normal normal-case text-slate-600">
                   {SIGNALS_BY_PERSON.get(person.id)!.length}
@@ -159,10 +218,10 @@ export default function DetailDrawer() {
                       style={{ backgroundColor: polarityColor(s.polarity) }}
                     />
                     <span className="min-w-0 flex-1">
-                      <span className="line-clamp-2 block text-[10.5px] leading-snug text-slate-300 group-hover:text-white">
+                      <span className="line-clamp-2 block text-[12px] leading-snug text-slate-300 group-hover:text-white">
                         {s.title}
                       </span>
-                      <span className="mt-0.5 flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider text-slate-600">
+                      <span className="mt-0.5 flex items-center gap-1 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
                         {s.date} · {s.source}
                         {s.polarity === 'ally' || s.polarity === 'feud'
                           ? ` · ${L(REL_META[s.polarity].label)}`
@@ -196,7 +255,7 @@ export default function DetailDrawer() {
                         : t.detailMentor;
               return (
                 <div key={type} className="mb-3">
-                  <h4 className="mb-1.5 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.16em]" style={{ color: meta.color }}>
+                  <h4 className="mb-1.5 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em]" style={{ color: meta.color }}>
                     <svg width="16" height="4">
                       <line x1="0" y1="2" x2="16" y2="2" stroke={meta.color} strokeWidth="2" strokeDasharray={meta.dash?.join(',')} />
                     </svg>
@@ -225,7 +284,7 @@ export default function DetailDrawer() {
                               className="h-1.5 w-1.5 shrink-0 rounded-full"
                               style={{ backgroundColor: PARTY_COLOR[other.party] }}
                             />
-                            <span className="truncate text-[11.5px] font-medium text-slate-200 group-hover:text-white">
+                            <span className="truncate text-[13px] font-medium text-slate-200 group-hover:text-white">
                               {L(other.name)}
                             </span>
                             <span className="ml-auto flex shrink-0 items-center gap-0.5">
@@ -242,7 +301,7 @@ export default function DetailDrawer() {
                               ))}
                             </span>
                           </div>
-                          <p className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-500 group-hover:text-slate-400">
+                          <p className="mt-1 line-clamp-2 text-[11.5px] leading-relaxed text-slate-500 group-hover:text-slate-400">
                             {L(link.rel.note)}
                             {initiatorNote && (
                               <span className="text-rose-400/80">{initiatorNote}</span>
@@ -277,7 +336,7 @@ function Meter({
 }) {
   return (
     <div className="flex-1 rounded-lg border border-slate-400/10 bg-white/[0.03] px-2 py-1.5">
-      <div className="flex items-center gap-1 text-[8.5px] text-slate-500">
+      <div className="flex items-center gap-1 text-[10px] text-slate-500">
         <span style={{ color }}>{icon}</span>
         {label}
       </div>
@@ -287,7 +346,7 @@ function Meter({
           style={{ width: `${Math.min(100, value)}%`, backgroundColor: color }}
         />
       </div>
-      {text && <div className="mt-0.5 font-mono text-[9px] text-slate-300">{text}</div>}
+      {text && <div className="mt-0.5 font-mono text-[10.5px] text-slate-300">{text}</div>}
     </div>
   );
 }

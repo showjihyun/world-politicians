@@ -100,15 +100,31 @@ async function main() {
     (await page.locator('text=Latest Wire').count()) > 0
   );
   check('relationship groups render', (await page.locator('text=Rivals & feuds').count()) > 0);
+  check(
+    'profile links render (wiki/x/news)',
+    (await page.locator('[data-testid=profile-links] a').count()) >= 3
+  );
+  check(
+    'portrait or fallback shown',
+    (await page.locator('aside img, aside [data-testid=portrait-fallback]').count()) > 0 ||
+      (await page.locator('img[alt="Donald J. Trump"]').count()) > 0
+  );
+  await page.locator('[data-testid=track-btn]').click();
+  await page.waitForTimeout(300);
+  check('track toggles on', (await page.locator('[data-testid=track-btn]').getAttribute('title')) === 'Tracking');
   await page.screenshot({ path: `${SHOTS}/03-drawer.png` });
 
   // ── 5. ESC 닫기 ──
   await page.keyboard.press('Escape');
-  await page.waitForTimeout(600);
-  check(
-    'ESC closes drawer',
-    !(await page.locator('text=47th President of the United States').isVisible())
-  );
+  // 드로어 퇴장은 spring 애니메이션 — 고정 대기는 레이스가 난다. 실제 detach 를 기다린다.
+  const drawerText = page.locator('text=47th President of the United States');
+  let drawerClosed = true;
+  try {
+    await drawerText.waitFor({ state: 'detached', timeout: 4000 });
+  } catch {
+    drawerClosed = false;
+  }
+  check('ESC closes drawer', drawerClosed);
 
   // ── 6. 스토리 투어 ──
   await page
@@ -119,8 +135,15 @@ async function main() {
   check('story overlay opens', await page.locator('text=Why it matters').isVisible());
   await page.screenshot({ path: `${SHOTS}/04-story.png` });
   await page.locator('aside button[aria-label="Close"]').first().click();
-  await page.waitForTimeout(600);
-  check('story exits', !(await page.locator('text=Why it matters').isVisible()));
+  // 스토리 오버레이도 퇴장 애니메이션이 있다 — detach 를 기다려야 안정적이다.
+  const storyText = page.locator('text=Why it matters');
+  let storyClosed = true;
+  try {
+    await storyText.waitFor({ state: 'detached', timeout: 4000 });
+  } catch {
+    storyClosed = false;
+  }
+  check('story exits', storyClosed);
 
   // ── 7. 인사이트 탭 ──
   await page.locator('button', { hasText: 'INSIGHTS' }).click();
@@ -133,6 +156,33 @@ async function main() {
   await page.screenshot({ path: `${SHOTS}/05-insights.png` });
   await page.locator('button', { hasText: 'FILTERS' }).click();
 
+  // ── 7b. ANALYSIS (시계열) — 두 번째 인물 추적 후 페어 아크 확인 ──
+  await page.getByPlaceholder('Search politicians…').fill('elon musk');
+  await page.waitForTimeout(400);
+  await page
+    .getByRole('button')
+    .filter({ hasText: 'Elon Musk' })
+    .first()
+    .click();
+  await page.waitForTimeout(900);
+  await page.locator('[data-testid=track-btn]').click();
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+  await page.locator('button', { hasText: 'ANALYSIS' }).click();
+  await page.waitForTimeout(500);
+  check('analysis tab opens', await page.locator('text=Watchlist').isVisible());
+  check(
+    'pair timeline card renders',
+    await page.locator('text=Donald J. Trump × Elon Musk').isVisible()
+  );
+  check(
+    'timeline strip cells render',
+    (await page.locator('[data-testid=tl-cell]').count()) > 6
+  );
+  await page.screenshot({ path: `${SHOTS}/08-analysis.png` });
+  await page.locator('button', { hasText: 'FILTERS' }).click();
+
   // ── 8. 필터 (정당 칩) ──
   await page.locator('button', { hasText: 'Republican' }).first().click();
   await page.waitForTimeout(800);
@@ -140,7 +190,7 @@ async function main() {
   await page.screenshot({ path: `${SHOTS}/06-filtered.png` });
   await page.locator('button', { hasText: 'Republican' }).first().click();
 
-  // ── 9. 호버 툴팁 ──
+  // ── 9. 호버 툴팁 + 회전 컨트롤 ──
   const center = await page.locator('canvas').first().boundingBox();
   if (center) {
     await page.mouse.move(center.x + center.width / 2, center.y + center.height / 2);
@@ -148,6 +198,12 @@ async function main() {
     await page.waitForTimeout(500);
   }
   check('hover interaction does not crash', true);
+  const rotBtn = page.locator('[data-testid=rotate-auto]');
+  check('rotation controls present', (await rotBtn.count()) === 1);
+  await rotBtn.click();
+  await page.waitForTimeout(700);
+  await rotBtn.click();
+  check('auto-rotate toggles without crash', true);
 
   // ── 10. 3D 모드 ──
   try {
@@ -164,11 +220,13 @@ async function main() {
     check('3D neural mode renders', false, String(e).slice(0, 80));
   }
 
-  // ── 11. 콘솔 에러 검사 ──
-  const benign = /favicon|net::ERR_|googleapis|gstatic|jsdelivr|ERR_ABORTED/i;
+  // ── 11. 콘솔 에러 + 데이터 시점 표시 ──
+  const benign = /favicon|net::ERR_|googleapis|gstatic|jsdelivr|ERR_ABORTED|wikipedia/i;
   const hardConsole = consoleErrors.filter((e) => !benign.test(e));
   check('zero page errors', pageErrors.length === 0, pageErrors.slice(0, 2).join(' | '));
   check('zero hard console errors', hardConsole.length === 0, hardConsole.slice(0, 2).join(' | ').slice(0, 160));
+  const footerText = await page.locator('[data-testid=data-footer]').innerText();
+  check('data timestamp shown', /\d{1,2}:\d{2}/.test(footerText) && /Wire/i.test(footerText), footerText.slice(0, 90));
 
   await browser.close();
 
