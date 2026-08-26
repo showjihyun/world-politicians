@@ -3,7 +3,6 @@ import TopBar from './components/TopBar';
 import FilterPanel from './components/FilterPanel';
 import InsightsPanel from './components/InsightsPanel';
 import TimelinePanel from './components/TimelinePanel';
-import ViewControls from './components/ViewControls';
 import GraphView2D from './components/GraphView2D';
 import DetailDrawer from './components/DetailDrawer';
 import LinkPopover from './components/LinkPopover';
@@ -100,15 +99,6 @@ export default function App() {
       <DetailDrawer />
       <StoryOverlay />
 
-      {/* 스토리 독 위에 앉힌다 — 독이 숨으면 바닥으로 내려온다 */}
-      <div
-        className={`absolute z-20 transition-all duration-300 ${
-          sidebarOpen ? 'left-[349px]' : 'left-3'
-        } ${dockHidden ? 'bottom-3' : 'bottom-[136px]'}`}
-      >
-        <ViewControls />
-      </div>
-
       <div style={{ display: dockHidden ? 'none' : 'contents' }}>
         <StoryDock />
         <LinkPopover />
@@ -120,7 +110,7 @@ export default function App() {
         }`}
         data-testid="data-footer"
       >
-        {t.dataNote} · {t.wireTitle}: {wireTime ?? '—'} ({SIGNALS_META.count})
+        {t.rotateGesture} · {t.dataNote} · {t.wireTitle}: {wireTime ?? '—'} ({SIGNALS_META.count})
       </footer>
     </div>
   );

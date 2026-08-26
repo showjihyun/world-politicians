@@ -195,3 +195,24 @@ export function rotateNodes(nodes: GraphNode[], deg: number): void {
     }
   }
 }
+
+/**
+ * 원점으로 당기는 약한 힘. 링크가 없는 노드는 charge 반발만 받아 화면 밖으로
+ * 밀려나는데, 그 노드들이 zoomToFit 의 bbox 를 부풀려 정작 본 군집이 화면
+ * 구석에 작게 배치된다. 2D/3D 가 같은 규칙을 쓰도록 여기서 만든다.
+ */
+export function createCenteringForce(strength = 0.06) {
+  let nodes: GraphNode[] = [];
+  const force = (alpha: number) => {
+    const k = strength * alpha;
+    for (const n of nodes) {
+      if (n.x != null) n.vx = (n.vx ?? 0) - n.x * k;
+      if (n.y != null) n.vy = (n.vy ?? 0) - n.y * k;
+      if (n.z != null) n.vz = (n.vz ?? 0) - n.z * k;
+    }
+  };
+  force.initialize = (ns: GraphNode[]) => {
+    nodes = ns;
+  };
+  return force;
+}

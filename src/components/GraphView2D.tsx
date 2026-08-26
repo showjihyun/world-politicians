@@ -7,7 +7,7 @@ import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, COLORS } from '../lib/colors';
 import { REL_META } from '../types';
 import { useVisibleGraph } from '../hooks/useVisibleGraph';
-import { rotateNodes } from '../lib/graph';
+import { createCenteringForce, rotateNodes } from '../lib/graph';
 import NodeTooltip from './NodeTooltip';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
@@ -16,6 +16,7 @@ type FG = {
   zoom: (k: number, ms?: number) => void;
   zoomToFit: (ms?: number, px?: number, nodeFilter?: (n: unknown) => boolean) => void;
   d3Force: (name: string, force?: unknown) => unknown;
+  graph2ScreenCoords: (x: number, y: number) => { x: number; y: number };
 } | null;
 
 function sid(n: unknown): string {
@@ -46,7 +47,6 @@ export default function GraphView2D() {
 
   const { locale } = useI18n();
   const langMode = useUIStore((s) => s.langMode);
-  const autoRotate2d = useUIStore((s) => s.autoRotate2d);
   const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
 
   const [size, setSize] = useState({ w: 800, h: 600 });
@@ -76,24 +76,88 @@ export default function GraphView2D() {
     };
   }, []);
 
+  // Ctrl(⌘) + 드래그로 그래프 회전.
+  // force-graph 캔버스가 자체적으로 pan/drag 를 처리하므로 capture 단계에서 가로채
+  // 수정키가 눌린 동안에는 캔버스로 이벤트가 내려가지 않게 한다.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    let lastAngle: number | null = null;
+    // 드래그 시작에 한 번만 잡는다 — 회전은 중심점 기준이라 중심이 움직이지 않고,
+    // pointermove 마다 전 노드를 순회하고 getBoundingClientRect 로 레이아웃을
+    // 강제하면 드래그가 눈에 띄게 무거워진다.
+    let origin = { left: 0, top: 0, px: 0, py: 0 };
+
+    /** 회전 중심(노드 중심점)의 화면 좌표 — 구할 수 없으면 캔버스 중앙 */
+    const measureOrigin = () => {
+      const r = el.getBoundingClientRect();
+      const withPos = graph.filter((n) => n.x != null && n.y != null);
+      if (!withPos.length || !fgRef.current?.graph2ScreenCoords) {
+        return { left: r.left, top: r.top, px: r.width / 2, py: r.height / 2 };
+      }
+      let cx = 0;
+      let cy = 0;
+      for (const n of withPos) {
+        cx += n.x!;
+        cy += n.y!;
+      }
+      const p = fgRef.current.graph2ScreenCoords(cx / withPos.length, cy / withPos.length);
+      return { left: r.left, top: r.top, px: p.x, py: p.y };
+    };
+
+    const angleAt = (e: PointerEvent) =>
+      Math.atan2(e.clientY - origin.top - origin.py, e.clientX - origin.left - origin.px);
+
+    const rotating = (e: PointerEvent) => e.ctrlKey || e.metaKey;
+
+    const onDown = (e: PointerEvent) => {
+      if (!rotating(e)) return;
+      e.stopPropagation();
+      e.preventDefault();
+      origin = measureOrigin();
+      lastAngle = angleAt(e);
+      el.setPointerCapture?.(e.pointerId);
+      document.body.style.cursor = 'grabbing';
+    };
+
+    const onMove = (e: PointerEvent) => {
+      if (lastAngle == null) return;
+      e.stopPropagation();
+      e.preventDefault();
+      const a = angleAt(e);
+      let d = a - lastAngle;
+      // -π..π 로 정규화 — 안 하면 경계를 넘을 때 한 바퀴 튄다
+      if (d > Math.PI) d -= 2 * Math.PI;
+      if (d < -Math.PI) d += 2 * Math.PI;
+      rotateNodes(graph, (d * 180) / Math.PI);
+      lastAngle = a;
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (lastAngle == null) return;
+      lastAngle = null;
+      el.releasePointerCapture?.(e.pointerId);
+      document.body.style.cursor = 'default';
+    };
+
+    el.addEventListener('pointerdown', onDown, true);
+    el.addEventListener('pointermove', onMove, true);
+    el.addEventListener('pointerup', onUp, true);
+    el.addEventListener('pointercancel', onUp, true);
+    return () => {
+      el.removeEventListener('pointerdown', onDown, true);
+      el.removeEventListener('pointermove', onMove, true);
+      el.removeEventListener('pointerup', onUp, true);
+      el.removeEventListener('pointercancel', onUp, true);
+    };
+  }, [graph]);
+
   // 링크가 없는(또는 약한) 노드는 charge 반발만 받아 화면 밖으로 밀려난다.
   // 그 노드들이 bbox 를 부풀려 zoomToFit 이 군집을 화면 구석에 작게 배치하므로,
   // 원점으로 당기는 약한 힘을 걸어 레이아웃 자체를 모아둔다.
   useEffect(() => {
-    const fg = fgRef.current;
-    if (!fg?.d3Force) return;
-    let simNodes: GraphNode[] = [];
-    const pullToCenter = (alpha: number) => {
-      for (const n of simNodes) {
-        if (n.x == null || n.y == null) continue;
-        n.vx = (n.vx ?? 0) - n.x * 0.06 * alpha;
-        n.vy = (n.vy ?? 0) - n.y * 0.06 * alpha;
-      }
-    };
-    (pullToCenter as unknown as { initialize: (n: GraphNode[]) => void }).initialize = (n) => {
-      simNodes = n;
-    };
-    fg.d3Force('polarisCenter', pullToCenter);
+    fgRef.current?.d3Force?.('polarisCenter', createCenteringForce());
   }, []);
 
   // 숨겨진·고립 노드까지 bbox 에 넣으면 그래프가 한쪽 구석에 작게 남는다.
@@ -119,13 +183,6 @@ export default function GraphView2D() {
     // (고정 타이머로 맞추면 아직 퍼지는 중인 좌표에 맞춰져 한쪽으로 쏠린 채 남는다)
     fitVisible(700);
   }, [graph, fitVisible]);
-
-  // 자동 회전
-  useEffect(() => {
-    if (!autoRotate2d) return;
-    const id = setInterval(() => rotateNodes(graph, 0.8), 50);
-    return () => clearInterval(id);
-  }, [autoRotate2d, graph]);
 
   useEffect(() => {
     if (!selectedId || !fgRef.current) return;

@@ -79,9 +79,10 @@ export const UI_EN = {
   disclaimer:
     'Curated from public reporting. For educational entertainment — not an endorsement. Data snapshot: Aug 2026.',
   dataNote: 'Data snapshot Aug 2026 · curated from public reporting',
-  keyboardHint: 'Drag to move · Scroll to zoom · Click to focus',
+  keyboardHint: 'Drag to move · Ctrl+drag to rotate · Scroll to zoom · Click to focus',
   wireTitle: 'Latest Wire',
   polNeutral: 'co-mention',
+  rotateGesture: 'Ctrl + drag to rotate',
   tabFilters: 'FILTERS',
   tabInsights: 'INSIGHTS',
   tabTimeline: 'ANALYSIS',
@@ -100,10 +101,7 @@ export const UI_EN = {
   wikipedia: 'Wikipedia',
   xPosts: 'X posts',
   newsSearch: 'News',
-  autoRotate: 'Auto-rotate',
-  orbit: 'Orbit',
   watchNeedTwo: 'Track one more person to reveal the pair arc.',
-  rotateHint: 'Rotate',
 };
 
 export type UIDict = typeof UI_EN;

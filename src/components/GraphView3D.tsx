@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
 import * as THREE from 'three';
 import { useStore } from '../store/useStore';
@@ -7,7 +7,7 @@ import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR } from '../lib/colors';
 import { REL_META } from '../types';
 import { useVisibleGraph } from '../hooks/useVisibleGraph';
-import { useUIStore } from '../store/uiStore';
+import { createCenteringForce } from '../lib/graph';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
 type FG3 = {
@@ -17,7 +17,17 @@ type FG3 = {
     ms?: number
   ) => void;
   zoomToFit: (ms?: number, px?: number) => void;
+  d3Force: (name: string, force?: unknown) => unknown;
 } | null;
+
+/**
+ * 노드마다 SphereGeometry 를 새로 만들면 노드 수만큼 지오메트리가 쌓인다.
+ * 단위 구를 하나 만들어 mesh.scale 로 크기만 바꿔 쓴다.
+ */
+const UNIT_SPHERE = new THREE.SphereGeometry(1, 16, 12);
+const UNIT_HALO = new THREE.SphereGeometry(1, 10, 8);
+
+const SELECTED_HALO = '#fbbf24';
 
 function makeLabelSprite(text: string): THREE.Sprite {
   const canvas = document.createElement('canvas');
@@ -38,10 +48,24 @@ function makeLabelSprite(text: string): THREE.Sprite {
   texture.needsUpdate = true;
   const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
   const sprite = new THREE.Sprite(material);
-  const scale = 31;
+  const scale = 22;
   sprite.scale.set((canvas.width / canvas.height) * scale, scale, 1);
   sprite.position.set(0, 15, 0);
   return sprite;
+}
+
+/** 캐시된 노드 오브젝트를 버릴 때 GPU 자원까지 해제 (공유 지오메트리는 유지) */
+function disposeNodeObject(group: THREE.Group): void {
+  group.traverse((o) => {
+    const any = o as THREE.Mesh & THREE.Sprite;
+    const mat = any.material as THREE.Material & { map?: THREE.Texture };
+    if (mat) {
+      mat.map?.dispose();
+      mat.dispose();
+    }
+    const geo = (o as THREE.Mesh).geometry;
+    if (geo && geo !== UNIT_SPHERE && geo !== UNIT_HALO) geo.dispose();
+  });
 }
 
 export default function GraphView3D() {
@@ -56,30 +80,7 @@ export default function GraphView3D() {
   const hover = useStore((s) => s.hover);
 
   const { locale } = useI18n();
-  const autoOrbit3d = useUIStore((s) => s.autoOrbit3d);
   const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
-
-  // 자동 궤도 회전 — 카메라를 Y축 중심으로 선회
-  useEffect(() => {
-    if (!autoOrbit3d) return;
-    let raf = 0;
-    const step = () => {
-      const fg = fgRef.current as unknown as {
-        cameraPosition: () => { x: number; y: number; z: number };
-      } | null;
-      if (fg?.cameraPosition) {
-        const { x, y, z } = fg.cameraPosition();
-        const r = Math.hypot(x, z);
-        const theta = Math.atan2(z, x) + 0.004;
-        (fgRef.current as unknown as {
-          cameraPosition: (p: { x: number; y: number; z: number }) => void;
-        }).cameraPosition({ x: r * Math.cos(theta), y, z: r * Math.sin(theta) });
-      }
-      raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [autoOrbit3d]);
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -99,9 +100,16 @@ export default function GraphView3D() {
     [graph, visibleLinks]
   );
 
+  // 고정 타이머로 맞추면 아직 퍼지는 중인 좌표에 맞춰진다 — 엔진이 멈춘 뒤 맞춘다.
+  // (타이머는 엔진이 멈추지 않는 경우의 안전망)
   useEffect(() => {
-    const t = setTimeout(() => fgRef.current?.zoomToFit(900, 90), 1800);
+    const t = setTimeout(() => fgRef.current?.zoomToFit(900, 90), 5000);
     return () => clearTimeout(t);
+  }, []);
+
+  // 2D 와 같은 규칙으로 레이아웃을 모아둔다 (lib/graph 의 공용 힘)
+  useEffect(() => {
+    fgRef.current?.d3Force?.('polarisCenter', createCenteringForce());
   }, []);
 
   useEffect(() => {
@@ -121,6 +129,137 @@ export default function GraphView3D() {
       ? PARTY_COLOR[node.party]
       : (FACTION_MAP[node.faction]?.color ?? PARTY_COLOR[node.party]);
 
+  // 노드 3D 오브젝트는 한 번 만들어 캐시한다.
+  // 예전에는 nodeThreeObject 가 selectedId 를 클로저로 잡는 인라인 함수라,
+  // 노드를 클릭할 때마다 함수 정체성이 바뀌어 전 노드의 지오메트리·캔버스 텍스처가
+  // 통째로 재생성됐다(클릭당 100ms+ 히칭 + 해제 안 된 GPU 자원 누적).
+  // 선택 강조는 재생성 대신 캐시된 halo 머티리얼을 그 자리에서 수정한다.
+  const cacheRef = useRef(new Map<string, THREE.Group>());
+  const haloRef = useRef(new Map<string, THREE.Mesh>());
+  const labelRef = useRef(new Map<string, { sprite: THREE.Sprite; always: boolean }>());
+  const cacheTagRef = useRef('');
+
+  const nodeThreeObject = useCallback(
+    (nRaw: unknown) => {
+      const n = nRaw as GraphNode;
+      const tag = `${colorMode}|${locale}`;
+      if (cacheTagRef.current !== tag) {
+        cacheRef.current.forEach(disposeNodeObject);
+        cacheRef.current.clear();
+        haloRef.current.clear();
+        labelRef.current.clear();
+        cacheTagRef.current = tag;
+      }
+      const hit = cacheRef.current.get(n.id);
+      if (hit) return hit;
+
+      const color = nodeColorOf(n);
+      const r = 3.2 + n.prominence * 0.75;
+      const group = new THREE.Group();
+
+      const core = new THREE.Mesh(
+        UNIT_SPHERE,
+        new THREE.MeshBasicMaterial({
+          color: new THREE.Color(color),
+          transparent: true,
+          opacity: n.status === 'legacy' ? 0.55 : 0.92,
+        })
+      );
+      core.scale.setScalar(r);
+      group.add(core);
+
+      const halo = new THREE.Mesh(
+        UNIT_HALO,
+        new THREE.MeshBasicMaterial({
+          color: new THREE.Color(n.id === selectedId ? SELECTED_HALO : color),
+          transparent: true,
+          opacity: n.id === selectedId ? 0.26 : 0.1,
+        })
+      );
+      halo.scale.setScalar(r * 1.4);
+      halo.userData.baseColor = color;
+      group.add(halo);
+
+      // 120개 라벨을 고정 크기로 상시 띄우면 어떤 거리에서도 못 읽는다
+      // (멀면 뭉개지고, 가까우면 서로 겹친다). 주요 인물만 상시 표시하고
+      // 선택된 노드는 아래 이펙트에서 그때그때 켠다.
+      const label = makeLabelSprite(locale === 'ko' ? n.name.ko : n.name.en);
+      label.visible = n.prominence >= 8;
+      group.add(label);
+
+      cacheRef.current.set(n.id, group);
+      haloRef.current.set(n.id, halo);
+      labelRef.current.set(n.id, { sprite: label, always: n.prominence >= 8 });
+      return group;
+    },
+    // selectedId 는 의도적으로 제외 — 넣으면 클릭마다 전 노드가 재생성된다
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [colorMode, locale]
+  );
+
+  // 접근자 prop 이 매 렌더 새 함수면 force-graph 가 노드·링크 전체를 다시 평가한다.
+  const nodeVisibilityFn = useCallback(
+    (nRaw: unknown) => visibleNodes.has((nRaw as GraphNode).id),
+    [visibleNodes]
+  );
+  const linkVisibilityFn = useCallback(
+    (lRaw: unknown) => visibleLinkIds.has((lRaw as unknown as GraphLink).id),
+    [visibleLinkIds]
+  );
+  const linkColorFn = useCallback(
+    (lRaw: unknown) => REL_META[(lRaw as unknown as GraphLink).rel.type].color + '99',
+    []
+  );
+  const linkWidthFn = useCallback(
+    (lRaw: unknown) => 0.4 + (lRaw as unknown as GraphLink).rel.strength * 0.6,
+    []
+  );
+  // 2D 와 같은 규칙 — 모든 링크에 입자를 흘리면 프레임마다 메시가 그만큼 늘어난다
+  const linkParticlesFn = useCallback((lRaw: unknown) => {
+    const l = lRaw as unknown as GraphLink;
+    return l.rel.type === 'feud' ? 2 : l.rel.strength >= 3 ? 1 : 0;
+  }, []);
+  const linkParticleWidthFn = useCallback(
+    (lRaw: unknown) => 1.6 + (lRaw as unknown as GraphLink).rel.strength,
+    []
+  );
+  const linkParticleSpeedFn = useCallback(() => 0.006, []);
+  const onNodeClickFn = useCallback(
+    (nRaw: unknown) => select((nRaw as GraphNode).id),
+    [select]
+  );
+  const onNodeHoverFn = useCallback(
+    (nRaw: unknown) => {
+      hover(nRaw ? (nRaw as GraphNode).id : null);
+      document.body.style.cursor = nRaw ? 'pointer' : 'default';
+    },
+    [hover]
+  );
+  const onBackgroundClickFn = useCallback(() => select(null), [select]);
+  const onEngineStopFn = useCallback(() => fgRef.current?.zoomToFit(700, 90), []);
+
+  // 선택 강조: 오브젝트를 다시 만들지 않고 머티리얼만 갱신
+  useEffect(() => {
+    haloRef.current.forEach((halo, id) => {
+      const mat = halo.material as THREE.MeshBasicMaterial;
+      const sel = id === selectedId;
+      mat.color.set(sel ? SELECTED_HALO : (halo.userData.baseColor as string));
+      mat.opacity = sel ? 0.26 : 0.1;
+    });
+    labelRef.current.forEach((l, id) => {
+      l.sprite.visible = l.always || id === selectedId;
+    });
+  }, [selectedId]);
+
+  // 언마운트 시 캐시된 GPU 자원 해제
+  useEffect(() => {
+    const cache = cacheRef.current;
+    return () => {
+      cache.forEach(disposeNodeObject);
+      cache.clear();
+    };
+  }, []);
+
   return (
     <div ref={wrapRef} className="absolute inset-0">
       <ForceGraph3D
@@ -131,48 +270,19 @@ export default function GraphView3D() {
         graphData={data as never}
         backgroundColor="rgba(0,0,0,0)"
         showNavInfo={false}
-        nodeVisibility={(nRaw: unknown) =>
-          visibleNodes.has((nRaw as GraphNode).id)
-        }
+        nodeVisibility={nodeVisibilityFn}
         nodeRelSize={5}
-        nodeThreeObject={(nRaw: unknown) => {
-          const n = nRaw as GraphNode;
-          const group = new THREE.Group();
-          const r = 3.2 + n.prominence * 0.75;
-          const isSel = n.id === selectedId;
-          const mat = new THREE.MeshBasicMaterial({
-            color: new THREE.Color(nodeColorOf(n)),
-            transparent: true,
-            opacity: n.status === 'legacy' ? 0.55 : 0.92,
-          });
-          group.add(new THREE.Mesh(new THREE.SphereGeometry(r, 20, 20), mat));
-          const haloMat = new THREE.MeshBasicMaterial({
-            color: new THREE.Color(isSel ? '#fbbf24' : nodeColorOf(n)),
-            transparent: true,
-            opacity: isSel ? 0.26 : 0.1,
-          });
-          group.add(new THREE.Mesh(new THREE.SphereGeometry(r * 1.4, 16, 16), haloMat));
-          group.add(makeLabelSprite(locale === 'ko' ? n.name.ko : n.name.en));
-          return group;
-        }}
-        linkColor={(lRaw: unknown) => REL_META[(lRaw as unknown as GraphLink).rel.type].color + '99'}
-        linkWidth={(lRaw: unknown) => 0.4 + (lRaw as unknown as GraphLink).rel.strength * 0.6}
-        linkVisibility={(lRaw: unknown) =>
-          visibleLinkIds.has((lRaw as unknown as GraphLink).id)
-        }
-        linkDirectionalParticles={(lRaw: unknown) =>
-          (lRaw as unknown as GraphLink).rel.type === 'feud' ? 3 : 1
-        }
-        linkDirectionalParticleSpeed={() => 0.006}
-        linkDirectionalParticleWidth={(lRaw: unknown) =>
-          1.6 + (lRaw as unknown as GraphLink).rel.strength
-        }
-        onNodeClick={(nRaw: unknown) => select((nRaw as GraphNode).id)}
-        onNodeHover={(nRaw: unknown) => {
-          hover(nRaw ? (nRaw as GraphNode).id : null);
-          document.body.style.cursor = nRaw ? 'pointer' : 'default';
-        }}
-        onBackgroundClick={() => select(null)}
+        nodeThreeObject={nodeThreeObject}
+        linkColor={linkColorFn}
+        linkWidth={linkWidthFn}
+        linkVisibility={linkVisibilityFn}
+        linkDirectionalParticles={linkParticlesFn}
+        linkDirectionalParticleSpeed={linkParticleSpeedFn}
+        linkDirectionalParticleWidth={linkParticleWidthFn}
+        onNodeClick={onNodeClickFn}
+        onNodeHover={onNodeHoverFn}
+        onBackgroundClick={onBackgroundClickFn}
+        onEngineStop={onEngineStopFn}
         warmupTicks={40}
       />
     </div>

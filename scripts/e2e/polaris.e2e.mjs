@@ -198,12 +198,47 @@ async function main() {
     await page.waitForTimeout(500);
   }
   check('hover interaction does not crash', true);
-  const rotBtn = page.locator('[data-testid=rotate-auto]');
-  check('rotation controls present', (await rotBtn.count()) === 1);
-  await rotBtn.click();
-  await page.waitForTimeout(700);
-  await rotBtn.click();
-  check('auto-rotate toggles without crash', true);
+  check('rotate buttons removed', (await page.locator('[data-testid=view-controls]').count()) === 0);
+
+  // Ctrl+드래그 회전 — 노드 픽셀 분포가 실제로 회전했는지로 검증
+  const canvasBox = await page.locator('canvas').first().boundingBox();
+  // 중심점은 회전 불변이라 판별에 못 쓴다 — 칠해진 픽셀 마스크가 얼마나 달라졌는지로 본다
+  const paintMask = () =>
+    page.evaluate(() => {
+      const c = document.querySelector('canvas');
+      const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+      const COLS = 64, ROWS = 40, cell = [];
+      for (let r = 0; r < ROWS; r++) {
+        for (let col = 0; col < COLS; col++) {
+          const x = Math.floor(((col + 0.5) * c.width) / COLS);
+          const y = Math.floor(((r + 0.5) * c.height) / ROWS);
+          const i = (y * c.width + x) * 4;
+          cell.push(d[i + 3] > 24 && d[i] + d[i + 1] + d[i + 2] > 90 ? 1 : 0);
+        }
+      }
+      return cell;
+    });
+  const before = await paintMask();
+  const cx = canvasBox.x + canvasBox.width / 2;
+  const cy = canvasBox.y + canvasBox.height / 2;
+  await page.keyboard.down('Control');
+  await page.mouse.move(cx + 220, cy);
+  await page.mouse.down();
+  for (let i = 1; i <= 12; i++) {
+    const a = (i / 12) * (Math.PI / 2);
+    await page.mouse.move(cx + 220 * Math.cos(a), cy + 220 * Math.sin(a));
+  }
+  await page.mouse.up();
+  await page.keyboard.up('Control');
+  await page.waitForTimeout(600);
+  const after = await paintMask();
+  const painted = before.reduce((a, b) => a + b, 0);
+  const changed = before.reduce((n, v, i) => n + (v !== after[i] ? 1 : 0), 0);
+  check(
+    'ctrl+drag rotates the graph',
+    painted > 50 && changed > painted * 0.3,
+    `painted ${painted}, changed ${changed}`
+  );
 
   // ── 10. 3D 모드 ──
   try {

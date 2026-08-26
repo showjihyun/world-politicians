@@ -80,9 +80,10 @@ export const UI_KO: UIDict = {
   disclaimer:
     '공개 보도를 바탕으로 큐레이션했습니다. 교육·오락 목적이며 특정 인물 지지가 아닙니다. 데이터 기준: 2026년 8월.',
   dataNote: '데이터 기준 2026-08 · 공개 보도 기반 큐레이션',
-  keyboardHint: '드래그 이동 · 스크롤 줌 · 클릭 포커스',
+  keyboardHint: '드래그 이동 · Ctrl+드래그 회전 · 스크롤 줌 · 클릭 포커스',
   wireTitle: '최신 와이어',
   polNeutral: '동반 언급',
+  rotateGesture: 'Ctrl + 드래그로 회전',
   tabFilters: '필터',
   tabInsights: '인사이트',
   tabTimeline: '분석',
@@ -101,8 +102,5 @@ export const UI_KO: UIDict = {
   wikipedia: '위키백과',
   xPosts: 'X 게시물',
   newsSearch: '뉴스',
-  autoRotate: '자동 회전',
-  orbit: '궤도 회전',
   watchNeedTwo: '한 명을 더 추적하면 페어 아크가 나타납니다.',
-  rotateHint: '회전',
 };
