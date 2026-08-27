@@ -183,6 +183,42 @@ async function main() {
   await page.screenshot({ path: `${SHOTS}/08-analysis.png` });
   await page.locator('button', { hasText: 'FILTERS' }).click();
 
+  // ── 7c. STORIES (SOCIAL PHENOMENA 전용 탭) ──
+  check(
+    'stories moved out of FILTERS',
+    (await page.locator('aside >> text=Social Phenomena').count()) === 0
+  );
+  await page.locator('button', { hasText: 'STORIES' }).click();
+  await page.waitForTimeout(400);
+  check('stories tab opens', await page.locator('aside >> text=Social Phenomena').isVisible());
+  check('story cards render', (await page.locator('[data-testid=story-card]').count()) === 7);
+  await page.screenshot({ path: `${SHOTS}/09-stories.png` });
+  await page.locator('[data-testid=story-card]').first().click();
+  await page.waitForTimeout(1200);
+  check('story opens from tab', await page.locator('text=Why it matters').isVisible());
+
+  // 스토리 오버레이가 왼쪽 패널을 덮지 않아야 한다 (사이드바가 열린 상태)
+  const sidebarBox = await page.locator('aside:has-text("SOCIAL PHENOMENA")').first().boundingBox();
+  const overlayBox = await page.locator('aside:has-text("Why it matters")').first().boundingBox();
+  const overlaps =
+    sidebarBox && overlayBox &&
+    overlayBox.x < sidebarBox.x + sidebarBox.width &&
+    overlayBox.x + overlayBox.width > sidebarBox.x;
+  check(
+    'story overlay clears the sidebar',
+    !overlaps,
+    `sidebar ends ${sidebarBox ? Math.round(sidebarBox.x + sidebarBox.width) : '?'}, overlay starts ${overlayBox ? Math.round(overlayBox.x) : '?'}`
+  );
+  await page.locator('aside button[aria-label="Close"]').first().click();
+  const storyText2 = page.locator('text=Why it matters');
+  try {
+    await storyText2.waitFor({ state: 'detached', timeout: 4000 });
+  } catch {
+    /* 아래 체크에서 잡힌다 */
+  }
+  await page.locator('button', { hasText: 'FILTERS' }).click();
+  await page.waitForTimeout(300);
+
   // ── 8. 필터 (정당 칩) ──
   await page.locator('button', { hasText: 'Republican' }).first().click();
   await page.waitForTimeout(800);

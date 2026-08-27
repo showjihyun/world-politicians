@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import FilterPanel from './components/FilterPanel';
 import InsightsPanel from './components/InsightsPanel';
 import TimelinePanel from './components/TimelinePanel';
+import StoriesPanel from './components/StoriesPanel';
 import GraphView2D from './components/GraphView2D';
 import DetailDrawer from './components/DetailDrawer';
 import LinkPopover from './components/LinkPopover';
@@ -21,7 +22,7 @@ export default function App() {
   const storyIndex = useStore((s) => s.storyIndex);
   const select = useStore((s) => s.select);
   const langMode = useUIStore((s) => s.langMode);
-  const [tab, setTab] = useState<'filters' | 'insights' | 'analysis'>('filters');
+  const [tab, setTab] = useState<'filters' | 'insights' | 'analysis' | 'stories'>('filters');
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -60,17 +61,23 @@ export default function App() {
       >
         <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/85 shadow-2xl shadow-black/40 backdrop-blur-2xl">
           <div className="flex shrink-0 gap-1 border-b border-slate-400/10 p-1.5">
-            {(['filters', 'insights', 'analysis'] as const).map((key) => (
+            {(['filters', 'insights', 'analysis', 'stories'] as const).map((key) => (
               <button
                 key={key}
                 onClick={() => setTab(key)}
-                className={`flex-1 rounded-lg py-1.5 text-[12px] font-medium transition-all ${
+                className={`min-w-0 flex-1 truncate rounded-lg px-0.5 py-1.5 text-[11px] font-medium transition-all ${
                   tab === key
                     ? 'bg-white/[0.08] text-white'
                     : 'text-slate-500 hover:text-slate-300'
                 }`}
               >
-                {key === 'filters' ? t.tabFilters : key === 'insights' ? t.tabInsights : t.tabTimeline}
+                {key === 'filters'
+                  ? t.tabFilters
+                  : key === 'insights'
+                    ? t.tabInsights
+                    : key === 'analysis'
+                      ? t.tabTimeline
+                      : t.tabStories}
               </button>
             ))}
             <button
@@ -82,7 +89,15 @@ export default function App() {
             </button>
           </div>
           <div className="min-h-0 flex-1 overflow-y-auto p-4 polaris-scroll">
-            {tab === 'filters' ? <FilterPanel /> : tab === 'insights' ? <InsightsPanel /> : <TimelinePanel />}
+            {tab === 'filters' ? (
+              <FilterPanel />
+            ) : tab === 'insights' ? (
+              <InsightsPanel />
+            ) : tab === 'analysis' ? (
+              <TimelinePanel />
+            ) : (
+              <StoriesPanel />
+            )}
           </div>
         </div>
       </aside>

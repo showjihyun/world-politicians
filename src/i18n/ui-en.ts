@@ -83,6 +83,8 @@ export const UI_EN = {
   wireTitle: 'Latest Wire',
   polNeutral: 'co-mention',
   rotateGesture: 'Ctrl + drag to rotate',
+  tabStories: 'STORIES',
+  storyFigures: 'figures',
   tabFilters: 'FILTERS',
   tabInsights: 'INSIGHTS',
   tabTimeline: 'ANALYSIS',

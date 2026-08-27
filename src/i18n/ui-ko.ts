@@ -84,6 +84,8 @@ export const UI_KO: UIDict = {
   wireTitle: '최신 와이어',
   polNeutral: '동반 언급',
   rotateGesture: 'Ctrl + 드래그로 회전',
+  tabStories: '현상',
+  storyFigures: '명',
   tabFilters: '필터',
   tabInsights: '인사이트',
   tabTimeline: '분석',

@@ -56,11 +56,14 @@ export function StoryOverlay() {
   const { t, L } = useI18n();
   const storyIndex = useStore((s) => s.storyIndex);
   const setStory = useStore((s) => s.setStory);
+  const sidebarOpen = useStore((s) => s.sidebarOpen);
 
   const story = storyIndex != null ? STORIES[storyIndex] : null;
 
   return (
     <AnimatePresence>
+      {/* 사이드바와 같은 left-3 에 두면 왼쪽 패널을 그대로 덮는다.
+          패널이 열려 있으면 그래프 영역 좌상단으로 비켜 앉힌다. */}
       {story && (
         <motion.aside
           key={story.id}
@@ -68,7 +71,9 @@ export function StoryOverlay() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -420, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          className="pointer-events-auto absolute left-3 top-20 z-20 w-[min(92vw,380px)] overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/92 shadow-2xl shadow-black/60 backdrop-blur-2xl max-h-[calc(100vh-190px)] flex flex-col"
+          className={`pointer-events-auto absolute top-[72px] z-20 flex max-h-[calc(100vh-84px)] w-[min(92vw,380px)] flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/92 shadow-2xl shadow-black/60 backdrop-blur-2xl transition-[left] duration-300 ${
+            sidebarOpen ? 'left-[349px]' : 'left-3'
+          }`}
         >
           <div className="flex items-start gap-3 p-5 pb-3">
             <span className="text-3xl leading-none" aria-hidden>

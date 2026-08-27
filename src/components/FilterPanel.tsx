@@ -1,5 +1,5 @@
 import { RotateCcw, Filter } from 'lucide-react';
-import { useStore, STORIES } from '../store/useStore';
+import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { FACTIONS, FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
@@ -16,7 +16,6 @@ export default function FilterPanel() {
   const toggleRelType = useStore((s) => s.toggleRelType);
   const setStrongOnly = useStore((s) => s.setStrongOnly);
   const resetFilters = useStore((s) => s.resetFilters);
-  const setStory = useStore((s) => s.setStory);
 
   const hasAny =
     filters.parties.length ||
@@ -153,25 +152,6 @@ export default function FilterPanel() {
             <br />· {t.nodeSize}
             <br />· {t.particleNote}
           </p>
-        </div>
-      </Section>
-
-      <Section title={t.stories} icon={<span className="text-[13.5px]">✦</span>}>
-        <div className="flex flex-col gap-1">
-          {STORIES.map((story, i) => (
-            <button
-              key={story.id}
-              onClick={() => setStory(i)}
-              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-left transition-all hover:bg-white/5"
-            >
-              <span className="text-[15px]" aria-hidden>
-                {story.emoji}
-              </span>
-              <span className="truncate text-[12.5px] text-slate-400 group-hover:text-white">
-                {L(story.title)}
-              </span>
-            </button>
-          ))}
         </div>
       </Section>
     </div>
