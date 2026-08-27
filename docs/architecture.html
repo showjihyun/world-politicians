@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>POLARIS — Architecture &amp; Data Flow</title>
+<style>
+  :root {
+    --bg: #f7f8fb; --panel: #ffffff; --ink: #0f172a; --muted: #64748b;
+    --line: #dbe1ea; --accent: #2563eb; --amber: #b45309; --rose: #be123c;
+    --green: #047857; --violet: #6d28d9; --code-bg: #f1f5f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #070a12; --panel: #0e1421; --ink: #e6edf7; --muted: #8b9bb4;
+      --line: #1e293b; --accent: #60a5fa; --amber: #fbbf24; --rose: #fb7185;
+      --green: #34d399; --violet: #c084fc; --code-bg: #0b111c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 40px; }
+  .eyebrow {
+    font: 600 11px/1 ui-monospace, "SFMono-Regular", Menlo, monospace;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+  }
+  h1 { font-size: 34px; line-height: 1.15; margin: 14px 0 10px; letter-spacing: -.02em; }
+  h2 {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin: 56px 0 18px;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  h3 { font-size: 16px; margin: 28px 0 8px; }
+  p { color: var(--ink); margin: 0 0 14px; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 68ch; }
+  a { color: var(--accent); }
+  code {
+    background: var(--code-bg); padding: 1px 6px; border-radius: 5px;
+    font: 13px/1.4 ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: 10px; margin: 26px 0 8px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 24px; letter-spacing: -.02em; }
+  .stat span { font-size: 12px; color: var(--muted); }
+
+  figure { margin: 0; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  svg { display: block; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  .stage { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; }
+  .stage-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .stage-n {
+    font: 600 11px/1 ui-monospace, Menlo, monospace; letter-spacing: .1em;
+    color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px;
+  }
+  .stage-head h3 { margin: 0; font-size: 15px; }
+  .stage-file { font: 12px ui-monospace, Menlo, monospace; color: var(--muted); }
+  .stage p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font: 600 11px/1 ui-monospace, Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  td.k { white-space: nowrap; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+
+  .note {
+    border-left: 3px solid var(--amber); background: var(--panel);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 14px; color: var(--muted);
+  }
+  .note b { color: var(--ink); }
+  footer { margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Polaris · Technical Overview</div>
+  <h1>Architecture &amp; Data Flow</h1>
+  <p class="lede">
+    How a hand-curated relationship graph of U.S. politics stays current: a nightly
+    RSS→LLM pipeline that classifies who is feuding with whom, merged into a rolling
+    365-day archive (currently ~230 signals) and shipped as static JSON to a
+    force-directed graph in the browser.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><b>101</b><span>politicians</span></div>
+    <div class="stat"><b>266</b><span>curated relationships</span></div>
+    <div class="stat"><b>17</b><span>news outlets</span></div>
+    <div class="stat"><b>8</b><span>factions</span></div>
+    <div class="stat"><b>7</b><span>guided stories</span></div>
+    <div class="stat"><b>45</b><span>E2E checks</span></div>
+  </div>
+</header>
+
+<h2>System at a glance</h2>
+<figure>
+<div class="scroll">
+<svg width="1000" height="392" viewBox="0 0 1000 392" role="img"
+     aria-label="Three sources feed a five-stage nightly pipeline; the committed JSON is then rendered by the browser app, which separately fetches portraits from Wikipedia.">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor" />
+    </marker>
+    <style>
+      .box  { fill: var(--panel); stroke: var(--line); stroke-width: 1; }
+      .lbl  { fill: var(--ink); font: 600 13px -apple-system, "Segoe UI", sans-serif; }
+      .sub  { fill: var(--muted); font: 11px ui-monospace, Menlo, monospace; }
+      .band { fill: var(--muted); font: 600 10px ui-monospace, Menlo, monospace; letter-spacing: .16em; }
+      .flow { stroke: var(--muted); stroke-width: 1.5; fill: none; color: var(--muted); }
+    </style>
+  </defs>
+
+  <text class="band" x="982" y="20" text-anchor="end">SOURCES</text>
+  <rect class="box" x="18"  y="30" width="200" height="58" rx="10"/>
+  <text class="lbl" x="34"  y="54">Outlet RSS ×7</text>
+  <text class="sub" x="34"  y="72">Fox · CNN · NPR · Hill…</text>
+
+  <rect class="box" x="242" y="30" width="200" height="58" rx="10"/>
+  <text class="lbl" x="258" y="54">Google News RSS</text>
+  <text class="sub" x="258" y="72">per-person queries</text>
+
+  <rect class="box" x="466" y="30" width="200" height="58" rx="10"/>
+  <text class="lbl" x="482" y="54">Curated dataset</text>
+  <text class="sub" x="482" y="72">101 people · 266 edges</text>
+
+  <path class="flow" d="M118 88 L118 112 L108 112"/>
+  <path class="flow" d="M342 88 L342 112 L108 112"/>
+  <path class="flow" d="M566 88 L566 112 L108 112"/>
+  <path class="flow" d="M108 112 L108 150" marker-end="url(#ar)"/>
+
+  <text class="band" x="982" y="136" text-anchor="end">NIGHTLY PIPELINE — GITHUB ACTIONS, 13:00 UTC</text>
+
+  <rect class="box" x="18"  y="150" width="180" height="66" rx="10"/>
+  <text class="lbl" x="34"  y="176">1 · fetch</text>
+  <text class="sub" x="34"  y="194">allowlist +</text>
+  <text class="sub" x="34"  y="208">alias matching</text>
+
+  <rect class="box" x="214" y="150" width="180" height="66" rx="10"/>
+  <text class="lbl" x="230" y="176">2 · extract</text>
+  <text class="sub" x="230" y="194">LLM classify ×10</text>
+  <text class="sub" x="230" y="208">NVIDIA NIM · Nemotron</text>
+
+  <rect class="box" x="410" y="150" width="180" height="66" rx="10"/>
+  <text class="lbl" x="426" y="176">3 · merge</text>
+  <text class="sub" x="426" y="194">365-day rolling</text>
+  <text class="sub" x="426" y="208">archive, dedupe</text>
+
+  <rect class="box" x="606" y="150" width="180" height="66" rx="10"/>
+  <text class="lbl" x="622" y="176">4 · validate</text>
+  <text class="sub" x="622" y="194">schema + person</text>
+  <text class="sub" x="622" y="208">id integrity</text>
+
+  <rect class="box" x="802" y="150" width="180" height="66" rx="10"/>
+  <text class="lbl" x="818" y="176">5 · commit</text>
+  <text class="sub" x="818" y="194">news-signals.json</text>
+  <text class="sub" x="818" y="208">back into the repo</text>
+
+  <path class="flow" d="M198 183 L214 183" marker-end="url(#ar)"/>
+  <path class="flow" d="M394 183 L410 183" marker-end="url(#ar)"/>
+  <path class="flow" d="M590 183 L606 183" marker-end="url(#ar)"/>
+  <path class="flow" d="M786 183 L802 183" marker-end="url(#ar)"/>
+
+  <path class="flow" d="M892 216 L892 262 L128 262 L128 306" marker-end="url(#ar)"/>
+
+  <text class="band" x="982" y="292" text-anchor="end">BROWSER — NO RUNTIME BACKEND</text>
+
+  <rect class="box" x="12"  y="306" width="232" height="58" rx="10"/>
+  <text class="lbl" x="28"  y="330">Zustand stores</text>
+  <text class="sub" x="28"  y="348">graph · filters · UI</text>
+
+  <rect class="box" x="260" y="306" width="232" height="58" rx="10"/>
+  <text class="lbl" x="276" y="330">d3-force layout</text>
+  <text class="sub" x="276" y="348">+ centering force</text>
+
+  <rect class="box" x="508" y="306" width="232" height="58" rx="10"/>
+  <text class="lbl" x="524" y="330">Canvas 2D / WebGL</text>
+  <text class="sub" x="524" y="348">force-graph · three.js</text>
+
+  <rect class="box" x="756" y="306" width="232" height="58" rx="10" stroke-dasharray="4 3"/>
+  <text class="lbl" x="772" y="330">Wikipedia REST</text>
+  <text class="sub" x="772" y="348">portraits, lazy · client-side</text>
+
+  <path class="flow" d="M244 335 L260 335" marker-end="url(#ar)"/>
+  <path class="flow" d="M492 335 L508 335" marker-end="url(#ar)"/>
+  <path class="flow" d="M756 335 L740 335" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+</svg>
+</div>
+<figcaption>
+  Everything above the browser band runs nightly in CI and ends as a committed JSON file.
+  The dashed Wikipedia box is fetched by the browser at view time — portrait bytes never
+  enter the repository.
+</figcaption>
+</figure>
+
+<h2>The nightly pipeline</h2>
+
+<div class="stage">
+  <div class="stage-head"><span class="stage-n">01</span><h3>Fetch</h3><span class="stage-file">scripts/news-pipeline/fetch.mts</span></div>
+  <p>
+    Pulls seven outlet RSS feeds directly, plus per-person Google News RSS queries built
+    from an alias table (<code>trump → "donald trump", "president trump"</code>). Google News
+    results pass a source allowlist of 17 domains and 20 outlet names; articles are then
+    matched back to dataset people by those same aliases. Only articles naming two or more
+    people in the dataset become pair candidates.
+  </p>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><span class="stage-n">02</span><h3>Classify</h3><span class="stage-file">scripts/news-pipeline/extract.mts · llm.mts</span></div>
+  <p>
+    Pair candidates go to an LLM in batches of ten. For each article it returns the
+    relevant pair, a polarity (<code>ally</code> / <code>feud</code> / <code>neutral</code>),
+    a confidence score, and a two-sentence summary in English and Korean. Runs against
+    NVIDIA NIM's OpenAI-compatible endpoint (<code>nemotron-3-ultra-550b-a55b</code>,
+    temperature 0.2). Without an API key the pipeline degrades to unclassified
+    co-mention signals rather than failing.
+  </p>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><span class="stage-n">03</span><h3>Merge</h3><span class="stage-file">scripts/news-pipeline/merge.mts</span></div>
+  <p>
+    Each run unions new signals with the existing file by stable id, drops anything older
+    than 365 days, and caps the archive at 1,500 signals. This is what makes the relationship
+    timeline possible — a single run only sees a 30-day window, but the archive accumulates
+    across runs into a year of history.
+  </p>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><span class="stage-n">04</span><h3>Validate</h3><span class="stage-file">scripts/news-pipeline/validate.mts</span></div>
+  <p>
+    Checks required fields, that <code>stats.total</code> matches the actual array length,
+    and that every referenced person id exists in the dataset — catching drift between the
+    alias table and the politician files before it reaches the app.
+  </p>
+</div>
+
+<div class="stage">
+  <div class="stage-head"><span class="stage-n">05</span><h3>Commit</h3><span class="stage-file">.github/workflows/daily-news.yml</span></div>
+  <p>
+    The workflow commits <code>src/data/news-signals.json</code> back to the repository at
+    13:00 UTC daily. There is no runtime backend: the app ships the dataset as a static
+    import, so the whole site is a set of files on a CDN.
+  </p>
+</div>
+
+<div class="note">
+  <b>Why signals are separate from relationships.</b> The 266 curated edges are the stable
+  structure — who is allied with whom, who mentored whom. News signals are the volatile layer
+  on top. Keeping them apart means a bad classification run degrades freshness, never the
+  underlying graph.
+</div>
+
+<h2>Rendering</h2>
+<table>
+  <tr><th>Concern</th><th>Approach</th></tr>
+  <tr>
+    <td class="k">Layout</td>
+    <td>d3-force via react-force-graph. A custom centering force pulls weakly toward the
+        origin, because link-less nodes otherwise receive only charge repulsion and drift
+        off-screen — inflating the fit bounding box until the real cluster renders tiny in a corner.</td>
+  </tr>
+  <tr>
+    <td class="k">Framing</td>
+    <td>Fit runs when the simulation stops, not on a fixed timer, and targets the core 97%
+        of nodes by distance from the centroid. Chasing every last outlier is what shrinks
+        the graph on large monitors.</td>
+  </tr>
+  <tr>
+    <td class="k">Stability</td>
+    <td>Nodes are pinned (<code>fx/fy</code>) once the engine settles, so rotation and dragging
+        do not fight the simulation.</td>
+  </tr>
+  <tr>
+    <td class="k">3D objects</td>
+    <td>Node meshes are built once and cached by id; selection updates material colour in place.
+        Building them inline meant every click rebuilt all 101 nodes' geometry and canvas
+        textures — a 167&nbsp;ms frame. Shared unit-sphere geometry, explicit disposal, and
+        labels limited to prominent nodes brought worst-frame to 50&nbsp;ms and heap from 69 to 40&nbsp;MB.</td>
+  </tr>
+  <tr>
+    <td class="k">Interaction</td>
+    <td>Ctrl-drag rotates in both modes. In 2D it rotates node coordinates about the centroid;
+        in 3D it orbits the camera with unbounded azimuth so the far side is reachable.</td>
+  </tr>
+  <tr>
+    <td class="k">Filtering</td>
+    <td>The legend <em>is</em> the filter. Toggling a relationship type hides those edges and
+        dims any node left without a visible tie, so it is obvious what was filtered out
+        rather than silently thinner.</td>
+  </tr>
+  <tr>
+    <td class="k">Portraits</td>
+    <td>Wikipedia REST summaries, fetched lazily per person, cached in-memory, with a
+        monogram fallback. No portrait bytes are stored in the repo.</td>
+  </tr>
+  <tr>
+    <td class="k">i18n</td>
+    <td>Every label is a <code>{ en, ko }</code> pair resolved at render, including
+        LLM-generated summaries — the classifier writes both languages in one pass.</td>
+  </tr>
+</table>
+
+<h2>Stack</h2>
+<table>
+  <tr><th>Layer</th><th>Choice</th></tr>
+  <tr><td class="k">UI</td><td>React 18 · TypeScript 5.6 · Vite 5 · Tailwind 3</td></tr>
+  <tr><td class="k">State</td><td>Zustand — one store for graph/filters, one for UI</td></tr>
+  <tr><td class="k">Graph</td><td>react-force-graph-2d / -3d · d3-force · three.js</td></tr>
+  <tr><td class="k">Motion</td><td>Framer Motion</td></tr>
+  <tr><td class="k">Pipeline</td><td>Node 22 native TypeScript (<code>--experimental-strip-types</code>) · OpenAI SDK against NVIDIA NIM</td></tr>
+  <tr><td class="k">CI</td><td>GitHub Actions — nightly refresh, commits results back</td></tr>
+  <tr><td class="k">Tests</td><td>Playwright — 45 checks over real browser interaction</td></tr>
+</table>
+
+<footer>
+  POLARIS · MIT licensed · Relationship data is curated from public reporting and is an
+  editorial interpretation, not a neutral record.
+</footer>
+
+</div>
+</body>
+</html>

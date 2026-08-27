@@ -44,7 +44,7 @@ export const CONFIG = {
     'Associated Press', 'AP News', 'AP', 'Reuters', 'CNN', 'Fox News',
     'NBC News', 'ABC News', 'CBS News', 'NPR', 'Politico', 'The Hill',
     'Axios', 'Roll Call', 'Washington Examiner', 'Semafor',
-    'The New York Times', 'The Washington Post', 'The Wall Street Journal',
+    'The New York Times', 'The Washington Post', 'The Wall Street Journal', 'WSJ',
   ],
 
   /** 직접 수집하는 주요 방송국 RSS */
