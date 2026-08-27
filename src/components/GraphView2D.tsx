@@ -161,14 +161,35 @@ export default function GraphView2D() {
     fgRef.current?.d3Force?.('polarisCenter', createCenteringForce());
   }, []);
 
-  // 숨겨진·고립 노드까지 bbox 에 넣으면 그래프가 한쪽 구석에 작게 남는다.
-  // zoomToFit 의 nodeFilter 로 실제 보이는 노드만 기준 삼는다.
+  // 숨겨진 노드를 bbox 에 넣으면 그래프가 한쪽 구석에 작게 남는다 → 보이는 것만.
+  // 여기에 더해, 멀리 떨어진 소수의 노드까지 전부 담으려다 보면 정작 본 군집이
+  // 화면 대비 작게 잡힌다(모니터가 클수록 심하다). 중심에서 먼 상위 몇 %는
+  // 프레이밍 기준에서 빼고 본 덩어리를 화면에 채운다. 뺀 노드는 패닝으로 볼 수 있다.
+  const CORE_RATIO = 0.97;
   const fitVisible = useCallback(
-    (ms: number) =>
-      fgRef.current?.zoomToFit(ms, 80, (n) =>
-        visibleNodes.has((n as GraphNode).id)
-      ),
-    [visibleNodes]
+    (ms: number) => {
+      const fg = fgRef.current;
+      if (!fg) return;
+      const pts = graph.filter(
+        (n) => visibleNodes.has(n.id) && n.x != null && n.y != null
+      );
+      if (pts.length < 8) {
+        fg.zoomToFit(ms, 80, (n) => visibleNodes.has((n as GraphNode).id));
+        return;
+      }
+      const cx = pts.reduce((a, n) => a + n.x!, 0) / pts.length;
+      const cy = pts.reduce((a, n) => a + n.y!, 0) / pts.length;
+      const dists = pts
+        .map((n) => Math.hypot(n.x! - cx, n.y! - cy))
+        .sort((a, b) => a - b);
+      const cutoff = dists[Math.floor((dists.length - 1) * CORE_RATIO)];
+      fg.zoomToFit(ms, 70, (nRaw) => {
+        const n = nRaw as GraphNode;
+        if (!visibleNodes.has(n.id) || n.x == null || n.y == null) return false;
+        return Math.hypot(n.x - cx, n.y - cy) <= cutoff;
+      });
+    },
+    [graph, visibleNodes]
   );
 
   // 시뮬레이션이 안정되면 노드를 고정(fx/fy) — 회전이 레이아웃을 흐트러뜨리지 않도록.
