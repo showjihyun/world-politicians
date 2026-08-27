@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { Branch, Party, Politician, RelType, Relationship } from '../types';
+import { ALL_REL_TYPES, type Branch, type Party, type Politician, type RelType, type Relationship } from '../types';
 import { POLITICIANS } from '../data';
 import { STORIES } from '../data/stories';
 import { buildGraph, type Filters, type GraphLink, type GraphNode } from '../lib/graph';
@@ -47,7 +47,7 @@ const emptyFilters: Filters = {
   parties: [],
   branches: [],
   factions: [],
-  relTypes: [],
+  relTypes: [...ALL_REL_TYPES],
   strongOnly: false,
 };
 

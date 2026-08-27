@@ -87,6 +87,9 @@ export interface NewsSignal {
   classified: boolean;
 }
 
+/** 관계 유형 정본 목록 — 필터 기본값(전체 선택)의 기준 */
+export const ALL_REL_TYPES: RelType[] = ['ally', 'feud', 'bipartisan', 'family', 'mentor'];
+
 export const REL_META: Record<
   RelType,
   { label: LocalizedText; color: string; dash?: number[] }

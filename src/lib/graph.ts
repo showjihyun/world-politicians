@@ -116,7 +116,7 @@ export function isLinkVisible(
     return false;
   if (!visibleNodes.has(typeof link.target === 'string' ? link.target : (link.target as unknown as GraphNode).id))
     return false;
-  if (f.relTypes.length && !f.relTypes.includes(link.rel.type)) return false;
+  if (!f.relTypes.includes(link.rel.type)) return false;
   if (f.strongOnly && link.rel.strength < 2) return false;
   return true;
 }

@@ -4,19 +4,20 @@ import FilterPanel from './components/FilterPanel';
 import InsightsPanel from './components/InsightsPanel';
 import TimelinePanel from './components/TimelinePanel';
 import StoriesPanel from './components/StoriesPanel';
+import GraphLegend from './components/GraphLegend';
+import DataFreshness from './components/DataFreshness';
 import GraphView2D from './components/GraphView2D';
 import DetailDrawer from './components/DetailDrawer';
 import LinkPopover from './components/LinkPopover';
-import { StoryDock, StoryOverlay } from './components/StoryDock';
+import { StoryOverlay } from './components/StoryDock';
 import { useStore } from './store/useStore';
 import { useUIStore } from './store/uiStore';
 import { useI18n } from './i18n';
-import { SIGNALS_META } from './data/signals';
 
 const GraphView3D = lazy(() => import('./components/GraphView3D'));
 
 export default function App() {
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
   const sidebarOpen = useStore((s) => s.sidebarOpen);
   const setSidebarOpen = useStore((s) => s.setSidebarOpen);
   const storyIndex = useStore((s) => s.storyIndex);
@@ -34,14 +35,6 @@ export default function App() {
   }, [select]);
 
   const dockHidden = storyIndex != null;
-  const wireTime = SIGNALS_META.generatedAt
-    ? new Date(SIGNALS_META.generatedAt).toLocaleString(locale === 'ko' ? 'ko-KR' : 'en-US', {
-        month: 'short',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-      })
-    : null;
 
   return (
     <div className="relative h-dvh w-full overflow-hidden bg-ink-950 text-slate-100">
@@ -114,8 +107,21 @@ export default function App() {
       <DetailDrawer />
       <StoryOverlay />
 
+      {/* 데이터 신선도 — 프로필 드로어가 열리면 그 아래로 (z-10) */}
+      <div className="absolute bottom-3 right-3 z-10">
+        <DataFreshness />
+      </div>
+
+      {/* 범례 겸 관계 필터 — 그래프 좌측 하단 */}
+      <div
+        className={`absolute bottom-3 z-20 transition-all duration-300 ${
+          sidebarOpen ? 'left-[349px]' : 'left-3'
+        }`}
+      >
+        <GraphLegend />
+      </div>
+
       <div style={{ display: dockHidden ? 'none' : 'contents' }}>
-        <StoryDock />
         <LinkPopover />
       </div>
 
@@ -125,7 +131,7 @@ export default function App() {
         }`}
         data-testid="data-footer"
       >
-        {t.rotateGesture} · {t.dataNote} · {t.wireTitle}: {wireTime ?? '—'} ({SIGNALS_META.count})
+        {t.rotateGesture} · {t.dataNote}
       </footer>
     </div>
   );

@@ -1,56 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Compass } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useStore, STORIES } from '../store/useStore';
 import { useI18n } from '../i18n';
-
-export function StoryDock() {
-  const { t, L } = useI18n();
-  const storyIndex = useStore((s) => s.storyIndex);
-  const setStory = useStore((s) => s.setStory);
-  const active = storyIndex != null;
-
-  return (
-    <div
-      className={`pointer-events-auto absolute inset-x-0 bottom-0 z-20 transition-transform duration-500 ${
-        active ? 'translate-y-full' : 'translate-y-0'
-      }`}
-    >
-      <div className="mx-auto mb-3 max-w-[min(96vw,980px)] px-2">
-        <div className="mb-1.5 flex items-center gap-2 px-1">
-          <Compass size={11} className="text-amber-400" />
-          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
-            {t.stories}
-          </span>
-          <span className="hidden text-[10.5px] text-slate-600 sm:inline">· {t.storiesDesc}</span>
-        </div>
-        <div className="flex gap-2 overflow-x-auto pb-1 polaris-scroll" style={{ scrollbarWidth: 'thin' }}>
-          {STORIES.map((story, i) => (
-            <motion.button
-              key={story.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.06 }}
-              onClick={() => setStory(i)}
-              className="group flex w-52 shrink-0 items-start gap-2.5 rounded-xl border border-slate-400/15 bg-ink-900/85 p-3 text-left backdrop-blur-xl transition-all hover:border-amber-400/40 hover:bg-ink-850/90"
-            >
-              <span className="text-[19.5px] leading-none" aria-hidden>
-                {story.emoji}
-              </span>
-              <span className="min-w-0">
-                <span className="block truncate text-[13px] font-semibold text-slate-200 group-hover:text-white">
-                  {L(story.title)}
-                </span>
-                <span className="mt-0.5 block line-clamp-2 text-[11px] leading-snug text-slate-500">
-                  {L(story.subtitle)}
-                </span>
-              </span>
-            </motion.button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function StoryOverlay() {
   const { t, L } = useI18n();

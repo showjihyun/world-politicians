@@ -3,17 +3,15 @@ import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { FACTIONS, FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
-import { BRANCH_META, REL_META, type Branch, type Party, type RelType } from '../types';
+import { ALL_REL_TYPES, BRANCH_META, type Branch, type Party } from '../types';
 
 const PARTIES: Party[] = ['R', 'D', 'I', 'X'];
 const BRANCHES: Branch[] = ['executive', 'senate', 'house', 'governor', 'former', 'special'];
-const REL_TYPES: RelType[] = ['ally', 'feud', 'bipartisan', 'family', 'mentor'];
 
 export default function FilterPanel() {
   const { t, L } = useI18n();
   const filters = useStore((s) => s.filters);
   const toggleFilterItem = useStore((s) => s.toggleFilterItem);
-  const toggleRelType = useStore((s) => s.toggleRelType);
   const setStrongOnly = useStore((s) => s.setStrongOnly);
   const resetFilters = useStore((s) => s.resetFilters);
 
@@ -21,7 +19,7 @@ export default function FilterPanel() {
     filters.parties.length ||
     filters.branches.length ||
     filters.factions.length ||
-    filters.relTypes.length ||
+    filters.relTypes.length !== ALL_REL_TYPES.length ||
     filters.strongOnly;
 
   return (
@@ -100,22 +98,7 @@ export default function FilterPanel() {
           })}
         </div>
 
-        <div className="mb-1.5 mt-4 text-[11.5px] uppercase tracking-wider text-slate-500">
-          {t.relationships}
-        </div>
-        <div className="flex flex-wrap gap-1.5">
-          {REL_TYPES.map((rt) => {
-            const meta = REL_META[rt];
-            const active = filters.relTypes.includes(rt);
-            return (
-              <Chip key={rt} active={active} color={meta.color} onClick={() => toggleRelType(rt)}>
-                {L(meta.label)}
-              </Chip>
-            );
-          })}
-        </div>
-
-        <label className="mt-3 flex cursor-pointer items-center gap-2 text-[12.5px] text-slate-400 hover:text-slate-200">
+        <label className="mt-4 flex cursor-pointer items-center gap-2 text-[12.5px] text-slate-400 hover:text-slate-200">
           <input
             type="checkbox"
             checked={filters.strongOnly}
@@ -126,34 +109,6 @@ export default function FilterPanel() {
         </label>
       </Section>
 
-      <Section title={t.legend} icon={<span className="text-[13.5px]">◈</span>}>
-        <div className="space-y-1.5 text-[12.5px] text-slate-400">
-          {REL_TYPES.map((rt) => {
-            const meta = REL_META[rt];
-            return (
-              <div key={rt} className="flex items-center gap-2">
-                <svg width="26" height="6" className="shrink-0">
-                  <line
-                    x1="0"
-                    y1="3"
-                    x2="26"
-                    y2="3"
-                    stroke={meta.color}
-                    strokeWidth="2"
-                    strokeDasharray={meta.dash?.join(',')}
-                  />
-                </svg>
-                {L(meta.label)}
-              </div>
-            );
-          })}
-          <p className="pt-1 text-[11.5px] leading-relaxed text-slate-500">
-            · {t.edgeWidth}
-            <br />· {t.nodeSize}
-            <br />· {t.particleNote}
-          </p>
-        </div>
-      </Section>
     </div>
   );
 }

@@ -9,11 +9,18 @@ import type { NewsSignal } from '../types';
 export const SIGNALS: NewsSignal[] = ((signalsJson as { signals?: unknown[] }).signals ??
   []) as NewsSignal[];
 
+const SIGNAL_DATES = SIGNALS.map((s) => s.date)
+  .filter(Boolean)
+  .sort();
+
 /** 수집·분석 시점 메타 (화면 타임스탬프 표시용) */
 export const SIGNALS_META = {
   generatedAt: (signalsJson as { generatedAt?: string | null }).generatedAt ?? null,
   windowDays: (signalsJson as { windowDays?: number }).windowDays ?? 30,
-  count: ((signalsJson as { signals?: unknown[] }).signals ?? []).length as number,
+  count: SIGNALS.length,
+  /** 실제 수록된 기사의 날짜 범위 — 파이프라인 실행 시각과는 별개 */
+  firstDate: SIGNAL_DATES[0] ?? null,
+  lastDate: SIGNAL_DATES[SIGNAL_DATES.length - 1] ?? null,
 };
 
 export const SIGNALS_BY_PERSON = new Map<string, NewsSignal[]>();

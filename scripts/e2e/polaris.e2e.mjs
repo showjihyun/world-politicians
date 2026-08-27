@@ -126,11 +126,16 @@ async function main() {
   }
   check('ESC closes drawer', drawerClosed);
 
-  // ── 6. 스토리 투어 ──
-  await page
-    .locator('button', { hasText: 'The Mar-a-Lago Gravity Well' })
-    .last()
-    .click();
+  // ── 6. 스토리 투어 (하단 독 제거 → STORIES 탭에서 연다) ──
+  // 화면 하단을 가로지르던 스토리 독이 사라졌는지 — 사이드바 밖에는 스토리가 없어야 한다
+  check(
+    'bottom story dock removed',
+    (await page.locator('body > div > div.absolute.inset-x-0.bottom-0').count()) === 0 &&
+      (await page.locator('text=Social Phenomena').count()) === 0
+  );
+  await page.locator('button', { hasText: 'STORIES' }).click();
+  await page.waitForTimeout(400);
+  await page.locator('[data-testid=story-card]').first().click();
   await page.waitForTimeout(1400);
   check('story overlay opens', await page.locator('text=Why it matters').isVisible());
   await page.screenshot({ path: `${SHOTS}/04-story.png` });
@@ -198,7 +203,7 @@ async function main() {
   check('story opens from tab', await page.locator('text=Why it matters').isVisible());
 
   // 스토리 오버레이가 왼쪽 패널을 덮지 않아야 한다 (사이드바가 열린 상태)
-  const sidebarBox = await page.locator('aside:has-text("SOCIAL PHENOMENA")').first().boundingBox();
+  const sidebarBox = await page.locator('aside:has-text("FILTERS")').first().boundingBox();
   const overlayBox = await page.locator('aside:has-text("Why it matters")').first().boundingBox();
   const overlaps =
     sidebarBox && overlayBox &&
@@ -294,10 +299,45 @@ async function main() {
   // ── 11. 콘솔 에러 + 데이터 시점 표시 ──
   const benign = /favicon|net::ERR_|googleapis|gstatic|jsdelivr|ERR_ABORTED|wikipedia/i;
   const hardConsole = consoleErrors.filter((e) => !benign.test(e));
+  // 내장 툴팁이 LocalizedText 객체를 그대로 찍던 버그 회귀 방지
+  check(
+    'no [object Object] leaked to the UI',
+    !(await page.locator('body').innerText()).includes('[object Object]')
+  );
   check('zero page errors', pageErrors.length === 0, pageErrors.slice(0, 2).join(' | '));
   check('zero hard console errors', hardConsole.length === 0, hardConsole.slice(0, 2).join(' | ').slice(0, 160));
-  const footerText = await page.locator('[data-testid=data-footer]').innerText();
-  check('data timestamp shown', /\d{1,2}:\d{2}/.test(footerText) && /Wire/i.test(footerText), footerText.slice(0, 90));
+  // 데이터 수집기간 배지 (우측 하단)
+  const freshText = await page.locator('[data-testid=data-freshness]').innerText();
+  check(
+    'data coverage badge shown',
+    /Data coverage/i.test(freshText) && /\d{1,2}\/\d{1,2}\s*→\s*\d{1,2}\/\d{1,2}/.test(freshText),
+    freshText.replace(/\n/g, ' | ').slice(0, 90)
+  );
+  check('coverage shows update age', /Updated/i.test(freshText) && /signals/i.test(freshText));
+
+  // 범례 토글이 실제로 링크를 필터링하는지
+  check('legend on graph', (await page.locator('[data-testid=graph-legend]').count()) === 1);
+  check(
+    'legend defaults all on',
+    (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 5
+  );
+  check(
+    'legend removed from FILTERS',
+    (await page.locator('aside [data-testid=graph-legend]').count()) === 0
+  );
+  await page.locator('[data-testid=legend-ally]').click();
+  await page.waitForTimeout(500);
+  check(
+    'legend toggle turns a type off',
+    (await page.locator('[data-testid=legend-ally]').getAttribute('aria-pressed')) === 'false' &&
+      (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 4
+  );
+  await page.locator('[data-testid=legend-ally]').click();
+  await page.waitForTimeout(300);
+  check(
+    'legend toggle restores',
+    (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 5
+  );
 
   await browser.close();
 

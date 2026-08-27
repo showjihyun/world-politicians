@@ -47,7 +47,8 @@ export default function GraphView2D() {
 
   const { locale } = useI18n();
   const langMode = useUIStore((s) => s.langMode);
-  const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
+  const { visibleNodes, visibleLinks, visibleLinkIds, linkedNodes, relFilterActive } =
+    useVisibleGraph();
 
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
@@ -222,7 +223,9 @@ export default function GraphView2D() {
     const id = node.id;
     const dimmed =
       focusActive && !(id === hoveredId || id === selectedId || neighborSet.has(id));
-    const alpha = dimmed ? 0.08 : node.status === 'legacy' ? 0.85 : 1;
+    // 범례에서 관계 유형을 끄면 남은 관계가 없는 노드는 어둡게 — 무엇이 걸러졌는지 보이게
+    const relDimmed = relFilterActive && !linkedNodes.has(id);
+    const alpha = dimmed ? 0.08 : relDimmed ? 0.16 : node.status === 'legacy' ? 0.85 : 1;
     const r = 4 + node.prominence * 1.15;
     const x = node.x ?? 0;
     const y = node.y ?? 0;
@@ -311,6 +314,7 @@ export default function GraphView2D() {
         height={size.h}
         graphData={data}
         backgroundColor="rgba(0,0,0,0)"
+        nodeLabel={() => ''}
         nodeVisibility={(nRaw) => visibleNodes.has((nRaw as unknown as GraphNode).id)}
         nodeRelSize={4}
         nodeCanvasObject={(nodeRaw, ctx, globalScale) => {

@@ -10,12 +10,14 @@ import { useVisibleGraph } from '../hooks/useVisibleGraph';
 import { createCenteringForce } from '../lib/graph';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
+type Vec3 = { x: number; y: number; z: number };
+
 type FG3 = {
-  cameraPosition: (
-    pos: { x: number; y: number; z: number },
-    lookAt?: { x: number; y: number; z: number },
-    ms?: number
-  ) => void;
+  /** 인자 없이 부르면 현재 카메라 위치를 돌려준다 (궤도 회전에 필요) */
+  cameraPosition: {
+    (): Vec3;
+    (pos: Vec3, lookAt?: Vec3, ms?: number): void;
+  };
   zoomToFit: (ms?: number, px?: number) => void;
   d3Force: (name: string, force?: unknown) => unknown;
 } | null;
@@ -80,7 +82,8 @@ export default function GraphView3D() {
   const hover = useStore((s) => s.hover);
 
   const { locale } = useI18n();
-  const { visibleNodes, visibleLinks, visibleLinkIds } = useVisibleGraph();
+  const { visibleNodes, visibleLinks, visibleLinkIds, linkedNodes, relFilterActive } =
+    useVisibleGraph();
 
   useEffect(() => {
     const el = wrapRef.current;
@@ -91,6 +94,10 @@ export default function GraphView3D() {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  // 엔진이 멈출 때마다 맞추면 사용자가 돌려놓은 카메라가 그때마다 되감긴다.
+  // (뒷면을 보려고 돌려도 원래 각도로 튕겨 돌아온다) 최초 한 번만 맞춘다.
+  const didFitRef = useRef(false);
 
   const data = useMemo(
     () => ({
@@ -103,8 +110,86 @@ export default function GraphView3D() {
   // 고정 타이머로 맞추면 아직 퍼지는 중인 좌표에 맞춰진다 — 엔진이 멈춘 뒤 맞춘다.
   // (타이머는 엔진이 멈추지 않는 경우의 안전망)
   useEffect(() => {
-    const t = setTimeout(() => fgRef.current?.zoomToFit(900, 90), 5000);
+    const t = setTimeout(() => {
+      if (didFitRef.current) return;
+      didFitRef.current = true;
+      fgRef.current?.zoomToFit(900, 90);
+    }, 5000);
     return () => clearTimeout(t);
+  }, []);
+
+  // Ctrl(⌘) + 좌클릭 드래그로 카메라 궤도 회전.
+  // 기본 TrackballControls 만으로는 원하는 각도까지 돌리기 어려워 뒷면을 보기 힘들다.
+  // 그래프 중심을 기준으로 방위각(azimuth)을 무제한으로 돌려 뒷면까지 닿게 하고,
+  // 고도각(polar)은 극점 직전까지만 — 극을 넘기면 상하가 뒤집혀 방향 감각을 잃는다.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    let last: { x: number; y: number } | null = null;
+
+    const rotating = (e: PointerEvent) => e.ctrlKey || e.metaKey;
+
+    const onDown = (e: PointerEvent) => {
+      if (!rotating(e) || e.button !== 0) return;
+      e.stopPropagation();
+      e.preventDefault();
+      last = { x: e.clientX, y: e.clientY };
+      el.setPointerCapture?.(e.pointerId);
+      document.body.style.cursor = 'grabbing';
+    };
+
+    const onMove = (e: PointerEvent) => {
+      if (!last) return;
+      e.stopPropagation();
+      e.preventDefault();
+      const fg = fgRef.current;
+      if (!fg?.cameraPosition) return;
+
+      const dx = e.clientX - last.x;
+      const dy = e.clientY - last.y;
+      last = { x: e.clientX, y: e.clientY };
+
+      const c = fg.cameraPosition();
+      const radius = Math.hypot(c.x, c.y, c.z);
+      if (!radius) return;
+
+      // 현재 카메라를 구면 좌표로 → 델타 적용 → 다시 직교 좌표
+      let azimuth = Math.atan2(c.z, c.x);
+      let polar = Math.acos(Math.min(1, Math.max(-1, c.y / radius)));
+
+      const K = 0.006;
+      azimuth -= dx * K;
+      polar -= dy * K;
+
+      const EPS = 0.02;
+      polar = Math.min(Math.PI - EPS, Math.max(EPS, polar));
+
+      const sinP = Math.sin(polar);
+      fg.cameraPosition({
+        x: radius * sinP * Math.cos(azimuth),
+        y: radius * Math.cos(polar),
+        z: radius * sinP * Math.sin(azimuth),
+      });
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (!last) return;
+      last = null;
+      el.releasePointerCapture?.(e.pointerId);
+      document.body.style.cursor = 'default';
+    };
+
+    el.addEventListener('pointerdown', onDown, true);
+    el.addEventListener('pointermove', onMove, true);
+    el.addEventListener('pointerup', onUp, true);
+    el.addEventListener('pointercancel', onUp, true);
+    return () => {
+      el.removeEventListener('pointerdown', onDown, true);
+      el.removeEventListener('pointermove', onMove, true);
+      el.removeEventListener('pointerup', onUp, true);
+      el.removeEventListener('pointercancel', onUp, true);
+    };
   }, []);
 
   // 2D 와 같은 규칙으로 레이아웃을 모아둔다 (lib/graph 의 공용 힘)
@@ -136,6 +221,7 @@ export default function GraphView3D() {
   // 선택 강조는 재생성 대신 캐시된 halo 머티리얼을 그 자리에서 수정한다.
   const cacheRef = useRef(new Map<string, THREE.Group>());
   const haloRef = useRef(new Map<string, THREE.Mesh>());
+  const coreRef = useRef(new Map<string, THREE.Mesh>());
   const labelRef = useRef(new Map<string, { sprite: THREE.Sprite; always: boolean }>());
   const cacheTagRef = useRef('');
 
@@ -147,6 +233,7 @@ export default function GraphView3D() {
         cacheRef.current.forEach(disposeNodeObject);
         cacheRef.current.clear();
         haloRef.current.clear();
+        coreRef.current.clear();
         labelRef.current.clear();
         cacheTagRef.current = tag;
       }
@@ -166,6 +253,7 @@ export default function GraphView3D() {
         })
       );
       core.scale.setScalar(r);
+      core.userData.baseOpacity = n.status === 'legacy' ? 0.55 : 0.92;
       group.add(core);
 
       const halo = new THREE.Mesh(
@@ -189,6 +277,7 @@ export default function GraphView3D() {
 
       cacheRef.current.set(n.id, group);
       haloRef.current.set(n.id, halo);
+      coreRef.current.set(n.id, core);
       labelRef.current.set(n.id, { sprite: label, always: n.prominence >= 8 });
       return group;
     },
@@ -224,6 +313,13 @@ export default function GraphView3D() {
     []
   );
   const linkParticleSpeedFn = useCallback(() => 0.006, []);
+  const nodeLabelFn = useCallback(
+    (nRaw: unknown) => {
+      const n = nRaw as GraphNode;
+      return locale === 'ko' ? n.name.ko : n.name.en;
+    },
+    [locale]
+  );
   const onNodeClickFn = useCallback(
     (nRaw: unknown) => select((nRaw as GraphNode).id),
     [select]
@@ -236,7 +332,11 @@ export default function GraphView3D() {
     [hover]
   );
   const onBackgroundClickFn = useCallback(() => select(null), [select]);
-  const onEngineStopFn = useCallback(() => fgRef.current?.zoomToFit(700, 90), []);
+  const onEngineStopFn = useCallback(() => {
+    if (didFitRef.current) return;
+    didFitRef.current = true;
+    fgRef.current?.zoomToFit(700, 90);
+  }, []);
 
   // 선택 강조: 오브젝트를 다시 만들지 않고 머티리얼만 갱신
   useEffect(() => {
@@ -250,6 +350,20 @@ export default function GraphView3D() {
       l.sprite.visible = l.always || id === selectedId;
     });
   }, [selectedId]);
+
+  // 범례 필터로 걸러진 노드는 어둡게 — 2D 의 dim 과 같은 규칙
+  useEffect(() => {
+    coreRef.current.forEach((core, id) => {
+      const mat = core.material as THREE.MeshBasicMaterial;
+      const base = core.userData.baseOpacity as number;
+      mat.opacity = relFilterActive && !linkedNodes.has(id) ? 0.12 : base;
+    });
+    haloRef.current.forEach((halo, id) => {
+      if (id === selectedId) return;
+      const mat = halo.material as THREE.MeshBasicMaterial;
+      mat.opacity = relFilterActive && !linkedNodes.has(id) ? 0.02 : 0.1;
+    });
+  }, [relFilterActive, linkedNodes, selectedId]);
 
   // 언마운트 시 캐시된 GPU 자원 해제
   useEffect(() => {
@@ -270,6 +384,7 @@ export default function GraphView3D() {
         graphData={data as never}
         backgroundColor="rgba(0,0,0,0)"
         showNavInfo={false}
+        nodeLabel={nodeLabelFn}
         nodeVisibility={nodeVisibilityFn}
         nodeRelSize={5}
         nodeThreeObject={nodeThreeObject}
