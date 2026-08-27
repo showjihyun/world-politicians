@@ -23,7 +23,22 @@ export default function App() {
   const storyIndex = useStore((s) => s.storyIndex);
   const select = useStore((s) => s.select);
   const langMode = useUIStore((s) => s.langMode);
+  const graph = useStore((s) => s.graph);
+  const selectedId = useStore((s) => s.selectedId);
   const [tab, setTab] = useState<'filters' | 'insights' | 'analysis' | 'stories'>('filters');
+
+  // 첫 진입 시 관계가 가장 많은 인물을 자동 선택 — 빈 화면 대신 바로 읽을 거리를 준다.
+  // 이 시점엔 노드 좌표가 아직 없어서 GraphView 의 카메라 이동 이펙트는 no-op 이고,
+  // 레이아웃이 끝난 뒤 zoomToFit 이 평소대로 전체를 잡는다.
+  useEffect(() => {
+    let top: (typeof graph)[number] | null = null;
+    for (const n of graph) {
+      if (n.degree > 0 && (!top || n.degree > top.degree)) top = n;
+    }
+    if (top) select(top.id);
+    // 최초 1회만 — 이후 사용자의 선택을 덮어쓰지 않는다
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -107,8 +122,12 @@ export default function App() {
       <DetailDrawer />
       <StoryOverlay />
 
-      {/* 데이터 신선도 — 프로필 드로어가 열리면 그 아래로 (z-10) */}
-      <div className="absolute bottom-3 right-3 z-10">
+      {/* 데이터 신선도 — 첫 화면부터 프로필이 열려 있으므로 드로어를 피해 왼쪽으로 비킨다 */}
+      <div
+        className={`absolute bottom-3 z-10 transition-all duration-300 ${
+          selectedId ? 'right-[416px]' : 'right-3'
+        }`}
+      >
         <DataFreshness />
       </div>
 

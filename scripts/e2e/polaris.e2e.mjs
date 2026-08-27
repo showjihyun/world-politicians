@@ -64,6 +64,14 @@ async function main() {
   await page.waitForTimeout(2800);
 
   check('app mounts', (await page.locator('#root > *').count()) > 0);
+
+  // 첫 진입 시 관계가 가장 많은 인물이 자동 선택된다
+  const autoName = await page
+    .locator('aside h2')
+    .first()
+    .innerText()
+    .catch(() => '');
+  check('auto-selects most connected figure', autoName.trim().length > 0, autoName.trim());
   check('graph canvas rendered', (await page.locator('canvas').count()) >= 1);
   await page.screenshot({ path: `${SHOTS}/01-initial.png` });
 
@@ -314,6 +322,20 @@ async function main() {
     freshText.replace(/\n/g, ' | ').slice(0, 90)
   );
   check('coverage shows update age', /Updated/i.test(freshText) && /signals/i.test(freshText));
+  // 첫 화면부터 프로필이 열려 있으므로 배지가 드로어에 가리면 안 된다
+  await page.getByPlaceholder('Search politicians…').fill('trump');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'Donald' }).first().click();
+  await page.waitForTimeout(900);
+  const drawerBox2 = await page.locator('aside:has-text("47th President")').first().boundingBox();
+  const badgeBox = await page.locator('[data-testid=data-freshness]').boundingBox();
+  check(
+    'coverage badge clears the drawer',
+    !!drawerBox2 && !!badgeBox && badgeBox.x + badgeBox.width <= drawerBox2.x + 1,
+    `badge ends ${badgeBox ? Math.round(badgeBox.x + badgeBox.width) : '?'}, drawer starts ${drawerBox2 ? Math.round(drawerBox2.x) : '?'}`
+  );
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(500);
 
   // 범례 토글이 실제로 링크를 필터링하는지
   check('legend on graph', (await page.locator('[data-testid=graph-legend]').count()) === 1);
