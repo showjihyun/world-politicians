@@ -4,6 +4,12 @@
 
 101 figures. 266 curated relationships. A nightly pipeline that reads the political press, asks an LLM who just fell out with whom, and folds the answer into a rolling one-year archive. Fully bilingual (English / 한국어). No backend — the whole thing is static files.
 
+### ▶ **[Try it live](https://showjihyun.github.io/world-politicians/)** · [Architecture](https://showjihyun.github.io/world-politicians/architecture.html) · [Source](https://github.com/showjihyun/world-politicians)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Nightly news pipeline](https://img.shields.io/badge/news-refreshed%20nightly-34d399)
+![E2E](https://img.shields.io/badge/E2E-45%20checks-22d3ee)
+
 ![POLARIS demo](docs/demo.gif)
 
 > **[English](#english)** · **[한국어](#한국어)**
@@ -64,7 +70,7 @@ flowchart TB
     W["Wikipedia REST<br/>portraits, lazy"] -. client-side .-> K
 ```
 
-**Full technical write-up:** [`docs/architecture.html`](docs/architecture.html) — pipeline stages, rendering decisions, and the performance work, with diagrams. *(GitHub shows HTML as source; open it locally, or enable GitHub Pages on this repo to view it rendered.)*
+**Full technical write-up:** **[Architecture &amp; Data Flow](https://showjihyun.github.io/world-politicians/architecture.html)** — pipeline stages, rendering decisions, and the performance work, with diagrams. *(Source: [`docs/architecture.html`](docs/architecture.html) — GitHub renders it as source, so use the link above.)*
 
 The short version:
 
@@ -96,6 +102,8 @@ Portraits and biography links come from the **Wikipedia REST API**, fetched lazi
 
 ### Running it
 
+The dataset is committed, so the app runs with no API key and no network setup:
+
 ```bash
 npm install
 npm run dev          # http://localhost:5173
@@ -122,9 +130,27 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 - **The LLM classifier is not a fact-checker.** It reads headlines and summaries, not full articles, and it is wrong sometimes. Polarity is a signal, not a verdict.
 - **Coverage skews to national English-language press**, and therefore toward the figures that press covers most.
 
+### Deploying
+
+The build is a static bundle, so anything that serves files will do. Two paths are wired up:
+
+- **GitHub Pages** — `.github/workflows/pages.yml` builds on every push to `main` and
+  publishes the app plus the architecture page. One-time setup: repo *Settings → Pages →
+  Source → GitHub Actions*. The workflow sets `PAGES_BASE` so assets resolve under the
+  `/world-politicians/` sub-path.
+- **Vercel** — `vercel.json` is committed. Import the repo and accept the defaults; it
+  builds with `npm run build`, copies the docs into `dist/`, and serves from the domain
+  root (no base path needed). Immutable caching on `/assets/*`.
+
+### Found an edge that's wrong?
+
+Very possible — see the caveats above. Open an issue with the two people, what the edge
+currently claims, and a link to reporting that contradicts it. Corrections to
+`src/data/relationships.ts` are the most useful contribution to this repo.
+
 ### Stack
 
-React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · Node 22 native TypeScript for the pipeline · GitHub Actions
+React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · Node 22 native TypeScript for the pipeline · GitHub Actions · deployed to GitHub Pages
 
 ### License
 
@@ -154,7 +180,9 @@ MIT — see [LICENSE](LICENSE).
 
 ### 동작 방식
 
-전체 기술 문서: [`docs/architecture.html`](docs/architecture.html) — 파이프라인 단계, 렌더링 결정, 성능 개선 내역을 다이어그램과 함께. *(GitHub는 HTML을 소스로 보여줍니다. 로컬에서 열거나 저장소에 GitHub Pages를 켜면 렌더링된 화면을 볼 수 있습니다.)*
+**바로 보기: [https://showjihyun.github.io/world-politicians/](https://showjihyun.github.io/world-politicians/)**
+
+전체 기술 문서: **[아키텍처 &amp; 데이터 흐름](https://showjihyun.github.io/world-politicians/architecture.html)** — 파이프라인 단계, 렌더링 결정, 성능 개선 내역을 다이어그램과 함께. *(원본은 [`docs/architecture.html`](docs/architecture.html) 이며, GitHub 에서는 소스로만 보이니 위 링크를 이용하세요.)*
 
 요약하면:
 
@@ -186,6 +214,8 @@ MIT — see [LICENSE](LICENSE).
 
 ### 실행
 
+데이터셋이 저장소에 함께 들어 있어, API 키나 별도 설정 없이 바로 실행됩니다.
+
 ```bash
 npm install
 npm run dev          # http://localhost:5173
@@ -212,9 +242,27 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 - **LLM 분류기는 팩트체커가 아닙니다.** 본문이 아니라 제목과 요약을 읽고, 틀릴 때가 있습니다. 극성은 신호이지 판정이 아닙니다.
 - **커버리지는 전국 단위 영어 매체에 치우쳐** 있고, 따라서 그 매체들이 많이 다루는 인물에 치우칩니다.
 
+### 배포
+
+빌드 결과가 정적 번들이라 파일만 서빙하면 어디든 올라갑니다. 두 경로를 준비해 뒀습니다.
+
+- **GitHub Pages** — `.github/workflows/pages.yml` 이 `main` 푸시마다 앱과 아키텍처
+  문서를 함께 배포합니다. 최초 1회 저장소 *Settings → Pages → Source → GitHub Actions*
+  설정이 필요합니다. 워크플로가 `PAGES_BASE` 를 넘겨 `/world-politicians/` 하위 경로에서
+  자산이 해석되도록 합니다.
+- **Vercel** — `vercel.json` 이 들어 있습니다. 저장소를 import 하고 기본값 그대로 두면
+  `npm run build` 후 문서를 `dist/` 로 복사해 도메인 루트에서 서빙합니다(베이스 경로 불필요).
+  `/assets/*` 는 immutable 캐시.
+
+### 틀린 관계를 발견하셨다면
+
+충분히 있을 수 있는 일입니다(위 한계 참고). 두 인물, 현재 엣지가 주장하는 내용,
+그리고 그와 배치되는 보도 링크를 이슈로 올려 주세요. `src/data/relationships.ts` 의
+수정 제안이 이 저장소에 가장 도움이 되는 기여입니다.
+
 ### 기술 스택
 
-React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · 파이프라인은 Node 22 네이티브 TypeScript · GitHub Actions
+React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · 파이프라인은 Node 22 네이티브 TypeScript · GitHub Actions · 배포는 GitHub Pages
 
 ### 라이선스
 

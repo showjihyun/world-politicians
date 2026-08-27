@@ -1,0 +1,60 @@
+name: pages
+
+# 앱과 기술 문서를 함께 GitHub Pages 로 배포.
+#   /                    → POLARIS 앱
+#   /architecture.html   → 아키텍처 문서
+# 최초 1회 저장소 Settings → Pages → Source 를 "GitHub Actions" 로 바꿔야 동작한다.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# 야간 뉴스 갱신 커밋이 배포를 연달아 트리거해도 마지막 것만 살린다
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build app
+        env:
+          PAGES_BASE: /${{ github.event.repository.name }}/
+        run: npm run build
+
+      - name: Add docs alongside the app
+        run: cp docs/architecture.html docs/demo.gif dist/
+
+      # SPA 는 아니지만, 잘못된 경로로 들어와도 앱이 뜨도록 404 를 index 로
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
