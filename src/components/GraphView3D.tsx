@@ -303,11 +303,16 @@ export default function GraphView3D() {
     (lRaw: unknown) => 0.4 + (lRaw as unknown as GraphLink).rel.strength * 0.6,
     []
   );
-  // 2D 와 같은 규칙 — 모든 링크에 입자를 흘리면 프레임마다 메시가 그만큼 늘어난다
-  const linkParticlesFn = useCallback((lRaw: unknown) => {
-    const l = lRaw as unknown as GraphLink;
-    return l.rel.type === 'feud' ? 2 : l.rel.strength >= 3 ? 1 : 0;
-  }, []);
+  // 2D 와 같은 규칙 — 모든 링크에 입자를 흘리면 프레임마다 메시가 그만큼 늘어나고,
+  // 노드를 골랐을 때 전체가 흐르면 무엇이 선택됐는지 오히려 읽기 어렵다.
+  const linkParticlesFn = useCallback(
+    (lRaw: unknown) => {
+      const l = lRaw as unknown as GraphLink;
+      if (selectedId && l.rel.a !== selectedId && l.rel.b !== selectedId) return 0;
+      return l.rel.type === 'feud' ? 2 : l.rel.strength >= 3 ? 1 : 0;
+    },
+    [selectedId]
+  );
   const linkParticleWidthFn = useCallback(
     (lRaw: unknown) => 1.6 + (lRaw as unknown as GraphLink).rel.strength,
     []

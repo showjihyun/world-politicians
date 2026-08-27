@@ -221,6 +221,12 @@ export default function GraphView2D() {
   }, [hoveredId, selectedId, adjacency]);
 
   const focusActive = hoveredId != null || selectedId != null;
+  /** 링크가 지금 주목 중인 노드(hover/선택)에 붙어 있는가 */
+  const touchesFocus = (l: GraphLink) =>
+    sid(l.source) === hoveredId ||
+    sid(l.source) === selectedId ||
+    sid(l.target) === hoveredId ||
+    sid(l.target) === selectedId;
 
   const nodeColorOf = (node: GraphNode): string =>
     colorMode === 'party'
@@ -352,14 +358,7 @@ export default function GraphView2D() {
         linkColor={(lRaw) => {
           const l = lRaw as unknown as GraphLink;
           if (l.id === selectedLinkId) return '#ffffff';
-          if (focusActive) {
-            const touch =
-              sid(l.source) === hoveredId ||
-              sid(l.source) === selectedId ||
-              sid(l.target) === hoveredId ||
-              sid(l.target) === selectedId;
-            if (!touch) return 'rgba(148,163,184,0.05)';
-          }
+          if (focusActive && !touchesFocus(l)) return 'rgba(148,163,184,0.05)';
           return REL_META[l.rel.type].color + 'b3';
         }}
         linkWidth={(lRaw) => {
@@ -371,6 +370,9 @@ export default function GraphView2D() {
         linkVisibility={(lRaw) => visibleLinkIds.has((lRaw as unknown as GraphLink).id)}
         linkDirectionalParticles={(lRaw) => {
           const l = lRaw as unknown as GraphLink;
+          // 노드를 고르면 그 노드에 붙은 엣지에만 입자를 흘린다.
+          // 전체가 흐르면 무엇이 선택됐는지 오히려 읽기 어렵다.
+          if (focusActive && !touchesFocus(l)) return 0;
           return l.rel.type === 'feud' ? 2 + l.rel.strength : l.rel.strength - 1;
         }}
         linkDirectionalParticleSpeed={() => 0.006}
