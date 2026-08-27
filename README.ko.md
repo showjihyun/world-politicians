@@ -6,7 +6,9 @@
 
 101명, 266개의 큐레이션된 관계. 매일 밤 정치 기사를 읽고 누가 누구와 틀어졌는지 LLM에게 물어, 그 답을 1년치 롤링 아카이브에 쌓는 파이프라인. 영어·한국어 완전 지원. 백엔드 없음 — 전부 정적 파일입니다.
 
-### ▶ **[바로 보기](https://showjihyun.github.io/world-politicians/)** · [아키텍처](https://showjihyun.github.io/world-politicians/architecture.html) · [소스](https://github.com/showjihyun/world-politicians)
+### ▶ **[바로 보기](https://world-politicians.vercel.app/)** · [아키텍처](https://world-politicians.vercel.app/architecture) · [소스](https://github.com/showjihyun/world-politicians)
+
+> **[world-politicians.vercel.app](https://world-politicians.vercel.app/)** 에서 바로 열립니다 — 가입 없이, 모바일에서도.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Nightly news pipeline](https://img.shields.io/badge/news-refreshed%20nightly-34d399)
@@ -68,7 +70,7 @@ flowchart TB
     W["Wikipedia REST<br/>인물 사진, 지연 로딩"] -. 클라이언트 .-> K
 ```
 
-전체 기술 문서: **[아키텍처 &amp; 데이터 흐름](https://showjihyun.github.io/world-politicians/architecture.html)** — 파이프라인 단계, 렌더링 결정, 성능 개선 내역을 다이어그램과 함께. *(원본은 [`docs/architecture.html`](docs/architecture.html) 이며, GitHub 에서는 소스로만 보이니 위 링크를 이용하세요.)*
+전체 기술 문서: **[아키텍처 &amp; 데이터 흐름](https://world-politicians.vercel.app/architecture)** — 파이프라인 단계, 렌더링 결정, 성능 개선 내역을 다이어그램과 함께. *(원본은 [`docs/architecture.html`](docs/architecture.html) 이며, GitHub 에서는 소스로만 보이니 위 링크를 이용하세요.)*
 
 요약하면:
 
@@ -136,9 +138,10 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   문서를 함께 배포합니다. 최초 1회 저장소 *Settings → Pages → Source → GitHub Actions*
   설정이 필요합니다. 워크플로가 `PAGES_BASE` 를 넘겨 `/world-politicians/` 하위 경로에서
   자산이 해석되도록 합니다.
-- **Vercel** — `vercel.json` 이 들어 있습니다. 저장소를 import 하고 기본값 그대로 두면
-  `npm run build` 후 문서를 `dist/` 로 복사해 도메인 루트에서 서빙합니다(베이스 경로 불필요).
-  `/assets/*` 는 immutable 캐시.
+- **Vercel** — *현재 [world-politicians.vercel.app](https://world-politicians.vercel.app/) 로 서비스 중입니다.* `vercel.json` 이
+  들어 있어 저장소를 import 하고 기본값 그대로 두면 됩니다. `npm run build` 후 문서를 `dist/` 로
+  복사해 도메인 루트에서 서빙합니다(베이스 경로 불필요). `/assets/*` 는 immutable 캐시이고,
+  `cleanUrls` 가 `.html` 을 떼므로 주소는 `/architecture` 입니다.
 
 ### 틀린 관계를 발견하셨다면
 

@@ -6,7 +6,9 @@
 
 101 figures. 266 curated relationships. A nightly pipeline that reads the political press, asks an LLM who just fell out with whom, and folds the answer into a rolling one-year archive. Fully bilingual (English / 한국어). No backend — the whole thing is static files.
 
-### ▶ **[Try it live](https://showjihyun.github.io/world-politicians/)** · [Architecture](https://showjihyun.github.io/world-politicians/architecture.html) · [Source](https://github.com/showjihyun/world-politicians)
+### ▶ **[Try it live](https://world-politicians.vercel.app/)** · [Architecture](https://world-politicians.vercel.app/architecture) · [Source](https://github.com/showjihyun/world-politicians)
+
+> Live at **[world-politicians.vercel.app](https://world-politicians.vercel.app/)** — no signup, works on mobile.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Nightly news pipeline](https://img.shields.io/badge/news-refreshed%20nightly-34d399)
@@ -68,7 +70,7 @@ flowchart TB
     W["Wikipedia REST<br/>portraits, lazy"] -. client-side .-> K
 ```
 
-**Full technical write-up:** **[Architecture &amp; Data Flow](https://showjihyun.github.io/world-politicians/architecture.html)** — pipeline stages, rendering decisions, and the performance work, with diagrams. *(Source: [`docs/architecture.html`](docs/architecture.html) — GitHub renders it as source, so use the link above.)*
+**Full technical write-up:** **[Architecture &amp; Data Flow](https://world-politicians.vercel.app/architecture)** — pipeline stages, rendering decisions, and the performance work, with diagrams. *(Source: [`docs/architecture.html`](docs/architecture.html) — GitHub renders it as source, so use the link above.)*
 
 The short version:
 
@@ -136,9 +138,10 @@ The build is a static bundle, so anything that serves files will do. Two paths a
   publishes the app plus the architecture page. One-time setup: repo *Settings → Pages →
   Source → GitHub Actions*. The workflow sets `PAGES_BASE` so assets resolve under the
   `/world-politicians/` sub-path.
-- **Vercel** — `vercel.json` is committed. Import the repo and accept the defaults; it
-  builds with `npm run build`, copies the docs into `dist/`, and serves from the domain
-  root (no base path needed). Immutable caching on `/assets/*`.
+- **Vercel** — *currently live at [world-politicians.vercel.app](https://world-politicians.vercel.app/).* `vercel.json` is
+  committed: import the repo and accept the defaults. It builds with `npm run build`, copies
+  the docs into `dist/`, and serves from the domain root (no base path needed). Immutable
+  caching on `/assets/*`, and `cleanUrls` drops the `.html` (hence `/architecture`).
 
 ### Found an edge that's wrong?
 
