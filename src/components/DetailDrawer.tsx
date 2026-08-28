@@ -143,6 +143,8 @@ export default function DetailDrawer() {
             </button>
           </div>
 
+          {/* 헤더만 고정하고 나머지는 전부 스크롤 — 화면이 낮아도 아래가 잘리지 않는다 */}
+          <div className="min-h-0 flex-1 overflow-y-auto polaris-scroll" data-testid="drawer-scroll">
           {person && (
             <div className="flex flex-wrap gap-1.5 px-4 pb-2.5" data-testid="profile-links">
               {site && (
@@ -239,7 +241,7 @@ export default function DetailDrawer() {
             </div>
           )}
 
-          <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-4 polaris-scroll">
+          <div className="px-4 pb-4">
             {(['feud', 'ally', 'bipartisan', 'family', 'mentor'] as RelType[]).map((type) => {
               const rows = grouped[type];
               if (!rows?.length) return null;
@@ -329,6 +331,7 @@ export default function DetailDrawer() {
                 </div>
               );
             })}
+          </div>
           </div>
         </motion.aside>
       )}

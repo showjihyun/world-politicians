@@ -120,6 +120,39 @@ async function main() {
   await page.locator('[data-testid=track-btn]').click();
   await page.waitForTimeout(300);
   check('track toggles on', (await page.locator('[data-testid=track-btn]').getAttribute('title')) === 'Tracking');
+  // 패널이 화면 안에 들어오고, 스크롤 영역이 실제로 확보되는가.
+  // 예전엔 헤더·링크·미터가 857px 를 먹어 스크롤 영역이 16px 로 눌려
+  // 아래 내용을 볼 수 없었다.
+  const panelFit = await page.evaluate(() => {
+    const pick = (txt) => [...document.querySelectorAll('aside')].find((a) => a.textContent?.includes(txt));
+    const measure = (el, sel) => {
+      if (!el) return null;
+      const sc = el.querySelector(sel);
+      if (!sc) return null;
+      const b = el.getBoundingClientRect();
+      const s = sc.getBoundingClientRect();
+      return {
+        ratio: s.height / b.height,
+        overflows: b.bottom > window.innerHeight + 1,
+        scrollable: sc.scrollHeight > sc.clientHeight,
+      };
+    };
+    return {
+      right: measure(pick('47th President'), '[data-testid=drawer-scroll]'),
+      left: measure(pick('FILTERS'), '.polaris-scroll'),
+    };
+  });
+  check(
+    'right panel fits the viewport',
+    !!panelFit.right && !panelFit.right.overflows,
+    JSON.stringify(panelFit.right)
+  );
+  check(
+    'right panel body actually scrolls',
+    !!panelFit.right && panelFit.right.ratio > 0.5 && panelFit.right.scrollable,
+    `ratio ${panelFit.right ? panelFit.right.ratio.toFixed(2) : '?'}`
+  );
+  check('left panel fits the viewport', !!panelFit.left && !panelFit.left.overflows);
   await page.screenshot({ path: `${SHOTS}/03-drawer.png` });
 
   // ── 4b. 관계 근거 — "어떻게 아느냐" 에 답이 있는가 ──
