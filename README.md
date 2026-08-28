@@ -126,7 +126,8 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 
 ### Honest caveats
 
-- **The relationship data is editorial.** Those 266 edges are hand-curated from public reporting. Someone else reading the same coverage would draw a different graph. Treat it as an argument, not a record.
+- **The relationship data is editorial.** Those 266 edges are hand-curated from public reporting. Someone else reading the same coverage would draw a different graph. Treat it as an argument, not a record. Every edge now carries its own evidence panel — click the document icon on any relationship to see the articles behind it, or to see that there aren't any.
+- **Auto-collected sources are co-mentions, not citations.** The evidence attached to each edge was gathered by searching for articles naming both people. That means an article can appear under an edge without actually supporting it. They are labelled as such in the UI. Promoting a candidate to a real citation is a manual step, and most edges haven't had it yet.
 - **The LLM classifier is not a fact-checker.** It reads headlines and summaries, not full articles, and it is wrong sometimes. Polarity is a signal, not a verdict.
 - **Coverage skews to national English-language press**, and therefore toward the figures that press covers most.
 

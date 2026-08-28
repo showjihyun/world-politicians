@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink } from 'lucide-react';
+import { X, ExternalLink, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
-import { SIGNAL_BY_PAIR } from '../data/signals';
+import { useRelSources } from '../lib/sources';
 import { REL_META } from '../types';
 
 export default function LinkPopover() {
@@ -13,6 +13,7 @@ export default function LinkPopover() {
   const selectLink = useStore((s) => s.selectLink);
 
   const link = selectedLinkId ? links.find((l) => l.id === selectedLinkId) : null;
+  const rel = useRelSources(link?.rel ?? null);
   const a = link ? graph.find((g) => g.id === link.rel.a) : null;
   const b = link ? graph.find((g) => g.id === link.rel.b) : null;
 
@@ -74,22 +75,52 @@ export default function LinkPopover() {
             {L(link.rel.note)}
           </p>
 
+          {/* 근거 — "어떻게 아느냐" 에 답할 수 있어야 주장이 검증 가능해진다.
+              없으면 없다고 말한다. 침묵하면 근거가 있는 것처럼 읽힌다. */}
           {(() => {
-            const sig = SIGNAL_BY_PAIR.get(link.id);
-            if (!sig) return null;
+            const srcs = rel.sources;
             return (
-              <a
-                href={sig.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2.5 flex items-center gap-1.5 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1.5 text-[11px] text-cyan-200 transition-colors hover:bg-cyan-400/[0.12]"
-              >
-                <ExternalLink size={10} className="shrink-0" />
-                <span className="truncate">{sig.title}</span>
-                <span className="ml-auto shrink-0 font-mono text-[9.5px] uppercase tracking-wider opacity-70">
-                  {sig.date} · {sig.source}
-                </span>
-              </a>
+              <div className="mt-3" data-testid="edge-sources">
+                <div className="mb-1.5 flex items-center gap-1.5 font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <FileText size={10} />
+                  {t.sourcesLabel}
+                  {srcs.length > 0 && <span className="text-slate-600">{srcs.length}</span>}
+                </div>
+
+                {rel.loading && srcs.length === 0 ? (
+                  <p className="px-2.5 py-1.5 text-[10.5px] text-slate-600">{t.sourcesLoading}</p>
+                ) : srcs.length === 0 ? (
+                  <p
+                    data-testid="edge-unsourced"
+                    className="rounded-lg border border-dashed border-amber-400/25 bg-amber-400/[0.05] px-2.5 py-1.5 text-[10.5px] leading-relaxed text-amber-200/70"
+                  >
+                    {t.noSources}
+                  </p>
+                ) : (
+                  <div className="flex flex-col gap-1">
+                    {!rel.curated && (
+                      <p className="mb-0.5 text-[9.5px] leading-snug text-slate-600">
+                        {t.sourcesAuto}
+                      </p>
+                    )}
+                    {srcs.map((s) => (
+                      <a
+                        key={s.url}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-lg border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1.5 text-[11px] text-cyan-200 transition-colors hover:bg-cyan-400/[0.12]"
+                      >
+                        <ExternalLink size={10} className="shrink-0" />
+                        <span className="truncate">{s.title}</span>
+                        <span className="ml-auto shrink-0 font-mono text-[9.5px] uppercase tracking-wider opacity-70">
+                          {s.date} · {s.source}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             );
           })()}
         </motion.div>

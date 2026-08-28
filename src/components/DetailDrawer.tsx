@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
-import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck } from 'lucide-react';
+import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { FACTION_MAP } from '../data/factions';
@@ -30,6 +30,7 @@ export default function DetailDrawer() {
   const adjacency = useStore((s) => s.adjacency);
   const watchIds = useStore((s) => s.watchIds);
   const toggleWatch = useStore((s) => s.toggleWatch);
+  const selectLink = useStore((s) => s.selectLink);
   const [imgFail, setImgFail] = useState(false);
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
@@ -274,10 +275,13 @@ export default function DetailDrawer() {
                             : ''
                           : '';
                       return (
-                        <button
+                        <div
                           key={pairKey(link.rel.a, link.rel.b)}
+                          className="group flex items-start gap-1 rounded-lg border border-transparent pr-1 transition-all hover:border-slate-400/15 hover:bg-white/[0.04]"
+                        >
+                        <button
                           onClick={() => select(other.id)}
-                          className="group block w-full rounded-lg border border-transparent px-2.5 py-2 text-left transition-all hover:border-slate-400/15 hover:bg-white/[0.04]"
+                          className="block min-w-0 flex-1 px-2.5 py-2 text-left"
                         >
                           <div className="flex items-center gap-2">
                             <span
@@ -308,6 +312,17 @@ export default function DetailDrawer() {
                             )}
                           </p>
                         </button>
+                        {/* 이 관계를 왜 그렇게 봤는지 — 이동하지 않고 근거만 연다 */}
+                        <button
+                          data-testid="row-evidence"
+                          onClick={() => selectLink(link.id)}
+                          title={t.sourcesLabel}
+                          aria-label={t.sourcesLabel}
+                          className="mt-2 flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-slate-600 transition-colors hover:bg-white/10 hover:text-cyan-300"
+                        >
+                          <FileText size={11} />
+                        </button>
+                        </div>
                       );
                     })}
                   </div>

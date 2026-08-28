@@ -46,6 +46,18 @@ export interface Politician {
   status?: PersonStatus;
 }
 
+/**
+ * 관계 근거로 제시하는 기사 한 건.
+ * note 는 "무슨 일이 있었는지" 를 적지만, 독자가 확인할 수 있어야 주장이 검증 가능해진다.
+ */
+export interface RelSource {
+  title: string;
+  url: string;
+  source: string;
+  /** YYYY-MM-DD */
+  date: string;
+}
+
 export interface Relationship {
   a: string;
   b: string;
@@ -56,6 +68,8 @@ export interface Relationship {
   note: LocalizedText;
   /** feud 방향: 누가 먼저 공격했는가 (입자 흐름 방향) */
   initiator?: 'a' | 'b';
+  /** 수동으로 붙인 출처. 자동 수집분(relationship-sources.ts)보다 우선한다 */
+  sources?: RelSource[];
 }
 
 export interface Story {

@@ -122,6 +122,29 @@ async function main() {
   check('track toggles on', (await page.locator('[data-testid=track-btn]').getAttribute('title')) === 'Tracking');
   await page.screenshot({ path: `${SHOTS}/03-drawer.png` });
 
+  // ── 4b. 관계 근거 — "어떻게 아느냐" 에 답이 있는가 ──
+  await page.locator('[data-testid=row-evidence]').first().click();
+  await page.waitForTimeout(1200);   // 출처는 지연 로딩된다
+  check('edge evidence panel opens', (await page.locator('[data-testid=edge-sources]').count()) === 1);
+  const srcLinks = await page.locator('[data-testid=edge-sources] a').count();
+  const unsourced = await page.locator('[data-testid=edge-unsourced]').count();
+  check(
+    'edge shows sources or says it has none',
+    srcLinks > 0 || unsourced === 1,
+    `links ${srcLinks}, unsourced ${unsourced}`
+  );
+  const hrefs = await page.locator('[data-testid=edge-sources] a').evaluateAll((as) =>
+    as.map((a) => a.getAttribute('href'))
+  );
+  check(
+    'source links are real URLs',
+    hrefs.length === 0 || hrefs.every((h) => /^https?:\/\//.test(h ?? '')),
+    hrefs.slice(0, 1).join('')
+  );
+  await page.screenshot({ path: `${SHOTS}/10-evidence.png` });
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+
   // ── 5. ESC 닫기 ──
   await page.keyboard.press('Escape');
   // 드로어 퇴장은 spring 애니메이션 — 고정 대기는 레이스가 난다. 실제 detach 를 기다린다.
