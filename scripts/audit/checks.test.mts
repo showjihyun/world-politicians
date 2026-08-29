@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  checkAllowlist, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type SourceRef,
 } from './checks.mts';
@@ -262,5 +262,77 @@ describe('checkCrosswalk', () => {
     const f = checkCrosswalk(bad, ids);
     expect(f.map((x) => x.check)).toContain('crosswalk.icpsr');
     expect(f.find((x) => x.check === 'crosswalk.icpsr')?.level).toBe('warn');
+  });
+});
+
+describe('checkCosponsor', () => {
+  const bill = (n: number) => ({
+    title: `Bill ${n}`,
+    url: `https://www.congress.gov/bill/119th-congress/senate-bill/${n}`,
+    source: 'Congress.gov',
+    date: '2025-03-01',
+  });
+  const ok = {
+    congress: 119,
+    threshold: 10,
+    stats: { edges: 2, fresh: 1, crossParty: 1 },
+    edges: [
+      { a: 'markey', b: 'warren', bills: 78, crossParty: false, duplicate: true },
+      { a: 'cruz', b: 'warnock', bills: 12, crossParty: true, duplicate: false },
+    ],
+  };
+  const ids = new Set(['markey', 'warren', 'cruz', 'warnock']);
+  const curated = new Set(['markey|warren']);
+  const srcs = { 'markey|warren': [bill(1)], 'cruz|warnock': [bill(2)] };
+
+  it('맞으면 아무것도 보고하지 않는다', () => {
+    expect(checkCosponsor(ok, ids, curated, srcs)).toHaveLength(0);
+  });
+
+  it('사라진 인물을 가리키면 잡는다', () => {
+    expect(checkCosponsor(ok, new Set(['markey', 'warren']), curated, srcs).map((f) => f.check))
+      .toContain('cosponsor.references');
+  });
+
+  it('기준선 아래가 섞이면 잡는다', () => {
+    const bad = { ...ok, edges: [{ ...ok.edges[1], bills: 9 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.threshold');
+  });
+
+  it('자기 자신과의 엣지를 잡는다', () => {
+    const bad = { ...ok, edges: [{ a: 'cruz', b: 'cruz', bills: 20, crossParty: false, duplicate: false }],
+      stats: { edges: 1, fresh: 1, crossParty: 0 } };
+    expect(checkCosponsor(bad, ids, curated, { 'cruz|cruz': [bill(1)] }).map((f) => f.check))
+      .toContain('cosponsor.self');
+  });
+
+  it('같은 쌍이 두 번이면 잡는다', () => {
+    const e = ok.edges[1];
+    const bad = { ...ok, edges: [e, { ...e, a: 'warnock', b: 'cruz' }], stats: { edges: 2, fresh: 2, crossParty: 2 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.duplicatePair');
+  });
+
+  // 표시가 틀리면 큐레이션 엣지 위에 공동발의 엣지가 겹쳐 그려진다
+  it('큐레이션 여부 표시가 실제와 다르면 잡는다', () => {
+    const bad = { ...ok, edges: [{ ...ok.edges[0], duplicate: false }], stats: { edges: 1, fresh: 1, crossParty: 0 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.duplicateFlag');
+  });
+
+  it('근거 법안이 없으면 잡는다', () => {
+    expect(checkCosponsor(ok, ids, curated, { 'markey|warren': [bill(1)] }).map((f) => f.check))
+      .toContain('cosponsor.sources');
+  });
+
+  // 눌러서 확인할 수 없는 링크가 섞이면 근거 패널의 전제가 깨진다
+  it('congress.gov 법안이 아닌 근거를 잡는다', () => {
+    const bad = { ...srcs, 'cruz|warnock': [{ ...bill(2), url: 'https://news.google.com/rss/articles/xyz' }] };
+    expect(checkCosponsor(ok, ids, curated, bad).map((f) => f.check)).toContain('cosponsor.sourceHost');
+  });
+
+  it('요약 수치가 배열과 다르면 잡는다', () => {
+    const bad = { ...ok, stats: { edges: 99, fresh: 1, crossParty: 1 } };
+    const f = checkCosponsor(bad, ids, curated, srcs);
+    expect(f.map((x) => x.check)).toContain('cosponsor.stats');
+    expect(f.find((x) => x.check === 'cosponsor.stats')?.samples?.[0]).toContain('99');
   });
 });

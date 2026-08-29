@@ -415,9 +415,15 @@ async function main() {
 
   // 범례 토글이 실제로 링크를 필터링하는지
   check('legend on graph', (await page.locator('[data-testid=graph-legend]').count()) === 1);
+
+  // 관계 유형이 늘 때마다 고쳐야 하는 숫자를 박지 않는다 — "전부 켜져 있다" 를 본다
+  const legendButtons = () => page.locator('[data-testid=graph-legend] button[aria-pressed]');
+  const legendOn = () => page.locator('[data-testid=graph-legend] [aria-pressed=true]');
+  const totalTypes = await legendButtons().count();
   check(
     'legend defaults all on',
-    (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 5
+    totalTypes >= 5 && (await legendOn().count()) === totalTypes,
+    `${await legendOn().count()}/${totalTypes} on`
   );
   check(
     'legend removed from FILTERS',
@@ -428,14 +434,27 @@ async function main() {
   check(
     'legend toggle turns a type off',
     (await page.locator('[data-testid=legend-ally]').getAttribute('aria-pressed')) === 'false' &&
-      (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 4
+      (await legendOn().count()) === totalTypes - 1
   );
   await page.locator('[data-testid=legend-ally]').click();
   await page.waitForTimeout(300);
+  check('legend toggle restores', (await legendOn().count()) === totalTypes);
+
+  // 공동발의는 측정값이라 큐레이션 관계와 별도 타입으로 두었다.
+  // 범례에 있어야 하고, 꺼서 화면에서 뺄 수 있어야 한다.
   check(
-    'legend toggle restores',
-    (await page.locator('[data-testid=graph-legend] [aria-pressed=true]').count()) === 5
+    'cosponsor type in legend',
+    (await page.locator('[data-testid=legend-cosponsor]').count()) === 1
   );
+  await page.locator('[data-testid=legend-cosponsor]').click();
+  await page.waitForTimeout(500);
+  check(
+    'cosponsor toggles off',
+    (await page.locator('[data-testid=legend-cosponsor]').getAttribute('aria-pressed')) === 'false' &&
+      (await legendOn().count()) === totalTypes - 1
+  );
+  await page.locator('[data-testid=legend-cosponsor]').click();
+  await page.waitForTimeout(300);
 
   await browser.close();
 

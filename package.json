@@ -11,6 +11,8 @@
     "news:dry": "node --experimental-strip-types scripts/news-pipeline/pipeline.mts --dry",
     "crosswalk": "node --experimental-strip-types scripts/sources/crosswalk.mts",
     "crosswalk:dry": "node --experimental-strip-types scripts/sources/crosswalk.mts --dry",
+    "cosponsor": "node --experimental-strip-types scripts/sources/cosponsor.mts",
+    "cosponsor:dry": "node --experimental-strip-types scripts/sources/cosponsor.mts --dry",
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "node scripts/e2e/polaris.e2e.mjs",

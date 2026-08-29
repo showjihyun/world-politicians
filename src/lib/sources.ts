@@ -16,9 +16,17 @@ const subs = new Set<() => void>();
 
 function load(): Promise<SourceMap> {
   if (cache) return Promise.resolve(cache);
-  loading ??= import('../data/relationship-sources.json')
-    .then((m) => {
-      cache = (m.default ?? m) as SourceMap;
+  // 뉴스 근거와 공동발의 근거는 파일이 다르지만 키(pairKey)가 같다.
+  // 한 엣지에 둘 다 있을 수 있고(큐레이션된 쌍이 공동발의도 많은 경우) 그때는
+  // 서로를 보강한다.
+  loading ??= Promise.all([
+    import('../data/relationship-sources.json').then((m) => (m.default ?? m) as SourceMap),
+    import('../data/cosponsorship-sources.json').then((m) => (m.default ?? m) as SourceMap),
+  ])
+    .then(([news, bills]) => {
+      const merged: SourceMap = { ...news };
+      for (const [k, v] of Object.entries(bills)) merged[k] = [...(merged[k] ?? []), ...v];
+      cache = merged;
       subs.forEach((fn) => fn());
       return cache;
     })
@@ -75,7 +83,9 @@ export function useRelSources(rel: Relationship | null): RelSourcesState {
   const collected = cache?.[pairKey(rel.a, rel.b)] ?? [];
   return {
     sources: merge(rel, collected),
-    curated: (rel.sources?.length ?? 0) > 0,
+    // 공동발의 엣지의 근거는 전부 congress.gov 법안 링크다. "사람이 확인해야 할
+    // 후보" 가 아니라 그 엣지를 만든 근거 자체이므로 확정으로 표시한다.
+    curated: (rel.sources?.length ?? 0) > 0 || rel.type === 'cosponsor',
     loading: cache === null,
   };
 }

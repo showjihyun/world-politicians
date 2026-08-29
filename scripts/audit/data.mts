@@ -15,9 +15,9 @@ import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
-  checkAllowlist, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
-  type CrosswalkFile, type Finding, type SignalRef, type SourceRef,
+  type CosponsorFile, type CrosswalkFile, type Finding, type SignalRef, type SourceRef,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -92,6 +92,21 @@ if (fs.existsSync(cwPath)) {
   });
 }
 
+// 공동발의 엣지는 측정값이라 사람이 눈으로 확인하지 않는다. 생성이 어긋나도
+// 화면에는 그럴듯하게 나오므로 여기서 막는다.
+const cosPath = path.join(ROOT, 'src/data/cosponsorship.json');
+const cosSrcPath = path.join(ROOT, 'src/data/cosponsorship-sources.json');
+if (fs.existsSync(cosPath) && fs.existsSync(cosSrcPath)) {
+  const cos = JSON.parse(fs.readFileSync(cosPath, 'utf8')) as CosponsorFile;
+  const cosSrc = JSON.parse(fs.readFileSync(cosSrcPath, 'utf8')) as Record<string, SourceRef[]>;
+  const curatedPairs = new Set(
+    [...relText.matchAll(/\ba:\s*'([a-z0-9-]+)',\s*b:\s*'([a-z0-9-]+)'/g)].map((m) =>
+      m[1] < m[2] ? `${m[1]}|${m[2]}` : `${m[2]}|${m[1]}`
+    )
+  );
+  findings.push(...checkCosponsor(cos, knownIds, curatedPairs, cosSrc));
+}
+
 const actualCounts: Record<string, number> = {};
 for (const s of signals) for (const p of s.people ?? []) actualCounts[p] = (actualCounts[p] ?? 0) + 1;
 findings.push(
@@ -148,6 +163,10 @@ console.log(`마지막 수집 ${manifest.generatedAt}`);
 if (fs.existsSync(cwPath)) {
   const cw = JSON.parse(fs.readFileSync(cwPath, 'utf8')) as CrosswalkFile;
   console.log(`크로스워크 의원 ${cw.stats.members} · POLARIS ${cw.stats.polarisMatched}/${cw.stats.polarisTotal} 매칭`);
+}
+if (fs.existsSync(cosPath)) {
+  const cos = JSON.parse(fs.readFileSync(cosPath, 'utf8')) as CosponsorFile;
+  console.log(`공동발의 엣지 ${cos.stats.edges} (신규 ${cos.stats.fresh} · 초당적 ${cos.stats.crossParty}) · ${cos.congress}대 · 기준 ${cos.threshold}건`);
 }
 console.log('─'.repeat(58));
 

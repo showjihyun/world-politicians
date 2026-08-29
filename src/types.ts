@@ -8,7 +8,7 @@ export type Branch =
   | 'former'
   | 'special';
 
-export type RelType = 'ally' | 'feud' | 'bipartisan' | 'family' | 'mentor';
+export type RelType = 'ally' | 'feud' | 'bipartisan' | 'family' | 'mentor' | 'cosponsor';
 
 export type PersonStatus = 'active' | 'departed' | 'legacy';
 
@@ -119,7 +119,7 @@ export interface HistoryArc {
 }
 
 /** 관계 유형 정본 목록 — 필터 기본값(전체 선택)의 기준 */
-export const ALL_REL_TYPES: RelType[] = ['ally', 'feud', 'bipartisan', 'family', 'mentor'];
+export const ALL_REL_TYPES: RelType[] = ['ally', 'feud', 'bipartisan', 'family', 'mentor', 'cosponsor'];
 
 export const REL_META: Record<
   RelType,
@@ -147,6 +147,12 @@ export const REL_META: Record<
     label: { en: 'Mentor / Succession', ko: '멘토/계승' },
     color: '#94a3b8',
     dash: [2, 4],
+  },
+  // 나머지는 편집 판단, 이것만 측정값이다. 점선과 차가운 색으로 구분한다
+  cosponsor: {
+    label: { en: 'Co-sponsorship', ko: '공동발의' },
+    color: '#38bdf8',
+    dash: [3, 5],
   },
 };
 

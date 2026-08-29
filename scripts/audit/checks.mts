@@ -406,6 +406,130 @@ export function checkCrosswalk(cw: CrosswalkFile, knownIds: Set<string>): Findin
   return out;
 }
 
+export interface CosponsorFile {
+  congress: number;
+  threshold: number;
+  stats: { edges: number; fresh: number; crossParty: number };
+  edges: { a: string; b: string; bills: number; crossParty: boolean; duplicate: boolean }[];
+}
+
+/**
+ * 공동발의 엣지 정합성.
+ *
+ * 이 엣지들은 측정값이라 사람이 눈으로 확인하지 않는다. 그래서 생성이 어긋나도
+ * 화면에는 그럴듯하게 나온다 — 기준선 아래가 섞이거나, 이미 큐레이션된 쌍이
+ * 중복으로 그려지거나, 사라진 인물을 가리키는 식이다. 전부 조용히 틀린다.
+ */
+export function checkCosponsor(
+  cos: CosponsorFile,
+  knownIds: Set<string>,
+  curatedPairs: Set<string>,
+  sourcesByPair: Record<string, SourceRef[]>
+): Finding[] {
+  const out: Finding[] = [];
+  const key = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+
+  const unknown = cos.edges
+    .flatMap((e) => [e.a, e.b])
+    .filter((id) => !knownIds.has(id));
+  if (unknown.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.references',
+      message: `데이터셋에 없는 인물 id ${new Set(unknown).size}종`,
+      samples: cap([...new Set(unknown)]),
+    });
+  }
+
+  const below = cos.edges.filter((e) => e.bills < cos.threshold);
+  if (below.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.threshold',
+      message: `기준 ${cos.threshold}건 아래가 ${below.length}건 섞였다`,
+      samples: cap(below.map((e) => `${e.a}×${e.b} ${e.bills}건`)),
+    });
+  }
+
+  const self = cos.edges.filter((e) => e.a === e.b);
+  if (self.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.self',
+      message: `자기 자신과의 엣지 ${self.length}건`,
+      samples: cap(self.map((e) => e.a)),
+    });
+  }
+
+  const seen = new Set<string>();
+  const dup = cos.edges.filter((e) => {
+    const k = key(e.a, e.b);
+    if (seen.has(k)) return true;
+    seen.add(k);
+    return false;
+  });
+  if (dup.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.duplicatePair',
+      message: `같은 쌍이 두 번 들어있다 ${dup.length}건`,
+      samples: cap(dup.map((e) => `${e.a}×${e.b}`)),
+    });
+  }
+
+  // duplicate 표시가 틀리면 큐레이션 엣지와 공동발의 엣지가 겹쳐 그려진다
+  const mislabeled = cos.edges.filter((e) => e.duplicate !== curatedPairs.has(key(e.a, e.b)));
+  if (mislabeled.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.duplicateFlag',
+      message: `큐레이션 여부 표시가 실제와 다르다 ${mislabeled.length}건 — 선이 겹쳐 그려진다`,
+      samples: cap(mislabeled.map((e) => `${e.a}×${e.b} (duplicate=${e.duplicate})`)),
+    });
+  }
+
+  const noSource = cos.edges.filter((e) => !(sourcesByPair[key(e.a, e.b)] ?? []).length);
+  if (noSource.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.sources',
+      message: `근거 법안이 없는 엣지 ${noSource.length}건`,
+      samples: cap(noSource.map((e) => `${e.a}×${e.b}`)),
+    });
+  }
+
+  // 근거가 congress.gov 가 아니면 눌러서 확인할 수 없다 — 근거 패널의 전제가 깨진다
+  const offSite = Object.values(sourcesByPair)
+    .flat()
+    .filter((s) => !/^https:\/\/www\.congress\.gov\/bill\//.test(s.url));
+  if (offSite.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.sourceHost',
+      message: `congress.gov 법안이 아닌 근거 ${offSite.length}건`,
+      samples: cap(offSite.map((s) => s.url)),
+    });
+  }
+
+  const fresh = cos.edges.filter((e) => !e.duplicate).length;
+  const cross = cos.edges.filter((e) => e.crossParty).length;
+  const bad = [
+    cos.stats.edges !== cos.edges.length ? `edges ${cos.stats.edges} vs 실제 ${cos.edges.length}` : '',
+    cos.stats.fresh !== fresh ? `fresh ${cos.stats.fresh} vs 실제 ${fresh}` : '',
+    cos.stats.crossParty !== cross ? `crossParty ${cos.stats.crossParty} vs 실제 ${cross}` : '',
+  ].filter(Boolean);
+  if (bad.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.stats',
+      message: '요약 수치가 실제 배열과 다르다',
+      samples: bad,
+    });
+  }
+
+  return out;
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

@@ -1,0 +1,1141 @@
+{
+  "generatedAt": "2026-08-29T12:31:25.575Z",
+  "congress": 119,
+  "threshold": 10,
+  "source": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/",
+  "note": "발의자 ↔ 공동발의자 쌍. 표결 일치도가 아니라 공동발의를 쓴 이유는 표결이 당론에 끌려가기 때문이다. duplicate 는 이미 큐레이션된 관계가 있는 쌍이며 그래프에 선을 두 번 긋지 않는다. 근거 표본은 cosponsorship-sources.json 에 따로 있다.",
+  "stats": {
+    "billsScanned": 15544,
+    "pairsAll": 48714,
+    "edges": 125,
+    "fresh": 112,
+    "crossParty": 19
+  },
+  "edges": [
+    {
+      "a": "markey",
+      "b": "warren",
+      "bills": 78,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-21",
+      "last": "2026-08-05"
+    },
+    {
+      "a": "padilla",
+      "b": "schiff",
+      "bills": 68,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-16",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "markey",
+      "b": "sanders",
+      "bills": 64,
+      "crossParty": true,
+      "duplicate": true,
+      "first": "2025-01-21",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "markey",
+      "bills": 56,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "markey",
+      "b": "padilla",
+      "bills": 54,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "padilla",
+      "bills": 52,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "warren",
+      "bills": 43,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "sanders",
+      "b": "warren",
+      "bills": 41,
+      "crossParty": true,
+      "duplicate": true,
+      "first": "2025-02-13",
+      "last": "2026-07-30"
+    },
+    {
+      "a": "duckworth",
+      "b": "durbin",
+      "bills": 40,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "fitzpatrick",
+      "b": "lawler-mike",
+      "bills": 38,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "cruz",
+      "b": "rick-scott",
+      "bills": 34,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "blackburn",
+      "b": "rick-scott",
+      "bills": 33,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-07-30"
+    },
+    {
+      "a": "cruz",
+      "b": "lee-mike",
+      "bills": 33,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-08-07"
+    },
+    {
+      "a": "padilla",
+      "b": "warren",
+      "bills": 33,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-04",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "durbin",
+      "bills": 32,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-07-15"
+    },
+    {
+      "a": "klobuchar",
+      "b": "markey",
+      "bills": 31,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-08-04"
+    },
+    {
+      "a": "pressley",
+      "b": "tlaib",
+      "bills": 31,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-03",
+      "last": "2026-07-22"
+    },
+    {
+      "a": "padilla",
+      "b": "sanders",
+      "bills": 30,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-02-13",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "lee-mike",
+      "b": "rick-scott",
+      "bills": 29,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-08-07"
+    },
+    {
+      "a": "blackburn",
+      "b": "cruz",
+      "bills": 28,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-07-29"
+    },
+    {
+      "a": "booker",
+      "b": "sanders",
+      "bills": 28,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "durbin",
+      "b": "markey",
+      "bills": 28,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-05",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "durbin",
+      "b": "padilla",
+      "bills": 27,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-03",
+      "last": "2026-06-16"
+    },
+    {
+      "a": "blackburn",
+      "b": "lee-mike",
+      "bills": 26,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-07-30"
+    },
+    {
+      "a": "markey",
+      "b": "schiff",
+      "bills": 26,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-04-29",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "blackburn",
+      "b": "tillis",
+      "bills": 25,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-04-16"
+    },
+    {
+      "a": "durbin",
+      "b": "klobuchar",
+      "bills": 25,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-23",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "booker",
+      "b": "schiff",
+      "bills": 24,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "britt",
+      "b": "cruz",
+      "bills": 24,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "duckworth",
+      "b": "markey",
+      "bills": 24,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-05",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "gallego",
+      "b": "kelly-mark",
+      "bills": 24,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-17",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "booker",
+      "b": "duckworth",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "kim-andy",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "duckworth",
+      "b": "warren",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-27",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "durbin",
+      "b": "warren",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-03",
+      "last": "2026-07-21"
+    },
+    {
+      "a": "klobuchar",
+      "b": "padilla",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-23",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "markey",
+      "b": "murphy-chris",
+      "bills": 23,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-21",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "ernst",
+      "b": "rick-scott",
+      "bills": 22,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-14",
+      "last": "2026-05-12"
+    },
+    {
+      "a": "cassidy",
+      "b": "tuberville",
+      "bills": 21,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "duckworth",
+      "b": "padilla",
+      "bills": 21,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-04",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "rick-scott",
+      "b": "tuberville",
+      "bills": 21,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-07-22"
+    },
+    {
+      "a": "bacon-don",
+      "b": "lawler-mike",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-31",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "blackburn",
+      "b": "cassidy",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-04-29"
+    },
+    {
+      "a": "blackburn",
+      "b": "ernst",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-07-13"
+    },
+    {
+      "a": "kim-andy",
+      "b": "markey",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-06-17"
+    },
+    {
+      "a": "omar-ilhan",
+      "b": "pressley",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-03",
+      "last": "2026-07-22"
+    },
+    {
+      "a": "omar-ilhan",
+      "b": "tlaib",
+      "bills": 20,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-22",
+      "last": "2026-06-18"
+    },
+    {
+      "a": "durbin",
+      "b": "schiff",
+      "bills": 19,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-03",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "fitzpatrick",
+      "b": "perez-marie",
+      "bills": 19,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-03",
+      "last": "2026-01-22"
+    },
+    {
+      "a": "kim-andy",
+      "b": "padilla",
+      "bills": 19,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-04",
+      "last": "2026-07-21"
+    },
+    {
+      "a": "bacon-don",
+      "b": "fitzpatrick",
+      "bills": 18,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-06",
+      "last": "2026-06-24"
+    },
+    {
+      "a": "booker",
+      "b": "klobuchar",
+      "bills": 18,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "booker",
+      "b": "murphy-chris",
+      "bills": 18,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-12",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "lee-mike",
+      "b": "paul-rand",
+      "bills": 18,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-08-05"
+    },
+    {
+      "a": "schiff",
+      "b": "warren",
+      "bills": 18,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-04-10",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "duckworth",
+      "b": "klobuchar",
+      "bills": 17,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-21",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "klobuchar",
+      "b": "warren",
+      "bills": 17,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-23",
+      "last": "2026-07-21"
+    },
+    {
+      "a": "markey",
+      "b": "schumer",
+      "bills": 17,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-03-04",
+      "last": "2026-07-14"
+    },
+    {
+      "a": "murphy-chris",
+      "b": "sanders",
+      "bills": 17,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-03-05",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "blackburn",
+      "b": "britt",
+      "bills": 16,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-07-30"
+    },
+    {
+      "a": "boebert",
+      "b": "mace-nancy",
+      "bills": 16,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-03",
+      "last": "2026-05-14"
+    },
+    {
+      "a": "cotton",
+      "b": "cruz",
+      "bills": 16,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-13",
+      "last": "2026-06-03"
+    },
+    {
+      "a": "durbin",
+      "b": "sanders",
+      "bills": 16,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-03-05",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "cassidy",
+      "b": "tim-scott",
+      "bills": 15,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-06-04"
+    },
+    {
+      "a": "collins-susan",
+      "b": "klobuchar",
+      "bills": 15,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-23",
+      "last": "2026-03-11"
+    },
+    {
+      "a": "cruz",
+      "b": "schmitt",
+      "bills": 15,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-08",
+      "last": "2026-06-02"
+    },
+    {
+      "a": "fitzpatrick",
+      "b": "golden-jared",
+      "bills": 15,
+      "crossParty": true,
+      "duplicate": true,
+      "first": "2025-01-03",
+      "last": "2026-05-15"
+    },
+    {
+      "a": "khanna",
+      "b": "tlaib",
+      "bills": 15,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-06",
+      "last": "2026-07-27"
+    },
+    {
+      "a": "kim-andy",
+      "b": "warren",
+      "bills": 15,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-03-11",
+      "last": "2026-06-04"
+    },
+    {
+      "a": "massie",
+      "b": "mtg",
+      "bills": 15,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-03",
+      "last": "2025-10-08"
+    },
+    {
+      "a": "aoc",
+      "b": "pressley",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-03",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "boebert",
+      "b": "massie",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-03",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "cotton",
+      "b": "rick-scott",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-05-20"
+    },
+    {
+      "a": "lawler-mike",
+      "b": "stefanik",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2025-11-20"
+    },
+    {
+      "a": "lee-mike",
+      "b": "tuberville",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-08-07"
+    },
+    {
+      "a": "murphy-chris",
+      "b": "padilla",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-13",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "murphy-chris",
+      "b": "warren",
+      "bills": 14,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-05-06",
+      "last": "2026-05-18"
+    },
+    {
+      "a": "sanders",
+      "b": "schiff",
+      "bills": 14,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-03-05",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "blackburn",
+      "b": "cotton",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-27",
+      "last": "2026-04-15"
+    },
+    {
+      "a": "blackburn",
+      "b": "klobuchar",
+      "bills": 13,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2025-12-04"
+    },
+    {
+      "a": "britt",
+      "b": "tim-scott",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-06-16"
+    },
+    {
+      "a": "cassidy",
+      "b": "tillis",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-22",
+      "last": "2026-04-29"
+    },
+    {
+      "a": "duckworth",
+      "b": "kim-andy",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-03-10",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "duckworth",
+      "b": "sanders",
+      "bills": 13,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-02-19",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "durbin",
+      "b": "murphy-chris",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-03",
+      "last": "2026-07-23"
+    },
+    {
+      "a": "gallego",
+      "b": "padilla",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "padilla",
+      "b": "tillis",
+      "bills": 13,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-30",
+      "last": "2026-05-21"
+    },
+    {
+      "a": "schumer",
+      "b": "warren",
+      "bills": 13,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-06",
+      "last": "2026-06-16"
+    },
+    {
+      "a": "aoc",
+      "b": "tlaib",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-02-27",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "blackburn",
+      "b": "hawley",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-05-01",
+      "last": "2026-07-16"
+    },
+    {
+      "a": "britt",
+      "b": "tillis",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-02-09"
+    },
+    {
+      "a": "britt",
+      "b": "tuberville",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "duckworth",
+      "b": "kelly-mark",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-03-10",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "lawler-mike",
+      "b": "torres-ritchie",
+      "bills": 12,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-02-04",
+      "last": "2026-05-07"
+    },
+    {
+      "a": "lee-mike",
+      "b": "schmitt",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-01-29"
+    },
+    {
+      "a": "murphy-chris",
+      "b": "schiff",
+      "bills": 12,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-13",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "blackburn",
+      "b": "graham",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-29",
+      "last": "2026-06-03"
+    },
+    {
+      "a": "blackburn",
+      "b": "tuberville",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-07-28"
+    },
+    {
+      "a": "booker",
+      "b": "schumer",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-05-22",
+      "last": "2026-07-16"
+    },
+    {
+      "a": "booker",
+      "b": "warnock",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-09",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "cassidy",
+      "b": "warnock",
+      "bills": 11,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-04-29"
+    },
+    {
+      "a": "collins-susan",
+      "b": "murkowski",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": true,
+      "first": "2025-01-16",
+      "last": "2026-04-30"
+    },
+    {
+      "a": "cruz",
+      "b": "tillis",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-13",
+      "last": "2026-03-03"
+    },
+    {
+      "a": "duckworth",
+      "b": "fetterman",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-03-26",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "ernst",
+      "b": "schmitt",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-08",
+      "last": "2026-07-13"
+    },
+    {
+      "a": "hawley",
+      "b": "lee-mike",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-01-29"
+    },
+    {
+      "a": "khanna",
+      "b": "omar-ilhan",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-22",
+      "last": "2026-07-27"
+    },
+    {
+      "a": "klobuchar",
+      "b": "tillis",
+      "bills": 11,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-23",
+      "last": "2025-07-31"
+    },
+    {
+      "a": "rick-scott",
+      "b": "tim-scott",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2026-04-15"
+    },
+    {
+      "a": "tillis",
+      "b": "tim-scott",
+      "bills": 11,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-21",
+      "last": "2026-05-14"
+    },
+    {
+      "a": "tillis",
+      "b": "warnock",
+      "bills": 11,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-02-06",
+      "last": "2026-03-24"
+    },
+    {
+      "a": "britt",
+      "b": "cassidy",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2025-11-20"
+    },
+    {
+      "a": "britt",
+      "b": "cotton",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-08-06"
+    },
+    {
+      "a": "britt",
+      "b": "ernst",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-07-13"
+    },
+    {
+      "a": "britt",
+      "b": "graham",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-06",
+      "last": "2026-06-03"
+    },
+    {
+      "a": "cassidy",
+      "b": "collins-susan",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-21",
+      "last": "2026-03-12"
+    },
+    {
+      "a": "cassidy",
+      "b": "lee-mike",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-01-29"
+    },
+    {
+      "a": "cruz",
+      "b": "tuberville",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-07",
+      "last": "2025-09-02"
+    },
+    {
+      "a": "fetterman",
+      "b": "markey",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-02-05",
+      "last": "2026-06-18"
+    },
+    {
+      "a": "kelly-mark",
+      "b": "schiff",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-04-30",
+      "last": "2026-06-24"
+    },
+    {
+      "a": "kelly-mark",
+      "b": "warren",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-04-10",
+      "last": "2026-04-15"
+    },
+    {
+      "a": "klobuchar",
+      "b": "murkowski",
+      "bills": 10,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-01-16",
+      "last": "2026-04-30"
+    },
+    {
+      "a": "klobuchar",
+      "b": "thune",
+      "bills": 10,
+      "crossParty": true,
+      "duplicate": false,
+      "first": "2025-02-25",
+      "last": "2026-03-19"
+    },
+    {
+      "a": "luna",
+      "b": "massie",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-01-03",
+      "last": "2026-07-21"
+    },
+    {
+      "a": "schiff",
+      "b": "slotkin",
+      "bills": 10,
+      "crossParty": false,
+      "duplicate": false,
+      "first": "2025-04-30",
+      "last": "2026-06-02"
+    }
+  ]
+}
