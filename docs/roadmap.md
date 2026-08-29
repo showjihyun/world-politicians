@@ -254,17 +254,26 @@ ADR 0002 는 유지된다. 받은 파일은 합쳐 8MB 고, 저장하는 것은 
 **4단계 — 로비 (기관 수준)  ·  1차 소스 막힘, 대체 경로 있음**
 2026-08-30 재확인.
 
-`lda.senate.gov` 는 **2026-06-30 자로 종료**됐다. senate.gov 는 루트까지 403(Akamai
-"Access Denied")이라 상원 지출보고서도 못 받는다. `lda.gov` 도 같은 형태로 막혀 있다.
+**막히지 않았다. 내가 못 찾았을 뿐이다.**
 
-**그런데 호스트를 덜 찾아보고 "막혔다" 고 적었다.** 하원 사무국 사이트
-(`lobbyingdisclosure.house.gov`, 200)가 가리키는 실제 후속은 **`lda.congress.gov`** 다.
-여기는 403이지만 본문이 Cloudflare 의 `Just a moment…` 자바스크립트 챌린지다 —
-senate.gov 의 Akamai 하드 차단과 성격이 다르고, 일반 브라우저 세션이면 통과할 여지가 있다.
-확장이 연결돼 있지 않아 확정은 못 했다. **다음 할 일은 "접근을 기다린다" 가 아니라
-브라우저에서 한 번 열어 보는 것이다.**
+하원 사무국이 LDA 신고서 원본을 XML ZIP 으로 계속 낸다. 키도 인증도 없다.
 
-archive.org 는 점검 중(503)이라 지금 판정할 수 없다.
+```
+목록  https://disclosurespreview.house.gov/data/LD/LdSearchPastFilings.json
+파일  https://disclosurespreview.house.gov/data/LD/2026_Registrations_XML.zip
+      6.3MB · XML 4,086건 · 아카이브 113개 (2002~)
+      LD-203 기부 신고는 data/LC/ 에 38개
+```
+
+그 사이트의 랜딩 페이지에 **"2026-07-31 부터 ZIP 다운로드를 제외하고 사용 불가"**
+라고 적혀 있다. 즉 검색 UI 는 닫히지만 벌크는 유지된다.
+
+상원 쪽(`lda.senate.gov` 2026-06-30 종료, `lda.gov` 미공개, 둘 다 Akamai 403)은
+그대로지만 **하원 원본으로 대체된다.** 두 원(院)이 같은 신고서를 받는다.
+
+`lda.congress.gov` 는 데이터 소스가 아니다 — 로비스트가 신고서를 제출하는 포털이고
+계정이 필요하다. 앞서 후속 소스로 적었던 것은 HTML 에서 URL 만 줍고 주변 텍스트를
+안 읽은 결과다.
 
 다만 **3자 미러가 있다.** `openlobby.us` 가 Senate LDA 에서 파생한 집계를 공개한다
 (gov-entities · issue-index · industries · revolving-door). 접근은 되지만 1차 소스가
@@ -278,10 +287,21 @@ archive.org 는 점검 중(503)이라 지금 판정할 수 없다.
 2026-08-30 재확인. 앞서 "명단 확대가 선행" 이라고만 적었는데, 성격이 다른 두 가지를
 하나로 묶어 판단한 것이었다.
 
-**(a) 정부 → 로비 (LDA covered official position) — 지금 할 수 있다**
+**(a) 정부 → 로비 (LDA covered official position) — 지금 할 수 있다. 1차 소스로.**
 
-`openlobby.us` 의 revolving-door 자료(로비스트 5,000명, 이전 정부 직위)를 실제로 받아
-대조했다.
+하원 LDA 원본의 `<coveredPosition>` 이 그 필드다. 2026 등록서 **한 파일만으로**:
+
+```
+등록서 4,086건 · coveredPosition 채워진 항목 5,917
+POLARIS 인물 매칭 609건 · 53명
+예: "Legislative Director, Rep. Marsha Blackburn"
+    "Director of Strategic Initiatives, Senator Chris Murphy"
+```
+
+파일 하나가 3자 미러 전체(상위 5,000명, 828건/56명)보다 많다. **미러는 필요 없다.**
+아카이브가 2002년부터 있으므로 시계열도 된다.
+
+아래는 미러를 쓰려 했을 때의 검증 기록이다. 매칭 규칙은 그대로 쓸 수 있다.
 
 ```
 'Rep./Sen. 이름' 형태로 추출한 고유 의원명   2,042
@@ -376,7 +396,9 @@ news.google.com 이 자기 페이지로 200 을 주던 것과 같은 함정이�
 | FEC 규모 | "수백만 건, ADR 0002 재검토 필요" | 집계 파일 **193KB** | 명세와 집계를 구분하지 않았다 |
 | LDA 접근 | "403, 추가 조사" | senate.gov **도메인 전체가 403** | LDA 고유 문제로 단정했다 |
 | 스태퍼 | "공개 API 없음" | LDA covered official position 이 회전문 신호 | 소스를 충분히 찾지 않았다 |
-| 4단계 접근 | "1차 소스 막힘" | **`lda.congress.gov` 는 Cloudflare 챌린지** — 하드 차단이 아니다. 호스트를 덜 찾아보고 단정했다 |
+| 4단계 접근 | "1차 소스 막힘" → "Cloudflare 챌린지" | **하원이 벌크 XML 을 계속 낸다** (113개 아카이브, 2002~). 지어낸 경로의 500 을 사이트 상태로 읽었다 |
+| lda.congress.gov | "후속 데이터 소스" | **로비스트 신고 제출 포털** — 계정 필요. HTML 의 URL 만 줍고 주변 텍스트를 안 읽었다 |
+| 회전문 소스 | 3자 미러(상위 5,000) | **1차 소스** — 파일 하나가 미러 전체보다 많다 |
 | 회전문 의미 | "X 에 대한 회전문 영향" | **X 의 전직 보좌진이 로비 업계에 있다** — clients 는 기업이지 정치인이 아니다 |
 | 회전문 회수율 | 828건 | **+199건 안전** (성만 형태 중 역대 유일한 것). 나머지 198건은 위험 |
 | 승계 판별 | "규칙이 필요하다" | **문자열로는 안 된다** — 12% 만 잡히고 상위 미탐이 전부 승계다. 임기 데이터로 해야 한다 |
