@@ -66,7 +66,11 @@ export interface Relationship {
   strength: 1 | 2 | 3;
   /** 관계 근거 요약 (공개 보도 기반) */
   note: LocalizedText;
-  /** feud 방향: 누가 먼저 공격했는가 (입자 흐름 방향) */
+  /**
+   * 입자가 흘러 나가는 쪽.
+   * feud 는 먼저 공격한 사람, cosponsor 는 상대 법안에 더 많이 서명한 사람이다.
+   * 없으면 상호적이라는 뜻이고 방향을 그리지 않는다.
+   */
   initiator?: 'a' | 'b';
   /** 수동으로 붙인 출처. 자동 수집분(relationship-sources.ts)보다 우선한다 */
   sources?: RelSource[];

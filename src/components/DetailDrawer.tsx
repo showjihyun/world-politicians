@@ -271,11 +271,20 @@ export default function DetailDrawer() {
                   <div className="space-y-1">
                     {rows.map(({ link, other }) => {
                       const isA = link.rel.a === person.id;
+                      // 같은 initiator 필드지만 뜻이 다르다. feud 는 먼저 공격한 쪽,
+                      // 공동발의는 상대 법안에 더 많이 서명한 쪽이다. 상호적이면 비어 있다.
+                      const initiatedHere = link.rel.initiator
+                        ? (link.rel.initiator === 'a') === isA
+                        : null;
                       const initiatorNote =
-                        link.rel.type === 'feud' && link.rel.initiator
-                          ? (link.rel.initiator === 'a') === isA
-                            ? ` · ${t.initiatedBy}: ${L(person.name)}`
-                            : ''
+                        link.rel.type === 'feud' && initiatedHere
+                          ? ` · ${t.initiatedBy}: ${L(person.name)}`
+                          : '';
+                      const leanNote =
+                        link.rel.type === 'cosponsor' && initiatedHere !== null
+                          ? initiatedHere
+                            ? t.cosponsorLean(L(person.name), L(other.name))
+                            : t.cosponsorLean(L(other.name), L(person.name))
                           : '';
                       return (
                         <div
@@ -318,6 +327,11 @@ export default function DetailDrawer() {
                             큐레이션한 관계에는 공동발의 엣지를 겹쳐 긋지 않는다.
                             대신 측정값이 그 관계를 뒷받침하면 건수만 조용히 붙인다.
                           */}
+                          {leanNote && (
+                            <p className="mt-1 font-mono text-[10px] tracking-wide text-sky-400/70">
+                              {leanNote}
+                            </p>
+                          )}
                           {link.rel.type !== 'cosponsor' && cosponsorCount(link.rel.a, link.rel.b) > 0 && (
                             <p className="mt-1 font-mono text-[10px] tracking-wide text-sky-400/70">
                               {t.cosponsorCorroboration(cosponsorCount(link.rel.a, link.rel.b))}

@@ -277,8 +277,10 @@ describe('checkCosponsor', () => {
     threshold: 10,
     stats: { edges: 2, fresh: 1, crossParty: 1 },
     edges: [
-      { a: 'markey', b: 'warren', bills: 78, strength: 3, crossParty: false, duplicate: true },
-      { a: 'cruz', b: 'warnock', bills: 12, strength: 1, crossParty: true, duplicate: false },
+      { a: 'markey', b: 'warren', bills: 78, strength: 3, crossParty: false, duplicate: true,
+        sponsoredByA: 44, sponsoredByB: 34, initiator: null },
+      { a: 'cruz', b: 'warnock', bills: 12, strength: 1, crossParty: true, duplicate: false,
+        sponsoredByA: 11, sponsoredByB: 1, initiator: 'b' },
     ],
   };
   const ids = new Set(['markey', 'warren', 'cruz', 'warnock']);
@@ -296,12 +298,12 @@ describe('checkCosponsor', () => {
   });
 
   it('기준선 아래가 섞이면 잡는다', () => {
-    const bad = { ...ok, edges: [{ ...ok.edges[1], bills: 9, strength: 1 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    const bad = { ...ok, edges: [{ ...ok.edges[1], bills: 9, strength: 1, sponsoredByA: 8, sponsoredByB: 1 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
     expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.threshold');
   });
 
   it('자기 자신과의 엣지를 잡는다', () => {
-    const bad = { ...ok, edges: [{ a: 'cruz', b: 'cruz', bills: 20, strength: 2, crossParty: false, duplicate: false }],
+    const bad = { ...ok, edges: [{ a: 'cruz', b: 'cruz', bills: 20, strength: 2, crossParty: false, duplicate: false, sponsoredByA: 20, sponsoredByB: 0, initiator: 'b' }],
       stats: { edges: 1, fresh: 1, crossParty: 0 } };
     expect(checkCosponsor(bad, ids, curated, { 'cruz|cruz': [bill(1)] }).map((f) => f.check))
       .toContain('cosponsor.self');
@@ -327,6 +329,17 @@ describe('checkCosponsor', () => {
   it('큐레이션된 쌍에 법안 근거가 들어가면 잡는다', () => {
     const leak = { ...srcs, 'markey|warren': [bill(9)] };
     expect(checkCosponsor(ok, ids, curated, leak).map((f) => f.check)).toContain('cosponsor.curatedLeak');
+  });
+
+  it('방향별 건수의 합이 총 건수와 다르면 잡는다', () => {
+    const bad = { ...ok, edges: [{ ...ok.edges[1], sponsoredByA: 1 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.split');
+  });
+
+  // 뒤집을 때 방향 집계를 같이 뒤집지 않으면 화살표가 정확히 반대를 가리킨다
+  it('방향이 건수와 반대면 잡는다', () => {
+    const bad = { ...ok, edges: [{ ...ok.edges[1], initiator: 'a' as const }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.direction');
   });
 
   it('건수와 강도가 어긋나면 잡는다', () => {

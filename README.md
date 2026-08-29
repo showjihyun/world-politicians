@@ -136,6 +136,10 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   84% of pairs above 10 are same-party, so raw counts mostly re-encode party. The 11
   genuinely cross-party pairs are the interesting ones: Fitzpatrick × Gluesenkamp Perez
   (19 bills), Collins × Klobuchar (15), Lawler × Torres (12), Cruz × Warnock (9).
+  Co-sponsorship is directional — B signs A's bill, not the other way round — so pairs
+  that lean past 65% in one direction get an arrow (59 of 125); the rest are drawn as
+  mutual. Collapsing that away made `Kim signs 15 of Warren's bills, Warren signs 0 of
+  Kim's` look identical to `Padilla and Sanders, 15 each`.
   "Cross-party" here means a different *caucus*, not a different party label — Sanders
   and King are independents who caucus with the Democrats, and counting them as
   cross-party inflated this number from 11 to 19 in an earlier pass.

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   billUrl,
+  leanOf,
   buildStats,
   pairKey,
   parseBill,
@@ -122,7 +123,9 @@ describe('selectEdges', () => {
   const tally = (pairs: Record<string, number>) => {
     const m = new Map();
     for (const [k, n] of Object.entries(pairs)) {
-      m.set(k, { bills: n, first: '2025-01-01', last: '2026-01-01', samples: [bill()] });
+      const [x, y] = k.split('|');
+      m.set(k, { bills: n, first: '2025-01-01', last: '2026-01-01', samples: [bill()],
+        bySponsor: { [x]: Math.ceil(n / 2), [y]: Math.floor(n / 2) } });
     }
     return m;
   };
@@ -188,6 +191,74 @@ describe('selectEdges', () => {
   it('강도를 함께 낸다 — 앱이 다시 계산하지 않도록', () => {
     const es = selectEdges(tally({ [pairKey('A', 'C')]: 45, [pairKey('A', 'B')]: 12 }), opts);
     expect(es.map((e) => e.strength)).toEqual([strengthOf(45), strengthOf(12)]);
+  });
+});
+
+describe('leanOf — 지지가 어느 쪽으로 흐르는가', () => {
+  // a 의 법안에 b 가 서명했으면 지지는 b → a 로 흐른다. initiator 는 서명한 쪽이다.
+  it('a 의 법안에 b 가 몰아서 서명하면 initiator 는 b', () => {
+    expect(leanOf(15, 0)).toBe('b');
+    expect(leanOf(13, 1)).toBe('b');
+  });
+
+  it('반대 방향도 같은 규칙', () => {
+    expect(leanOf(0, 15)).toBe('a');
+  });
+
+  // 25/27 에 화살표를 그리면 없는 위계를 만든다
+  it('상호적이면 방향을 붙이지 않는다', () => {
+    expect(leanOf(15, 15)).toBeNull();
+    expect(leanOf(25, 27)).toBeNull();
+  });
+
+  it('경계는 65%', () => {
+    expect(leanOf(65, 35)).toBe('b');
+    expect(leanOf(64, 36)).toBeNull();
+  });
+
+  it('둘 다 0 이면 방향이 없다', () => {
+    expect(leanOf(0, 0)).toBeNull();
+  });
+});
+
+describe('selectEdges — 방향', () => {
+  const dirOpts = {
+    threshold: 10,
+    // 인물 id 정렬이 bioguide 정렬과 반대가 되도록 일부러 어긋나게 둔다
+    toPolaris: new Map([['A', 'zulu'], ['B', 'alpha']]),
+    caucusOf: new Map([['zulu', 'D'], ['alpha', 'D']]),
+    curated: new Set<string>(),
+  };
+  const oneSided = new Map([
+    [pairKey('A', 'B'), {
+      bills: 15, first: '2025-01-01', last: '2026-01-01',
+      samples: [bill()], bySponsor: { A: 15 },
+    }],
+  ]);
+
+  // id 순으로 뒤집을 때 방향 집계를 같이 뒤집지 않으면 화살표가 정확히 반대가 된다
+  it('a·b 를 뒤집을 때 방향 집계도 함께 뒤집는다', () => {
+    const [e] = selectEdges(oneSided, dirOpts);
+    expect([e.a, e.b]).toEqual(['alpha', 'zulu']);
+    // 발의자는 A = zulu 이므로, 출력 기준으로는 b 가 발의하고 a 가 서명했다
+    expect(e.sponsoredByA).toBe(0);
+    expect(e.sponsoredByB).toBe(15);
+    expect(e.initiator).toBe('a');
+  });
+
+  it('방향 건수의 합은 전체 건수와 같다', () => {
+    const [e] = selectEdges(oneSided, dirOpts);
+    expect(e.sponsoredByA + e.sponsoredByB).toBe(e.bills);
+  });
+
+  it('상호적이면 initiator 가 null 이다', () => {
+    const mutual = new Map([
+      [pairKey('A', 'B'), {
+        bills: 30, first: '2025-01-01', last: '2026-01-01',
+        samples: [bill()], bySponsor: { A: 15, B: 15 },
+      }],
+    ]);
+    expect(selectEdges(mutual, dirOpts)[0].initiator).toBeNull();
   });
 });
 

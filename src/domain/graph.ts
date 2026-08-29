@@ -60,10 +60,12 @@ export function buildGraph(politicians: Politician[], relationships: Relationshi
     if (!na || !nb || rel.a === rel.b) continue;
     const key = pairKey(rel.a, rel.b);
     if (linkMap.has(key)) continue; // dedupe
-    // orient feud edges so particles flow instigator -> target
+    // initiator 가 있으면 그쪽에서 입자가 흐르게 방향을 잡는다.
+    // feud 는 "먼저 공격한 쪽", 공동발의는 "더 많이 서명한 쪽" 이다 — 둘 다
+    // 무언가가 그 사람에게서 상대에게로 간다는 뜻이라 같은 규칙을 쓴다.
     let src = rel.a;
     let dst = rel.b;
-    if (rel.type === 'feud' && rel.initiator === 'b') {
+    if (rel.initiator === 'b') {
       src = rel.b;
       dst = rel.a;
     }

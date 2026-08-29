@@ -30,6 +30,14 @@ export interface PairTally {
   last: string;
   /** 근거로 보여줄 법안 몇 건 */
   samples: Bill[];
+  /**
+   * 발의자별 건수 (bioguide → 건수).
+   *
+   * 공동발의는 한 건 한 건이 방향을 갖는다 — B 가 A 의 법안에 서명한 것이지 그
+   * 반대가 아니다. 쌍으로 합칠 때 이 방향을 버리면 15/0(일방적 지지)과
+   * 15/15(상호)가 같은 선이 된다. 실제로 125쌍 중 25쌍이 80% 이상 일방적이다.
+   */
+  bySponsor: Record<string, number>;
 }
 
 export interface CosponsorEdge {
@@ -40,6 +48,15 @@ export interface CosponsorEdge {
   strength: 1 | 2 | 3;
   /** 코커스가 다른가. 정당 문자열이 아니라 코커스로 본다 */
   crossParty: boolean;
+  /** a 가 발의하고 b 가 서명한 건수 */
+  sponsoredByA: number;
+  /** b 가 발의하고 a 가 서명한 건수 */
+  sponsoredByB: number;
+  /**
+   * 서명을 더 많이 한 쪽 — 지지가 흘러가는 출발점이다.
+   * 한쪽이 65% 미만이면 상호적이라고 보고 방향을 붙이지 않는다.
+   */
+  initiator: 'a' | 'b' | null;
   /** 이미 큐레이션된 관계가 있는 쌍인가 — 그래프에 선을 두 번 긋지 않기 위해 */
   duplicate: boolean;
   first: string;
@@ -103,10 +120,14 @@ export function tallyPairs(bills: Bill[], sampleLimit = 3): Map<string, PairTall
       const k = pairKey(b.sponsor, c);
       const cur = out.get(k);
       if (!cur) {
-        out.set(k, { bills: 1, first: b.introduced, last: b.introduced, samples: [b] });
+        out.set(k, {
+          bills: 1, first: b.introduced, last: b.introduced,
+          samples: [b], bySponsor: { [b.sponsor]: 1 },
+        });
         continue;
       }
       cur.bills++;
+      cur.bySponsor[b.sponsor] = (cur.bySponsor[b.sponsor] ?? 0) + 1;
       if (b.introduced < cur.first) cur.first = b.introduced;
       if (b.introduced > cur.last) cur.last = b.introduced;
       if (cur.samples.length < sampleLimit) cur.samples.push(b);
@@ -163,10 +184,18 @@ export function selectEdges(
 
     const pa = opts.caucusOf.get(a) ?? '';
     const pb = opts.caucusOf.get(b) ?? '';
+    // 출력은 인물 id 순으로 고정한다. 방향 집계도 그 순서에 맞춰 뒤집는다 —
+    // 여기서 어긋나면 화살표가 정확히 반대를 가리킨다.
+    const flip = b < a;
+    const sponsoredByA = t.bySponsor[flip ? y : x] ?? 0;
+    const sponsoredByB = t.bySponsor[flip ? x : y] ?? 0;
     out.push({
-      a: a < b ? a : b,
-      b: a < b ? b : a,
+      a: flip ? b : a,
+      b: flip ? a : b,
       bills: t.bills,
+      sponsoredByA,
+      sponsoredByB,
+      initiator: leanOf(sponsoredByA, sponsoredByB),
       strength: strengthOf(t.bills),
       crossParty: Boolean(pa && pb && pa !== pb),
       duplicate: opts.curated.has(pairKey(a, b)),
@@ -182,6 +211,21 @@ export function selectEdges(
   }
   // 많이 함께 낸 순. 같으면 id 순 — 같은 입력이면 같은 파일이 나와야 한다
   return out.sort((p, q) => q.bills - p.bills || `${p.a}|${p.b}`.localeCompare(`${q.a}|${q.b}`));
+}
+
+/**
+ * 어느 쪽이 더 많이 서명했는가.
+ *
+ * a 의 법안에 b 가 더 많이 서명했다면 지지는 b → a 로 흐른다. 그래서 initiator 는
+ * **서명한 쪽**이다. 기울기가 65% 미만이면 상호적이므로 방향을 붙이지 않는다 —
+ * 25/27 에 화살표를 그리면 없는 위계를 만든다.
+ */
+export function leanOf(sponsoredByA: number, sponsoredByB: number): 'a' | 'b' | null {
+  const total = sponsoredByA + sponsoredByB;
+  if (!total) return null;
+  if (sponsoredByA / total >= 0.65) return 'b';
+  if (sponsoredByB / total >= 0.65) return 'a';
+  return null;
 }
 
 /** 건수를 관계 강도로 — 기존 엣지와 같은 1~3 척도를 쓴다 */

@@ -9,6 +9,7 @@ import {
   type Filters,
   type GraphNode,
 } from './graph';
+import { ALL_REL_TYPES } from '../types';
 import type { Politician, Relationship } from '../types';
 
 const person = (id: string, over: Partial<Politician> = {}): Politician => ({
@@ -35,7 +36,8 @@ const rel = (a: string, b: string, over: Partial<Relationship> = {}): Relationsh
   ...over,
 });
 
-const ALL_REL: Filters['relTypes'] = ['ally', 'feud', 'bipartisan', 'family', 'mentor'];
+// 관계 유형이 늘 때마다 고쳐야 하는 목록을 두지 않는다 — 정본에서 가져온다
+const ALL_REL: Filters['relTypes'] = [...ALL_REL_TYPES];
 const filters = (over: Partial<Filters> = {}): Filters => ({
   parties: [],
   branches: [],
@@ -80,6 +82,21 @@ describe('buildGraph', () => {
   it('자기 자신과의 관계는 버린다', () => {
     const { links } = buildGraph([person('a')], [rel('a', 'a')]);
     expect(links).toHaveLength(0);
+  });
+
+  // feud 전용이던 규칙을 일반화했다. 공동발의도 "더 많이 서명한 쪽" 에서 흘러야 한다
+  it('cosponsor 도 initiator 방향으로 향한다', () => {
+    const g = buildGraph(
+      [person('a'), person('b')],
+      [rel('a', 'b', { type: 'cosponsor', initiator: 'b' })]
+    );
+    expect(g.links[0].source).toBe('b');
+    expect(g.links[0].target).toBe('a');
+  });
+
+  it('initiator 가 없으면 원래 순서를 지킨다', () => {
+    const g = buildGraph([person('a'), person('b')], [rel('a', 'b', { type: 'cosponsor' })]);
+    expect(g.links[0].source).toBe('a');
   });
 
   it('feud 는 initiator 방향으로 향하게 한다 — 입자가 공격자에서 흘러야 한다', () => {

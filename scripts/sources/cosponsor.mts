@@ -176,9 +176,15 @@ if (!fs.existsSync(cwPath)) {
   console.log('─'.repeat(58));
   console.log(`${CONGRESS}대 법안 ${stats.billsScanned.toLocaleString()}건 · 쌍 ${stats.pairsAll.toLocaleString()}`);
   console.log(`기준 ${THRESHOLD}건 이상 → 엣지 ${stats.edges} (신규 ${stats.fresh} · 초당적 ${stats.crossParty})`);
+  const directed = edges.filter((e) => e.initiator).length;
+  console.log(`방향 있음 ${directed} · 상호적 ${edges.length - directed}`);
   console.log('상위:');
   for (const e of edges.slice(0, 6)) {
-    console.log(`  ${String(e.bills).padStart(3)}건  ${e.a} × ${e.b}${e.crossParty ? '  [초당적]' : ''}${e.duplicate ? '  [기존]' : ''}`);
+    const arrow = e.initiator === 'a' ? `${e.a} → ${e.b}` : e.initiator === 'b' ? `${e.b} → ${e.a}` : `${e.a} ⇄ ${e.b}`;
+    console.log(
+      `  ${String(e.bills).padStart(3)}건  ${arrow}  (${e.sponsoredByA}/${e.sponsoredByB})` +
+        `${e.crossParty ? '  [초당적]' : ''}${e.duplicate ? '  [기존]' : ''}`
+    );
   }
   console.log('─'.repeat(58));
 

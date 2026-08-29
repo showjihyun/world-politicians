@@ -19,6 +19,10 @@ interface RawEdge {
   /** 생성 시점에 정해진 1~3 — 앱에서 다시 계산하지 않는다 */
   strength: 1 | 2 | 3;
   crossParty: boolean;
+  sponsoredByA: number;
+  sponsoredByB: number;
+  /** 상대 법안에 더 많이 서명한 쪽. 상호적이면 null */
+  initiator: 'a' | 'b' | null;
   /** 이미 큐레이션된 관계가 있는 쌍 */
   duplicate: boolean;
   first: string;
@@ -55,13 +59,10 @@ export const COSPONSOR_RELATIONSHIPS: Relationship[] = file.edges
     b: e.b,
     type: 'cosponsor' as const,
     strength: e.strength,
+    ...(e.initiator ? { initiator: e.initiator } : {}),
     note: {
-      en: `Co-sponsored ${e.bills} bills together in the ${file.congress}th Congress (${e.first} – ${e.last})${
-        e.crossParty ? ' — across party lines' : ''
-      }.`,
-      ko: `${file.congress}대 의회에서 ${e.bills}건을 함께 발의했다 (${e.first} ~ ${e.last})${
-        e.crossParty ? ' — 당을 넘어선 협업' : ''
-      }.`,
+      en: `${e.bills} bills co-sponsored in the ${file.congress}th Congress (${e.first} – ${e.last})${e.crossParty ? ', across party lines' : ''}.`,
+      ko: `${file.congress}대 의회에서 ${e.bills}건 공동발의 (${e.first} ~ ${e.last})${e.crossParty ? '. 당을 넘어선 협업' : ''}.`,
     },
   }));
 

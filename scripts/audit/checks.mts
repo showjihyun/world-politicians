@@ -413,6 +413,7 @@ export interface CosponsorFile {
   edges: {
     a: string; b: string; bills: number; strength: number;
     crossParty: boolean; duplicate: boolean;
+    sponsoredByA: number; sponsoredByB: number; initiator: 'a' | 'b' | null;
   }[];
 }
 
@@ -511,6 +512,36 @@ export function checkCosponsor(
       check: 'cosponsor.curatedLeak',
       message: `큐레이션된 쌍에 법안 근거가 들어갔다 ${leaked.length}건 — 근거 패널에서 기사를 밀어낸다`,
       samples: cap(leaked.map((e) => `${e.a}×${e.b}`)),
+    });
+  }
+
+  // 방향 건수의 합이 총 건수와 다르면 어딘가에서 세다 흘렸다는 뜻이다
+  const badSplit = cos.edges.filter((e) => e.sponsoredByA + e.sponsoredByB !== e.bills);
+  if (badSplit.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.split',
+      message: `방향별 건수의 합이 총 건수와 다르다 ${badSplit.length}건`,
+      samples: cap(badSplit.map((e) => `${e.a}×${e.b} ${e.sponsoredByA}+${e.sponsoredByB}≠${e.bills}`)),
+    });
+  }
+
+  // a·b 를 id 순으로 뒤집을 때 방향 집계를 같이 뒤집지 않으면 화살표가 정확히
+  // 반대를 가리킨다. 눈으로는 그럴듯해 보여서 알아채기 어렵다.
+  const lean = (x: number, y: number): 'a' | 'b' | null => {
+    const t = x + y;
+    if (!t) return null;
+    if (x / t >= 0.65) return 'b';
+    if (y / t >= 0.65) return 'a';
+    return null;
+  };
+  const wrongDir = cos.edges.filter((e) => e.initiator !== lean(e.sponsoredByA, e.sponsoredByB));
+  if (wrongDir.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.direction',
+      message: `방향이 건수와 맞지 않는 엣지 ${wrongDir.length}건 — 화살표가 반대로 그려진다`,
+      samples: cap(wrongDir.map((e) => `${e.a}×${e.b} ${e.sponsoredByA}/${e.sponsoredByB}→${e.initiator}`)),
     });
   }
 
