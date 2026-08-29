@@ -4,7 +4,7 @@ import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { FACTION_MAP } from '../data/factions';
-import { SIGNALS_BY_PERSON } from '../data/signals';
+import { SIGNALS_BY_PERSON, signalCountFor } from '../data/signals';
 import { usePortrait } from '../lib/portrait';
 import { siteUrlOf, xSearchUrl, newsSearchUrl } from '../lib/links';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
@@ -204,7 +204,7 @@ export default function DetailDrawer() {
               <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-cyan-300">
                 <Newspaper size={10} /> {t.wireTitle}
                 <span className="ml-auto font-normal normal-case text-slate-600">
-                  {SIGNALS_BY_PERSON.get(person.id)!.length}
+                  {signalCountFor(person.id)}
                 </span>
               </h4>
               <div className="space-y-1.5">

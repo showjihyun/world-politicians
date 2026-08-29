@@ -59,6 +59,10 @@ async function main() {
     if (m.type() === 'error') consoleErrors.push(m.text());
   });
 
+  // 월별 아카이브 청크가 첫 화면에 딸려오면 분할이 무의미하다 — 요청을 기록해 확인
+  const requested = [];
+  page.on('request', (r) => requested.push(r.url()));
+
   // ── 1. 로드 & 그래프 렌더 ──
   await page.goto(BASE, { waitUntil: 'networkidle' });
   await page.waitForTimeout(2800);
@@ -238,9 +242,25 @@ async function main() {
   await page.waitForTimeout(300);
   await page.keyboard.press('Escape');
   await page.waitForTimeout(400);
+  const beforeAnalysis = [...requested];
   await page.locator('button', { hasText: 'ANALYSIS' }).click();
   await page.waitForTimeout(500);
   check('analysis tab opens', await page.locator('text=Watchlist').isVisible());
+
+  // 분할의 목적: 아카이브는 시계열을 열 때만 받는다
+  // dev 서버는 /src/data/signals/2026-08.json, 빌드본은 /assets/2026-08-<hash>.js 로 나간다
+  const isMonthChunk = (u) => /signals\/20\d\d-\d\d\.json|assets\/20\d\d-\d\d[-.]/.test(u);
+  check(
+    'monthly archive is not shipped on first paint',
+    beforeAnalysis.filter(isMonthChunk).length === 0,
+    `${beforeAnalysis.filter(isMonthChunk).length} chunk(s) before ANALYSIS`
+  );
+  await page.waitForTimeout(1500);
+  check(
+    'monthly archive loads when the timeline opens',
+    requested.filter(isMonthChunk).length > 0,
+    `${requested.filter(isMonthChunk).length} chunk(s) after`
+  );
   check(
     'pair timeline card renders',
     await page.locator('text=Donald J. Trump × Elon Musk').isVisible()

@@ -30,6 +30,6 @@ jobs:
         run: |
           git config user.name "polaris-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add src/data/news-signals.json
+          git add -A src/data/signals src/data/news-signals.json
           git diff --cached --quiet || git commit -m "news: refresh relationship signals [skip ci]"
           git push

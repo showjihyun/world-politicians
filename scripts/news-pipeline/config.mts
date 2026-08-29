@@ -72,6 +72,8 @@ export const CONFIG = {
   paths: {
     politiciansDir: path.resolve(import.meta.dirname, '../../src/data/politicians'),
     outJson: path.resolve(import.meta.dirname, '../../src/data/news-signals.json'),
+    /** 월별 파티션이 사는 곳 — 아카이브가 커져도 초기 번들이 커지지 않게 한다 */
+    signalsDir: path.resolve(import.meta.dirname, '../../src/data/signals'),
     rawCache: path.resolve(import.meta.dirname, '.raw-cache.json'),
     signalsCache: path.resolve(import.meta.dirname, '.signals-cache.json'),
   },

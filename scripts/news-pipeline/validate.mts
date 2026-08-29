@@ -23,8 +23,17 @@ export function validate(file: SignalsFile, dry = false): boolean {
     if (!ok) break;
   }
 
-  const outPath = dry ? 'scripts/news-pipeline/.dry-output.json' : CONFIG.paths.outJson;
-  const sizeKB = fs.existsSync(outPath) ? Math.round(fs.statSync(outPath).size / 1024) : 0;
+  // 출력이 월별 파티션으로 나뉘었으므로 디렉터리 합계를 잰다
+  let sizeKB = 0;
+  if (dry) {
+    const p = 'scripts/news-pipeline/.dry-output.json';
+    sizeKB = fs.existsSync(p) ? Math.round(fs.statSync(p).size / 1024) : 0;
+  } else if (fs.existsSync(CONFIG.paths.signalsDir)) {
+    for (const name of fs.readdirSync(CONFIG.paths.signalsDir)) {
+      sizeKB += fs.statSync(`${CONFIG.paths.signalsDir}/${name}`).size / 1024;
+    }
+    sizeKB = Math.round(sizeKB);
+  }
   console.log(`[validate] signals=${file.signals.length} classified=${file.stats.classified} ally=${file.stats.ally} feud=${file.stats.feud} size=${sizeKB}KB → ${ok ? 'OK' : 'FAILED'}`);
   return ok;
 }

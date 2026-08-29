@@ -76,7 +76,7 @@ The short version:
 
 1. **Fetch** — seven outlet RSS feeds directly, plus per-person Google News queries built from an alias table. Google News results pass an allowlist of 17 domains and 20 outlet names. Only articles naming two or more people in the dataset become pair candidates.
 2. **Classify** — candidates go to an LLM in batches of ten, which returns the relevant pair, a polarity, a confidence score, and a bilingual summary. Without an API key the pipeline degrades to unclassified co-mention signals rather than failing.
-3. **Merge** — new signals are unioned with the existing file by stable id, trimmed to 365 days, capped at 1,500. A single run only sees a 30-day window; the archive is what makes the timeline possible.
+3. **Merge** — new signals are unioned with the existing archive by stable id, trimmed to 365 days, capped at 1,500. A single run only sees a 30-day window; the archive is what makes the timeline possible. Output is written as monthly partitions (`src/data/signals/YYYY-MM.json`) plus a manifest and a small `recent.json`, so the browser loads the whole archive only when you open the timeline — the initial payload stays flat as the archive grows.
 4. **Validate** — schema, count consistency, and that every referenced person id actually exists.
 5. **Commit** — the workflow writes the JSON back to the repo. There is no server: the dataset ships as a static import.
 

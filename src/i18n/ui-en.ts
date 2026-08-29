@@ -94,6 +94,7 @@ export const UI_EN = {
   sourcesLoading: 'Loading sources…',
   sourcesAuto: 'Auto-collected: articles naming both people. Supporting, not verified — some may be co-mentions only.',
   visitors: 'visitors',
+  archiveLoading: 'Loading the full archive…',
   tabStories: 'STORIES',
   storyFigures: 'figures',
   tabFilters: 'FILTERS',

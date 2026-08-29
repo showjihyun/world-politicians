@@ -1,5 +1,5 @@
 import { HISTORY_ARCS } from '../data/signal-history';
-import { SIGNALS_BY_PAIR } from '../data/signals';
+import type { NewsSignal } from '../types';
 import type { LocalizedText } from '../types';
 
 export type Pol = 'ally' | 'feud' | 'neutral';
@@ -37,10 +37,12 @@ function monthDiff(a: string, b: string): number {
 export function buildPairTimeline(
   a: string,
   b: string,
-  windowMonths: number
+  windowMonths: number,
+  /** 아카이브에서 만든 pairKey → 신호 맵. 호출부가 먼저 loadArchive() 해야 한다 */
+  byPair: Map<string, NewsSignal[]>
 ): { cells: MonthCell[]; flips: MonthCell[] } | null {
   const key = a < b ? `${a}|${b}` : `${b}|${a}`;
-  const live = SIGNALS_BY_PAIR.get(key) ?? [];
+  const live = byPair.get(key) ?? [];
   const arc = HISTORY_ARCS.find(
     (h) => (h.a === a && h.b === b) || (h.a === b && h.b === a)
   );

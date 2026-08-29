@@ -95,6 +95,7 @@ export const UI_KO: UIDict = {
   sourcesLoading: '근거 불러오는 중…',
   sourcesAuto: '자동 수집: 두 인물이 함께 등장한 기사입니다. 참고용이며 검증된 인용은 아닙니다 — 단순 동반 언급이 섞일 수 있습니다.',
   visitors: '방문',
+  archiveLoading: '전체 아카이브 불러오는 중…',
   tabStories: '현상',
   storyFigures: '명',
   tabFilters: '필터',

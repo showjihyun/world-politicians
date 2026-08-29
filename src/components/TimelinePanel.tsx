@@ -1,14 +1,36 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { X, LineChart, Sparkles } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { buildPairTimeline, polColor } from '../lib/timeline';
+import { loadArchive, signalsByPair } from '../data/signals';
+import type { NewsSignal } from '../types';
 import { pairKey } from '../lib/graph';
 
 const WINDOWS = [1, 3, 6, 12] as const;
 
+/**
+ * 시계열은 아카이브 전체가 필요하다. 첫 화면 번들에는 최근분만 들어 있으므로
+ * 이 탭을 열었을 때 월별 파티션을 받아온다.
+ */
+function useArchivePairs(): { byPair: Map<string, NewsSignal[]>; loading: boolean } {
+  const [all, setAll] = useState<NewsSignal[] | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadArchive().then((a) => {
+      if (live) setAll(a);
+    });
+    return () => {
+      live = false;
+    };
+  }, []);
+  const byPair = useMemo(() => signalsByPair(all ?? []), [all]);
+  return { byPair, loading: all === null };
+}
+
 export default function TimelinePanel() {
   const { t, locale } = useI18n();
+  const { byPair, loading } = useArchivePairs();
   const graph = useStore((s) => s.graph);
   const watchIds = useStore((s) => s.watchIds);
   const toggleWatch = useStore((s) => s.toggleWatch);
@@ -80,6 +102,11 @@ export default function TimelinePanel() {
         <p className="text-[13px] text-slate-500">{t.watchNeedTwo}</p>
       )}
 
+      {/* 카드가 없는 것과 아직 안 온 것은 다르다 */}
+      {loading && pairs.length > 0 && (
+        <p className="text-[13px] text-slate-500">{t.archiveLoading}</p>
+      )}
+
       {pairs.map(({ a, b }) => (
         <PairTimelineCard
           key={pairKey(a, b)}
@@ -88,6 +115,7 @@ export default function TimelinePanel() {
           nameA={nameOf(a)}
           nameB={nameOf(b)}
           win={win}
+          byPair={byPair}
           onSelect={() => select(a)}
         />
       ))}
@@ -101,6 +129,7 @@ function PairTimelineCard({
   nameA,
   nameB,
   win,
+  byPair,
   onSelect,
 }: {
   a: string;
@@ -108,10 +137,11 @@ function PairTimelineCard({
   nameA: string;
   nameB: string;
   win: number;
+  byPair: Map<string, NewsSignal[]>;
   onSelect: () => void;
 }) {
   const { t, L } = useI18n();
-  const tl = useMemo(() => buildPairTimeline(a, b, win), [a, b, win]);
+  const tl = useMemo(() => buildPairTimeline(a, b, win, byPair), [a, b, win, byPair]);
 
   if (!tl) return null;
   const recentFlips = [...tl.flips].reverse().slice(0, 2);
