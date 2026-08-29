@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
-import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
+import { X, MapPin, Zap, Crown, Landmark, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { cosponsorCount } from '../data/cosponsorship';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON, signalCountFor } from '../data/signals';
+import { money, useFunding } from '../lib/funding';
 import { usePortrait } from '../lib/portrait';
 import { siteUrlOf, xSearchUrl, newsSearchUrl } from '../lib/links';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
@@ -35,6 +36,10 @@ export default function DetailDrawer() {
   const [imgFail, setImgFail] = useState(false);
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
+  const { funding, cycle: fundingCycle, through: fundingThrough } = useFunding(person?.id ?? null);
+  // 음수(환불)와 0 나눗셈을 여기서 한 번만 막는다
+  const pct = (n: number) =>
+    funding && funding.receipts > 0 ? Math.max(0, Math.min(100, (100 * n) / funding.receipts)) : 0;
 
   useEffect(() => setImgFail(false), [selectedId]);
 
@@ -200,6 +205,78 @@ export default function DetailDrawer() {
             )}
           </div>
 
+          {funding && funding.receipts > 0 && (
+            <div className="mx-4 mb-3 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-3">
+              <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-emerald-300">
+                <Landmark size={10} /> {t.fundingTitle}
+                <span className="ml-auto font-normal normal-case text-slate-600">
+                  {fundingCycle} · {fundingThrough}
+                </span>
+              </h4>
+
+              <div className="mb-2 flex items-baseline gap-2">
+                <span className="font-mono text-[15px] font-bold text-slate-200">
+                  {money(funding.receipts)}
+                </span>
+                <span className="text-[10.5px] text-slate-500">{t.fundingReceipts}</span>
+              </div>
+
+              {/* 어디서 온 돈인지 — 이름 있는 기부자로 설명되는 부분은 일부다 */}
+              {/*
+                은퇴·사임한 인물은 받은 PAC 돈을 돌려주어 순액이 음수가 된다.
+                실제 사실이지만 막대 폭으로는 그릴 수 없으므로 0 으로 눌러 둔다.
+              */}
+              <div className="mb-1 flex h-1.5 overflow-hidden rounded-full bg-slate-700/40">
+                <span className="bg-slate-400/70" style={{ width: `${pct(funding.individual)}%` }} />
+                <span className="bg-emerald-400/80" style={{ width: `${pct(funding.pacDirect)}%` }} />
+              </div>
+              <p className="mb-2.5 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+                {t.fundingIndividual} {Math.round(pct(funding.individual))}%
+                {' · '}
+                <span className={funding.pacDirect < 0 ? 'text-rose-400/70' : 'text-emerald-400/80'}>
+                  {t.fundingPac}{' '}
+                  {funding.pacDirect < 0
+                    ? t.fundingRefunded(money(-funding.pacDirect))
+                    : `${Math.round(pct(funding.pacDirect))}%`}
+                </span>
+              </p>
+
+              {funding.topFunders.length > 0 && (
+                <div className="space-y-1">
+                  {funding.topFunders.slice(0, 5).map((f) => (
+                    <div key={f.name} className="flex items-baseline gap-2">
+                      <span className="min-w-0 flex-1 truncate text-[11.5px] text-slate-300">
+                        {f.org || f.name}
+                      </span>
+                      <span className="shrink-0 font-mono text-[10.5px] text-slate-500">
+                        {money(f.amount)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 독립지출은 기부가 아니다. 특히 반대 지출을 후원으로 읽게 두면 안 된다 */}
+              {(funding.ieSupport > 0 || funding.ieOppose > 0) && (
+                <p className="mt-2 border-t border-emerald-400/15 pt-1.5 font-mono text-[9.5px] uppercase tracking-wider">
+                  <span className="text-slate-600">{t.fundingOutside}</span>{' '}
+                  {funding.ieSupport > 0 && (
+                    <span className="text-sky-400/80">
+                      {t.fundingFor} {money(funding.ieSupport)}
+                    </span>
+                  )}
+                  {funding.ieSupport > 0 && funding.ieOppose > 0 && <span className="text-slate-700"> · </span>}
+                  {funding.ieOppose > 0 && (
+                    <span className="text-rose-400/80">
+                      {t.fundingAgainst} {money(funding.ieOppose)}
+                    </span>
+                  )}
+                </p>
+              )}
+
+              <p className="mt-1.5 text-[9.5px] leading-relaxed text-slate-600">{t.fundingCaveat}</p>
+            </div>
+          )}
           {(SIGNALS_BY_PERSON.get(person.id)?.length ?? 0) > 0 && (
             <div className="mx-4 mb-3 rounded-xl border border-cyan-400/20 bg-cyan-400/[0.05] p-3">
               <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-cyan-300">

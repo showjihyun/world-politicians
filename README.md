@@ -143,6 +143,17 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   "Cross-party" here means a different *caucus*, not a different party label — Sanders
   and King are independents who caucus with the Democrats, and counting them as
   cross-party inflated this number from 11 to 19 in an earlier pass.
+- **Money is on the profile, not the graph — and only 6% of it has a name.** FEC bulk
+  data gives each figure's 2026-cycle receipts, their largest PAC funders, and outside
+  spending. Three things sit in the same FEC file and must be separated: direct
+  contributions ($32.0M), independent expenditures *supporting* a candidate ($14.4M),
+  and independent expenditures *opposing* them ($18.1M). The opposing figure is the
+  largest — merge them and the $10.1M spent attacking Thomas Massie reads as his
+  funding. Joint fundraising transfers are excluded too, or Mike Johnson's top "donor"
+  would be his own committee. What remains — PAC contributions — is 6% of total
+  receipts; 73% is individual giving, reported only as a lump sum. The panel says so.
+  It is not a graph layer because the data would not support one: only 5 pairs share
+  8+ of their top funders, and all 5 are same-caucus.
 - **The relationship data is editorial.** Those 266 edges are hand-curated from public reporting. Someone else reading the same coverage would draw a different graph. Treat it as an argument, not a record. Every edge now carries its own evidence panel — click the document icon on any relationship to see the articles behind it, or to see that there aren't any.
 - **Evidence links are verifiable, and that cost coverage.** An earlier version attached 478 links to 218 edges — but 94% were Google News redirect URLs, which resolve only in a browser and carry no way to confirm the destination or the outlet. They were replaced with direct article URLs from the GDELT archive, each one relevance-filtered by an LLM and then actually fetched to confirm it resolves (5 dead links were caught and dropped). **The result is 64 of 266 edges with 162 links — every one a real outlet URL you can inspect before clicking.** The other 202 edges say plainly that they have no linked source.
 - **Evidence is machine-filtered, not human-verified.** The LLM judges headlines, not article bodies, so marginal calls get through. Treat a linked article as supporting context, not as a citation someone checked.

@@ -590,6 +590,141 @@ export function checkCosponsor(
   return out;
 }
 
+export interface FundingFile {
+  cycle: number;
+  stats: { people: number; receipts: number; pacDirect: number; namedSharePct: number };
+  people: Record<
+    string,
+    {
+      receipts: number; individual: number; pacDirect: number; partyDirect: number;
+      ieSupport: number; ieOppose: number;
+      topFunders: { name: string; amount: number; kind: string }[];
+    }
+  >;
+}
+
+/**
+ * 자금 데이터 정합성.
+ *
+ * 이 데이터는 눈으로 검산할 수 없다. 그래서 틀려도 화면에는 그럴듯한 금액이
+ * 나온다. 특히 위험한 것은 독립지출이 기부에 섞이는 것이다 — 실측에서 후보를
+ * **반대**하는 지출($18.1M)이 지지($14.4M)보다 컸다. 섞이면 공격이 후원으로 보인다.
+ */
+export function checkFunding(f: FundingFile, knownIds: Set<string>): Finding[] {
+  const out: Finding[] = [];
+  const entries = Object.entries(f.people);
+
+  const unknown = entries.map(([id]) => id).filter((id) => !knownIds.has(id));
+  if (unknown.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.references',
+      message: `데이터셋에 없는 인물 id ${unknown.length}종`,
+      samples: cap(unknown),
+    });
+  }
+
+  // 총 수입은 음수일 수 없다. 여기가 음수면 열을 잘못 잡은 것이다.
+  const badReceipts = entries.filter(([, p]) => p.receipts < 0);
+  if (badReceipts.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.negative',
+      message: `총 수입이 음수인 인물 ${badReceipts.length}명 — 파싱이 열을 잘못 잡았다`,
+      samples: cap(badReceipts.map(([id]) => id)),
+    });
+  }
+
+  // 반면 PAC 순액이 음수인 것은 정상이다. FEC 는 반환된 기부를 음수로 적고,
+  // 은퇴·사임한 인물은 받은 돈을 돌려준다(McConnell·McCarthy·Rubio 등).
+  // 오류가 아니라 사실이므로 알려만 준다.
+  const refunded = entries.filter(([, p]) => p.pacDirect < 0);
+  if (refunded.length) {
+    out.push({
+      level: 'info',
+      check: 'funding.refunded',
+      message: `PAC 순액이 음수인 인물 ${refunded.length}명 — 받은 돈을 돌려준 경우다`,
+      samples: cap(refunded.map(([id, p]) => `${id} ${Math.round(p.pacDirect)}`)),
+    });
+  }
+
+  // 개인 + PAC + 정당이 총 수입을 넘으면 같은 돈을 두 번 셌다는 뜻이다
+  const overCount = entries.filter(
+    ([, p]) => p.receipts > 0 && p.individual + p.pacDirect + p.partyDirect > p.receipts * 1.02
+  );
+  if (overCount.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.overcount',
+      message: `구성 합계가 총 수입을 넘는다 ${overCount.length}명 — 같은 돈을 두 번 셌다`,
+      samples: cap(overCount.map(([id, p]) => `${id} ${p.individual + p.pacDirect + p.partyDirect} > ${p.receipts}`)),
+    });
+  }
+
+  // 후원자 목록 자체의 규칙. "합계가 총액을 넘지 않는다" 로 검사하려 했는데
+  // 환불(음수) 때문에 성립하지 않는 전제였다 — 순액이 음수인 위원회가 있으면
+  // 양수 상위 몇 개의 합이 전체 순액보다 클 수 있다.
+  const badFunders = entries.filter(
+    ([, p]) =>
+      p.topFunders.some((x) => x.amount <= 0) ||
+      p.topFunders.some((x, i) => i > 0 && x.amount > p.topFunders[i - 1].amount)
+  );
+  if (badFunders.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.funderOrder',
+      message: `후원자 목록이 0 이하를 담거나 내림차순이 아니다 ${badFunders.length}명`,
+      samples: cap(badFunders.map(([id]) => id)),
+    });
+  }
+
+  // PAC 한도는 주기당 $10,000 이다. 크게 넘으면 공동모금·이체가 기부로 들어온 것이다.
+  // 다만 개인 기부를 묶어 전달하는 도관 PAC 은 정상적으로 넘을 수 있어 경고로 둔다.
+  const LIMIT = 50_000;
+  const huge = entries.flatMap(([id, p]) =>
+    p.topFunders.filter((x) => x.amount > LIMIT).map((x) => `${id} ← ${x.name} ${Math.round(x.amount)}`)
+  );
+  if (huge.length) {
+    out.push({
+      level: 'warn',
+      check: 'funding.limit',
+      message: `PAC 한도를 크게 넘는 기부 ${huge.length}건 — 도관 PAC 인지 이체인지 확인이 필요하다`,
+      samples: cap(huge),
+    });
+  }
+
+  const badKind = entries.flatMap(([id, p]) =>
+    p.topFunders.filter((x) => x.kind !== 'interest').map((x) => `${id} ← ${x.name} (${x.kind})`)
+  );
+  if (badKind.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.kind',
+      message: `상위 후원자에 이익집단 PAC 이 아닌 것이 섞였다 ${badKind.length}건`,
+      samples: cap(badKind),
+    });
+  }
+
+  const receipts = entries.reduce((n, [, p]) => n + p.receipts, 0);
+  const pac = entries.reduce((n, [, p]) => n + p.pacDirect, 0);
+  const share = receipts > 0 ? Math.round((pac / receipts) * 1000) / 10 : 0;
+  const bad = [
+    f.stats.people !== entries.length ? `people ${f.stats.people} vs 실제 ${entries.length}` : '',
+    Math.abs(f.stats.receipts - receipts) > 1 ? `receipts ${f.stats.receipts} vs 실제 ${receipts}` : '',
+    Math.abs(f.stats.namedSharePct - share) > 0.1 ? `namedSharePct ${f.stats.namedSharePct} vs 실제 ${share}` : '',
+  ].filter(Boolean);
+  if (bad.length) {
+    out.push({
+      level: 'fail',
+      check: 'funding.stats',
+      message: '요약 수치가 실제와 다르다',
+      samples: bad,
+    });
+  }
+
+  return out;
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

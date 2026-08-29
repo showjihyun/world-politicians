@@ -15,9 +15,9 @@ import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
-  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
-  type CosponsorFile, type CrosswalkFile, type Finding, type SignalRef, type SourceRef,
+  type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type SignalRef, type SourceRef,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -107,6 +107,13 @@ if (fs.existsSync(cosPath) && fs.existsSync(cosSrcPath)) {
   findings.push(...checkCosponsor(cos, knownIds, curatedPairs, cosSrc));
 }
 
+// 자금 데이터는 눈으로 검산할 수 없다. 틀려도 화면에는 그럴듯한 금액이 나온다.
+const fundPath = path.join(ROOT, 'src/data/funding.json');
+if (fs.existsSync(fundPath)) {
+  const fund = JSON.parse(fs.readFileSync(fundPath, 'utf8')) as FundingFile;
+  findings.push(...checkFunding(fund, knownIds));
+}
+
 const actualCounts: Record<string, number> = {};
 for (const s of signals) for (const p of s.people ?? []) actualCounts[p] = (actualCounts[p] ?? 0) + 1;
 findings.push(
@@ -167,6 +174,11 @@ if (fs.existsSync(cwPath)) {
 if (fs.existsSync(cosPath)) {
   const cos = JSON.parse(fs.readFileSync(cosPath, 'utf8')) as CosponsorFile;
   console.log(`공동발의 엣지 ${cos.stats.edges} (신규 ${cos.stats.fresh} · 초당적 ${cos.stats.crossParty}) · ${cos.congress}대 · 기준 ${cos.threshold}건`);
+}
+if (fs.existsSync(fundPath)) {
+  const fund = JSON.parse(fs.readFileSync(fundPath, 'utf8')) as FundingFile;
+  const m = (n: number) => `$${(n / 1e6).toFixed(1)}M`;
+  console.log(`자금 ${fund.stats.people}명 · 수입 ${m(fund.stats.receipts)} · PAC 직접 ${m(fund.stats.pacDirect)} (${fund.stats.namedSharePct}%)`);
 }
 console.log('─'.repeat(58));
 

@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
-  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
+  type FundingFile,
   type SourceRef,
 } from './checks.mts';
 
@@ -358,5 +359,101 @@ describe('checkCosponsor', () => {
     const f = checkCosponsor(bad, ids, curated, srcs);
     expect(f.map((x) => x.check)).toContain('cosponsor.stats');
     expect(f.find((x) => x.check === 'cosponsor.stats')?.samples?.[0]).toContain('99');
+  });
+});
+
+describe('checkFunding', () => {
+  const person = (over: Partial<FundingFile['people'][string]> = {}) => ({
+    receipts: 1000, individual: 700, pacDirect: 60, partyDirect: 10,
+    ieSupport: 5, ieOppose: 9,
+    topFunders: [{ name: 'ACME PAC', amount: 60, kind: 'interest' }],
+    ...over,
+  });
+  const ok: FundingFile = {
+    cycle: 2026,
+    stats: { people: 1, receipts: 1000, pacDirect: 60, namedSharePct: 6 },
+    people: { cruz: person() },
+  };
+  const ids = new Set(['cruz']);
+
+  it('맞으면 아무것도 보고하지 않는다', () => {
+    expect(checkFunding(ok, ids)).toHaveLength(0);
+  });
+
+  it('사라진 인물을 가리키면 잡는다', () => {
+    expect(checkFunding(ok, new Set(['warren'])).map((x) => x.check)).toContain('funding.references');
+  });
+
+  // 파이프 구분 파일에서 열을 하나 밀려 읽으면 총 수입이 음수가 된다
+  it('총 수입이 음수면 잡는다', () => {
+    const bad = { ...ok, people: { cruz: person({ receipts: -1, topFunders: [] }) },
+      stats: { people: 1, receipts: -1, pacDirect: 60, namedSharePct: 0 } };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.negative');
+  });
+
+  // FEC 는 반환된 기부를 음수로 적는다. 은퇴한 인물은 PAC 순액이 음수가 되는데
+  // 오류가 아니라 "돈을 돌려줬다" 는 사실이므로 실패시키지 않는다.
+  it('PAC 순액이 음수인 것은 실패가 아니라 알림이다', () => {
+    const bad = { ...ok, people: { cruz: person({ pacDirect: -100, topFunders: [] }) },
+      stats: { people: 1, receipts: 1000, pacDirect: -100, namedSharePct: -10 } };
+    const f = checkFunding(bad, ids);
+    expect(f.find((x) => x.check === 'funding.refunded')?.level).toBe('info');
+    expect(f.filter((x) => x.level === 'fail')).toHaveLength(0);
+  });
+
+  it('구성 합계가 총 수입을 넘으면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { cruz: person({ individual: 900, pacDirect: 900, topFunders: [] }) },
+      stats: { people: 1, receipts: 1000, pacDirect: 900, namedSharePct: 90 },
+    };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.overcount');
+  });
+
+  it('후원자에 0 이하가 섞이면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { cruz: person({ topFunders: [{ name: 'X', amount: 0, kind: 'interest' }] }) },
+    };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.funderOrder');
+  });
+
+  it('후원자가 내림차순이 아니면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: {
+        cruz: person({
+          topFunders: [
+            { name: 'A', amount: 10, kind: 'interest' },
+            { name: 'B', amount: 50, kind: 'interest' },
+          ],
+        }),
+      },
+    };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.funderOrder');
+  });
+
+  it('이익집단이 아닌 후원자가 섞이면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { cruz: person({ topFunders: [{ name: 'OWN JFC', amount: 60, kind: 'joint' }] }) },
+    };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.kind');
+  });
+
+  it('한도를 크게 넘는 기부는 경고한다 — 도관 PAC 일 수도 있다', () => {
+    const bad = {
+      ...ok,
+      people: { cruz: person({ pacDirect: 100000, topFunders: [{ name: 'BIG', amount: 100000, kind: 'interest' }] }) },
+      stats: { people: 1, receipts: 1000000, pacDirect: 100000, namedSharePct: 10 },
+    };
+    const f = checkFunding({ ...bad, people: { cruz: { ...bad.people.cruz, receipts: 1000000 } } }, ids);
+    const hit = f.find((x) => x.check === 'funding.limit');
+    expect(hit?.level).toBe('warn');
+  });
+
+  it('요약 수치가 실제와 다르면 잡는다', () => {
+    const bad = { ...ok, stats: { ...ok.stats, receipts: 99 } };
+    expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.stats');
   });
 });

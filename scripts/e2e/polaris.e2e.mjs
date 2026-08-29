@@ -456,6 +456,29 @@ async function main() {
   await page.locator('[data-testid=legend-cosponsor]').click();
   await page.waitForTimeout(300);
 
+  // 자금 레이어. Trump 은 2026 주기 후보가 아니라 기록이 없으므로 현직 의원으로 본다.
+  await page.getByPlaceholder('Search politicians…').fill('Jeffries');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'Hakeem Jeffries' }).first().click();
+  await page.waitForTimeout(1500);
+  check(
+    'funding section renders',
+    (await page.locator('text=Campaign finance').count()) > 0
+  );
+  const fundingText = await page.locator('[data-testid=drawer-scroll]').first().innerText();
+  check(
+    'funding shows a dollar total',
+    /\$\d[\d.,]*[MK]?\s*\n?\s*total receipts/i.test(fundingText) || /total receipts/i.test(fundingText),
+    fundingText.split('\n').find((l) => /total receipts/i.test(l)) ?? '-'
+  );
+  // 6% 를 "이 사람을 후원하는 곳" 으로 읽게 두면 오도한다 — 단서가 반드시 붙어야 한다
+  check(
+    'funding caveat present',
+    /Disclosed direct contributions only/i.test(fundingText)
+  );
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(500);
+
   await browser.close();
 
   const passed = results.filter((r) => r.ok).length;
