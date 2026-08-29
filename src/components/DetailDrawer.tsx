@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
-import { X, MapPin, Zap, Crown, Landmark, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
+import { X, MapPin, Zap, Crown, Briefcase, Landmark, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { cosponsorCount } from '../data/cosponsorship';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON, signalCountFor } from '../data/signals';
 import { money, useFunding } from '../lib/funding';
+import { useLobbying } from '../lib/lobbying';
 import { usePortrait } from '../lib/portrait';
 import { siteUrlOf, xSearchUrl, newsSearchUrl } from '../lib/links';
 import { PARTY_COLOR, PARTY_LABEL } from '../lib/colors';
@@ -37,6 +38,7 @@ export default function DetailDrawer() {
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
   const { funding, cycle: fundingCycle, through: fundingThrough } = useFunding(person?.id ?? null);
+  const { lobbying, years: lobbyYears } = useLobbying(person?.id ?? null);
   // 음수(환불)와 0 나눗셈을 여기서 한 번만 막는다
   const pct = (n: number) =>
     funding && funding.receipts > 0 ? Math.max(0, Math.min(100, (100 * n) / funding.receipts)) : 0;
@@ -275,6 +277,42 @@ export default function DetailDrawer() {
               )}
 
               <p className="mt-1.5 text-[9.5px] leading-relaxed text-slate-600">{t.fundingCaveat}</p>
+            </div>
+          )}
+          {lobbying && lobbying.alumniCount > 0 && (
+            <div className="mx-4 mb-3 rounded-xl border border-amber-400/20 bg-amber-400/[0.05] p-3">
+              <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-amber-300">
+                <Briefcase size={10} /> {t.lobbyTitle}
+                <span className="ml-auto font-normal normal-case text-slate-600">
+                  {lobbyYears[0]}–{lobbyYears[lobbyYears.length - 1]}
+                </span>
+              </h4>
+
+              <p className="mb-2 text-[12px] leading-snug text-slate-300">
+                {t.lobbyLede(lobbying.alumniCount)}
+              </p>
+
+              <div className="space-y-1.5">
+                {lobbying.alumni.slice(0, 4).map((a) => (
+                  <div key={`${a.name}-${a.firm}`} className="leading-snug">
+                    <span className="text-[11.5px] text-slate-300">{a.name}</span>
+                    <span className="ml-1.5 font-mono text-[9.5px] uppercase tracking-wider text-amber-400/70">
+                      {a.firm}
+                    </span>
+                    <span className="block truncate text-[10.5px] text-slate-600">{a.role}</span>
+                  </div>
+                ))}
+              </div>
+
+              {lobbying.topClients.length > 0 && (
+                <p className="mt-2 border-t border-amber-400/15 pt-1.5 text-[10px] leading-relaxed text-slate-600">
+                  <span className="font-mono uppercase tracking-wider">{t.lobbyClients}</span>{' '}
+                  {lobbying.topClients.slice(0, 3).map((c) => c.name).join(' · ')}
+                </p>
+              )}
+
+              {/* 고객은 기업이다. 이걸 "이 의원을 로비한다" 로 읽게 두면 안 된다 */}
+              <p className="mt-1.5 text-[9.5px] leading-relaxed text-slate-600">{t.lobbyCaveat}</p>
             </div>
           )}
           {(SIGNALS_BY_PERSON.get(person.id)?.length ?? 0) > 0 && (

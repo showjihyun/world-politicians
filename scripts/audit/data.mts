@@ -15,9 +15,9 @@ import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
-  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
-  type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type SignalRef, type SourceRef,
+  type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type LobbyingFile, type SignalRef, type SourceRef,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -114,6 +114,13 @@ if (fs.existsSync(fundPath)) {
   findings.push(...checkFunding(fund, knownIds));
 }
 
+// 로비 회전문 — 위험은 수치가 아니라 의미다. 매칭이 헐거워지면 성 하나로 붙는다.
+const lobbyPath = path.join(ROOT, 'src/data/lobbying.json');
+if (fs.existsSync(lobbyPath)) {
+  const lob = JSON.parse(fs.readFileSync(lobbyPath, 'utf8')) as LobbyingFile;
+  findings.push(...checkLobbying(lob, knownIds));
+}
+
 const actualCounts: Record<string, number> = {};
 for (const s of signals) for (const p of s.people ?? []) actualCounts[p] = (actualCounts[p] ?? 0) + 1;
 findings.push(
@@ -179,6 +186,10 @@ if (fs.existsSync(fundPath)) {
   const fund = JSON.parse(fs.readFileSync(fundPath, 'utf8')) as FundingFile;
   const m = (n: number) => `$${(n / 1e6).toFixed(1)}M`;
   console.log(`자금 ${fund.stats.people}명 · 수입 ${m(fund.stats.receipts)} · PAC 직접 ${m(fund.stats.pacDirect)} (${fund.stats.namedSharePct}%)`);
+}
+if (fs.existsSync(lobbyPath)) {
+  const lob = JSON.parse(fs.readFileSync(lobbyPath, 'utf8')) as LobbyingFile;
+  console.log(`회전문 ${lob.stats.people}명 · 전직 보좌진 ${lob.stats.matched}명 (${lob.years[0]}~${lob.years[lob.years.length - 1]})`);
 }
 console.log('─'.repeat(58));
 

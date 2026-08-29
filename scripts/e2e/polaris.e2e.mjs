@@ -479,6 +479,26 @@ async function main() {
   await page.keyboard.press('Escape');
   await page.waitForTimeout(500);
 
+  // 회전문 레이어. 뜻이 좁아야 하므로 단서 문구의 존재까지 검사한다.
+  await page.getByPlaceholder('Search politicians…').fill('McConnell');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'Mitch McConnell' }).first().click();
+  await page.waitForTimeout(1500);
+  const lobbyText = await page.locator('[data-testid=drawer-scroll]').first().innerText();
+  check('revolving door section renders', /Revolving door/i.test(lobbyText));
+  check(
+    'revolving door counts former aides',
+    /former aides? now registered as lobbyists/i.test(lobbyText),
+    lobbyText.split('\n').find((l) => /registered as lobbyists/i.test(l)) ?? '-'
+  );
+  // "이 의원을 로비한다" 로 읽히면 데이터가 받쳐주지 않는 주장이 된다
+  check(
+    'revolving door caveat present',
+    /not that they lobby this office/i.test(lobbyText)
+  );
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(500);
+
   await browser.close();
 
   const passed = results.filter((r) => r.ok).length;

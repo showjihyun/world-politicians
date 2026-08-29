@@ -725,6 +725,118 @@ export function checkFunding(f: FundingFile, knownIds: Set<string>): Finding[] {
   return out;
 }
 
+export interface LobbyingFile {
+  years: number[];
+  stats: { matched: number; people: number };
+  people: Record<
+    string,
+    {
+      alumniCount: number;
+      alumni: { name: string; role: string; firm: string; client: string; year: number }[];
+      topFirms: { name: string; count: number }[];
+      topClients: { name: string; count: number }[];
+    }
+  >;
+}
+
+/**
+ * 로비 회전문 정합성.
+ *
+ * 이 레이어의 위험은 수치가 아니라 **의미**다. 매칭이 헐거워지면 "Sen. Harris" 가
+ * 아무 Harris 에게나 붙는다(역대 33명). 그래서 여기서는 이름이 성 하나로 붙지
+ * 않았는지, 역할 문구가 실제로 그 사람을 가리키는지를 본다.
+ */
+export function checkLobbying(f: LobbyingFile, knownIds: Set<string>): Finding[] {
+  const out: Finding[] = [];
+  const entries = Object.entries(f.people);
+
+  const unknown = entries.map(([id]) => id).filter((id) => !knownIds.has(id));
+  if (unknown.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.references',
+      message: `데이터셋에 없는 인물 id ${unknown.length}종`,
+      samples: cap(unknown),
+    });
+  }
+
+  // 역할 문구에 호칭+이름이 남아 있어야 한다. 없으면 매칭 근거를 보여줄 수 없다.
+  const noEvidence = entries.flatMap(([id, p]) =>
+    p.alumni
+      .filter((a) => !/\b(Rep|Sen|Representative|Senator|Congress(man|woman))s?\.?\s+[A-Z]/.test(a.role))
+      .map((a) => `${id} ← ${a.name}: ${a.role.slice(0, 40)}`)
+  );
+  if (noEvidence.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.evidence',
+      message: `역할 문구에 호칭+이름이 없는 항목 ${noEvidence.length}건 — 왜 이 사람에게 붙었는지 보여줄 수 없다`,
+      samples: cap(noEvidence),
+    });
+  }
+
+  const emptyish = entries.filter(
+    ([, p]) => p.alumniCount < 1 || p.alumni.some((a) => !a.name || !a.firm || !a.client)
+  );
+  if (emptyish.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.incomplete',
+      message: `이름·회사·고객이 빈 항목이 있다 ${emptyish.length}명`,
+      samples: cap(emptyish.map(([id]) => id)),
+    });
+  }
+
+  // 보여주는 목록은 총계보다 클 수 없다
+  const overflow = entries.filter(([, p]) => p.alumni.length > p.alumniCount);
+  if (overflow.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.overflow',
+      message: `목록이 총계보다 많다 ${overflow.length}명`,
+      samples: cap(overflow.map(([id, p]) => `${id} ${p.alumni.length}>${p.alumniCount}`)),
+    });
+  }
+
+  const badYear = entries.flatMap(([id, p]) =>
+    p.alumni.filter((a) => !f.years.includes(a.year)).map((a) => `${id} ${a.year}`)
+  );
+  if (badYear.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.year',
+      message: `수집 범위 밖의 연도 ${badYear.length}건`,
+      samples: cap(badYear),
+    });
+  }
+
+  // XML 엔티티가 남으면 화면에 'Becker &amp; Poliakoff' 로 나간다
+  const entity = entries.flatMap(([id, p]) =>
+    [...p.alumni.map((a) => a.firm), ...p.topClients.map((c) => c.name)]
+      .filter((s) => /&(amp|quot|lt|gt|apos|#\d+);/.test(s))
+      .map((s) => `${id}: ${s.slice(0, 40)}`)
+  );
+  if (entity.length) {
+    out.push({
+      level: 'fail',
+      check: 'lobbying.entities',
+      message: `XML 엔티티가 남아 있다 ${entity.length}건`,
+      samples: cap(entity),
+    });
+  }
+
+  const matched = entries.reduce((n, [, p]) => n + p.alumniCount, 0);
+  const bad = [
+    f.stats.people !== entries.length ? `people ${f.stats.people} vs 실제 ${entries.length}` : '',
+    f.stats.matched !== matched ? `matched ${f.stats.matched} vs 실제 ${matched}` : '',
+  ].filter(Boolean);
+  if (bad.length) {
+    out.push({ level: 'fail', check: 'lobbying.stats', message: '요약 수치가 실제와 다르다', samples: bad });
+  }
+
+  return out;
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

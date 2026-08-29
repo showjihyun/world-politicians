@@ -13,6 +13,7 @@ npm run news:dry   뉴스 파이프라인 미리보기 (실제 수집은 야간 
 npm run crosswalk:dry  소스 간 ID 크로스워크 미리보기 (bioguide·icpsr·fec)
 npm run cosponsor:dry  공동발의 엣지 미리보기 (GovInfo 벌크)
 npm run funding:dry    FEC 자금 미리보기 (기부·독립지출)
+npm run lobbying:dry   로비 회전문 미리보기 (하원 LD-1 원본)
 npm run build      tsc + vite
 ```
 
@@ -41,6 +42,19 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 
 **검사를 만들면 실패도 시켜 본다.** 불량을 주입해 종료 코드 1 이 나오는지
 확인하지 않은 검사는 검사가 아니다.
+
+### 이름을 성으로 맞추지 않는다
+
+로비 신고서의 `coveredPosition` 은 "Legislative Director, Rep. Marsha Blackburn"
+같은 자유 문자열이다. 여기서 의원을 뽑을 때 **성만 쓰면 절반이 거짓**이다 —
+역대 의원 중 Harris 가 33명, Graham 이 14명이다. `Rep./Sen. + 전체 이름` 으로
+좁히면 역대 12,768명 기준으로도 동명이인이 0건이었다.
+
+**왜 그 사람에게 붙었는지 화면에 남긴다.** 근거가 될 문구를 잘라 보여주는데,
+앞에서부터 120자로 자르면 `…Republican Leader Mitch …` 처럼 이름이 잘려 나간다.
+이름을 중심으로 창을 잡고, 같은 사람이 호칭 없이도 나올 때는 호칭 붙은 조각을
+고른다. `audit:data` 의 `lobbying.evidence` 가 이걸 검사한다 — 처음 만들었을 때
+14건이 걸렸다.
 
 ### 경로를 지어내고 그 에러로 사이트를 판정하지 않는다
 
@@ -171,6 +185,7 @@ src/data/signals/                월별 파티션 + 매니페스트 + recent
 src/data/crosswalk.json          소스 간 ID 확정값 (bioguide·icpsr·fec)
 src/data/cosponsorship*.json     공동발의 엣지 + 근거 (엣지는 즉시, 근거는 지연)
 src/data/funding.json            FEC 자금 (지연 로딩, 인물 속성)
+src/data/lobbying.json           로비 회전문 (지연 로딩, 인물 속성)
 ```
 
 도메인에 값 import 를 넣고 싶어지면 그건 인자로 받아야 할 것이다.

@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
-  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type FundingFile,
+  type LobbyingFile,
   type SourceRef,
 } from './checks.mts';
 
@@ -455,5 +456,86 @@ describe('checkFunding', () => {
   it('요약 수치가 실제와 다르면 잡는다', () => {
     const bad = { ...ok, stats: { ...ok.stats, receipts: 99 } };
     expect(checkFunding(bad, ids).map((x) => x.check)).toContain('funding.stats');
+  });
+});
+
+describe('checkLobbying', () => {
+  const alum = (over: Partial<LobbyingFile['people'][string]['alumni'][0]> = {}) => ({
+    name: 'Jane Doe',
+    role: 'Legislative Director, Rep. Marsha Blackburn',
+    firm: 'ACME Gov Rel',
+    client: 'Pfizer',
+    year: 2026,
+    ...over,
+  });
+  const ok: LobbyingFile = {
+    years: [2025, 2026],
+    stats: { matched: 1, people: 1 },
+    people: {
+      blackburn: {
+        alumniCount: 1,
+        alumni: [alum()],
+        topFirms: [{ name: 'ACME Gov Rel', count: 1 }],
+        topClients: [{ name: 'Pfizer', count: 1 }],
+      },
+    },
+  };
+  const ids = new Set(['blackburn']);
+
+  it('맞으면 아무것도 보고하지 않는다', () => {
+    expect(checkLobbying(ok, ids)).toHaveLength(0);
+  });
+
+  it('사라진 인물을 가리키면 잡는다', () => {
+    expect(checkLobbying(ok, new Set(['cruz'])).map((x) => x.check)).toContain('lobbying.references');
+  });
+
+  // 매칭이 헐거워지면 'Sen. Harris' 가 아무 Harris 에게나 붙는다 (역대 33명).
+  // 역할 문구에 호칭+이름이 남아 있어야 왜 붙었는지 보여줄 수 있다.
+  it('역할 문구에 호칭+이름이 없으면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { blackburn: { ...ok.people.blackburn, alumni: [alum({ role: 'Chief of Staff, Department of Labor' })] } },
+    };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.evidence');
+  });
+
+  it('이름·회사·고객이 비면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { blackburn: { ...ok.people.blackburn, alumni: [alum({ firm: '' })] } },
+    };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.incomplete');
+  });
+
+  it('목록이 총계보다 많으면 잡는다', () => {
+    const bad = {
+      ...ok,
+      stats: { matched: 1, people: 1 },
+      people: { blackburn: { ...ok.people.blackburn, alumniCount: 1, alumni: [alum(), alum({ name: 'B C' })] } },
+    };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.overflow');
+  });
+
+  it('수집 범위 밖의 연도를 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { blackburn: { ...ok.people.blackburn, alumni: [alum({ year: 1999 })] } },
+    };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.year');
+  });
+
+  // 안 풀면 화면에 'Becker &amp; Poliakoff' 로 그대로 나간다
+  it('XML 엔티티가 남으면 잡는다', () => {
+    const bad = {
+      ...ok,
+      people: { blackburn: { ...ok.people.blackburn, alumni: [alum({ firm: 'Becker &amp; Poliakoff' })] } },
+    };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.entities');
+  });
+
+  it('요약 수치가 실제와 다르면 잡는다', () => {
+    const bad = { ...ok, stats: { matched: 99, people: 1 } };
+    expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.stats');
   });
 });
