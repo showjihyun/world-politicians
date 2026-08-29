@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  checkAllowlist, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type SourceRef,
 } from './checks.mts';
@@ -203,5 +203,64 @@ describe('verdict', () => {
     const v = verdict([{ level: 'warn', check: 'x', message: '' }]);
     expect(v.ok).toBe(true);
     expect(v.warn).toBe(1);
+  });
+});
+
+describe('checkCrosswalk', () => {
+  const ok = {
+    stats: { members: 2, polarisMatched: 1, polarisTotal: 2 },
+    polaris: {
+      warren: { bioguide: 'W1', method: 'official' },
+      musk: { bioguide: null, method: null },
+    },
+    members: [
+      { bioguide: 'W1', icpsr: 41301, fec: ['S1'] },
+      { bioguide: 'X1', icpsr: 1, fec: [] },
+    ],
+  };
+  const ids = new Set(['warren', 'musk']);
+
+  it('맞으면 아무것도 보고하지 않는다', () => {
+    expect(checkCrosswalk(ok, ids)).toHaveLength(0);
+  });
+
+  // 인물을 추가하고 크로스워크를 다시 만들지 않는 것이 가장 흔한 어긋남이다
+  it('인물이 늘었는데 크로스워크가 그대로면 잡는다', () => {
+    const f = checkCrosswalk(ok, new Set([...ids, 'newbie']));
+    expect(f.map((x) => x.check)).toContain('crosswalk.missing');
+    expect(f[0].samples).toContain('newbie');
+  });
+
+  it('인물이 사라졌는데 크로스워크에 남아 있으면 잡는다', () => {
+    expect(checkCrosswalk(ok, new Set(['warren'])).map((x) => x.check)).toContain('crosswalk.stale');
+  });
+
+  it('명부에 없는 bioguide 를 가리키면 잡는다', () => {
+    const bad = { ...ok, polaris: { ...ok.polaris, warren: { bioguide: 'ZZZ', method: 'official' } } };
+    expect(checkCrosswalk(bad, ids).map((x) => x.check)).toContain('crosswalk.dangling');
+  });
+
+  it('명부에 중복이 있으면 잡는다', () => {
+    const bad = {
+      ...ok,
+      stats: { ...ok.stats, members: 3 },
+      members: [...ok.members, { bioguide: 'W1', icpsr: 2, fec: [] }],
+    };
+    expect(checkCrosswalk(bad, ids).map((x) => x.check)).toContain('crosswalk.duplicate');
+  });
+
+  // 수치가 배열과 어긋나면 그 수치를 인용한 문서도 같이 틀린다
+  it('요약 수치가 배열과 다르면 잡는다', () => {
+    const bad = { ...ok, stats: { members: 99, polarisMatched: 1, polarisTotal: 2 } };
+    const f = checkCrosswalk(bad, ids);
+    expect(f.map((x) => x.check)).toContain('crosswalk.stats');
+    expect(f.find((x) => x.check === 'crosswalk.stats')?.samples?.[0]).toContain('99');
+  });
+
+  it('icpsr 이 비면 경고한다 — 표결 감사가 조용히 빠진다', () => {
+    const bad = { ...ok, members: [{ bioguide: 'W1', icpsr: null, fec: [] }, ok.members[1]] };
+    const f = checkCrosswalk(bad, ids);
+    expect(f.map((x) => x.check)).toContain('crosswalk.icpsr');
+    expect(f.find((x) => x.check === 'crosswalk.icpsr')?.level).toBe('warn');
   });
 });

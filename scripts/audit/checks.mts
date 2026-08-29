@@ -318,6 +318,94 @@ export function checkDocClaims(
   return out;
 }
 
+export interface CrosswalkFile {
+  stats: { members: number; polarisMatched: number; polarisTotal: number };
+  polaris: Record<string, { bioguide: string | null; method: string | null }>;
+  members: { bioguide: string; icpsr: number | null; fec: string[] }[];
+}
+
+/**
+ * 크로스워크 정합성.
+ *
+ * 이 파일의 존재 이유는 수치가 흔들리지 않게 하는 것이다. 그런데 인물이
+ * 추가·개명·삭제되면 파일과 데이터셋이 조용히 어긋난다 — 그러면 흔들리지
+ * 않는 대신 **일관되게 틀린** 값이 된다. 더 나쁘다.
+ */
+export function checkCrosswalk(cw: CrosswalkFile, knownIds: Set<string>): Finding[] {
+  const out: Finding[] = [];
+
+  const missing = [...knownIds].filter((id) => !(id in cw.polaris));
+  if (missing.length) {
+    out.push({
+      level: 'fail',
+      check: 'crosswalk.missing',
+      message: `크로스워크에 없는 인물 ${missing.length}명 — 인물을 추가하고 크로스워크를 다시 만들지 않았다`,
+      samples: cap(missing),
+    });
+  }
+
+  const stale = Object.keys(cw.polaris).filter((id) => !knownIds.has(id));
+  if (stale.length) {
+    out.push({
+      level: 'fail',
+      check: 'crosswalk.stale',
+      message: `데이터셋에 없는 id ${stale.length}종이 크로스워크에 남아 있다`,
+      samples: cap(stale),
+    });
+  }
+
+  const byBioguide = new Set(cw.members.map((m) => m.bioguide));
+  const dangling = Object.entries(cw.polaris)
+    .filter(([, v]) => v.bioguide && !byBioguide.has(v.bioguide))
+    .map(([id, v]) => `${id} → ${v.bioguide}`);
+  if (dangling.length) {
+    out.push({
+      level: 'fail',
+      check: 'crosswalk.dangling',
+      message: `명부에 없는 bioguide 를 가리킨다 ${dangling.length}건`,
+      samples: cap(dangling),
+    });
+  }
+
+  if (byBioguide.size !== cw.members.length) {
+    out.push({
+      level: 'fail',
+      check: 'crosswalk.duplicate',
+      message: `명부에 중복된 bioguide 가 있다 (${cw.members.length}행 / 고유 ${byBioguide.size})`,
+    });
+  }
+
+  // 수치가 배열과 어긋나면 그 수치를 인용한 문서도 같이 틀린다
+  const matched = Object.values(cw.polaris).filter((v) => v.bioguide).length;
+  const total = Object.keys(cw.polaris).length;
+  const mismatched = [
+    cw.stats.members !== cw.members.length ? `members ${cw.stats.members} vs 실제 ${cw.members.length}` : '',
+    cw.stats.polarisMatched !== matched ? `polarisMatched ${cw.stats.polarisMatched} vs 실제 ${matched}` : '',
+    cw.stats.polarisTotal !== total ? `polarisTotal ${cw.stats.polarisTotal} vs 실제 ${total}` : '',
+  ].filter(Boolean);
+  if (mismatched.length) {
+    out.push({
+      level: 'fail',
+      check: 'crosswalk.stats',
+      message: '요약 수치가 실제 배열과 다르다',
+      samples: mismatched,
+    });
+  }
+
+  // icpsr 은 Voteview 로 채운다. 비면 채우기가 깨진 것이고, 표결 감사가 조용히 빠진다
+  const noIcpsr = cw.members.filter((m) => m.icpsr === null);
+  if (noIcpsr.length) {
+    out.push({
+      level: 'warn',
+      check: 'crosswalk.icpsr',
+      message: `icpsr 이 빈 의원 ${noIcpsr.length}명 — Voteview 보충이 닿지 않았다`,
+      samples: cap(noIcpsr.map((m) => m.bioguide)),
+    });
+  }
+
+  return out;
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

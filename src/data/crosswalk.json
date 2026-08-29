@@ -1,0 +1,8343 @@
+{
+  "generatedAt": "2026-08-29T12:10:48.069Z",
+  "source": "https://unitedstates.github.io/congress-legislators/",
+  "note": "현직 의원 전원 + POLARIS 가 참조하는 역대 의원. 동명이인은 crosswalk-overrides.json 에서 확정한다.",
+  "stats": {
+    "members": 559,
+    "byParty": {
+      "R": 288,
+      "D": 266,
+      "I": 5
+    },
+    "byChamber": {
+      "house": 448,
+      "senate": 111
+    },
+    "withIcpsr": 559,
+    "withFec": 556,
+    "polarisMatched": 84,
+    "polarisTotal": 101
+  },
+  "polaris": {
+    "trump": {
+      "bioguide": null,
+      "method": null
+    },
+    "vance": {
+      "bioguide": "V000137",
+      "method": "override"
+    },
+    "rubio": {
+      "bioguide": "R000595",
+      "method": "official"
+    },
+    "hegseth": {
+      "bioguide": null,
+      "method": null
+    },
+    "rfk-jr": {
+      "bioguide": null,
+      "method": null
+    },
+    "gabbard": {
+      "bioguide": "G000571",
+      "method": "official"
+    },
+    "noem": {
+      "bioguide": "N000184",
+      "method": "firstlast"
+    },
+    "bondi": {
+      "bioguide": null,
+      "method": null
+    },
+    "musk": {
+      "bioguide": null,
+      "method": null
+    },
+    "bannon": {
+      "bioguide": null,
+      "method": null
+    },
+    "biden": {
+      "bioguide": "B000444",
+      "method": "override"
+    },
+    "harris": {
+      "bioguide": "H001075",
+      "method": "firstlast"
+    },
+    "obama": {
+      "bioguide": "O000167",
+      "method": "firstlast"
+    },
+    "pence": {
+      "bioguide": "P000587",
+      "method": "official"
+    },
+    "johnson-mike": {
+      "bioguide": "J000299",
+      "method": "official"
+    },
+    "scalise": {
+      "bioguide": "S001176",
+      "method": "official"
+    },
+    "emmer": {
+      "bioguide": "E000294",
+      "method": "official"
+    },
+    "stefanik": {
+      "bioguide": "S001196",
+      "method": "firstlast"
+    },
+    "jordan-jim": {
+      "bioguide": "J000289",
+      "method": "official"
+    },
+    "mtg": {
+      "bioguide": "G000596",
+      "method": "official"
+    },
+    "boebert": {
+      "bioguide": "B000825",
+      "method": "official"
+    },
+    "mace-nancy": {
+      "bioguide": "M000194",
+      "method": "official"
+    },
+    "luna": {
+      "bioguide": "L000596",
+      "method": "official"
+    },
+    "massie": {
+      "bioguide": "M001184",
+      "method": "official"
+    },
+    "donalds": {
+      "bioguide": "D000032",
+      "method": "official"
+    },
+    "bacon-don": {
+      "bioguide": "B001298",
+      "method": "official"
+    },
+    "fitzpatrick": {
+      "bioguide": "F000466",
+      "method": "firstlast"
+    },
+    "lawler-mike": {
+      "bioguide": "L000599",
+      "method": "override"
+    },
+    "jeffries": {
+      "bioguide": "J000294",
+      "method": "firstlast"
+    },
+    "pelosi": {
+      "bioguide": "P000197",
+      "method": "official"
+    },
+    "aoc": {
+      "bioguide": "O000172",
+      "method": "official"
+    },
+    "omar-ilhan": {
+      "bioguide": "O000173",
+      "method": "official"
+    },
+    "tlaib": {
+      "bioguide": "T000481",
+      "method": "official"
+    },
+    "pressley": {
+      "bioguide": "P000617",
+      "method": "official"
+    },
+    "crockett": {
+      "bioguide": "C001130",
+      "method": "official"
+    },
+    "frost-maxwell": {
+      "bioguide": "F000476",
+      "method": "official"
+    },
+    "khanna": {
+      "bioguide": "K000389",
+      "method": "official"
+    },
+    "torres-ritchie": {
+      "bioguide": "T000486",
+      "method": "official"
+    },
+    "golden-jared": {
+      "bioguide": "G000592",
+      "method": "firstlast"
+    },
+    "perez-marie": {
+      "bioguide": "G000600",
+      "method": "official"
+    },
+    "newsom": {
+      "bioguide": null,
+      "method": null
+    },
+    "whitmer": {
+      "bioguide": null,
+      "method": null
+    },
+    "pritzker": {
+      "bioguide": null,
+      "method": null
+    },
+    "shapiro": {
+      "bioguide": null,
+      "method": null
+    },
+    "walz": {
+      "bioguide": "W000799",
+      "method": "override"
+    },
+    "moore-wes": {
+      "bioguide": null,
+      "method": null
+    },
+    "desantis": {
+      "bioguide": "D000621",
+      "method": "official"
+    },
+    "abbott-greg": {
+      "bioguide": null,
+      "method": null
+    },
+    "hillary": {
+      "bioguide": "C001041",
+      "method": "firstlast"
+    },
+    "bill-clinton": {
+      "bioguide": null,
+      "method": null
+    },
+    "bush-w": {
+      "bioguide": null,
+      "method": null
+    },
+    "jeb-bush": {
+      "bioguide": null,
+      "method": null
+    },
+    "dick-cheney": {
+      "bioguide": "C000344",
+      "method": "override"
+    },
+    "liz-cheney": {
+      "bioguide": "C001109",
+      "method": "official"
+    },
+    "kinzinger": {
+      "bioguide": "K000378",
+      "method": "official"
+    },
+    "romney": {
+      "bioguide": "R000615",
+      "method": "official"
+    },
+    "mccain-john": {
+      "bioguide": "M000303",
+      "method": "official"
+    },
+    "manchin": {
+      "bioguide": "M001183",
+      "method": "official"
+    },
+    "sinema": {
+      "bioguide": "S001191",
+      "method": "official"
+    },
+    "gaetz-matt": {
+      "bioguide": "G000578",
+      "method": "official"
+    },
+    "mccarthy-kevin": {
+      "bioguide": "M001165",
+      "method": "official"
+    },
+    "haley-nikki": {
+      "bioguide": null,
+      "method": null
+    },
+    "buttigieg": {
+      "bioguide": null,
+      "method": null
+    },
+    "thune": {
+      "bioguide": "T000250",
+      "method": "official"
+    },
+    "mcconnell": {
+      "bioguide": "M000355",
+      "method": "official"
+    },
+    "graham": {
+      "bioguide": "G000359",
+      "method": "official"
+    },
+    "cruz": {
+      "bioguide": "C001098",
+      "method": "official"
+    },
+    "hawley": {
+      "bioguide": "H001089",
+      "method": "official"
+    },
+    "cotton": {
+      "bioguide": "C001095",
+      "method": "official"
+    },
+    "paul-rand": {
+      "bioguide": "P000603",
+      "method": "official"
+    },
+    "lee-mike": {
+      "bioguide": "L000577",
+      "method": "official"
+    },
+    "ernst": {
+      "bioguide": "E000295",
+      "method": "official"
+    },
+    "collins-susan": {
+      "bioguide": "C001035",
+      "method": "firstlast"
+    },
+    "murkowski": {
+      "bioguide": "M001153",
+      "method": "official"
+    },
+    "cassidy": {
+      "bioguide": "C001075",
+      "method": "official"
+    },
+    "tillis": {
+      "bioguide": "T000476",
+      "method": "official"
+    },
+    "tuberville": {
+      "bioguide": "T000278",
+      "method": "official"
+    },
+    "britt": {
+      "bioguide": "B001319",
+      "method": "firstlast"
+    },
+    "blackburn": {
+      "bioguide": "B001243",
+      "method": "official"
+    },
+    "schmitt": {
+      "bioguide": "S001227",
+      "method": "official"
+    },
+    "moreno": {
+      "bioguide": "M001242",
+      "method": "official"
+    },
+    "rick-scott": {
+      "bioguide": "S001217",
+      "method": "official"
+    },
+    "tim-scott": {
+      "bioguide": "S001184",
+      "method": "official"
+    },
+    "schumer": {
+      "bioguide": "S000148",
+      "method": "nickname"
+    },
+    "durbin": {
+      "bioguide": "D000563",
+      "method": "override"
+    },
+    "warren": {
+      "bioguide": "W000817",
+      "method": "official"
+    },
+    "sanders": {
+      "bioguide": "S000033",
+      "method": "nickname"
+    },
+    "klobuchar": {
+      "bioguide": "K000367",
+      "method": "official"
+    },
+    "booker": {
+      "bioguide": "B001288",
+      "method": "firstlast"
+    },
+    "warnock": {
+      "bioguide": "W000790",
+      "method": "firstlast"
+    },
+    "fetterman": {
+      "bioguide": "F000479",
+      "method": "official"
+    },
+    "duckworth": {
+      "bioguide": "D000622",
+      "method": "official"
+    },
+    "schiff": {
+      "bioguide": "S001150",
+      "method": "firstlast"
+    },
+    "padilla": {
+      "bioguide": "P000145",
+      "method": "official"
+    },
+    "slotkin": {
+      "bioguide": "S001208",
+      "method": "official"
+    },
+    "kim-andy": {
+      "bioguide": "K000394",
+      "method": "official"
+    },
+    "markey": {
+      "bioguide": "M000133",
+      "method": "nickname"
+    },
+    "gallego": {
+      "bioguide": "G000574",
+      "method": "official"
+    },
+    "kelly-mark": {
+      "bioguide": "K000377",
+      "method": "official"
+    },
+    "murphy-chris": {
+      "bioguide": "M001169",
+      "method": "override"
+    },
+    "ossoff": {
+      "bioguide": "O000174",
+      "method": "official"
+    }
+  },
+  "members": [
+    {
+      "bioguide": "A000055",
+      "icpsr": 29701,
+      "fec": [
+        "H6AL04098"
+      ],
+      "govtrack": 400004,
+      "opensecrets": "N00003028",
+      "name": "Robert B. Aderholt",
+      "party": "R",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000148",
+      "icpsr": 22100,
+      "fec": [
+        "H0MA04192"
+      ],
+      "govtrack": 456825,
+      "opensecrets": "N00045506",
+      "name": "Jake Auchincloss",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000369",
+      "icpsr": 21196,
+      "fec": [
+        "H2NV02395",
+        "H1NV02017",
+        "S0NV00237"
+      ],
+      "govtrack": 412500,
+      "opensecrets": "N00031177",
+      "name": "Mark E. Amodei",
+      "party": "R",
+      "state": "NV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000370",
+      "icpsr": 21545,
+      "fec": [
+        "H4NC12100"
+      ],
+      "govtrack": 412607,
+      "opensecrets": "N00035451",
+      "name": "Alma S. Adams",
+      "party": "D",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000371",
+      "icpsr": 21506,
+      "fec": [
+        "H2CA31125"
+      ],
+      "govtrack": 412615,
+      "opensecrets": "N00033997",
+      "name": "Pete Aguilar",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000372",
+      "icpsr": 21516,
+      "fec": [
+        "H2GA12121"
+      ],
+      "govtrack": 412625,
+      "opensecrets": "N00033720",
+      "name": "Rick W. Allen",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000375",
+      "icpsr": 21700,
+      "fec": [
+        "H6TX19099"
+      ],
+      "govtrack": 412726,
+      "opensecrets": "N00038285",
+      "name": "Jodey C. Arrington",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000379",
+      "icpsr": 22300,
+      "fec": [
+        "H2MO04207"
+      ],
+      "govtrack": 456909,
+      "opensecrets": "N00049617",
+      "name": "Mark Alford",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000380",
+      "icpsr": 22375,
+      "fec": [
+        "H4RI01265"
+      ],
+      "govtrack": 456955,
+      "opensecrets": "N00052615",
+      "name": "Gabe Amo",
+      "party": "D",
+      "state": "RI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000381",
+      "icpsr": 22500,
+      "fec": [
+        "H4AZ03109"
+      ],
+      "govtrack": 456972,
+      "opensecrets": "N00052497",
+      "name": "Yassamin Ansari",
+      "party": "D",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "A000382",
+      "icpsr": 42500,
+      "fec": [
+        "S4MD00327"
+      ],
+      "govtrack": 456965,
+      "opensecrets": "N00053033",
+      "name": "Angela D. Alsobrooks",
+      "party": "D",
+      "state": "MD",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "A000383",
+      "icpsr": 42507,
+      "fec": [],
+      "govtrack": 457040,
+      "opensecrets": null,
+      "name": "Alan Armstrong",
+      "party": "R",
+      "state": "OK",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B000444",
+      "icpsr": 14101,
+      "fec": [
+        "S8DE00012"
+      ],
+      "govtrack": 300008,
+      "opensecrets": "N00001669",
+      "name": "Joseph Biden",
+      "party": "D",
+      "state": "DE",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "B000490",
+      "icpsr": 29339,
+      "fec": [
+        "H2GA02031"
+      ],
+      "govtrack": 400030,
+      "opensecrets": "N00002674",
+      "name": "Sanford D. Bishop, Jr.",
+      "party": "D",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B000668",
+      "icpsr": 22101,
+      "fec": [
+        "H0OR02127"
+      ],
+      "govtrack": 456842,
+      "opensecrets": "N00045773",
+      "name": "Cliff Bentz",
+      "party": "R",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B000740",
+      "icpsr": 22102,
+      "fec": [
+        "H0OK05205"
+      ],
+      "govtrack": 456841,
+      "opensecrets": "N00044579",
+      "name": "Stephanie I. Bice",
+      "party": "R",
+      "state": "OK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B000825",
+      "icpsr": 22103,
+      "fec": [
+        "H0CO03165"
+      ],
+      "govtrack": 456805,
+      "opensecrets": "N00045974",
+      "name": "Lauren Boebert",
+      "party": "R",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001230",
+      "icpsr": 29940,
+      "fec": [
+        "H8WI00018",
+        "S2WI00219"
+      ],
+      "govtrack": 400013,
+      "opensecrets": "N00004367",
+      "name": "Tammy Baldwin",
+      "party": "D",
+      "state": "WI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001236",
+      "icpsr": 20101,
+      "fec": [
+        "H2AR03176",
+        "S0AR00150"
+      ],
+      "govtrack": 400040,
+      "opensecrets": "N00013873",
+      "name": "John Boozman",
+      "party": "R",
+      "state": "AR",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001243",
+      "icpsr": 20351,
+      "fec": [
+        "H2TN06030",
+        "S8TN00337"
+      ],
+      "govtrack": 400032,
+      "opensecrets": "N00003105",
+      "name": "Marsha Blackburn",
+      "party": "R",
+      "state": "TN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001257",
+      "icpsr": 20758,
+      "fec": [
+        "H6FL09070"
+      ],
+      "govtrack": 412250,
+      "opensecrets": "N00027462",
+      "name": "Gus M. Bilirakis",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001260",
+      "icpsr": 20709,
+      "fec": [
+        "H6FL13148"
+      ],
+      "govtrack": 412196,
+      "opensecrets": "N00027626",
+      "name": "Vern Buchanan",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001261",
+      "icpsr": 40707,
+      "fec": [
+        "S6WY00068"
+      ],
+      "govtrack": 412251,
+      "opensecrets": "N00006236",
+      "name": "John Barrasso",
+      "party": "R",
+      "state": "WY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001267",
+      "icpsr": 40910,
+      "fec": [
+        "S0CO00211"
+      ],
+      "govtrack": 412330,
+      "opensecrets": "N00030608",
+      "name": "Michael F. Bennet",
+      "party": "D",
+      "state": "CO",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001277",
+      "icpsr": 41101,
+      "fec": [
+        "S0CT00177"
+      ],
+      "govtrack": 412490,
+      "opensecrets": "N00031685",
+      "name": "Richard Blumenthal",
+      "party": "D",
+      "state": "CT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001278",
+      "icpsr": 21198,
+      "fec": [
+        "H2OR01133"
+      ],
+      "govtrack": 412501,
+      "opensecrets": "N00033474",
+      "name": "Suzanne Bonamici",
+      "party": "D",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001281",
+      "icpsr": 21352,
+      "fec": [
+        "H2OH03125"
+      ],
+      "govtrack": 412565,
+      "opensecrets": "N00033904",
+      "name": "Joyce Beatty",
+      "party": "D",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001282",
+      "icpsr": 21333,
+      "fec": [
+        "H0KY06104",
+        "S6KY00286"
+      ],
+      "govtrack": 412541,
+      "opensecrets": "N00031233",
+      "name": "Andy Barr",
+      "party": "R",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001285",
+      "icpsr": 21308,
+      "fec": [
+        "H2CA00120"
+      ],
+      "govtrack": 412516,
+      "opensecrets": "N00034254",
+      "name": "Julia Brownley",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001287",
+      "icpsr": 21304,
+      "fec": [
+        "H0CA03078"
+      ],
+      "govtrack": 412512,
+      "opensecrets": "N00030717",
+      "name": "Ami Bera",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001288",
+      "icpsr": 41308,
+      "fec": [
+        "S4NJ00185"
+      ],
+      "govtrack": 412598,
+      "opensecrets": "N00035267",
+      "name": "Cory A. Booker",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001291",
+      "icpsr": 21551,
+      "fec": [
+        "H6TX02079"
+      ],
+      "govtrack": 412655,
+      "opensecrets": "N00005736",
+      "name": "Brian Babin",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001292",
+      "icpsr": 21554,
+      "fec": [
+        "H4VA08224"
+      ],
+      "govtrack": 412657,
+      "opensecrets": "N00036018",
+      "name": "Donald S. Beyer, Jr.",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001295",
+      "icpsr": 21519,
+      "fec": [
+        "H4IL12060"
+      ],
+      "govtrack": 412629,
+      "opensecrets": "N00035420",
+      "name": "Mike Bost",
+      "party": "R",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001296",
+      "icpsr": 21548,
+      "fec": [
+        "H4PA13199"
+      ],
+      "govtrack": 412652,
+      "opensecrets": "N00035307",
+      "name": "Brendan F. Boyle",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001298",
+      "icpsr": 21701,
+      "fec": [
+        "H6NE02125"
+      ],
+      "govtrack": 412713,
+      "opensecrets": "N00037049",
+      "name": "Don Bacon",
+      "party": "R",
+      "state": "NE",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001299",
+      "icpsr": 21702,
+      "fec": [
+        "H6IN03229",
+        "S4IN00196"
+      ],
+      "govtrack": 412702,
+      "opensecrets": "N00037185",
+      "name": "Jim Banks",
+      "party": "R",
+      "state": "IN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001300",
+      "icpsr": 21703,
+      "fec": [
+        "H6CA44103"
+      ],
+      "govtrack": 412687,
+      "opensecrets": "N00037019",
+      "name": "Nanette Diaz Barragán",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001301",
+      "icpsr": 21704,
+      "fec": [
+        "H6MI01226"
+      ],
+      "govtrack": 412709,
+      "opensecrets": "N00039533",
+      "name": "Jack Bergman",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001302",
+      "icpsr": 21705,
+      "fec": [
+        "H6AZ05083"
+      ],
+      "govtrack": 412683,
+      "opensecrets": "N00039293",
+      "name": "Andy Biggs",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001303",
+      "icpsr": 21706,
+      "fec": [
+        "H6DE00206",
+        "S4DE00060"
+      ],
+      "govtrack": 412689,
+      "opensecrets": "N00038414",
+      "name": "Lisa Blunt Rochester",
+      "party": "D",
+      "state": "DE",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001305",
+      "icpsr": 21708,
+      "fec": [
+        "H6NC13129",
+        "S2NC00505"
+      ],
+      "govtrack": 412712,
+      "opensecrets": "N00039551",
+      "name": "Ted Budd",
+      "party": "R",
+      "state": "NC",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001306",
+      "icpsr": 21759,
+      "fec": [
+        "H8OH12180"
+      ],
+      "govtrack": 412747,
+      "opensecrets": "N00042194",
+      "name": "Troy Balderson",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001307",
+      "icpsr": 21903,
+      "fec": [
+        "H8IN04199"
+      ],
+      "govtrack": 412777,
+      "opensecrets": "N00041954",
+      "name": "James R. Baird",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001309",
+      "icpsr": 21905,
+      "fec": [
+        "H8TN02119"
+      ],
+      "govtrack": 412817,
+      "opensecrets": "N00041594",
+      "name": "Tim Burchett",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001313",
+      "icpsr": 22161,
+      "fec": [
+        "H2OH11169"
+      ],
+      "govtrack": 456863,
+      "opensecrets": "N00047875",
+      "name": "Shontel M. Brown",
+      "party": "D",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001314",
+      "icpsr": 22302,
+      "fec": [
+        "H2FL04211"
+      ],
+      "govtrack": 456888,
+      "opensecrets": "N00051369",
+      "name": "Aaron Bean",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001315",
+      "icpsr": 22304,
+      "fec": [
+        "H2IL13153"
+      ],
+      "govtrack": 456901,
+      "opensecrets": "N00049102",
+      "name": "Nikki Budzinski",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001316",
+      "icpsr": 22305,
+      "fec": [
+        "H2MO07143"
+      ],
+      "govtrack": 456910,
+      "opensecrets": "N00049123",
+      "name": "Eric Burlison",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001317",
+      "icpsr": 22303,
+      "fec": [
+        "H2OK02315"
+      ],
+      "govtrack": 456931,
+      "opensecrets": "N00051106",
+      "name": "Josh Brecheen",
+      "party": "R",
+      "state": "OK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001318",
+      "icpsr": 22301,
+      "fec": [
+        "H2VT01076"
+      ],
+      "govtrack": 456948,
+      "opensecrets": "N00049900",
+      "name": "Becca Balint",
+      "party": "D",
+      "state": "VT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001319",
+      "icpsr": 42300,
+      "fec": [
+        "S2AL00145"
+      ],
+      "govtrack": 456874,
+      "opensecrets": "N00048812",
+      "name": "Katie Boyd Britt",
+      "party": "R",
+      "state": "AL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "B001321",
+      "icpsr": 22501,
+      "fec": [
+        "H2MI07123"
+      ],
+      "govtrack": 456994,
+      "opensecrets": "N00049596",
+      "name": "Tom Barrett",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001322",
+      "icpsr": 22502,
+      "fec": [
+        "H4WA05234"
+      ],
+      "govtrack": 457029,
+      "opensecrets": "N00033716",
+      "name": "Michael Baumgartner",
+      "party": "R",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001323",
+      "icpsr": 22503,
+      "fec": [
+        "H2AK01083"
+      ],
+      "govtrack": 456970,
+      "opensecrets": "N00049408",
+      "name": "Nicholas J. Begich III",
+      "party": "R",
+      "state": "AK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001324",
+      "icpsr": 22504,
+      "fec": [
+        "H4MO01134",
+        "S4MO00250"
+      ],
+      "govtrack": 456997,
+      "opensecrets": "N00053042",
+      "name": "Wesley Bell",
+      "party": "D",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001325",
+      "icpsr": 22505,
+      "fec": [
+        "H4SC01313"
+      ],
+      "govtrack": 457020,
+      "opensecrets": "N00054222",
+      "name": "Sheri Biggs",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001326",
+      "icpsr": 22507,
+      "fec": [
+        "H4OR05304"
+      ],
+      "govtrack": 457016,
+      "opensecrets": "N00052777",
+      "name": "Janelle S. Bynum",
+      "party": "D",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "B001327",
+      "icpsr": 22506,
+      "fec": [
+        "H4PA08124"
+      ],
+      "govtrack": 457018,
+      "opensecrets": "N00053588",
+      "name": "Robert P. Bresnahan, Jr.",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C000059",
+      "icpsr": 29323,
+      "fec": [
+        "H2CA37023"
+      ],
+      "govtrack": 400057,
+      "opensecrets": "N00007099",
+      "name": "Ken Calvert",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C000127",
+      "icpsr": 39310,
+      "fec": [
+        "S8WA00194",
+        "H2WA01054"
+      ],
+      "govtrack": 300018,
+      "opensecrets": "N00007836",
+      "name": "Maria Cantwell",
+      "party": "D",
+      "state": "WA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C000344",
+      "icpsr": 14611,
+      "fec": [],
+      "govtrack": 402484,
+      "opensecrets": null,
+      "name": "Richard Cheney",
+      "party": "R",
+      "state": "WY",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "C000537",
+      "icpsr": 39301,
+      "fec": [
+        "H2SC02042"
+      ],
+      "govtrack": 400075,
+      "opensecrets": "N00002408",
+      "name": "James E. Clyburn",
+      "party": "D",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C000880",
+      "icpsr": 29345,
+      "fec": [
+        "S8ID00027",
+        "H2ID02034"
+      ],
+      "govtrack": 300030,
+      "opensecrets": "N00006267",
+      "name": "Mike Crapo",
+      "party": "R",
+      "state": "ID",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001035",
+      "icpsr": 49703,
+      "fec": [
+        "S6ME00159"
+      ],
+      "govtrack": 300025,
+      "opensecrets": "N00000491",
+      "name": "Susan M. Collins",
+      "party": "R",
+      "state": "ME",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001039",
+      "icpsr": 22107,
+      "fec": [
+        "H0FL03175"
+      ],
+      "govtrack": 456806,
+      "opensecrets": "N00045978",
+      "name": "Kat Cammack",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001041",
+      "icpsr": 40105,
+      "fec": [
+        "S0NY00188"
+      ],
+      "govtrack": 300022,
+      "opensecrets": "N00000019",
+      "name": "Hillary Clinton",
+      "party": "D",
+      "state": "NY",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "C001047",
+      "icpsr": 20146,
+      "fec": [
+        "H0WV02138",
+        "S4WV00159"
+      ],
+      "govtrack": 400061,
+      "opensecrets": "N00009771",
+      "name": "Shelley Moore Capito",
+      "party": "R",
+      "state": "WV",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001051",
+      "icpsr": 20356,
+      "fec": [
+        "H2TX31044"
+      ],
+      "govtrack": 400068,
+      "opensecrets": "N00025095",
+      "name": "John R. Carter",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001053",
+      "icpsr": 20344,
+      "fec": [
+        "H2OK04055"
+      ],
+      "govtrack": 400077,
+      "opensecrets": "N00025726",
+      "name": "Tom Cole",
+      "party": "R",
+      "state": "OK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001055",
+      "icpsr": 20322,
+      "fec": [
+        "H2HI02128"
+      ],
+      "govtrack": 400069,
+      "opensecrets": "N00025882",
+      "name": "Ed Case",
+      "party": "D",
+      "state": "HI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001056",
+      "icpsr": 40305,
+      "fec": [
+        "S2TX00106"
+      ],
+      "govtrack": 300027,
+      "opensecrets": "N00024852",
+      "name": "John Cornyn",
+      "party": "R",
+      "state": "TX",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001059",
+      "icpsr": 20501,
+      "fec": [
+        "H4CA20082"
+      ],
+      "govtrack": 400618,
+      "opensecrets": "N00026341",
+      "name": "Jim Costa",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001061",
+      "icpsr": 20517,
+      "fec": [
+        "H4MO05234"
+      ],
+      "govtrack": 400639,
+      "opensecrets": "N00026790",
+      "name": "Emanuel Cleaver",
+      "party": "D",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001063",
+      "icpsr": 20533,
+      "fec": [
+        "H2TX23082"
+      ],
+      "govtrack": 400657,
+      "opensecrets": "N00024978",
+      "name": "Henry Cuellar",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001066",
+      "icpsr": 20708,
+      "fec": [
+        "H6FL11126",
+        "H6FL11134"
+      ],
+      "govtrack": 412195,
+      "opensecrets": "N00027514",
+      "name": "Kathy Castor",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001067",
+      "icpsr": 20733,
+      "fec": [
+        "H4NY11138"
+      ],
+      "govtrack": 412221,
+      "opensecrets": "N00026961",
+      "name": "Yvette D. Clarke",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001068",
+      "icpsr": 20748,
+      "fec": [
+        "H6TN09068"
+      ],
+      "govtrack": 412236,
+      "opensecrets": "N00003225",
+      "name": "Steve Cohen",
+      "party": "D",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001069",
+      "icpsr": 20706,
+      "fec": [
+        "H2CT02112"
+      ],
+      "govtrack": 412193,
+      "opensecrets": "N00024842",
+      "name": "Joe Courtney",
+      "party": "D",
+      "state": "CT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001072",
+      "icpsr": 20757,
+      "fec": [
+        "H8IN07184"
+      ],
+      "govtrack": 412258,
+      "opensecrets": "N00029513",
+      "name": "André Carson",
+      "party": "D",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001075",
+      "icpsr": 20919,
+      "fec": [
+        "H8LA00017",
+        "S4LA00107"
+      ],
+      "govtrack": 412269,
+      "opensecrets": "N00030245",
+      "name": "Bill Cassidy",
+      "party": "R",
+      "state": "LA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001080",
+      "icpsr": 20955,
+      "fec": [
+        "H0CA32101"
+      ],
+      "govtrack": 412379,
+      "opensecrets": "N00030600",
+      "name": "Judy Chu",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001087",
+      "icpsr": 21106,
+      "fec": [
+        "H0AR01083"
+      ],
+      "govtrack": 412400,
+      "opensecrets": "N00030770",
+      "name": "Eric A. \"Rick\" Crawford",
+      "party": "R",
+      "state": "AR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001088",
+      "icpsr": 40916,
+      "fec": [
+        "S0DE00092"
+      ],
+      "govtrack": 412390,
+      "opensecrets": "N00031820",
+      "name": "Christopher A. Coons",
+      "party": "D",
+      "state": "DE",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001091",
+      "icpsr": 21362,
+      "fec": [
+        "H2TX35011"
+      ],
+      "govtrack": 412576,
+      "opensecrets": "N00033316",
+      "name": "Joaquin Castro",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001095",
+      "icpsr": 21301,
+      "fec": [
+        "H2AR04083",
+        "S4AR00103"
+      ],
+      "govtrack": 412508,
+      "opensecrets": "N00033363",
+      "name": "Tom Cotton",
+      "party": "R",
+      "state": "AR",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001096",
+      "icpsr": 21350,
+      "fec": [
+        "H0ND01026",
+        "H6ND00074",
+        "S8ND00120"
+      ],
+      "govtrack": 412555,
+      "opensecrets": "N00004614",
+      "name": "Kevin Cramer",
+      "party": "R",
+      "state": "ND",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001098",
+      "icpsr": 41304,
+      "fec": [
+        "S2TX00312"
+      ],
+      "govtrack": 412573,
+      "opensecrets": "N00033085",
+      "name": "Ted Cruz",
+      "party": "R",
+      "state": "TX",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001101",
+      "icpsr": 21375,
+      "fec": [
+        "H4MA05084"
+      ],
+      "govtrack": 412600,
+      "opensecrets": "N00035278",
+      "name": "Katherine M. Clark",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001103",
+      "icpsr": 21513,
+      "fec": [
+        "H4GA01039",
+        "S6GA00374"
+      ],
+      "govtrack": 412622,
+      "opensecrets": "N00035346",
+      "name": "Earl L. \"Buddy\" Carter",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001108",
+      "icpsr": 21565,
+      "fec": [
+        "H6KY01110"
+      ],
+      "govtrack": 412676,
+      "opensecrets": "N00038260",
+      "name": "James Comer",
+      "party": "R",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001109",
+      "icpsr": 21710,
+      "fec": [
+        "H6WY00159"
+      ],
+      "govtrack": 412732,
+      "opensecrets": "N00035504",
+      "name": "Liz Cheney",
+      "party": "R",
+      "state": "WY",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "C001110",
+      "icpsr": 21711,
+      "fec": [
+        "H6CA46116"
+      ],
+      "govtrack": 412688,
+      "opensecrets": "N00037260",
+      "name": "J. Luis Correa",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001112",
+      "icpsr": 21709,
+      "fec": [
+        "H6CA24303"
+      ],
+      "govtrack": 412686,
+      "opensecrets": "N00037015",
+      "name": "Salud O. Carbajal",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001113",
+      "icpsr": 41700,
+      "fec": [
+        "S6NV00200"
+      ],
+      "govtrack": 412681,
+      "opensecrets": "N00037161",
+      "name": "Catherine Cortez Masto",
+      "party": "D",
+      "state": "NV",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001114",
+      "icpsr": 21755,
+      "fec": [
+        "H8UT03238",
+        "S4UT00282"
+      ],
+      "govtrack": 412740,
+      "opensecrets": "N00041221",
+      "name": "John R. Curtis",
+      "party": "R",
+      "state": "UT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "C001115",
+      "icpsr": 21758,
+      "fec": [
+        "H8TX27049"
+      ],
+      "govtrack": 412746,
+      "opensecrets": "N00041882",
+      "name": "Michael Cloud",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001116",
+      "icpsr": 22110,
+      "fec": [
+        "H0GA09246"
+      ],
+      "govtrack": 456813,
+      "opensecrets": "N00046654",
+      "name": "Andrew S. Clyde",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001117",
+      "icpsr": 21906,
+      "fec": [
+        "H8IL06139"
+      ],
+      "govtrack": 412775,
+      "opensecrets": "N00041338",
+      "name": "Sean Casten",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001118",
+      "icpsr": 21908,
+      "fec": [
+        "H8VA06104"
+      ],
+      "govtrack": 412832,
+      "opensecrets": "N00042296",
+      "name": "Ben Cline",
+      "party": "R",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001119",
+      "icpsr": 21910,
+      "fec": [
+        "H6MN02131",
+        "S6MN00499"
+      ],
+      "govtrack": 412789,
+      "opensecrets": "N00037039",
+      "name": "Angie Craig",
+      "party": "D",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001120",
+      "icpsr": 21911,
+      "fec": [
+        "H8TX02166"
+      ],
+      "govtrack": 412820,
+      "opensecrets": "N00042224",
+      "name": "Dan Crenshaw",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001121",
+      "icpsr": 21912,
+      "fec": [
+        "H8CO06229"
+      ],
+      "govtrack": 412762,
+      "opensecrets": "N00040876",
+      "name": "Jason Crow",
+      "party": "D",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001123",
+      "icpsr": 21907,
+      "fec": [
+        "H8CA39174",
+        "H4CA31170"
+      ],
+      "govtrack": 412757,
+      "opensecrets": "N00041464",
+      "name": "Gilbert Ray Cisneros, Jr.",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001125",
+      "icpsr": 22158,
+      "fec": [
+        "H2LA02149"
+      ],
+      "govtrack": 456860,
+      "opensecrets": "N00025766",
+      "name": "Troy A. Carter",
+      "party": "D",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001126",
+      "icpsr": 22162,
+      "fec": [
+        "H2OH15228"
+      ],
+      "govtrack": 456864,
+      "opensecrets": "N00048568",
+      "name": "Mike Carey",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001129",
+      "icpsr": 22310,
+      "fec": [
+        "H4GA10071",
+        "S6GA00390"
+      ],
+      "govtrack": 456895,
+      "opensecrets": "N00035370",
+      "name": "Mike Collins",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001130",
+      "icpsr": 22312,
+      "fec": [
+        "H2TX30178",
+        "S6TX00552"
+      ],
+      "govtrack": 456944,
+      "opensecrets": "N00049840",
+      "name": "Jasmine Crockett",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001131",
+      "icpsr": 22307,
+      "fec": [
+        "H2TX35144"
+      ],
+      "govtrack": 456945,
+      "opensecrets": "N00049855",
+      "name": "Greg Casar",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001132",
+      "icpsr": 22311,
+      "fec": [
+        "H2AZ01354"
+      ],
+      "govtrack": 456879,
+      "opensecrets": "N00048953",
+      "name": "Elijah Crane",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001133",
+      "icpsr": 22309,
+      "fec": [
+        "H2AZ02360"
+      ],
+      "govtrack": 456880,
+      "opensecrets": "N00049039",
+      "name": "Juan Ciscomani",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001136",
+      "icpsr": 22508,
+      "fec": [
+        "H4NJ03080"
+      ],
+      "govtrack": 457008,
+      "opensecrets": "N00026951",
+      "name": "Herbert C. Conaway, Jr.",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "C001137",
+      "icpsr": 22509,
+      "fec": [
+        "H6CO05142"
+      ],
+      "govtrack": 456983,
+      "opensecrets": "N00028132",
+      "name": "Jeff Crank",
+      "party": "R",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000032",
+      "icpsr": 22111,
+      "fec": [
+        "H2FL14186"
+      ],
+      "govtrack": 456808,
+      "opensecrets": "N00034016",
+      "name": "Byron Donalds",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000096",
+      "icpsr": 29717,
+      "fec": [
+        "H4IL07037"
+      ],
+      "govtrack": 400093,
+      "opensecrets": "N00004884",
+      "name": "Danny K. Davis",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000197",
+      "icpsr": 29710,
+      "fec": [
+        "H6CO01141"
+      ],
+      "govtrack": 400101,
+      "opensecrets": "N00006134",
+      "name": "Diana DeGette",
+      "party": "D",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000216",
+      "icpsr": 29109,
+      "fec": [
+        "H0CT03072"
+      ],
+      "govtrack": 400103,
+      "opensecrets": "N00000615",
+      "name": "Rosa L. DeLauro",
+      "party": "D",
+      "state": "CT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000230",
+      "icpsr": 22314,
+      "fec": [
+        "H2NC02287"
+      ],
+      "govtrack": 456912,
+      "opensecrets": "N00049636",
+      "name": "Donald G. Davis",
+      "party": "D",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000399",
+      "icpsr": 29571,
+      "fec": [
+        "H4TX10028"
+      ],
+      "govtrack": 400111,
+      "opensecrets": "N00006023",
+      "name": "Lloyd Doggett",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000530",
+      "icpsr": 22316,
+      "fec": [
+        "H2PA17103"
+      ],
+      "govtrack": 456936,
+      "opensecrets": "N00049160",
+      "name": "Christopher R. Deluzio",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000563",
+      "icpsr": 15021,
+      "fec": [
+        "S6IL00151",
+        "H2IL20026"
+      ],
+      "govtrack": 300038,
+      "opensecrets": "N00004981",
+      "name": "Richard J. Durbin",
+      "party": "D",
+      "state": "IL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "D000594",
+      "icpsr": 22315,
+      "fec": [
+        "H0TX15124"
+      ],
+      "govtrack": 456943,
+      "opensecrets": "N00045793",
+      "name": "Monica De La Cruz",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000600",
+      "icpsr": 20316,
+      "fec": [
+        "H2FL25018"
+      ],
+      "govtrack": 400108,
+      "opensecrets": "N00025337",
+      "name": "Mario Diaz-Balart",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000616",
+      "icpsr": 21179,
+      "fec": [
+        "H0TN04195"
+      ],
+      "govtrack": 412477,
+      "opensecrets": "N00030957",
+      "name": "Scott DesJarlais",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000617",
+      "icpsr": 31101,
+      "fec": [
+        "H0WA08046"
+      ],
+      "govtrack": 412505,
+      "opensecrets": "N00030693",
+      "name": "Suzan K. DelBene",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000618",
+      "icpsr": 21338,
+      "fec": [
+        "H2MT01060",
+        "S2MT00096"
+      ],
+      "govtrack": 412549,
+      "opensecrets": "N00033054",
+      "name": "Steve Daines",
+      "party": "R",
+      "state": "MT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "D000621",
+      "icpsr": 21318,
+      "fec": [
+        "H2FL00292"
+      ],
+      "govtrack": 412526,
+      "opensecrets": "N00034746",
+      "name": "Ron DeSantis",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "D000622",
+      "icpsr": 21325,
+      "fec": [
+        "H6IL06141",
+        "S6IL00292"
+      ],
+      "govtrack": 412533,
+      "opensecrets": "N00027860",
+      "name": "Tammy Duckworth",
+      "party": "D",
+      "state": "IL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "D000623",
+      "icpsr": 21504,
+      "fec": [
+        "H0CA10073"
+      ],
+      "govtrack": 412613,
+      "opensecrets": "N00030709",
+      "name": "Mark DeSaulnier",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000624",
+      "icpsr": 21529,
+      "fec": [
+        "H4MI12079"
+      ],
+      "govtrack": 412637,
+      "opensecrets": "N00036149",
+      "name": "Debbie Dingell",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000626",
+      "icpsr": 21564,
+      "fec": [
+        "H6OH08315"
+      ],
+      "govtrack": 412675,
+      "opensecrets": "N00038767",
+      "name": "Warren Davidson",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000628",
+      "icpsr": 21714,
+      "fec": [
+        "H6FL02208"
+      ],
+      "govtrack": 412691,
+      "opensecrets": "N00037442",
+      "name": "Neal P. Dunn",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000629",
+      "icpsr": 21914,
+      "fec": [
+        "H8KS03155"
+      ],
+      "govtrack": 412780,
+      "opensecrets": "N00042626",
+      "name": "Sharice Davids",
+      "party": "D",
+      "state": "KS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000631",
+      "icpsr": 21915,
+      "fec": [
+        "H8PA04116"
+      ],
+      "govtrack": 412809,
+      "opensecrets": "N00042894",
+      "name": "Madeleine Dean",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000634",
+      "icpsr": 22511,
+      "fec": [
+        "H4MT02098"
+      ],
+      "govtrack": 457000,
+      "opensecrets": "N00041283",
+      "name": "Troy Downing",
+      "party": "R",
+      "state": "MT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "D000635",
+      "icpsr": 22510,
+      "fec": [
+        "H4OR03192"
+      ],
+      "govtrack": 457015,
+      "opensecrets": "N00054144",
+      "name": "Maxine Dexter",
+      "party": "D",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000071",
+      "icpsr": 22160,
+      "fec": [
+        "H8TX06266"
+      ],
+      "govtrack": 456862,
+      "opensecrets": "N00042243",
+      "name": "Jake Ellzey",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000235",
+      "icpsr": 22319,
+      "fec": [
+        "H2MS04258"
+      ],
+      "govtrack": 456911,
+      "opensecrets": "N00048240",
+      "name": "Mike Ezell",
+      "party": "R",
+      "state": "MS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000246",
+      "icpsr": 22318,
+      "fec": [
+        "H2NC14050"
+      ],
+      "govtrack": 456914,
+      "opensecrets": "N00049670",
+      "name": "Chuck Edwards",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000294",
+      "icpsr": 21531,
+      "fec": [
+        "H4MN06087"
+      ],
+      "govtrack": 412639,
+      "opensecrets": "N00035440",
+      "name": "Tom Emmer",
+      "party": "R",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000295",
+      "icpsr": 41502,
+      "fec": [
+        "S4IA00129"
+      ],
+      "govtrack": 412667,
+      "opensecrets": "N00035483",
+      "name": "Joni Ernst",
+      "party": "R",
+      "state": "IA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "E000296",
+      "icpsr": 21566,
+      "fec": [
+        "H6PA02171"
+      ],
+      "govtrack": 412677,
+      "opensecrets": "N00038450",
+      "name": "Dwight Evans",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000297",
+      "icpsr": 21715,
+      "fec": [
+        "H2NY13096"
+      ],
+      "govtrack": 412718,
+      "opensecrets": "N00034549",
+      "name": "Adriano Espaillat",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000298",
+      "icpsr": 21750,
+      "fec": [
+        "H8KS04112"
+      ],
+      "govtrack": 412735,
+      "opensecrets": "N00040712",
+      "name": "Ron Estes",
+      "party": "R",
+      "state": "KS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000299",
+      "icpsr": 21917,
+      "fec": [
+        "H8TX16109"
+      ],
+      "govtrack": 412825,
+      "opensecrets": "N00041702",
+      "name": "Veronica Escobar",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000300",
+      "icpsr": 22513,
+      "fec": [
+        "H4CO08034"
+      ],
+      "govtrack": 456984,
+      "opensecrets": "N00053312",
+      "name": "Gabe Evans",
+      "party": "R",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "E000301",
+      "icpsr": 22512,
+      "fec": [
+        "H4MD03156"
+      ],
+      "govtrack": 456992,
+      "opensecrets": "N00053710",
+      "name": "Sarah Elfreth",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000110",
+      "icpsr": 29354,
+      "fec": [
+        "H4LA06211"
+      ],
+      "govtrack": 404067,
+      "opensecrets": "N00005398",
+      "name": "Cleo Fields",
+      "party": "D",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000246",
+      "icpsr": 22112,
+      "fec": [
+        "H0TX04219"
+      ],
+      "govtrack": 456845,
+      "opensecrets": "N00047264",
+      "name": "Pat Fallon",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000446",
+      "icpsr": 22113,
+      "fec": [
+        "H0IA04145"
+      ],
+      "govtrack": 456818,
+      "opensecrets": "N00044011",
+      "name": "Randy Feenstra",
+      "party": "R",
+      "state": "IA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000450",
+      "icpsr": 20521,
+      "fec": [
+        "H4NC05146"
+      ],
+      "govtrack": 400643,
+      "opensecrets": "N00026166",
+      "name": "Virginia Foxx",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000454",
+      "icpsr": 20749,
+      "fec": [
+        "H8IL14067",
+        "H2IL11124"
+      ],
+      "govtrack": 412257,
+      "opensecrets": "N00029139",
+      "name": "Bill Foster",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000459",
+      "icpsr": 21178,
+      "fec": [
+        "H0TN03254"
+      ],
+      "govtrack": 412476,
+      "opensecrets": "N00030815",
+      "name": "Charles J. \"Chuck\" Fleischmann",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000462",
+      "icpsr": 21321,
+      "fec": [
+        "H2FL14053",
+        "H2FL22080"
+      ],
+      "govtrack": 412529,
+      "opensecrets": "N00002893",
+      "name": "Lois Frankel",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000463",
+      "icpsr": 41302,
+      "fec": [
+        "S2NE00094"
+      ],
+      "govtrack": 412556,
+      "opensecrets": "N00033443",
+      "name": "Deb Fischer",
+      "party": "R",
+      "state": "NE",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "F000466",
+      "icpsr": 21718,
+      "fec": [
+        "H6PA08277"
+      ],
+      "govtrack": 412721,
+      "opensecrets": "N00038779",
+      "name": "Brian K. Fitzpatrick",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000468",
+      "icpsr": 21919,
+      "fec": [
+        "H8TX07140"
+      ],
+      "govtrack": 412824,
+      "opensecrets": "N00041194",
+      "name": "Lizzie Fletcher",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000469",
+      "icpsr": 21920,
+      "fec": [
+        "H8ID01124"
+      ],
+      "govtrack": 412773,
+      "opensecrets": "N00041335",
+      "name": "Russ Fulcher",
+      "party": "R",
+      "state": "ID",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000470",
+      "icpsr": 22114,
+      "fec": [
+        "H0MN07091"
+      ],
+      "govtrack": 456828,
+      "opensecrets": "N00045251",
+      "name": "Michelle Fischbach",
+      "party": "R",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000471",
+      "icpsr": 22115,
+      "fec": [
+        "H0WI05113"
+      ],
+      "govtrack": 456855,
+      "opensecrets": "N00045434",
+      "name": "Scott Fitzgerald",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000472",
+      "icpsr": 22116,
+      "fec": [
+        "H0FL15104"
+      ],
+      "govtrack": 456807,
+      "opensecrets": "N00046760",
+      "name": "Scott Franklin",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000474",
+      "icpsr": 22166,
+      "fec": [
+        "H2NE01118"
+      ],
+      "govtrack": 456868,
+      "opensecrets": "N00050145",
+      "name": "Mike Flood",
+      "party": "R",
+      "state": "NE",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000475",
+      "icpsr": 22167,
+      "fec": [
+        "H2MN01223"
+      ],
+      "govtrack": 456869,
+      "opensecrets": "N00050649",
+      "name": "Brad Finstad",
+      "party": "R",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000476",
+      "icpsr": 22321,
+      "fec": [
+        "H2FL10259"
+      ],
+      "govtrack": 456890,
+      "opensecrets": "N00049075",
+      "name": "Maxwell Frost",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000477",
+      "icpsr": 22320,
+      "fec": [
+        "H2NC06114"
+      ],
+      "govtrack": 456913,
+      "opensecrets": "N00049652",
+      "name": "Valerie P. Foushee",
+      "party": "D",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000478",
+      "icpsr": 22322,
+      "fec": [
+        "H2SC07280",
+        "S6SC04403"
+      ],
+      "govtrack": 456938,
+      "opensecrets": "N00049165",
+      "name": "Russell Fry",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000479",
+      "icpsr": 42301,
+      "fec": [
+        "S6PA00274"
+      ],
+      "govtrack": 456877,
+      "opensecrets": "N00038201",
+      "name": "John Fetterman",
+      "party": "D",
+      "state": "PA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "F000480",
+      "icpsr": 22378,
+      "fec": [
+        "H4CA20181"
+      ],
+      "govtrack": 456958,
+      "opensecrets": "N00054216",
+      "name": "Vince Fong",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000481",
+      "icpsr": 22515,
+      "fec": [
+        "H4AL02170"
+      ],
+      "govtrack": 456971,
+      "opensecrets": "N00053909",
+      "name": "Shomari Figures",
+      "party": "D",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000482",
+      "icpsr": 22514,
+      "fec": [
+        "H4ND00061"
+      ],
+      "govtrack": 457006,
+      "opensecrets": "N00054800",
+      "name": "Julie Fedorchak",
+      "party": "R",
+      "state": "ND",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000483",
+      "icpsr": 22516,
+      "fec": [
+        "H4CA30149"
+      ],
+      "govtrack": 456979,
+      "opensecrets": "N00052209",
+      "name": "Laura Friedman",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000484",
+      "icpsr": 22562,
+      "fec": [
+        "H6FL06258"
+      ],
+      "govtrack": 457035,
+      "opensecrets": null,
+      "name": "Randy Fine",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "F000485",
+      "icpsr": 22568,
+      "fec": [
+        "H0GA14030"
+      ],
+      "govtrack": 457041,
+      "opensecrets": null,
+      "name": "Clay Fuller",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000359",
+      "icpsr": 29566,
+      "fec": [
+        "S0SC00149",
+        "H4SC03087"
+      ],
+      "govtrack": 300047,
+      "opensecrets": "N00009975",
+      "name": "Lindsey Graham",
+      "party": "R",
+      "state": "SC",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "G000386",
+      "icpsr": 14226,
+      "fec": [
+        "S0IA00028"
+      ],
+      "govtrack": 300048,
+      "opensecrets": "N00001758",
+      "name": "Chuck Grassley",
+      "party": "R",
+      "state": "IA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "G000546",
+      "icpsr": 20124,
+      "fec": [
+        "H0MO06073"
+      ],
+      "govtrack": 400158,
+      "opensecrets": "N00013323",
+      "name": "Sam Graves",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000553",
+      "icpsr": 20529,
+      "fec": [
+        "H4TX09095"
+      ],
+      "govtrack": 400653,
+      "opensecrets": "N00026686",
+      "name": "Al Green",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000555",
+      "icpsr": 20735,
+      "fec": [
+        "H6NY20167",
+        "S0NY00410"
+      ],
+      "govtrack": 412223,
+      "opensecrets": "N00027658",
+      "name": "Kirsten E. Gillibrand",
+      "party": "D",
+      "state": "NY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "G000558",
+      "icpsr": 20916,
+      "fec": [
+        "H8KY02031"
+      ],
+      "govtrack": 412278,
+      "opensecrets": "N00029675",
+      "name": "Brett Guthrie",
+      "party": "R",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000559",
+      "icpsr": 20958,
+      "fec": [
+        "H0CA10149"
+      ],
+      "govtrack": 412382,
+      "opensecrets": "N00030856",
+      "name": "John Garamendi",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000565",
+      "icpsr": 21103,
+      "fec": [
+        "H0AZ01259"
+      ],
+      "govtrack": 412397,
+      "opensecrets": "N00030771",
+      "name": "Paul A. Gosar",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000568",
+      "icpsr": 21191,
+      "fec": [
+        "H0VA09055"
+      ],
+      "govtrack": 412485,
+      "opensecrets": "N00032029",
+      "name": "H. Morgan Griffith",
+      "party": "R",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000571",
+      "icpsr": 21324,
+      "fec": [
+        "H2HI02508"
+      ],
+      "govtrack": 412532,
+      "opensecrets": "N00033281",
+      "name": "Tulsi Gabbard",
+      "party": "D",
+      "state": "HI",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "G000574",
+      "icpsr": 21502,
+      "fec": [
+        "H4AZ07043",
+        "S4AZ00139"
+      ],
+      "govtrack": 412612,
+      "opensecrets": "N00036097",
+      "name": "Ruben Gallego",
+      "party": "D",
+      "state": "AZ",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "G000576",
+      "icpsr": 21559,
+      "fec": [
+        "H4WI06048"
+      ],
+      "govtrack": 412661,
+      "opensecrets": "N00036409",
+      "name": "Glenn Grothman",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000578",
+      "icpsr": 21719,
+      "fec": [
+        "H6FL01119"
+      ],
+      "govtrack": 412690,
+      "opensecrets": "N00039503",
+      "name": "Matt Gaetz",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "G000581",
+      "icpsr": 21722,
+      "fec": [
+        "H6TX15162"
+      ],
+      "govtrack": 412725,
+      "opensecrets": "N00038809",
+      "name": "Vicente Gonzalez",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000583",
+      "icpsr": 21723,
+      "fec": [
+        "H6NJ05171"
+      ],
+      "govtrack": 412714,
+      "opensecrets": "N00036944",
+      "name": "Josh Gottheimer",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000585",
+      "icpsr": 21754,
+      "fec": [
+        "H8CA34266"
+      ],
+      "govtrack": 412739,
+      "opensecrets": "N00040597",
+      "name": "Jimmy Gomez",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000586",
+      "icpsr": 21921,
+      "fec": [
+        "H8IL04134"
+      ],
+      "govtrack": 412774,
+      "opensecrets": "N00042114",
+      "name": "Jesús G. \"Chuy\" García",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000587",
+      "icpsr": 21922,
+      "fec": [
+        "H8TX29052"
+      ],
+      "govtrack": 412827,
+      "opensecrets": "N00042282",
+      "name": "Sylvia R. Garcia",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000589",
+      "icpsr": 21925,
+      "fec": [
+        "H8TX05144"
+      ],
+      "govtrack": 412822,
+      "opensecrets": "N00042237",
+      "name": "Lance Gooden",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000591",
+      "icpsr": 21927,
+      "fec": [
+        "H8MS03125"
+      ],
+      "govtrack": 412793,
+      "opensecrets": "N00042458",
+      "name": "Michael Guest",
+      "party": "R",
+      "state": "MS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000592",
+      "icpsr": 21923,
+      "fec": [
+        "H8ME02185"
+      ],
+      "govtrack": 412842,
+      "opensecrets": "N00041668",
+      "name": "Jared F. Golden",
+      "party": "D",
+      "state": "ME",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000593",
+      "icpsr": 22118,
+      "fec": [
+        "H0FL26036"
+      ],
+      "govtrack": 456809,
+      "opensecrets": "N00046394",
+      "name": "Carlos A. Gimenez",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000596",
+      "icpsr": 22121,
+      "fec": [
+        "H0GA06192"
+      ],
+      "govtrack": 456814,
+      "opensecrets": "N00044701",
+      "name": "Marjorie Taylor Greene",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "G000597",
+      "icpsr": 22117,
+      "fec": [
+        "H0NY02234"
+      ],
+      "govtrack": 456836,
+      "opensecrets": "N00046030",
+      "name": "Andrew R. Garbarino",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000598",
+      "icpsr": 22323,
+      "fec": [
+        "H2CA47188"
+      ],
+      "govtrack": 456885,
+      "opensecrets": "N00049470",
+      "name": "Robert Garcia",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000599",
+      "icpsr": 22324,
+      "fec": [
+        "H2NY10308"
+      ],
+      "govtrack": 456923,
+      "opensecrets": "N00051424",
+      "name": "Daniel S. Goldman",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000600",
+      "icpsr": 22358,
+      "fec": [
+        "H2WA03217"
+      ],
+      "govtrack": 456949,
+      "opensecrets": "N00050490",
+      "name": "Marie Gluesenkamp Perez",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000601",
+      "icpsr": 22519,
+      "fec": [
+        "H4TX12065"
+      ],
+      "govtrack": 457021,
+      "opensecrets": "N00053861",
+      "name": "Craig A. Goldman",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000602",
+      "icpsr": 22518,
+      "fec": [
+        "H4NY04158",
+        "H2NY04244"
+      ],
+      "govtrack": 457010,
+      "opensecrets": "N00050425",
+      "name": "Laura Gillen",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000603",
+      "icpsr": 22517,
+      "fec": [
+        "H4TX26149"
+      ],
+      "govtrack": 457023,
+      "opensecrets": "N00054402",
+      "name": "Brandon Gill",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000604",
+      "icpsr": 22520,
+      "fec": [
+        "H4NH02399"
+      ],
+      "govtrack": 457007,
+      "opensecrets": "N00055218",
+      "name": "Maggie Goodlander",
+      "party": "D",
+      "state": "NH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000605",
+      "icpsr": 22521,
+      "fec": [
+        "H2CA13115"
+      ],
+      "govtrack": 456975,
+      "opensecrets": "N00050061",
+      "name": "Adam Gray",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000606",
+      "icpsr": 22565,
+      "fec": [
+        "H6AZ07121"
+      ],
+      "govtrack": 457037,
+      "opensecrets": null,
+      "name": "Adelita S. Grijalva",
+      "party": "D",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000607",
+      "icpsr": 22570,
+      "fec": [
+        "H6CA01285"
+      ],
+      "govtrack": 457043,
+      "opensecrets": null,
+      "name": "James Gallagher",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "G000608",
+      "icpsr": 42508,
+      "fec": [],
+      "govtrack": 457044,
+      "opensecrets": null,
+      "name": "Darline Graham",
+      "party": "R",
+      "state": "SC",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H000273",
+      "icpsr": 42101,
+      "fec": [
+        "S0CO00575"
+      ],
+      "govtrack": 456797,
+      "opensecrets": "N00044206",
+      "name": "John W. Hickenlooper",
+      "party": "D",
+      "state": "CO",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H000601",
+      "icpsr": 42100,
+      "fec": [
+        "S0TN00169"
+      ],
+      "govtrack": 456798,
+      "opensecrets": "N00045369",
+      "name": "Bill Hagerty",
+      "party": "R",
+      "state": "TN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H000874",
+      "icpsr": 14873,
+      "fec": [
+        "H2MD05155"
+      ],
+      "govtrack": 400189,
+      "opensecrets": "N00001821",
+      "name": "Steny H. Hoyer",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001042",
+      "icpsr": 20713,
+      "fec": [
+        "H6HI02251",
+        "S2HI00106"
+      ],
+      "govtrack": 412200,
+      "opensecrets": "N00028139",
+      "name": "Mazie K. Hirono",
+      "party": "D",
+      "state": "HI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001046",
+      "icpsr": 20930,
+      "fec": [
+        "H8NM01224",
+        "S2NM00088"
+      ],
+      "govtrack": 412281,
+      "opensecrets": "N00029835",
+      "name": "Martin Heinrich",
+      "party": "D",
+      "state": "NM",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001047",
+      "icpsr": 20907,
+      "fec": [
+        "H8CT04172"
+      ],
+      "govtrack": 412282,
+      "opensecrets": "N00029070",
+      "name": "James A. Himes",
+      "party": "D",
+      "state": "CT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001052",
+      "icpsr": 21139,
+      "fec": [
+        "H8MD01094"
+      ],
+      "govtrack": 412434,
+      "opensecrets": "N00029147",
+      "name": "Andy Harris",
+      "party": "R",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001058",
+      "icpsr": 21142,
+      "fec": [
+        "H0MI02094"
+      ],
+      "govtrack": 412437,
+      "opensecrets": "N00030673",
+      "name": "Bill Huizenga",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001061",
+      "icpsr": 41107,
+      "fec": [
+        "S0ND00093"
+      ],
+      "govtrack": 412494,
+      "opensecrets": "N00031688",
+      "name": "John Hoeven",
+      "party": "R",
+      "state": "ND",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001066",
+      "icpsr": 21339,
+      "fec": [
+        "H2NV04011"
+      ],
+      "govtrack": 412559,
+      "opensecrets": "N00033638",
+      "name": "Steven Horsford",
+      "party": "D",
+      "state": "NV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001067",
+      "icpsr": 21346,
+      "fec": [
+        "H2NC08185"
+      ],
+      "govtrack": 412550,
+      "opensecrets": "N00033630",
+      "name": "Richard Hudson",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001068",
+      "icpsr": 21303,
+      "fec": [
+        "H2CA06259"
+      ],
+      "govtrack": 412511,
+      "opensecrets": "N00033030",
+      "name": "Jared Huffman",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001072",
+      "icpsr": 21503,
+      "fec": [
+        "H4AR02141"
+      ],
+      "govtrack": 412609,
+      "opensecrets": "N00035792",
+      "name": "J. French Hill",
+      "party": "R",
+      "state": "AR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001075",
+      "icpsr": 41701,
+      "fec": [
+        "S6CA00584"
+      ],
+      "govtrack": 412678,
+      "opensecrets": "N00036915",
+      "name": "Kamala D. Harris",
+      "party": "D",
+      "state": "CA",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "H001076",
+      "icpsr": 41702,
+      "fec": [
+        "S6NH00091"
+      ],
+      "govtrack": 412680,
+      "opensecrets": "N00038397",
+      "name": "Margaret Wood Hassan",
+      "party": "D",
+      "state": "NH",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001077",
+      "icpsr": 21724,
+      "fec": [
+        "H6LA03148"
+      ],
+      "govtrack": 412705,
+      "opensecrets": "N00039953",
+      "name": "Clay Higgins",
+      "party": "R",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001079",
+      "icpsr": 41707,
+      "fec": [
+        "S8MS00261"
+      ],
+      "govtrack": 412743,
+      "opensecrets": "N00043298",
+      "name": "Cindy Hyde-Smith",
+      "party": "R",
+      "state": "MS",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001081",
+      "icpsr": 21931,
+      "fec": [
+        "H8CT05245"
+      ],
+      "govtrack": 412763,
+      "opensecrets": "N00043421",
+      "name": "Jahana Hayes",
+      "party": "D",
+      "state": "CT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001082",
+      "icpsr": 21760,
+      "fec": [
+        "H8OK01157",
+        "S6OK04247"
+      ],
+      "govtrack": 412748,
+      "opensecrets": "N00040829",
+      "name": "Kevin Hern",
+      "party": "R",
+      "state": "OK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001085",
+      "icpsr": 21934,
+      "fec": [
+        "H8PA06087"
+      ],
+      "govtrack": 412810,
+      "opensecrets": "N00040949",
+      "name": "Chrissy Houlahan",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001086",
+      "icpsr": 22122,
+      "fec": [
+        "H0TN01118"
+      ],
+      "govtrack": 456844,
+      "opensecrets": "N00046688",
+      "name": "Diana Harshbarger",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001089",
+      "icpsr": 41901,
+      "fec": [
+        "S8MO00160"
+      ],
+      "govtrack": 412840,
+      "opensecrets": "N00041620",
+      "name": "Josh Hawley",
+      "party": "R",
+      "state": "MO",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "H001090",
+      "icpsr": 21930,
+      "fec": [
+        "H8CA10126"
+      ],
+      "govtrack": 412754,
+      "opensecrets": "N00040853",
+      "name": "Josh Harder",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001091",
+      "icpsr": 22124,
+      "fec": [
+        "H0IA01174"
+      ],
+      "govtrack": 456816,
+      "opensecrets": "N00044521",
+      "name": "Ashley Hinson",
+      "party": "R",
+      "state": "IA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001093",
+      "icpsr": 22326,
+      "fec": [
+        "H6IN09143"
+      ],
+      "govtrack": 456903,
+      "opensecrets": "N00037427",
+      "name": "Erin Houchin",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001094",
+      "icpsr": 22327,
+      "fec": [
+        "H2OR04095"
+      ],
+      "govtrack": 456932,
+      "opensecrets": "N00049734",
+      "name": "Val T. Hoyle",
+      "party": "D",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001095",
+      "icpsr": 22328,
+      "fec": [
+        "H0TX07170",
+        "S6TX00511"
+      ],
+      "govtrack": 456946,
+      "opensecrets": "N00044362",
+      "name": "Wesley Hunt",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001096",
+      "icpsr": 22325,
+      "fec": [
+        "H2WY00166",
+        "S6WY00209"
+      ],
+      "govtrack": 456951,
+      "opensecrets": "N00049197",
+      "name": "Harriet M. Hageman",
+      "party": "R",
+      "state": "WY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001098",
+      "icpsr": 22522,
+      "fec": [
+        "H4AZ08108"
+      ],
+      "govtrack": 456973,
+      "opensecrets": "N00053795",
+      "name": "Abraham J. Hamadeh",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001099",
+      "icpsr": 22523,
+      "fec": [
+        "H4FL08168"
+      ],
+      "govtrack": 456986,
+      "opensecrets": "N00033076",
+      "name": "Mike Haridopolos",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001100",
+      "icpsr": 22526,
+      "fec": [
+        "H4CO03357"
+      ],
+      "govtrack": 456982,
+      "opensecrets": "N00053367",
+      "name": "Jeff Hurd",
+      "party": "R",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001101",
+      "icpsr": 22524,
+      "fec": [
+        "H2NC13243"
+      ],
+      "govtrack": 457003,
+      "opensecrets": "N00050144",
+      "name": "Pat Harrigan",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001102",
+      "icpsr": 22525,
+      "fec": [
+        "H6NC09200",
+        "H4NC08066"
+      ],
+      "govtrack": 457002,
+      "opensecrets": "N00035491",
+      "name": "Mark Harris",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001103",
+      "icpsr": 22560,
+      "fec": [
+        "H4PR01010"
+      ],
+      "govtrack": 457019,
+      "opensecrets": "N00052286",
+      "name": "Pablo José Hernández",
+      "party": "D",
+      "state": "PR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "H001104",
+      "icpsr": 42505,
+      "fec": [
+        "S6OH00304"
+      ],
+      "govtrack": 457032,
+      "opensecrets": null,
+      "name": "Jon Husted",
+      "party": "R",
+      "state": "OH",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "I000056",
+      "icpsr": 20107,
+      "fec": [
+        "H0CA48024",
+        "S8CA00135"
+      ],
+      "govtrack": 400196,
+      "opensecrets": "N00007017",
+      "name": "Darrell Issa",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "I000058",
+      "icpsr": 22329,
+      "fec": [
+        "H2MD04315",
+        "H2MD04232"
+      ],
+      "govtrack": 456905,
+      "opensecrets": "N00033749",
+      "name": "Glenn Ivey",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000288",
+      "icpsr": 20712,
+      "fec": [
+        "H6GA04129"
+      ],
+      "govtrack": 412199,
+      "opensecrets": "N00027848",
+      "name": "Henry C. \"Hank\" Johnson, Jr.",
+      "party": "D",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000289",
+      "icpsr": 20738,
+      "fec": [
+        "H6OH04082"
+      ],
+      "govtrack": 412226,
+      "opensecrets": "N00027894",
+      "name": "Jim Jordan",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000293",
+      "icpsr": 41111,
+      "fec": [
+        "S0WI00197"
+      ],
+      "govtrack": 412496,
+      "opensecrets": "N00032546",
+      "name": "Ron Johnson",
+      "party": "R",
+      "state": "WI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "J000294",
+      "icpsr": 21343,
+      "fec": [
+        "H2NY10092"
+      ],
+      "govtrack": 412561,
+      "opensecrets": "N00033640",
+      "name": "Hakeem S. Jeffries",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000295",
+      "icpsr": 21353,
+      "fec": [
+        "H2OH14064"
+      ],
+      "govtrack": 412566,
+      "opensecrets": "N00035007",
+      "name": "David P. Joyce",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000298",
+      "icpsr": 21726,
+      "fec": [
+        "H6WA07458"
+      ],
+      "govtrack": 412730,
+      "opensecrets": "N00038858",
+      "name": "Pramila Jayapal",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000299",
+      "icpsr": 21727,
+      "fec": [
+        "H6LA04138"
+      ],
+      "govtrack": 412706,
+      "opensecrets": "N00039106",
+      "name": "Mike Johnson",
+      "party": "R",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000301",
+      "icpsr": 21935,
+      "fec": [
+        "H8SD01055"
+      ],
+      "govtrack": 412816,
+      "opensecrets": "N00040559",
+      "name": "Dusty Johnson",
+      "party": "R",
+      "state": "SD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000302",
+      "icpsr": 21936,
+      "fec": [
+        "H8PA13125"
+      ],
+      "govtrack": 412812,
+      "opensecrets": "N00043242",
+      "name": "John Joyce",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000304",
+      "icpsr": 22125,
+      "fec": [
+        "H0TX13228"
+      ],
+      "govtrack": 456847,
+      "opensecrets": "N00046055",
+      "name": "Ronny Jackson",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000305",
+      "icpsr": 22126,
+      "fec": [
+        "H8CA49074"
+      ],
+      "govtrack": 456804,
+      "opensecrets": "N00042081",
+      "name": "Sara Jacobs",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000307",
+      "icpsr": 22332,
+      "fec": [
+        "H2MI10150",
+        "S8MI00372"
+      ],
+      "govtrack": 456907,
+      "opensecrets": "N00041550",
+      "name": "John James",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000309",
+      "icpsr": 22330,
+      "fec": [
+        "H2IL01349"
+      ],
+      "govtrack": 456899,
+      "opensecrets": "N00050105",
+      "name": "Jonathan L. Jackson",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000310",
+      "icpsr": 22528,
+      "fec": [
+        "H4TX32089"
+      ],
+      "govtrack": 457024,
+      "opensecrets": "N00052806",
+      "name": "Julie Johnson",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000311",
+      "icpsr": 22527,
+      "fec": [
+        "H4GA03126"
+      ],
+      "govtrack": 456987,
+      "opensecrets": "N00055118",
+      "name": "Brian Jack",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "J000312",
+      "icpsr": 42504,
+      "fec": [
+        "S4WV00332"
+      ],
+      "govtrack": 456969,
+      "opensecrets": "N00053062",
+      "name": "James C. Justice",
+      "party": "R",
+      "state": "WV",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000009",
+      "icpsr": 15029,
+      "fec": [
+        "H2OH09031"
+      ],
+      "govtrack": 400211,
+      "opensecrets": "N00003522",
+      "name": "Marcy Kaptur",
+      "party": "D",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000367",
+      "icpsr": 40700,
+      "fec": [
+        "S6MN00267"
+      ],
+      "govtrack": 412242,
+      "opensecrets": "N00027500",
+      "name": "Amy Klobuchar",
+      "party": "D",
+      "state": "MN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000375",
+      "icpsr": 21140,
+      "fec": [
+        "H0MA10082"
+      ],
+      "govtrack": 412435,
+      "opensecrets": "N00031933",
+      "name": "William R. Keating",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000376",
+      "icpsr": 21167,
+      "fec": [
+        "H0PA03271"
+      ],
+      "govtrack": 412465,
+      "opensecrets": "N00031647",
+      "name": "Mike Kelly",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000377",
+      "icpsr": 41905,
+      "fec": [
+        "S0AZ00350"
+      ],
+      "govtrack": 456794,
+      "opensecrets": "N00044223",
+      "name": "Mark Kelly",
+      "party": "D",
+      "state": "AZ",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000378",
+      "icpsr": 21128,
+      "fec": [
+        "H0IL11052"
+      ],
+      "govtrack": 412421,
+      "opensecrets": "N00030667",
+      "name": "Adam Kinzinger",
+      "party": "R",
+      "state": "IL",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "K000383",
+      "icpsr": 41300,
+      "fec": [
+        "S2ME00109"
+      ],
+      "govtrack": 412545,
+      "opensecrets": "N00034580",
+      "name": "Angus S. King, Jr.",
+      "party": "I",
+      "state": "ME",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000384",
+      "icpsr": 41305,
+      "fec": [
+        "S2VA00142"
+      ],
+      "govtrack": 412582,
+      "opensecrets": "N00033177",
+      "name": "Tim Kaine",
+      "party": "D",
+      "state": "VA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000385",
+      "icpsr": 21371,
+      "fec": [
+        "H2IL02172",
+        "S6IL00474"
+      ],
+      "govtrack": 412595,
+      "opensecrets": "N00035215",
+      "name": "Robin L. Kelly",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000388",
+      "icpsr": 21561,
+      "fec": [
+        "H6MS01131"
+      ],
+      "govtrack": 412673,
+      "opensecrets": "N00037003",
+      "name": "Trent Kelly",
+      "party": "R",
+      "state": "MS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000389",
+      "icpsr": 21728,
+      "fec": [
+        "H4CA12055"
+      ],
+      "govtrack": 412684,
+      "opensecrets": "N00026427",
+      "name": "Ro Khanna",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000391",
+      "icpsr": 21730,
+      "fec": [
+        "H6IL08147",
+        "S6IL00482"
+      ],
+      "govtrack": 412701,
+      "opensecrets": "N00033240",
+      "name": "Raja Krishnamoorthi",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000392",
+      "icpsr": 21731,
+      "fec": [
+        "H2TN07103"
+      ],
+      "govtrack": 412724,
+      "opensecrets": "N00025445",
+      "name": "David Kustoff",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000393",
+      "icpsr": 41703,
+      "fec": [
+        "S4LA00065"
+      ],
+      "govtrack": 412679,
+      "opensecrets": "N00026823",
+      "name": "John Kennedy",
+      "party": "R",
+      "state": "LA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000394",
+      "icpsr": 21937,
+      "fec": [
+        "H8NJ03206",
+        "S4NJ00466"
+      ],
+      "govtrack": 412797,
+      "opensecrets": "N00041370",
+      "name": "Andy Kim",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "K000397",
+      "icpsr": 22129,
+      "fec": [
+        "H8CA39240"
+      ],
+      "govtrack": 456802,
+      "opensecrets": "N00042386",
+      "name": "Young Kim",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000398",
+      "icpsr": 22334,
+      "fec": [
+        "H0NJ07261"
+      ],
+      "govtrack": 456917,
+      "opensecrets": "N00027502",
+      "name": "Thomas H. Kean, Jr.",
+      "party": "R",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000399",
+      "icpsr": 22335,
+      "fec": [
+        "H2VA02064"
+      ],
+      "govtrack": 456947,
+      "opensecrets": "N00048315",
+      "name": "Jennifer A. Kiggans",
+      "party": "R",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000400",
+      "icpsr": 22333,
+      "fec": [
+        "H2CA37304"
+      ],
+      "govtrack": 456884,
+      "opensecrets": "N00049460",
+      "name": "Sydney Kamlager-Dove",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000401",
+      "icpsr": 22336,
+      "fec": [
+        "H2CA03157"
+      ],
+      "govtrack": 456881,
+      "opensecrets": "N00050259",
+      "name": "Kevin Kiley",
+      "party": "I",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000402",
+      "icpsr": 22377,
+      "fec": [
+        "H4NY26078"
+      ],
+      "govtrack": 456957,
+      "opensecrets": "N00054366",
+      "name": "Timothy M. Kennedy",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000403",
+      "icpsr": 22529,
+      "fec": [
+        "H4UT03260"
+      ],
+      "govtrack": 457025,
+      "opensecrets": "N00043086",
+      "name": "Mike Kennedy",
+      "party": "R",
+      "state": "UT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000404",
+      "icpsr": 22561,
+      "fec": [
+        "H4MP01022"
+      ],
+      "govtrack": 456999,
+      "opensecrets": null,
+      "name": "Kimberlyn King-Hinds",
+      "party": "R",
+      "state": "MP",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "K000405",
+      "icpsr": 22530,
+      "fec": [
+        "H4NC13116"
+      ],
+      "govtrack": 457004,
+      "opensecrets": "N00053743",
+      "name": "Brad Knott",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000273",
+      "icpsr": 22131,
+      "fec": [
+        "H0NM03102"
+      ],
+      "govtrack": 456835,
+      "opensecrets": "N00044559",
+      "name": "Teresa Leger Fernandez",
+      "party": "D",
+      "state": "NM",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000397",
+      "icpsr": 29504,
+      "fec": [
+        "H4CA16049"
+      ],
+      "govtrack": 400245,
+      "opensecrets": "N00007479",
+      "name": "Zoe Lofgren",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000491",
+      "icpsr": 29393,
+      "fec": [
+        "H4OK06056"
+      ],
+      "govtrack": 400247,
+      "opensecrets": "N00005559",
+      "name": "Frank D. Lucas",
+      "party": "R",
+      "state": "OK",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000557",
+      "icpsr": 29908,
+      "fec": [
+        "H8CT01046"
+      ],
+      "govtrack": 400233,
+      "opensecrets": "N00000575",
+      "name": "John B. Larson",
+      "party": "D",
+      "state": "CT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000560",
+      "icpsr": 20145,
+      "fec": [
+        "H0WA02080"
+      ],
+      "govtrack": 400232,
+      "opensecrets": "N00009759",
+      "name": "Rick Larsen",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000562",
+      "icpsr": 20119,
+      "fec": [
+        "H2MA09072",
+        "S0MA00083"
+      ],
+      "govtrack": 400249,
+      "opensecrets": "N00013855",
+      "name": "Stephen F. Lynch",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000566",
+      "icpsr": 20755,
+      "fec": [
+        "H8OH05036"
+      ],
+      "govtrack": 412256,
+      "opensecrets": "N00012233",
+      "name": "Robert E. Latta",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000570",
+      "icpsr": 20932,
+      "fec": [
+        "H8NM03196",
+        "S0NM00058"
+      ],
+      "govtrack": 412293,
+      "opensecrets": "N00029562",
+      "name": "Ben Ray Luján",
+      "party": "D",
+      "state": "NM",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "L000571",
+      "icpsr": 20953,
+      "fec": [
+        "H8WY00148",
+        "S0WY00137"
+      ],
+      "govtrack": 412294,
+      "opensecrets": "N00029788",
+      "name": "Cynthia M. Lummis",
+      "party": "R",
+      "state": "WY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "L000575",
+      "icpsr": 21166,
+      "fec": [
+        "H0OK05114",
+        "S4OK00232"
+      ],
+      "govtrack": 412464,
+      "opensecrets": "N00031129",
+      "name": "James Lankford",
+      "party": "R",
+      "state": "OK",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "L000577",
+      "icpsr": 41110,
+      "fec": [
+        "S0UT00165"
+      ],
+      "govtrack": 412495,
+      "opensecrets": "N00031696",
+      "name": "Mike Lee",
+      "party": "R",
+      "state": "UT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "L000582",
+      "icpsr": 21507,
+      "fec": [
+        "H4CA33119"
+      ],
+      "govtrack": 412616,
+      "opensecrets": "N00035825",
+      "name": "Ted Lieu",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000583",
+      "icpsr": 21515,
+      "fec": [
+        "H4GA11061"
+      ],
+      "govtrack": 412624,
+      "opensecrets": "N00035347",
+      "name": "Barry Loudermilk",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000585",
+      "icpsr": 21562,
+      "fec": [
+        "H6IL18088"
+      ],
+      "govtrack": 412674,
+      "opensecrets": "N00037031",
+      "name": "Darin LaHood",
+      "party": "R",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000590",
+      "icpsr": 21938,
+      "fec": [
+        "H6NV04020"
+      ],
+      "govtrack": 412802,
+      "opensecrets": "N00037247",
+      "name": "Susie Lee",
+      "party": "D",
+      "state": "NV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000593",
+      "icpsr": 21939,
+      "fec": [
+        "H8CA49058"
+      ],
+      "govtrack": 412760,
+      "opensecrets": "N00040667",
+      "name": "Mike Levin",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000595",
+      "icpsr": 22157,
+      "fec": [
+        "H2LA05126",
+        "S6LA00664"
+      ],
+      "govtrack": 456859,
+      "opensecrets": "N00047972",
+      "name": "Julia Letlow",
+      "party": "R",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000596",
+      "icpsr": 22343,
+      "fec": [
+        "H0FL13158"
+      ],
+      "govtrack": 456891,
+      "opensecrets": "N00045228",
+      "name": "Anna Paulina Luna",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000597",
+      "icpsr": 22341,
+      "fec": [
+        "H2FL15241"
+      ],
+      "govtrack": 456892,
+      "opensecrets": "N00051178",
+      "name": "Laurel M. Lee",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000598",
+      "icpsr": 22337,
+      "fec": [
+        "H2NY01190"
+      ],
+      "govtrack": 456920,
+      "opensecrets": "N00050419",
+      "name": "Nick LaLota",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000599",
+      "icpsr": 22340,
+      "fec": [
+        "H2NY17162"
+      ],
+      "govtrack": 456924,
+      "opensecrets": "N00051208",
+      "name": "Michael Lawler",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000600",
+      "icpsr": 22339,
+      "fec": [
+        "H2NY23228"
+      ],
+      "govtrack": 456927,
+      "opensecrets": "N00051431",
+      "name": "Nicholas A. Langworthy",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000601",
+      "icpsr": 22338,
+      "fec": [
+        "H2OH01194"
+      ],
+      "govtrack": 456928,
+      "opensecrets": "N00049718",
+      "name": "Greg Landsman",
+      "party": "D",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000602",
+      "icpsr": 22342,
+      "fec": [
+        "H2PA18200"
+      ],
+      "govtrack": 456935,
+      "opensecrets": "N00049757",
+      "name": "Summer L. Lee",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000603",
+      "icpsr": 22344,
+      "fec": [
+        "H2TX08182"
+      ],
+      "govtrack": 456942,
+      "opensecrets": "N00048776",
+      "name": "Morgan Luttrell",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000606",
+      "icpsr": 22531,
+      "fec": [
+        "H4NY16087"
+      ],
+      "govtrack": 457011,
+      "opensecrets": "N00054136",
+      "name": "George Latimer",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "L000607",
+      "icpsr": 22532,
+      "fec": [
+        "H4CA16197"
+      ],
+      "govtrack": 456976,
+      "opensecrets": "N00054265",
+      "name": "Sam T. Liccardo",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000133",
+      "icpsr": 14435,
+      "fec": [
+        "H6MA07101",
+        "S4MA00028"
+      ],
+      "govtrack": 400253,
+      "opensecrets": "N00000270",
+      "name": "Edward J. Markey",
+      "party": "D",
+      "state": "MA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M000194",
+      "icpsr": 22132,
+      "fec": [
+        "H0SC01394"
+      ],
+      "govtrack": 456843,
+      "opensecrets": "N00035670",
+      "name": "Nancy Mace",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000303",
+      "icpsr": 15039,
+      "fec": [
+        "S6AZ00019",
+        "P80002801"
+      ],
+      "govtrack": 300071,
+      "opensecrets": "N00006424",
+      "name": "John McCain",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "M000312",
+      "icpsr": 29729,
+      "fec": [
+        "H4MA03022"
+      ],
+      "govtrack": 400263,
+      "opensecrets": "N00000179",
+      "name": "James P. McGovern",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000317",
+      "icpsr": 22133,
+      "fec": [
+        "H0NY11078"
+      ],
+      "govtrack": 456837,
+      "opensecrets": "N00044040",
+      "name": "Nicole Malliotakis",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000355",
+      "icpsr": 14921,
+      "fec": [
+        "S2KY00012"
+      ],
+      "govtrack": 300072,
+      "opensecrets": "N00003389",
+      "name": "Mitch McConnell",
+      "party": "R",
+      "state": "KY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M000687",
+      "icpsr": 15433,
+      "fec": [
+        "S6MD03185",
+        "H6MD07020",
+        "H0MD07114"
+      ],
+      "govtrack": 407672,
+      "opensecrets": "N00001799",
+      "name": "Kweisi Mfume",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000871",
+      "icpsr": 22134,
+      "fec": [
+        "H0KS01123"
+      ],
+      "govtrack": 456823,
+      "opensecrets": "N00030743",
+      "name": "Tracey Mann",
+      "party": "R",
+      "state": "KS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M000934",
+      "icpsr": 29722,
+      "fec": [
+        "H6KS01096",
+        "S0KS00091"
+      ],
+      "govtrack": 400284,
+      "opensecrets": "N00005282",
+      "name": "Jerry Moran",
+      "party": "R",
+      "state": "KS",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001111",
+      "icpsr": 49308,
+      "fec": [
+        "S2WA00189"
+      ],
+      "govtrack": 300076,
+      "opensecrets": "N00007876",
+      "name": "Patty Murray",
+      "party": "D",
+      "state": "WA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001136",
+      "icpsr": 22136,
+      "fec": [
+        "H0MI10287"
+      ],
+      "govtrack": 456827,
+      "opensecrets": "N00045730",
+      "name": "Lisa C. McClain",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001137",
+      "icpsr": 29776,
+      "fec": [
+        "H8NY06048"
+      ],
+      "govtrack": 400271,
+      "opensecrets": "N00001171",
+      "name": "Gregory W. Meeks",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001143",
+      "icpsr": 20122,
+      "fec": [
+        "H0MN04049"
+      ],
+      "govtrack": 400259,
+      "opensecrets": "N00012942",
+      "name": "Betty McCollum",
+      "party": "D",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001153",
+      "icpsr": 40300,
+      "fec": [
+        "S4AK00099"
+      ],
+      "govtrack": 300075,
+      "opensecrets": "N00026050",
+      "name": "Lisa Murkowski",
+      "party": "R",
+      "state": "AK",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001157",
+      "icpsr": 20530,
+      "fec": [
+        "H4TX10093"
+      ],
+      "govtrack": 400654,
+      "opensecrets": "N00026460",
+      "name": "Michael T. McCaul",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001160",
+      "icpsr": 20537,
+      "fec": [
+        "H4WI04183"
+      ],
+      "govtrack": 400661,
+      "opensecrets": "N00026914",
+      "name": "Gwen Moore",
+      "party": "D",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001163",
+      "icpsr": 20538,
+      "fec": [
+        "H6CA05195"
+      ],
+      "govtrack": 400663,
+      "opensecrets": "N00027459",
+      "name": "Doris O. Matsui",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001165",
+      "icpsr": 20703,
+      "fec": [
+        "H6CA22125"
+      ],
+      "govtrack": 412190,
+      "opensecrets": "N00028152",
+      "name": "Kevin McCarthy",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "M001169",
+      "icpsr": 20707,
+      "fec": [
+        "H6CT05124",
+        "S2CT00132"
+      ],
+      "govtrack": 412194,
+      "opensecrets": "N00027566",
+      "name": "Christopher Murphy",
+      "party": "D",
+      "state": "CT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001176",
+      "icpsr": 40908,
+      "fec": [
+        "S8OR00207"
+      ],
+      "govtrack": 412325,
+      "opensecrets": "N00029303",
+      "name": "Jeff Merkley",
+      "party": "D",
+      "state": "OR",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001177",
+      "icpsr": 20903,
+      "fec": [
+        "H8CA04152",
+        "H6CA21135"
+      ],
+      "govtrack": 412295,
+      "opensecrets": "N00006863",
+      "name": "Tom McClintock",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001183",
+      "icpsr": 40915,
+      "fec": [
+        "S0WV00090"
+      ],
+      "govtrack": 412391,
+      "opensecrets": "N00032838",
+      "name": "Joe Manchin, III",
+      "party": "I",
+      "state": "WV",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "M001184",
+      "icpsr": 31102,
+      "fec": [
+        "H2KY04121"
+      ],
+      "govtrack": 412503,
+      "opensecrets": "N00034041",
+      "name": "Thomas Massie",
+      "party": "R",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001188",
+      "icpsr": 21342,
+      "fec": [
+        "H2NY06116"
+      ],
+      "govtrack": 412560,
+      "opensecrets": "N00034547",
+      "name": "Grace Meng",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001194",
+      "icpsr": 21526,
+      "fec": [
+        "H4MI04126"
+      ],
+      "govtrack": 412634,
+      "opensecrets": "N00036275",
+      "name": "John R. Moolenaar",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001196",
+      "icpsr": 21525,
+      "fec": [
+        "H4MA06090",
+        "S6MA00296"
+      ],
+      "govtrack": 412632,
+      "opensecrets": "N00035431",
+      "name": "Seth Moulton",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001198",
+      "icpsr": 21734,
+      "fec": [
+        "H6KS01179",
+        "S0KS00315"
+      ],
+      "govtrack": 412704,
+      "opensecrets": "N00037034",
+      "name": "Roger Marshall",
+      "party": "R",
+      "state": "KS",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001199",
+      "icpsr": 21735,
+      "fec": [
+        "H6FL18097"
+      ],
+      "govtrack": 412698,
+      "opensecrets": "N00037269",
+      "name": "Brian J. Mast",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001204",
+      "icpsr": 21945,
+      "fec": [
+        "H8PA10147"
+      ],
+      "govtrack": 412811,
+      "opensecrets": "N00029416",
+      "name": "Daniel Meuser",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001205",
+      "icpsr": 21946,
+      "fec": [
+        "H8WV03097"
+      ],
+      "govtrack": 412837,
+      "opensecrets": "N00041542",
+      "name": "Carol D. Miller",
+      "party": "R",
+      "state": "WV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001206",
+      "icpsr": 21761,
+      "fec": [
+        "H8NY25105"
+      ],
+      "govtrack": 412749,
+      "opensecrets": "N00043207",
+      "name": "Joseph D. Morelle",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001208",
+      "icpsr": 21944,
+      "fec": [
+        "H8GA06393"
+      ],
+      "govtrack": 412769,
+      "opensecrets": "N00042813",
+      "name": "Lucy McBath",
+      "party": "D",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001210",
+      "icpsr": 21987,
+      "fec": [
+        "H0NC03172"
+      ],
+      "govtrack": 412845,
+      "opensecrets": "N00044027",
+      "name": "Gregory F. Murphy",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001211",
+      "icpsr": 22138,
+      "fec": [
+        "H0IL15129"
+      ],
+      "govtrack": 456820,
+      "opensecrets": "N00045703",
+      "name": "Mary E. Miller",
+      "party": "R",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001212",
+      "icpsr": 22140,
+      "fec": [
+        "H8AL02171",
+        "S6AL00476"
+      ],
+      "govtrack": 456800,
+      "opensecrets": "N00041295",
+      "name": "Barry Moore",
+      "party": "R",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001213",
+      "icpsr": 22141,
+      "fec": [
+        "H0UT01205"
+      ],
+      "govtrack": 456851,
+      "opensecrets": "N00046598",
+      "name": "Blake D. Moore",
+      "party": "R",
+      "state": "UT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001214",
+      "icpsr": 22142,
+      "fec": [
+        "H0IN01150"
+      ],
+      "govtrack": 456821,
+      "opensecrets": "N00045905",
+      "name": "Frank J. Mrvan",
+      "party": "D",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001215",
+      "icpsr": 22139,
+      "fec": [
+        "H8IA02043"
+      ],
+      "govtrack": 456817,
+      "opensecrets": "N00029495",
+      "name": "Mariannette Miller-Meeks",
+      "party": "R",
+      "state": "IA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001216",
+      "icpsr": 22350,
+      "fec": [
+        "H2FL07156"
+      ],
+      "govtrack": 456889,
+      "opensecrets": "N00048179",
+      "name": "Cory Mills",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001217",
+      "icpsr": 22353,
+      "fec": [
+        "H2FL22171"
+      ],
+      "govtrack": 456893,
+      "opensecrets": "N00050596",
+      "name": "Jared Moskowitz",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001218",
+      "icpsr": 22346,
+      "fec": [
+        "H0GA07273"
+      ],
+      "govtrack": 456894,
+      "opensecrets": "N00044520",
+      "name": "Richard McCormick",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001219",
+      "icpsr": 22373,
+      "fec": [
+        "H2GU01031"
+      ],
+      "govtrack": 456896,
+      "opensecrets": "N00050604",
+      "name": "James C. Moylan",
+      "party": "R",
+      "state": "GU",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001220",
+      "icpsr": 22347,
+      "fec": [
+        "H2KY03206"
+      ],
+      "govtrack": 456904,
+      "opensecrets": "N00049295",
+      "name": "Morgan McGarvey",
+      "party": "D",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001222",
+      "icpsr": 22349,
+      "fec": [
+        "H2OH16051"
+      ],
+      "govtrack": 456929,
+      "opensecrets": "N00048277",
+      "name": "Max L. Miller",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001223",
+      "icpsr": 22345,
+      "fec": [
+        "H2RI02184"
+      ],
+      "govtrack": 456937,
+      "opensecrets": "N00050458",
+      "name": "Seth Magaziner",
+      "party": "D",
+      "state": "RI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001224",
+      "icpsr": 22352,
+      "fec": [
+        "H2TX01112"
+      ],
+      "govtrack": 456940,
+      "opensecrets": "N00049775",
+      "name": "Nathaniel Moran",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001225",
+      "icpsr": 22354,
+      "fec": [
+        "H2CA14162"
+      ],
+      "govtrack": 456883,
+      "opensecrets": "N00049438",
+      "name": "Kevin Mullin",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001226",
+      "icpsr": 22348,
+      "fec": [
+        "H2NJ08232"
+      ],
+      "govtrack": 456918,
+      "opensecrets": "N00049686",
+      "name": "Robert Menendez",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001227",
+      "icpsr": 22374,
+      "fec": [
+        "H4VA04066"
+      ],
+      "govtrack": 456953,
+      "opensecrets": "N00051961",
+      "name": "Jennifer L. McClellan",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001228",
+      "icpsr": 22376,
+      "fec": [
+        "H4UT02296"
+      ],
+      "govtrack": 456956,
+      "opensecrets": "N00052817",
+      "name": "Celeste Maloy",
+      "party": "R",
+      "state": "UT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001229",
+      "icpsr": 22381,
+      "fec": [
+        "H4NJ10176"
+      ],
+      "govtrack": 456962,
+      "opensecrets": "N00055172",
+      "name": "LaMonica McIver",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001230",
+      "icpsr": 22533,
+      "fec": [
+        "H8PA15195"
+      ],
+      "govtrack": 457017,
+      "opensecrets": "N00041866",
+      "name": "Ryan Mackenzie",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001231",
+      "icpsr": 22534,
+      "fec": [
+        "H4NY22085"
+      ],
+      "govtrack": 457013,
+      "opensecrets": "N00053112",
+      "name": "John W. Mannion",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001232",
+      "icpsr": 22536,
+      "fec": [
+        "H4MD06340"
+      ],
+      "govtrack": 456993,
+      "opensecrets": "N00053899",
+      "name": "April McClain Delaney",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001233",
+      "icpsr": 22540,
+      "fec": [
+        "H4IN08249"
+      ],
+      "govtrack": 456989,
+      "opensecrets": "N00054523",
+      "name": "Mark B. Messmer",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001234",
+      "icpsr": 22544,
+      "fec": [
+        "H4MN03118"
+      ],
+      "govtrack": 456996,
+      "opensecrets": "N00053930",
+      "name": "Kelly Morrison",
+      "party": "D",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001235",
+      "icpsr": 22543,
+      "fec": [
+        "H4WV02205"
+      ],
+      "govtrack": 457031,
+      "opensecrets": "N00051965",
+      "name": "Riley M. Moore",
+      "party": "R",
+      "state": "WV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001236",
+      "icpsr": 22542,
+      "fec": [
+        "H4NC14015"
+      ],
+      "govtrack": 457005,
+      "opensecrets": "N00053948",
+      "name": "Tim Moore",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001237",
+      "icpsr": 22537,
+      "fec": [
+        "H4MI08218"
+      ],
+      "govtrack": 456995,
+      "opensecrets": "N00054163",
+      "name": "Kristen McDonald Rivet",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001238",
+      "icpsr": 22535,
+      "fec": [
+        "H4DE00045"
+      ],
+      "govtrack": 456985,
+      "opensecrets": "N00052698",
+      "name": "Sarah McBride",
+      "party": "D",
+      "state": "DE",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001239",
+      "icpsr": 22539,
+      "fec": [
+        "H2VA07196",
+        "H0VA07133"
+      ],
+      "govtrack": 457026,
+      "opensecrets": "N00045930",
+      "name": "John J. McGuire III",
+      "party": "R",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001240",
+      "icpsr": 22538,
+      "fec": [
+        "H4NC06177"
+      ],
+      "govtrack": 457001,
+      "opensecrets": "N00054055",
+      "name": "Addison P. McDowell",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001241",
+      "icpsr": 22541,
+      "fec": [
+        "H4CA47085"
+      ],
+      "govtrack": 456981,
+      "opensecrets": "N00040866",
+      "name": "Dave Min",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001242",
+      "icpsr": 42502,
+      "fec": [
+        "S4OH00192"
+      ],
+      "govtrack": 456967,
+      "opensecrets": "N00048437",
+      "name": "Bernie Moreno",
+      "party": "R",
+      "state": "OH",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001243",
+      "icpsr": 42501,
+      "fec": [
+        "S2PA00661"
+      ],
+      "govtrack": 456968,
+      "opensecrets": "N00050244",
+      "name": "David McCormick",
+      "party": "R",
+      "state": "PA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001244",
+      "icpsr": 42506,
+      "fec": [
+        "S6FL00640"
+      ],
+      "govtrack": 457033,
+      "opensecrets": null,
+      "name": "Ashley Moody",
+      "party": "R",
+      "state": "FL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "M001245",
+      "icpsr": 22567,
+      "fec": [
+        "H6TX18232"
+      ],
+      "govtrack": 457039,
+      "opensecrets": null,
+      "name": "Christian D. Menefee",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "M001246",
+      "icpsr": 22569,
+      "fec": [
+        "H6NJ11286"
+      ],
+      "govtrack": 457042,
+      "opensecrets": null,
+      "name": "Analilia Mejia",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000002",
+      "icpsr": 29377,
+      "fec": [
+        "H2NY17071"
+      ],
+      "govtrack": 400289,
+      "opensecrets": "N00000939",
+      "name": "Jerrold Nadler",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000015",
+      "icpsr": 15616,
+      "fec": [
+        "H8MA02041"
+      ],
+      "govtrack": 400291,
+      "opensecrets": "N00000153",
+      "name": "Richard E. Neal",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000026",
+      "icpsr": 22143,
+      "fec": [
+        "H0TX22302"
+      ],
+      "govtrack": 456848,
+      "opensecrets": "N00046067",
+      "name": "Troy E. Nehls",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000147",
+      "icpsr": 21993,
+      "fec": [
+        "H0DC00058"
+      ],
+      "govtrack": 400295,
+      "opensecrets": "N00001692",
+      "name": "Eleanor Holmes Norton",
+      "party": "D",
+      "state": "DC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000184",
+      "icpsr": 21177,
+      "fec": [
+        "H0SD00054"
+      ],
+      "govtrack": 412475,
+      "opensecrets": "N00032022",
+      "name": "Kristi L. Noem",
+      "party": "R",
+      "state": "SD",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "N000188",
+      "icpsr": 21536,
+      "fec": [
+        "H4NJ01084"
+      ],
+      "govtrack": 412606,
+      "opensecrets": "N00036154",
+      "name": "Donald Norcross",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000189",
+      "icpsr": 21556,
+      "fec": [
+        "H4WA04104"
+      ],
+      "govtrack": 412660,
+      "opensecrets": "N00036403",
+      "name": "Dan Newhouse",
+      "party": "R",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000190",
+      "icpsr": 21753,
+      "fec": [
+        "H8SC05158",
+        "S6SC04445"
+      ],
+      "govtrack": 412738,
+      "opensecrets": "N00027783",
+      "name": "Ralph Norman",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000191",
+      "icpsr": 21948,
+      "fec": [
+        "H8CO02160"
+      ],
+      "govtrack": 412761,
+      "opensecrets": "N00041080",
+      "name": "Joe Neguse",
+      "party": "D",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "N000193",
+      "icpsr": 22356,
+      "fec": [
+        "H2IA03119"
+      ],
+      "govtrack": 456898,
+      "opensecrets": "N00048870",
+      "name": "Zachary Nunn",
+      "party": "R",
+      "state": "IA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000019",
+      "icpsr": 22145,
+      "fec": [
+        "H0CA08135"
+      ],
+      "govtrack": 456801,
+      "opensecrets": "N00045377",
+      "name": "Jay Obernolte",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000086",
+      "icpsr": 22146,
+      "fec": [
+        "H0UT04076"
+      ],
+      "govtrack": 456852,
+      "opensecrets": "N00045812",
+      "name": "Burgess Owens",
+      "party": "R",
+      "state": "UT",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000167",
+      "icpsr": 40502,
+      "fec": [
+        "S4IL00180"
+      ],
+      "govtrack": 400629,
+      "opensecrets": "N00009638",
+      "name": "Barack Obama",
+      "party": "D",
+      "state": "IL",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "O000172",
+      "icpsr": 21949,
+      "fec": [
+        "H8NY15148"
+      ],
+      "govtrack": 412804,
+      "opensecrets": "N00041162",
+      "name": "Alexandria Ocasio-Cortez",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000173",
+      "icpsr": 21950,
+      "fec": [
+        "H8MN05239"
+      ],
+      "govtrack": 412791,
+      "opensecrets": "N00043581",
+      "name": "Ilhan Omar",
+      "party": "D",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000174",
+      "icpsr": 42103,
+      "fec": [
+        "H8GA06195",
+        "S8GA00180"
+      ],
+      "govtrack": 456857,
+      "opensecrets": "N00040675",
+      "name": "Jon Ossoff",
+      "party": "D",
+      "state": "GA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "O000175",
+      "icpsr": 22357,
+      "fec": [
+        "H2TN05446"
+      ],
+      "govtrack": 456939,
+      "opensecrets": "N00050943",
+      "name": "Andrew Ogles",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000176",
+      "icpsr": 22545,
+      "fec": [
+        "H4MD02232"
+      ],
+      "govtrack": 456991,
+      "opensecrets": "N00054814",
+      "name": "Johnny Olszewski, Jr.",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "O000177",
+      "icpsr": 22546,
+      "fec": [
+        "H8MO09146",
+        "H4MO03221"
+      ],
+      "govtrack": 456998,
+      "opensecrets": "N00030025",
+      "name": "Robert F. Onder, Jr.",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000034",
+      "icpsr": 15454,
+      "fec": [
+        "H8NJ03073",
+        "S6NJ00263"
+      ],
+      "govtrack": 400308,
+      "opensecrets": "N00000781",
+      "name": "Frank Pallone, Jr.",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000048",
+      "icpsr": 22147,
+      "fec": [
+        "H0TX11230"
+      ],
+      "govtrack": 456846,
+      "opensecrets": "N00045421",
+      "name": "August Pfluger",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000145",
+      "icpsr": 42104,
+      "fec": [
+        "S2CA00955"
+      ],
+      "govtrack": 456856,
+      "opensecrets": "N00047888",
+      "name": "Alex Padilla",
+      "party": "D",
+      "state": "CA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "P000197",
+      "icpsr": 15448,
+      "fec": [
+        "H8CA05035"
+      ],
+      "govtrack": 400314,
+      "opensecrets": "N00007360",
+      "name": "Nancy Pelosi",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000587",
+      "icpsr": 20117,
+      "fec": [
+        "H8IN02060"
+      ],
+      "govtrack": 400315,
+      "opensecrets": "N00003765",
+      "name": "Mike Pence",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "P000595",
+      "icpsr": 20923,
+      "fec": [
+        "H8MI09068",
+        "S4MI00355"
+      ],
+      "govtrack": 412305,
+      "opensecrets": "N00029277",
+      "name": "Gary C. Peters",
+      "party": "D",
+      "state": "MI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "P000597",
+      "icpsr": 20920,
+      "fec": [
+        "H8ME01120",
+        "S0ME00038"
+      ],
+      "govtrack": 412307,
+      "opensecrets": "N00013817",
+      "name": "Chellie Pingree",
+      "party": "D",
+      "state": "ME",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000603",
+      "icpsr": 41104,
+      "fec": [
+        "S0KY00156"
+      ],
+      "govtrack": 412492,
+      "opensecrets": "N00030836",
+      "name": "Rand Paul",
+      "party": "R",
+      "state": "KY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "P000605",
+      "icpsr": 21356,
+      "fec": [
+        "H2PA04135"
+      ],
+      "govtrack": 412569,
+      "opensecrets": "N00034120",
+      "name": "Scott Perry",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000607",
+      "icpsr": 21370,
+      "fec": [
+        "H2WI02124"
+      ],
+      "govtrack": 412585,
+      "opensecrets": "N00033549",
+      "name": "Mark Pocan",
+      "party": "D",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000608",
+      "icpsr": 21315,
+      "fec": [
+        "H2CA52089"
+      ],
+      "govtrack": 412523,
+      "opensecrets": "N00033591",
+      "name": "Scott H. Peters",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000609",
+      "icpsr": 21500,
+      "fec": [
+        "H4AL06098"
+      ],
+      "govtrack": 412608,
+      "opensecrets": "N00035691",
+      "name": "Gary J. Palmer",
+      "party": "R",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000610",
+      "icpsr": 21994,
+      "fec": [
+        "H2VI00082"
+      ],
+      "govtrack": 412659,
+      "opensecrets": "N00035000",
+      "name": "Stacey E. Plaskett",
+      "party": "D",
+      "state": "VI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000613",
+      "icpsr": 21740,
+      "fec": [
+        "H6CA20152"
+      ],
+      "govtrack": 412685,
+      "opensecrets": "N00038601",
+      "name": "Jimmy Panetta",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000614",
+      "icpsr": 21951,
+      "fec": [
+        "H8NH01210",
+        "S6NH00141"
+      ],
+      "govtrack": 412795,
+      "opensecrets": "N00042161",
+      "name": "Chris Pappas",
+      "party": "D",
+      "state": "NH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000617",
+      "icpsr": 21955,
+      "fec": [
+        "H8MA07032"
+      ],
+      "govtrack": 412782,
+      "opensecrets": "N00042581",
+      "name": "Ayanna Pressley",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000620",
+      "icpsr": 22359,
+      "fec": [
+        "H8CO07045"
+      ],
+      "govtrack": 456886,
+      "opensecrets": "N00040878",
+      "name": "Brittany Pettersen",
+      "party": "D",
+      "state": "CO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000621",
+      "icpsr": 22547,
+      "fec": [
+        "H4NJ09194"
+      ],
+      "govtrack": 457009,
+      "opensecrets": "N00055613",
+      "name": "Nellie Pou",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "P000622",
+      "icpsr": 22563,
+      "fec": [
+        "H6FL01390"
+      ],
+      "govtrack": 457034,
+      "opensecrets": null,
+      "name": "Jimmy Patronis",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "Q000023",
+      "icpsr": 20954,
+      "fec": [
+        "H0IL05096"
+      ],
+      "govtrack": 412331,
+      "opensecrets": "N00030581",
+      "name": "Mike Quigley",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000122",
+      "icpsr": 29142,
+      "fec": [
+        "S6RI00163",
+        "H0RI02071"
+      ],
+      "govtrack": 300081,
+      "opensecrets": "N00000362",
+      "name": "Jack Reed",
+      "party": "D",
+      "state": "RI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "R000305",
+      "icpsr": 22149,
+      "fec": [
+        "H0NC02125"
+      ],
+      "govtrack": 456831,
+      "opensecrets": "N00038565",
+      "name": "Deborah K. Ross",
+      "party": "D",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000395",
+      "icpsr": 14854,
+      "fec": [
+        "H0KY05015"
+      ],
+      "govtrack": 400340,
+      "opensecrets": "N00003473",
+      "name": "Harold Rogers",
+      "party": "R",
+      "state": "KY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000575",
+      "icpsr": 20301,
+      "fec": [
+        "H2AL03032"
+      ],
+      "govtrack": 400341,
+      "opensecrets": "N00024759",
+      "name": "Mike Rogers",
+      "party": "R",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000579",
+      "icpsr": 22169,
+      "fec": [
+        "H8NY19223"
+      ],
+      "govtrack": 456871,
+      "opensecrets": "N00041165",
+      "name": "Patrick Ryan",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000584",
+      "icpsr": 40902,
+      "fec": [
+        "S8ID00092"
+      ],
+      "govtrack": 412322,
+      "opensecrets": "N00029441",
+      "name": "James E. Risch",
+      "party": "R",
+      "state": "ID",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "R000595",
+      "icpsr": 41102,
+      "fec": [
+        "S0FL00338"
+      ],
+      "govtrack": 412491,
+      "opensecrets": "N00030612",
+      "name": "Marco Rubio",
+      "party": "R",
+      "state": "FL",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "R000599",
+      "icpsr": 21311,
+      "fec": [
+        "H2CA36439"
+      ],
+      "govtrack": 412519,
+      "opensecrets": "N00033510",
+      "name": "Raul Ruiz",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000600",
+      "icpsr": 21995,
+      "fec": [
+        "H4AS00036"
+      ],
+      "govtrack": 412664,
+      "opensecrets": "N00007635",
+      "name": "Aumua Amata Coleman Radewagen",
+      "party": "R",
+      "state": "AS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000603",
+      "icpsr": 21544,
+      "fec": [
+        "H2NC07096"
+      ],
+      "govtrack": 412641,
+      "opensecrets": "N00033527",
+      "name": "David Rouzer",
+      "party": "R",
+      "state": "NC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000605",
+      "icpsr": 41505,
+      "fec": [
+        "S4SD00049"
+      ],
+      "govtrack": 412669,
+      "opensecrets": "N00035187",
+      "name": "Mike Rounds",
+      "party": "R",
+      "state": "SD",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "R000606",
+      "icpsr": 21741,
+      "fec": [
+        "H6MD08457"
+      ],
+      "govtrack": 412708,
+      "opensecrets": "N00037036",
+      "name": "Jamie Raskin",
+      "party": "D",
+      "state": "MD",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000608",
+      "icpsr": 21743,
+      "fec": [
+        "H6NV03139",
+        "S8NV00156"
+      ],
+      "govtrack": 412715,
+      "opensecrets": "N00038734",
+      "name": "Jacky Rosen",
+      "party": "D",
+      "state": "NV",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "R000609",
+      "icpsr": 21744,
+      "fec": [
+        "H6FL04105"
+      ],
+      "govtrack": 412692,
+      "opensecrets": "N00039777",
+      "name": "John H. Rutherford",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000610",
+      "icpsr": 21956,
+      "fec": [
+        "H8PA18199"
+      ],
+      "govtrack": 412813,
+      "opensecrets": "N00041871",
+      "name": "Guy Reschenthaler",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000612",
+      "icpsr": 21959,
+      "fec": [
+        "H8TN06094"
+      ],
+      "govtrack": 412818,
+      "opensecrets": "N00041599",
+      "name": "John W. Rose",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000614",
+      "icpsr": 21961,
+      "fec": [
+        "H8TX21307"
+      ],
+      "govtrack": 412826,
+      "opensecrets": "N00042268",
+      "name": "Chip Roy",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000615",
+      "icpsr": 41902,
+      "fec": [
+        "S8UT00176",
+        "S4MA00143"
+      ],
+      "govtrack": 412841,
+      "opensecrets": "N00000286",
+      "name": "Mitt Romney",
+      "party": "R",
+      "state": "UT",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "R000617",
+      "icpsr": 22360,
+      "fec": [
+        "H2IL03162"
+      ],
+      "govtrack": 456900,
+      "opensecrets": "N00049548",
+      "name": "Delia C. Ramirez",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000618",
+      "icpsr": 42302,
+      "fec": [
+        "S6NE00129"
+      ],
+      "govtrack": 456952,
+      "opensecrets": "N00027695",
+      "name": "Pete Ricketts",
+      "party": "R",
+      "state": "NE",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "R000619",
+      "icpsr": 22379,
+      "fec": [
+        "H4OH06165"
+      ],
+      "govtrack": 456959,
+      "opensecrets": "N00054190",
+      "name": "Michael A. Rulli",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000620",
+      "icpsr": 22550,
+      "fec": [
+        "H4CA29141"
+      ],
+      "govtrack": 456978,
+      "opensecrets": "N00054215",
+      "name": "Luz M. Rivas",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000621",
+      "icpsr": 22548,
+      "fec": [
+        "H4WA06117"
+      ],
+      "govtrack": 457030,
+      "opensecrets": "N00054078",
+      "name": "Emily Randall",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "R000622",
+      "icpsr": 22549,
+      "fec": [
+        "H8NY22177"
+      ],
+      "govtrack": 457012,
+      "opensecrets": "N00049916",
+      "name": "Josh Riley",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000033",
+      "icpsr": 29147,
+      "fec": [
+        "H8VT01016",
+        "S4VT00033"
+      ],
+      "govtrack": 400357,
+      "opensecrets": "N00000528",
+      "name": "Bernard Sanders",
+      "party": "I",
+      "state": "VT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S000148",
+      "icpsr": 14858,
+      "fec": [
+        "S8NY00082",
+        "H0NY16010"
+      ],
+      "govtrack": 300087,
+      "opensecrets": "N00001093",
+      "name": "Charles E. Schumer",
+      "party": "D",
+      "state": "NY",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S000168",
+      "icpsr": 22150,
+      "fec": [
+        "H8FL27185"
+      ],
+      "govtrack": 456810,
+      "opensecrets": "N00042810",
+      "name": "Maria Elvira Salazar",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000185",
+      "icpsr": 39307,
+      "fec": [
+        "H6VA01117"
+      ],
+      "govtrack": 400364,
+      "opensecrets": "N00002147",
+      "name": "Robert C. \"Bobby\" Scott",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000250",
+      "icpsr": 29759,
+      "fec": [
+        "H2TX03126"
+      ],
+      "govtrack": 400367,
+      "opensecrets": "N00005681",
+      "name": "Pete Sessions",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000344",
+      "icpsr": 29707,
+      "fec": [
+        "H6CA24113"
+      ],
+      "govtrack": 400371,
+      "opensecrets": "N00006897",
+      "name": "Brad Sherman",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000510",
+      "icpsr": 29768,
+      "fec": [
+        "H6WA09025"
+      ],
+      "govtrack": 400379,
+      "opensecrets": "N00007833",
+      "name": "Adam Smith",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000522",
+      "icpsr": 14863,
+      "fec": [
+        "H8NJ04014"
+      ],
+      "govtrack": 400380,
+      "opensecrets": "N00009816",
+      "name": "Christopher H. Smith",
+      "party": "R",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S000929",
+      "icpsr": 22151,
+      "fec": [
+        "H0IN05326"
+      ],
+      "govtrack": 456822,
+      "opensecrets": "N00046537",
+      "name": "Victoria Spartz",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001145",
+      "icpsr": 29911,
+      "fec": [
+        "H8IL09067"
+      ],
+      "govtrack": 400360,
+      "opensecrets": "N00004724",
+      "name": "Janice D. Schakowsky",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001148",
+      "icpsr": 29910,
+      "fec": [
+        "H8ID02064"
+      ],
+      "govtrack": 400376,
+      "opensecrets": "N00006263",
+      "name": "Michael K. Simpson",
+      "party": "R",
+      "state": "ID",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001150",
+      "icpsr": 20104,
+      "fec": [
+        "H0CA27085",
+        "S4CA00555"
+      ],
+      "govtrack": 400361,
+      "opensecrets": "N00009585",
+      "name": "Adam B. Schiff",
+      "party": "D",
+      "state": "CA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001156",
+      "icpsr": 20310,
+      "fec": [
+        "H2CA39078"
+      ],
+      "govtrack": 400355,
+      "opensecrets": "N00024870",
+      "name": "Linda T. Sánchez",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001159",
+      "icpsr": 22153,
+      "fec": [
+        "H0WA10034"
+      ],
+      "govtrack": 456854,
+      "opensecrets": "N00046320",
+      "name": "Marilyn Strickland",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001172",
+      "icpsr": 20729,
+      "fec": [
+        "H6NE03115"
+      ],
+      "govtrack": 412217,
+      "opensecrets": "N00027623",
+      "name": "Adrian Smith",
+      "party": "R",
+      "state": "NE",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001176",
+      "icpsr": 20759,
+      "fec": [
+        "H0LA01087"
+      ],
+      "govtrack": 412261,
+      "opensecrets": "N00009660",
+      "name": "Steve Scalise",
+      "party": "R",
+      "state": "LA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001181",
+      "icpsr": 40906,
+      "fec": [
+        "S0NH00219"
+      ],
+      "govtrack": 412323,
+      "opensecrets": "N00024790",
+      "name": "Jeanne Shaheen",
+      "party": "D",
+      "state": "NH",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001183",
+      "icpsr": 21105,
+      "fec": [
+        "H4AZ06045",
+        "H8AZ05097"
+      ],
+      "govtrack": 412399,
+      "opensecrets": "N00006460",
+      "name": "David Schweikert",
+      "party": "R",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001184",
+      "icpsr": 21173,
+      "fec": [
+        "H0SC01279",
+        "S4SC00240"
+      ],
+      "govtrack": 412471,
+      "opensecrets": "N00031782",
+      "name": "Tim Scott",
+      "party": "R",
+      "state": "SC",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001185",
+      "icpsr": 21102,
+      "fec": [
+        "H0AL07086"
+      ],
+      "govtrack": 412396,
+      "opensecrets": "N00030622",
+      "name": "Terri A. Sewell",
+      "party": "D",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001188",
+      "icpsr": 21100,
+      "fec": [
+        "H0IN03198",
+        "S0IN00095"
+      ],
+      "govtrack": 412392,
+      "opensecrets": "N00030891",
+      "name": "Marlin A. Stutzman",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001189",
+      "icpsr": 21123,
+      "fec": [
+        "H0GA08099"
+      ],
+      "govtrack": 412417,
+      "opensecrets": "N00032457",
+      "name": "Austin Scott",
+      "party": "R",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001190",
+      "icpsr": 21326,
+      "fec": [
+        "H2IL10068"
+      ],
+      "govtrack": 412534,
+      "opensecrets": "N00033101",
+      "name": "Bradley Scott Schneider",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001191",
+      "icpsr": 21300,
+      "fec": [
+        "H2AZ09019",
+        "S8AZ00197"
+      ],
+      "govtrack": 412509,
+      "opensecrets": "N00033983",
+      "name": "Kyrsten Sinema",
+      "party": "I",
+      "state": "AZ",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "S001194",
+      "icpsr": 41112,
+      "fec": [
+        "S4HI00136",
+        "H6HI02244"
+      ],
+      "govtrack": 412507,
+      "opensecrets": "N00028138",
+      "name": "Brian Schatz",
+      "party": "D",
+      "state": "HI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001195",
+      "icpsr": 21373,
+      "fec": [
+        "H4MO08162"
+      ],
+      "govtrack": 412596,
+      "opensecrets": "N00035282",
+      "name": "Jason Smith",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001196",
+      "icpsr": 21541,
+      "fec": [
+        "H4NY21079"
+      ],
+      "govtrack": 412648,
+      "opensecrets": "N00035523",
+      "name": "Elise M. Stefanik",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001198",
+      "icpsr": 41500,
+      "fec": [
+        "S4AK00214"
+      ],
+      "govtrack": 412665,
+      "opensecrets": "N00035774",
+      "name": "Dan Sullivan",
+      "party": "R",
+      "state": "AK",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001199",
+      "icpsr": 21745,
+      "fec": [
+        "H6PA16320"
+      ],
+      "govtrack": 412722,
+      "opensecrets": "N00038781",
+      "name": "Lloyd Smucker",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001200",
+      "icpsr": 21746,
+      "fec": [
+        "H6FL09179"
+      ],
+      "govtrack": 412695,
+      "opensecrets": "N00037422",
+      "name": "Darren Soto",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001201",
+      "icpsr": 21747,
+      "fec": [
+        "H6NY03247"
+      ],
+      "govtrack": 412717,
+      "opensecrets": "N00038742",
+      "name": "Thomas R. Suozzi",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001203",
+      "icpsr": 41706,
+      "fec": [
+        "S8MN00578"
+      ],
+      "govtrack": 412742,
+      "opensecrets": "N00042353",
+      "name": "Tina Smith",
+      "party": "D",
+      "state": "MN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001205",
+      "icpsr": 21762,
+      "fec": [
+        "H8PA07200"
+      ],
+      "govtrack": 412750,
+      "opensecrets": "N00042706",
+      "name": "Mary Gay Scanlon",
+      "party": "D",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001208",
+      "icpsr": 21965,
+      "fec": [
+        "H8MI08102",
+        "S4MI00470"
+      ],
+      "govtrack": 412784,
+      "opensecrets": "N00041357",
+      "name": "Elissa Slotkin",
+      "party": "D",
+      "state": "MI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001211",
+      "icpsr": 21968,
+      "fec": [
+        "H8AZ09040"
+      ],
+      "govtrack": 412753,
+      "opensecrets": "N00041750",
+      "name": "Greg Stanton",
+      "party": "D",
+      "state": "AZ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001212",
+      "icpsr": 21969,
+      "fec": [
+        "H8MN08043"
+      ],
+      "govtrack": 412792,
+      "opensecrets": "N00041511",
+      "name": "Pete Stauber",
+      "party": "R",
+      "state": "MN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001213",
+      "icpsr": 21970,
+      "fec": [
+        "H8WI01156"
+      ],
+      "govtrack": 412836,
+      "opensecrets": "N00043379",
+      "name": "Bryan Steil",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001214",
+      "icpsr": 21971,
+      "fec": [
+        "H8FL17053"
+      ],
+      "govtrack": 412766,
+      "opensecrets": "N00042808",
+      "name": "W. Gregory Steube",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001215",
+      "icpsr": 21972,
+      "fec": [
+        "H8MI11254",
+        "S6MI00426"
+      ],
+      "govtrack": 412786,
+      "opensecrets": "N00040915",
+      "name": "Haley M. Stevens",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001216",
+      "icpsr": 21962,
+      "fec": [
+        "H8WA08189"
+      ],
+      "govtrack": 412835,
+      "opensecrets": "N00041606",
+      "name": "Kim Schrier",
+      "party": "D",
+      "state": "WA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001217",
+      "icpsr": 41903,
+      "fec": [
+        "S8FL00273"
+      ],
+      "govtrack": 412838,
+      "opensecrets": "N00043290",
+      "name": "Rick Scott",
+      "party": "R",
+      "state": "FL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001218",
+      "icpsr": 22159,
+      "fec": [
+        "H2NM01144"
+      ],
+      "govtrack": 456861,
+      "opensecrets": "N00047871",
+      "name": "Melanie A. Stansbury",
+      "party": "D",
+      "state": "NM",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001220",
+      "icpsr": 22366,
+      "fec": [
+        "H2AL05102"
+      ],
+      "govtrack": 456878,
+      "opensecrets": "N00048145",
+      "name": "Dale W. Strong",
+      "party": "R",
+      "state": "AL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001221",
+      "icpsr": 22363,
+      "fec": [
+        "H0MI03316"
+      ],
+      "govtrack": 456906,
+      "opensecrets": "N00044885",
+      "name": "Hillary J. Scholten",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001223",
+      "icpsr": 22367,
+      "fec": [
+        "H2OH13264"
+      ],
+      "govtrack": 456930,
+      "opensecrets": "N00050165",
+      "name": "Emilia Strong Sykes",
+      "party": "D",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001224",
+      "icpsr": 22364,
+      "fec": [
+        "H2TX03290",
+        "H2TX00064"
+      ],
+      "govtrack": 456941,
+      "opensecrets": "N00049337",
+      "name": "Keith Self",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001225",
+      "icpsr": 22365,
+      "fec": [
+        "H2IL17147"
+      ],
+      "govtrack": 456902,
+      "opensecrets": "N00049558",
+      "name": "Eric Sorensen",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001226",
+      "icpsr": 22361,
+      "fec": [
+        "H2OR06066"
+      ],
+      "govtrack": 456934,
+      "opensecrets": "N00049738",
+      "name": "Andrea Salinas",
+      "party": "D",
+      "state": "OR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001227",
+      "icpsr": 42303,
+      "fec": [
+        "S2MO00544"
+      ],
+      "govtrack": 456875,
+      "opensecrets": "N00048414",
+      "name": "Eric Schmitt",
+      "party": "R",
+      "state": "MO",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "S001228",
+      "icpsr": 22551,
+      "fec": [
+        "H4KS02164"
+      ],
+      "govtrack": 456990,
+      "opensecrets": "N00055179",
+      "name": "Derek Schmidt",
+      "party": "R",
+      "state": "KS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001229",
+      "icpsr": 22552,
+      "fec": [
+        "H4IN06185"
+      ],
+      "govtrack": 456988,
+      "opensecrets": "N00054651",
+      "name": "Jefferson Shreve",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001230",
+      "icpsr": 22554,
+      "fec": [
+        "H4VA10279"
+      ],
+      "govtrack": 457028,
+      "opensecrets": "N00054085",
+      "name": "Suhas Subramanyam",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001231",
+      "icpsr": 22553,
+      "fec": [
+        "H4CA12154"
+      ],
+      "govtrack": 456974,
+      "opensecrets": "N00052195",
+      "name": "Lateefah Simon",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "S001232",
+      "icpsr": 42503,
+      "fec": [
+        "S4MT00183"
+      ],
+      "govtrack": 456966,
+      "opensecrets": "N00053174",
+      "name": "Tim Sheehy",
+      "party": "R",
+      "state": "MT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "T000165",
+      "icpsr": 21989,
+      "fec": [
+        "H0WI07101"
+      ],
+      "govtrack": 456791,
+      "opensecrets": "N00045307",
+      "name": "Thomas P. Tiffany",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000193",
+      "icpsr": 29368,
+      "fec": [
+        "H4MS02068"
+      ],
+      "govtrack": 400402,
+      "opensecrets": "N00003288",
+      "name": "Bennie G. Thompson",
+      "party": "D",
+      "state": "MS",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000250",
+      "icpsr": 29754,
+      "fec": [
+        "S2SD00068",
+        "H6SD00085"
+      ],
+      "govtrack": 400546,
+      "opensecrets": "N00004572",
+      "name": "John Thune",
+      "party": "R",
+      "state": "SD",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "T000278",
+      "icpsr": 42102,
+      "fec": [
+        "S0AL00230"
+      ],
+      "govtrack": 456796,
+      "opensecrets": "N00044434",
+      "name": "Tommy Tuberville",
+      "party": "R",
+      "state": "AL",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "T000460",
+      "icpsr": 29901,
+      "fec": [
+        "H8CA01109"
+      ],
+      "govtrack": 400403,
+      "opensecrets": "N00007419",
+      "name": "Mike Thompson",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000463",
+      "icpsr": 20342,
+      "fec": [
+        "H2OH03067",
+        "H2OH03091"
+      ],
+      "govtrack": 400411,
+      "opensecrets": "N00025175",
+      "name": "Michael R. Turner",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000467",
+      "icpsr": 20946,
+      "fec": [
+        "H8PA05071"
+      ],
+      "govtrack": 412317,
+      "opensecrets": "N00029736",
+      "name": "Glenn Thompson",
+      "party": "R",
+      "state": "PA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000468",
+      "icpsr": 20927,
+      "fec": [
+        "H8NV03036"
+      ],
+      "govtrack": 412318,
+      "opensecrets": "N00030191",
+      "name": "Dina Titus",
+      "party": "D",
+      "state": "NV",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000469",
+      "icpsr": 20934,
+      "fec": [
+        "H8NY21203"
+      ],
+      "govtrack": 412319,
+      "opensecrets": "N00030196",
+      "name": "Paul Tonko",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000472",
+      "icpsr": 21312,
+      "fec": [
+        "H2CA43245"
+      ],
+      "govtrack": 412520,
+      "opensecrets": "N00006701",
+      "name": "Mark Takano",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000474",
+      "icpsr": 21508,
+      "fec": [
+        "H4CA35031"
+      ],
+      "govtrack": 412617,
+      "opensecrets": "N00036107",
+      "name": "Norma J. Torres",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000476",
+      "icpsr": 41504,
+      "fec": [
+        "S4NC00162"
+      ],
+      "govtrack": 412668,
+      "opensecrets": "N00035492",
+      "name": "Thom Tillis",
+      "party": "R",
+      "state": "NC",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "T000478",
+      "icpsr": 21749,
+      "fec": [
+        "H4NY22051"
+      ],
+      "govtrack": 412720,
+      "opensecrets": "N00036351",
+      "name": "Claudia Tenney",
+      "party": "R",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000480",
+      "icpsr": 21974,
+      "fec": [
+        "H8SC04250"
+      ],
+      "govtrack": 412815,
+      "opensecrets": "N00042715",
+      "name": "William R. Timmons IV",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000481",
+      "icpsr": 21975,
+      "fec": [
+        "H8MI13250"
+      ],
+      "govtrack": 412787,
+      "opensecrets": "N00042649",
+      "name": "Rashida Tlaib",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000482",
+      "icpsr": 21977,
+      "fec": [
+        "H8MA03106"
+      ],
+      "govtrack": 412781,
+      "opensecrets": "N00041808",
+      "name": "Lori Trahan",
+      "party": "D",
+      "state": "MA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000486",
+      "icpsr": 22154,
+      "fec": [
+        "H0NY15160"
+      ],
+      "govtrack": 456838,
+      "opensecrets": "N00044346",
+      "name": "Ritchie Torres",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000487",
+      "icpsr": 22369,
+      "fec": [
+        "H2HI02581"
+      ],
+      "govtrack": 456897,
+      "opensecrets": "N00051049",
+      "name": "Jill N. Tokuda",
+      "party": "D",
+      "state": "HI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000488",
+      "icpsr": 22368,
+      "fec": [
+        "H2MI13204"
+      ],
+      "govtrack": 456908,
+      "opensecrets": "N00049602",
+      "name": "Shri Thanedar",
+      "party": "D",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000490",
+      "icpsr": 22555,
+      "fec": [
+        "H4OH02248"
+      ],
+      "govtrack": 457014,
+      "opensecrets": "N00054098",
+      "name": "David J. Taylor",
+      "party": "R",
+      "state": "OH",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "T000491",
+      "icpsr": 22556,
+      "fec": [
+        "H4CA45170"
+      ],
+      "govtrack": 456980,
+      "opensecrets": "N00053582",
+      "name": "Derek Tran",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "U000040",
+      "icpsr": 21979,
+      "fec": [
+        "H8IL14174"
+      ],
+      "govtrack": 412776,
+      "opensecrets": "N00041569",
+      "name": "Lauren Underwood",
+      "party": "D",
+      "state": "IL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000081",
+      "icpsr": 29378,
+      "fec": [
+        "H2NY00010"
+      ],
+      "govtrack": 400416,
+      "opensecrets": "N00001102",
+      "name": "Nydia M. Velázquez",
+      "party": "D",
+      "state": "NY",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000128",
+      "icpsr": 20330,
+      "fec": [
+        "H2MD08126",
+        "S6MD03441"
+      ],
+      "govtrack": 400415,
+      "opensecrets": "N00013820",
+      "name": "Chris Van Hollen",
+      "party": "D",
+      "state": "MD",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "V000129",
+      "icpsr": 21307,
+      "fec": [
+        "H2CA20094"
+      ],
+      "govtrack": 412515,
+      "opensecrets": "N00033367",
+      "name": "David G. Valadao",
+      "party": "R",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000130",
+      "icpsr": 21314,
+      "fec": [
+        "H2CA50026"
+      ],
+      "govtrack": 412522,
+      "opensecrets": "N00007021",
+      "name": "Juan Vargas",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000131",
+      "icpsr": 21365,
+      "fec": [
+        "H2TX33073"
+      ],
+      "govtrack": 412579,
+      "opensecrets": "N00033839",
+      "name": "Marc A. Veasey",
+      "party": "D",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000133",
+      "icpsr": 21980,
+      "fec": [
+        "H8NJ02166"
+      ],
+      "govtrack": 412796,
+      "opensecrets": "N00042164",
+      "name": "Jefferson Van Drew",
+      "party": "R",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000134",
+      "icpsr": 22155,
+      "fec": [
+        "H0TX24209"
+      ],
+      "govtrack": 456850,
+      "opensecrets": "N00045167",
+      "name": "Beth Van Duyne",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000135",
+      "icpsr": 22370,
+      "fec": [
+        "H0WI03175"
+      ],
+      "govtrack": 456950,
+      "opensecrets": "N00046843",
+      "name": "Derrick Van Orden",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000136",
+      "icpsr": 22371,
+      "fec": [
+        "H2NM02191"
+      ],
+      "govtrack": 456919,
+      "opensecrets": "N00049142",
+      "name": "Gabe Vasquez",
+      "party": "D",
+      "state": "NM",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000137",
+      "icpsr": 42304,
+      "fec": [
+        "S2OH00436"
+      ],
+      "govtrack": 456876,
+      "opensecrets": "N00048832",
+      "name": "J.D. Vance",
+      "party": "R",
+      "state": "OH",
+      "chamber": "senate",
+      "current": false
+    },
+    {
+      "bioguide": "V000138",
+      "icpsr": 22558,
+      "fec": [
+        "H4VA07234"
+      ],
+      "govtrack": 457027,
+      "opensecrets": "N00054112",
+      "name": "Eugene Simon Vindman",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "V000139",
+      "icpsr": 22566,
+      "fec": [
+        "H6TN07161"
+      ],
+      "govtrack": 457038,
+      "opensecrets": null,
+      "name": "Matt Van Epps",
+      "party": "R",
+      "state": "TN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000187",
+      "icpsr": 29106,
+      "fec": [
+        "H4CA23011"
+      ],
+      "govtrack": 400422,
+      "opensecrets": "N00006690",
+      "name": "Maxine Waters",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000437",
+      "icpsr": 29534,
+      "fec": [
+        "H4MS01078",
+        "S8MS00196"
+      ],
+      "govtrack": 400432,
+      "opensecrets": "N00003280",
+      "name": "Roger F. Wicker",
+      "party": "R",
+      "state": "MS",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000779",
+      "icpsr": 14871,
+      "fec": [
+        "S6OR00110",
+        "H0OR03026"
+      ],
+      "govtrack": 300100,
+      "opensecrets": "N00007724",
+      "name": "Ron Wyden",
+      "party": "D",
+      "state": "OR",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000788",
+      "icpsr": 22156,
+      "fec": [
+        "H0GA05301"
+      ],
+      "govtrack": 456811,
+      "opensecrets": "N00047361",
+      "name": "Nikema Williams",
+      "party": "D",
+      "state": "GA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000790",
+      "icpsr": 42105,
+      "fec": [
+        "S0GA00559"
+      ],
+      "govtrack": 456858,
+      "opensecrets": "N00046489",
+      "name": "Raphael G. Warnock",
+      "party": "D",
+      "state": "GA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000795",
+      "icpsr": 20138,
+      "fec": [
+        "H2SC02059"
+      ],
+      "govtrack": 400433,
+      "opensecrets": "N00024809",
+      "name": "Joe Wilson",
+      "party": "R",
+      "state": "SC",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000797",
+      "icpsr": 20504,
+      "fec": [
+        "H4FL20023"
+      ],
+      "govtrack": 400623,
+      "opensecrets": "N00026106",
+      "name": "Debbie Wasserman Schultz",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000798",
+      "icpsr": 20725,
+      "fec": [
+        "H4MI07103"
+      ],
+      "govtrack": 412213,
+      "opensecrets": "N00026368",
+      "name": "Tim Walberg",
+      "party": "R",
+      "state": "MI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000799",
+      "icpsr": 20726,
+      "fec": [
+        "H6MN01174"
+      ],
+      "govtrack": 412214,
+      "opensecrets": "N00027467",
+      "name": "Timothy J. Walz",
+      "party": "D",
+      "state": "MN",
+      "chamber": "house",
+      "current": false
+    },
+    {
+      "bioguide": "W000800",
+      "icpsr": 20750,
+      "fec": [
+        "H6VT00160",
+        "H8VT00034",
+        "S2VT00235"
+      ],
+      "govtrack": 412239,
+      "opensecrets": "N00000515",
+      "name": "Peter Welch",
+      "party": "D",
+      "state": "VT",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000802",
+      "icpsr": 40704,
+      "fec": [
+        "S6RI00221"
+      ],
+      "govtrack": 412247,
+      "opensecrets": "N00027533",
+      "name": "Sheldon Whitehouse",
+      "party": "D",
+      "state": "RI",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000804",
+      "icpsr": 20756,
+      "fec": [
+        "H8VA01147"
+      ],
+      "govtrack": 412255,
+      "opensecrets": "N00029459",
+      "name": "Robert J. Wittman",
+      "party": "R",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000805",
+      "icpsr": 40909,
+      "fec": [
+        "S6VA00093",
+        "P80003023"
+      ],
+      "govtrack": 412321,
+      "opensecrets": "N00002097",
+      "name": "Mark R. Warner",
+      "party": "D",
+      "state": "VA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000806",
+      "icpsr": 21116,
+      "fec": [
+        "H0FL08208",
+        "S4FL00256"
+      ],
+      "govtrack": 412410,
+      "opensecrets": "N00026335",
+      "name": "Daniel Webster",
+      "party": "R",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000808",
+      "icpsr": 21118,
+      "fec": [
+        "H0FL17068"
+      ],
+      "govtrack": 412412,
+      "opensecrets": "N00030650",
+      "name": "Frederica S. Wilson",
+      "party": "D",
+      "state": "FL",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000809",
+      "icpsr": 21108,
+      "fec": [
+        "H0AR03055"
+      ],
+      "govtrack": 412402,
+      "opensecrets": "N00031857",
+      "name": "Steve Womack",
+      "party": "R",
+      "state": "AR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000812",
+      "icpsr": 21337,
+      "fec": [
+        "H2MO02102"
+      ],
+      "govtrack": 412548,
+      "opensecrets": "N00033106",
+      "name": "Ann Wagner",
+      "party": "R",
+      "state": "MO",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000814",
+      "icpsr": 21360,
+      "fec": [
+        "H2TX14149"
+      ],
+      "govtrack": 412574,
+      "opensecrets": "N00033539",
+      "name": "Randy K. Weber, Sr.",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000816",
+      "icpsr": 21364,
+      "fec": [
+        "H2TX33040",
+        "S2TX00270"
+      ],
+      "govtrack": 412578,
+      "opensecrets": "N00030602",
+      "name": "Roger Williams",
+      "party": "R",
+      "state": "TX",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000817",
+      "icpsr": 41301,
+      "fec": [
+        "S2MA00170"
+      ],
+      "govtrack": 412542,
+      "opensecrets": "N00033492",
+      "name": "Elizabeth Warren",
+      "party": "D",
+      "state": "MA",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "W000821",
+      "icpsr": 21563,
+      "fec": [
+        "H4AR04048"
+      ],
+      "govtrack": 412610,
+      "opensecrets": "N00035527",
+      "name": "Bruce Westerman",
+      "party": "R",
+      "state": "AR",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000822",
+      "icpsr": 21538,
+      "fec": [
+        "H4NJ12149"
+      ],
+      "govtrack": 412644,
+      "opensecrets": "N00036158",
+      "name": "Bonnie Watson Coleman",
+      "party": "D",
+      "state": "NJ",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000829",
+      "icpsr": 22383,
+      "fec": [
+        "H4WI08119"
+      ],
+      "govtrack": 456963,
+      "opensecrets": "N00055013",
+      "name": "Tony Wied",
+      "party": "R",
+      "state": "WI",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000830",
+      "icpsr": 22559,
+      "fec": [
+        "H4CA27111"
+      ],
+      "govtrack": 456977,
+      "opensecrets": "N00052205",
+      "name": "George Whitesides",
+      "party": "D",
+      "state": "CA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "W000831",
+      "icpsr": 22564,
+      "fec": [
+        "H6VA11066"
+      ],
+      "govtrack": 457036,
+      "opensecrets": null,
+      "name": "James R. Walkinshaw",
+      "party": "D",
+      "state": "VA",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "Y000064",
+      "icpsr": 21133,
+      "fec": [
+        "H0IN09070",
+        "S6IN00191"
+      ],
+      "govtrack": 412428,
+      "opensecrets": "N00030670",
+      "name": "Todd Young",
+      "party": "R",
+      "state": "IN",
+      "chamber": "senate",
+      "current": true
+    },
+    {
+      "bioguide": "Y000067",
+      "icpsr": 22171,
+      "fec": [
+        "H2IN02295"
+      ],
+      "govtrack": 456873,
+      "opensecrets": "N00051733",
+      "name": "Rudy Yakym III",
+      "party": "R",
+      "state": "IN",
+      "chamber": "house",
+      "current": true
+    },
+    {
+      "bioguide": "Z000018",
+      "icpsr": 21532,
+      "fec": [
+        "H4MT01041"
+      ],
+      "govtrack": 412640,
+      "opensecrets": "N00035616",
+      "name": "Ryan K. Zinke",
+      "party": "R",
+      "state": "MT",
+      "chamber": "house",
+      "current": true
+    }
+  ]
+}

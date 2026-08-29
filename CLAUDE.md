@@ -10,6 +10,7 @@ npm test           단위 테스트 (도메인, ~0.4초)
 npm run audit      경계 + 데이터 감사 (종료 코드로 판정)
 npm run e2e        Playwright 53개 (~90초, dev 서버 자동 기동)
 npm run news:dry   뉴스 파이프라인 미리보기 (실제 수집은 야간 자동)
+npm run crosswalk:dry  소스 간 ID 크로스워크 미리보기 (bioguide·icpsr·fec)
 npm run build      tsc + vite
 ```
 
@@ -38,6 +39,17 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 
 **검사를 만들면 실패도 시켜 본다.** 불량을 주입해 종료 코드 1 이 나오는지
 확인하지 않은 검사는 검사가 아니다.
+
+### 매칭 실패를 확정으로 취급하지 않는다
+
+크로스워크에서 "후보를 못 찾음" 을 자동 확정으로 처리했더니 Mike Lawler·Dick Durbin·
+Chris Murphy 등 **7명이 조용히 빠졌다.** 데이터에는 Michael·Richard·Christopher 로
+들어있고 별칭 필드는 비어 있다. 실패가 아니라 "해당 없음" 으로 끝나서 아무도 몰랐다.
+
+통칭 사전(Mike→Michael)을 코드에 넣는 것은 답이 아니다 — 그 사전이 곧 새로운
+흔들림의 원인이 된다. **성이 같은데 못 맞춘 경우를 사람에게 올리고**, 확정값을
+`crosswalk-overrides.json` 에 적는다. 적지 않으면 쓰지 않고 종료 코드 1 로 끝난다.
+같은 이유로 `Number('')` 는 `0` 이다 — 빈 icpsr 를 그냥 넘기면 0번 의원이 생긴다.
 
 ### 파괴적 스크립트는 `--dry` 먼저
 
@@ -84,6 +96,7 @@ scripts/audit/*-rules.mts        감사 판정 규칙 (순수)
 
 src/lib/, scripts/**/*.mts       어댑터. 데이터셋·fs·network 를 여기서 묶는다
 src/data/signals/                월별 파티션 + 매니페스트 + recent
+src/data/crosswalk.json          소스 간 ID 확정값 (bioguide·icpsr·fec)
 ```
 
 도메인에 값 import 를 넣고 싶어지면 그건 인자로 받아야 할 것이다.

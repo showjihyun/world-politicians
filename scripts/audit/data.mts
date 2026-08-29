@@ -15,9 +15,9 @@ import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
-  checkAllowlist, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
+  checkAllowlist, checkCrosswalk, checkDates, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
-  type Finding, type SignalRef, type SourceRef,
+  type CrosswalkFile, type Finding, type SignalRef, type SourceRef,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -79,6 +79,19 @@ findings.push(...checkPresentation(sourceLinks));
 findings.push(...checkVerifiable(sourceLinks));
 findings.push(...checkDuplicates(sourcesByEdge));
 
+// 크로스워크는 이후 단계 전부가 얹히는 바닥이다. 인물이 늘거나 바뀌었는데
+// 다시 만들지 않으면 흔들리지 않는 대신 일관되게 틀린 값이 된다.
+const cwPath = path.join(ROOT, 'src/data/crosswalk.json');
+if (fs.existsSync(cwPath)) {
+  const cw = JSON.parse(fs.readFileSync(cwPath, 'utf8')) as CrosswalkFile;
+  findings.push(...checkCrosswalk(cw, knownIds));
+} else {
+  findings.push({
+    level: 'warn', check: 'crosswalk.absent',
+    message: 'crosswalk.json 이 없다 — npm run crosswalk 로 만든다',
+  });
+}
+
 const actualCounts: Record<string, number> = {};
 for (const s of signals) for (const p of s.people ?? []) actualCounts[p] = (actualCounts[p] ?? 0) + 1;
 findings.push(
@@ -132,6 +145,10 @@ console.log('─'.repeat(58));
 console.log(`인물 ${knownIds.size} · 관계 ${edgeCount} · 신호 ${signals.length} (${dates[0]} → ${dates[dates.length - 1]})`);
 console.log(`파티션 ${months.length}개월 · 근거 엣지 ${Object.keys(sourcesByEdge).length}/${edgeCount} · 링크 ${sourceLinks.length}`);
 console.log(`마지막 수집 ${manifest.generatedAt}`);
+if (fs.existsSync(cwPath)) {
+  const cw = JSON.parse(fs.readFileSync(cwPath, 'utf8')) as CrosswalkFile;
+  console.log(`크로스워크 의원 ${cw.stats.members} · POLARIS ${cw.stats.polarisMatched}/${cw.stats.polarisTotal} 매칭`);
+}
 console.log('─'.repeat(58));
 
 const v = verdict(findings);
