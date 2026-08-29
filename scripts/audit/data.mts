@@ -147,4 +147,5 @@ if (!findings.length) {
   console.log(`FAIL ${v.fail} · WARN ${v.warn}${WITH_LINKS ? '' : '  (링크 생존은 --links)'}`);
 }
 
-process.exit(v.ok ? 0 : 1);
+// process.exit() 대신 exitCode — 강제 종료는 Windows 에서 종료 코드를 뭉갠다
+process.exitCode = v.ok ? 0 : 1;

@@ -7,8 +7,7 @@
  *
  * 규칙: 이 파일은 타입 외의 런타임 import 를 갖지 않는다.
  */
-import type { HistoryArc } from '../data/signal-history';
-import type { NewsSignal } from '../types';
+import type { HistoryArc, NewsSignal } from '../types';
 import type { LocalizedText } from '../types';
 
 export type Pol = 'ally' | 'feud' | 'neutral';

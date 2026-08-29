@@ -101,6 +101,23 @@ export interface NewsSignal {
   classified: boolean;
 }
 
+/**
+ * 호불호 시계열의 큐레이션 변곡점.
+ * 값은 data/signal-history.ts 에 있지만 형태는 여기 둔다 —
+ * 도메인이 데이터 층을 참조하지 않아야 경계가 유지된다.
+ */
+export interface HistoryPoint {
+  ym: string;
+  polarity: 'ally' | 'feud' | 'neutral';
+  note: LocalizedText;
+}
+
+export interface HistoryArc {
+  a: string;
+  b: string;
+  points: HistoryPoint[];
+}
+
 /** 관계 유형 정본 목록 — 필터 기본값(전체 선택)의 기준 */
 export const ALL_REL_TYPES: RelType[] = ['ally', 'feud', 'bipartisan', 'family', 'mentor'];
 

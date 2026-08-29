@@ -1,20 +1,12 @@
 import { L } from './L';
+import type { HistoryArc } from '../types';
+
+export type { HistoryArc, HistoryPoint } from '../types';
 
 /**
  * 호불호 시계열의 "변곡점" 큐레이션 — 공개 보도 기반 월별 아크.
  * builder가 첫 포인트부터 현재까지 forward-fill 하므로, 변곡만 기록하면 됨.
  */
-export interface HistoryPoint {
-  ym: string;
-  polarity: 'ally' | 'feud' | 'neutral';
-  note: { en: string; ko: string };
-}
-
-export interface HistoryArc {
-  a: string;
-  b: string;
-  points: HistoryPoint[];
-}
 
 export const HISTORY_ARCS: HistoryArc[] = [
   {

@@ -12,7 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "node scripts/e2e/polaris.e2e.mjs",
-    "audit:data": "node --experimental-strip-types scripts/audit/data.mts"
+    "audit:data": "node --experimental-strip-types scripts/audit/data.mts",
+    "audit:boundary": "node --experimental-strip-types scripts/audit/boundary.mts",
+    "audit": "npm run audit:boundary && npm run audit:data"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
