@@ -90,6 +90,7 @@ export const UI_EN = {
   freshDays: 'd ago',
   signalsUnit: 'signals',
   sourcesLabel: 'Sources',
+  cosponsorCorroboration: (n: number) => `${n} bills co-sponsored together`,
   noSources: 'No linked source yet. This edge rests on the summary above — an editorial reading of public reporting, not a cited claim.',
   sourcesLoading: 'Loading sources…',
   sourcesAuto: 'Auto-collected: articles naming both people. Supporting, not verified — some may be co-mentions only.',

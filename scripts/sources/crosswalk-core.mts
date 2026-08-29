@@ -28,6 +28,8 @@ export interface LegislatorTerm {
   type: 'sen' | 'rep';
   state: string;
   party?: string;
+  /** 무소속이 어느 쪽과 함께 하는가 — Sanders·King 은 민주당과 코커스한다 */
+  caucus?: string;
   start: string;
   end: string;
 }
@@ -55,6 +57,14 @@ export interface Member {
   opensecrets: string | null;
   name: string;
   party: string;
+  /**
+   * 실질 소속. 무소속은 코커스하는 쪽을 넣는다.
+   *
+   * 정당 문자열만 비교하면 Sanders(I) × Markey(D) 가 "초당적" 이 된다. 두 사람은
+   * 같은 코커스이므로 그건 초당적 협업이 아니다. 실제로 이 오류로 초당적 쌍을
+   * 19개로 세었는데 8개가 Sanders 였다.
+   */
+  caucus: string;
   state: string;
   chamber: 'senate' | 'house';
   /** 현직 명부(legislators-current)에 있는가 */
@@ -287,6 +297,7 @@ export function toMember(l: Legislator, current: boolean): Member | null {
     opensecrets: l.id.opensecrets ?? null,
     name: n.official_full ?? `${n.first ?? ''} ${n.last ?? ''}`.trim(),
     party: partyCode(last.party),
+    caucus: partyCode(last.caucus) || partyCode(last.party),
     state: last.state,
     chamber: last.type === 'sen' ? 'senate' : 'house',
     current,

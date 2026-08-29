@@ -133,9 +133,12 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   bulk data and joined by `bioguide` id. They get their own dashed style and their own
   legend toggle, because blurring a judgment into a measurement costs you both. The
   threshold is 10 bills — at 5 it would add 264 edges and bury the curated set, and
-  84% of pairs above 10 are same-party, so raw counts mostly re-encode party. The 19
-  cross-party pairs are the interesting ones: Fitzpatrick × Gluesenkamp Perez (19 bills),
-  Collins × Klobuchar (15), Cruz × Warnock (9).
+  84% of pairs above 10 are same-party, so raw counts mostly re-encode party. The 11
+  genuinely cross-party pairs are the interesting ones: Fitzpatrick × Gluesenkamp Perez
+  (19 bills), Collins × Klobuchar (15), Lawler × Torres (12), Cruz × Warnock (9).
+  "Cross-party" here means a different *caucus*, not a different party label — Sanders
+  and King are independents who caucus with the Democrats, and counting them as
+  cross-party inflated this number from 11 to 19 in an earlier pass.
 - **The relationship data is editorial.** Those 266 edges are hand-curated from public reporting. Someone else reading the same coverage would draw a different graph. Treat it as an argument, not a record. Every edge now carries its own evidence panel — click the document icon on any relationship to see the articles behind it, or to see that there aren't any.
 - **Evidence links are verifiable, and that cost coverage.** An earlier version attached 478 links to 218 edges — but 94% were Google News redirect URLs, which resolve only in a browser and carry no way to confirm the destination or the outlet. They were replaced with direct article URLs from the GDELT archive, each one relevance-filtered by an LLM and then actually fetched to confirm it resolves (5 dead links were caught and dropped). **The result is 64 of 266 edges with 162 links — every one a real outlet URL you can inspect before clicking.** The other 202 edges say plainly that they have no linked source.
 - **Evidence is machine-filtered, not human-verified.** The LLM judges headlines, not article bodies, so marginal calls get through. Treat a linked article as supporting context, not as a citation someone checked.

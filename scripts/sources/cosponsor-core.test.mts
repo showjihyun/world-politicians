@@ -116,7 +116,7 @@ describe('selectEdges', () => {
   const opts = {
     threshold: 10,
     toPolaris: new Map([['A', 'warren'], ['B', 'markey'], ['C', 'cruz']]),
-    partyOf: new Map([['warren', 'D'], ['markey', 'D'], ['cruz', 'R']]),
+    caucusOf: new Map([['warren', 'D'], ['markey', 'D'], ['cruz', 'R']]),
     curated: new Set([pairKey('warren', 'markey')]),
   };
   const tally = (pairs: Record<string, number>) => {
@@ -164,6 +164,30 @@ describe('selectEdges', () => {
   it('근거 링크를 붙인다', () => {
     const [e] = selectEdges(tally({ [pairKey('A', 'B')]: 30 }), opts);
     expect(e.samples[0].url).toContain('congress.gov/bill/119th-congress');
+  });
+
+  // 정당 문자열로 비교하면 Sanders(I) × Markey(D) 가 초당적이 된다. 같은 코커스이므로
+  // 당을 넘은 협업이 아니다. 이 구분을 놓쳐 초당적 쌍을 19개로 세었는데 8개가 Sanders 였다.
+  it('무소속이라도 코커스가 같으면 초당적이 아니다', () => {
+    const withIndependent = {
+      ...opts,
+      toPolaris: new Map([['A', 'warren'], ['D', 'sanders']]),
+      caucusOf: new Map([['warren', 'D'], ['sanders', 'D']]),
+      curated: new Set<string>(),
+    };
+    const [e] = selectEdges(tally({ [pairKey('A', 'D')]: 41 }), withIndependent);
+    expect(e.crossParty).toBe(false);
+  });
+
+  it('코커스를 모르면 초당적으로 단정하지 않는다', () => {
+    const unknown = { ...opts, caucusOf: new Map([['warren', 'D']]), curated: new Set<string>() };
+    expect(selectEdges(tally({ [pairKey('A', 'B')]: 30 }), unknown)[0].crossParty).toBe(false);
+  });
+
+  // strength 규칙이 두 곳에 있으면 한 곳만 고치게 된다 — 파일에 넣어 앱이 읽게 한다
+  it('강도를 함께 낸다 — 앱이 다시 계산하지 않도록', () => {
+    const es = selectEdges(tally({ [pairKey('A', 'C')]: 45, [pairKey('A', 'B')]: 12 }), opts);
+    expect(es.map((e) => e.strength)).toEqual([strengthOf(45), strengthOf(12)]);
   });
 });
 

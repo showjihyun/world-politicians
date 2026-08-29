@@ -16,6 +16,8 @@ interface RawEdge {
   a: string;
   b: string;
   bills: number;
+  /** 생성 시점에 정해진 1~3 — 앱에서 다시 계산하지 않는다 */
+  strength: 1 | 2 | 3;
   crossParty: boolean;
   /** 이미 큐레이션된 관계가 있는 쌍 */
   duplicate: boolean;
@@ -40,12 +42,11 @@ export const COSPONSOR_META = {
   stats: file.stats,
 };
 
-/** 건수를 기존 엣지와 같은 1~3 척도로 */
-const strength = (bills: number): 1 | 2 | 3 => (bills >= 40 ? 3 : bills >= 20 ? 2 : 1);
-
 /**
  * 이미 큐레이션된 쌍은 뺀다 — 두 노드 사이에 선을 두 번 그으면 읽을 수 없다.
- * 대신 그 쌍의 건수는 `cosponsorCount` 로 조회해 기존 엣지 옆에 보조로 보여준다.
+ * 그 쌍의 건수는 `cosponsorCount` 로 조회해 기존 관계 옆에 보조 표시로 붙인다
+ * (DetailDrawer). 근거 패널에는 넣지 않는다 — 법안 날짜가 기사보다 새로워서
+ * 관계를 뒷받침하던 기사를 밀어냈다.
  */
 export const COSPONSOR_RELATIONSHIPS: Relationship[] = file.edges
   .filter((e) => !e.duplicate)
@@ -53,7 +54,7 @@ export const COSPONSOR_RELATIONSHIPS: Relationship[] = file.edges
     a: e.a,
     b: e.b,
     type: 'cosponsor' as const,
-    strength: strength(e.bills),
+    strength: e.strength,
     note: {
       en: `Co-sponsored ${e.bills} bills together in the ${file.congress}th Congress (${e.first} – ${e.last})${
         e.crossParty ? ' — across party lines' : ''

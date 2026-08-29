@@ -91,6 +91,7 @@ export const UI_KO: UIDict = {
   freshDays: '일 전',
   signalsUnit: '건',
   sourcesLabel: '근거',
+  cosponsorCorroboration: (n: number) => `공동발의 ${n}건`,
   noSources: '아직 연결된 출처가 없습니다. 이 엣지는 위 요약에 근거하며, 인용된 주장이 아니라 공개 보도에 대한 편집적 판단입니다.',
   sourcesLoading: '근거 불러오는 중…',
   sourcesAuto: '자동 수집: 두 인물이 함께 등장한 기사입니다. 참고용이며 검증된 인용은 아닙니다 — 단순 동반 언급이 섞일 수 있습니다.',

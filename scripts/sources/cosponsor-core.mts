@@ -36,6 +36,9 @@ export interface CosponsorEdge {
   a: string;
   b: string;
   bills: number;
+  /** 기존 엣지와 같은 1~3 척도 — 규칙은 strengthOf 하나뿐이다 */
+  strength: 1 | 2 | 3;
+  /** 코커스가 다른가. 정당 문자열이 아니라 코커스로 본다 */
   crossParty: boolean;
   /** 이미 큐레이션된 관계가 있는 쌍인가 — 그래프에 선을 두 번 긋지 않기 위해 */
   duplicate: boolean;
@@ -128,8 +131,14 @@ export interface SelectOptions {
   threshold: number;
   /** bioguide → POLARIS 인물 id */
   toPolaris: Map<string, string>;
-  /** POLARIS 인물 id → 정당 코드 */
-  partyOf: Map<string, string>;
+  /**
+   * POLARIS 인물 id → **코커스** 코드.
+   *
+   * 정당 문자열로 비교하면 Sanders(I) × Markey(D) 가 초당적이 된다. 두 사람은 같은
+   * 코커스이므로 협업이 당을 넘은 것이 아니다. 이 구분을 놓쳐 초당적 쌍을 19개로
+   * 세었는데 그중 8개가 Sanders 였다.
+   */
+  caucusOf: Map<string, string>;
   /** 이미 큐레이션된 쌍 (pairKey 형태, POLARIS id 기준) */
   curated: Set<string>;
 }
@@ -152,12 +161,13 @@ export function selectEdges(
     const b = opts.toPolaris.get(y);
     if (!a || !b) continue;
 
-    const pa = opts.partyOf.get(a) ?? '';
-    const pb = opts.partyOf.get(b) ?? '';
+    const pa = opts.caucusOf.get(a) ?? '';
+    const pb = opts.caucusOf.get(b) ?? '';
     out.push({
       a: a < b ? a : b,
       b: a < b ? b : a,
       bills: t.bills,
+      strength: strengthOf(t.bills),
       crossParty: Boolean(pa && pb && pa !== pb),
       duplicate: opts.curated.has(pairKey(a, b)),
       first: t.first,

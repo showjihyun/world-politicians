@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { X, MapPin, Zap, Crown, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
+import { cosponsorCount } from '../data/cosponsorship';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON, signalCountFor } from '../data/signals';
 import { usePortrait } from '../lib/portrait';
@@ -313,6 +314,15 @@ export default function DetailDrawer() {
                               <span className="text-rose-400/80">{initiatorNote}</span>
                             )}
                           </p>
+                          {/*
+                            큐레이션한 관계에는 공동발의 엣지를 겹쳐 긋지 않는다.
+                            대신 측정값이 그 관계를 뒷받침하면 건수만 조용히 붙인다.
+                          */}
+                          {link.rel.type !== 'cosponsor' && cosponsorCount(link.rel.a, link.rel.b) > 0 && (
+                            <p className="mt-1 font-mono text-[10px] tracking-wide text-sky-400/70">
+                              {t.cosponsorCorroboration(cosponsorCount(link.rel.a, link.rel.b))}
+                            </p>
+                          )}
                         </button>
                         {/* 이 관계를 왜 그렇게 봤는지 — 이동하지 않고 근거만 연다 */}
                         <button

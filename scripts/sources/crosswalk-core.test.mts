@@ -202,6 +202,20 @@ describe('toMember', () => {
     });
   });
 
+  // 정당 문자열만 비교하면 Sanders(I) × Markey(D) 가 초당적이 된다 — 같은 코커스다
+  it('무소속은 코커스하는 쪽을 실질 소속으로 잡는다', () => {
+    const m = toMember(
+      leg('S000033', { first: 'Bernard', last: 'Sanders' }, {}, { party: 'Independent', caucus: 'Democrat' }),
+      true
+    );
+    expect(m).toMatchObject({ party: 'I', caucus: 'D' });
+  });
+
+  it('코커스가 없으면 정당을 그대로 쓴다', () => {
+    const m = toMember(leg('X9', { first: 'A', last: 'B' }, {}, { party: 'Republican' }), true);
+    expect(m).toMatchObject({ party: 'R', caucus: 'R' });
+  });
+
   it('없는 id 는 null 로 채운다 — 빈 문자열로 속이지 않는다', () => {
     const m = toMember(leg('X2', { first: 'A', last: 'B' }), false);
     expect(m).toMatchObject({ icpsr: null, fec: [], govtrack: null, opensecrets: null });

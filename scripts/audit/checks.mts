@@ -410,7 +410,10 @@ export interface CosponsorFile {
   congress: number;
   threshold: number;
   stats: { edges: number; fresh: number; crossParty: number };
-  edges: { a: string; b: string; bills: number; crossParty: boolean; duplicate: boolean }[];
+  edges: {
+    a: string; b: string; bills: number; strength: number;
+    crossParty: boolean; duplicate: boolean;
+  }[];
 }
 
 /**
@@ -488,13 +491,39 @@ export function checkCosponsor(
     });
   }
 
-  const noSource = cos.edges.filter((e) => !(sourcesByPair[key(e.a, e.b)] ?? []).length);
+  // 큐레이션된 쌍에는 근거를 두지 않는다 — 법안 날짜가 기사보다 새로워서 근거
+  // 패널에서 기사를 밀어냈다. 그래서 화면에 실제로 그려지는 엣지만 근거를 요구한다.
+  const drawn = cos.edges.filter((e) => !e.duplicate);
+  const noSource = drawn.filter((e) => !(sourcesByPair[key(e.a, e.b)] ?? []).length);
   if (noSource.length) {
     out.push({
       level: 'fail',
       check: 'cosponsor.sources',
       message: `근거 법안이 없는 엣지 ${noSource.length}건`,
       samples: cap(noSource.map((e) => `${e.a}×${e.b}`)),
+    });
+  }
+
+  const leaked = cos.edges.filter((e) => e.duplicate && (sourcesByPair[key(e.a, e.b)] ?? []).length);
+  if (leaked.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.curatedLeak',
+      message: `큐레이션된 쌍에 법안 근거가 들어갔다 ${leaked.length}건 — 근거 패널에서 기사를 밀어낸다`,
+      samples: cap(leaked.map((e) => `${e.a}×${e.b}`)),
+    });
+  }
+
+  // 강도 규칙은 생성 쪽에 하나만 둔다. 여기서는 파일이 그 규칙과 맞는지만 본다.
+  const wrongStrength = cos.edges.filter(
+    (e) => e.strength !== (e.bills >= 40 ? 3 : e.bills >= 20 ? 2 : 1)
+  );
+  if (wrongStrength.length) {
+    out.push({
+      level: 'fail',
+      check: 'cosponsor.strength',
+      message: `건수와 강도가 맞지 않는 엣지 ${wrongStrength.length}건`,
+      samples: cap(wrongStrength.map((e) => `${e.a}×${e.b} ${e.bills}건→${e.strength}`)),
     });
   }
 

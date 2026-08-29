@@ -86,6 +86,14 @@ function* unzip(buf: Buffer): Generator<string> {
   }
 }
 
+/** zip 안의 항목 수 — 다 읽었는지 대조하기 위한 것 */
+function countEntries(buf: Buffer): number {
+  for (let i = buf.length - 22; i >= 0 && i > buf.length - 66000; i--) {
+    if (buf.readUInt32LE(i) === 0x06054b50) return buf.readUInt16LE(i + 10);
+  }
+  return -1;
+}
+
 // ── 크로스워크 ──
 const cwPath = path.join(ROOT, 'src/data/crosswalk.json');
 if (!fs.existsSync(cwPath)) {
@@ -94,13 +102,14 @@ if (!fs.existsSync(cwPath)) {
 } else {
   const cw = JSON.parse(fs.readFileSync(cwPath, 'utf8')) as {
     polaris: Record<string, { bioguide: string | null }>;
-    members: { bioguide: string; party: string }[];
+    members: { bioguide: string; party: string; caucus: string }[];
   };
   const toPolaris = new Map<string, string>();
   for (const [id, v] of Object.entries(cw.polaris)) if (v.bioguide) toPolaris.set(v.bioguide, id);
-  const partyByBio = new Map(cw.members.map((m) => [m.bioguide, m.party]));
-  const partyOf = new Map<string, string>();
-  for (const [bio, id] of toPolaris) partyOf.set(id, partyByBio.get(bio) ?? '');
+  // 정당이 아니라 코커스로 비교한다 — Sanders(I) × Markey(D) 는 초당적이 아니다
+  const partyByBio = new Map(cw.members.map((m) => [m.bioguide, m.caucus || m.party]));
+  const caucusOf = new Map<string, string>();
+  for (const [bio, id] of toPolaris) caucusOf.set(id, partyByBio.get(bio) ?? '');
 
   const relText = fs.readFileSync(path.join(ROOT, 'src/data/relationships.ts'), 'utf8');
   const curated = new Set(
@@ -111,15 +120,23 @@ if (!fs.existsSync(cwPath)) {
   const bills: Bill[] = [];
   for (const chamber of CHAMBERS) {
     let n = 0;
+    let seen = 0;
     for (const xml of unzip(await fetchZip(chamber))) {
+      seen++;
       const b = parseBill(xml);
       if (b) { bills.push(b); n++; }
     }
-    process.stdout.write(`  ${chamber}: 법안 ${n.toLocaleString()}건\n`);
+    // zip 을 직접 푸는 코드라 조용히 덜 읽으면 엣지가 소리 없이 줄어든다.
+    // 항목 수와 읽은 수가 다르면 멈춘다.
+    const entries = countEntries(await fetchZip(chamber));
+    if (seen !== entries) {
+      throw new Error(`${chamber}: zip 항목 ${entries}개 중 ${seen}개만 읽었다 — 압축 해제가 덜 됐다`);
+    }
+    process.stdout.write(`  ${chamber}: 법안 ${n.toLocaleString()}건 / 항목 ${entries.toLocaleString()}` + String.fromCharCode(10));
   }
 
   const tally = tallyPairs(bills);
-  const edges: CosponsorEdge[] = selectEdges(tally, { threshold: THRESHOLD, toPolaris, partyOf, curated });
+  const edges: CosponsorEdge[] = selectEdges(tally, { threshold: THRESHOLD, toPolaris, caucusOf, curated });
   const stats = buildStats(bills.length, tally, edges);
 
   const payload = {
@@ -135,9 +152,15 @@ if (!fs.existsSync(cwPath)) {
     edges: edges.map(({ samples: _drop, ...rest }) => rest),
   };
 
-  // pairKey → 근거. relationship-sources.json 과 같은 모양이라 같은 로더가 읽는다
+  // pairKey → 근거. relationship-sources.json 과 같은 모양이라 같은 로더가 읽는다.
+  //
+  // 큐레이션된 쌍은 넣지 않는다. 근거 패널은 최근 4건만 보여주는데 법안 날짜가
+  // 기사보다 새로워서 **관계를 뒷받침하던 기사를 밀어냈다.** 대상 2건이 전부 밀렸다.
+  // 그 쌍의 공동발의 건수는 엣지 데이터에 남으므로 화면에서는 건수로 보여준다.
   const sources = Object.fromEntries(
-    edges.map((e) => [
+    edges
+      .filter((e) => !e.duplicate)
+      .map((e) => [
       pairKey(e.a, e.b),
       e.samples.map((s) => ({
         title: s.title || s.id.toUpperCase(),

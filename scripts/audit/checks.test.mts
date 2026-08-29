@@ -277,13 +277,14 @@ describe('checkCosponsor', () => {
     threshold: 10,
     stats: { edges: 2, fresh: 1, crossParty: 1 },
     edges: [
-      { a: 'markey', b: 'warren', bills: 78, crossParty: false, duplicate: true },
-      { a: 'cruz', b: 'warnock', bills: 12, crossParty: true, duplicate: false },
+      { a: 'markey', b: 'warren', bills: 78, strength: 3, crossParty: false, duplicate: true },
+      { a: 'cruz', b: 'warnock', bills: 12, strength: 1, crossParty: true, duplicate: false },
     ],
   };
   const ids = new Set(['markey', 'warren', 'cruz', 'warnock']);
   const curated = new Set(['markey|warren']);
-  const srcs = { 'markey|warren': [bill(1)], 'cruz|warnock': [bill(2)] };
+  // 큐레이션된 markey|warren 에는 근거를 두지 않는다
+  const srcs = { 'cruz|warnock': [bill(2)] };
 
   it('맞으면 아무것도 보고하지 않는다', () => {
     expect(checkCosponsor(ok, ids, curated, srcs)).toHaveLength(0);
@@ -295,12 +296,12 @@ describe('checkCosponsor', () => {
   });
 
   it('기준선 아래가 섞이면 잡는다', () => {
-    const bad = { ...ok, edges: [{ ...ok.edges[1], bills: 9 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    const bad = { ...ok, edges: [{ ...ok.edges[1], bills: 9, strength: 1 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
     expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.threshold');
   });
 
   it('자기 자신과의 엣지를 잡는다', () => {
-    const bad = { ...ok, edges: [{ a: 'cruz', b: 'cruz', bills: 20, crossParty: false, duplicate: false }],
+    const bad = { ...ok, edges: [{ a: 'cruz', b: 'cruz', bills: 20, strength: 2, crossParty: false, duplicate: false }],
       stats: { edges: 1, fresh: 1, crossParty: 0 } };
     expect(checkCosponsor(bad, ids, curated, { 'cruz|cruz': [bill(1)] }).map((f) => f.check))
       .toContain('cosponsor.self');
@@ -318,9 +319,19 @@ describe('checkCosponsor', () => {
     expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.duplicateFlag');
   });
 
-  it('근거 법안이 없으면 잡는다', () => {
-    expect(checkCosponsor(ok, ids, curated, { 'markey|warren': [bill(1)] }).map((f) => f.check))
-      .toContain('cosponsor.sources');
+  it('그려지는 엣지에 근거가 없으면 잡는다', () => {
+    expect(checkCosponsor(ok, ids, curated, {}).map((f) => f.check)).toContain('cosponsor.sources');
+  });
+
+  // 법안 날짜가 기사보다 새로워서 관계를 뒷받침하던 기사를 밀어냈다 — 실제 회귀였다
+  it('큐레이션된 쌍에 법안 근거가 들어가면 잡는다', () => {
+    const leak = { ...srcs, 'markey|warren': [bill(9)] };
+    expect(checkCosponsor(ok, ids, curated, leak).map((f) => f.check)).toContain('cosponsor.curatedLeak');
+  });
+
+  it('건수와 강도가 어긋나면 잡는다', () => {
+    const bad = { ...ok, edges: [{ ...ok.edges[1], strength: 3 }], stats: { edges: 1, fresh: 1, crossParty: 1 } };
+    expect(checkCosponsor(bad, ids, curated, srcs).map((f) => f.check)).toContain('cosponsor.strength');
   });
 
   // 눌러서 확인할 수 없는 링크가 섞이면 근거 패널의 전제가 깨진다
