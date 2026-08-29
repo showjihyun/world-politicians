@@ -14,7 +14,8 @@
     "e2e": "node scripts/e2e/polaris.e2e.mjs",
     "audit:data": "node --experimental-strip-types scripts/audit/data.mts",
     "audit:boundary": "node --experimental-strip-types scripts/audit/boundary.mts",
-    "audit": "npm run audit:boundary && npm run audit:data"
+    "audit": "npm run audit:boundary && npm run audit:conventions && npm run audit:data",
+    "audit:conventions": "node --experimental-strip-types scripts/audit/conventions.mts"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",

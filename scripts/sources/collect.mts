@@ -19,6 +19,9 @@ import { isAllowedSource } from '../news-pipeline/fetch.mts';
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const OUT = path.join(ROOT, 'src/data/relationship-sources.json');
 const DO_FETCH = process.argv.includes('--fetch');
+// --dry 는 "쓰지 않는다", --fetch 는 "네트워크 단계를 돈다" — 축이 다르다.
+// 다른 쓰기 스크립트와 같은 뜻으로 맞춘다 (scripts/audit/conventions.mts 가 강제)
+const DRY = process.argv.includes('--dry');
 const PER_PAIR = 3;
 
 interface Src { title: string; url: string; source: string; date: string }
@@ -130,6 +133,10 @@ for (const k of keys) out[k] = collected.get(k)!;
 
 // TS 모듈이 아니라 JSON 으로 낸다 — 초기 번들에 들어가면 안 되는 크기라
 // 앱에서 필요할 때만 동적 import 로 불러온다.
-fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
+if (DRY) {
+  console.log(`[sources] --dry — 쓰지 않음`);
+} else {
+  fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
+}
 
 console.log(`[sources] ${OUT} — 엣지 ${keys.length}/${pairs.length}개 (${Math.round((keys.length / pairs.length) * 100)}%)`);

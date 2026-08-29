@@ -24,6 +24,9 @@ jobs:
       - name: Domain boundary
         run: npm run audit:boundary
 
+      - name: Script conventions
+        run: npm run audit:conventions
+
       - name: Data audit
         run: npm run audit:data
 
