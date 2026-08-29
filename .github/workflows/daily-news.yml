@@ -30,6 +30,8 @@ jobs:
         run: |
           git config user.name "polaris-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A src/data/signals src/data/news-signals.json
+          # 분할 이후 출력은 이 디렉터리 하나다. 예전 단일 파일 경로를 같이 주면
+          # 파일이 없어 git add 가 pathspec 오류로 죽는다.
+          git add -A src/data/signals
           git diff --cached --quiet || git commit -m "news: refresh relationship signals [skip ci]"
           git push
