@@ -151,9 +151,10 @@ The build is a static bundle, so anything that serves files will do. Two paths a
 
 A reader asked whether this could grow to cover staffer networks, donor flows, lobbying
 disclosures, and roll-call votes — mapping who actually influences federal decision-making.
-It's the right question, and the honest answer has numbers attached: **56 of the 101 figures
-here are sitting members of Congress; 39 have both a Voteview and an FEC id.** So that data
-would attach to about half the graph, not all of it. See [`docs/roadmap.md`](docs/roadmap.md)
+It's the right question, and the honest answer has numbers attached: **75 of the 101 figures
+match a current or former member of Congress — 56 have roll-call records, 75 have an FEC id.**
+But measured against edges rather than people, vote data only touches the 74 legislator-to-legislator
+relationships out of 266. See [`docs/roadmap.md`](docs/roadmap.md)
 for which sources are reachable today, why the join is the hard part, and what has to be
 decided before any of it starts.
 
