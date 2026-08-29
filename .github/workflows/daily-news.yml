@@ -26,6 +26,10 @@ jobs:
           NEWS_LLM_API_KEY: ${{ secrets.NEWS_LLM_API_KEY }}
         run: node --experimental-strip-types scripts/news-pipeline/pipeline.mts
 
+      # 수집 결과가 깨졌으면 커밋하지 않는다. 커밋된 뒤에 알면 되돌려야 한다.
+      - name: Audit collected data
+        run: npm run audit:data
+
       - name: Commit refreshed signals
         run: |
           git config user.name "polaris-bot"

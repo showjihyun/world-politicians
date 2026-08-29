@@ -21,5 +21,8 @@ jobs:
         run: npx tsc --noEmit
       - name: Unit tests (domain)
         run: npm test
+      - name: Data audit
+        run: npm run audit:data
+
       - name: Build
         run: npm run build

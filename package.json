@@ -11,7 +11,8 @@
     "news:dry": "node --experimental-strip-types scripts/news-pipeline/pipeline.mts --dry",
     "test": "vitest run",
     "test:watch": "vitest",
-    "e2e": "node scripts/e2e/polaris.e2e.mjs"
+    "e2e": "node scripts/e2e/polaris.e2e.mjs",
+    "audit:data": "node --experimental-strip-types scripts/audit/data.mts"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
