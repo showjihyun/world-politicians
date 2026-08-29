@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { SIGNALS_BY_PAIR } from '../data/signals';
 import { pairKey } from './graph';
 import type { RelSource, Relationship } from '../types';
 
@@ -30,21 +29,16 @@ function load(): Promise<SourceMap> {
   return loading;
 }
 
-/** 뉴스 파이프라인이 이미 들고 있는 신호 — 별도 로딩 없이 즉시 쓸 수 있다 */
-function liveSources(key: string): RelSource[] {
-  return (SIGNALS_BY_PAIR.get(key) ?? []).map((s) => ({
-    title: s.title,
-    url: s.url,
-    source: s.source,
-    date: s.date,
-  }));
-}
-
 function merge(rel: Relationship, collected: RelSource[]): RelSource[] {
   const seen = new Set<string>();
   const out: RelSource[] = [];
-  // 수동 확정 → 수집분 → 최근 신호 순. 같은 URL 은 한 번만.
-  for (const s of [...(rel.sources ?? []), ...collected, ...liveSources(pairKey(rel.a, rel.b))]) {
+  // 수동 확정 → 수집분 순. 같은 URL 은 한 번만.
+  //
+  // 뉴스 파이프라인의 신호는 여기 넣지 않는다. 그 URL 의 97% 가 Google News
+  // 리다이렉트라 목적지도 매체명도 확인할 수 없다. 근거 패널은 "눌러서 확인할 수
+  // 있다" 가 전부인 기능이므로, 확인 불가능한 링크가 한 건이라도 섞이면 의미가 없다.
+  // (해당 신호들은 프로필의 Latest Wire 에 그대로 남는다)
+  for (const s of [...(rel.sources ?? []), ...collected]) {
     if (!s.url || seen.has(s.url)) continue;
     seen.add(s.url);
     out.push(s);

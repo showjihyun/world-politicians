@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import VisitorCount from './VisitorCount';
 import {
   Search,
   Box,
@@ -68,6 +69,7 @@ export default function TopBar() {
       </div>
 
       <div className="pointer-events-auto flex items-center gap-2">
+        <VisitorCount />
         <div className="relative">
           <div className="flex h-10 w-56 items-center gap-2 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl sm:w-72">
             <Search size={14} className="shrink-0 text-slate-500" />

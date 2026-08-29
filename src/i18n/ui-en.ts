@@ -93,6 +93,7 @@ export const UI_EN = {
   noSources: 'No linked source yet. This edge rests on the summary above — an editorial reading of public reporting, not a cited claim.',
   sourcesLoading: 'Loading sources…',
   sourcesAuto: 'Auto-collected: articles naming both people. Supporting, not verified — some may be co-mentions only.',
+  visitors: 'visitors',
   tabStories: 'STORIES',
   storyFigures: 'figures',
   tabFilters: 'FILTERS',
