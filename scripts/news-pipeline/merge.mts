@@ -153,8 +153,12 @@ export function pickRecent(signals: Signal[]): Signal[] {
 /**
  * 월별 파티션 + 매니페스트 + 즉시 로드분으로 나눠 쓴다.
  * 예전 단일 파일은 지운다 — 남겨두면 번들에 두 벌이 들어간다.
+ *
+ * generatedAt 은 "뉴스를 실제로 수집한 시각" 이다. 분할·정규화 같은 재처리에서
+ * 이 값이 갱신되면 화면의 신선도 배지가 거짓말을 한다(재처리 시각을 수집 시각으로
+ * 표시). 그래서 기본값은 "기존 값 유지" 이고, 실제로 수집한 경우에만 fresh 를 준다.
  */
-export function writeOutput(file: SignalsFile, dry: boolean): string {
+export function writeOutput(file: SignalsFile, dry: boolean, opts: { fresh?: boolean } = {}): string {
   if (dry) {
     const p = 'scripts/news-pipeline/.dry-output.json';
     fs.writeFileSync(p, JSON.stringify(file, null, 0));
@@ -164,6 +168,18 @@ export function writeOutput(file: SignalsFile, dry: boolean): string {
 
   const dir = CONFIG.paths.signalsDir;
   fs.mkdirSync(dir, { recursive: true });
+
+  let generatedAt = file.generatedAt;
+  if (!opts.fresh) {
+    try {
+      const prev = JSON.parse(
+        fs.readFileSync(path.join(dir, 'index.json'), 'utf8')
+      ) as { generatedAt?: string };
+      if (prev.generatedAt) generatedAt = prev.generatedAt;
+    } catch {
+      /* 매니페스트가 없으면 넘어온 값을 그대로 쓴다 */
+    }
+  }
 
   const byMonth = new Map<string, Signal[]>();
   for (const s of file.signals) {
@@ -194,7 +210,7 @@ export function writeOutput(file: SignalsFile, dry: boolean): string {
   for (const s of file.signals) for (const p of s.people) counts[p] = (counts[p] ?? 0) + 1;
 
   const index: SignalsIndex = {
-    generatedAt: file.generatedAt,
+    generatedAt,
     windowDays: file.windowDays,
     stats: file.stats,
     firstDate: dates[0] ?? null,

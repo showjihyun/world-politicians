@@ -16,5 +16,5 @@ const file: SignalsFile = buildFile(
   accumulate(readExisting(), signals),
   CONFIG.maxArchive
 );
-writeOutput(file, dry);
+writeOutput(file, dry, { fresh: true });
 validate(file, dry);

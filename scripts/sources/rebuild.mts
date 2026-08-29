@@ -163,6 +163,8 @@ for (const e of edges) {
           if (seen.has(a.url) || seen.has(tkey)) continue;
           seen.add(a.url);
           seen.add(tkey);
+          // seendate 는 GDELT 가 기사를 수집한 시각이다. 발행일과 보통 하루 안쪽으로
+          // 붙지만 같은 값은 아니다 — 화면에도 "대략의 보도 시점" 으로 읽혀야 한다.
           const d = (a.seendate ?? '').slice(0, 8);
           hits.push({
             title: a.title.replace(/\s+/g, ' ').trim(),

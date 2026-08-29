@@ -27,7 +27,7 @@ async function main(): Promise<void> {
     accumulate(readExisting(), signals),
     CONFIG.maxArchive
   );
-  writeOutput(file, dry);
+  writeOutput(file, dry, { fresh: true });
   validate(file, dry);
 }
 
