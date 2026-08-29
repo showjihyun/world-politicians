@@ -16,9 +16,9 @@
     "walz"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump falsely blames Gov. Tim Walz for Minnesota water system hacks despite evidence pointing to Iran.",
-   "summary_ko": "트럼프가 미네소타 수도 시스템 해킹의 책임을 팀 월즈 주지사에게 돌렸으나 증거는 이란을 가리키고 있다.",
+   "confidence": 0.95,
+   "summary_en": "Trump blames Walz for Minnesota water hacks despite evidence pointing to Iran.",
+   "summary_ko": "트럼프가 미네소타 수자원 해킹의 책임을 월즈에게 돌렸으나 증거는 이란을 지목하고 있다.",
    "classified": true
   },
   {
@@ -36,9 +36,9 @@
     "walz"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "CNN fact-checks Trump's baseless claim that Gov. Tim Walz is behind a cyberattack, calling it debunked.",
-   "summary_ko": "CNN이 팀 월즈 주지사가 사이버 공격의 배후라는 트럼프의 근거 없는 주장을 팩트체크로 반박했다.",
+   "confidence": 0.95,
+   "summary_en": "Trump baselessly accuses Walz of being behind a cyberattack, per CNN fact-check.",
+   "summary_ko": "CNN 팩트체크에 따르면 트럼프가 월즈 주지사를 사이버 공격 배후로 근거 없이 비난했습니다.",
    "classified": true
   },
   {
@@ -56,9 +56,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Trump publicly questions Sen. John Thune's leadership as the SAVE America Act stalls in Congress.",
-   "summary_ko": "트럼프가 SAVE 아메리카 법안 교착 상태를 이유로 존 튠 상원의원의 리더십을 공개적으로 비판했다.",
+   "confidence": 0.9,
+   "summary_en": "Trump publicly questions Thune's leadership as the SAVE America Act stalls.",
+   "summary_ko": "트럼프가 SAVE 아메리카 법안 지연을 이유로 튠 원내대표의 리더십을 공개적으로 비판했습니다.",
    "classified": true
   },
   {
@@ -76,9 +76,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Sen. John Fetterman dismisses Trump's influence over lame-duck Republican senators as nonexistent.",
-   "summary_ko": "존 페터맨 상원의원이 트럼프가 레임덕 공화당 상원의원들에게 '영향력이 전혀 없다'고 일축했다.",
+   "confidence": 0.85,
+   "summary_en": "Fetterman claims Trump has zero leverage over lame-duck GOP senators.",
+   "summary_ko": "페터만 의원이 트럼프가 레임덕 공화당 상원의원들에게 영향력이 없다고 주장했습니다.",
    "classified": true
   },
   {
@@ -703,6 +703,26 @@
    "confidence": 0.85,
    "summary_en": "Mark Kelly blames Trump for Democratic shift toward socialism.",
    "summary_ko": "마크 켈리가 민주당의 사회주의 선회 책임을 트럼프에게 돌렸다.",
+   "classified": true
+  },
+  {
+   "id": "sig-595f529f",
+   "date": "2026-07-31",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQ3U1VlpUUFhZSWNqM2lNUkppenFkS0ZtUTRfMUZUWGVqTDNMc3BHTVdtZXpackdJdG9PSEQ0X0VCOXNaV0xidTVDeVBaVXEtR3hBalF0c1g3WThXbTZMLUVEWnhCaHR4WnAxeEJraHNSZmZFVW9iUDJYVVlDOGVEZ19zazlsUDNJRWZ5aHJWQkw0R3lwaFBsWkhuV0Vsdw?oc=5",
+   "title": "Zelenskyy asks Trump to help him get Elon Musk's OK to use Starlink to help with strikes on Russia - AP News",
+   "people": [
+    "trump",
+    "musk"
+   ],
+   "pair": [
+    "musk",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Zelenskyy asks Trump to persuade Musk to allow Starlink use for strikes on Russia.",
+   "summary_ko": "젤렌스키가 트럼프에게 머스크를 설득해 스타링크의 대러시아 타격 사용을 승인해달라고 요청했다.",
    "classified": true
   },
   {
