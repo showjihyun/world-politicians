@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { CONFIG, PERSON_ALIASES } from './config.mts';
+import { isAllowedSource as isAllowed } from './core.mts';
 
 export interface Person {
   id: string;
@@ -80,24 +81,9 @@ async function fetchText(url: string): Promise<string | null> {
   }
 }
 
+/** 허용 매체 판정 — 규칙은 core.mts, 여기서는 이 앱의 목록을 묶어준다 */
 export function isAllowedSource(sourceUrl: string, sourceName: string): boolean {
-  if (sourceUrl && CONFIG.allowedSourceHosts.some((h) => sourceUrl.includes(h))) return true;
-
-  // 단순 부분일치는 위험하다: 'AP' 하나가 CoinG(ap)e / Yahoo News Sing(ap)ore /
-  // Tele(grap)hHerald / Iowa C(ap)ital Dispatch 까지 전부 통과시켰다.
-  // 이름은 단어 경계로만 맞춘다.
-  const name = sourceName.trim().toLowerCase();
-  if (!name) return false;
-  return CONFIG.allowedSourceNames.some((raw) => {
-    const n = raw.toLowerCase();
-    if (name === n) return true;
-    // 앞뒤가 문자/숫자가 아닌 자리에서만 일치를 인정
-    const i = name.indexOf(n);
-    if (i === -1) return false;
-    const before = i === 0 ? '' : name[i - 1];
-    const after = name[i + n.length] ?? '';
-    return !/[a-z0-9]/.test(before) && !/[a-z0-9]/.test(after);
-  });
+  return isAllowed(sourceUrl, sourceName, CONFIG.allowedSourceHosts, CONFIG.allowedSourceNames);
 }
 
 function normalizeToken(s: string): string {

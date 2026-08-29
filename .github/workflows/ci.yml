@@ -1,0 +1,25 @@
+name: ci
+
+# 단위 테스트가 CI 에 걸려 있지 않으면 "TDD 가능한 구조" 는 문서에만 존재한다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Unit tests (domain)
+        run: npm test
+      - name: Build
+        run: npm run build

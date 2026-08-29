@@ -1,6 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from './config.mts';
+import {
+  accumulate as accumulatePure,
+  bySalience,
+  buildStats as buildStatsPure,
+  partitionByMonth,
+  pickRecent as pickRecentPure,
+  resolveGeneratedAt,
+} from './core.mts';
 import type { Signal } from './extract.mts';
 
 export interface SignalsStats {
@@ -36,18 +44,11 @@ export interface SignalsIndex {
 }
 
 const MONTH_RE = /^\d{4}-\d{2}\.json$/;
+const RETENTION_DAYS = 365;
 
 /** 화면이 즉시 필요로 하는 양 — 인물당 4건(드로어) + 전체 6건(인사이트) */
 const PER_PERSON = 4;
 const GLOBAL_RECENT = 6;
-
-/** 분류·비중립을 앞세우고 그 안에서 최신순 */
-function rank(s: Signal): number {
-  return s.classified && s.polarity !== 'neutral' ? 0 : 1;
-}
-function bySalience(a: Signal, b: Signal): number {
-  return rank(a) - rank(b) || (a.date < b.date ? 1 : -1);
-}
 
 /**
  * 기존 아카이브 전체를 읽는다.
@@ -96,25 +97,10 @@ export function readExisting(): SignalsFile | null {
 
 /** 기존 + 신규를 id 로 합치고 365일이 지난 것을 버린다 */
 export function accumulate(existing: SignalsFile | null, incoming: Signal[]): Signal[] {
-  const map = new Map<string, Signal>();
-  for (const s of existing?.signals ?? []) map.set(s.id, s);
-  for (const s of incoming) map.set(s.id, s);
-  const cutoff = Date.now() - 365 * 86_400_000;
-  return [...map.values()].filter((s) => {
-    const ts = new Date(`${s.date}T00:00:00Z`).getTime();
-    return Number.isNaN(ts) || ts >= cutoff;
-  });
+  return accumulatePure(existing?.signals ?? [], incoming, RETENTION_DAYS);
 }
 
-function buildStats(signals: Signal[]): SignalsStats {
-  return {
-    total: signals.length,
-    classified: signals.filter((s) => s.classified).length,
-    ally: signals.filter((s) => s.polarity === 'ally').length,
-    feud: signals.filter((s) => s.polarity === 'feud').length,
-    neutral: signals.filter((s) => !s.classified || s.polarity === 'neutral').length,
-  };
-}
+const buildStats = buildStatsPure;
 
 export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFile {
   const sorted = [...signals].sort(bySalience).slice(0, cap);
@@ -132,22 +118,7 @@ export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFi
  * 분할의 핵심이 여기에 있다.
  */
 export function pickRecent(signals: Signal[]): Signal[] {
-  const sorted = [...signals].sort(bySalience);
-  const keep = new Set<string>();
-  const perPerson = new Map<string, number>();
-
-  for (const s of sorted) {
-    for (const p of s.people) {
-      const n = perPerson.get(p) ?? 0;
-      if (n < PER_PERSON) {
-        perPerson.set(p, n + 1);
-        keep.add(s.id);
-      }
-    }
-  }
-  for (const s of sorted.slice(0, GLOBAL_RECENT)) keep.add(s.id);
-
-  return sorted.filter((s) => keep.has(s.id));
+  return pickRecentPure(signals, PER_PERSON, GLOBAL_RECENT);
 }
 
 /**
@@ -169,25 +140,17 @@ export function writeOutput(file: SignalsFile, dry: boolean, opts: { fresh?: boo
   const dir = CONFIG.paths.signalsDir;
   fs.mkdirSync(dir, { recursive: true });
 
-  let generatedAt = file.generatedAt;
-  if (!opts.fresh) {
-    try {
-      const prev = JSON.parse(
-        fs.readFileSync(path.join(dir, 'index.json'), 'utf8')
-      ) as { generatedAt?: string };
-      if (prev.generatedAt) generatedAt = prev.generatedAt;
-    } catch {
-      /* 매니페스트가 없으면 넘어온 값을 그대로 쓴다 */
-    }
+  let previous: string | null = null;
+  try {
+    previous = (JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8')) as {
+      generatedAt?: string;
+    }).generatedAt ?? null;
+  } catch {
+    /* 매니페스트가 없으면 넘어온 값을 그대로 쓴다 */
   }
+  const generatedAt = resolveGeneratedAt(previous, file.generatedAt, opts.fresh ?? false);
 
-  const byMonth = new Map<string, Signal[]>();
-  for (const s of file.signals) {
-    const m = (s.date ?? '').slice(0, 7);
-    if (!/^\d{4}-\d{2}$/.test(m)) continue;
-    if (!byMonth.has(m)) byMonth.set(m, []);
-    byMonth.get(m)!.push(s);
-  }
+  const byMonth = partitionByMonth(file.signals);
 
   // 이번에 안 나온 달의 파일은 지운다 (365일 창을 벗어난 달)
   for (const name of fs.readdirSync(dir)) {
