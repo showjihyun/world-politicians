@@ -136,9 +136,10 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 
 빌드 결과가 정적 번들이라 파일만 서빙하면 어디든 올라갑니다. 두 경로를 준비해 뒀습니다.
 
-- **GitHub Pages** — `.github/workflows/pages.yml` 이 `main` 푸시마다 앱과 아키텍처
-  문서를 함께 배포합니다. 최초 1회 저장소 *Settings → Pages → Source → GitHub Actions*
-  설정이 필요합니다. 워크플로가 `PAGES_BASE` 를 넘겨 `/world-politicians/` 하위 경로에서
+- **GitHub Pages** — `.github/workflows/pages.yml` 이 앱과 아키텍처 문서를 배포합니다.
+  Pages 가 활성화돼 있지 않아 배포 단계가 실패하므로 자동 트리거는 주석 처리해 두었습니다.
+  쓰시려면 저장소 *Settings → Pages → Source → GitHub Actions* 로 바꾼 뒤 `push` 트리거를
+  되살리면 됩니다. 워크플로가 `PAGES_BASE` 를 넘겨 `/world-politicians/` 하위 경로에서
   자산이 해석되도록 합니다.
 - **Vercel** — *현재 [world-politicians.vercel.app](https://world-politicians.vercel.app/) 로 서비스 중입니다.* `vercel.json` 이
   들어 있어 저장소를 import 하고 기본값 그대로 두면 됩니다. `npm run build` 후 문서를 `dist/` 로

@@ -136,9 +136,10 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 
 The build is a static bundle, so anything that serves files will do. Two paths are wired up:
 
-- **GitHub Pages** — `.github/workflows/pages.yml` builds on every push to `main` and
-  publishes the app plus the architecture page. One-time setup: repo *Settings → Pages →
-  Source → GitHub Actions*. The workflow sets `PAGES_BASE` so assets resolve under the
+- **GitHub Pages** — `.github/workflows/pages.yml` publishes the app plus the architecture
+  page. Its automatic trigger is commented out, since Pages is not enabled on this repo and the
+  deploy step fails without it. To use it: repo *Settings → Pages → Source → GitHub Actions*,
+  then restore the `push` trigger. The workflow sets `PAGES_BASE` so assets resolve under the
   `/world-politicians/` sub-path.
 - **Vercel** — *currently live at [world-politicians.vercel.app](https://world-politicians.vercel.app/).* `vercel.json` is
   committed: import the repo and accept the defaults. It builds with `npm run build`, copies

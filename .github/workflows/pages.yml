@@ -5,10 +5,14 @@ name: pages
 #   /architecture.html   → 아키텍처 문서
 # 최초 1회 저장소 Settings → Pages → Source 를 "GitHub Actions" 로 바꿔야 동작한다.
 
+# 자동 실행은 꺼 두었다. Vercel 로 배포 중이고 Pages 는 활성화돼 있지 않아,
+# push 마다 deploy 단계가 404(Pages not enabled)로 실패해 알림만 쌓였다.
+# Pages 를 쓰기로 하면 Settings → Pages → Source 를 "GitHub Actions" 로 바꾼 뒤
+# 아래 push 트리거를 되살리면 된다. 그 전까지는 Actions 탭에서 수동 실행만 가능.
 on:
-  push:
-    branches: [main]
   workflow_dispatch: {}
+  # push:
+  #   branches: [main]
 
 # 야간 뉴스 갱신 커밋이 배포를 연달아 트리거해도 마지막 것만 살린다
 concurrency:
