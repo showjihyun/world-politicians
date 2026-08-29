@@ -147,6 +147,16 @@ The build is a static bundle, so anything that serves files will do. Two paths a
   the docs into `dist/`, and serves from the domain root (no base path needed). Immutable
   caching on `/assets/*`, and `cleanUrls` drops the `.html` (hence `/architecture`).
 
+### Where this is going
+
+A reader asked whether this could grow to cover staffer networks, donor flows, lobbying
+disclosures, and roll-call votes — mapping who actually influences federal decision-making.
+It's the right question, and the honest answer has numbers attached: **56 of the 101 figures
+here are sitting members of Congress; 39 have both a Voteview and an FEC id.** So that data
+would attach to about half the graph, not all of it. See [`docs/roadmap.md`](docs/roadmap.md)
+for which sources are reachable today, why the join is the hard part, and what has to be
+decided before any of it starts.
+
 ### Found an edge that's wrong?
 
 Very possible — see the caveats above. Open an issue with the two people, what the edge
