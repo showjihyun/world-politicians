@@ -27,6 +27,8 @@ const DRY = process.argv.includes('--dry');
 const SAMPLE = process.argv.includes('--sample');
 const LABELS = path.join(import.meta.dirname, 'labels.json');
 const TARGET = 120;
+/** 한 번에 보여줄 작업 대기열 크기 */
+const QUEUE = 20;
 /** 시드를 바꾸면 표본이 통째로 바뀐다 — 라벨을 버리게 되므로 고정한다 */
 const SEED = hashSeed('polaris-eval-v1');
 
@@ -154,8 +156,8 @@ const next = file.rows.filter(
 );
 if (next.length) {
   console.log('─'.repeat(58));
-  console.log(`다음에 채울 ${Math.min(5, next.length)}건 (남은 ${next.length}):`);
-  for (const r of next.slice(0, 5)) {
+  console.log(`다음에 채울 ${Math.min(QUEUE, next.length)}건 (남은 ${next.length}):`);
+  for (const r of next.slice(0, QUEUE)) {
     // 모델 판정을 여기서 보여주지 않는다 — 먼저 보면 그 답에 끌려간다.
     // (labels.json 을 열면 model 칸이 보이므로 완전한 차단은 아니다.
     //  truth 를 먼저 정하고 나서 파일을 여는 것을 권한다)
