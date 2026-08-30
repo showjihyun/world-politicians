@@ -860,7 +860,13 @@ export interface AccuracyFile {
  * "좋아졌다" 고 믿게 된다 — 이 저장소에서 "확인했다" 가 거짓이었던 사례가 반복됐다.
  *
  * 절대 점수로 실패시키지 않는다. 처음에는 기준선을 모르고, 낮다고 해서 그날
- * 배포를 막을 일도 아니다. **한 번 정한 기준선 아래로 떨어질 때만** 잡는다.
+ * 배포를 막을 일도 아니다.
+ *
+ * **여기서는 fail 을 내지 않는다.** `audit:data` 는 야간 워크플로에서 커밋 **앞에**
+ * 서 있어서, 여기서 실패하면 그날 수집분이 커밋되지 못하고 통째로 날아간다.
+ * 라벨 파일의 오타나 모델 품질 하락은 수집 데이터의 결함이 아니다.
+ * 기준선 하락으로 실패시키는 것은 `npm run eval` 의 몫이다 — 그쪽은 아무것도
+ * 막지 않는 전용 명령이다.
  */
 export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] {
   if (!f) {
@@ -893,7 +899,7 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
   if (bad.length) {
     return [
       {
-        level: 'fail',
+        level: 'warn',
         check: 'accuracy.invalid',
         message: `읽을 수 없는 라벨 ${bad.length}건 — polarity 는 ally|feud|neutral, pairCorrect 는 true|false`,
         samples: cap(bad),
@@ -922,14 +928,14 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
 
   if (b.polarity !== null && polRows.length && polAcc < b.polarity - tolerance) {
     out.push({
-      level: 'fail',
+      level: 'warn',
       check: 'accuracy.polarity',
       message: `극성 정확도 ${polAcc}% — 기준선 ${b.polarity}% 에서 떨어졌다 (허용 -${tolerance})`,
     });
   }
   if (b.pair !== null && pairRows.length && pairAcc < b.pair - tolerance) {
     out.push({
-      level: 'fail',
+      level: 'warn',
       check: 'accuracy.pair',
       message: `관계쌍 정확도 ${pairAcc}% — 기준선 ${b.pair}% 에서 떨어졌다 (허용 -${tolerance})`,
     });
@@ -967,7 +973,9 @@ export function checkSignalDuplicates(
   const seen = new Map<string, string>();
   const dups: string[] = [];
   for (const s of signals) {
-    const key = `${s.url} ${[...(s.pair ?? [])].sort().join('|')}`;
+    // 구분자는 core.mts 의 dedupeByStory 와 같아야 한다 — 다르면 감사와 파이프라인이
+    // 다른 것을 같다고 본다. url 에 공백이 있어도 충돌하지 않게 제어문자를 쓴다.
+    const key = `${s.url}\u0000${[...(s.pair ?? [])].sort().join('|')}`;
     const prev = seen.get(key);
     if (prev) dups.push(`${prev} ≡ ${s.id}`);
     else seen.set(key, s.id);

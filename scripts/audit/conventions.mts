@@ -17,13 +17,15 @@ import {
 } from './convention-rules.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
-const DIRS = ['scripts/news-pipeline', 'scripts/sources', 'scripts/audit'];
+const DIRS = ['scripts/news-pipeline', 'scripts/sources', 'scripts/audit', 'scripts/eval'];
 
 /** 등록된 플래그. 새 축이 필요하면 여기 먼저 추가하고 이유를 남긴다 */
 const ALLOWED_FLAGS = [
   '--dry',    // 쓰지 않는다 (모든 쓰기 스크립트 공통)
   '--fetch',  // 네트워크 단계를 돈다 (collect.mts — 쓰기 여부와 다른 축)
   '--links',  // 링크 생존까지 확인한다 (audit/data.mts — 느린 검사)
+  '--sample', // 라벨 표본을 더 뽑는다 (eval/labels.mts — 무엇을 쓸지의 축이고,
+              //   쓸지 말지는 --dry 가 정한다. 부작용을 켜는 플래그가 아니다)
 ] as const;
 
 const facts: ScriptFacts[] = [];

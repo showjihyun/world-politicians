@@ -5,6 +5,7 @@ import {
   mergeLabels,
   sampleSignals,
   readPairCorrect,
+  refreshModel,
   readPolarity,
   score,
   seededShuffle,
@@ -256,5 +257,63 @@ describe('verdictAgainst', () => {
 
   it('채점된 것이 없으면 판정하지 않는다', () => {
     expect(verdictAgainst(score([row('1')]), { polarity: 90, pair: 90 }).ok).toBe(true);
+  });
+});
+
+describe('refreshModel — 이게 없으면 아무 변화도 감지 못한다', () => {
+  const cur = (polarity, classified = true) => ({ polarity, classified });
+
+  it('모델 판정이 바뀌면 갱신하고 센다', () => {
+    const rows = [row('a', { model: { polarity: 'feud', classified: true } })];
+    const r = refreshModel(rows, new Map([['a', cur('ally')]]));
+    expect(r.rows[0].model.polarity).toBe('ally');
+    expect(r.changed).toBe(1);
+  });
+
+  it('같으면 그대로 두고 세지 않는다', () => {
+    const rows = [row('a', { model: { polarity: 'feud', classified: true } })];
+    const r = refreshModel(rows, new Map([['a', cur('feud')]]));
+    expect(r.changed).toBe(0);
+    expect(r.rows[0]).toBe(rows[0]);
+  });
+
+  // 재분류가 돌면 미분류였던 행이 분류된다 — 이걸 반영 못 하면 그 행은
+  // 영원히 극성 채점에서 빠진다
+  it('미분류가 분류되면 반영한다', () => {
+    const rows = [row('a', { model: { polarity: null, classified: false } })];
+    const r = refreshModel(rows, new Map([['a', cur('feud', true)]]));
+    expect(r.rows[0].model).toEqual({ polarity: 'feud', classified: true });
+    expect(r.changed).toBe(1);
+  });
+
+  // 365일이 지나 아카이브에서 빠져도 라벨을 버리지 않는다
+  it('아카이브에 없으면 스냅샷을 지키고 stale 로 센다', () => {
+    const rows = [row('gone', { model: { polarity: 'feud', classified: true } })];
+    const r = refreshModel(rows, new Map());
+    expect(r.rows[0].model.polarity).toBe('feud');
+    expect(r.stale).toBe(1);
+    expect(r.changed).toBe(0);
+  });
+
+  it('사람이 채운 truth 는 건드리지 않는다', () => {
+    const rows = [row('a', { model: { polarity: 'feud', classified: true }, truth: { polarity: 'ally', pairCorrect: true } })];
+    const r = refreshModel(rows, new Map([['a', cur('neutral')]]));
+    expect(r.rows[0].truth).toEqual({ polarity: 'ally', pairCorrect: true });
+  });
+});
+
+describe('score — pending 이 음수가 되지 않는다', () => {
+  // 한 칸은 맞고 한 칸은 오타면 labeled 와 invalid 에 동시에 들어간다
+  it('한 칸만 오타여도 pending 이 음수가 되지 않는다', () => {
+    const rows = [row('1', { truth: { polarity: 'conflict', pairCorrect: true } })];
+    const s = score(rows);
+    expect(s.pending).toBe(0);
+    expect(s.invalid).toBe(1);
+    expect(s.labeled).toBe(1);
+  });
+
+  it('아무것도 안 채운 행만 pending 으로 센다', () => {
+    const s = score([row('1'), row('2', { truth: { polarity: 'feud', pairCorrect: true } })]);
+    expect(s.pending).toBe(1);
   });
 });

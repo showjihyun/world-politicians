@@ -55,7 +55,10 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
     for (let i = 0; i < batch.length; i++) {
       const a = batch[i];
       const r = results.find((x) => x.idx === i);
-      const pair = r?.pair && a.people.includes(r.pair[0]) && a.people.includes(r.pair[1])
+      // applyResult 와 같은 규칙이어야 한다 — 같은 사람을 두 번 짚으면
+      // pairKey 가 'trump|trump' 가 되어 자기 자신과의 엣지가 생긴다
+      const pair = r?.pair && r.pair[0] !== r.pair[1]
+        && a.people.includes(r.pair[0]) && a.people.includes(r.pair[1])
         ? ([...r.pair].sort() as [string, string])
         : ([a.people[0], a.people[1]].sort() as [string, string]);
       signals.push({

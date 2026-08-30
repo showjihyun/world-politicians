@@ -24,8 +24,9 @@ async function main(): Promise<void> {
   }
 
   // 새 기사만 분류하면 한 번 실패한 신호는 영원히 미분류로 남는다.
-  // 합친 뒤 갇힌 것들을 다시 시도한다.
-  const merged = await reclassify(accumulate(readExisting(), signals));
+  // 합친 뒤 갇힌 것들을 다시 시도한다. --dry 는 미리보기라 LLM 을 부르지 않는다.
+  const accumulated = accumulate(readExisting(), signals);
+  const merged = dry ? accumulated : await reclassify(accumulated);
   const file: SignalsFile = buildFile(merged, CONFIG.maxArchive);
   writeOutput(file, dry, { fresh: true });
   validate(file, dry);

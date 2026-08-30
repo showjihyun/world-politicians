@@ -151,7 +151,7 @@ export function writeOutput(file: SignalsFile, dry: boolean, opts: { fresh?: boo
   } catch {
     /* 매니페스트가 없으면 넘어온 값을 그대로 쓴다 */
   }
-  const generatedAt = resolveGeneratedAt(previous, file.generatedAt, opts.fresh ?? false);
+  const generatedAt = resolveGeneratedAt(previous, file.generatedAt, opts.fresh ?? false, file.lastDate);
 
   const byMonth = partitionByMonth(file.signals);
 

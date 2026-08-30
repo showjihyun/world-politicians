@@ -331,6 +331,8 @@ export default function DetailDrawer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-start gap-2 rounded-lg px-1 py-1 transition-colors hover:bg-white/5"
+                    data-testid="wire-item"
+                    data-polarity={s.classified ? (s.polarity ?? 'none') : 'unclassified'}
                   >
                     <span
                       className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"

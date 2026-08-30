@@ -582,7 +582,9 @@ describe('checkAccuracy', () => {
     expect(f.map((x) => x.check)).toEqual(
       expect.arrayContaining(['accuracy.polarity', 'accuracy.pair'])
     );
-    expect(f.every((x) => x.level === 'fail')).toBe(true);
+    // fail 이면 야간 워크플로가 커밋 전에 죽어 그날 수집분이 날아간다.
+    // 기준선 하락으로 실패시키는 것은 npm run eval 의 몫이다.
+    expect(f.every((x) => x.level === 'warn')).toBe(true);
   });
 
   // 표본이 작을 때 1~2건 차이로 깨지면 아무도 안 본다
@@ -607,7 +609,7 @@ describe('checkAccuracy', () => {
   // 오타를 오답으로 세면 기준선이 낮게 박혀 진짜 하락을 영영 못 잡는다
   it('읽을 수 없는 라벨을 잡는다', () => {
     const rows = [r({ truth: { polarity: 'conflict', pairCorrect: true } })];
-    expect(checkAccuracy(file(rows))[0]).toMatchObject({ level: 'fail', check: 'accuracy.invalid' });
+    expect(checkAccuracy(file(rows))[0]).toMatchObject({ level: 'warn', check: 'accuracy.invalid' });
   });
 
   it('pairCorrect 가 불리언이 아니면 잡는다', () => {

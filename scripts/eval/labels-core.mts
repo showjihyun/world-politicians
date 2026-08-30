@@ -151,6 +151,46 @@ export function mergeLabels(existing: LabelRow[], fresh: LabelRow[]): LabelRow[]
   return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
+export interface CurrentVerdict {
+  polarity: string | null;
+  classified: boolean;
+}
+
+export interface RefreshResult {
+  rows: LabelRow[];
+  /** 모델 판정이 바뀐 행 수 — 프롬프트를 고쳤는지, 재분류가 돌았는지가 여기 보인다 */
+  changed: number;
+  /** 아카이브에서 빠져 스냅샷으로만 남은 행 수 */
+  stale: number;
+}
+
+/**
+ * 저장된 모델 판정을 현재 값으로 갱신한다.
+ *
+ * **이게 없으면 이 도구는 아무 변화도 감지하지 못한다.** 라벨을 만들 때 찍어 둔
+ * `model.polarity` 를 그대로 쓰면, 프롬프트를 고쳐 전체 판정이 달라져도 점수는
+ * 영원히 같은 값을 낸다. "고쳐놓고 좋아졌다고 믿는 것" 을 막으려고 만든 장치가
+ * 정작 변화를 못 보는 셈이다.
+ *
+ * 신호가 아카이브에서 빠졌으면(365일 경과) 스냅샷을 그대로 둔다 — 라벨을 버리는
+ * 것보다 낫다. 대신 몇 건이 그 상태인지 보고한다.
+ */
+export function refreshModel(rows: LabelRow[], current: Map<string, CurrentVerdict>): RefreshResult {
+  let changed = 0;
+  let stale = 0;
+  const out = rows.map((r) => {
+    const now = current.get(r.id);
+    if (!now) {
+      stale++;
+      return r;
+    }
+    if (now.polarity === r.model.polarity && now.classified === r.model.classified) return r;
+    changed++;
+    return { ...r, model: { polarity: now.polarity, classified: now.classified } };
+  });
+  return { rows: out, changed, stale };
+}
+
 /**
  * 사람이 적은 값을 읽는다.
  *
@@ -237,7 +277,8 @@ export function score(rows: LabelRow[]): Score {
   const bad = invalidLabels(rows);
   return {
     labeled: labeled.length,
-    pending: rows.length - labeled.length - bad.length,
+    // labeled 와 bad 는 겹칠 수 있다(한 칸은 맞고 한 칸은 오타). 빼기 두 번 하면 음수가 된다
+    pending: rows.filter((r) => r.truth.polarity == null && r.truth.pairCorrect == null).length,
     invalid: bad.length,
     polarity: {
       scored: polRows.length,

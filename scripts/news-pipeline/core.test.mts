@@ -332,3 +332,35 @@ describe('pickForRetry', () => {
     expect(pickForRetry([s('a', '2026-08-01', true)], 10)).toEqual([]);
   });
 });
+
+describe('resolveGeneratedAt — 데이터보다 이른 시각을 남기지 않는다', () => {
+  const PREV = '2026-08-29T17:00:00.000Z';
+  const NOW = '2026-08-31T03:00:00.000Z';
+
+  it('실제 수집이면 새 값을 쓴다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, true, '2026-08-31')).toBe(NOW);
+  });
+
+  // 분할·정규화가 이 값을 덮어써서 배지가 27.7시간 어긋난 적이 있다
+  it('재처리이고 데이터가 더 오래됐으면 보존한다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-29')).toBe(PREV);
+  });
+
+  // 보존만 하면 수집 시각이 최신 기사보다 이르러 감사가 실패한다
+  it('재처리라도 데이터가 더 새로우면 갱신한다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-30')).toBe(NOW);
+  });
+
+  it('이전 값이 없으면 새 값을 쓴다', () => {
+    expect(resolveGeneratedAt(null, NOW, false, '2026-08-30')).toBe(NOW);
+  });
+
+  it('lastDate 를 모르면 보존한다 — 함부로 갱신하지 않는다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, false)).toBe(PREV);
+    expect(resolveGeneratedAt(PREV, NOW, false, null)).toBe(PREV);
+  });
+
+  it('같은 날이면 보존한다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-29')).toBe(PREV);
+  });
+});

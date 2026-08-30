@@ -16,8 +16,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import {
-  hashSeed, invalidLabels, mergeLabels, readPolarity, sampleSignals, score,
-  toLabelRow, verdictAgainst,
+  hashSeed, invalidLabels, mergeLabels, readPolarity, refreshModel, sampleSignals,
+  score, toLabelRow, verdictAgainst,
   type LabelRow, type SignalLike,
 } from './labels-core.mts';
 
@@ -49,15 +49,37 @@ const file: LabelFile = fs.existsSync(LABELS)
   ? { ...empty, ...(JSON.parse(fs.readFileSync(LABELS, 'utf8')) as Partial<LabelFile>) }
   : empty;
 
-// ── 표본 추가 ──
-if (SAMPLE) {
-  const dir = CONFIG.paths.signalsDir;
-  const signals: SignalLike[] = [];
-  for (const name of fs.readdirSync(dir)) {
-    if (!/^\d{4}-\d{2}\.json$/.test(name)) continue;
+// ── 신호 적재 ──
+// 깨진 파티션 하나가 전체를 막지 않게 한다 — merge.mts 가 같은 이유로 감싼다
+const dir = CONFIG.paths.signalsDir;
+const signals: SignalLike[] = [];
+for (const name of fs.readdirSync(dir).sort()) {
+  if (!/^\d{4}-\d{2}\.json$/.test(name)) continue;
+  try {
     const part = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8')) as { signals?: SignalLike[] };
     signals.push(...(part.signals ?? []));
+  } catch {
+    console.warn(`[eval] ${name} 을 읽지 못했다 — 건너뛴다`);
   }
+}
+
+/**
+ * 저장된 모델 판정을 현재 값으로 맞춘다.
+ *
+ * 이걸 안 하면 라벨을 만들 때 찍어 둔 판정이 그대로 남아, 프롬프트를 고쳐
+ * 전체가 달라져도 점수가 영원히 같다. 변화를 보려고 만든 도구가 변화를 못 본다.
+ */
+const current = new Map(
+  signals.map((s) => [s.id, { polarity: s.classified ? (s.polarity ?? null) : null, classified: Boolean(s.classified) }])
+);
+const refreshed = refreshModel(file.rows, current);
+file.rows = refreshed.rows;
+if (refreshed.changed || refreshed.stale) {
+  console.log(`모델 판정 갱신 ${refreshed.changed}건${refreshed.stale ? ` · 아카이브에서 빠진 행 ${refreshed.stale}` : ''}`);
+}
+
+// ── 표본 추가 ──
+if (SAMPLE) {
 
   // 허브를 층 기준에 쓴다. feud 146건 중 108건이 trump 관련이라, 나누지 않으면
   // 표본이 통째로 trump 로 쏠려 "허브가 아닌 관계" 의 정확도를 못 잰다.
@@ -73,13 +95,16 @@ if (SAMPLE) {
 
   console.log(`신호 ${signals.length} · 허브 ${[...hubs].join(', ')}`);
   console.log(`표본 ${fresh.length} → 새로 추가 ${added} · 라벨 파일 총 ${merged.length}행`);
-  if (DRY) {
-    console.log('--dry — 쓰지 않았다');
-  } else {
-    fs.writeFileSync(LABELS, JSON.stringify({ ...file, rows: merged }, null, 2) + String.fromCharCode(10));
-    console.log(`${path.relative(ROOT, LABELS)} 기록`);
-  }
+  file.rows = merged;
   console.log('─'.repeat(58));
+}
+
+// 갱신분과 표본을 한 번에 쓴다. --dry 는 쓰지 않는다는 뜻이고 그 축은 하나뿐이다.
+if (!DRY && (refreshed.changed || SAMPLE)) {
+  fs.writeFileSync(LABELS, JSON.stringify(file, null, 2) + '\n');
+  console.log(`${path.relative(ROOT, LABELS)} 기록`);
+} else if (DRY) {
+  console.log('--dry — 쓰지 않았다');
 }
 
 // ── 채점 ──
