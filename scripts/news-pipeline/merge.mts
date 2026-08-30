@@ -3,6 +3,7 @@ import path from 'node:path';
 import { CONFIG } from './config.mts';
 import {
   accumulate as accumulatePure,
+  dedupeByStory,
   bySalience,
   buildStats as buildStatsPure,
   partitionByMonth,
@@ -97,7 +98,9 @@ export function readExisting(): SignalsFile | null {
 
 /** 기존 + 신규를 id 로 합치고 365일이 지난 것을 버린다 */
 export function accumulate(existing: SignalsFile | null, incoming: Signal[]): Signal[] {
-  return accumulatePure(existing?.signals ?? [], incoming, RETENTION_DAYS);
+  // id 는 hash(url + title) 이라 매체가 헤드라인을 고치면 같은 기사가 다른 id 로
+  // 두 번 쌓인다. id 로 합친 뒤 (url, 관계쌍) 으로 한 번 더 거른다.
+  return dedupeByStory(accumulatePure(existing?.signals ?? [], incoming, RETENTION_DAYS));
 }
 
 const buildStats = buildStatsPure;

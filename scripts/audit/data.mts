@@ -35,6 +35,8 @@ const monthFiles = fs.existsSync(dir)
 
 if (!monthFiles.length) {
   console.error('[audit] 월 파티션이 없다 — 파이프라인이 한 번도 돌지 않았거나 경로가 어긋났다');
+  // 여기서는 exit() 가 맞다 — 아직 아무 I/O 도 시작하지 않았고, 멈추지 않으면
+  // 키 없이 호출을 계속한다. exitCode 만 세우면 실행이 그대로 이어진다.
   process.exit(1);
 }
 
@@ -77,6 +79,7 @@ findings.push(...checkDates(signals, 'signals', now));
 findings.push(...checkDates(sourceLinks, 'sources', now, '2017-01-01'));
 findings.push(...checkFreshness(manifest.generatedAt, manifest.lastDate, now));
 findings.push(...checkReferences(signals, knownIds));
+findings.push(...checkSignalDuplicates(signals));
 findings.push(...checkPresentation(sourceLinks));
 findings.push(...checkVerifiable(sourceLinks));
 findings.push(...checkDuplicates(sourcesByEdge));

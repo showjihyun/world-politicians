@@ -12,13 +12,24 @@ import OpenAI from 'openai';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { extractJsonArray } from './parse-core.mts';
 
-const client = new OpenAI({ apiKey: CONFIG.llm.apiKey, baseURL: CONFIG.llm.baseURL });
+/**
+ * 클라이언트는 처음 쓸 때 만든다.
+ *
+ * import 시점에 만들면 호출부의 가드("API 키 없음 — 중단")가 돌기 **전에**
+ * 생성자가 던진다. 친절한 메시지 대신 스택 트레이스가 나오고, 어느 환경변수가
+ * 빠졌는지 알기 어려워진다. 세 스크립트를 이 모듈로 모으면서 생긴 회귀다.
+ */
+let client: OpenAI | null = null;
+const getClient = (): OpenAI => (client ??= new OpenAI({
+  apiKey: CONFIG.llm.apiKey,
+  baseURL: CONFIG.llm.baseURL,
+}));
 
 /** 두 번 시도하고, 못 받으면 빈 배열. 부분 결과를 지어내지 않는다 */
 export async function ask(system: string, user: string): Promise<unknown[]> {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const res = await client.chat.completions.create({
+      const res = await getClient().chat.completions.create({
         model: CONFIG.llm.model,
         messages: [
           { role: 'system', content: system },

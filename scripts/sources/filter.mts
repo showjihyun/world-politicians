@@ -55,6 +55,8 @@ console.log(`[filter] 후보 ${total}건 / 엣지 ${keys.length}개`);
 
 if (!CONFIG.llm.apiKey) {
   console.error('[filter] NEWS_LLM_API_KEY 없음 — 중단');
+  // 여기서는 exit() 가 맞다 — 아직 아무 I/O 도 시작하지 않았고, 멈추지 않으면
+  // 키 없이 호출을 계속한다. exitCode 만 세우면 실행이 그대로 이어진다.
   process.exit(1);
 }
 const client = new OpenAI({ apiKey: CONFIG.llm.apiKey, baseURL: CONFIG.llm.baseURL });

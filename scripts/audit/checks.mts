@@ -954,6 +954,35 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
   return out;
 }
 
+/**
+ * 같은 기사가 두 번 쌓였는가.
+ *
+ * 신호 id 는 `hash(url + title)` 이라 매체가 헤드라인을 고치면 같은 기사가 다른
+ * id 로 들어온다(`Video ` 접두사가 붙는 경우도 있었다). id 로만 거르면 통과한다.
+ * 화면에는 같은 기사가 두 줄로 나가고, 그중 하나는 극성이 없을 수도 있다.
+ */
+export function checkSignalDuplicates(
+  signals: { id: string; url: string; pair?: string[] }[]
+): Finding[] {
+  const seen = new Map<string, string>();
+  const dups: string[] = [];
+  for (const s of signals) {
+    const key = `${s.url} ${[...(s.pair ?? [])].sort().join('|')}`;
+    const prev = seen.get(key);
+    if (prev) dups.push(`${prev} ≡ ${s.id}`);
+    else seen.set(key, s.id);
+  }
+  if (!dups.length) return [];
+  return [
+    {
+      level: 'fail',
+      check: 'signals.duplicate',
+      message: `같은 기사가 두 번 쌓였다 ${dups.length}건 — 제목이 바뀌면 id 가 달라진다`,
+      samples: cap(dups),
+    },
+  ];
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

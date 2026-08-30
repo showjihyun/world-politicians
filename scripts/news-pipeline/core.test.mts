@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  dedupeByStory,
   bySalience,
   rank,
   accumulate,
@@ -185,5 +186,66 @@ describe('rank / bySalience — 무엇을 먼저 보여줄 것인가', () => {
     expect([...xs].sort(bySalience).map((x: { id: string }) => x.id)).toEqual(
       [...xs].sort(bySalience).map((x: { id: string }) => x.id)
     );
+  });
+});
+
+describe('dedupeByStory — 제목이 바뀌면 id 가 달라진다', () => {
+  const s = (id: string, over: Record<string, unknown> = {}) =>
+    ({
+      id,
+      url: 'https://foxnews.com/a',
+      pair: ['trump', 'walz'],
+      date: '2026-08-19',
+      people: ['trump', 'walz'],
+      classified: true,
+      polarity: 'feud',
+      ...over,
+    }) as never;
+
+  // 매체가 헤드라인을 고치면 hash(url+title) 이 달라져 같은 기사가 두 번 쌓인다
+  it('url 과 관계쌍이 같으면 하나만 남긴다', () => {
+    expect(dedupeByStory([s('a'), s('b')])).toHaveLength(1);
+  });
+
+  it('url 이 다르면 둘 다 남긴다', () => {
+    expect(dedupeByStory([s('a'), s('b', { url: 'https://foxnews.com/other' })])).toHaveLength(2);
+  });
+
+  // 같은 기사가 두 관계를 다룰 수 있다 — 관계쌍이 다르면 다른 신호다
+  it('관계쌍이 다르면 둘 다 남긴다', () => {
+    expect(dedupeByStory([s('a'), s('b', { pair: ['trump', 'cruz'] })])).toHaveLength(2);
+  });
+
+  it('관계쌍 순서가 뒤바뀐 것은 같은 것으로 본다', () => {
+    expect(dedupeByStory([s('a'), s('b', { pair: ['walz', 'trump'] })])).toHaveLength(1);
+  });
+
+  // 판정이 있는 쪽이 정보가 많고, 화면에서 극성 없이 나가는 것을 줄인다
+  it('분류된 것을 남긴다', () => {
+    const kept = dedupeByStory([s('unclassified', { classified: false, polarity: undefined }), s('classified')]);
+    expect(kept.map((x) => x.id)).toEqual(['classified']);
+  });
+
+  it('둘 다 분류됐으면 최신을 남긴다', () => {
+    const kept = dedupeByStory([s('old', { date: '2026-08-01' }), s('new', { date: '2026-08-19' })]);
+    expect(kept.map((x) => x.id)).toEqual(['new']);
+  });
+
+  it('전부 같으면 id 순으로 정해 결과가 흔들리지 않게 한다', () => {
+    expect(dedupeByStory([s('b'), s('a')]).map((x) => x.id)).toEqual(['a']);
+    expect(dedupeByStory([s('a'), s('b')]).map((x) => x.id)).toEqual(['a']);
+  });
+
+  it('원래 순서를 지킨다 — 정렬은 호출부의 몫이다', () => {
+    const xs = [s('x', { url: 'u1' }), s('y', { url: 'u2' }), s('z', { url: 'u3' })];
+    expect(dedupeByStory(xs).map((v) => v.id)).toEqual(['x', 'y', 'z']);
+  });
+
+  it('빈 입력은 빈 결과', () => {
+    expect(dedupeByStory([])).toEqual([]);
+  });
+
+  it('관계쌍이 없어도 터지지 않는다', () => {
+    expect(dedupeByStory([s('a', { pair: undefined }), s('b', { pair: undefined })])).toHaveLength(1);
   });
 });

@@ -7,6 +7,7 @@ import {
   type FundingFile,
   type LobbyingFile,
   type SourceRef,
+  checkSignalDuplicates,
 } from './checks.mts';
 
 const NOW = new Date('2026-08-29T06:00:00Z');
@@ -618,5 +619,28 @@ describe('checkAccuracy', () => {
     const f = checkAccuracy(file(rows));
     expect(f[0]).toMatchObject({ check: 'accuracy.ok' });
     expect(f[0].message).toContain('100%');
+  });
+});
+
+describe('checkSignalDuplicates', () => {
+  const s = (id: string, url = 'https://foxnews.com/a', pair = ['trump', 'walz']) => ({ id, url, pair });
+
+  it('중복이 없으면 조용하다', () => {
+    expect(checkSignalDuplicates([s('a'), s('b', 'https://foxnews.com/other')])).toHaveLength(0);
+  });
+
+  // id 는 hash(url + title) 이라 매체가 헤드라인을 고치면 다른 id 로 또 들어온다
+  it('url 과 관계쌍이 같으면 잡는다', () => {
+    const f = checkSignalDuplicates([s('a'), s('b')]);
+    expect(f[0]).toMatchObject({ level: 'fail', check: 'signals.duplicate' });
+    expect(f[0].samples?.[0]).toBe('a ≡ b');
+  });
+
+  it('관계쌍이 다르면 중복이 아니다 — 한 기사가 두 관계를 다룰 수 있다', () => {
+    expect(checkSignalDuplicates([s('a'), s('b', 'https://foxnews.com/a', ['trump', 'cruz'])])).toHaveLength(0);
+  });
+
+  it('관계쌍 순서가 뒤바뀐 것은 같은 것으로 본다', () => {
+    expect(checkSignalDuplicates([s('a'), s('b', 'https://foxnews.com/a', ['walz', 'trump'])])).toHaveLength(1);
   });
 });
