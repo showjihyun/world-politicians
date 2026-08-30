@@ -499,6 +499,23 @@ async function main() {
   await page.keyboard.press('Escape');
   await page.waitForTimeout(500);
 
+  // 분류에 실패한 신호는 극성도 요약도 없다. 아무 표시 없이 내보내면
+  // "판정이 없다" 가 아니라 그냥 빈약한 항목으로 보인다.
+  // Gallego 는 신호 4건 중 3건이 미분류라 라벨이 실제로 화면에 나온다.
+  // Trump 같은 허브는 bySalience 가 미분류를 뒤로 밀어 상위 4건에 안 걸린다.
+  await page.getByPlaceholder('Search politicians…').fill('Gallego');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'Ruben Gallego' }).first().click();
+  await page.waitForTimeout(1200);
+  const wireText = await page.locator('[data-testid=drawer-scroll]').first().innerText();
+  check(
+    'unclassified signals are labelled, not left blank',
+    /unclassified/i.test(wireText),
+    wireText.split('\n').find((l) => /unclassified/i.test(l))?.slice(0, 60) ?? '없음'
+  );
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+
   await browser.close();
 
   const passed = results.filter((r) => r.ok).length;

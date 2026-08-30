@@ -82,6 +82,7 @@ export const UI_EN = {
   keyboardHint: 'Drag to move · Ctrl+drag to rotate · Scroll to zoom · Click to focus',
   wireTitle: 'Latest Wire',
   polNeutral: 'co-mention',
+  polUnclassified: 'unclassified',
   rotateGesture: 'Ctrl + drag to rotate',
   dataCoverage: 'Data coverage',
   dataUpdated: 'Updated',

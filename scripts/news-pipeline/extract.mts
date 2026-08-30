@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { CONFIG } from './config.mts';
+import { applyResult, pickForRetry } from './core.mts';
 import { makeLLM, type ClassifyResult } from './llm.mts';
 import type { Article } from './fetch.mts';
 
@@ -75,6 +76,50 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
   }
 
   return signals;
+}
+
+/**
+ * 이미 쌓인 미분류 신호를 다시 분류한다.
+ *
+ * 파이프라인은 새로 수집한 기사만 분류하므로, 한 번 실패한 신호는 다시 보지
+ * 않는다. 실제로 2026-08-12~17 엿새치 29건이 그렇게 갇혀 있었다 — 기사가
+ * 어려워서가 아니라 그 기간 분류가 실패한 것이고, 화면에는 극성도 요약도 없이
+ * 나갔다.
+ *
+ * 실패해도 원본을 지운다거나 빈 값으로 덮지 않는다. 다음 실행이 또 시도한다.
+ */
+export async function reclassify(signals: Signal[], limit = CONFIG.llm.retryLimit): Promise<Signal[]> {
+  const targets = pickForRetry(signals, limit);
+  if (!targets.length) return signals;
+
+  const llm = makeLLM();
+  if (!llm) {
+    console.warn(`[reclassify] NEWS_LLM_API_KEY 없음 → 미분류 ${targets.length}건을 그대로 둔다`);
+    return signals;
+  }
+
+  console.log(`[reclassify] 갇힌 미분류 ${targets.length}건 재시도 (전체 미분류 ${signals.filter((s) => !s.classified).length})`);
+
+  const byId = new Map<string, Signal>();
+  for (let i = 0; i < targets.length; i += CONFIG.llm.batchSize) {
+    const batch = targets.slice(i, i + CONFIG.llm.batchSize);
+    const results = await llm.classifyBatch(
+      batch.map((s, idx) => ({
+        idx,
+        title: s.title,
+        source: s.source,
+        date: s.date,
+        people: s.people,
+      }))
+    );
+    for (let k = 0; k < batch.length; k++) {
+      const updated = applyResult(batch[k], results.find((r) => r.idx === k));
+      if (updated !== batch[k]) byId.set(batch[k].id, updated);
+    }
+  }
+
+  console.log(`[reclassify] 새로 분류됨 ${byId.size}/${targets.length}`);
+  return signals.map((s) => byId.get(s.id) ?? s);
 }
 
 function hash(s: string): string {

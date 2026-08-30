@@ -8,6 +8,7 @@ import {
   type LobbyingFile,
   type SourceRef,
   checkSignalDuplicates,
+  checkUnclassified,
 } from './checks.mts';
 
 const NOW = new Date('2026-08-29T06:00:00Z');
@@ -642,5 +643,35 @@ describe('checkSignalDuplicates', () => {
 
   it('관계쌍 순서가 뒤바뀐 것은 같은 것으로 본다', () => {
     expect(checkSignalDuplicates([s('a'), s('b', 'https://foxnews.com/a', ['walz', 'trump'])])).toHaveLength(1);
+  });
+});
+
+describe('checkUnclassified', () => {
+  const s = (n: number, classified: boolean, date = '2026-08-13') =>
+    Array.from({ length: n }, () => ({ classified, date }));
+
+  it('임계 아래면 조용하다', () => {
+    expect(checkUnclassified([...s(97, true), ...s(3, false)])).toHaveLength(0);
+  });
+
+  // 엿새치 29건이 갇혀 있었는데 감사에도 로그에도 흔적이 없었다
+  it('임계를 넘으면 경고한다', () => {
+    const f = checkUnclassified([...s(90, true), ...s(10, false)]);
+    expect(f[0]).toMatchObject({ level: 'warn', check: 'signals.unclassified' });
+    expect(f[0].message).toContain('10%');
+  });
+
+  // LLM 이 잠깐 죽는 것은 데이터 오류가 아니고 그날 배포를 세울 일도 아니다
+  it('실패로 막지 않는다', () => {
+    expect(checkUnclassified([...s(50, true), ...s(50, false)])[0].level).toBe('warn');
+  });
+
+  it('어느 날짜에 몰렸는지 보여준다 — 장애 구간을 찾으려면 필요하다', () => {
+    const f = checkUnclassified([...s(80, true), ...s(15, false, '2026-08-13'), ...s(5, false, '2026-08-14')]);
+    expect(f[0].samples?.[0]).toBe('2026-08-13 15건');
+  });
+
+  it('신호가 없으면 판정하지 않는다 — 0 으로 나누지 않는다', () => {
+    expect(checkUnclassified([])).toEqual([]);
   });
 });

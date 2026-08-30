@@ -83,6 +83,7 @@ export const UI_KO: UIDict = {
   keyboardHint: '드래그 이동 · Ctrl+드래그 회전 · 스크롤 줌 · 클릭 포커스',
   wireTitle: '최신 와이어',
   polNeutral: '동반 언급',
+  polUnclassified: '미판정',
   rotateGesture: 'Ctrl + 드래그로 회전',
   dataCoverage: '수집 기간',
   dataUpdated: '갱신',

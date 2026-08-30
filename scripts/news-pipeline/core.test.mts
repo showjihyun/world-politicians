@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  applyResult,
   dedupeByStory,
+  pickForRetry,
   bySalience,
   rank,
   accumulate,
@@ -247,5 +249,86 @@ describe('dedupeByStory — 제목이 바뀌면 id 가 달라진다', () => {
 
   it('관계쌍이 없어도 터지지 않는다', () => {
     expect(dedupeByStory([s('a', { pair: undefined }), s('b', { pair: undefined })])).toHaveLength(1);
+  });
+});
+
+describe('applyResult — 침묵을 덮어쓰기로 처리하지 않는다', () => {
+  const sig = (over: Record<string, unknown> = {}) =>
+    ({
+      id: 'a',
+      date: '2026-08-13',
+      people: ['trump', 'vance', 'rubio'],
+      pair: ['trump', 'vance'],
+      classified: false,
+      ...over,
+    }) as never;
+
+  it('판정을 받으면 얹는다', () => {
+    const r = applyResult(sig(), { pair: ['trump', 'vance'], polarity: 'feud', confidence: 0.9, summary_en: 'x' });
+    expect(r).toMatchObject({ polarity: 'feud', confidence: 0.9, classified: true });
+  });
+
+  // 503 두 번에 그 배치의 근거가 통째로 날아갈 뻔했다
+  it('판정이 없으면 원본 그대로 — 지우지 않는다', () => {
+    const done = sig({ classified: true, polarity: 'ally', summary_en: '기존' });
+    expect(applyResult(done, undefined)).toBe(done);
+    expect(applyResult(done, { pair: null })).toBe(done);
+  });
+
+  it('극성이 빠진 결과도 판정으로 치지 않는다', () => {
+    const s = sig();
+    expect(applyResult(s, { pair: ['trump', 'vance'], summary_en: 'x' })).toBe(s);
+  });
+
+  // 엉뚱한 쌍으로 갈아치우면 근거 파일과 조인이 깨진다
+  it('모델이 데이터셋 밖 인물을 짚으면 기존 쌍을 지킨다', () => {
+    const r = applyResult(sig(), { pair: ['trump', 'someone-else'] as never, polarity: 'feud' });
+    expect(r.pair).toEqual(['trump', 'vance']);
+    expect(r.classified).toBe(true);
+  });
+
+  it('같은 사람을 두 번 짚어도 기존 쌍을 지킨다', () => {
+    const r = applyResult(sig(), { pair: ['trump', 'trump'], polarity: 'feud' });
+    expect(r.pair).toEqual(['trump', 'vance']);
+  });
+
+  it('제대로 짚으면 쌍을 갱신하고 정렬해 둔다', () => {
+    const r = applyResult(sig(), { pair: ['vance', 'rubio'], polarity: 'ally' });
+    expect(r.pair).toEqual(['rubio', 'vance']);
+  });
+
+  it('원본을 바꾸지 않는다', () => {
+    const s = sig();
+    applyResult(s, { pair: ['trump', 'vance'], polarity: 'feud' });
+    expect(s.classified).toBe(false);
+  });
+});
+
+describe('pickForRetry', () => {
+  const s = (id: string, date: string, classified: boolean) => ({ id, date, classified }) as never;
+
+  it('미분류만 고른다', () => {
+    const got = pickForRetry([s('a', '2026-08-01', true), s('b', '2026-08-02', false)], 10);
+    expect(got.map((x) => x.id)).toEqual(['b']);
+  });
+
+  // 장애가 길었으면 수백 건일 수 있다 — 한 번에 다 부르지 않는다
+  it('상한을 넘지 않는다', () => {
+    const many = Array.from({ length: 50 }, (_, i) => s(`x${i}`, '2026-08-01', false));
+    expect(pickForRetry(many, 20)).toHaveLength(20);
+  });
+
+  it('오래된 것부터 처리한다', () => {
+    const got = pickForRetry([s('new', '2026-08-20', false), s('old', '2026-08-01', false)], 10);
+    expect(got.map((x) => x.id)).toEqual(['old', 'new']);
+  });
+
+  it('날짜가 같으면 id 순 — 실행마다 순서가 바뀌지 않게', () => {
+    const got = pickForRetry([s('b', '2026-08-01', false), s('a', '2026-08-01', false)], 10);
+    expect(got.map((x) => x.id)).toEqual(['a', 'b']);
+  });
+
+  it('미분류가 없으면 빈 배열', () => {
+    expect(pickForRetry([s('a', '2026-08-01', true)], 10)).toEqual([]);
   });
 });

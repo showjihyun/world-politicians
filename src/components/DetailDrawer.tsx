@@ -342,11 +342,16 @@ export default function DetailDrawer() {
                       </span>
                       <span className="mt-0.5 flex items-center gap-1 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
                         {s.date} · {s.source}
+                        {/*
+                          분류에 실패한 신호는 극성도 요약도 없다. 아무 표시 없이
+                          내보내면 "판정이 없다" 가 아니라 "그냥 빈약한 항목" 으로
+                          보인다. 근거 없는 엣지를 "근거 없음" 이라고 적는 것과 같다.
+                        */}
                         {s.polarity === 'ally' || s.polarity === 'feud'
                           ? ` · ${L(REL_META[s.polarity].label)}`
                           : s.polarity === 'neutral'
                             ? ` · ${t.polNeutral}`
-                            : ''}
+                            : ` · ${t.polUnclassified}`}
                         <ExternalLink size={7} className="opacity-0 transition-opacity group-hover:opacity-100" />
                       </span>
                       {locale === 'ko' ? s.summary_ko : s.summary_en}

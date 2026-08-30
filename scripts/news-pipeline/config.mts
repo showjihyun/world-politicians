@@ -67,6 +67,8 @@ export const CONFIG = {
     temperature: 0.2,
     maxTokens: 4096,
     batchSize: 10,
+    /** 한 실행에서 다시 시도할 미분류 신호 수 — 장애가 길었으면 수백 건일 수 있다 */
+    retryLimit: 60,
   },
 
   paths: {

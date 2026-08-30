@@ -983,6 +983,38 @@ export function checkSignalDuplicates(
   ];
 }
 
+/**
+ * 분류가 얼마나 실패했는가.
+ *
+ * 2026-08-12~17 엿새치 29건이 분류 실패로 갇혀 있었는데 감사에도 로그에도
+ * 화면에도 흔적이 없었다. 파이프라인이 새 기사만 분류해서 다시 보지 않았기
+ * 때문이다. 비율이 튀면 그날 알 수 있어야 한다.
+ *
+ * 실패로 막지는 않는다 — LLM 이 잠깐 죽는 것은 데이터 오류가 아니고, 그날
+ * 배포를 세울 일도 아니다. 재시도가 다음 실행에서 걷어낸다.
+ */
+export function checkUnclassified(
+  signals: { classified?: boolean; date: string }[],
+  threshold = 5
+): Finding[] {
+  if (!signals.length) return [];
+  const un = signals.filter((s) => !s.classified);
+  const pct = Math.round((un.length / signals.length) * 1000) / 10;
+  if (pct < threshold) return [];
+
+  const byDate = new Map<string, number>();
+  for (const s of un) byDate.set(s.date, (byDate.get(s.date) ?? 0) + 1);
+  const worst = [...byDate].sort((a, b) => b[1] - a[1]).slice(0, 4);
+  return [
+    {
+      level: 'warn',
+      check: 'signals.unclassified',
+      message: `분류되지 않은 신호 ${un.length}건 (${pct}%) — 임계 ${threshold}%`,
+      samples: worst.map(([d, n]) => `${d} ${n}건`),
+    },
+  ];
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;
