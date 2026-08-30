@@ -873,11 +873,39 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
     ];
   }
 
-  const polRows = f.rows.filter((r) => r.truth.polarity !== null && r.model.classified);
-  const pairRows = f.rows.filter((r) => r.truth.pairCorrect !== null);
+  // 사람이 적었는데 읽히지 않는 값은 채점에서 빠져 조용히 사라진다.
+  // 'conflict' 같은 오타를 오답으로 세면 기준선이 낮게 박혀 진짜 하락을 못 잡는다.
+  const readPol = (v: unknown): string | null => {
+    if (typeof v !== 'string') return null;
+    const t = v.trim().toLowerCase();
+    return t === 'ally' || t === 'feud' || t === 'neutral' ? t : null;
+  };
+  const bad = f.rows.flatMap((r) => {
+    const out: string[] = [];
+    if (r.truth.polarity != null && readPol(r.truth.polarity) === null) {
+      out.push(`${r.id} polarity=${JSON.stringify(r.truth.polarity)}`);
+    }
+    if (r.truth.pairCorrect != null && typeof r.truth.pairCorrect !== 'boolean') {
+      out.push(`${r.id} pairCorrect=${JSON.stringify(r.truth.pairCorrect)}`);
+    }
+    return out;
+  });
+  if (bad.length) {
+    return [
+      {
+        level: 'fail',
+        check: 'accuracy.invalid',
+        message: `읽을 수 없는 라벨 ${bad.length}건 — polarity 는 ally|feud|neutral, pairCorrect 는 true|false`,
+        samples: cap(bad),
+      },
+    ];
+  }
+
+  const polRows = f.rows.filter((r) => readPol(r.truth.polarity) !== null && r.model.classified);
+  const pairRows = f.rows.filter((r) => typeof r.truth.pairCorrect === 'boolean');
   const pct = (n: number, d: number) => (d > 0 ? Math.round((n / d) * 1000) / 10 : 0);
-  const polAcc = pct(polRows.filter((r) => r.model.polarity === r.truth.polarity).length, polRows.length);
-  const pairAcc = pct(pairRows.filter((r) => r.truth.pairCorrect).length, pairRows.length);
+  const polAcc = pct(polRows.filter((r) => r.model.polarity === readPol(r.truth.polarity)).length, polRows.length);
+  const pairAcc = pct(pairRows.filter((r) => r.truth.pairCorrect === true).length, pairRows.length);
 
   if (!polRows.length && !pairRows.length) {
     return [

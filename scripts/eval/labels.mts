@@ -16,7 +16,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import {
-  hashSeed, mergeLabels, sampleSignals, score, toLabelRow, verdictAgainst,
+  hashSeed, invalidLabels, mergeLabels, readPolarity, sampleSignals, score,
+  toLabelRow, verdictAgainst,
   type LabelRow, type SignalLike,
 } from './labels-core.mts';
 
@@ -87,7 +88,7 @@ const v = verdictAgainst(s, file.baseline);
 
 console.log('정확도');
 console.log('─'.repeat(58));
-console.log(`라벨 ${s.labeled}/${file.rows.length}  (미기입 ${s.pending})`);
+console.log(`라벨 ${s.labeled}/${file.rows.length}  (미기입 ${s.pending}${s.invalid ? ` · 읽을 수 없음 ${s.invalid}` : ''})`);
 if (s.polarity.scored) {
   console.log(`극성    ${s.polarity.correct}/${s.polarity.scored} = ${s.polarity.accuracy}%`);
   const wrong = Object.entries(s.polarity.confusion).filter(([k]) => {
@@ -106,6 +107,30 @@ if (s.pair.scored) {
 if (file.baseline.polarity === null && s.polarity.scored >= 40) {
   console.log(`기준선이 비어 있다 — 지금 점수(극성 ${s.polarity.accuracy}% · 쌍 ${s.pair.accuracy}%)를`);
   console.log('labels.json 의 baseline 에 적으면 이후 하락을 감사가 잡는다.');
+}
+
+// 읽히지 않는 값은 채점에서 빠지므로 조용히 사라진다 — 반드시 보여준다
+const bad = invalidLabels(file.rows);
+if (bad.length) {
+  console.log(`읽을 수 없는 값 ${bad.length}건 — polarity 는 ally|feud|neutral, pairCorrect 는 true|false`);
+  for (const b of bad.slice(0, 5)) console.log(`  ${b.id}  ${b.field} = ${JSON.stringify(b.value)}`);
+}
+
+// 81KB JSON 에서 다음에 채울 행을 찾아 헤매지 않도록 대기열을 보여준다
+const next = file.rows.filter(
+  (r) => readPolarity(r.truth.polarity) === null && r.truth.pairCorrect === null
+);
+if (next.length) {
+  console.log('─'.repeat(58));
+  console.log(`다음에 채울 ${Math.min(5, next.length)}건 (남은 ${next.length}):`);
+  for (const r of next.slice(0, 5)) {
+    console.log(`  ${r.id}  [모델: ${r.model.polarity ?? '미분류'}]  ${r.pair.join(' × ')}`);
+    console.log(`    ${r.title.slice(0, 88)}`);
+    // 뉴스 신호의 url 은 대부분 Google News 리다이렉트라 700자가 넘고 목적지도
+    // 안 보인다. 터미널에 붙이면 읽을 수가 없어 매체·날짜만 보여준다.
+    console.log(`    ${r.source} · ${r.date}${r.url.includes('news.google.com') ? '' : ` · ${r.url.slice(0, 70)}`}`);
+  }
+  console.log('  (원문 주소는 labels.json 에서 id 로 찾는다)');
 }
 console.log('─'.repeat(58));
 

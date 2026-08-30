@@ -601,4 +601,22 @@ describe('checkAccuracy', () => {
     const f = checkAccuracy(file(rows));
     expect(f[0].message).toContain('극성 0% (0행)');
   });
+
+  // 오타를 오답으로 세면 기준선이 낮게 박혀 진짜 하락을 영영 못 잡는다
+  it('읽을 수 없는 라벨을 잡는다', () => {
+    const rows = [r({ truth: { polarity: 'conflict', pairCorrect: true } })];
+    expect(checkAccuracy(file(rows))[0]).toMatchObject({ level: 'fail', check: 'accuracy.invalid' });
+  });
+
+  it('pairCorrect 가 불리언이 아니면 잡는다', () => {
+    const rows = [r({ truth: { polarity: 'feud', pairCorrect: 'true' as never } })];
+    expect(checkAccuracy(file(rows))[0].check).toBe('accuracy.invalid');
+  });
+
+  it('대소문자만 다른 것은 잘못이 아니다', () => {
+    const rows = [r({ truth: { polarity: 'Feud', pairCorrect: true } })];
+    const f = checkAccuracy(file(rows));
+    expect(f[0]).toMatchObject({ check: 'accuracy.ok' });
+    expect(f[0].message).toContain('100%');
+  });
 });

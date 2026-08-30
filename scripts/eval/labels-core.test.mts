@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   hashSeed,
+  invalidLabels,
   mergeLabels,
   sampleSignals,
+  readPairCorrect,
+  readPolarity,
   score,
   seededShuffle,
   stratumOf,
@@ -127,6 +130,53 @@ describe('mergeLabels — 사람 작업을 덮지 않는다', () => {
   });
 });
 
+describe('readPolarity — 오타가 조용히 오답이 되면 안 된다', () => {
+  it('정상 값을 읽는다', () => {
+    expect(readPolarity('ally')).toBe('ally');
+  });
+
+  // 뜻이 분명한 것은 봐준다
+  it('대소문자와 앞뒤 공백은 봐준다', () => {
+    expect(readPolarity('Feud')).toBe('feud');
+    expect(readPolarity(' neutral ')).toBe('neutral');
+  });
+
+  // 봐주기 시작하면 어디까지가 유효한지 흐려진다
+  it('목록에 없는 값은 읽지 않는다', () => {
+    expect(readPolarity('conflict')).toBeNull();
+    expect(readPolarity('positive')).toBeNull();
+    expect(readPolarity(true)).toBeNull();
+    expect(readPolarity(null)).toBeNull();
+  });
+});
+
+describe('readPairCorrect', () => {
+  it('불리언만 받는다', () => {
+    expect(readPairCorrect(true)).toBe(true);
+    expect(readPairCorrect(false)).toBe(false);
+  });
+
+  it("'true' 나 1 은 받지 않는다 — 어디까지가 참인지 흐려진다", () => {
+    expect(readPairCorrect('true')).toBeNull();
+    expect(readPairCorrect(1)).toBeNull();
+  });
+});
+
+describe('invalidLabels', () => {
+  it('적었는데 읽히지 않는 칸을 짚는다', () => {
+    const rows = [row('1', { truth: { polarity: 'conflict' as never, pairCorrect: null } })];
+    expect(invalidLabels(rows)).toEqual([{ id: '1', field: 'polarity', value: 'conflict' }]);
+  });
+
+  it('빈 칸은 잘못이 아니다 — 아직 안 본 것이다', () => {
+    expect(invalidLabels([row('1')])).toEqual([]);
+  });
+
+  it('봐줄 수 있는 표기는 잘못이 아니다', () => {
+    expect(invalidLabels([row('1', { truth: { polarity: 'Feud' as never, pairCorrect: true } })])).toEqual([]);
+  });
+});
+
 describe('score', () => {
   it('맞은 것을 센다', () => {
     const rows = [
@@ -145,6 +195,23 @@ describe('score', () => {
     expect(s.polarity.scored).toBe(1);
     expect(s.polarity.accuracy).toBe(100);
     expect(s.pending).toBe(1);
+  });
+
+  // 오타를 오답으로 세면 모델이 맞았는데 점수가 떨어지고, 그 상태로 잡은
+  // 기준선은 낮게 박혀 진짜 하락을 영영 못 잡는다
+  it('대소문자가 달라도 맞은 것으로 센다', () => {
+    const rows = [row('1', { truth: { polarity: 'FEUD' as never, pairCorrect: true } })];
+    expect(score(rows).polarity).toMatchObject({ scored: 1, correct: 1, accuracy: 100 });
+  });
+
+  it('읽히지 않는 값은 채점에서 빼고 따로 센다', () => {
+    const rows = [
+      row('1', { truth: { polarity: 'conflict' as never, pairCorrect: null } }),
+      row('2', { truth: { polarity: 'feud', pairCorrect: true } }),
+    ];
+    const s = score(rows);
+    expect(s.polarity).toMatchObject({ scored: 1, correct: 1, accuracy: 100 });
+    expect(s.invalid).toBe(1);
   });
 
   it('어느 쪽으로 틀렸는지 남긴다', () => {

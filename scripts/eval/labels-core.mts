@@ -151,7 +151,50 @@ export function mergeLabels(existing: LabelRow[], fresh: LabelRow[]): LabelRow[]
   return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
+/**
+ * 사람이 적은 값을 읽는다.
+ *
+ * 대소문자와 앞뒤 공백은 봐준다 — `Feud` 와 `feud ` 는 뜻이 분명하다. 하지만
+ * `conflict` 처럼 목록에 없는 값은 **봐주지 않는다.** 조용히 오답으로 세면
+ * 모델이 맞았는데 점수가 떨어지고, 그 상태로 기준선을 잡으면 기준선이 낮게
+ * 박혀 진짜 하락을 영영 못 잡는다.
+ */
+export function readPolarity(v: unknown): Polarity | null {
+  if (typeof v !== 'string') return null;
+  const t = v.trim().toLowerCase();
+  return t === 'ally' || t === 'feud' || t === 'neutral' ? t : null;
+}
+
+/** true/false 만 받는다. 'y' 나 1 을 봐주기 시작하면 어디까지가 참인지 흐려진다 */
+export function readPairCorrect(v: unknown): boolean | null {
+  return typeof v === 'boolean' ? v : null;
+}
+
+export interface InvalidLabel {
+  id: string;
+  field: 'polarity' | 'pairCorrect';
+  value: string;
+}
+
+/** 적었는데 읽히지 않는 칸 — 빈 칸(null)과 구분해서 돌려준다 */
+export function invalidLabels(rows: LabelRow[]): InvalidLabel[] {
+  const out: InvalidLabel[] = [];
+  for (const r of rows) {
+    const p = r.truth.polarity as unknown;
+    if (p !== null && p !== undefined && readPolarity(p) === null) {
+      out.push({ id: r.id, field: 'polarity', value: String(p) });
+    }
+    const c = r.truth.pairCorrect as unknown;
+    if (c !== null && c !== undefined && readPairCorrect(c) === null) {
+      out.push({ id: r.id, field: 'pairCorrect', value: String(c) });
+    }
+  }
+  return out;
+}
+
 export interface Score {
+  /** 적었는데 읽히지 않은 칸 */
+  invalid: number;
   labeled: number;
   pending: number;
   polarity: {
@@ -172,25 +215,30 @@ const pct = (n: number, d: number) => (d > 0 ? Math.round((n / d) * 1000) / 10 :
  * 모델이 틀린 것이 섞여서 점수가 의미를 잃는다.
  */
 export function score(rows: LabelRow[]): Score {
-  const labeled = rows.filter((r) => r.truth.polarity !== null || r.truth.pairCorrect !== null);
+  const labeled = rows.filter(
+    (r) => readPolarity(r.truth.polarity) !== null || readPairCorrect(r.truth.pairCorrect) !== null
+  );
   const confusion: Record<string, number> = {};
 
-  const polRows = rows.filter((r) => r.truth.polarity !== null && r.model.classified);
+  // 읽히지 않는 값은 채점하지 않는다. 오답으로 세면 기준선이 낮게 박힌다.
+  const polRows = rows.filter((r) => readPolarity(r.truth.polarity) !== null && r.model.classified);
   let polCorrect = 0;
   for (const r of polRows) {
     const got = r.model.polarity ?? 'none';
-    const want = r.truth.polarity!;
+    const want = readPolarity(r.truth.polarity)!;
     if (got === want) polCorrect++;
     const k = `${want}→${got}`;
     confusion[k] = (confusion[k] ?? 0) + 1;
   }
 
-  const pairRows = rows.filter((r) => r.truth.pairCorrect !== null);
-  const pairCorrect = pairRows.filter((r) => r.truth.pairCorrect).length;
+  const pairRows = rows.filter((r) => readPairCorrect(r.truth.pairCorrect) !== null);
+  const pairCorrect = pairRows.filter((r) => r.truth.pairCorrect === true).length;
 
+  const bad = invalidLabels(rows);
   return {
     labeled: labeled.length,
-    pending: rows.length - labeled.length,
+    pending: rows.length - labeled.length - bad.length,
+    invalid: bad.length,
     polarity: {
       scored: polRows.length,
       correct: polCorrect,
