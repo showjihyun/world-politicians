@@ -16,7 +16,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import {
-  hashSeed, invalidLabels, mergeLabels, readPolarity, refreshModel, sampleSignals,
+  hashSeed, invalidLabels, mergeLabels, pruneSuperseded, readPolarity, refreshModel,
+  sampleSignals,
   score, toLabelRow, verdictAgainst,
   type LabelRow, type SignalLike,
 } from './labels-core.mts';
@@ -72,7 +73,13 @@ for (const name of fs.readdirSync(dir).sort()) {
 const current = new Map(
   signals.map((s) => [s.id, { polarity: s.classified ? (s.polarity ?? null) : null, classified: Boolean(s.classified) }])
 );
-const refreshed = refreshModel(file.rows, current);
+// 중복 제거로 사라진 행은 쌍둥이가 표본에 있으면 버린다 — 같은 기사를 두 번
+// 라벨링하게 되고 채점도 이중으로 센다.
+const pruned = pruneSuperseded(file.rows, new Set(current.keys()));
+if (pruned.dropped.length) {
+  console.log(`중복으로 사라진 행 제거 ${pruned.dropped.length}건 (${pruned.dropped.join(', ')})`);
+}
+const refreshed = refreshModel(pruned.rows, current);
 file.rows = refreshed.rows;
 if (refreshed.changed || refreshed.stale) {
   console.log(`모델 판정 갱신 ${refreshed.changed}건${refreshed.stale ? ` · 아카이브에서 빠진 행 ${refreshed.stale}` : ''}`);
@@ -100,7 +107,7 @@ if (SAMPLE) {
 }
 
 // 갱신분과 표본을 한 번에 쓴다. --dry 는 쓰지 않는다는 뜻이고 그 축은 하나뿐이다.
-if (!DRY && (refreshed.changed || SAMPLE)) {
+if (!DRY && (refreshed.changed || pruned.dropped.length || SAMPLE)) {
   fs.writeFileSync(LABELS, JSON.stringify(file, null, 2) + '\n');
   console.log(`${path.relative(ROOT, LABELS)} 기록`);
 } else if (DRY) {
@@ -149,7 +156,10 @@ if (next.length) {
   console.log('─'.repeat(58));
   console.log(`다음에 채울 ${Math.min(5, next.length)}건 (남은 ${next.length}):`);
   for (const r of next.slice(0, 5)) {
-    console.log(`  ${r.id}  [모델: ${r.model.polarity ?? '미분류'}]  ${r.pair.join(' × ')}`);
+    // 모델 판정을 여기서 보여주지 않는다 — 먼저 보면 그 답에 끌려간다.
+    // (labels.json 을 열면 model 칸이 보이므로 완전한 차단은 아니다.
+    //  truth 를 먼저 정하고 나서 파일을 여는 것을 권한다)
+    console.log(`  ${r.id}  ${r.pair.join(' × ')}`);
     console.log(`    ${r.title.slice(0, 88)}`);
     // 뉴스 신호의 url 은 대부분 Google News 리다이렉트라 700자가 넘고 목적지도
     // 안 보인다. 터미널에 붙이면 읽을 수가 없어 매체·날짜만 보여준다.

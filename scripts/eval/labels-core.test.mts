@@ -3,6 +3,7 @@ import {
   hashSeed,
   invalidLabels,
   mergeLabels,
+  pruneSuperseded,
   sampleSignals,
   readPairCorrect,
   refreshModel,
@@ -315,5 +316,36 @@ describe('score — pending 이 음수가 되지 않는다', () => {
   it('아무것도 안 채운 행만 pending 으로 센다', () => {
     const s = score([row('1'), row('2', { truth: { polarity: 'feud', pairCorrect: true } })]);
     expect(s.pending).toBe(1);
+  });
+});
+
+describe('pruneSuperseded — 같은 기사를 두 번 라벨링하지 않는다', () => {
+  const r2 = (id: string, url: string) => ({ ...row(id), url });
+
+  // 중복 제거로 사라진 행의 쌍둥이가 표본에 있으면 같은 기사를 두 번 보게 된다
+  it('살아있는 쌍둥이가 표본에 있으면 버린다', () => {
+    const rows = [r2('dead', 'https://a'), r2('live', 'https://a')];
+    const out = pruneSuperseded(rows, new Set(['live']));
+    expect(out.rows.map((x) => x.id)).toEqual(['live']);
+    expect(out.dropped).toEqual(['dead']);
+  });
+
+  // 365일이 지나 빠진 것은 대신할 행이 없다 — 스냅샷으로 남긴다
+  it('쌍둥이가 없으면 남긴다', () => {
+    const rows = [r2('old', 'https://gone')];
+    const out = pruneSuperseded(rows, new Set());
+    expect(out.rows).toHaveLength(1);
+    expect(out.dropped).toEqual([]);
+  });
+
+  it('url 이 같아도 관계쌍이 다르면 쌍둥이가 아니다', () => {
+    const a = { ...row('dead'), url: 'https://a', pair: ['x', 'y'] };
+    const b = { ...row('live'), url: 'https://a', pair: ['x', 'z'] };
+    expect(pruneSuperseded([a, b], new Set(['live'])).rows).toHaveLength(2);
+  });
+
+  it('전부 살아 있으면 아무것도 버리지 않는다', () => {
+    const rows = [r2('a', 'https://a'), r2('b', 'https://b')];
+    expect(pruneSuperseded(rows, new Set(['a', 'b'])).dropped).toEqual([]);
   });
 });

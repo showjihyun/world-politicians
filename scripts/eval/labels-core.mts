@@ -151,6 +151,35 @@ export function mergeLabels(existing: LabelRow[], fresh: LabelRow[]): LabelRow[]
   return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
+/**
+ * 중복 제거로 사라진 행을 버린다.
+ *
+ * 파이프라인이 (url, 관계쌍) 중복을 걷어내면 표본의 그 행은 아카이브에서 사라진다.
+ * 그런데 살아남은 쌍둥이가 같은 표본에 있으면 **같은 기사를 두 번 라벨링**하게 되고
+ * 채점도 이중으로 센다.
+ *
+ * 나이가 차서(365일) 빠진 행은 버리지 않는다 — 쌍둥이가 없으므로 스냅샷째로
+ * 남겨 두는 편이 낫다. 버리는 것은 "대신할 행이 표본 안에 있는" 경우뿐이다.
+ */
+export function pruneSuperseded(rows: LabelRow[], liveIds: Set<string>): {
+  rows: LabelRow[];
+  dropped: string[];
+} {
+  const key = (r: LabelRow) => `${r.url} ${[...r.pair].sort().join('|')}`;
+  const liveByKey = new Map<string, string>();
+  for (const r of rows) if (liveIds.has(r.id)) liveByKey.set(key(r), r.id);
+
+  const dropped: string[] = [];
+  const kept = rows.filter((r) => {
+    if (liveIds.has(r.id)) return true;
+    const twin = liveByKey.get(key(r));
+    if (!twin) return true; // 나이가 차서 빠진 것 — 스냅샷으로 남긴다
+    dropped.push(r.id);
+    return false;
+  });
+  return { rows: kept, dropped };
+}
+
 export interface CurrentVerdict {
   polarity: string | null;
   classified: boolean;
