@@ -19,9 +19,9 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import OpenAI from 'openai';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { pairKey } from './keys-core.mts';
+import { ask } from './llm.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const SRC = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -77,45 +77,6 @@ console.log(`[gdelt] 전체 ${edges.length} · 근거 있음 ${Object.keys(map).
 if (!CONFIG.llm.apiKey) {
   console.error('[gdelt] NEWS_LLM_API_KEY 없음 — 중단');
   process.exit(1);
-}
-const client = new OpenAI({ apiKey: CONFIG.llm.apiKey, baseURL: CONFIG.llm.baseURL });
-
-function extractJsonArray(text: string): unknown[] {
-  const c = text.replace(/```json|```/g, '').trim();
-  const s = c.indexOf('[');
-  const e = c.lastIndexOf(']');
-  if (s === -1 || e <= s) return [];
-  try {
-    const p = JSON.parse(c.slice(s, e + 1));
-    return Array.isArray(p) ? p : [];
-  } catch {
-    return [];
-  }
-}
-
-async function ask(system: string, user: string): Promise<unknown[]> {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
-      const res = await client.chat.completions.create({
-        model: CONFIG.llm.model,
-        messages: [
-          { role: 'system', content: system },
-          { role: 'user', content: user },
-        ],
-        temperature: 0,
-        max_tokens: CONFIG.llm.maxTokens,
-        stream: false,
-        chat_template_kwargs: { enable_thinking: false },
-      } as never);
-      const content =
-        (res as { choices?: { message?: { content?: string } }[] }).choices?.[0]?.message?.content ?? '';
-      const arr = extractJsonArray(content);
-      if (arr.length) return arr;
-    } catch (err) {
-      console.warn(`  [llm] 실패 ${attempt + 1}:`, (err as Error).message?.slice(0, 90));
-    }
-  }
-  return [];
 }
 
 // ── 1단계: 검색어 + 사건 시기 ──

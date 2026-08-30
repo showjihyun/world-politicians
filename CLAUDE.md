@@ -43,6 +43,16 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 **검사를 만들면 실패도 시켜 본다.** 불량을 주입해 종료 코드 1 이 나오는지
 확인하지 않은 검사는 검사가 아니다.
 
+### 외부 응답 파싱을 복제하지 않는다
+
+`extractJsonArray` 가 네 곳에 복제돼 있었다. 지금은 동작이 같지만 이미 이름과
+서식이 갈라져 있었다. 이게 조용히 틀리면 **빈 배열**이 나오고, 파이프라인은 빈
+배열을 "판정 없음" 으로 처리해 원본을 유지하므로 **에러도 로그도 없이 그날 배치가
+아무 일도 안 한 것**이 된다.
+
+`parse-core.mts` 하나로 모으고 테스트를 붙였다. `ask`(LLM 호출·재시도)도 세 벌이라
+`llm.mts` 로 모았다 — 재시도 횟수가 갈라지면 한 스크립트만 일찍 포기한다.
+
 ### 조인 키를 복제하지 않는다
 
 `pairKey` 가 아홉 군데에 복제돼 있었다. 이 키는 `relationship-sources.json`·
@@ -193,6 +203,8 @@ scripts/news-pipeline/core.mts   누적·선별·파티션 규칙 (순수)
 scripts/audit/checks.mts         감사 판정 규칙 (순수)
 scripts/sources/*-core.mts       소스별 판정 규칙 (순수). keys-core 만 import 허용
 scripts/sources/keys-core.mts    조인 키·이름 정규화 정본 (스크립트 쪽)
+scripts/sources/parse-core.mts   외부 텍스트 파싱 정본 (LLM 응답·RSS)
+scripts/sources/llm.mts          LLM 호출 어댑터 (재시도·빈 배열 반환)
 
 src/lib/, scripts/**/*.mts       어댑터. 데이터셋·fs·network 를 여기서 묶는다
 src/data/signals/                월별 파티션 + 매니페스트 + recent

@@ -17,6 +17,7 @@ import path from 'node:path';
 import OpenAI from 'openai';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { pairKey } from './keys-core.mts';
+import { extractJsonArray } from './parse-core.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const SRC = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -76,19 +77,6 @@ the headline. When uncertain, DROP.
 Return ONLY a JSON array, one object per edge, using the given edge ids:
 [{"edge":0,"keep":[0,2]}]
 Use the article numbers shown. Empty keep list is fine and expected.`;
-
-function extractJsonArray(text: string): unknown[] {
-  const cleaned = text.replace(/```json|```/g, '').trim();
-  const s = cleaned.indexOf('[');
-  const e = cleaned.lastIndexOf(']');
-  if (s === -1 || e <= s) return [];
-  try {
-    const p = JSON.parse(cleaned.slice(s, e + 1));
-    return Array.isArray(p) ? p : [];
-  } catch {
-    return [];
-  }
-}
 
 const kept: SourceMap = {};
 let processed = 0;

@@ -16,6 +16,7 @@ import path from 'node:path';
 import { CONFIG, PERSON_ALIASES } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import { pairKey } from './keys-core.mts';
+import { rssField } from './parse-core.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const OUT = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -75,12 +76,7 @@ function parseRss(xml: string): (Src & { srcUrl: string })[] {
     const it = m[1];
     // new RegExp('...[\s\S]...') 는 문자열 리터럴 안에서 \s 가 s 로 죽어
     // 태그를 전혀 못 잡는다. 정규식 리터럴로 고정한다.
-    const grab = (re: RegExp): string => {
-      const hit = it.match(re);
-      return hit
-        ? hit[1].replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, '').trim()
-        : '';
-    };
+    const grab = (re: RegExp): string => rssField(it, re);
     const title = grab(/<title[^>]*>([\s\S]*?)<\/title>/);
     const link = grab(/<link[^>]*>([\s\S]*?)<\/link>/);
     const src = grab(/<source[^>]*>([\s\S]*?)<\/source>/);
