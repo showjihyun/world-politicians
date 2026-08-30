@@ -42,6 +42,16 @@ const RULES: BoundaryRule[] = [
     allowValueFrom: [],
     allowTypeFrom: ['./'],
   },
+  {
+    // 이 네 파일은 머리말에 "타입 외의 import 를 갖지 않는다" 고 적어 두고
+    // 아무도 강제하지 않았다. 지금은 지켜지고 있지만 다음 편집이 깨도 모른다.
+    label: 'scripts/sources/*-core.mts',
+    files: listFiles('scripts/sources', /-core\.mts$/, /\.test\.mts$/),
+    // 조인 키와 이름 정규화만 공유한다. 아홉 군데에 복제돼 있던 것을 하나로
+    // 모으는 편이, 복제를 두고 계약 테스트로 붙드는 것보다 안전하다.
+    allowValueFrom: ['./keys-core.mts'],
+    allowTypeFrom: ['./'],
+  },
 ];
 
 function listFiles(dir: string, match: RegExp, exclude?: RegExp): string[] {

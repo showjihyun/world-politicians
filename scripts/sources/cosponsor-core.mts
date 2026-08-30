@@ -13,6 +13,8 @@
  * 규칙: 이 파일은 타입 외의 import 를 갖지 않는다.
  */
 
+import { pairKey } from './keys-core.mts';
+
 export interface Bill {
   congress: number;
   /** S, HR, HRES … */
@@ -104,7 +106,7 @@ export function parseBill(xml: string): Bill | null {
   };
 }
 
-export const pairKey = (a: string, b: string): string => (a < b ? `${a}|${b}` : `${b}|${a}`);
+export { pairKey } from './keys-core.mts';
 
 /**
  * 쌍별로 센다.

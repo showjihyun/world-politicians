@@ -1,4 +1,5 @@
 import raw from './cosponsorship.json';
+import { pairKey } from '../domain/graph';
 import type { Relationship } from '../types';
 
 /**
@@ -68,9 +69,9 @@ export const COSPONSOR_RELATIONSHIPS: Relationship[] = file.edges
 
 const byPair = new Map(file.edges.map((e) => [`${e.a}|${e.b}`, e]));
 
-const key = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+
 
 /** 기존 엣지를 뒷받침하는 공동발의 건수 — 없으면 0 */
 export function cosponsorCount(a: string, b: string): number {
-  return byPair.get(key(a, b))?.bills ?? 0;
+  return byPair.get(pairKey(a, b))?.bills ?? 0;
 }

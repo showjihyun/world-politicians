@@ -5,6 +5,7 @@ import {
   classifyDonor,
   parseCandidateSummary,
   parseCommittee,
+  splitRow,
   parsePas2,
   toAmount,
   type Committee,
@@ -17,6 +18,18 @@ const cmte = (over: Partial<Committee> = {}): Committee => ({
 
 const row = (over: Partial<Pas2Row> = {}): Pas2Row => ({
   committeeId: 'C1', transactionType: '24K', amount: 5000, candidateId: 'H1', ...over,
+});
+
+describe('splitRow', () => {
+  it('파이프로 자른다', () => {
+    expect(splitRow('a|b|c')).toEqual(['a', 'b', 'c']);
+  });
+
+  // 빈 칸이 사라지면 그 뒤 열이 통째로 한 칸씩 밀린다
+  it('빈 칸을 유지한다 — 열 위치가 밀리면 안 된다', () => {
+    expect(splitRow('a||c')).toEqual(['a', '', 'c']);
+    expect(splitRow('a|b|')).toHaveLength(3);
+  });
 });
 
 describe('toAmount', () => {

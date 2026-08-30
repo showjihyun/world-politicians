@@ -38,6 +38,13 @@ export interface SignalRef {
   pair?: [string, string];
 }
 
+/**
+ * 두 인물 id 를 순서 무관 키로. 스크립트 쪽 정본은 sources/keys-core.mts 인데
+ * 이 파일은 순수성 때문에 값 import 가 금지돼 있어 자기 것을 쓴다.
+ * 둘이 같은 값을 내는지는 keys-core.test.mts 의 계약 테스트가 고정한다.
+ */
+export const pairKey = (a: string, b: string): string => (a < b ? `${a}|${b}` : `${b}|${a}`);
+
 const cap = <T>(xs: T[], n = 4) => xs.slice(0, n);
 
 /** 허용 목록 밖 매체가 섞였는가 — 'AP' 부분일치로 9건이 들어온 적이 있다 */
@@ -431,7 +438,7 @@ export function checkCosponsor(
   sourcesByPair: Record<string, SourceRef[]>
 ): Finding[] {
   const out: Finding[] = [];
-  const key = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+  const key = pairKey;
 
   const unknown = cos.edges
     .flatMap((e) => [e.a, e.b])

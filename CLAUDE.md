@@ -43,6 +43,18 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 **검사를 만들면 실패도 시켜 본다.** 불량을 주입해 종료 코드 1 이 나오는지
 확인하지 않은 검사는 검사가 아니다.
 
+### 조인 키를 복제하지 않는다
+
+`pairKey` 가 아홉 군데에 복제돼 있었다. 이 키는 `relationship-sources.json`·
+`cosponsorship-sources.json`·그래프를 잇는 조인 키라서, 하나만 달라지면
+**에러 없이 근거 패널이 비어서 나온다.** `strengthOf` 가 두 벌이라 테스트한 쪽이
+안 돌던 것과 같은 종류다.
+
+정본은 두 개다 — 앱은 `src/domain/graph.ts`, 스크립트는 `scripts/sources/keys-core.mts`.
+빌드 문맥이 달라 한 파일을 공유할 수 없다. `checks.mts` 는 순수성 때문에 값 import 가
+금지돼 자기 것을 쓴다. **셋이 같은 값을 내는지는 `keys-core.test.mts` 의 계약
+테스트가 고정한다.**
+
 ### 이름을 성으로 맞추지 않는다
 
 로비 신고서의 `coveredPosition` 은 "Legislative Director, Rep. Marsha Blackburn"
@@ -178,7 +190,9 @@ Google News 리다이렉트(`news.google.com/rss/articles/...`)는 목적지도 
 ```
 src/domain/                      순수. 값 import 금지 (audit:boundary 가 강제)
 scripts/news-pipeline/core.mts   누적·선별·파티션 규칙 (순수)
-scripts/audit/*-rules.mts        감사 판정 규칙 (순수)
+scripts/audit/checks.mts         감사 판정 규칙 (순수)
+scripts/sources/*-core.mts       소스별 판정 규칙 (순수). keys-core 만 import 허용
+scripts/sources/keys-core.mts    조인 키·이름 정규화 정본 (스크립트 쪽)
 
 src/lib/, scripts/**/*.mts       어댑터. 데이터셋·fs·network 를 여기서 묶는다
 src/data/signals/                월별 파티션 + 매니페스트 + recent

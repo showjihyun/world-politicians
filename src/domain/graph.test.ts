@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildGraph,
+  computeInsights,
   createCenteringForce,
   isLinkVisible,
   isNodeVisible,
   pairKey,
   rotateNodes,
   type Filters,
+  type GraphLink,
   type GraphNode,
 } from './graph';
 import { ALL_REL_TYPES } from '../types';
@@ -206,5 +208,76 @@ describe('createCenteringForce', () => {
     force.initialize([n]);
     expect(() => force(1)).not.toThrow();
     expect(n.vx).toBe(0);
+  });
+});
+
+describe('computeInsights', () => {
+  const n = (id: string, over: Partial<GraphNode> = {}): GraphNode =>
+    ({ ...person(id), degree: 0, buzz: 0, ...over }) as GraphNode;
+  const link = (a: string, b: string, over: Partial<Relationship> = {}) =>
+    ({ id: pairKey(a, b), source: a, target: b, rel: rel(a, b, over) }) as GraphLink;
+
+  it('갈등 허브는 feud 강도 합으로 뽑는다', () => {
+    const nodes = [n('a'), n('b'), n('c')];
+    const links = [
+      link('a', 'b', { type: 'feud', strength: 3 }),
+      link('a', 'c', { type: 'feud', strength: 2 }),
+    ];
+    expect(computeInsights(nodes, links).conflictHubs[0].id).toBe('a');
+  });
+
+  it('feud 가 없는 노드는 갈등 허브에 넣지 않는다 — 0 을 순위에 올리지 않는다', () => {
+    const nodes = [n('a'), n('b'), n('c')];
+    const links = [link('a', 'b', { type: 'feud', strength: 1 })];
+    expect(computeInsights(nodes, links).conflictHubs.map((x) => x.id).sort()).toEqual(['a', 'b']);
+  });
+
+  // 다리는 당이 다를 때만 센다. 같은 당의 ally 는 다리가 아니다.
+  it('같은 당끼리는 다리로 세지 않는다', () => {
+    const nodes = [n('a', { party: 'D' }), n('b', { party: 'D' })];
+    const links = [link('a', 'b', { type: 'ally', strength: 3 })];
+    expect(computeInsights(nodes, links).bridgeBuilders).toHaveLength(0);
+  });
+
+  it('당이 다른 초당적 엣지에 더 큰 가중치를 준다', () => {
+    const nodes = [n('a', { party: 'D' }), n('b', { party: 'R' }), n('c', { party: 'R' })];
+    const links = [
+      link('a', 'b', { type: 'bipartisan', strength: 1 }),
+      link('a', 'c', { type: 'ally', strength: 1 }),
+    ];
+    const { bridgeBuilders } = computeInsights(nodes, links);
+    expect(bridgeBuilders[0].id).toBe('a');
+    expect(bridgeBuilders.map((x) => x.id)).toContain('b');
+  });
+
+  // 'X' 는 무소속·비정당 표기다. 이걸 당으로 치면 아무나 다리가 된다.
+  it("party 'X' 는 당이 다른 것으로 세지 않는다", () => {
+    const nodes = [n('a', { party: 'X' }), n('b', { party: 'R' })];
+    const links = [link('a', 'b', { type: 'bipartisan', strength: 2 })];
+    expect(computeInsights(nodes, links).bridgeBuilders).toHaveLength(0);
+  });
+
+  it('연결 허브는 degree 로 뽑고 0 은 뺀다', () => {
+    const nodes = [n('a', { degree: 4 }), n('b', { degree: 0 })];
+    expect(computeInsights(nodes, []).connectHubs.map((x) => x.id)).toEqual(['a']);
+  });
+
+  // force-graph 가 l.source/target 을 노드 객체로 바꿔치기한다. rel.a/rel.b 를 써야 한다.
+  it('source/target 이 객체로 바뀌어도 rel.a/rel.b 로 센다', () => {
+    const nodes = [n('a'), n('b')];
+    const mutated = {
+      id: 'a|b',
+      source: nodes[0],
+      target: nodes[1],
+      rel: rel('a', 'b', { type: 'feud', strength: 2 }),
+    } as unknown as GraphLink;
+    expect(computeInsights(nodes, [mutated]).conflictHubs.map((x) => x.id).sort()).toEqual(['a', 'b']);
+  });
+
+  it('빈 입력에도 터지지 않는다', () => {
+    const r = computeInsights([], []);
+    expect(r.conflictHubs).toEqual([]);
+    expect(r.connectHubs).toEqual([]);
+    expect(r.bridgeBuilders).toEqual([]);
   });
 });

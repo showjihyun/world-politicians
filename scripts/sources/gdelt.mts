@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import OpenAI from 'openai';
 import { CONFIG } from '../news-pipeline/config.mts';
+import { pairKey } from './keys-core.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const SRC = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -32,7 +33,6 @@ const GDELT_FLOOR = 201701; // DOC 2.0 커버리지 하한
 interface Src { title: string; url: string; source: string; date: string }
 type SourceMap = Record<string, Src[]>;
 
-const pairKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
 /** 화이트리스트는 파이프라인과 동일하게 유지한다 — README 가 이 목록을 약속한다 */
 const ALLOW = CONFIG.allowedSourceHosts;

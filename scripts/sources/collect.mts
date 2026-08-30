@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG, PERSON_ALIASES } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
+import { pairKey } from './keys-core.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const OUT = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -26,7 +27,6 @@ const PER_PAIR = 3;
 
 interface Src { title: string; url: string; source: string; date: string }
 
-const pairKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
 // ── 관계 목록 (정규식 파싱 — 런타임에 TS 를 들이지 않기 위해) ──
 const relText = fs.readFileSync(path.join(ROOT, 'src/data/relationships.ts'), 'utf8');

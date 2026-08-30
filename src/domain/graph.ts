@@ -176,10 +176,6 @@ export function computeInsights(nodes: GraphNode[], links: GraphLink[]) {
 
 // ── Status helpers ──
 
-export function statusRank(s?: PersonStatus): number {
-  return s === 'legacy' ? 3 : s === 'departed' ? 2 : 1;
-}
-
 /** 레이아웃 중심점 기준 노드 좌표 회전 (2D 회전 컨트롤용) */
 export function rotateNodes(nodes: GraphNode[], deg: number): void {
   const withPos = nodes.filter((n) => n.x != null && n.y != null);

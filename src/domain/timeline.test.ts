@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildPairTimeline } from './timeline';
+import { buildPairTimeline, polColor } from './timeline';
 import type { HistoryArc } from '../data/signal-history';
 import type { NewsSignal } from '../types';
 
@@ -94,5 +94,17 @@ describe('buildPairTimeline', () => {
     const b = buildPairTimeline('a', 'b', 2, new Map(), arcs, new Date('2026-03-15T00:00:00Z'));
     expect(a!.cells[a!.cells.length - 1].ym).toBe('2026-08');
     expect(b!.cells[b!.cells.length - 1].ym).toBe('2026-03');
+  });
+});
+
+describe('polColor', () => {
+  it('세 극성에 서로 다른 색을 준다', () => {
+    const cs = [polColor('ally'), polColor('feud'), polColor('neutral')];
+    expect(new Set(cs).size).toBe(3);
+  });
+
+  // 모르는 값이 오면 중립색이어야 한다 — 동맹색으로 떨어지면 없는 관계를 그린다
+  it('모르는 값은 중립색', () => {
+    expect(polColor('nonsense' as never)).toBe(polColor('neutral'));
   });
 });

@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
+  bySalience,
+  rank,
   accumulate,
   buildStats,
   isAllowedSource,
@@ -153,5 +155,35 @@ describe('buildStats', () => {
       sig({ id: '2', date: '2026-08-01', classified: false, polarity: undefined }),
     ]);
     expect(s).toMatchObject({ total: 2, classified: 1, ally: 1, neutral: 1 });
+  });
+});
+
+describe('rank / bySalience — 무엇을 먼저 보여줄 것인가', () => {
+  const sig = (over: Record<string, unknown> = {}) =>
+    ({ id: 'x', date: '2026-08-01', classified: true, polarity: 'ally', ...over }) as never;
+
+  it('분류되고 극성이 있는 신호가 앞선다', () => {
+    expect(rank(sig())).toBeLessThan(rank(sig({ classified: false })));
+    expect(rank(sig())).toBeLessThan(rank(sig({ polarity: 'neutral' })));
+  });
+
+  // 같은 등급이면 최신이 먼저다 — 오래된 것이 위에 남으면 화면이 굳는다
+  it('같은 등급에서는 최신순', () => {
+    const older = sig({ date: '2026-07-01' });
+    const newer = sig({ date: '2026-08-20' });
+    expect([older, newer].sort(bySalience)[0]).toBe(newer);
+  });
+
+  it('등급이 날짜보다 우선한다', () => {
+    const oldGood = sig({ date: '2026-01-01' });
+    const newNeutral = sig({ date: '2026-08-28', polarity: 'neutral' });
+    expect([newNeutral, oldGood].sort(bySalience)[0]).toBe(oldGood);
+  });
+
+  it('정렬이 안정적이다 — 같은 입력이면 같은 순서', () => {
+    const xs = [sig({ id: 'a' }), sig({ id: 'b' }), sig({ id: 'c' })];
+    expect([...xs].sort(bySalience).map((x: { id: string }) => x.id)).toEqual(
+      [...xs].sort(bySalience).map((x: { id: string }) => x.id)
+    );
   });
 });

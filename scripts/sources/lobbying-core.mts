@@ -20,6 +20,8 @@
  * 규칙: 이 파일은 타입 외의 import 를 갖지 않는다.
  */
 
+import { normalizeName } from './keys-core.mts';
+
 export interface Lobbyist {
   name: string;
   /** 신고서에 적힌 과거 정부 직위 원문 */
@@ -112,19 +114,7 @@ export function extractOfficials(coveredPosition: string): string[] {
   return [...new Set(out)];
 }
 
-/** 비교용 정규화 — 접미사와 문장부호를 떨어낸다 */
-export function normalizeName(s: string): string {
-  return s
-    .normalize('NFKD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[''`]/g, '')
-    .replace(/[^a-z\s-]/g, ' ')
-    .replace(/-/g, '')
-    .split(/\s+/)
-    .filter((t) => t && !['jr', 'sr', 'ii', 'iii', 'iv'].includes(t))
-    .join(' ');
-}
+export { normalizeName } from './keys-core.mts';
 
 /** 인물 이름 → id 색인. 전체 이름과 '이름+성' 두 형태를 담는다 */
 export function buildPeopleIndex(people: { id: string; name: string }[]): Map<string, string> {

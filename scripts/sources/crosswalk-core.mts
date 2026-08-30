@@ -15,6 +15,8 @@
 
 // ── congress-legislators 원본 형태 ──
 
+import { normalizeName } from './keys-core.mts';
+
 export interface LegislatorName {
   first?: string;
   middle?: string;
@@ -88,24 +90,7 @@ export interface Politician {
   branch: string;
 }
 
-/**
- * 이름 정규화.
- *
- * 접미사(Jr·III)와 문장부호를 떨어내고 소문자 토큰으로 만든다. 하이픈은
- * 공백이 아니라 제거다 — "Ocasio-Cortez" 는 한 덩어리여야 한다.
- */
-export function normalizeName(s: string): string {
-  return s
-    .normalize('NFKD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[''`]/g, '')
-    .replace(/[^a-z\s-]/g, ' ')
-    .replace(/-/g, '')
-    .split(/\s+/)
-    .filter((t) => t && !['jr', 'sr', 'ii', 'iii', 'iv'].includes(t))
-    .join(' ');
-}
+export { normalizeName } from './keys-core.mts';
 
 /** 한 의원이 불릴 수 있는 이름들을 방식별로 낸다 */
 export function nameKeys(n: LegislatorName): Record<Exclude<MatchMethod, 'override'>, string[]> {

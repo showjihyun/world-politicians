@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import OpenAI from 'openai';
 import { CONFIG } from '../news-pipeline/config.mts';
+import { pairKey } from './keys-core.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const OUT = path.join(ROOT, 'src/data/relationship-sources.json');
@@ -29,7 +30,6 @@ const GDELT_FLOOR = 201701;
 
 interface Src { title: string; url: string; source: string; date: string }
 
-const pairKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
 const ALLOW = CONFIG.allowedSourceHosts;
 const allowed = (d = '') => ALLOW.some((a) => d === a || d.endsWith('.' + a));
