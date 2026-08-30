@@ -1,0 +1,2409 @@
+{
+  "note": "truth 칸을 사람이 채운다. polarity 는 ally|feud|neutral, pairCorrect 는 배정된 두 사람의 관계에 관한 기사인지 여부다. 안 채운 행은 채점에서 빠진다. baseline 은 라벨링이 충분히 쌓인 뒤 그때 점수로 한 번 적는다.",
+  "baseline": {
+    "polarity": null,
+    "pair": null
+  },
+  "rows": [
+    {
+      "id": "sig-108f4e0",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOaHp1OFg2czJpSC1uY3V4WHNLZnVab3BHMUVyLWNmVVNqd012YXpxWHdHaEN5eWotZUlHMzhXMVhLV0FmU0YzQkMwa0R3RGdPZ2RXbmJJNmFCWXFnMzBhd3F6eGtMaGlLY1FQUm1CR0prZW51VFlZS1VQTlFQaW9Ba9IBhgFBVV95cUxQbFZrWVBmc3B3cklqX0RyOGQ2Q1ozYmNBZmNwT2twTlpwcDFLYVQtYXpfM2J6RTdWZlJwS3YwTW8tZDgxLTZqV1ZENDVLRzlHcW9QOHEyVXdYZTJWdGh6dE1hNGpub0ZseGZncFF2dm92MVVYOW11bHdnR0hDSDd1dHRhSFlCZw?oc=5",
+      "title": "Rubio outperforms Vance in hypothetical 2028 match-ups: Poll - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-20",
+      "pair": [
+        "rubio",
+        "vance"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-10eaff3e",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUlhlckJYSW9FSFRVdXJrZDdQOFFQWWVuNXJEbVhZSjlmY0xLQ3diSkMyUmZ6Tk1neDA2bGk2aGNIM1NwQTJTX3l1eVpFVFgweTVqbzVCYzdmUEZiSGdTV1pmNlNtNlE5dkI0c1FXQUxiUElZbnZvSTBsMXRUTVZld1dMbDNVbEthTUFEY1BWUU1sOEQ2NlNucVA0cnZQc3k4NzdSWWJfMF9XYTFBZXdMdDZQWk9kUdIBuwFBVV95cUxPTDczYXU0aThUdTJucW5DLXBDOFZ3c0RaZmEtc2JBYnFXN2ZGOHVUd0twMHB4a0prYnFQUXJDYzdLbmdPcXFlOGVzNTFxdkNMaFNMRklfc0NsbE15NFVjVmFRZWVMYTBVdzduU3JDZU1IamdIUktiRW9FanZXZDdwejRFWTJlb3RJMWdmWUxBQWJFMzZSQTJ0Ykhfa0Utd1RiNlpwb0FFNktXeUs1emU5dkNTb1laTnNPMjgw?oc=5",
+      "title": "Vice President JD Vance blasts Mamdani, El-Sayed, AOC and Ossoff in rapid-fire TikTok roast - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-20",
+      "pair": [
+        "aoc",
+        "vance"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-118a4d29",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNR256c1F3Z1JveThmMGd2MTIzSFNKS0pjckVfRk5GRWJpYVBxcjJQYUkxeUR0SXlUa0gxQlMwZXZ1R2xSRTROOWJGMEJWQVJnZ0g5Ql9PZUVrQ1NCeWhKUWtOYXFRRTF5djMzWkxhN3NqaFJEQW1xbzZ1eDE2OVhmVElPemhkMXJwVVhWeHNnTHVRXzQ2dFROZ3lXR0FXa0lO0gGmAUFVX3lxTFBYc1BZUnJtcGJsckVfV1JoUjZFdlUyUjRRT09tVkkxSm0zaDFPX1ZWM2cyVXNxVUxuc2JRVE5UbEtrb2tzQ2hFa1Y5akQ2UDRPbXhLYjhzMXBlZkNqNXY5Q3NoOGZYUGlzMVAwNUhMcFdyVHlHMFpPN0hjODdqbWpjOXhrajVKSl9faVF5RWxWVFJLM2xCTGVReWpSeEM0UWpFbFdhS3c?oc=5",
+      "title": "Jon Ossoff dodges on why he invoked Trump aide's name during Georgia campaign rally - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-18",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1468b5a3",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE04REhqNjRsUndyQWx4aF9VQjk5MEZZUE8wTXljNklCQ0NrT1FGV0ZPNlNKZ3JzRTJJbXJySnFWRUJVaXpwenFRY3BVYkpxZ3ZrQWVoT3BORERQczRtaEc5cU40R3NWTEFtSkZTUU93?oc=5",
+      "title": "Trump Administration News: Blanche Clears Hurdle, but Collins Says She’s a No Vote - The New York Times",
+      "source": "The New York Times",
+      "date": "2026-08-09",
+      "pair": [
+        "collins-susan",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1a94f6f4",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxON1lTTWZvaGJOSml0MVludlNkZnN5UFd1Yk5yZXQ3ZlB2ZVo2amh2cHB4VTB4Z3JOMHpLd1ROZTUtUF9tNmxVRjl5Z0owT05kNm92VE1oajJITllsTzJYQlZpYTdKZVlucTJCTGdBZzdJQWtZMkd1a2hadkJrbjZfQk8xaTJNLUdiT19fNWtFZlRmcG9CdWRKNmFnTWNxeUZ0TGQ40gGoAUFVX3lxTE1lRmtaZDdVdE9Cd0cwNkhOQklBM0QxX2hNMnVfVGw0aktwOW96XzJHQWhxelF1M3lFeGhPNkVzOEh1WGs5N1F4S2FtSmx0a2E3VWR1cTQ3cDQydlFLUlNBVk5Nby1QbDR6eGdoUlRFY3FzdDFlaWw4Z3VnMkRIUzh2Ri02bE5DUjBxckV2QXdzd1U0LU8wclFUdi03d0M1aTVoTTREZTlhSA?oc=5",
+      "title": "Sen. Warren demands answers from RFK Jr. over 'calamitous' response to cyclosporiasis outbreak - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-14",
+      "pair": [
+        "rfk-jr",
+        "warren"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1ae4541f",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUlJZYllCcl9LejBVVGFlMS1tdE1oaHktU3pjcG1RazhGVkxxbTU2aWxyemU1bmxodmpXaHNQRTZpREVLM3JoWjR4X2dGbWZUM1ZEQWJ1MVd2dXlMbUNFM0l2ZHU5OUluWTR1RTBRa21rM213V1dyNmxHRlR3dkJQbNIBhgFBVV95cUxPTjJ5S3p3ak9BQjZlbXpWSWo4NE5QMjdLM29qT0VKUjRIRmlFWnUtZFJscXRLY1FqbVJKVXhLZjFhYUNyaVJVTFhlYUFRV3lMRUc2V1ZsMlZpQlc2cU44WVEzV3hWRmUzQ0JRMlZNVEREclVseVVnQ0J0UFlpOEJ5UjdjcEJwQQ?oc=5",
+      "title": "Jon Ossoff smears Trump for ‘traveling with Natalie’: Say what? - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-18",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1d572874",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPVkNVbXZtaEdlVHhQY0VKLWVsWTlicGFFMmdYSG5MQTM4Y096UHlLRTR2OU50QUR5UjBaUjdDc1pWNDJPemFGbnI5TkxTbmV0VnpKWUpMaHRZT3p0TkhYWXQ3UFBuVG5iQ3pWdUptOHRySlhTdW5vVmo1UTd4Z0N6dl81S2Y5SEg1SWZFZUVGMmNUdTlfVDY1ZVVB0gGfAUFVX3lxTE5UdWp0RzJ6eDJKUFZzQ21UUHFUYXhmWUJ1X3ZMQ1Q3UV9SYkpZdVU3MUVKU3VUZzJ4dW0zSUNBYTJrOUJJNk9tWkNCYlhmNnRzUXR3RHRDeElpcWNObGlyMXNpS29ZX0wxWEhVdjV5Rm8tUXk1MnJjdXVPWU9wSVVJNlBZWEhPbEF3bkxIYTNLdEd1YWlUOFVYNDI4QnF5SQ?oc=5",
+      "title": "Walz defies Trump on key minerals as GOP warns China stands to benefit - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-19",
+      "pair": [
+        "trump",
+        "walz"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1d577e55",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNjhfTEJXM2JrU2prV2RfbHVyV1JHYTNsSkRkelBkNDE3Y25YcEQyNVJVM3c3amoyRjV3aDk4d3lCNTZVX2NhNGJJTDRrNXczWGNxcnJOUUNxTTU3bTF2b3Y1WGhOYlRRdG1zU1FEZGhoODZUaU1xTzBITVVXS1dCdXE0Tk5OZFVkdGU2amt0V3p5R0VBVXo4QzB5dS0zd1l0RTlB0gGoAUFVX3lxTE1zNnlHZ2dfZ0I5cjRiNjg5blI0VE5PdWVvdWtSTWxmTXBqd1RKS3RHVllLMDlfdGxIVDNyckVhbnp6Y3dTVndubFo1UjhyUTRBV3lKb1pRbjQ3RHhQRGNkcktJa2xIbU53R3plc19GMl9lR28yeUVZUkdHRWRPTEdHQS1vakFvWjBOM1R1NzhwMkxKaU84d0c4NUpMaFRJY01MWld3WWR6aw?oc=5",
+      "title": "Obama responds to Trump racist video post, says most Americans find it 'deeply troubling' - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-25",
+      "pair": [
+        "obama",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1d7a97f7",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQzJVWDlyNE1tbE9iMGhZekoxQUNCN3lrQ0ZENG1mS1oxU1hkaUxVSXNYUzJ4elc2Ry01bzdQN2QtNkUyMnAzcTlVczBtMVMzQWRCdzBLZ09QckpZaVBLWVBFTTFKeFNpTmowMjV0YXo5em5mZEUyZVlEUkVCVGdFOTlJeGdYaXpYWC1zdk9GZzZnOGZLeW1ZanRlN1AtYU5qSnfSAacBQVVfeXFMTVp3M0w0Q1dNLWlEYUhCbHdVX1pzZ25td0hLaTNPdEF0dmd5b1puZkZQX1VPLUs5TjFkR2xJNDV5WnFMRG56QWhDalpmd05rQnpLYmxlaDVSalhhSmJDSUI0MG1nbjByRjR3eENieG9Td0M4RzYwRFhSSUI2cXdBWGNwVTlGUHdaWkJDZGlhU2x0MGk2WmRQUHRocHJCNVFBdzFQQXV1a1U?oc=5",
+      "title": "'He's so thirsty': Newsom's 'enthusiastic' praise for Trump policy turns heads - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-26",
+      "pair": [
+        "newsom",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-1f4d5de2",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUDJyX0NFRWxaUDM0QVpKbzU3azN1ZWl5UWFkZ2RzOEZCbFRub3dGTkpkXzNidGY3Rng3MXR4cmp6V2xSbVh4eVcyNkhsQk91RXlSM29vM0l0aG9EZHB0MUFPOVNkc0VTb2lCLXlHV0lkSWN4aWxXYVY3YWEzb0g1MW5EONIBiAFBVV95cUxOT0tXOU5mLVFzTk9CSEV5aTAzN3Raa3EtLWJ2WF9VR01yZ0xjcUNKY3YxdDdkU1lyOHpDanMyZzBxdnkwOFVSU052Q3Noelo4X3l0RklGS2d6N3MyQVdUX3pNSFk5QmNUdTNYVVIxQXZUZVhnSEE0LTFJWEExUy1RMlRtVGt4NklD?oc=5",
+      "title": "Ossoff battle with Trump, White House gets nasty - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-18",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-24a38b73",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPemxBRnpmNDhrY1o5eE5qbDZtR2pOelZwUENsbGNwN1Z4TXhhX3hxc3Fldmw2MGR0UFN3dVBnUWFWcjVZZkpObzMtTGdQb0MyNHZBSjVQS1Qya19wVG0xUE5nc2FzUlhGaWV2VlhLMTdYZWdmcF92SUFDeWNUTGNwMTNia0NYdjhIRW9QcDM2V0VSaENNZjZSYzZSOXotLTFHQUpEZVNR?oc=5",
+      "title": "Trump posts video targeting Murkowski over vote against Blanche confirmation - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-08",
+      "pair": [
+        "murkowski",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-252ab4b7",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUjVGalFsbUZfMzN3dDlNcXZlZk84eWwzRVoxLUswUWt6S1VBQWhvdjE5MzJQSFBZbXZGbTlxNjEwVmRkVXBERks0U2RRSUdrU1RDX1RQZnhZTks1cTJwd0Z6SHVVOEpZQnVhRDNVODNrSVNJSnlkZk9xbWRtWGJ5N29iMWprYTBsNXfSAY8BQVVfeXFMUFV2ZkxfZ0doM1NHVlB6MjJNcVR0RTQ4cldvYmdDU0FoUlEwX1M3QjFhNmJZZGJKazd3andoc3RHZzhhR2hpMFMtc203WERjck56OUVFOGdrMURkS29HQ09GVTRKcktEeFpiZ3FHS1JnT1hTOVphNU1wZHNtTXQ2M29wbW9vQS1KSzBrbEhPeG8?oc=5",
+      "title": "Donalds, Jolly to face off to replace DeSantis in Florida - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-18",
+      "pair": [
+        "desantis",
+        "donalds"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-25f878ea",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNR2RHRFBXOEJpMm9uWnB1X29PbnJ4UHB4dFJsTk1idEJ4WHRHUDFQNElZWkVwSHJPVkt1cDdoZHhtSVFVZTZDWXRZSlZnZTNWUTJuQWg3Ml90d0NzOVBXbjhqQlJSYUNJRkdzeDBCNFJ6U1c4eEtFNTMxRkpXTnVzaWNVd0JqYzNXNFpFRmlwMmhoZ05lY0stT3ZZRUpkcFNTLU1NX0dlZ1lJenhQREtzRXJOZmhKRTE4?oc=5",
+      "title": "MAHA and Cassidy are doubting Trump’s FDA pick - Politico",
+      "source": "Politico",
+      "date": "2026-08-20",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-26b571f0",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYVJoSzAzRHRQbWZoYmxYYUxIeDYzNmlHOWZxYkpOZ3MzbV9fSjRxQmdTTTlJZW5hSVM1Q3JSdmNqVnhjeFgtUDVMbVJjWWVsOFlldGU5OFRnZllFVzA5dGFNTXg2Q3BtQmhNNkVpNTl6NUlCVUlJVURSQk5RMDZqdmdDSExhU0tUb2RvQnQ0RHkxQ1JlSGdvSmZPcWM1SzZpZC1wcndKcnVqeWJXNkHSAbMBQVVfeXFMT2JTWjVROWFzRjJ5cE5aQlJYcUJ2amtVMDhWUFFlRVRaUTNOY2Mwai1zYjIwOG1rd0pWMVc4WlFQZWJBaVRRWERiU3ZYTjg3Zm9iQUhuV1JFQ21TcEx2QWRGU2MtWDZsT0ZPck9TTWx5TGxrR0FKRVpqVUZDSUtjRERRYTVrRG5hTWVQc05kMVo3eXpqNXNZTDFuZjlqQ0tYWTVIaHB2VkNDTHlqWFQza0NHY3M?oc=5",
+      "title": "McConnell's absence puts Trump agenda at risk as Kentucky succession questions grow - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-05",
+      "pair": [
+        "mcconnell",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2848af3c",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQd0VkcnFRNTViRldkQnVoWGVMUUppS0xHS0JqTXIxVU1PbmRpZlJoVy1Gc3gtRXU1RW43aVBfUkN1Z1NrdHJFT2FSa1o0dDVFS2dNSkVlUzZmNnE5QmljMjdrc1liSW0xMFREWjBETU9zblNQTXBxbkVfNFJQeWJ6czgyTnVBcWpjamVMcnFqQlFWVGpLNmtMWUVISlQwY2ZTWVNyUGFBZlA3aXNFV2VZOF8waDg?oc=5",
+      "title": "Sen. Schiff on Trump threatening to pull Blanche nomination: “always, always about Donald Trump… never about anything else” - CNN",
+      "source": "CNN",
+      "date": "2026-07-30",
+      "pair": [
+        "schiff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-28a5477",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUVZpYXVsZ0hiajd1MkZIb1ZxRzdPS0RzdGhoWjMteGRHNGFkbkdnUUhpOHFyN1NIR2d5dC11NmNKWDd5Q3ktbzRMcXE1SWhxajdHUEVKWGRYeXFod05yZHhZMXRZUEtETkV2UGpYdXg1Um1UeFdOTl9CWUc0Y2xDMEljRFB5cGR4WlE?oc=5",
+      "title": "Trump blames Minnesota water hacks on Walz, while evidence points to Iran - Politico",
+      "source": "Politico",
+      "date": "2026-07-31",
+      "pair": [
+        "trump",
+        "walz"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-28d20022",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQ3d0cy16d2F6RXhnSFdxeXBKQ3VzR2JRU0d1ckFLSVpDTDFLeHVCNjdCbk9LM0ptWlcwN1RWTHBhWU5pMGM5VF9xVGJIenMxcHNXM0R3bmR0Wk1OMFZJcHFBdjRubGdJNVpIMjBmOTFycFpEUTNkOHJJYUVRS0VqbE1TbnNRWnlqVURFUGFlT0pKT2RmaVdBZTBHdXV2MTBKVk9fRHFqbEFJc1dHVURXblRZTEQ1UQ?oc=5",
+      "title": "Raskin targets Kushner after Jeffries takes heat for meeting with Trump son-in-law - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-25",
+      "pair": [
+        "jeffries",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-29762c1b",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPVkNVbXZtaEdlVHhQY0VKLWVsWTlicGFFMmdYSG5MQTM4Y096UHlLRTR2OU50QUR5UjBaUjdDc1pWNDJPemFGbnI5TkxTbmV0VnpKWUpMaHRZT3p0TkhYWXQ3UFBuVG5iQ3pWdUptOHRySlhTdW5vVmo1UTd4Z0N6dl81S2Y5SEg1SWZFZUVGMmNUdTlfVDY1ZVVB0gGfAUFVX3lxTE5UdWp0RzJ6eDJKUFZzQ21UUHFUYXhmWUJ1X3ZMQ1Q3UV9SYkpZdVU3MUVKU3VUZzJ4dW0zSUNBYTJrOUJJNk9tWkNCYlhmNnRzUXR3RHRDeElpcWNObGlyMXNpS29ZX0wxWEhVdjV5Rm8tUXk1MnJjdXVPWU9wSVVJNlBZWEhPbEF3bkxIYTNLdEd1YWlUOFVYNDI4QnF5SQ?oc=5",
+      "title": "Tim Walz accused of risking national security to defy Trump - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-19",
+      "pair": [
+        "trump",
+        "walz"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2ba9c2ec",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQR1UwOWRtcGVTcWtERFZoMm5WcnB6aTVJanFRNUZnM0NPenk4TENXZUpSZGsyVnlXQjBjS28ySUp2aVdpSU11OUIzeEpTbDZkUTR2Um9qcGJKdnhoYjRSdzU4bktxUFUxd0JNZDdmcWNCUWY3QXhCdGM3OGlHVHI4RG5xc9IBiAFBVV95cUxPbk5ILWRKTEpHZFYySTdUc2ZrMF9SSHRaaUt4d0ZMbWNUQ2pxYWpwUGFSMUZVX25kWnVkYktKVmZmeERpdHluazlXdkV1VXJPXzlkZlFMdzd1VXd1ajJxQ3dhUDVKU2xERlRLYUhWUG1oX0hNdVRfa1JCYnRGV01HZ09FTXJNT2RZ?oc=5",
+      "title": "Jeffries responds to Kushner meeting backlash: ‘No one from the Trump Cartel is getting a pass’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-25",
+      "pair": [
+        "jeffries",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2dbadcc3",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUnZLUDgyTVhLOURoTTBadmdZalJOYzg3MWxHaUF6aC1PbXo3UjlZQ1VTZk5VNmF6RUlVVkhUbHhfUG1nLXByZkZaY09lZWpneElycFFpQVpXN3drSGRRVEk4SHg1NlRGbE9qOGxWdVhrdjRfTzB2VVYyM3poMDI3bTR6QdIBiAFBVV95cUxPVDhPVG53aXZLM2c4ekFuWHhOd1F1SkRWTjRJd2ktRWtTdkhUQW1KQ2FVQWJYNmpQRF90S2xqZjg4MEVTcEdKNnVSSDdQOEU4RVhHNjgtaGlSMWFlY0FhR1YxcThqS3NteXlkMFVUNThWR3QtSC1YSS1lYVZNeWg2WlZ3TENQeVFo?oc=5",
+      "title": "Ocasio-Cortez backs Markey in Massachusetts Senate primary - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-20",
+      "pair": [
+        "aoc",
+        "markey"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2e8b9eee",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1pTllEMXptakNITVk3cml6OGQzcERqVFQ4WlU1Nll3eE9MMjkxQ2J6bUxoR3ROUFVGci0wMXpvaUNSY3RPTGxwM2NmUF9VeG9ndEw0TmVqajdYOUFlaXlOa3NwSFYwend6UFN0czVtalV5X2lkWnRwOWZR?oc=5",
+      "title": "JD Vance and the Trump team keep moving the goalposts on Iran - CNN",
+      "source": "CNN",
+      "date": "2026-08-16",
+      "pair": [
+        "trump",
+        "vance"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2f97bc38",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZ28xRzlLeUVRUDFiVmhtSjJ4V1I5cDZQbllHRFlxTl9RWnp4Vl9jOW5Fei1QMHgzdldoZUx6bVZ5UTAwOXl5OUVSUnpuZDk1V1JnYWxNSnBsTnV0dzhjVkxOQzlNbVRoaHpadnh3blhxNTAwMnhpd0ZfaUZYM09yRXZVRURrY0NYdUFabE5VOC00czFhTjBLLUx6MjRZaExrdjl30gGoAUFVX3lxTFBXd042Y24yMm0yeXI4Szgtakh1eFBPNlJNcFFCYTFsS2xfeTR1TlB6ZDg0OFVtTWl1b0ctNWVQQ1pON09yZ2FnOFp4MjRLak9NNFhGZzdrMWZQdW9wT0pVZzFHTFloUXhUaUNuZkZoRmdRZFRISlFtdnRSRjFiMFF4WG1oUnRvUGFpVUF3c1RGX3Fib0E1ZzFDa2lTUXBRSHU0ZDRFUVJ6Tw?oc=5",
+      "title": "Jeffries brags about Dem obstruction against Trump as he defends Kushner meeting - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-25",
+      "pair": [
+        "jeffries",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-2ffdb541",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV19GWnl5LVYxMmtPMlFhcnU0akhnaERDUkwtaWVMTlZpR181Qzg2N1F2a1NqUjRHY0RtOUo4NWxOdUc4T1Z5LVhOVnY3OEVwSjR6NEpONXpRS0s1ZVFWc1E4ZmJlR042WUdJYkk5b2xyemtoal9hbUpEeWRjYjdTMlo4cGcxS1FiOVE3ZkZPemlyd9IBlwFBVV95cUxPQXVqMHpTRTVsWmNJTUdHd1VieGdEYmpmRWFsaURCTEd3VW9wbFZ2azVwX2g2azJmVVQzVlk4ZXVMU1BVcklnMC1xMldDd3RBbGFEeFVhLTN5MlNFNG11MTAzWUxKOTFtZW03S1FsQ3dSVl9jNE54cmNJc28zSXZUdFhkM0VxZjYwc2xEUUtTWHJ4UE1NamU0?oc=5",
+      "title": "Trump bashes Greene, Massie after meeting with Tucker Carlson - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-22",
+      "pair": [
+        "massie",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-30bd8c47",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSd1ZrQjdPOG9BWHctTjN4NDhVa1VRYUFXZFpoTVoxc3FEbHhvYjNLZkRCYTk2LUhMY2hObXg3RkdfYnhnTDFpalA4N0hRc2oxeDJVNE1kQzkwZTVDWkRkaXZvSmdXNDZlLXMxbzVETnliVzAwaUE?oc=5",
+      "title": "RFK Jr.'s quiet hunt for autism culprits stalls as Trump orders baseless changes to childhood shots - CBS News",
+      "source": "CBS News",
+      "date": "2026-08-17",
+      "pair": [
+        "rfk-jr",
+        "trump"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-30e90f89",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1ZbXhHYzlxSFF2MEl2QnNNUldKQXZVOXpFck15UWJwa00xOHhkbmtSRmV1cXhGb2xVanZfMlQwYm5fdEFmZEFqWkQzME8yNHlFSlg4WXFhZF96NThzSjY1UDcwMWMyYlBqWlpub0dVc2wxN3BGTV9SdlJDekbSAYIBQVVfeXFMT21UOUhEN1F0NDF3dnJYZkNqVW4xOWlaMmtJdW03QzV3eEw3T25lS1lYN1FmaEt0bjVHMFpqR05oWlktV2hFUnpOZHBJbnBvY2U5anJpdHo1c0xoRi1WX0VsRjhSa2p6NHp2c1lUWlh3RVd6clUxRG9MUWR2Y2JWd3RuUQ?oc=5",
+      "title": "Shapiro on Canada tariffs: Trump chooses ‘chaos and cruelty’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-24",
+      "pair": [
+        "shapiro",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-316116a0",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWlpJd3JpWG5wWWFDdnVuZGVlcG9xdmx5QmpVbkRTZDk3UGotc04xdTlPMFNMR0o3THlLdl9nSFdtTHpDSnZIMWZxZ05DOWlFSXlOODFIemswb2FRMnRLMWpYaW5CdGM2ZkYwVThQY0VrVktkaEpSOG40cUNGTl9lcjhKam1hS0dRX1ZJ?oc=5",
+      "title": "Sen. Mark Kelly says Trump administration is \"flailing\" in Iran and \"has to try to figure out a way out of this\" - CBS News",
+      "source": "CBS News",
+      "date": "2026-08-02",
+      "pair": [
+        "kelly-mark",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-345240ed",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPOU11MTdwTU5qcVljMUNKbms2djZqRUZOUmNQTWVGSVIxQ0E4c0h1YVZLNW1BczZBcTc0QXBFaGxDbGpmQXZYWkZLS3ZFalI1MjNFbHU1dTB4OGRMV1NRRDQ5QWdtV29OWUlSa21oeHZONWVERlljR2lRbDU4T1I4UVkzbFBlT2VYWEE5Ym9rRUt1QQ?oc=5",
+      "title": "Trump White House escalates feud with Ossoff over jab at Trump’s ties to aide - CNN",
+      "source": "CNN",
+      "date": "2026-08-17",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-356e33dd",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWHpHZjFsTHJMZUlYYS1xak1NYnN5OWpmX0I5clNrUXJZSWIwbzdDdld2bnFuazl2M2hXemFTdjBDenk3dHgyT2RXenpRQS1UZXhOekpaRExYc29UVWxjdEdLaDNMUnZCQi1ZLU1xUGh6Rm1GMTctWF9PbUVWYm5pN2J5eWl6MWFDVjRHQTNxQVZhTHg5T3NOWNIBngFBVV95cUxQOXg2dVEwN3VQYjJod2pxbHdGZVlJeWYwWDBScnhDbkJGZzlrbkEwTWJ2ZklFOW9vVWk5YkU1eVVzZE1UWVBReUlIYzB1d21Pc3RXRVFtS2VDYTcyVW1SSU9wZFZPbUxVTm91NzB1TzczS19WOTFaSDNIOEZPWjE5T1ZXZTVCdWZ3bnJHN2dJR2c1TTZ3bGYxTGN3S2REUQ?oc=5",
+      "title": "Rick Scott: Trump will have to resume full war with Iran - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-19",
+      "pair": [
+        "rick-scott",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-36823342",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQN0RoTS0tTnJ4NVg0RGRMT1pPczBRUkRFeEotOWVYYTdZQXA5d2YtRTN5VWRENzVIZHJvN19mOUJvU2NNSjFfcHJ1bjgycVFCQjNOOUEwUFNkR0NhY2hXblVZVmd0c1JEOTFCdW85X2Y2NkYxb1lhWVJ0eEFiMDFldEQ3dy1CVGhjMVEyWVRrZFcwQknSAZgBQVVfeXFMTUlfZXZZcHdvZ002aFJiNjNjRHBCb2Qxa2NBdnQwYkI2NHZGY1IxZDJVajRaTEhTaTdCa2o0S05CRVBLcTlKTGRZZWo1V0FRUlVmWnpONEpRYWU3dWM2VlhSa0t5UnhTWG43THZaQUNfVFJ0ZDJCa2ZIWTBqM05FNnVVMXNjaUhMN3dXanBIclZzYi1YQlF1dU8?oc=5",
+      "title": "Warren demands investigation into Trump meme coin - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-04",
+      "pair": [
+        "trump",
+        "warren"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-3e496507",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTThSQnlNMk1tM3RHWVdIN3lFcmhwN08zcTFFZi1hckdqOHJsdnBySGxWVVJyWF9ieGdxVkR2dUwzQUh3VEJTcGNaSkNUQTROUU5VUFFkcWdiRnYtVG5GUnY0OWdWNENlOVpJTXF4R1J4ejMtSHNUQUJDMktRdmF3ZWpGS0hVSmxwV0R2UEJ6b2REaWxEX2dYRVIzdWFOUWUwcnRnbGlxNHlvbEZ2aTlMZDYyRVdjQdIBuwFBVV95cUxNMjREd3FCQ29fTTNNRzVya3AxTXAtVE1QSXB2VmdwTTNUQ2VBS3FucE9kbHRONnFLQ2xlX3BhSlN2SzcwQzVib000clQycHN0WFY3SU1FelNQdU5qMVphZm1JMXZCaW4xVVRFQ21vN1RhTFlHZ3c0cnFKanc0TGkyU3F6RWlzaHdUQmE3Z21IaDMyWTFwVWJhY1BIYk8wd2dCRmc1MUdKa3ZOQk9CSUgxMDFWN3JfZ3RsTXk4?oc=5",
+      "title": "Trump claims AOC may run for president as far-left Dems back away from extreme policy - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-14",
+      "pair": [
+        "aoc",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-415a99c0",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPd2lSai1Kb3pfZnhhUmxEM3h6aUs5VThIRW5NMmpfTGdTQy1OampyX21SX1RyMjhEN2tacHJXQ0lkMlREbXdjVG8yTVI4cVF3dkZDOG9MUW0wcnRTcmR2WW9mOVlUTzhWMWl3eXdhRHVWWmE2S1JMZng1OGpPQ3VOQXctc3dXSmpONHQ2TUF5cXd2Qm9vMkgtYVE1QW9hdWVmUDFIMVZHMNIBrAFBVV95cUxQM0VlblN2Y2docWQwWE14ODFaaFlyaWU4TEZDaUU5Q2hXTkxuSVREdGVjb3RDOHJiYmlrY29yRzJYbVBTUUdfSFZkbl9zNVg0TjJlWTBHVUtMNnR3M09Ya3VYTFhtcGRHVDQ4cjRFd0cxaFg4Sy1FOF84MFdCS0d4bGtndjhzZTFDQlp1dng2YldtMzY2OE03UllRN2ppNWZpVEwzN1E2b2xsdW5Z?oc=5",
+      "title": "Sen. Schiff leads probe into Freedom250, the America birthday group offering access to Trump for donations - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-25",
+      "pair": [
+        "schiff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-41bd1491",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPM0dQR2ZJdlpOYjRKa25KeXRjNnJNZkFhRUtmYzVLQkhLQk9RTDd4Z040aXlZNUVSZVJSR2VjZ2pWRWZENUM2N2liS1dmN3p0U2w1S0tvRVpySU5BX2NEVUFKeE5EVzgydlVyV3hJSHRoOE5zeUtsOW9nYmxwcDNqS3liVVh2a1VDM2JEeWpIaHQ1Um9Jcm5xMVVYcE9TMDBmYjgxSng1YUF0YjVBWkVDU0FGZXdWQkw2OEFNYm1mcktSUEc5SzQ5NWZCMA?oc=5",
+      "title": "Steve Bannon predicts Todd Blanche fight could be final straw for Trump’s relationship with Thune - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-07-30",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-42b9211e",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVFE5Q0VIaDk0emhIZGxWd0h0Q0hKVmVPU2N2VjVSa2ZBQmJIa2RLRF94eG5HTEs0SVJwbUFNVDF1RUpSUTlab0NiWWptLVVWemI2YzJHYmt6QW1VdVREUEl5T25WckdieVY5dWZrekVTYzZmaVA4VU4zWjBNWEFCQll3OHBLNFBZTnU2bFM3RGxMX1hOOGRnSXVTUGh4N1E2eDdz0gGoAUFVX3lxTE5oQmJLRXA0N3lOcmRKTjRKaEU0TFNYYmJzcThNdU5BZm4ySG5FYzk1VS0zWEhqN2JUczM2bVBSOUs1dUJrdWpnckF2ZmVuYVNMTmZTYzRoYWpSWk1UNWVLYXJqbDdVZU5kZHpLdkJLQ0F5QWVVWjlDTTB5NWh6Q09SM1VwNjF1RF8wNDY4WDU0SFZkeXo3dVhHUG1acVpTTzJVVUluVXNYSw?oc=5",
+      "title": "Vance defends Canada trade war in visit to Maine; Collins skips rally - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-24",
+      "pair": [
+        "collins-susan",
+        "vance"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-430c2ee8",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVDBUVGtPU2EwcWRNSFRZZHcxa3lqQlhiVzN3U0NfaTBEQkFLaVl6SHJtNUxZMmtPemhNNVo3aUQ1M1V1Q1lsR2hyV2I4Q3g0YTRWSHpDaEo5bENVbmtyVVY1a0EzSU1CUk5icE43RmpjaVplTEtVOUhqSmV0Vmx2eHVxN2dVcGhERFpPM2tjby1zZ19zdGhsV1Y0MDFyZDFFT21ha3JITmVvN216cG1z?oc=5",
+      "title": "Anthony Fauci invokes Fifth Amendment in Rand Paul Senate hearing : Trump's Terms - NPR",
+      "source": "NPR",
+      "date": "2026-07-29",
+      "pair": [
+        "paul-rand",
+        "trump"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-436a29a4",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOdkZJZTFRVzdTYk0tSGZlb1dMZS1vc0VVYVJkLWF4MWFYN3Z2ajNPbGYwY0dNc0x5VUl5cW9jbTBXY25uT2JzeEE4WWdsX1EzeWh3clJDV2lNNVRqTnMtLXNwMUJ0Q3dlSE5Jd0FuZndYMkpSQlpCYVU3NlFEVnNiWtIBhgFBVV95cUxNN3REVEd2X05aSndIeC1yRkU2TmJFOG5WMjFHZHNNMmpvRDlaZmJpNVkyWmsteDBpY2doTFdJQ0RPSHJQR1VEdm5WbHFELWEtMEZQNXd1ejNKWW5ldFRCUlVpOVM4bVBxSDFOckV4VWNqUVFOXzlnOGVyUHZNUFRDN01tVTF4dw?oc=5",
+      "title": "Crockett calls Republicans ‘very performative’: ‘A lot of them don’t like Donald Trump’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-11",
+      "pair": [
+        "crockett",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-4385816b",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNDFhcUtjTEdKU0Zva3JjQ0w3Y25VcEpFNEMzMlU0YVlfdDJfMEtHdUtodWhvck1qUGdrN0tzTXkxYjNieXpsTjdFanNYVmVITDRtV01oRU14M2Q5Zmp4NFlySUdxUnRFTVFWWm1XLUxMNUJiQk94eGl4VjBsdmI3TXFsVjktNEVDQUNjYUFlOFhZa05nVTluQUVPdEs5RW8?oc=5",
+      "title": "It's official: Amy Klobuchar is Democrats' pick to succeed Gov. Tim Walz - Axios",
+      "source": "Axios",
+      "date": "2026-08-11",
+      "pair": [
+        "klobuchar",
+        "walz"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-44a4c674",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQb21IdW11NkJTNHYyc2pUVFVpSTZiNEUyNGw1V2w1VmtnMVB0S1J2SDR3ZUdKRkZDWGQyRkQ2N2xPYnhSc1JRdXJsQ1VGOFFwVTFBeVg5cC05blNBOWx6Qk9VUXpDQ1k3ak96ajYyN1VidUFkbDl3TnRxN3A1UWN5Z2R2N2xzX2NVR1ZmRy1PUnA3bjBvUGhYU0RqOGZCOUtnaW4zcmJn?oc=5",
+      "title": "Adam Schiff on Democrats’ ‘losing message,’ AOC and AIPAC - Politico",
+      "source": "Politico",
+      "date": "2026-08-12",
+      "pair": [
+        "aoc",
+        "schiff"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-4d22d606",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWnVSRmRFdXJ0UG1pcjc4cXpMS3M3NWVUYTFhU2gxOEk2LXFncDE2aW5xbklNMzYwbnh4OXJNMkZEOHhQMkpsLUI3LVpFZlJqQ2FNd3NSNkFrWU9YRkdGWHdFa0FPdjhQR2g3UlFEMGJNQ2pnZGtkMlB3OEt2MVk2T2RuY0YzVTBFclVzaWRxWEdoMjJiV1J0ajZlOWIzOExHUXk1MEk1Y2xBeWtidjFTU3JZaGZUc2lC?oc=5",
+      "title": "Trump Eulogizes Lindsey Graham as Senate Giant and ‘American Original’ - WSJ",
+      "source": "WSJ",
+      "date": "2026-07-28",
+      "pair": [
+        "graham",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-4d54ff7d",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMllWYUYxTGlkUlliTDhuV0JqRW9UaWItUFRpUVZSazd5VV9kSW9kZVhsQmpMdUVySV9JS25NdGYxbzMyOG1JNG1OclIwQ2JPTThIeUFYVDlpXzV3MUpBNlFfQm5CWUstNi12bWdmVzhQZDJYMGcyT1AtSXFUbkFEelpUaEdQeWo0WjR0S2JJSWM2bTA1Uk1sSjg3eUpLSXBiSlp4bHRMTVMxcjJY0gGyAUFVX3lxTE9FaHhoc2oxU1gxZl9paUU1LS1rLVIyekY5eGI3SmJ1WnI4WUl1MWZHN1VCbEFzbnVDZDBqZERnQ045RjlPSGlfSXMxNjNaZDhvQzVkdU41Y3VON1h0OEh5alVrZk5kWmkxLUJVMGtMLXpzYXI1MGhxZWRXYkMzUnF3elJWZE1yTUNWNTgxNzRQbF96MXRRSmN0SEc2anBxSjN2ZVlfcXplcHFHb3o2MzBIY1E?oc=5",
+      "title": "Fetterman strongly supports the filibuster as Trump urges Senate Republicans to scrap it - Fox News",
+      "source": "Fox News",
+      "date": "2026-07-28",
+      "pair": [
+        "fetterman",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-4dfa5e5c",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNakRaWDRDQ3FzTk5GdloySlpCZkg0Sjh0M1JjWmVmenZqNVJsWkdabWlpSHhRWW9NVUxlbnFtdVhBT3Q5OTVFcHgzblZuZWhuWTBuYTByLUdWLWlOZjE2MWJJUXFoS1laVFkzZ2Q4bktiQ3psbGtFaFNJd01Fc0t5UXJKS2RPVUIyQ1JkZ0EzUEd4RUotXzMxQzBIQ09acHhxa2Zodm9oTDJvaWNrNERCRGlEU2QwY1pCcVHSAb8BQVVfeXFMT3ZBOW9OcWxaWXMzNklpVXB4b3NPRF9YMEx5b3pXR2NTc1RKSW5WM0JUODBZUGhWa3dfc0dqTFlQandKaW92eGlHUGlpUlBabUZDbGo0eHBpTmRQMTZUYzJzZXQyZ0NGZFBrai1mS01nOG1UdTlFRm14eUlpQVpacmRfQkYzTC1nTGFUYXV2NEowejU3T1ZBZzVUaHZoaWVaNW1sc0pWcnFTQU5TVmx5SEhQZENpQVBlaV9xUG1maWM?oc=5",
+      "title": "Obama strategist turns on rising Dem star over viral Trump attack: 'Gratuitous and unnecessary' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-20",
+      "pair": [
+        "obama",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-4f6e4273",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUUx4WDM1NEFZaTRuYTV2TFd2T0N3ZHg2MEhBR1U2TWRDdjFndXhINlJfandYVFlUdXZRT2xJNW1MeUtzNFcxRDdLOUJiVlpid3lmX21BZjNHTUMwWVpIc2hLOVVPZEhNRnVxWFJhaFdFR3hvckNhRmlISzhEdUlrdW1jQ3ZMYlhFeUU5d19TM0Q5R3NEdWZka29CcVpsT196?oc=5",
+      "title": "Fmr. Trump Campaign Manager: ‘Ossoff is better than this’ - CNN",
+      "source": "CNN",
+      "date": "2026-08-18",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-53476078",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPeEM3Z0JxSDFVYVRickM2QmJOSkw1SGEyOXR4UGRtV1l4dmRNTy1ySmt1WHpNUzRmTjRCa0E1NGxfUWNac1BKRlhQc3p3S3ktcWFnQTVqQy12MEFIdFNJN0tGUVdoQkI1d1lQRU5SUkRDZzYzeVJpbkZpZmppa2pjdk81bG51XzNkR2tCVTY1amRuM2I0dEVRUldsdTJ0aFRWd2xaLWoxYUs2MmUycE9uR1RxeWhaVnN2XzlzTW9BdU9vTnE2Z0gyUW1nWHB4Qkd0WlUyLTFGWmdpT21k?oc=5",
+      "title": "Joe Concha predicts wide-open path for Rubio if Vance prioritizes family over 2028 - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-17",
+      "pair": [
+        "rubio",
+        "vance"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5359163c",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPc3NXaGlKR0lFdVNOT3RwZkRHaUdmQ2Fvc0J2QUs1Rnc0M3psOXZQdTQ0NXhJS3pJLUlWQVhCaElQc2ZKLXd3RXo2cThvaUNuMDI2ZUhxcEY5T0F5NF9Bc3ZwdWN2MGFsM3p1R0NwRExrVTZaT2plcHkxWUoyWmsxS2h0cmxueWw5Q2dLZlMyZHB3T0Jt?oc=5",
+      "title": "Trump says he may pull Todd Blanche's nomination until Cornyn and Tillis leave office - CBS News",
+      "source": "CBS News",
+      "date": "2026-07-30",
+      "pair": [
+        "tillis",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-53d6d7ee",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdmlZUmJlbHFIVklkN1RFalRKSjlFTDNvcE5zMXlmZHdFNDhNeE9RWFAtclRGWmRuZEVlRGZmN2U1QXV1UkxxcWp2ZmV5MWFkcm0yWHplQm5IcXhkX1k0YU85VFBueFNyX0dvQ1BwNTc5Q041NlhiRTg5bWFzRWk5SFBZN0NmdjJYdmFyTjJuN0h3WEg3b0RiYnh3?oc=5",
+      "title": "Late Night Reviews Trump’s Eulogy for ‘Friend’ Lindsey Graham - The New York Times",
+      "source": "The New York Times",
+      "date": "2026-07-30",
+      "pair": [
+        "graham",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-541beb22",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE82dnE1TmFoZ0FVOWI2UmlEVWpZeVBpQ1VsU2ZRb3pZMU5xR0JPVElXSzloWVN0WExZZHg5dUxUWTctTk1ybElLS2VXUnhkdWJoQ0tfS0xWN1BILWZLY0RiSmVJV3NObHdISU5VR1Q5bWpsWHR3eWZ5QkRPcWfSAYIBQVVfeXFMTy1XMG9iaTFOdlZ0cm5iNUtkNDFvWnc1akRZZ3MydmdBT0NIR3F6WkYtaHVNOTBLd09saU54NFNLMEdFMUw1cGdkLVgwTy1tcS1DVkFUZ1VORU84TzdZenVKbnF0c1JnVVQ5VDBIdTBBeE1lYkc4eXNCQV90VDBWYm1iZw?oc=5",
+      "title": "Massie, Greene slam Trump’s move to lower beef prices - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-21",
+      "pair": [
+        "massie",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5632c3e6",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaTdncEFDcVlndnhQdTNiU0dxNnFMZ2l3TjhDdElIRXRVM2Q0WndUN1NwWjJ3WmRMRmdSX0p6TGFfWlozVEo0MXdRVWVnN1Z4NVFyMUFoRkJGR0xyamJobURoZUQtOTNMeG9MaERocUk4MjN4YnVmNk5mc1gwYUZ3dFlvanVXM0lacTZUZkdXWjFOd0RhaEdGVDhQLXh3MEtBMFE?oc=5",
+      "title": "Thune and Johnson both plan to attend Trump's Dallas convention - Axios",
+      "source": "Axios",
+      "date": "2026-07-28",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-571b9a58",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPcXdERWdGa0xmVmNmTllHcThSOVgzSkdoaXFiV3hxN0twaGl6dG5UdlZxajdoT3B2YVM0d19mLXY0S2hDUy03R1VCdmVuOE5CbWtLQ2FNQ2hGdXE4eTJHTmliQVRDSDdpdVZqMGRUay04R2VzRkFXRXhXSTZ3RS1IbElZN3BiUF9WcEx6MmF5Z1hKcGxtdHVkZUpfbUVOUmFWdjNjbG5DNmVvNWFMSjlxX2YtcjQzRlN00gG-AUFVX3lxTE9TQkdzTnJWNVVCTmpkV0gtM01sRm5GVFktd3dCYWNxWjBFOWdDLThielZyMUNYTk5KTHZwbFRXRGVSVFVDYzFqRlhiZEZtaHV2UHZTclJlQUtsUzZZT3VhMFlJZjNJQlBHRjVINjJ3N1RDcElMVkg3YUtoYjdXMVJZM3pVWmQ3ZEFlMTByeDR4UkoxaUxNTHdqSFNPYnNFbW5kdU1nSUptZktmWjRVNDdrREhoYmxOYk5LRzV5MGc?oc=5",
+      "title": "Mark Kelly: Trump decision to reduce joint military exercises with South Korea ‘shortsighted and a mistake’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-17",
+      "pair": [
+        "kelly-mark",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-58ec198f",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM3Vkam5MdzgxenBhd21yMnI4a3pwRGJ5WkJzVEpjZjJmLUM0TkNQRzYyRVN3Y2lKZmo5OW1QWGNuWWw4QmtoLWZNVXQtRHJnczk2QWN1VWNVaTRVSG1uanlMdXkzZTBGTGU3Y1dnNUplMGk4WDlHcjFDWGtBV0R2RGZaMDk?oc=5",
+      "title": "Hillary Clinton blasts Trump’s ‘tackied up’ White House decor - CNN",
+      "source": "CNN",
+      "date": "2026-08-07",
+      "pair": [
+        "hillary",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5bf9e081",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5FX0FQRThOQTl6SUVyVFhERWVISnZmTzB0Y3RlaFRvR1dqT3AyWUlFdE50UlFiMlBhVzktcS1nUTV5TDNBOGphYmp4RWJua0JxOVMzemVB?oc=5",
+      "title": "Joe Manchin warns Alexandria Ocasio-Cortez as president would be 'devastating' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-24",
+      "pair": [
+        "aoc",
+        "manchin"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5d52cff8",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBvZ3ppUlE1U0FpT3l1dTBTSGdERm1rLVplVnZhajh4VHhaNEVLXzhfN3ROQmc2d2l1T0xDQU5RRHJCaWxRRU9sSzNVdnhPUzBLdVBVVzF1QWtTRkEzdjdaMXl4Q0lVOUdkQ1A1QkJlcElRUDhQUVE?oc=5",
+      "title": "Fauci diaries, released by Sen. Rand Paul, touch on COVID origins and tense relationship with Trump - CBS News",
+      "source": "CBS News",
+      "date": "2026-07-28",
+      "pair": [
+        "paul-rand",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5d6066ee",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPVmtReXBpSEJrdy0xMHJ3bTJfQjlFWXlnUU5QUTM1QzBhWGlxNDF5ejJqNTFlTnZuNGlmNmxnNWVhNUQxSHRvSDhXSmtoSzRFVmtBLVgyZjFfYUxWbkNuY2hmQS1OaVA1MXQyLTZWX2lFanVEaFNNZHBVd19vamJ5NFpJWmFkNzZOTkhncUlCd3FsREp2Q1VuNWhXQjBDbTNRM21PcHd0OVJPUWtCVGdWOUdzVnB3TVVBc2RrTW10aGhqbC1wMkpzQ3doOG9VcVI1dU5taXlMbUZ6MmRUWUNNX1pOelFFdw?oc=5",
+      "title": "Ayanna Pressley says Trump admin, SCOTUS, GOP are all 'fascist' - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-03",
+      "pair": [
+        "pressley",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5dad701",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOTHVveW1TT0gwa2RSM3VKSmoyX19wMWNSQnpQOU9zTHlsN0NkUUdmUmlEUW1SMUszdHNVN1FDbnQyd0NIUnkzV1JscUVzU1NhUE5ZMkhobWFsS2xjanZfM24zZXgwU0xVZ1A5ODVYM3cxaTRuZ215d29YS1pmMlRzSHRReTjSAYoBQVVfeXFMTlpKR203RWxRY181bzJQN2FCSTF6cmhwNzJEUU5OSUhLVHpab2xMLVUtTXBBM1AwY3lZOExlUEJmRWRuWGVteThSQUpNLWdwcmhKUVVjZThYOFl3SXdWeXM4Rm9OajBXeWp0dDRjTXdTVE9JV210UjZqV0dGUERJVWdUUFZ2blJJbGJR?oc=5",
+      "title": "Sanders: Look at what Mamdani is doing and contrast that with Trump - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-02",
+      "pair": [
+        "sanders",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5ef3b07d",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQ2V1N2JEOElXbEZjNkVSVlg0dWNsZ05nYW9pUjZJbUtlTXNMNWtQUERYazMwUlRWeWJZcERLQUVnU1VOdTNNRElBZWNEMzN1YlE0X3VCVlhLZ1MxNVlFY0ZFRjdGSllwclZwTC13NzlkUzlrTVpudjZMSDREaGNNSHdPUHpLaXNsU1lGSmNrWGJTVkxsbXfSAZsBQVVfeXFMUFAzR21VMUJybUZpdVR5WUthUWtLNzZveUVCOGZJR3dBYzgtTlQ5X2ZuSVFQNlpCSlYxd0daUlZnNUNDRHR4dVdpX0dzRmFlRWowa3g1OGtfUnhrRlRvQmtKYU5jUHJ5eGJTdjA2dWlzTmxXSWdIdVkxbFp0aEtCRGZzdmhKN1Qtc2p0NHo2TF9uUVc5WEIySVpVSlk?oc=5",
+      "title": "Warren presses RFK Jr. on Trump ties to lettuce distributor - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-13",
+      "pair": [
+        "rfk-jr",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-5fbc99d6",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQQXRLNE9IRVk0NkwwY3pWZXNXR3ltbm9HTkU0aXRncG9qR0lfOGlqV3Fua0U1SnNkYlUwRk5VOWx4NXYtT2JkZnBQdlRpNlVoYjQta1F3ZmNmYWVmNkVFOEhTczJrTEg4aTRLYWdIUjhRZWlWR2o1M2xROUwwQmNMM19R0gGHAUFVX3lxTE5CdVBXaENKM0E3cmNyWWZPWmNpYXFRSXRTTGxnSmR2clJqTF81Mm5udS1Tc1pvNDQ2M05GQkxFelYwaDVzMGE3czF3eGpwWGJPSG5CYUUxOHJTN3JFa2ZQbmlBZGI2TUpXNGd2c0VzSURNa0h5bVNibmpMLVFEZ0VxelVvb1dEQQ?oc=5",
+      "title": "Cassidy blasts vaccine order, saying Trump has no ‘expertise to make these changes’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-10",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6317fff6",
+      "url": "https://www.foxnews.com/politics/newsom-promises-legal-fight-trump-supreme-court-victory-mail-in-voting",
+      "title": "Newsom promises new legal fight after Trump gets Supreme Court victory on mail-in voting",
+      "source": "Fox News",
+      "date": "2026-08-25",
+      "pair": [
+        "newsom",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-65010b31",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcUVuclh5V19tVkRXZ2xadTRMYkc2RkF5QnhBc1RfRmlEclZzbml6eThaM3hKRUppMllLbmphYVBVcTRDSVJIbTB1WW0xVTN1SzJUaHlLU2tPRjYtYkNnZUNRTHNDTmRxcDNzTkxiSElaTWkyZnIyQXlYS05YQlhVNC1jQVhYcDNFVHdOZkRra3EzTUtub29tUGd4cE92MDlhZlhQMUg1cDBMd0FRRjczWWlFVnQ?oc=5",
+      "title": "Elizabeth Warren partners with Mike Lee in push to curb defense CEO payouts - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-11",
+      "pair": [
+        "lee-mike",
+        "warren"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-650f2f3f",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPaEdjT1Zzcm5aY2I3RjBSWEpSSkdoNE5BTVBwMDlwRFBjRUZZeV9IeXBqeVZ1aFJON0QtYndWM2lBbWlKYTBfNzVCVlk4eTZETXB1dzB5WlFLeWcyNjBDUUhhbEl2dWVveXY5MUduUkhxTms5WktpSkZvTXVGZndhZWQ5SVBoUXV1akN1b0puM2R4T0xmU01qVzFSS3NWSWtOMW1QUGZ5RGMxR0dITUt1bWdfckFEeW5fLWVKWjQzX0lhVlN6WDlRRNIBzgFBVV95cUxPejZTaDZRckpZenVXcHFfTFBtSmZqYnFidzhmaG0tWml6UlNNTHc3cUlLbzZyTEtUQ2V5MFpUUGJVU3FkdGduWWppWDRnRjVVcTh5SE1aUXhqSkd5eXRzbTFfSFJvXzFGeERmUndCay1NZk5VX0YyNFVfcXBKR0ktbDJGZjdxMFlsdEEwMDhJR25SRnM2T0hEdFU3bEg3anVyUjhvMEpLTUJYRGhkZEl2UTJtT041Q0xWWGM2Z0FobmFKVXgzaHRTWlVEYkpjZw?oc=5",
+      "title": "Hakeem Jeffries rejects Medicare for All, DSA agenda as Ro Khanna calls health plan 'most important priority' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-16",
+      "pair": [
+        "jeffries",
+        "khanna"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-67c812d7",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPRGVMY3dPYVVsMFU0Ujh2Mk53S1NFWmlJSjFRWmRjSXBDak03RGdZaUFKWThWenIxSUpvdk5JZ19DU003NkJocU5HeGZDNUVmX1lSNjBTNTRGOVNoTE8zOXF4THZaZkZiWDQ3NnZUUmIzVUNwbENMdGYwQnkyRlA3SFlIR09ZdDBtemFKRTFNM0JEUWp3ZDNyUnl4Rm42dTNjX2o0U2pvWVVhaDFKMTBvNjdvaVlIbnR6SjVHSGxIV1dBVE0tQzBHOG1VYTVKYzZCZS1vRGlhOEpHdzVmTVdvNk1vdGpVdW1CNFRfaWhzeXZHeFFlSko4M1NLcF9UQ3BVZUVn?oc=5",
+      "title": "Tracking Trump: Trump threatens to bomb Oman; Kushner meets with Netanyahu; Cassidy criticizes Trump’s vaccine order; and more - The Washington Post",
+      "source": "The Washington Post",
+      "date": "2026-08-17",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-683cf7c9",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBWZlIwWnh1OE04cG9NQ2FJMmhCRmxKVmFPWmtRZWNaN2ZEemZyZGgyb181c1pKVS1DLUxMUHdTQmRBOE13UGo2THBVSC15Yy1WQ0dqU0xKRDBpZzU2c2x4TXBMVU12bjFnUVY4STZCUEd0OGhRRkdBa9IBfkFVX3lxTE9RSWM3QlB0ajFtTmFGQV9FZkhXUTRDd0JkNjhDWkdxelFCUHl2a2xIaFdrT2dleWpHMW5BQjdLejR4eExpc2E1RDU2V1RQejAyd2J0eDZLclQ2V3JSSmJLMTl4VWI4Yml5T25xTTFieGNkd1dZRUZidDRMLWFBUQ?oc=5",
+      "title": "GOP senators rally behind Thune in response to Trump jabs at leader - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-11",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6988d132",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTTVDVUtfMVFRODBIWEd2NWtOWENQQ2F1aU9heWFxMVZieU9PWVdiRGhrSUhPSFFNUW5NajBodG5nSlozUFYxNnJqZXB4QTd4QWdkeUkzV0RycVd2Rzd6dmxIWkpHNk5Ya1hpOWJQSjVVVmtOQ0ZEaEU0MEU4X0k0WHVpNE5DbG9HODVldzBycUh1T0dPUl9Z?oc=5",
+      "title": "Jeffries Defends Kushner Meeting, Vowing Tough Oversight of Trump - The New York Times",
+      "source": "The New York Times",
+      "date": "2026-08-25",
+      "pair": [
+        "jeffries",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6ba59090",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRkNRZ2tHQktSUU80dDJuN0NxNFBUeEhNLXpJY1Rrb2tqbVhNQ1A3N0x6SVk2MG9VQ0JSWWNuRUNuZnA5Qkh0YWotVXRRZ2hINkhSN3FCU0RzdkluSjRTbldFZlZkTUFCVGxPZi0wQks3YXRhQkN1MjcxUTdpYkh5UnBiVFdqOVVCbTJiQ19nNzkzTVdpVWVGM3NOSQ?oc=5",
+      "title": "Mike Johnson planning to meet with Elon Musk in Texas - Politico",
+      "source": "Politico",
+      "date": "2026-08-28",
+      "pair": [
+        "johnson-mike",
+        "musk"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6bff92d5",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSGRqVG1RX1plR2pLMHZETVBQUlM1OU5jMHJMdWhSRVRmMlNRMGdqc2IxWVA2NFhkU2VLYmlPVjV2UlAwUHBDNmRPWWZlQ3Z4OGpYalRyZDJacEtYQW1ieUY1ejB2ZV9KdW1VdTdQUUpnTFNybmhDa3ZHWThwUVdPcHFiYnFzN3VndzJnekhuSEV5dmU0ZVE2NDlCbVQ2TUtaTnp3ZU9nck5rS0hUSENzRVl3?oc=5",
+      "title": "Maryland Gov. Wes Moore says he's 'very concerned' Trump will interfere in the midterm elections - AP News",
+      "source": "AP News",
+      "date": "2026-08-01",
+      "pair": [
+        "moore-wes",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6c63c2b1",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNb1llNHkxLVFBYmRiQzJOYVRINnhlazFVdlpfZEV5by1TSEdaQkphZjVtcGdwUUZXb0FNSjNRcEVwd2xLTjB3TDR6azF3RzJIOTE3NnpFa3Z3WlhabjlrRkRWeENfZ0EyRDlydkg1WlVjbndfOTZocTlMSTNhUmRRMkVqRdIBiAFBVV95cUxNVjdXa0VtUEppeE1pSUtuRks3X3hNTFFFNC1XQTI3by1fRk5EQVZ0bHlncjY0Nk1DSFlMZ3ZFb1RERzIyQWhTRl8wZldORzFiTUFHODFvNEhSbzBmejl0SFlfajVkZWduNGFETHA3d2dMRGFNeXhBTC1oWlhMZGFuX25Da2V2VW56?oc=5",
+      "title": "Pelosi: Trump’s effort to control mail-in voting ‘threatens to silence’ voters - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-25",
+      "pair": [
+        "pelosi",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-6d3b7575",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxON0FGN1Fla0xQMVF4Ml9ZeG5sYlRTa1VOeVB5TDZOMjZMdGJvbjRWNlptSnBfaC1BQmJxUk14d3B5V055cVlqdHg1OHRqeWVNZDNUNl91TkFJakJ6aDI0dk1zWGxHd3o3Qko0TVJaRVRxckU4YWZrSC02RVBHamY3ZEhXdTB6eHhWVFVCZUNSREJZSkpx0gGaAUFVX3lxTE5VS2JiY3hzWkVydVdCU3JYWkU2R2twSmtsWjlqc09EWW1nWnpFanU3aVVZcXBjUUwzX3ZXdXQ3VmRtcjhvSXF3MHlzSTRQVzdaTHd1TXV0VnFwZ2ZjMEFPZzgwRWo2T2lOajZlUTRCZ2FLQTFvN3Y0UUFfT3dMd3U5aHByMW1MdmYxRDEzS09TT1NBSC1lbVpmZFE?oc=5",
+      "title": "Trump questions Thune's leadership as SAVE America Act stalls - Fox News",
+      "source": "Fox News",
+      "date": "2026-07-31",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-70864b08",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBBS3d6dXZ5TDM5VUtPTmVnRExHLXVYODRCb25Hb0I2elFPZnRnamw3X0lNcEpadFMxcUx5RUZMSHhfaVJKMTFFS2ZLQmMwN2dNenNPMmdzRkMtVndMOTE4OEFtWjk4T2U2UDRDSGxhcUI2bjdpY1hOZzBBSU8?oc=5",
+      "title": "Rand Paul, Trump forge unlikely alliance, mending strained relationship - The Hill",
+      "source": "The Hill",
+      "date": "2026-07-30",
+      "pair": [
+        "paul-rand",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-70e78006",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9ZaUFBbzNaSG4zeUxWNk01dG9YNmpUYUJwbVZnZVB2TDZrWVVselJ3bWxFQVFpeHF1eS1CME5iTWR3Z0ZqX3I0MkxkRzVveThGb1VIWURSbWItQ1ljWkgwVzNmRThTakY1MHE4c2NTQ0l4cW5Ed1NiekNB?oc=5",
+      "title": "Jon Ossoff’s takedown of Trump reveals two very different versions of America - CNN",
+      "source": "CNN",
+      "date": "2026-08-17",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-71c08aca",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5zYmpCdnlHdzNYTUpKODU2THIycU9xSWtKNTc4alBPTkh4TzFkSlRxT2lxWVpscERicG1GSlJxbFpkVDA0ZzFlWXRIRnQyUmlpaWhvQWVqNzZCS3FCT1BSeVBFVTJ2NnRyZG5wb1hSWnVWM1NVaDBN0gF8QVVfeXFMT3R5LV9aaXNBMXk0YTNhQ1R1NGtZVDhVWWNkVUhNeFhtbDF0OVloQ0VhOEg3bDR0RUFOVEVVTGVCZHE0czJiTklEXzJPNy1nalJVcVJHM2FtUG1rWkNUOG10YkhDSEZib2dac2xJbEtNVWU2NGFQWkdOSm9Kdw?oc=5",
+      "title": "Iowa Dem gubernatorial candidate says he would not want Biden or Harris to campaign for him - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-27",
+      "pair": [
+        "biden",
+        "harris"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-7485524c",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPZWhHaFNpb3VCVHNpc3c4WmJFZnloenFEXy0tQW5DejZBNmlZa090N1lDRlV4dldiR2JmMEhuWFNZeXM1eEVkYmZmMFE0a2JSUDZfRXJrZzA3SWlIemJ6eWw4eDNXQlhxMXNObTJjQ2VFdjZiVHQ4R0IzRmIySlBPQU9ldFVjanZodzVndE0xSnFIMUMwVDNFOGxZMEhRcUZnUDVjUnlvWFhDcnpXQ09BdklIWdIBuAFBVV95cUxQTkprRExrZjBZYmhUYVJUc3liNjZyTkRVclB3aHMyY2xGOXhZTnQyQjhibjJwdG80YzF0b1BHa3Z6WnVyQU9MaWVWbldDWHp0U0xKZkFrYXZzUGpKTmM0RjBVZnluM3JEclJVX3d2VnRRSEp3SERGQjFZSEdGV1Y5NU93VEhuMjdFVDZ3ZTZaOTh5QVQ1V1FycVU3UzVFSXh1NFA5cm14YWJmcS1wMzBvdHhHaVdNbVJT?oc=5",
+      "title": "Fetterman answers whether he'll cross the aisle to confirm Trump AG nominee Todd Blanche - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-06",
+      "pair": [
+        "fetterman",
+        "trump"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-750320d",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQVkVPSjlNY0laR25NYTlCSTFXck10QkFlTkExTmVxQkZEOEZsR0lXU0VZc0k3eXc1M1h1cmIxQW5wZ2x3Um43N3lNZ1ItaVNKUnhVOEVaUkdvQ3p3TTNOYnZONVlxdnQ0cDZMWDc4aEdaVkd6aE1laGFuaHIta255aTYza3Uxd9IBiwFBVV95cUxNNHZpQ0JTeHZzeVpkX2UxWDRwRy1jdU4xa25Zd0ZCZHZJS0E0YUhSU0MzNXV4djRta1EtNVN0WFVHeTFZcEp4VGRmNm90eWMxd3IxU0h6ZFZRUFA1WXZTMllzRTQ1ZG9KZm4zRkNZQzRGWDlaVnF2aU4xY2paMEg5b1dJNXZGdTFKRURB?oc=5",
+      "title": "Schumer urges Fetterman not to leave Senate Democratic caucus - The Hill",
+      "source": "The Hill",
+      "date": "2026-07-29",
+      "pair": [
+        "fetterman",
+        "schumer"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-75c904aa",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPNEt3Qy10RmJ2TG5CSFdvdDgxNnJUTjJWVmwtRG9pS18zbnliRTM0TmkwUWV0bE5tTjlHRVlvWWotR3JyWXZkSktsMjgwNmhHdWItNWtXa2FhR0l4ZHNGUWp6dGlDOUstdnNtSzFBQTN3MHBtaGRoR29kRzNwXzVSN2R0QlZWUTJwYi1CZ1ZNQTNDZXFtZ3hCVUY5NlZkVi1WTU9GWWxYeWxwbDE4cVRKNTJSSHl1WXZLajBHaHdvbXBKN0plb256a3B1VU5zOU0?oc=5",
+      "title": "Hillary Clinton blasts Trump’s construction projects - CNN",
+      "source": "CNN",
+      "date": "2026-08-07",
+      "pair": [
+        "hillary",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-763789e3",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPa1hPbE5Cb0hwVE85QXdXa3p1TUhkZjBIZnhBWHEtMnlMNWRWYjBoS3VheFAxMzZjTVhLNkl3VEdHZUQtVFJDSUxYZHRHanZNb0RTS21ZcDlHOTU2aFNKeHpHTmcyVWFhTnlUTFdlTDY5ZlplbWZZR3pRVXk2d0hUbmJlNA?oc=5",
+      "title": "Tillis says Blanche won't be confirmed as AG amid Trump fund fight - Axios",
+      "source": "Axios",
+      "date": "2026-08-01",
+      "pair": [
+        "tillis",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-7673d66b",
+      "url": "https://thehill.com/homenews/senate/6049018-cruz-vance-2028-presidential-nomination/",
+      "title": "Cruz says GOP hasn&#8217;t coalesced behind Vance for 2028 nomination: &#8216;Oh, no&#8217;",
+      "source": "The Hill",
+      "date": "2026-08-25",
+      "pair": [
+        "cruz",
+        "vance"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-77f686bc",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdnhiNzZ3RFIxSk1ERTd6el9ud0NZR3M4elFNbjVlb0NCaDlaaEFHR2wyV0VaTVF5b2oyNXdtNTJGMWp2RzZLLTRWaTZxNENmdm1fZGx0bWpjSlpjRnMxNFFsSE9CbldNTHY3ZmQ3ZlF5Zzh4bnVaU19HSGl0a1FqMlgzSTNtUlhuOFpGeVpqMzFjQQ?oc=5",
+      "title": "Pressley breaks with Jeffries over Missouri primary race - Politico",
+      "source": "Politico",
+      "date": "2026-08-04",
+      "pair": [
+        "jeffries",
+        "pressley"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-7fc9066",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBoY1dSdDZuckp4aVRhdG5RdjBJTnY4ZlBidEVpa3NkUms5ckZCQzlvQzJrSkM1bUlselBFeVpwdHdCaVdkQTY4d0E3UDJyTlZhQXUtRGxBZWllQ2xOWTFvMzRMTl9pVHJHcWpiZTlnSHlmcXNzRXRLVndITXrSAYIBQVVfeXFMUDlINlFPXzl4NXBMVVlHc18yajlOSkRILU1zUFE3c3lOZU5CZ0xXWWNJaFEzNVZ6ZlZDWUFBb1NuOXdndmw5SjcxZy1PakZLem1MX3hRNWluMmxlNDcwNkE4dXRVekhkeUlLMXdzaENMdUh4YTV6OTRvcVlUVS1pRnZjUQ?oc=5",
+      "title": "Slotkin asks Hegseth, Caine to confirm troops won’t be sent to polling places - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-19",
+      "pair": [
+        "hegseth",
+        "slotkin"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-802422d2",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSm4zc2VjcDh2OXk2dldwM2UyV04zYkZtemI1dEhTV0FNZ20zVEI2UXpJcFdUQmdDbVU2M19JOEVITElHWUticERSRmo2c2pmUkZQcDllWmJYbWJXSE4yR1JCRWdkRHFlWFdhc1ZmVEdZR0ZBMmtCQXJpNHlLMHZxMWRwaU85TFdyTWFHMlhnUjVHS1B5Z3d3dnluSUlZRG93azJBbDhNMFEyMVBDamYzNEV3U3p6T2dzbVRQdmdNSUFTMGhRME1laQ?oc=5",
+      "title": "Aug. 2 — Sen. Bernie Sanders, Sen. John Kennedy, Gov. Wes Moore & Gov. Kevin Stitt - NBC News",
+      "source": "NBC News",
+      "date": "2026-08-02",
+      "pair": [
+        "moore-wes",
+        "sanders"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-80c32a94",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPUVJralJoS2lvNU5ZaTRfOVdPb1dETGtzdWpaTVlNekV0Vi1vWlYxWkxWT2hPZG55c1ZRZ0U3dzBZSE1BLW9zWWVyQkJxTTJaMzh4ZWhoVjFhVXVWYVEwS2gxN19wbi1zMFVpYldkUUJib0xQeGxyci1YOHdaYjkwa2hmWWtxZGRvYl80WVJNRjY3M19hZ1NmaGVIcjNuQ3lB0gGmAUFVX3lxTE5XN0s4T3pySEFrMF8xeHZYdGpGTVpCOHRzOS04OC13ZHJ5TV9QaXh0bUhJdUlSWXoxTHNidkV0bEtLY1lDcTkwendVOUV2ZUhFOE55UmpCazRjalZQXzZNWGJIM2RtRHMyN3hKSUlrWTZpR3p2MTZFZHVNblVLR25kZDVMQ3hxd0ZxVktrSXM2Ulk3QVlucEd4dlZFVDA0MmZLcXNZMUE?oc=5",
+      "title": "Trump contradicts Vance, says nukes, not oil prices, No. 1 priority in Iran - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-17",
+      "pair": [
+        "trump",
+        "vance"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-80ee66d5",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZlBmOGloMmZfOGVaZDZSTlMtb2V6OEhLVkV0WmlPUURUMnhJaDlldDd2SmlTbWZYM0FsRzZsZnlIMk1kWEVHSU9mNjVVcndaNDBEdnZjU0pUaW5HRFVtNnlSaVpCX3M3QXhJR2VWQmtGMDk2SlZHdl8xT2l2eHR0SUw1MDZBc2pSTkJCR3RfX2s?oc=5",
+      "title": "How $600B of Biden’s clean energy funding escaped Trump’s cuts - Politico",
+      "source": "Politico",
+      "date": "2026-08-15",
+      "pair": [
+        "biden",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-812335bb",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQb1lyUWk3MUZHZFlmbTFFTUZxM0xxcTJFNmducWFjSXlPU1hjdWJPOTB1TERXQTViVUxqUkExdjVkNkxnSmJvTnhDZDFXeU5hbWQ2RXlxa0pWZGpUVDZTU3JnYnVuSU1RYXE2Z0hBRFF0TElNTWh1enlab3pUVDIyOGtCclU?oc=5",
+      "title": "Gov. Moore on Trump’s comments about USS Abraham Lincoln: ‘It pisses me off’ - CNN",
+      "source": "CNN",
+      "date": "2026-08-16",
+      "pair": [
+        "moore-wes",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-820ab89f",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0xMVNPVTdKMDRBZDdCNWh0Q3IwRWVHQkdBbEVWT2FfOEh0MjBsOHI3ZC1Wc1FVQ0pyQnFESGFRZWZneThwTVNzd29BSU9UZ1czZDNmekZDUjdCdzBrWDhRNUVQZ2JmQWoyUnZRUUZyVGsxcnVv?oc=5",
+      "title": "How Trump and Musk Rekindled a Relationship That Seemed Beyond Repair - WSJ",
+      "source": "WSJ",
+      "date": "2026-08-13",
+      "pair": [
+        "musk",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-836ae8d7",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZ0NRbG5ycUdCVkQ4d1UxOEdhay1sYWZTRldXeFhxRXljbGZBSFl4dFlCazNndllPR2ZIekNSZ3huUnd4cWlGd1lCT01TYVZVTmVaazBMZG5zdWtCcElSV041QVU2LUo2clE4YkY5Vlh5emN3bnRqcVkyMlJRQTA5MkVTUVFwa01feWlXa2twTFJlQdIBlwFBVV95cUxQS2ZUSVl0Ty1RbFE0QnNmVnJfOUd0RkdjcEJ5bGdIOXRQT0c0NDZqdDVyLU9JbDlzSF92aFQyU0NHc3NyeDZjaW40TTBfV2g1UTAzeU44X1ctaTVYSk00YXFWWkEyMXVLTndYR2hEYU5UWWdWOUJKQm9oUzR6emxwazdNTkFmeGxlSTJlRmljQnB2NzBaR0Jz?oc=5",
+      "title": "Hunter Biden: Trump ‘the one existential threat’ to U.S. - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-11",
+      "pair": [
+        "biden",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-84ae9acc",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQaUliZlNTQUp4dGdITlFNX19DTENuNkh5TkJaMlJvMXhKRDlOWFhmVXNTT2RMSnQyLVlOWExDNWlJN0Q3QUY0bDBJWVBHMnFOSjZEUEdidkhFaEI3YVVlM0Jxa0taV2RVcEFwWFNNb180YmZqU3VDY3VzdU9zQ183VXBYWk9tVFFyeVQ5WDFpWWxfaDNQVFJ3LWM0Q2oyTWdtdFVXNmZtb01Nd1I5OWFoZy0taTJ0VWVXMHVJRjNGd3pCY0JpcWZLQjdB?oc=5",
+      "title": "Trump, Hegseth clashed at Camp David over Iran missile depletion concerns - The Washington Post",
+      "source": "The Washington Post",
+      "date": "2026-08-06",
+      "pair": [
+        "hegseth",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-876ec1b3",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY0lTUTFjZWhIZHZwVmNBaFdfV25vY2JqWV9VSThuVzU2NERGWUNUQU1XMUhRWmFVMC16Sld0X0gtWFJ3LVQtZFRxbkduR3J6bjZ5UkVCd29xSWI4SjBZeDc2VHlrd0dIcVVkRUEtNzRJcVNFajhmTnZraWpsT1ZmcUJyVlByNU5Na2MwYmpRTmxrMTNsMzNsc3BnRUdiTVFreHc?oc=5",
+      "title": "Who is Natalie Harp? Sen. Jon Ossoff puts Trump aide in spotlight - NBC News",
+      "source": "NBC News",
+      "date": "2026-08-17",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-88cabd84",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdFhCZ0tmbEhXUHJfemN2SDhxUnFSYTdUX25vNG9sQ3VhNGRpTkxzOGowMEV3Z1c4bndIdXNVYV9YcUtjSGVNd3ZpYl9TZFVoaFFEcjgyYjVUQ2NtSWRvWVBZZFhmWE5WQjJjd0VXZ3V4aGtCR1g3LU50eVFwSUlmVnFqMUF5QU9EQUdjLW9DcldkX2V1M1lVR3J1U2ltOUczclZ0RjFhU1hFM2c?oc=5",
+      "title": "It’s disappointing’: Trump declines supporting Thune for GOP leader | RISING - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-07",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-8afa2255",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUmMwQ2pXRjk1MGNrWl9nR2xZTkM4WV9aZmNzaFdydTNOMUFaWkdhT2lNaE1sVEJ5dlBfbjZRNThYT0tTaFJXQUZjM2d0YXF0bmc1Q0JuQmEyNzFKVTZBSFFfelBpOUU0MUlsNm1NWnVCQy0xTmlMX1k2eldjeUQ4MU41aEp4Wmd0MU0yUFBIVGdnU1ZZbEtOQ0V3bjRaZVpCM2N3SDlkMVR5NS1FWkdFVA?oc=5",
+      "title": "Maryland Governor Wes Moore reacts to USS Abraham Lincoln deployment, contradicts Trump - CBS News",
+      "source": "CBS News",
+      "date": "2026-08-16",
+      "pair": [
+        "moore-wes",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-8b4f644",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPZk5aSktodFhvblpTM09Xd2RxakRBR0hjN01Eb3p6R0s5X2FMYlVoSEliUUtuc2hYQVYxWGt1RHpodTNtYnJOS2U2LVRFT0JpWmw2dVVtVTNKYkx2ejRObXVpd2tkaXBwYlI3X0RzYk1MUzRVbTVpNTRCR2c1Y04tT25HWWN5aF9CUjl4S1p0VS1QTzdUdVhVUFJhY3BqenNQbzZHUFpyLVk0SlUyNEJIcWJMeWFuVmhuaTN1NjZWcHZ2a0Zl0gHKAUFVX3lxTFBLalRkT1hablNRblQ0dVNoOG9OUExub20tRDhvRGZOOTA3T1NuS3c4OHhvQ1Y0U1BnYW1mNG5VVXE4ZURyZV92bzVzVndveEl4ZWw2Qm5Id0FmZG5JQ2Utc0hVQzdFZTREMEN3ZXlxSmdkUXFLWXpRclEtWXNNcDdFbU9fUnp0UC1DTmMyWWtTQjlhOVNRSUhWY3ZzMVpLRDdnWWlfb1JCMF9wRmQ4cUVYVkNkaE55RTQ0ckstcXJ5LUh0bEt4MGgwbEE?oc=5",
+      "title": "Gov Shapiro sues Trump administration over ‘lifesaving reproductive care’ in escalating abortion battle - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-27",
+      "pair": [
+        "shapiro",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-8e222850",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNa3I0VWdyT2FmVll1WG52VUc5UlJHbExWV01xQ3dKQ19oZERrS1VRWXJrLTYyOWlZc1kza0FLTmtNSDhmVWpkTGdJRjRheG1hZzVibzRnWjhCWVM4RU5jLXhoQjFVWFUwZjJYQ19aV3cweTNhZUF6aXZVUi1aX0xRM1EtcG5UTWFhU3E40gGQAUFVX3lxTE9yYXVqLTZ6bS1hQVpMRmhSRktxSERvNEsyb0stcklaVHR2MjRLN1BhSW9waE9aS3JlNlUyOUlmM25kRExfMmtfeExpdzROd0hIaEpuOGNGTTgtSC0tX05wLUhwb1hfVHJlcUhnMGxyTHRINTFoUVo5NW5HTTI5RkFfR0RRSUNWaG5nZklXR0xYSQ?oc=5",
+      "title": "Bacon concerned about Trump not being ‘aware’ of missile shortage - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-17",
+      "pair": [
+        "bacon-don",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-8f5dd82a",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE92XzBaTnpuYmRvS2RjQ2JQaUpKcmMybU5XX0F4LVNFTkxZLS00WmE2WGtvRWZXbzhaV1BKMWstTTRNX2l2MkNJRU9lUTE?oc=5",
+      "title": "GOP Sen. Bill Cassidy on President Trump’s vaccine executive order - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-16",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-9243a894",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE02T2JTbURxYVg4Wlk1QkFiZU96ZGJCTlgzRnFSUERkRHlzSk8wTHBUVHVaVjB5QUdyOExuT19yY1dKYkQxQzR2UU10eTNsSmJ6cDJsQnp2MlFlalZnRXFOLWdKLV9kVWVUVkttM20xWGNqYnZSSThXT0s0bWpGQdIBgwFBVV95cUxPbjNSQ2dYOU1pamVpZ1h3azNkWFpwRzB2d1Z5T1ZnaFpBcWhyMDFfM0Z4enZVTzd1X2ktZmFXMk9oUXFPbmVXcVZRa2FlcmNRcW5XTVBPaDZpWXQ1ZDBjTUFDN2tjXzVQVTI1NmZIUVdGUVZpZlJjSjRicFpIclZUX1pNbw?oc=5",
+      "title": "Collins blasts Trump’s Canada tariffs as a ‘mistake’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-24",
+      "pair": [
+        "collins-susan",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-934218f0",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNazlnTUdlT2ZYUWlTYUIwYmV3SU9RU0dMamNUcmJtQ1hJQm9Ca1VFaVI4ZVRjcm4wZVJKcF95ODBSNDlUWjNEOHpWTnlGRjFLNmRlX3E4MjJ0TmxDaGc0OGt5aGJtVTNPdHhLOFZsbGwzdVI2enF2MWJYUV81ZnZqMUs2UndYNVZrU1ZiODF5UWpHXzBfVGfSAZsBQVVfeXFMT2VtQzNRT213Vk5fTFZkSWdnTlRXZGZKNElCaURyNTA0U2hVMC1uRW9XNTRqVjRBazhWOGxrTkhlYkJRdy1kaE1HRjU5enhMZ3dlY2Nuekpldm9LalA0SEtneTg5TGQ1RGx0WGc3U2dJQVdRZGZ1MzFXYlNYdmdRelNGbUdrNExsUWZ3QUVDVE50ZHFRUmdaamtLUm8?oc=5",
+      "title": "'This Week' Transcript 8-16-26: Former Joint Chiefs of Staff Chair Adm. Mike Mullen, Sen. Ruben Gallego, Sen. Bill Cassidy & the Generational Divide in the Democratic Party - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-16",
+      "pair": [
+        "cassidy",
+        "gallego"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-942333d5",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNT2p2VWphUk85MzhaLWF5UnJBcnlVdlc2Y0ZXbFQwZ01MbG1ocWxnRnRaWE9QTlR5ZnltTEpIUk9RMzBmWHlTa19ZMlBPbWRWaGpKRDNjQ1F6ZHpHdHE0dFVYa0Nwck8tNnM5WWZxX3F2Q1E4UHBpX0w3OVUyWU9jTGp6XzNUenNXX0FVX9IBkgFBVV95cUxPQUJIUHhlRXRjY283TFJCWk1FUFVlR09xcmdBSTRiakRCQnVGTjRaWUNxY3N6eDJMVmhiZ0JyNXZnOU9nN0g2eW5vaWo4aEZlcG02U2UxMk03NGNnaHFrTjE1aGx4d0tTenlXTm91Y2g5dHBvbTJybnYyRG5pX3lSN2YwZHVVUkhlemZqaWhLSkV4Zw?oc=5",
+      "title": "Cassidy criticizes Trump’s FDA pick, says her role in vaccine order is ‘almost disqualifying’ - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-19",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-945f5d73",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE00TGNvOE1jdU5mTVFBSkptd0RDLVk5cC1hS29hZzZkYkNaZlNjMFl6VEwxZnBFOGlERjM2T0MtbHdnU2VVajNtdXBEeFpGczJWYUNhdTRVeFVIMVZsb25zSU9qSkt1LUlqZmU4Z19uQ2QtZw?oc=5",
+      "title": "Jon Ossoff Has Jabbed at Trump for Months. Many See a 2028 Audition. - WSJ",
+      "source": "WSJ",
+      "date": "2026-08-20",
+      "pair": [
+        "ossoff",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-949b0ef6",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWTlUVk1CSW4xMlV2ZHhXN1FVUGJQeGJUcUNlMHhCVzlVcVBpc1NIU2JSN1A3d0t0V1o1M3VOZTJrSlMxTGNFZ0JId0NNRThxVzZyMWdTVFhKeGNWMWZTQm1Nd0dSb0w3MVUtd0tpX3NZMGtyX214ZHpNNjFmMHdVeXBqa3hxNmp0a0NvTmQ3QjZxemdpY0gxQlN1c1FfWkVOVGtxZFhqcUJ4MklUdEtnMUZ5R1JYN29v?oc=5",
+      "title": "AOC documents egg-freezing journey, takes aim at Trump admin over women's reproductive choices - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-09",
+      "pair": [
+        "aoc",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-96dd9eb2",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNU0ZncUNuT0dQamc2Vnc0WFhtaEYzUVpFb0hPb0p3cGhuN3pxLXQzOTA0SHNkaDUzblZ4WUtyU29jVGFBUk5Zd0plcDVMNFA5dVRQSl9EVVBJR2ViYmxxc3FCMDZjU25wOVg1R2c4TlhPUl9UOG5BeGxmdE5vTVNlZmdRNC05bElCRzh1b3JubkNmcndhMjhIV3ktdkViUWRY?oc=5",
+      "title": "RFK Jr.’s Health Department leads Trump’s push to add politicals to the federal workforce - Politico",
+      "source": "Politico",
+      "date": "2026-08-28",
+      "pair": [
+        "rfk-jr",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-98d40b30",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1PM0ZRcTNVVERFX2lrWFZ1QUhyQnQ3WUd5QW41QTQ2OF9TZDI3M01nRVNhQW9Kam9ta3N1dVBPU3FEdHFpa0dJYWs4cVJYZHJtbVkwY3NKRG1OS0JvdUxCdFRkOWUwbEQxbG15ODFDa3I?oc=5",
+      "title": "Opinion | JD Vance Is the GOP’s Obama - WSJ",
+      "source": "WSJ",
+      "date": "2026-08-26",
+      "pair": [
+        "obama",
+        "vance"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-9965d1ad",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVnBaVGtPbmh6Z25pZ1BpMkhaY3FJYnhBQTlxM25ZN0tOVnN3ckZhSEUwSW9kQWlEckdobTkzR0NEYnNkX3o3RmhrYko0Ukt2NmtNWUZjQmx0ZzlISHZnNU5DdWZaRGp5V1RGT2QySEJKTUtUYlNWWWZDZ1BZS05kampIVUpuaWFyUjNSVmNQOWdJdk9kblhlNEs1WlJRMW1QYUpCblFaUkZyeVBjWXhSUHN0VVM4akR0TUZiQzJkR2F3VFU?oc=5",
+      "title": "‘Praise be to Allah!’ Trump rails against Tucker Carlson, MTG, Massie | RISING - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-24",
+      "pair": [
+        "mtg",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-9a0d0594",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1URWk1LU1xT2tHbEhxdjlvb2tNaTVhLVhrLWh3dVc4dVZ3TnVRNGk2U0JwYlZWUDhyWWtFaFNSZnROSmxTSXpWcGZTNWMtLV9GYnhkM0lB?oc=5",
+      "title": "WATCH: Mark Kelly puts responsibility on Trump for Dems turn to socialism - Fox News",
+      "source": "Fox News",
+      "date": "2026-07-28",
+      "pair": [
+        "kelly-mark",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-9ffed64d",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOQzAydUJmZ2RlUkNoZ1J0QzdmdGZXclNqNUlCaGFySlB3X1h3S0RWVXA0UXdyMG9UaHFOQ3JfTUNiakRIVTE4QmEyWkpIYzNNY09xMTRLaFE0S1UtNVVqQ0tsM0JCd0NDYXFJelN3eTZ4a1pILXhvU0ptcHl4WDBVcTF4Q0gzc29ubHlBVFlheFpFdlM0RlhudzVoTlE0dTY4eldKWg?oc=5",
+      "title": "Cassidy on Trump’s vaccine overhaul: ‘Crazy, stupid thing’ - The Washington Post",
+      "source": "The Washington Post",
+      "date": "2026-08-17",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-a3355465",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE92XzBaTnpuYmRvS2RjQ2JQaUpKcmMybU5XX0F4LVNFTkxZLS00WmE2WGtvRWZXbzhaV1BKMWstTTRNX2l2MkNJRU9lUTE?oc=5",
+      "title": "Video GOP Sen. Bill Cassidy on President Trump’s vaccine executive order - ABC News - Breaking News, Latest News and Videos",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "date": "2026-08-16",
+      "pair": [
+        "cassidy",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-a7564170",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONWRDbTlXLXFpWWF6Slc3UmdFdFp3VFJVeUhvM0FQaDdmZTdqNkNxVWNuanV2S2trWVlkV3NfOGdxV2FFQkViZHdaNkZjNjA1eUxXeElJbHR1YzJzVlA3QmtxUFUwWHRBN09DX0RZS0phSmNMaUF5QUxnMUNMUlFjWUdMMFltUldnOU5OekRXdDhTWmp5MzlITWJLMXlWVmxDdjdOSlUwU2I3QktkTElLTDJvd1BoUFBWUzBVUmZR0gHDAUFVX3lxTE5lQ0psWkNpRm5BaUNWbVFueHFSMUJnM0JzMUJtT0tWeDNaSGx1SVlrU1FwaXVmTWV1NThpR25CMV9RMmN0eG92eG9RczVrLTFneEM4dGtzaUl0TFVWazZUNjBTMG9nZmY4b2FBYVptODc4aklPZW1DeUp6dy12cUlFTjRFaHRTblkwbTF3QzR5bGtlQ2ZWQjFiSFpET0RXLW1DYVoxOXFnaXozaWZQbjlOOHd2U1B6V2lnMEVIaDZQWFBnVQ?oc=5",
+      "title": "Hillary Clinton's dig at Trump over Lake Ontario name change sparks viral backlash: 'Shooting blanks' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-28",
+      "pair": [
+        "hillary",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-acab28c9",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUW1yMEZ4bThBSDNPRlc2aHNQbzhMZWI4NWNZMXk3ZEhPRlljYUlVMzZxcVlaRS0tdWZvYjNndFNiWE1mT3Fqc1ViWk1pS3JrMVdVM2ZFTzRINGpnb0FnTG5sT2dWMkV5aElFWEtocm9lTDZqMnFxeE82c2pNY0V4cnBSS0Y3bmhfNk9fdEtqVTlpZFZpQTRPN3RCRVQzclR3cTdHZ2JIVnJYNmU1OWc2U3BVdXd2eDEyWWlCQWgzX2gtdzJTWFRsdjhhcHN3bXcxYkNpUw?oc=5",
+      "title": "Hillary Clinton blasts Trump’s construction projects | CNN Politics - CNN",
+      "source": "CNN",
+      "date": "2026-08-07",
+      "pair": [
+        "hillary",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-acceaae6",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNN2otMTJDQmxtdGJwLUFYcHhMejBfaW50b0hRS010SEdqbHZhOWVXRmo1Q0xaa0FISWkzY0NSSlRQVlVtMnM4d1BMMkdQM0IwVUFFTUREQUgtWkNTTzFIX09NaTFFMDR4eXZUWVlhM0xRc0RrZTZPc0phUVlNVEI1dWpRbHl3TDN1SDFvLVNhUVJIdnNLQkQ1N05jMWtqUkVwSGJwRmd3?oc=5",
+      "title": "Hegseth Strips Security Clearance From Biden’s Air Force Secretary - WSJ",
+      "source": "WSJ",
+      "date": "2026-08-07",
+      "pair": [
+        "biden",
+        "hegseth"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-b32938d8",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPS3pwRFBKeVJGWTR3QzBscFdSeGJyYVJaaEZabjJtVEc1SjJpUENKSWhtTHdjcnJaZTVKV0FjMG13b2ozQnVkUmRkSkx3RUZ1NDFJRWhvUU1kQVFsc1MzV1dMRFFuN2pJNjJ1MDhfTFItV0VUN0xfekFSMUZnTHRobXloUVV4aFNoalBCS2Vrb256cVZxcHYzLXhIQV9NaTdBWUhWVWlmVU8?oc=5",
+      "title": "Rand Paul says he doesn’t understand the buzz over Mitch McConnell’s health - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-19",
+      "pair": [
+        "mcconnell",
+        "paul-rand"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-b5ccb69",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVFJFSml3dGZFc0NKbGN2R2lFTnBOSTQyQS1jTEdOUjFkakNxZGprYWdFWWtISDJMLU9fNjg3M0dUaDVwY1RnLUlJVzk1NUYwUnJra0lGWF9GNHhlYS1zNEVSVURGN1hmdi1HRDk5Qmw2VTg2dGpFUXA4VS1rWmU1Q3d6cWxSY2hzTF94R192bGxJWjRs0gGaAUFVX3lxTE91VGpmLXluQ3FaVEtOZDBXNXhQcHA4LW1HWURoaDIwRXhxenBlOUUtVlBSZVFfLXJuRmh0VWRxcmo3ZTlRX0MtSTJydkJtNUdoXzRNSk50UnFSelAxQjh4VjZCMThUSlFPRFI0US00REZCd3hKU2FLZndtYmJ3WU5vdWVrelFfVmhIS2FXMV9DRTNQRXBKNGZBZ3c?oc=5",
+      "title": "SEN TIM SCOTT: Lindsey Graham was a patriot, a statesman and my dear friend - Fox News",
+      "source": "Fox News",
+      "date": "2026-07-28",
+      "pair": [
+        "graham",
+        "tim-scott"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-b5fe57d4",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVjFsVFJBazJ0OXZibkVobFJaekFrWUhXd3dsdlJkUGU0TW92cDZqdzZ4T0xvXzFub0E5MHJKVG8zWTd0RXMyaWZMd0dYY1M1YmdHdUZPcXNEUmxsNVprdC1fX0tKdFhYV0YwV2h0bVdNRXRvQzdrRkxfR1ptNS1xc1FxY9IBiAFBVV95cUxQZmo2UGJneFVCSmlJeDY5SWxQTDJsR01WZlVqTlBBQmM0bVZ3UTBqZUN5cTV4OEJRN3YydzRlakFJLTVUT013d0dROENaTFNuMW1EWjhYOE85RU9zMk5BRWNSaTJBckt1aWotbXpHQk9mSm1faHJiTUlkN2p4b0pZaHNITkgtOXFC?oc=5",
+      "title": "Rubio leads Vance by 36 points in new 2028 GOP straw poll - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-04",
+      "pair": [
+        "rubio",
+        "vance"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-b6b1916",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOM3d1VlpLcUctckRZOHZrQmdGVFRsWFR5b0N2eDlXaW1QWXlXN3lZT1I0ak9KUG00NHlZNnFTbGx6bm5pZlRrWnUxcFJmUXFRNzBWdEtWb0NpeC1sSTg4WmhXdUpDTXJYd1VfWUtDSTJDOUhUT0xWRm5JaTRjeVE3bFcxdDQyWTRFajIwTWllZC13eldFWVZMTE9nZjFVazQ0Q3cwZEp1ZHdVTnFS0gGyAUFVX3lxTE5BUDVTMkZRbmV2Vl83VFFmSUVXRUpyWU1JaUplY1lJVUNFdkVpX1JTYUhmekVOWFBQQTJBZU82UDBYLXhvZmE0WGNaejlVRFlaWjhtSU1VWldNWExIYjlRZy1CUC1vd19aOFc4ekhKVVRGNVZkN2xuUDdScFh3bF9DV0hsSGlBdlNGZTlSZFhfV3FRVjE1ckpadFVfY1BuaXNQTmJ2MmZjNV8zai1iUlRxX3c?oc=5",
+      "title": "RFK Jr. feuds with Shapiro, spreads vaccine misinformation - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-26",
+      "pair": [
+        "rfk-jr",
+        "shapiro"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-be82151e",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB6SkRTM2QxM2pHNUNnLWVMLWw3V1doY19vMjAyOHU1VDByLU9leS1WZmsweV9iYmJxOEVGWFdkaTN4a0RrNjJhRE9SNV91QjBKclp0RVBB?oc=5",
+      "title": "Pelosi reveals NEW details on Biden call before 2024 exit - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-13",
+      "pair": [
+        "biden",
+        "pelosi"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-c3079ab",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNDlqRUxieUxmZktSNlZ6RVBHTzlqZmpVT21keXB0UEJpc2pqTDRVTEktZVRGR0t3eW12S0N6MGZURG1QT0pzOXZEU1ZsVDA2NmlmejJ3?oc=5",
+      "title": "Sen. Schmitt FIRES BACK At Josh Hawley For Saying The PCSA Violates Title IX | Don't @ Me w/Dan Dakich - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-06",
+      "pair": [
+        "hawley",
+        "schmitt"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-ca0e70b9",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNWJSeGV1QVd4RWRHeVhZSGlhZzJJZGZ4MERCYVlZRmpfX0tsVW9Ud0VNa2MzZE1Pc1dBN2lOb0tlYXZJOUZxMzdXNk9LZ0pkd05rZ0hfM0JwREVCX2ZMZXY2R3lneVlRdldsWVo4d2dFMUxqNzFTNVE0VmI2QmtxV1VlbHBRS3M3dzZQNV9KeHI3SEgzbGJQUkJabnMyZ3lodXgwLXpkdVVqV2lyY3ZIb014T2pYQQ?oc=5",
+      "title": "Nancy Pelosi talks AOC, Becerra, Biden and Dems chances in November - Politico",
+      "source": "Politico",
+      "date": "2026-08-12",
+      "pair": [
+        "biden",
+        "pelosi"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-cfd2dbb4",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOaEQ5UXNCbGRyT2h2Y2ZFUXByQ19STGJodE9yTkpmbHdUSlhXTWlCXy1GT045alltMGJiU0R5NkEtU0NNYXkyVHBaZEgxczhFLTU4SlFfS2VXN29fRzhpMnNmU2dLVUxjS01NZU1YelNfc01QRkNWd3VnOUl0X2xweHNiYmFuMW5tUndqU3RQVFBuNUY4TlJBaFl6QnRXbXlYSXB1MmF4YTEzSmxfWi1J0gG0AUFVX3lxTE1pZWJxTHg4cl9KSmlzOHoyTExDWDM3cFJaUlJ3M3FIV1lHOW5YekZPbWVUbnFHam1vQy1QcUNMWjdaYkJhb3cybTBkYTctdVFMSm1qNkZfdGFNRG5Vb3JFdEZqcWZvbmZONFBRQ0R4RVhyc3RYbnZ3QXlUYjlFYWFBY1A3aGRfNHIxN0Q3aWZrSW1TMjQ0ckRERjhOcmtVSVhhQmxBT3pNX05KXzRQRlVGblRzcg?oc=5",
+      "title": "Mike Johnson taunts Hakeem Jeffries for losing Dems' civil war 'in his own backyard' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-17",
+      "pair": [
+        "jeffries",
+        "johnson-mike"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-d195e18e",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcW9kYnBDa25rdHVZR1dyWUhMVTRFMFBOT3NVVzlGSkdXblU0V1VNVTNzQ2dfUzk4TnpxZjRfNUdIUy1ubmZ4UnhQUVprMUNkd1JxVTVNd2JXRnRPRndDalpyV0lSTDdfbTRXNzdwWnZkZXNpdGVFV2kyUjhXdWFmanhsY2JnWWdTR1I00gGQAUFVX3lxTE5qQ20yRzFvRGthSGdmdzV0QTFEV3B0QU5zdjFRN09yN2ZsdFY0N1RGS1FLd1VJT3JXeWZ6a08tRi1VeUlPZmNlT2hNamxsVUhSazhxZU9iaEtTQzl4dG1rYUJnUkE1TmRZSm54bEZ5UFo4c3FCUXg3ak9GUjBsdWxFRWxsRVZLaVA4VUN6OHVwbw?oc=5",
+      "title": "Brazile warns of tough leadership fight ahead for Jeffries, Schumer - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-06",
+      "pair": [
+        "jeffries",
+        "schumer"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-d4da3b7d",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE92dTl0THFwbG55TmtyeTZkZDhsUGsxczd4akx3a1g4Q18wRGh4ZXhtY3VSaVNkcmR2STR0bk54dXBqYUFEb0p4cnhLdzNsRFh2YU5EV0xlbFpodFpWR2ZKQ0RST2k3bzN0NkhvNE5FejMwZ1pydGdyOFVR?oc=5",
+      "title": "Opinion | I Was Dick Cheney’s Cardiologist. Trump Has Not Looked Well, and We Should Know Why. - The New York Times",
+      "source": "The New York Times",
+      "date": "2026-08-12",
+      "pair": [
+        "dick-cheney",
+        "trump"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-e2d41083",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPalFfWWs2TmZqbEs4QlRiS2hBS0JHcENVZzRqTERsVy16ODk2ZU9oVUtsSnlfLWVBNlJTRUg1X3hySVNEYm4wMEw5U1ZiMWJvd0tYTmZhYXR2TVMtaWhmdlU2dEh0dEtCcFNlbUdXMEFTc3paVUlSNWxEYnJ1YTVEYlBlSkhmb0FncU10ZHYtZXJhOW9qYTNfZE9SZGpHNFc3dlk2Q2ZiQ1NKc1XSAbABQVVfeXFMUGdKbzJUWUNSZFpqU3JVc0w0QmpVWmtVUlE0Ui1GbFZLTHdxLXo2R2pvdExJS0Y0cTYyNGNWQjRuT19nUTFtcjhqWkk2Zi1rN2lWZU1LVWZQSlY5WVdMeS1jX1MzVnFXZjkyV21uZFRUZ0RGN1ZQN0RCUWp2Z3plRVlyYjRYbjY4R2V6QlgwVEtsRW1RZUdmXzdTRGRDVVlrVE1jZGE4N3FRWnBIZi1ScEs?oc=5",
+      "title": "Nancy Pelosi denies knowing about Biden's decline, claims those who knew 'should have acted' - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-12",
+      "pair": [
+        "biden",
+        "pelosi"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-e3175388",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOQkRVVnI2RVozV2o2aFRXX0V2V2tEMGY0NXVLQ29SXzBha20zYUFLd2dqMjNHcmFlXzV2X2dUdXU2bl9pTTVxc0JFT2MzUVRtZXpGZzdXRzlBa1BVV0F4UGJlbzZubnFJbVA5SFVzMzhuamY0WERlbC1hNGdNc3k1Q1l5OVRlTnZhcmdISllya1FVUFc0OTVnM253LWFaakh5Vk1HSzlYcmdPTUhKTHpVc255ZEpTaDlIMUdtNDQyOURuYzdwb2dJ?oc=5",
+      "title": "Donna Brazile: Schumer and Jeffries are ‘going to have to fight’ to hold on to leadership - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-06",
+      "pair": [
+        "jeffries",
+        "schumer"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-e39a8691",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNUldnbjJ1SXdrczhTSm1jR1RCZUtHVl9Ddm9zb0RVdDR5TTR4NVlHRjJqTDlrU1kzQXdCMl81X0JMZG9kTWJKUDRRdTNhUi1KeUNLUjY1QkpVYTBRMVRmVjBXOUxZMEdWQnNjd3dQY053VjBsMkVfako5bkRIRWF5ZjZfelFZOUZUcnBmNTExVExzVEZzTzZKWktZMzJUX3FqNWZib3lSXzRSQkxrbVJJ0gG0AUFVX3lxTE1IXzVEQkFucjFBVmRsUFFHQ3VZcWRYMlpMd0hMRTlfTGQtX0Ntckg1ZG1IeGsyeFpQbGlfaWpMM0FtX3JGOHRMcFV4YzdJUXVhWnlwUnRpV3BVVlZtWDg5M1VsajRueVRMNW1HT282UGZzSUlXX0ppNDd6RXdEODN4dFQ1NFhHd1FZbEJ3M1NDSFNyMllzaWd3aXJiT18wZjVVb2p5QW9lbGlYam1tbTliUThINQ?oc=5",
+      "title": "Vulnerable GOP senator breaks with Trump on 2 key issues as Vance makes stop without her - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-24",
+      "pair": [
+        "trump",
+        "vance"
+      ],
+      "model": {
+        "polarity": "neutral",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-eb4e7395",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPalpZX2JSRzNYVHlaUF9tbDVBNUpzRlV0OEtWTTc1cy0wLVpkMWNsQ1FqMWNRTGsxWXVubzE4R2tUUFNFT2xPaUhKOGoyVFp3YXZzb2JuSHpUTE0xa244aXYtbVpFeFc4a2F6SzFPWUVDYnZmUEFjbG1oWWxWT2xmTlhLaEN5R1luYUhsLVc4UFQxQXhzd0xkZWxJNmVTcTlwR2pHWEk2YnNCM0lOV09PMnN1c05VUQ?oc=5",
+      "title": "Mike Lindell lost because of immigration amnesty proposal despite Trump backing: Steve Bannon - Washington Examiner",
+      "source": "Washington Examiner",
+      "date": "2026-08-12",
+      "pair": [
+        "bannon",
+        "trump"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-ebd221a9",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNTY4M1k2NkRoY1J2U05WVWRvY0VIRmNmNmlsSjlDa1hwaHo5RnBJT3V2ZWdBS3lHWm9fZWxXeC1QaTRCNW1UOXBzZzVDdDFGbEt0Nl9XTjdpNjA5eVl0RnZFM0Q4NWN4cEJmd0hIN2tKUjFDdk9rUUFBR0FFTmlaRWRyUGVKN25EZnRNeUQ2bzB5SktWLXIzNjVZR3hVUFdVVWNSOGlLMlNNSWhEUkQ2LW9JY9IBuAFBVV95cUxNcUZUVXBzZzNJYi12VHpEWmdLWHdMcElxU0cxRXZMczFfU0VtVThUSDdia09WX2tPelZyUG96a2JUQ0VQdXhvaERvNEVWSVBnWjF6QTZYV2YtOXRuWkFQTTkyUFAxR2Vxbk1LQnBWM1pqNUFFQmYtN2Y4R3k3VWZGWlhxTEwxRzdjclNFMkFuTHdVSUhITktGc1dYZGtGLWgtY2FxcjJGZ2w2SW9oNTMzeDdiVUJtTXNQ?oc=5",
+      "title": "Bernie Sanders blasts Fetterman as 'way out of touch' with Americans after Graham Platner rebuke - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-02",
+      "pair": [
+        "fetterman",
+        "sanders"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-ed604d0b",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPYnBHWUZOS0U4dkhpQzUxUlF0R09VZm9yT28wM2g0OEt1aXZLa2xwcEVWOWs0TlNpUzZoZ1dDRF9nVlBKLXoxc1VxbXpnOWRQNWxoR0JRQk5oMHN4d2h2MUZaRE9Ma214RU8xalF0a0w5djJ2b3Y1UlhGWTdaaDFWbkVWaFJGUV9ETS1CaU5Fc3BLaTBQUHc3ZVU2d3g3UEV2NUZiT2s1bkI4bjZFNXFnWEljZ1dCYVU5UmNVUXRZVXpBZEZiRWdjOUczU0R6c2fSAdQBQVVfeXFMTVJ5R3ZPRW5wbjQzQ1JlNmZvZm9IZHRvOW96dVJzemVBRFdycUZkaW9oSXJfVzludEtoMzFpd2xYWDg1c1dpT3pManFkWEFiampDUS16WEp4bmJkTzlEVk5pVjVZY3Rua2tLUUVTaUtIU3ZwcG5YUWY3VWFBOFNDQ3daRlhhZEZTMWdHN09JaEU3bVFQR1JidmxKTnlNWG1ZWWNuVGJnYzBnajdkTW5nXy1FM2FDaHFoTGhTYlUzeF9fMl9iOUoxczdJV3F5eFFEeVdkeXg?oc=5",
+      "title": "Ocasio-Cortez surpasses Newsom as 2028 Dem presidential favorite on Polymarket - The Hill",
+      "source": "The Hill",
+      "date": "2026-08-12",
+      "pair": [
+        "aoc",
+        "newsom"
+      ],
+      "model": {
+        "polarity": null,
+        "classified": false
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-ed85aa14",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb3dHdERrdVdOaEd4RjMzRGJPMjFJTGU4SDhLVlAxNjdXMUpOVk40ZUJ6UG9qdzZXdE5DLUNYMkRKb3RqRDhXSzZaN2FBLVB3bDhva19nTkc3UFZURUpJcE1vR3I0RWZHR1paOXMwZlVBZkp4NzdQTkE4M3FqVFJ2cWlPaFlPZ3drVUdOc1ptbi1sUjVVWDRPeGczSUw0Zw?oc=5",
+      "title": "Anti-Trump conservatives Tucker Carlson, MTG, Massie huddle about launching third-party movement - Politico",
+      "source": "Politico",
+      "date": "2026-08-05",
+      "pair": [
+        "massie",
+        "mtg"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-f5b78b31",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9VcDFrUFdUQVlYWVlOX2tWT1lnVldMRG5JZkdoVUJXaEJCMjRscXBGNEtQNEZkelpvbHBDYTlYNHFlaldKNy1HcDZZQUZDYXUyM2pILWFB?oc=5",
+      "title": "Flashback: Bill Clinton and Barack Obama defend capitalism - Fox News",
+      "source": "Fox News",
+      "date": "2026-08-06",
+      "pair": [
+        "bill-clinton",
+        "obama"
+      ],
+      "model": {
+        "polarity": "ally",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    },
+    {
+      "id": "sig-f9adceff",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWHEzVjVxYTJqOXVvaEsyZ3NDaGw5TDlLR2gzV3g0NjY1TXU5VDNQRUJJZ1dVd0JoYzFxNV9FZWE2Z3RsTlpTUXBhYVhRbkU1VmNuX19RWjVnMWEycV9kRlIyWjY0MDRidzZoSVNVM3VvRlAyZ2gxejI0ODY4M1lyNDBDalFKT1BHczByQTVoby1aN1hCSDJ6dVR2TU8wZXZqdF9NSThPTzFTQQ?oc=5",
+      "title": "Trump’s rift with Thune drives a wedge into the Republican Party - Semafor",
+      "source": "Semafor",
+      "date": "2026-07-30",
+      "pair": [
+        "thune",
+        "trump"
+      ],
+      "model": {
+        "polarity": "feud",
+        "classified": true
+      },
+      "truth": {
+        "polarity": null,
+        "pairCorrect": null
+      },
+      "note": ""
+    }
+  ]
+}

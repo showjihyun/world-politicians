@@ -844,6 +844,88 @@ export function checkLobbying(f: LobbyingFile, knownIds: Set<string>): Finding[]
   return out;
 }
 
+export interface AccuracyFile {
+  baseline: { polarity: number | null; pair: number | null };
+  rows: {
+    id: string;
+    model: { polarity: string | null; classified: boolean };
+    truth: { polarity: string | null; pairCorrect: boolean | null };
+  }[];
+}
+
+/**
+ * 정확도 라벨 세트.
+ *
+ * 이 저장소에는 LLM 판정의 정확도를 재는 장치가 없었다. 없으면 프롬프트를 고치고
+ * "좋아졌다" 고 믿게 된다 — 이 저장소에서 "확인했다" 가 거짓이었던 사례가 반복됐다.
+ *
+ * 절대 점수로 실패시키지 않는다. 처음에는 기준선을 모르고, 낮다고 해서 그날
+ * 배포를 막을 일도 아니다. **한 번 정한 기준선 아래로 떨어질 때만** 잡는다.
+ */
+export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] {
+  if (!f) {
+    return [
+      {
+        level: 'info',
+        check: 'accuracy.absent',
+        message: '정확도 라벨 세트가 없다 — npm run eval:sample 로 표본을 만든다',
+      },
+    ];
+  }
+
+  const polRows = f.rows.filter((r) => r.truth.polarity !== null && r.model.classified);
+  const pairRows = f.rows.filter((r) => r.truth.pairCorrect !== null);
+  const pct = (n: number, d: number) => (d > 0 ? Math.round((n / d) * 1000) / 10 : 0);
+  const polAcc = pct(polRows.filter((r) => r.model.polarity === r.truth.polarity).length, polRows.length);
+  const pairAcc = pct(pairRows.filter((r) => r.truth.pairCorrect).length, pairRows.length);
+
+  if (!polRows.length && !pairRows.length) {
+    return [
+      {
+        level: 'info',
+        check: 'accuracy.pending',
+        message: `라벨 ${f.rows.length}행이 비어 있다 — truth 를 채우면 점수가 나온다`,
+      },
+    ];
+  }
+
+  const out: Finding[] = [];
+  const b = f.baseline;
+
+  if (b.polarity !== null && polRows.length && polAcc < b.polarity - tolerance) {
+    out.push({
+      level: 'fail',
+      check: 'accuracy.polarity',
+      message: `극성 정확도 ${polAcc}% — 기준선 ${b.polarity}% 에서 떨어졌다 (허용 -${tolerance})`,
+    });
+  }
+  if (b.pair !== null && pairRows.length && pairAcc < b.pair - tolerance) {
+    out.push({
+      level: 'fail',
+      check: 'accuracy.pair',
+      message: `관계쌍 정확도 ${pairAcc}% — 기준선 ${b.pair}% 에서 떨어졌다 (허용 -${tolerance})`,
+    });
+  }
+
+  // 기준선을 안 적어 두면 하락을 영영 못 잡는다
+  if (b.polarity === null && polRows.length >= 40) {
+    out.push({
+      level: 'warn',
+      check: 'accuracy.baseline',
+      message: `라벨 ${polRows.length}행이 쌓였는데 기준선이 비어 있다 — 지금 ${polAcc}% 를 labels.json 의 baseline 에 적는다`,
+    });
+  }
+
+  if (!out.length) {
+    out.push({
+      level: 'info',
+      check: 'accuracy.ok',
+      message: `극성 ${polAcc}% (${polRows.length}행) · 관계쌍 ${pairAcc}% (${pairRows.length}행)`,
+    });
+  }
+  return out;
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

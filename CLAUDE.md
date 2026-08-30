@@ -14,6 +14,8 @@ npm run crosswalk:dry  소스 간 ID 크로스워크 미리보기 (bioguide·icp
 npm run cosponsor:dry  공동발의 엣지 미리보기 (GovInfo 벌크)
 npm run funding:dry    FEC 자금 미리보기 (기부·독립지출)
 npm run lobbying:dry   로비 회전문 미리보기 (하원 LD-1 원본)
+npm run eval           LLM 판정 정확도 (라벨 세트 채점)
+npm run eval:sample    라벨 표본 추가 (--dry 지원)
 npm run build      tsc + vite
 ```
 
@@ -42,6 +44,28 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 
 **검사를 만들면 실패도 시켜 본다.** 불량을 주입해 종료 코드 1 이 나오는지
 확인하지 않은 검사는 검사가 아니다.
+
+### LLM 판정에는 정답지가 있어야 한다
+
+신호 299건이 전부 LLM 판정(극성·관계쌍)을 달고 화면에 나가는데, 얼마나 맞는지
+재는 장치가 없었다. 없으면 프롬프트를 고치고 **"좋아졌다" 고 믿게 된다** — 이
+저장소에서 "확인했다" 가 거짓이었던 사례가 반복됐다.
+
+`scripts/eval/labels.json` 이 정답지다. `npm run eval:sample` 로 층화 표본을 뽑고
+(극성 × 허브 여부 — feud 146건 중 108건이 trump 관련이라 나누지 않으면 표본이
+통째로 쏠린다), 사람이 `truth` 를 채우고, `npm run eval` 이 채점한다.
+
+지켜야 하는 것 셋.
+
+- **표본은 시드로 고정한다.** 매번 다른 기사를 뽑으면 프롬프트 효과와 표본 운을
+  구분할 수 없다. 시드를 바꾸면 라벨을 버리게 된다
+- **라벨은 스냅샷을 들고 있는다.** 신호는 365일 뒤 아카이브에서 빠진다. id 만
+  들고 있으면 그때 라벨이 통째로 죽는다
+- **모델이 라벨을 채우지 않는다.** 파이프라인을 같은 종류의 판단으로 채점하면
+  점수가 거짓으로 높아진다. 사람이 채운 칸만 센다
+
+감사는 절대 점수로 막지 않는다. 기준선을 한 번 적어 두면 **그 아래로 떨어질 때만**
+잡는다(허용 -3%p).
 
 ### 외부 응답 파싱을 복제하지 않는다
 
@@ -205,6 +229,7 @@ scripts/sources/*-core.mts       소스별 판정 규칙 (순수). keys-core 만
 scripts/sources/keys-core.mts    조인 키·이름 정규화 정본 (스크립트 쪽)
 scripts/sources/parse-core.mts   외부 텍스트 파싱 정본 (LLM 응답·RSS)
 scripts/sources/llm.mts          LLM 호출 어댑터 (재시도·빈 배열 반환)
+scripts/eval/labels.json         정확도 라벨 세트 (사람이 truth 를 채운다)
 
 src/lib/, scripts/**/*.mts       어댑터. 데이터셋·fs·network 를 여기서 묶는다
 src/data/signals/                월별 파티션 + 매니페스트 + recent

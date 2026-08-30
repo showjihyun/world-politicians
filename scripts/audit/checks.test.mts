@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
+  checkAccuracy,
   checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
+  type AccuracyFile,
   type FundingFile,
   type LobbyingFile,
   type SourceRef,
@@ -537,5 +539,66 @@ describe('checkLobbying', () => {
   it('요약 수치가 실제와 다르면 잡는다', () => {
     const bad = { ...ok, stats: { matched: 99, people: 1 } };
     expect(checkLobbying(bad, ids).map((x) => x.check)).toContain('lobbying.stats');
+  });
+});
+
+describe('checkAccuracy', () => {
+  const r = (over: Partial<AccuracyFile['rows'][0]> = {}) => ({
+    id: 'x',
+    model: { polarity: 'feud', classified: true },
+    truth: { polarity: 'feud', pairCorrect: true },
+    ...over,
+  });
+  const file = (rows: AccuracyFile['rows'], baseline: AccuracyFile['baseline'] = { polarity: null, pair: null }) =>
+    ({ baseline, rows }) as AccuracyFile;
+
+  it('파일이 없으면 알려만 준다', () => {
+    const f = checkAccuracy(null);
+    expect(f[0]).toMatchObject({ level: 'info', check: 'accuracy.absent' });
+  });
+
+  it('라벨이 비어 있으면 알려만 준다', () => {
+    const rows = [r({ truth: { polarity: null, pairCorrect: null } })];
+    expect(checkAccuracy(file(rows))[0]).toMatchObject({ level: 'info', check: 'accuracy.pending' });
+  });
+
+  it('맞으면 점수를 정보로 낸다', () => {
+    const f = checkAccuracy(file([r(), r()]));
+    expect(f[0]).toMatchObject({ level: 'info', check: 'accuracy.ok' });
+    expect(f[0].message).toContain('100%');
+  });
+
+  // 절대 점수로 막지 않는다 — 처음에는 기준선을 모른다
+  it('기준선이 없으면 점수가 낮아도 실패시키지 않는다', () => {
+    const rows = [r({ truth: { polarity: 'ally', pairCorrect: false } })];
+    expect(checkAccuracy(file(rows)).some((x) => x.level === 'fail')).toBe(false);
+  });
+
+  it('기준선 아래로 떨어지면 잡는다', () => {
+    const rows = [r({ truth: { polarity: 'ally', pairCorrect: false } }), r()];
+    const f = checkAccuracy(file(rows, { polarity: 95, pair: 95 }));
+    expect(f.map((x) => x.check)).toEqual(
+      expect.arrayContaining(['accuracy.polarity', 'accuracy.pair'])
+    );
+    expect(f.every((x) => x.level === 'fail')).toBe(true);
+  });
+
+  // 표본이 작을 때 1~2건 차이로 깨지면 아무도 안 본다
+  it('허용 범위 안의 하락은 넘긴다', () => {
+    const rows = [r(), r(), r(), r({ truth: { polarity: 'ally', pairCorrect: true } })];
+    expect(checkAccuracy(file(rows, { polarity: 78, pair: null })).some((x) => x.level === 'fail')).toBe(false);
+  });
+
+  // 기준선을 안 적어 두면 하락을 영영 못 잡는다
+  it('라벨이 쌓였는데 기준선이 비면 경고한다', () => {
+    const rows = Array.from({ length: 45 }, () => r());
+    const f = checkAccuracy(file(rows));
+    expect(f.find((x) => x.check === 'accuracy.baseline')?.level).toBe('warn');
+  });
+
+  it('미분류 신호는 극성 채점에서 뺀다 — 모델이 답을 안 낸 것이다', () => {
+    const rows = [r({ model: { polarity: null, classified: false }, truth: { polarity: 'feud', pairCorrect: true } })];
+    const f = checkAccuracy(file(rows));
+    expect(f[0].message).toContain('극성 0% (0행)');
   });
 });

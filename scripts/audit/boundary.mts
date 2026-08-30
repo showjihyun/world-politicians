@@ -52,6 +52,12 @@ const RULES: BoundaryRule[] = [
     allowValueFrom: ['./keys-core.mts'],
     allowTypeFrom: ['./'],
   },
+  {
+    label: 'scripts/eval/*-core.mts',
+    files: listFiles('scripts/eval', /-core\.mts$/, /\.test\.mts$/),
+    allowValueFrom: [],
+    allowTypeFrom: ['./'],
+  },
 ];
 
 function listFiles(dir: string, match: RegExp, exclude?: RegExp): string[] {

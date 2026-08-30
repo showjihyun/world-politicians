@@ -15,8 +15,10 @@ import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
+  checkAccuracy,
   checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
+  type AccuracyFile,
   type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type LobbyingFile, type SignalRef, type SourceRef,
 } from './checks.mts';
 
@@ -120,6 +122,14 @@ if (fs.existsSync(lobbyPath)) {
   const lob = JSON.parse(fs.readFileSync(lobbyPath, 'utf8')) as LobbyingFile;
   findings.push(...checkLobbying(lob, knownIds));
 }
+
+// LLM 판정의 정확도. 없으면 프롬프트를 고치고 "좋아졌다" 고 믿게 된다.
+const accPath = path.join(ROOT, 'scripts/eval/labels.json');
+findings.push(
+  ...checkAccuracy(
+    fs.existsSync(accPath) ? (JSON.parse(fs.readFileSync(accPath, 'utf8')) as AccuracyFile) : null
+  )
+);
 
 const actualCounts: Record<string, number> = {};
 for (const s of signals) for (const p of s.people ?? []) actualCounts[p] = (actualCounts[p] ?? 0) + 1;
