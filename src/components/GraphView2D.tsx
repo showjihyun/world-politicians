@@ -4,6 +4,7 @@ import { useStore } from '../store/useStore';
 import { useUIStore } from '../store/uiStore';
 import { useI18n } from '../i18n';
 import { centerOnClear, clearArea, frameToArea, type Panel } from '../domain/viewport';
+import { placeLabels, type LabelBox } from '../domain/labels';
 import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, COLORS } from '../lib/colors';
 import { REL_META } from '../types';
@@ -336,18 +337,8 @@ function measurePanels(): Panel[] {
       ctx.setLineDash([]);
     }
 
-    if (globalScale > 1.35 || node.prominence >= 9 || isHover) {
-      const fs = (isHover ? 13.5 : 12) / globalScale + 2 / globalScale;
-      ctx.font = `600 ${fs}px Pretendard, system-ui, sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      const label = locale === 'ko' ? node.name.ko : node.name.en;
-      const tw = ctx.measureText(label).width;
-      ctx.fillStyle = 'rgba(5,7,15,0.72)';
-      ctx.fillRect(x - tw / 2 - 3 / globalScale, y + r + 2, tw + 6 / globalScale, fs * 1.3);
-      ctx.fillStyle = isHover || id === selectedId ? '#ffffff' : '#cdd7e8';
-      ctx.fillText(label, x, y + r + 3);
-    }
+    // 라벨은 여기서 그리지 않는다 — paintLabels 가 프레임 끝에 한 번에 그린다.
+    // 노드마다 그리면 서로를 몰라 반드시 겹친다.
 
     if (globalScale > 2.6 && node.prominence >= 6) {
       const f = FACTION_MAP[node.faction];
@@ -363,6 +354,91 @@ function measurePanels(): Panel[] {
     ctx.restore();
   };
 
+
+  /** 노드 반지름 — paintNode 와 같은 식이어야 라벨이 노드에 붙는다 */
+  const radiusOf = (n: GraphNode) => 4 + n.prominence * 1.15;
+
+  // 몇 개를 놓았는지 밖에서 셀 수 있게 남긴다. 라벨은 캔버스에 그려져 DOM 으로
+  // 볼 수 없고, 픽셀로 세면 위아래로 나란한 두 줄을 한 덩어리로 읽어 겹쳤다고
+  // 잘못 판정한다. 프레임마다 쓰면 비싸므로 수가 바뀔 때만 쓴다.
+  const labelCountRef = useRef(-1);
+
+  /**
+   * 라벨을 프레임 끝에 한 번에 그린다.
+   *
+   * 노드마다 그리면 서로를 몰라 반드시 겹친다 — 중앙 군집에서 이름이 서로를 덮어
+   * 읽을 수 없었다. 여기서는 전체를 볼 수 있으니 중요한 것부터 놓고 자리가 없으면
+   * 건너뛴다. 건너뛴 이름은 확대하거나 커서를 올리면 나온다.
+   *
+   * 주목 중인 노드가 있으면 그 노드와 이웃만 그린다. 나머지는 alpha 0.08 로 이미
+   * 거의 안 보이는데, 그리면 자리만 차지해 정작 봐야 할 이름을 밀어낸다.
+   */
+  const paintLabels = useCallback(
+    (ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const fontOf = (hover: boolean) => (hover ? 13.5 : 12) / globalScale + 2 / globalScale;
+      const nameOf = (n: GraphNode) => (locale === 'ko' ? n.name.ko : n.name.en);
+
+      const shown = graph.filter((n) => {
+        if (!visibleNodes.has(n.id) || n.x == null || n.y == null) return false;
+        if (relFilterActive && !linkedNodes.has(n.id)) return false;
+        if (!focusActive) return true;
+        return n.id === hoveredId || n.id === selectedId || neighborSet.has(n.id);
+      });
+
+      // 앞선 것이 자리를 이긴다. 커서를 올린 노드가 맨 앞이라 그 이름은 언제나 남는다.
+      const rank = (n: GraphNode) =>
+        n.id === hoveredId ? 0 : n.id === selectedId ? 1 : neighborSet.has(n.id) ? 2 : 3;
+      const ordered = [...shown].sort(
+        (a, b) => rank(a) - rank(b) || b.prominence - a.prominence || a.id.localeCompare(b.id)
+      );
+
+      const boxes: LabelBox[] = ordered.map((n) => {
+        const fs = fontOf(n.id === hoveredId);
+        ctx.font = `600 ${fs}px Pretendard, system-ui, sans-serif`;
+        const tw = ctx.measureText(nameOf(n)).width;
+        const left = n.x! - tw / 2 - 3 / globalScale;
+        const top = n.y! + radiusOf(n) + 2;
+        return { id: n.id, left, top, right: left + tw + 6 / globalScale, bottom: top + fs * 1.3 };
+      });
+
+      // 딱 붙으면 겹치지 않아도 두 이름이 한 덩어리로 보인다 — 화면상 3px 를 띄운다.
+      const keep = placeLabels(boxes, 3 / globalScale);
+      if (labelCountRef.current !== keep.size) {
+        labelCountRef.current = keep.size;
+        wrapRef.current?.setAttribute('data-labels', String(keep.size));
+        wrapRef.current?.setAttribute('data-label-candidates', String(ordered.length));
+      }
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      for (let i = 0; i < ordered.length; i++) {
+        const n = ordered[i];
+        if (!keep.has(n.id)) continue;
+        const b = boxes[i];
+        const hover = n.id === hoveredId;
+        const fs = fontOf(hover);
+        ctx.save();
+        ctx.globalAlpha = n.status === 'legacy' ? 0.85 : 1;
+        ctx.font = `600 ${fs}px Pretendard, system-ui, sans-serif`;
+        ctx.fillStyle = 'rgba(5,7,15,0.72)';
+        ctx.fillRect(b.left, b.top, b.right - b.left, b.bottom - b.top);
+        ctx.fillStyle = hover || n.id === selectedId ? '#ffffff' : '#cdd7e8';
+        ctx.fillText(nameOf(n), n.x!, n.y! + radiusOf(n) + 3);
+        ctx.restore();
+      }
+    },
+    [
+      graph,
+      visibleNodes,
+      hoveredId,
+      selectedId,
+      neighborSet,
+      focusActive,
+      relFilterActive,
+      linkedNodes,
+      locale,
+    ]
+  );
   return (
     <div
       ref={wrapRef}
@@ -390,6 +466,7 @@ function measurePanels(): Panel[] {
           const node = nodeRaw as unknown as GraphNode;
           paintNode(node, ctx, globalScale, node.id === hoveredId);
         }}
+        onRenderFramePost={paintLabels}
         nodePointerAreaPaint={(node, color, ctx) => {
           const n = node as unknown as GraphNode;
           ctx.beginPath();

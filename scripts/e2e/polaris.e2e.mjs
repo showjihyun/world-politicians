@@ -122,6 +122,31 @@ async function main() {
     !!framing && framing.pct <= 8,
     framing ? `패널 뒤 ${framing.pct}%` : '측정 실패'
   );
+
+  // 라벨은 노드마다 따로 그리면 서로를 몰라 반드시 겹친다. 실제로 중앙 군집에서
+  // 이름이 서로를 덮어 읽을 수 없었다. 지금은 프레임 끝에 한 번에, 중요한 것부터
+  // 놓고 자리가 없으면 건너뛴다.
+  //
+  // 픽셀로 겹침을 세려 했더니 위아래로 나란한 두 줄을 한 덩어리로 읽어 겹쳤다고
+  // 잘못 판정했다(4건). 그래서 배치 결과 자체를 세게 했다.
+  const labels = await page.evaluate(() => {
+    const el = document.querySelector('[data-labels]');
+    if (!el) return null;
+    return {
+      placed: Number(el.getAttribute('data-labels')),
+      candidates: Number(el.getAttribute('data-label-candidates')),
+    };
+  });
+  check(
+    'labels are placed, not drawn per node',
+    !!labels && labels.candidates > 20 && labels.placed > 5,
+    labels ? `놓음 ${labels.placed} / 후보 ${labels.candidates}` : 'data-labels 없음'
+  );
+  check(
+    'crowded labels are dropped instead of overlapping',
+    !!labels && labels.placed < labels.candidates,
+    labels ? `${labels.candidates - labels.placed}개를 건너뛰었다` : '측정 실패'
+  );
   await page.screenshot({ path: `${SHOTS}/01-initial.png` });
 
   // ── 1b. 외부 링크 ──
