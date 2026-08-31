@@ -51,11 +51,21 @@ export default function TopBar() {
   };
 
   return (
-    <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-3 p-3 sm:p-4">
+    /*
+      헤더를 한 줄에 담으려면 923px 가 필요하다(요소 자연폭 합계). 그보다 좁으면
+      flex 가 알아서 눌러 주는데, 그게 조용히 망가진 지점이었다 — 390px 에서
+      언어 토글이 319px 밖으로 나가 있었고 사이드바 토글은 23px 로 뭉개져
+      누를 수 없었다. 넘쳐도 가로 스크롤이 안 생겨 아무도 몰랐다.
+
+      그래서 접는다. lg 미만에서는 우측 묶음이 한 줄을 통째로 쓰고(w-full),
+      검색창이 남는 폭을 채운다(flex-1). 눌러서 우겨넣는 대신 줄을 하나 더 쓴다.
+      lg 이상은 이전과 동일하다 — 한 줄, 검색창 288px 고정.
+    */
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex flex-wrap items-start justify-between gap-3 p-3 sm:p-4">
       <div className="pointer-events-auto flex items-center gap-2">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-400/15 bg-ink-900/80 text-slate-300 backdrop-blur-xl transition-colors hover:text-white"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-400/15 bg-ink-900/80 text-slate-300 backdrop-blur-xl transition-colors hover:text-white"
           aria-label="Toggle sidebar"
         >
           <Menu size={17} />
@@ -72,7 +82,7 @@ export default function TopBar() {
         </div>
       </div>
 
-      <div className="pointer-events-auto flex items-center gap-2">
+      <div className="pointer-events-auto flex w-full items-center gap-2 lg:w-auto">
         {/*
           바깥으로 나가는 링크는 새 탭으로 연다. 그래프는 상태(선택·필터·회전)를
           들고 있어서 같은 탭에서 나갔다 돌아오면 그게 전부 초기화된다.
@@ -107,8 +117,8 @@ export default function TopBar() {
           KR
         </a>
         <VisitorCount />
-        <div className="relative">
-          <div className="flex h-10 w-56 items-center gap-2 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl sm:w-72">
+        <div className="relative min-w-0 flex-1 lg:flex-none">
+          <div className="flex h-10 w-full items-center gap-2 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl lg:w-72">
             <Search size={14} className="shrink-0 text-slate-500" />
             <input
               value={query}
@@ -127,7 +137,7 @@ export default function TopBar() {
             />
           </div>
           {open && query && (
-            <div className="absolute right-0 top-12 w-72 overflow-hidden rounded-xl border border-slate-400/15 bg-ink-900/95 shadow-2xl shadow-black/50 backdrop-blur-xl">
+            <div className="absolute right-0 top-12 w-full overflow-hidden rounded-xl border border-slate-400/15 bg-ink-900/95 shadow-2xl shadow-black/50 backdrop-blur-xl">
               {results.length === 0 && (
                 <div className="px-4 py-3 text-[13.5px] text-slate-500">{t.searchNoResult}</div>
               )}

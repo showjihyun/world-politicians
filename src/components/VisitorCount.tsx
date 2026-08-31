@@ -46,7 +46,7 @@ export default function VisitorCount() {
     <div
       data-testid="visitor-count"
       title={t.visitors}
-      className="flex h-10 items-center gap-1.5 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl"
+      className="hidden h-10 items-center gap-1.5 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl sm:flex"
     >
       <Eye size={13} className="shrink-0 text-slate-500" />
       <span className="font-mono text-[12.5px] font-semibold tabular-nums text-slate-300">

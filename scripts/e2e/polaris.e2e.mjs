@@ -126,11 +126,47 @@ async function main() {
       koreaShown: shown('link-korea'),
     };
   });
-  await narrow.close();
   check(
     'links stay hidden where the header cannot fit them',
     !narrowState.repoShown && !narrowState.koreaShown,
     `640px — repo ${narrowState.repoShown}, korea ${narrowState.koreaShown}`
+  );
+
+  // ── 1c. 휴대폰 폭 ──
+  // 헤더를 한 줄에 담으려면 923px 가 필요하다. 접지 않으면 오른쪽 끝이 잘려
+  // 검색창을 아예 누를 수 없었고, 사이드바 토글은 23px 로 뭉개져 있었다.
+  await narrow.setViewportSize({ width: 390, height: 800 });
+  await narrow.waitForTimeout(400);
+  const phone = await narrow.evaluate(() => {
+    const h = document.querySelector('header');
+    const vw = window.innerWidth;
+    let worst = 0;
+    let culprit = '';
+    for (const el of h.querySelectorAll('button, input, a')) {
+      const b = el.getBoundingClientRect();
+      if (!b.width || !b.height) continue;
+      const out = Math.max(b.right - vw, -b.left, 0);
+      if (out > worst) {
+        worst = out;
+        culprit = el.getAttribute('data-testid') || el.getAttribute('aria-label') || el.tagName;
+      }
+    }
+    return {
+      worst: Math.round(worst),
+      culprit,
+      menuW: Math.round(h.querySelector('[aria-label="Toggle sidebar"]').getBoundingClientRect().width),
+    };
+  });
+  await narrow.close();
+  check(
+    'every header control is on screen at 390px',
+    phone.worst === 0,
+    phone.worst ? `${phone.culprit} 이(가) ${phone.worst}px 밖` : '전부 화면 안'
+  );
+  check(
+    'sidebar toggle keeps its tap target at 390px',
+    phone.menuW >= 40,
+    `${phone.menuW}px`
   );
 
   // ── 2. 기본 로케일 = ENG ──
