@@ -4,6 +4,9 @@ export const UI_EN = {
   appSubtitle: 'U.S. Politician Network Atlas',
   tagline: 'Federal · Senate · House relationship map',
 
+  repoLink: 'Source code on GitHub',
+  koreaLink: 'Korean politician network',
+
   searchPlaceholder: 'Search politicians…',
   searchNoResult: 'No matches',
   searchHint: 'Type a name (EN/KR)',

@@ -7,11 +7,15 @@ import {
   Menu,
   X,
   Network,
+  Github,
 } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useUIStore } from '../store/uiStore';
 import { useI18n, lt } from '../i18n';
 import type { Politician } from '../types';
+
+const REPO_URL = 'https://github.com/showjihyun/world-politicians';
+const KOREA_URL = 'https://korea-politician.vercel.app/';
 
 export default function TopBar() {
   const { t, locale } = useI18n();
@@ -69,6 +73,39 @@ export default function TopBar() {
       </div>
 
       <div className="pointer-events-auto flex items-center gap-2">
+        {/*
+          바깥으로 나가는 링크는 새 탭으로 연다. 그래프는 상태(선택·필터·회전)를
+          들고 있어서 같은 탭에서 나갔다 돌아오면 그게 전부 초기화된다.
+          rel 에 noopener 를 넣는 이유: 새 탭이 window.opener 로 이 창을 조작할 수 있다.
+
+          xl 미만에서 감추는 이유는 실측이다. 이 헤더는 좁은 화면에서 이미 넘치는데
+          (390px 에서 우측 그룹이 320px 만큼 화면 밖 — 이 버튼들과 무관한 기존 상태)
+          여기에 두 버튼을 무조건 그리면 640px 에서 검색 입력까지 화면 밖으로 밀려
+          누를 수 없게 되고, 1024px 에서는 좌측 배지가 눌려 태그라인이 두 줄로
+          접히며 아래 탭과 겹친다. 1280px 부터는 둘 다 일어나지 않는다.
+        */}
+        <a
+          href={REPO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={t.repoLink}
+          aria-label={t.repoLink}
+          data-testid="link-repo"
+          className="hidden h-10 w-10 items-center justify-center rounded-xl border border-slate-400/15 bg-ink-900/80 text-slate-400 backdrop-blur-xl transition-colors hover:border-slate-400/35 hover:text-white xl:flex"
+        >
+          <Github size={15} />
+        </a>
+        <a
+          href={KOREA_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={t.koreaLink}
+          aria-label={t.koreaLink}
+          data-testid="link-korea"
+          className="hidden h-10 items-center rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 font-mono text-[11px] font-bold tracking-[0.14em] text-slate-400 backdrop-blur-xl transition-colors hover:border-amber-400/40 hover:text-amber-300 xl:flex"
+        >
+          KR
+        </a>
         <VisitorCount />
         <div className="relative">
           <div className="flex h-10 w-56 items-center gap-2 rounded-xl border border-slate-400/15 bg-ink-900/80 px-3 backdrop-blur-xl sm:w-72">

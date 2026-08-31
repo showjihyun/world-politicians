@@ -79,6 +79,60 @@ async function main() {
   check('graph canvas rendered', (await page.locator('canvas').count()) >= 1);
   await page.screenshot({ path: `${SHOTS}/01-initial.png` });
 
+  // ── 1b. 외부 링크 ──
+  // href 만 보지 않는다. 이 두 버튼을 넣었을 때 헤더가 넘쳐 검색 입력이
+  // 화면 밖으로 밀려난 적이 있다(640px 에서 발견). 아래에서 그 폭까지 잰다.
+  const links = await page.evaluate(() => {
+    const read = (id) => {
+      const a = document.querySelector(`[data-testid=${id}]`);
+      if (!a) return null;
+      return { href: a.getAttribute('href'), target: a.getAttribute('target'), rel: a.getAttribute('rel') };
+    };
+    return {
+      repo: read('link-repo'),
+      korea: read('link-korea'),
+    };
+  });
+  check(
+    'repo link points at this repository',
+    links.repo?.href === 'https://github.com/showjihyun/world-politicians',
+    links.repo?.href
+  );
+  check(
+    'korea link points at the sister atlas',
+    links.korea?.href === 'https://korea-politician.vercel.app/',
+    links.korea?.href
+  );
+  check(
+    'external links open in a new tab without opener',
+    [links.repo, links.korea].every(
+      (l) => l?.target === '_blank' && (l?.rel ?? '').includes('noopener')
+    )
+  );
+
+  // 1440 에서 폭을 재면 여유가 391px 라 무엇을 단언해도 늘 통과한다 — 검사가 아니다.
+  // 실제로 깨지는 폭에서 본다. 좁은 화면의 헤더는 이 버튼들 없이도 이미 넘치므로
+  // (390px 에서 320px 만큼) 버튼이 거기 그려지면 검색 입력이 화면 밖으로 밀린다.
+  const narrow = await browser.newPage({ viewport: { width: 640, height: 800 } });
+  await narrow.goto(BASE, { waitUntil: 'networkidle' });
+  await narrow.waitForSelector('header input');
+  const narrowState = await narrow.evaluate(() => {
+    const shown = (id) => {
+      const a = document.querySelector(`[data-testid=${id}]`);
+      return !!a && getComputedStyle(a).display !== 'none';
+    };
+    return {
+      repoShown: shown('link-repo'),
+      koreaShown: shown('link-korea'),
+    };
+  });
+  await narrow.close();
+  check(
+    'links stay hidden where the header cannot fit them',
+    !narrowState.repoShown && !narrowState.koreaShown,
+    `640px — repo ${narrowState.repoShown}, korea ${narrowState.koreaShown}`
+  );
+
   // ── 2. 기본 로케일 = ENG ──
   let body = await page.locator('body').innerText();
   check('default locale ENG', body.includes('Federal · Senate · House relationship map'));

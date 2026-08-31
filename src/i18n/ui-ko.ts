@@ -6,6 +6,9 @@ export const UI_KO: UIDict = {
   appSubtitle: '미국 정치인 관계 지형도',
   tagline: '연방정부 · 상원 · 하원 관계 네트워크',
 
+  repoLink: 'GitHub 저장소',
+  koreaLink: '한국 정치인 관계 지형도',
+
   searchPlaceholder: '정치인 검색…',
   searchNoResult: '결과 없음',
   searchHint: '이름 입력 (한/영)',
