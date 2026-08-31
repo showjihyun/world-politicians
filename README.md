@@ -194,7 +194,7 @@ currently claims, and a link to reporting that contradicts it. Corrections to
 
 ### Stack
 
-React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · Node 22 native TypeScript for the pipeline · GitHub Actions · deployed to GitHub Pages
+React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · Node 22 native TypeScript for the pipeline · GitHub Actions · deployed to Vercel
 
 ### License
 

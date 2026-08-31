@@ -188,7 +188,7 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
 
 ### 기술 스택
 
-React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · 파이프라인은 Node 22 네이티브 TypeScript · GitHub Actions · 배포는 GitHub Pages
+React 18 · TypeScript · Vite · Tailwind · Zustand · react-force-graph (d3-force + three.js) · Framer Motion · Playwright · 파이프라인은 Node 22 네이티브 TypeScript · GitHub Actions · 배포는 Vercel
 
 ### 라이선스
 
