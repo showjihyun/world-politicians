@@ -37,17 +37,65 @@ export function extractJsonArray(text: string): unknown[] {
   }
 }
 
+const NAMED_ENTITIES: Record<string, string> = {
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  apos: "'",
+  nbsp: ' ',
+  rsquo: '\u2019',
+  lsquo: '\u2018',
+  rdquo: '\u201d',
+  ldquo: '\u201c',
+  mdash: '\u2014',
+  ndash: '\u2013',
+  hellip: '\u2026',
+};
+
+/**
+ * HTML 엔티티를 문자로 되돌린다.
+ *
+ * 안 풀면 `Ted Cruz defends Trump&#8217;s` 가 **그대로 화면에 나간다.** 실제로
+ * 아카이브 309건 중 5건이 그 상태로 Latest Wire 에 찍히고 있었다. 매체마다
+ * 인코딩이 갈려서 같은 기사가 한쪽 피드에서는 `&#8217;`, 다른 쪽에서는 `’` 로
+ * 들어온다 — 이것이 같은 기사를 두 번 쌓이게 만드는 원인 중 하나이기도 하다.
+ *
+ * `&amp;` 를 **맨 나중에** 푼다. 먼저 풀면 `&amp;quot;` 가 `&quot;` 를 거쳐
+ * `"` 까지 가버린다 — 원문이 보여주려던 것은 `&quot;` 라는 글자다.
+ */
+export function decodeEntities(text: string): string {
+  return text
+    .replace(/&#x([0-9a-f]+);/gi, (m, hex) => codePoint(parseInt(hex, 16), m))
+    .replace(/&#(\d+);/g, (m, dec) => codePoint(Number(dec), m))
+    .replace(/&([a-z]+);/gi, (m, name) => NAMED_ENTITIES[name.toLowerCase()] ?? m)
+    .replace(/&amp;/gi, '&');
+}
+
+/** 범위를 벗어난 코드포인트는 원문을 그대로 둔다 — 지어내는 것보다 낫다 */
+function codePoint(n: number, raw: string): string {
+  if (!Number.isFinite(n) || n <= 0 || n > 0x10ffff) return raw;
+  try {
+    return String.fromCodePoint(n);
+  } catch {
+    return raw;
+  }
+}
+
 /**
  * RSS 항목에서 태그 하나를 꺼낸다.
  *
- * CDATA 를 벗기고 안에 남은 태그도 지운다. 매체 RSS 는 제목에 `<b>` 를 넣거나
- * CDATA 로 감싸는 곳이 섞여 있어서, 안 벗기면 그대로 화면에 나간다.
+ * CDATA 를 벗기고 안에 남은 태그도 지우고 엔티티를 푼다. 매체 RSS 는 제목에
+ * `<b>` 를 넣거나 CDATA 로 감싸는 곳이 섞여 있어서, 안 벗기면 그대로 화면에 나간다.
+ *
+ * 순서가 있다. CDATA 를 먼저 벗겨야 그 안의 태그가 보이고, 태그를 먼저 지워야
+ * 엔티티를 풀면서 만들어진 `<` 가 태그로 오해받지 않는다.
  */
 export function rssField(item: string, re: RegExp): string {
   const hit = item.match(re);
   if (!hit) return '';
-  return hit[1]
-    .replace(/<!\[CDATA\[|\]\]>/g, '')
-    .replace(/<[^>]+>/g, '')
-    .trim();
+  return decodeEntities(
+    hit[1]
+      .replace(/<!\[CDATA\[|\]\]>/g, '')
+      .replace(/<[^>]+>/g, '')
+  ).trim();
 }

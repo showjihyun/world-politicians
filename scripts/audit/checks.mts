@@ -970,25 +970,47 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
  * id 로 들어온다(`Video ` 접두사가 붙는 경우도 있었다). id 로만 거르면 통과한다.
  * 화면에는 같은 기사가 두 줄로 나가고, 그중 하나는 극성이 없을 수도 있다.
  */
+/**
+ * core.mts 의 storyTitleKey 사본.
+ *
+ * 이 파일은 값 import 가 금지돼(boundary 규칙) 복제 말고는 방법이 없다.
+ * pairKey 가 앱·스크립트·감사 세 벌인 것과 같은 사정이고, 같은 방식으로
+ * 계약 테스트가 두 구현이 같은 값을 내는지 고정한다 — 그래서 export 한다.
+ */
+export function storyTitleKeyMirror(title: string): string {
+  return title
+    .replace(/&#?\w+;/g, ' ')
+    .replace(/\s+[-\u2013|]\s+[^-\u2013|]{2,28}$/, ' ')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
 export function checkSignalDuplicates(
-  signals: { id: string; url: string; pair?: string[] }[]
+  signals: { id: string; url: string; pair?: string[]; title?: string }[]
 ): Finding[] {
   const seen = new Map<string, string>();
   const dups: string[] = [];
   for (const s of signals) {
-    // 구분자는 core.mts 의 dedupeByStory 와 같아야 한다 — 다르면 감사와 파이프라인이
-    // 다른 것을 같다고 본다. url 에 공백이 있어도 충돌하지 않게 제어문자를 쓴다.
-    const key = `${s.url}\u0000${[...(s.pair ?? [])].sort().join('|')}`;
-    const prev = seen.get(key);
-    if (prev) dups.push(`${prev} ≡ ${s.id}`);
-    else seen.set(key, s.id);
+    // 키는 core.mts 의 dedupeByStory 와 같아야 한다 — 다르면 감사와 파이프라인이
+    // 다른 것을 같다고 본다. 값 import 가 금지돼 사본을 두고, 둘이 같은 값을 내는지는
+    // core.test.mts 의 계약 테스트가 고정한다.
+    // url 에 공백이 있어도 충돌하지 않게 구분자는 제어문자를 쓴다.
+    const pair = [...(s.pair ?? [])].sort().join('|');
+    const title = storyTitleKeyMirror(s.title ?? '');
+    const keys = [`${s.url}\u0000${pair}`];
+    if (title) keys.push(`t\u0000${title}\u0000${pair}`);
+    const hit = keys.find((k) => seen.has(k));
+    if (hit) dups.push(`${seen.get(hit)} ≡ ${s.id}`);
+    else for (const k of keys) seen.set(k, s.id);
   }
   if (!dups.length) return [];
   return [
     {
       level: 'fail',
       check: 'signals.duplicate',
-      message: `같은 기사가 두 번 쌓였다 ${dups.length}건 — 제목이 바뀌면 id 가 달라진다`,
+      message: `같은 기사가 두 번 쌓였다 ${dups.length}건 — 제목이 바뀌거나 다른 피드로 들어오면 id 가 달라진다`,
       samples: cap(dups),
     },
   ];

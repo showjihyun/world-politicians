@@ -12,7 +12,9 @@ import {
   pickRecent,
   resolveGeneratedAt,
   type SignalLike,
+  storyTitleKey,
 } from './core.mts';
+import { storyTitleKeyMirror } from '../audit/checks.mts';
 
 const HOSTS = ['apnews.com', 'politico.com', 'thehill.com'] as const;
 const NAMES = ['Associated Press', 'AP News', 'AP', 'Politico', 'The Hill', 'NPR'] as const;
@@ -362,5 +364,103 @@ describe('resolveGeneratedAt — 데이터보다 이른 시각을 남기지 않�
 
   it('같은 날이면 보존한다', () => {
     expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-29')).toBe(PREV);
+  });
+});
+
+describe('storyTitleKey', () => {
+  // 같은 기사가 매체 RSS 와 구글뉴스 RSS 로 각각 들어온 실제 사례다.
+  // 한쪽은 엔티티가 안 풀렸고, 다른 쪽에는 " - The Hill" 이 붙어 있다.
+  it('엔티티와 매체 접미사가 달라도 같은 키가 나온다', () => {
+    const origin = 'Ted Cruz defends Trump&#8217;s &#8216;accomplished&#8217; Iran messaging';
+    const gnews = 'Ted Cruz defends Trump\u2019s \u2018accomplished\u2019 Iran messaging - The Hill';
+    expect(storyTitleKey(origin)).toBe(storyTitleKey(gnews));
+  });
+
+  it('다른 기사는 다른 키가 나온다', () => {
+    expect(storyTitleKey('Cruz defends Trump')).not.toBe(storyTitleKey('Cruz attacks Trump'));
+  });
+
+  it('숫자는 살린다 — 2028 과 2026 은 다른 기사다', () => {
+    expect(storyTitleKey('The 2028 race')).not.toBe(storyTitleKey('The 2026 race'));
+  });
+
+  it('빈 제목은 빈 키', () => {
+    expect(storyTitleKey('')).toBe('');
+    expect(storyTitleKey('&#8217; - AP')).toBe('');
+  });
+});
+
+describe('dedupeByStory — 다른 피드로 들어온 같은 기사', () => {
+  const base = { date: '2026-08-30', people: ['cruz', 'trump'], pair: ['cruz', 'trump'], classified: true };
+
+  it('url 이 달라도 같은 기사면 하나만 남는다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'a', url: 'https://thehill.com/x', title: 'Cruz defends Trump&#8217;s plan' },
+      { ...base, id: 'b', url: 'https://news.google.com/rss/articles/zzz', title: 'Cruz defends Trump\u2019s plan - The Hill' },
+    ]);
+    expect(out).toHaveLength(1);
+  });
+
+  // 구글뉴스 리다이렉트는 목적지도 매체도 확인할 수 없다. 매체 주소가 있으면 그쪽이다.
+  it('확인 가능한 매체 주소 쪽을 남긴다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'gnews', url: 'https://news.google.com/rss/articles/zzz', title: 'Cruz defends Trump - The Hill' },
+      { ...base, id: 'origin', url: 'https://thehill.com/x', title: 'Cruz defends Trump' },
+    ]);
+    expect(out.map((x) => x.id)).toEqual(['origin']);
+  });
+
+  it('분류된 쪽이 매체 주소보다 앞선다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'gnews', classified: true, url: 'https://news.google.com/rss/a', title: 'Cruz defends Trump - AP' },
+      { ...base, id: 'origin', classified: false, url: 'https://thehill.com/x', title: 'Cruz defends Trump' },
+    ]);
+    expect(out.map((x) => x.id)).toEqual(['gnews']);
+  });
+
+  it('url 이 같고 제목만 바뀐 경우도 여전히 하나로 — 기존 규칙이 살아 있다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'a', url: 'https://thehill.com/x', title: 'Cruz defends Trump' },
+      { ...base, id: 'b', url: 'https://thehill.com/x', title: 'Video Cruz defends Trump on Iran' },
+    ]);
+    expect(out).toHaveLength(1);
+  });
+
+  it('제목이 없으면 합치지 않는다 — 빈 키로 묶으면 서로 다른 기사가 한 건이 된다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'a', url: 'https://a.com/1' },
+      { ...base, id: 'b', url: 'https://b.com/2' },
+    ]);
+    expect(out).toHaveLength(2);
+  });
+
+  it('관계쌍이 다르면 제목이 같아도 남긴다', () => {
+    const out = dedupeByStory([
+      { ...base, id: 'a', url: 'https://a.com/1', pair: ['cruz', 'trump'], title: 'Same headline' },
+      { ...base, id: 'b', url: 'https://b.com/2', pair: ['cruz', 'vance'], title: 'Same headline' },
+    ]);
+    expect(out).toHaveLength(2);
+  });
+});
+
+/**
+ * pairKey 가 세 벌인 것과 같은 사정이다 — checks.mts 는 값 import 가 금지돼
+ * 사본을 들고 있다. 갈라지면 감사와 파이프라인이 다른 것을 같다고 보고,
+ * 중복이 화면에 나가는데 감사는 통과한다.
+ */
+describe('storyTitleKey 계약 — 파이프라인과 감사가 같은 키를 내야 한다', () => {
+  const samples = [
+    'Ted Cruz defends Trump&#8217;s &#8216;accomplished&#8217; Iran messaging',
+    'Ted Cruz defends Trump\u2019s \u2018accomplished\u2019 Iran messaging - The Hill',
+    "Shapiro and RFK Jr.'s vaccine clash intensifies - Axios",
+    'How $600B of Biden\u2019s clean energy funding escaped Trump\u2019s cuts - Politico',
+    'The 2028 race \u2014 who is in',
+    '',
+    '&#8217; - AP',
+    'A  B   C',
+  ];
+
+  it.each(samples)('%j 에서 두 구현이 일치한다', (title) => {
+    expect(storyTitleKeyMirror(title)).toBe(storyTitleKey(title));
   });
 });

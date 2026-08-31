@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractJsonArray, rssField } from './parse-core.mts';
+import { decodeEntities, extractJsonArray, rssField } from './parse-core.mts';
 
 describe('extractJsonArray', () => {
   it('맨 JSON 배열을 읽는다', () => {
@@ -83,5 +83,53 @@ describe('rssField', () => {
 
   it('여러 줄에 걸친 값도 읽는다', () => {
     expect(rssField('<title>one\ntwo</title>', title)).toBe('one\ntwo');
+  });
+});
+
+describe('decodeEntities', () => {
+  it('숫자 엔티티를 푼다 — 이게 화면에 그대로 나가고 있었다', () => {
+    expect(decodeEntities('Trump&#8217;s &#8216;plan&#8217;')).toBe('Trump\u2019s \u2018plan\u2019');
+  });
+
+  it('16진 엔티티도 푼다', () => {
+    expect(decodeEntities('Trump&#x2019;s')).toBe('Trump\u2019s');
+  });
+
+  it('이름 엔티티를 푼다', () => {
+    expect(decodeEntities('A &lt;b&gt; &quot;C&quot; &hellip;')).toBe('A <b> "C" \u2026');
+  });
+
+  // &amp; 를 먼저 풀면 &amp;quot; 가 " 까지 가버린다. 원문이 보여주려던 것은
+  // &quot; 라는 글자 자체다.
+  it('&amp; 를 맨 나중에 푼다 — 두 번 풀지 않는다', () => {
+    expect(decodeEntities('&amp;quot;')).toBe('&quot;');
+    expect(decodeEntities('R&amp;D')).toBe('R&D');
+  });
+
+  it('모르는 엔티티는 그대로 둔다 — 지어내지 않는다', () => {
+    expect(decodeEntities('&zzz; &#0; &#99999999;')).toBe('&zzz; &#0; &#99999999;');
+  });
+
+  it('엔티티가 없으면 원문 그대로', () => {
+    expect(decodeEntities('Trump\u2019s plan')).toBe('Trump\u2019s plan');
+  });
+});
+
+describe('rssField 가 엔티티까지 처리한다', () => {
+  const TITLE = /<title>([\s\S]*?)<\/title>/;
+
+  it('CDATA · 태그 · 엔티티를 함께 벗긴다', () => {
+    const item = '<title><![CDATA[<b>Cruz</b> defends Trump&#8217;s plan]]></title>';
+    expect(rssField(item, TITLE)).toBe('Cruz defends Trump\u2019s plan');
+  });
+
+  // 엔티티를 먼저 풀면 &lt;b&gt; 가 <b> 가 되어 태그 제거에 걸린다.
+  // 태그를 먼저 지우므로 글자로 남는다.
+  it('엔티티로 쓰인 꺾쇠는 글자로 남긴다', () => {
+    expect(rssField('<title>use &lt;b&gt; here</title>', TITLE)).toBe('use <b> here');
+  });
+
+  it('없는 태그는 빈 문자열', () => {
+    expect(rssField('<other>x</other>', TITLE)).toBe('');
   });
 });

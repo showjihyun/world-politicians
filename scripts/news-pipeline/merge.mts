@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from './config.mts';
+import { decodeEntities } from '../sources/parse-core.mts';
 import {
   accumulate as accumulatePure,
   dedupeByStory,
@@ -97,10 +98,33 @@ export function readExisting(): SignalsFile | null {
 }
 
 /** 기존 + 신규를 id 로 합치고 365일이 지난 것을 버린다 */
+/**
+ * 아카이브에 이미 들어간 제목의 엔티티를 푼다.
+ *
+ * 수집 단계(rssField)에서 풀게 했지만 그건 **앞으로 들어올 것**에만 듣는다.
+ * 이미 쌓인 것은 365일 동안 `Trump&#8217;s` 인 채로 화면에 남는다 — 실제로
+ * 5건이 그 상태였다. 게다가 중복 정리가 "확인 가능한 매체 주소" 를 우선하는데
+ * 하필 그쪽이 엔티티 버전이라, 놔두면 **깨끗한 쪽이 지워지고 깨진 쪽이 남는다.**
+ *
+ * id 는 건드리지 않는다. id 는 hash(url+title) 이지만 저장된 값을 그대로 쓰고
+ * 다시 계산하지 않는다 — 계산하면 쌓인 신호의 id 가 전부 달라져 다음 실행이
+ * 아카이브를 두 배로 만든다. 다음 수집에서 같은 기사가 새 id 로 들어와도
+ * url 이 같으므로 dedupeByStory 가 걷어낸다.
+ */
+function normalizeTitles(signals: Signal[]): Signal[] {
+  return signals.map((s) =>
+    s.title && /&#?\w+;/.test(s.title) ? { ...s, title: decodeEntities(s.title) } : s
+  );
+}
+
 export function accumulate(existing: SignalsFile | null, incoming: Signal[]): Signal[] {
   // id 는 hash(url + title) 이라 매체가 헤드라인을 고치면 같은 기사가 다른 id 로
   // 두 번 쌓인다. id 로 합친 뒤 (url, 관계쌍) 으로 한 번 더 거른다.
-  return dedupeByStory(accumulatePure(existing?.signals ?? [], incoming, RETENTION_DAYS));
+  // 제목을 먼저 고르고 나서 중복을 본다. 순서가 반대면 엔티티가 남은 제목과
+  // 풀린 제목이 서로 다른 기사로 보여 둘 다 살아남는다.
+  return dedupeByStory(
+    normalizeTitles(accumulatePure(existing?.signals ?? [], incoming, RETENTION_DAYS))
+  );
 }
 
 const buildStats = buildStatsPure;

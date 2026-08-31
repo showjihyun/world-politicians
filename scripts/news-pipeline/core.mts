@@ -154,12 +154,61 @@ export function pickForRetry<T extends ClassifiableSignal & { date: string; id: 
  * 같은 결과가 나와야 한다.
  */
 /** 이 함수만 url·pair 를 요구한다 — SignalLike 를 넓히면 무관한 함수까지 끌려온다 */
-export type StoryLike = SignalLike & { url: string; pair?: string[] };
+export type StoryLike = SignalLike & { url: string; pair?: string[]; title?: string };
 
+/**
+ * 같은 기사인지 판단하기 위한 제목 키.
+ *
+ * 같은 기사가 매체 RSS 와 구글뉴스 RSS 양쪽으로 들어온다. url 이 다르고
+ * (구글뉴스는 리다이렉트 주소다) 제목도 다르다 — 구글뉴스는 ` - The Hill` 을
+ * 붙이고, 매체 쪽은 `&#8217;` 같은 엔티티를 그대로 준다. id 는 hash(url+title)
+ * 이라 둘 다 통과해 **같은 헤드라인이 화면에 두 번 나갔다** (309건 중 32건).
+ *
+ * 엔티티를 푸는 대신 **지운다.** 푼 결과는 따옴표·대시라서 어차피 문장부호로
+ * 지워지므로 결과가 같고, 디코딩 표를 이 파일과 checks.mts 에 복제하지 않아도
+ * 된다 — 둘 다 값 import 가 금지돼 있어 복제 말고는 방법이 없다.
+ *
+ * 매체 접미사 규칙은 완벽하지 않다 — 제목이 ` - 짧은 말` 로 끝나면 그것도
+ * 떨어진다. 키에는 관계쌍도 함께 들어가고, 실제 아카이브 309건에서 잘못 묶인
+ * 것은 없었다.
+ */
+export function storyTitleKey(title: string): string {
+  return title
+    .replace(/&#?\w+;/g, ' ')                              // 엔티티는 풀지 않고 지운다
+    .replace(/\s+[-\u2013|]\s+[^-\u2013|]{2,28}$/, ' ')  // " - The Hill"
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * 같은 기사를 한 번만 남긴다. 키가 둘이라 두 번 훑는다.
+ *
+ *   1. url + 관계쌍 — 매체가 헤드라인만 고친 경우 (url 은 그대로다)
+ *   2. 제목 + 관계쌍 — 다른 피드로 다시 들어온 경우 (url 이 다르다)
+ *
+ * 하나로 합칠 수 없다. 1 은 제목이 달라도 같다고 봐야 하고, 2 는 url 이 달라도
+ * 같다고 봐야 한다 — 서로 반대 방향이다.
+ */
 export function dedupeByStory<T extends StoryLike>(signals: T[]): T[] {
+  const byUrl = (s: StoryLike) => `${s.url}\u0000${pairPart(s)}`;
+  // 제목이 없으면 합치지 않는다. 빈 키로 묶으면 서로 다른 기사가 한 건이 된다.
+  const byTitle = (s: StoryLike) => {
+    const t = storyTitleKey(s.title ?? '');
+    return t ? `${t}\u0000${pairPart(s)}` : `\u0000${s.id}`;
+  };
+  return pickBest(pickBest(signals, byUrl), byTitle);
+}
+
+function pairPart(s: StoryLike): string {
+  return [...(s.pair ?? [])].sort().join('|');
+}
+
+function pickBest<T extends StoryLike>(signals: T[], keyOf: (s: T) => string): T[] {
   const best = new Map<string, T>();
   for (const s of signals) {
-    const key = `${s.url}\u0000${[...(s.pair ?? [])].sort().join('|')}`;
+    const key = keyOf(s);
     const prev = best.get(key);
     if (!prev || preferSignal(s, prev) < 0) best.set(key, s);
   }
@@ -168,13 +217,26 @@ export function dedupeByStory<T extends StoryLike>(signals: T[]): T[] {
   return signals.filter((s) => keep.has(s.id));
 }
 
-/** 음수면 a 를 남긴다 */
+/**
+ * 음수면 a 를 남긴다.
+ *
+ * 분류된 것을 먼저 남기고, 그다음이 **확인 가능한 출처**다. 구글뉴스 리다이렉트는
+ * 목적지도 매체도 확인할 수 없어 근거 패널에 넣지 못한다. 같은 기사가 매체
+ * 주소로도 들어와 있다면 그쪽을 남기는 편이 언제나 낫다.
+ */
 function preferSignal(a: StoryLike, b: StoryLike): number {
   const ac = a.classified ? 0 : 1;
   const bc = b.classified ? 0 : 1;
   if (ac !== bc) return ac - bc;
+  const ar = isRedirect(a.url) ? 1 : 0;
+  const br = isRedirect(b.url) ? 1 : 0;
+  if (ar !== br) return ar - br;
   if (a.date !== b.date) return a.date < b.date ? 1 : -1;
   return a.id.localeCompare(b.id);
+}
+
+function isRedirect(url: string): boolean {
+  return url.includes('news.google.com');
 }
 
 /**
