@@ -40,8 +40,14 @@ export interface LabelRow {
   pair: string[];
   /** 파이프라인이 내린 판정 */
   model: { polarity: string | null; classified: boolean };
-  /** 사람이 채우는 칸. null 이면 아직 안 봤다는 뜻이고 채점에서 제외된다 */
-  truth: { polarity: Polarity | null; pairCorrect: boolean | null };
+  /**
+   * 정답 칸. null 이면 아직 안 봤다는 뜻이고 채점에서 제외된다.
+   *
+   * `by` 는 누가 채웠는지다. 모델이 채운 것으로 파이프라인을 채점하면 같은 종류의
+   * 판단으로 자기를 재는 셈이라 점수가 거짓으로 높아진다 — 두 판정이 같은 방향으로
+   * 틀리기 때문이다. 기준선은 사람이 채운 것으로만 잡아야 한다.
+   */
+  truth: { polarity: Polarity | null; pairCorrect: boolean | null; by?: 'human' | 'model' };
   note: string;
 }
 
@@ -264,6 +270,10 @@ export function invalidLabels(rows: LabelRow[]): InvalidLabel[] {
 export interface Score {
   /** 적었는데 읽히지 않은 칸 */
   invalid: number;
+  /** 사람이 채운 행 — 기준선은 이것으로만 잡는다 */
+  humanLabeled: number;
+  /** 모델이 1차로 채운 행 — 검토 대기 */
+  modelLabeled: number;
   labeled: number;
   pending: number;
   polarity: {
@@ -304,7 +314,10 @@ export function score(rows: LabelRow[]): Score {
   const pairCorrect = pairRows.filter((r) => r.truth.pairCorrect === true).length;
 
   const bad = invalidLabels(rows);
+  const isModel = (r: LabelRow) => r.truth.by === 'model';
   return {
+    humanLabeled: labeled.filter((r) => !isModel(r)).length,
+    modelLabeled: labeled.filter(isModel).length,
     labeled: labeled.length,
     // labeled 와 bad 는 겹칠 수 있다(한 칸은 맞고 한 칸은 오타). 빼기 두 번 하면 음수가 된다
     pending: rows.filter((r) => r.truth.polarity == null && r.truth.pairCorrect == null).length,
@@ -325,6 +338,16 @@ export function score(rows: LabelRow[]): Score {
  * 절대 점수로 실패시키지 않는다 — 처음에는 기준선을 모른다. 한 번 정한 뒤
  * **떨어지면** 잡는다. 표본이 작을 때 1~2건 차이로 깨지지 않게 여유를 둔다.
  */
+/**
+ * 기준선을 잡을 준비가 됐는가.
+ *
+ * 모델이 1차로 채운 행만으로 기준선을 잡으면, 그 뒤의 하락 감지가 통째로
+ * 모델의 자기 평가 위에 서게 된다. 사람이 본 행이 최소한 있어야 한다.
+ */
+export function baselineReady(s: Score, minHuman = 40): boolean {
+  return s.humanLabeled >= minHuman;
+}
+
 export function verdictAgainst(
   s: Score,
   baseline: { polarity: number | null; pair: number | null } | null,

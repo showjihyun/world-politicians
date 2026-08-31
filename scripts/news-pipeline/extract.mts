@@ -12,6 +12,8 @@ export interface Signal {
   title: string;
   people: string[];
   pair?: [string, string];
+  /** 모델이 이 쌍을 고른 근거 구절 — 오배정을 눈으로 확인할 수 있게 남긴다 */
+  evidence?: string;
   polarity?: 'ally' | 'feud' | 'neutral';
   confidence?: number;
   summary_en?: string;
@@ -37,6 +39,7 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
   console.log(`[extract] batches: ${batches.length}${llm ? '' : ' (skipping llm)'}`);
 
   let batchNo = 0;
+  let unpaired = 0;
   for (const batch of batches) {
     let results: ClassifyResult[] = [];
     if (llm) {
@@ -55,12 +58,22 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
     for (let i = 0; i < batch.length; i++) {
       const a = batch[i];
       const r = results.find((x) => x.idx === i);
-      // applyResult 와 같은 규칙이어야 한다 — 같은 사람을 두 번 짚으면
-      // pairKey 가 'trump|trump' 가 되어 자기 자신과의 엣지가 생긴다
-      const pair = r?.pair && r.pair[0] !== r.pair[1]
-        && a.people.includes(r.pair[0]) && a.people.includes(r.pair[1])
-        ? ([...r.pair].sort() as [string, string])
-        : ([a.people[0], a.people[1]].sort() as [string, string]);
+        // applyResult 와 같은 규칙이어야 한다 — 같은 사람을 두 번 짚으면
+        // pairKey 가 'trump|trump' 가 되어 자기 자신과의 엣지가 생긴다.
+        //
+        // 모델이 쌍을 특정하지 못하면 그대로 비워 둔다. 예전에는 첫 두 사람을
+        // 임의로 붙였는데 그게 오배정의 통로였다 — 'Raskin targets Kushner' 기사가
+        // Jeffries×Trump 로 붙는 식이다. 라벨 20건 중 2건(10%)이 그랬다.
+        // 쌍이 없어도 신호는 남는다. 두 사람의 Latest Wire 에는 그대로 나오고
+        // 관계에 귀속되지 않을 뿐이다.
+        const ok = Boolean(
+          r?.pair &&
+            r.pair[0] !== r.pair[1] &&
+            a.people.includes(r.pair[0]) &&
+            a.people.includes(r.pair[1])
+        );
+        const pair = ok ? ([...r!.pair!].sort() as [string, string]) : undefined;
+        if (r && !ok) unpaired++;
       signals.push({
         id: `sig-${hash(a.url + a.title).slice(0, 12)}`,
         date: a.date,
@@ -69,6 +82,7 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
         title: a.title,
         people: a.people,
         pair,
+        evidence: r?.evidence,
         polarity: r?.polarity,
         confidence: r?.confidence,
         summary_en: r?.summary_en,
@@ -78,6 +92,9 @@ export async function extractSignals(articles: Article[]): Promise<Signal[]> {
     }
   }
 
+  if (unpaired) {
+    console.log(`[extract] 관계쌍을 특정하지 못한 기사 ${unpaired}건 — 신호는 남기고 쌍은 비운다`);
+  }
   return signals;
 }
 

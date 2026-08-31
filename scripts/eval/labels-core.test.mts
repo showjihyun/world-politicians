@@ -6,6 +6,7 @@ import {
   pruneSuperseded,
   sampleSignals,
   readPairCorrect,
+  baselineReady,
   refreshModel,
   readPolarity,
   score,
@@ -347,5 +348,37 @@ describe('pruneSuperseded — 같은 기사를 두 번 라벨링하지 않는다
   it('전부 살아 있으면 아무것도 버리지 않는다', () => {
     const rows = [r2('a', 'https://a'), r2('b', 'https://b')];
     expect(pruneSuperseded(rows, new Set(['a', 'b'])).dropped).toEqual([]);
+  });
+});
+
+describe('truth.by — 모델 라벨로 기준선을 잡지 않는다', () => {
+  const human = (id: string) => row(id, { truth: { polarity: 'feud', pairCorrect: true, by: 'human' } });
+  const model = (id: string) => row(id, { truth: { polarity: 'feud', pairCorrect: true, by: 'model' } });
+
+  it('사람과 모델 라벨을 따로 센다', () => {
+    const s = score([human('a'), model('b'), model('c')]);
+    expect(s.humanLabeled).toBe(1);
+    expect(s.modelLabeled).toBe(2);
+    expect(s.labeled).toBe(3);
+  });
+
+  it('by 가 없으면 사람으로 본다 — 기존 라벨을 모델로 오해하지 않는다', () => {
+    expect(score([row('a', { truth: { polarity: 'feud', pairCorrect: true } })]).humanLabeled).toBe(1);
+  });
+
+  // 모델이 채운 것으로 기준선을 잡으면 이후 하락 감지가 자기 평가 위에 선다
+  it('모델 라벨만으로는 기준선을 잡을 수 없다', () => {
+    const s = score(Array.from({ length: 60 }, (_, i) => model(`m${i}`)));
+    expect(baselineReady(s)).toBe(false);
+  });
+
+  it('사람 라벨이 충분하면 기준선을 잡을 수 있다', () => {
+    const s = score(Array.from({ length: 40 }, (_, i) => human(`h${i}`)));
+    expect(baselineReady(s)).toBe(true);
+  });
+
+  it('채점 자체는 둘을 함께 쓴다 — 1차 통과분도 신호는 된다', () => {
+    const s = score([human('a'), model('b')]);
+    expect(s.polarity.scored).toBe(2);
   });
 });

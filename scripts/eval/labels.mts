@@ -16,7 +16,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CONFIG } from '../news-pipeline/config.mts';
 import {
-  hashSeed, invalidLabels, mergeLabels, pruneSuperseded, readPolarity, refreshModel,
+  baselineReady, hashSeed, invalidLabels, mergeLabels, pruneSuperseded, readPolarity,
+  refreshModel,
   sampleSignals,
   score, toLabelRow, verdictAgainst,
   type LabelRow, type SignalLike,
@@ -123,6 +124,9 @@ const v = verdictAgainst(s, file.baseline);
 console.log('정확도');
 console.log('─'.repeat(58));
 console.log(`라벨 ${s.labeled}/${file.rows.length}  (미기입 ${s.pending}${s.invalid ? ` · 읽을 수 없음 ${s.invalid}` : ''})`);
+if (s.modelLabeled) {
+  console.log(`  사람 ${s.humanLabeled} · 모델 1차 ${s.modelLabeled} — 기준선은 사람 라벨로만 잡는다`);
+}
 if (s.polarity.scored) {
   console.log(`극성    ${s.polarity.correct}/${s.polarity.scored} = ${s.polarity.accuracy}%`);
   const wrong = Object.entries(s.polarity.confusion).filter(([k]) => {
@@ -138,7 +142,7 @@ if (s.pair.scored) {
 } else {
   console.log('관계쌍  아직 라벨이 없다');
 }
-if (file.baseline.polarity === null && s.polarity.scored >= 40) {
+if (file.baseline.polarity === null && baselineReady(s)) {
   console.log(`기준선이 비어 있다 — 지금 점수(극성 ${s.polarity.accuracy}% · 쌍 ${s.pair.accuracy}%)를`);
   console.log('labels.json 의 baseline 에 적으면 이후 하락을 감사가 잡는다.');
 }

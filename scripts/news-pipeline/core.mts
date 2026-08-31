@@ -67,6 +67,7 @@ export function bySalience(a: SignalLike, b: SignalLike): number {
 
 export interface ClassifyOutcome {
   pair?: [string, string] | null;
+  evidence?: string;
   polarity?: 'ally' | 'feud' | 'neutral';
   confidence?: number;
   summary_en?: string;
@@ -99,6 +100,7 @@ export function applyResult<T extends ClassifiableSignal>(signal: T, result: Cla
     ...signal,
     pair,
     polarity: result.polarity,
+    evidence: result.evidence ?? signal.evidence,
     // 결과에 없는 필드로 기존 값을 덮지 않는다. 모델이 극성만 주고 요약을
     // 빠뜨리면 화면의 설명이 조용히 사라진다.
     confidence: result.confidence ?? signal.confidence,
@@ -110,6 +112,7 @@ export function applyResult<T extends ClassifiableSignal>(signal: T, result: Cla
 
 export interface ClassifiableSignal {
   people?: string[];
+  evidence?: string;
   pair?: [string, string] | string[];
   polarity?: string;
   confidence?: number;
