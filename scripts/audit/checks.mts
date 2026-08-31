@@ -849,7 +849,7 @@ export interface AccuracyFile {
   rows: {
     id: string;
     model: { polarity: string | null; classified: boolean };
-    truth: { polarity: string | null; pairCorrect: boolean | null };
+    truth: { polarity: string | null; pairCorrect: boolean | null; by?: string };
   }[];
 }
 
@@ -941,12 +941,15 @@ export function checkAccuracy(f: AccuracyFile | null, tolerance = 3): Finding[] 
     });
   }
 
-  // 기준선을 안 적어 두면 하락을 영영 못 잡는다
-  if (b.polarity === null && polRows.length >= 40) {
+  // 기준선을 안 적어 두면 하락을 영영 못 잡는다. 다만 모델이 1차로 채운 행으로
+  // 기준선을 잡으면 이후 하락 감지가 통째로 모델의 자기 평가 위에 선다 —
+  // labels.mts 의 baselineReady 와 같은 기준(사람 라벨 40행)을 쓴다.
+  const humanPol = polRows.filter((r) => r.truth.by !== 'model').length;
+  if (b.polarity === null && humanPol >= 40) {
     out.push({
       level: 'warn',
       check: 'accuracy.baseline',
-      message: `라벨 ${polRows.length}행이 쌓였는데 기준선이 비어 있다 — 지금 ${polAcc}% 를 labels.json 의 baseline 에 적는다`,
+      message: `사람 라벨 ${humanPol}행이 쌓였는데 기준선이 비어 있다 — 지금 ${polAcc}% 를 labels.json 의 baseline 에 적는다`,
     });
   }
 

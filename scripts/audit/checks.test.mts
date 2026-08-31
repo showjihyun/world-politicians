@@ -594,10 +594,18 @@ describe('checkAccuracy', () => {
   });
 
   // 기준선을 안 적어 두면 하락을 영영 못 잡는다
-  it('라벨이 쌓였는데 기준선이 비면 경고한다', () => {
+  it('사람 라벨이 쌓였는데 기준선이 비면 경고한다', () => {
     const rows = Array.from({ length: 45 }, () => r());
     const f = checkAccuracy(file(rows));
     expect(f.find((x) => x.check === 'accuracy.baseline')?.level).toBe('warn');
+  });
+
+  // 모델이 1차로 채운 행으로 기준선을 잡으면 이후 감지가 자기 평가 위에 선다
+  it('모델 라벨만 쌓였으면 기준선을 재촉하지 않는다', () => {
+    const rows = Array.from({ length: 45 }, () =>
+      r({ truth: { polarity: 'feud', pairCorrect: true, by: 'model' } })
+    );
+    expect(checkAccuracy(file(rows)).some((x) => x.check === 'accuracy.baseline')).toBe(false);
   });
 
   it('미분류 신호는 극성 채점에서 뺀다 — 모델이 답을 안 낸 것이다', () => {
