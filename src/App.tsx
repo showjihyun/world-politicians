@@ -63,6 +63,7 @@ export default function App() {
       <TopBar />
 
       <aside
+          data-graph-inset="left"
         className={`absolute bottom-3 left-3 top-[72px] z-20 w-[324px] max-w-[calc(100vw-24px)] transition-transform duration-300 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-[110%]'
         }`}
@@ -124,6 +125,7 @@ export default function App() {
 
       {/* 데이터 신선도 — 첫 화면부터 프로필이 열려 있으므로 드로어를 피해 왼쪽으로 비킨다 */}
       <div
+        data-graph-inset="bottom"
         className={`absolute bottom-3 z-10 transition-all duration-300 ${
           selectedId ? 'right-[416px]' : 'right-3'
         }`}
@@ -133,6 +135,7 @@ export default function App() {
 
       {/* 범례 겸 관계 필터 — 그래프 좌측 하단 */}
       <div
+        data-graph-inset="bottom"
         className={`absolute bottom-3 z-20 transition-all duration-300 ${
           sidebarOpen ? 'left-[349px]' : 'left-3'
         }`}

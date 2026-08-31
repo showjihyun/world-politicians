@@ -77,6 +77,51 @@ async function main() {
     .catch(() => '');
   check('auto-selects most connected figure', autoName.trim().length > 0, autoName.trim());
   check('graph canvas rendered', (await page.locator('canvas').count()) >= 1);
+
+  // ── 1a. 그래프가 패널 뒤에 그려지지 않는가 ──
+  // 프레이밍이 캔버스 전체를 기준으로 잡고 있어서, 그려진 그래프의 36%(1280px)가
+  // 패널 뒤로 들어가 볼 수 없었다. 화면이 넓으면 티가 안 나서 오래 남아 있었다.
+  // 노드 좌표는 캔버스 안에 있어 DOM 으로 못 본다 — 그려진 픽셀을 직접 센다.
+  await page.waitForTimeout(3000);   // onEngineStop 의 fitVisible 을 기다린다
+  const framing = await page.evaluate(() => {
+    const canvas = document.querySelector('canvas');
+    const c = canvas.getBoundingClientRect();
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return null;
+    const dpr = canvas.width / c.width;
+    const panels = [];
+    for (const el of document.querySelectorAll('[data-graph-inset]')) {
+      const b = el.getBoundingClientRect();
+      if (b.width < 1 || b.height < 1) continue;
+      if (b.right <= c.left || b.left >= c.right) continue;   // 닫혀서 화면 밖
+      panels.push(b);
+    }
+    const img = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let drawn = 0;
+    let hidden = 0;
+    for (let py = 0; py < canvas.height; py += 3) {
+      for (let px = 0; px < canvas.width; px += 3) {
+        const i = (py * canvas.width + px) * 4;
+        if (img[i + 3] < 12) continue;
+        if ((img[i] + img[i + 1] + img[i + 2]) / 3 < 18) continue;   // 배경
+        drawn++;
+        const sx = c.left + px / dpr;
+        const sy = c.top + py / dpr;
+        if (panels.some((p) => sx >= p.left && sx < p.right && sy >= p.top && sy < p.bottom)) hidden++;
+      }
+    }
+    return { panels: panels.length, drawn, pct: drawn ? Math.round((hidden / drawn) * 100) : 0 };
+  });
+  check(
+    'panels are measured for framing',
+    !!framing && framing.panels >= 2 && framing.drawn > 2000,
+    framing ? `패널 ${framing.panels} · 그려진 픽셀 ${framing.drawn}` : 'canvas 2d 컨텍스트 없음'
+  );
+  check(
+    'graph is not drawn behind the panels',
+    !!framing && framing.pct <= 8,
+    framing ? `패널 뒤 ${framing.pct}%` : '측정 실패'
+  );
   await page.screenshot({ path: `${SHOTS}/01-initial.png` });
 
   // ── 1b. 외부 링크 ──

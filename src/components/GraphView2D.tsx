@@ -3,6 +3,7 @@ import ForceGraph2D from 'react-force-graph-2d';
 import { useStore } from '../store/useStore';
 import { useUIStore } from '../store/uiStore';
 import { useI18n } from '../i18n';
+import { centerOnClear, clearArea, frameToArea, type Panel } from '../domain/viewport';
 import { FACTION_MAP } from '../data/factions';
 import { PARTY_COLOR, COLORS } from '../lib/colors';
 import { REL_META } from '../types';
@@ -165,7 +166,33 @@ export default function GraphView2D() {
   // 여기에 더해, 멀리 떨어진 소수의 노드까지 전부 담으려다 보면 정작 본 군집이
   // 화면 대비 작게 잡힌다(모니터가 클수록 심하다). 중심에서 먼 상위 몇 %는
   // 프레이밍 기준에서 빼고 본 덩어리를 화면에 채운다. 뺀 노드는 패닝으로 볼 수 있다.
+/**
+ * 패널이 비워 준 영역을 잰다.
+ *
+ * 폭을 여기 옮겨 적지 않는다 — 클래스가 바뀌면 그 값이 조용히 낡는다.
+ * 패널 쪽에 data-graph-inset 만 달아 두고 실제 사각형을 읽는다.
+ */
+function measurePanels(): Panel[] {
+  const out: Panel[] = [];
+  for (const el of document.querySelectorAll('[data-graph-inset]')) {
+    const side = el.getAttribute('data-graph-inset');
+    if (side !== 'left' && side !== 'right' && side !== 'top' && side !== 'bottom') continue;
+    const b = el.getBoundingClientRect();
+    out.push({ side, rect: { left: b.left, top: b.top, right: b.right, bottom: b.bottom } });
+  }
+  return out;
+}
   const CORE_RATIO = 0.97;
+
+  /** 캔버스와, 패널이 비워 준 영역. 둘 다 화면 px. */
+  const areas = useCallback(() => {
+    const el = wrapRef.current;
+    if (!el) return null;
+    const b = el.getBoundingClientRect();
+    const canvas = { left: b.left, top: b.top, right: b.right, bottom: b.bottom };
+    return { canvas, clear: clearArea(canvas, measurePanels()) };
+  }, []);
+
   const fitVisible = useCallback(
     (ms: number) => {
       const fg = fgRef.current;
@@ -173,23 +200,33 @@ export default function GraphView2D() {
       const pts = graph.filter(
         (n) => visibleNodes.has(n.id) && n.x != null && n.y != null
       );
-      if (pts.length < 8) {
-        fg.zoomToFit(ms, 80, (n) => visibleNodes.has((n as GraphNode).id));
-        return;
-      }
+      if (!pts.length) return;
+
+      // 멀리 떨어진 소수까지 담으려다 본 군집이 화면 대비 작게 잡힌다.
+      // 중심에서 먼 상위 몇 %는 프레이밍에서 빼고 본 덩어리를 채운다.
       const cx = pts.reduce((a, n) => a + n.x!, 0) / pts.length;
       const cy = pts.reduce((a, n) => a + n.y!, 0) / pts.length;
-      const dists = pts
-        .map((n) => Math.hypot(n.x! - cx, n.y! - cy))
-        .sort((a, b) => a - b);
+      const dists = pts.map((n) => Math.hypot(n.x! - cx, n.y! - cy)).sort((a, b) => a - b);
       const cutoff = dists[Math.floor((dists.length - 1) * CORE_RATIO)];
-      fg.zoomToFit(ms, 70, (nRaw) => {
-        const n = nRaw as GraphNode;
-        if (!visibleNodes.has(n.id) || n.x == null || n.y == null) return false;
-        return Math.hypot(n.x - cx, n.y - cy) <= cutoff;
-      });
+      const core = pts.length < 8 ? pts : pts.filter((n) => Math.hypot(n.x! - cx, n.y! - cy) <= cutoff);
+      const use = core.length ? core : pts;
+
+      const bbox = {
+        minX: Math.min(...use.map((n) => n.x!)),
+        maxX: Math.max(...use.map((n) => n.x!)),
+        minY: Math.min(...use.map((n) => n.y!)),
+        maxY: Math.max(...use.map((n) => n.y!)),
+      };
+
+      const a = areas();
+      if (!a) return;
+      // zoomToFit 은 캔버스 전체에 맞춘다. 그래서 절반 가까이가 패널 뒤로
+      // 들어갔다 — 비어 있는 영역에 맞춰야 한다.
+      const f = frameToArea(bbox, a.canvas, a.clear, 70);
+      fg.centerAt(f.centerX, f.centerY, ms);
+      fg.zoom(f.zoom, ms);
     },
-    [graph, visibleNodes]
+    [graph, visibleNodes, areas]
   );
 
   // 시뮬레이션이 안정되면 노드를 고정(fx/fy) — 회전이 레이아웃을 흐트러뜨리지 않도록.
@@ -210,9 +247,14 @@ export default function GraphView2D() {
     if (!selectedId || !fgRef.current) return;
     const n = graph.find((g) => g.id === selectedId);
     if (!n || n.x == null || n.y == null || Number.isNaN(n.x) || Number.isNaN(n.y)) return;
-    fgRef.current.centerAt(n.x, n.y, 700);
-    fgRef.current.zoom(2.4, 700);
-  }, [selectedId, graph]);
+    const ZOOM = 2.4;
+    const a = areas();
+    // 드로어가 열리면서 오른쪽 392px 가 덮인다. 그냥 좌표를 넘기면 고른 인물이
+    // 그 뒤에 놓인다 — 정작 보라고 연 패널이 대상을 가린다.
+    const c = a ? centerOnClear(n.x, n.y, a.canvas, a.clear, ZOOM) : { centerX: n.x, centerY: n.y };
+    fgRef.current.centerAt(c.centerX, c.centerY, 700);
+    fgRef.current.zoom(ZOOM, 700);
+  }, [selectedId, graph, areas]);
 
   const neighborSet = useMemo(() => {
     const focus = hoveredId ?? selectedId;

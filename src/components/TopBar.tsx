@@ -61,7 +61,9 @@ export default function TopBar() {
       검색창이 남는 폭을 채운다(flex-1). 눌러서 우겨넣는 대신 줄을 하나 더 쓴다.
       lg 이상은 이전과 동일하다 — 한 줄, 검색창 288px 고정.
     */
-    <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex flex-wrap items-start justify-between gap-3 p-3 sm:p-4">
+    <header
+      data-graph-inset="top"
+      className="pointer-events-none absolute inset-x-0 top-0 z-30 flex flex-wrap items-start justify-between gap-3 p-3 sm:p-4">
       <div className="pointer-events-auto flex items-center gap-2">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}

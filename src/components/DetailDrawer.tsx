@@ -79,6 +79,7 @@ export default function DetailDrawer() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 380, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+          data-graph-inset="right"
           className="pointer-events-auto absolute right-3 top-[72px] z-20 flex max-h-[calc(100vh-84px)] w-[min(92vw,392px)] flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-ink-900/92 shadow-2xl shadow-black/60 backdrop-blur-2xl"
         >
           <div
