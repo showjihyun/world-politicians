@@ -123,6 +123,25 @@ if (fs.existsSync(fundPath)) {
 }
 
 // 당론 이탈률 — 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나온다.
+// 화면이 import 하는 데이터 파일. 없으면 그 층이 통째로 사라지는데,
+// 아래 검사들은 전부 existsSync 로 감싸여 있어 조용히 통과한다.
+const REQUIRED_DATA = [
+  'src/data/crosswalk.json',
+  'src/data/cosponsorship.json',
+  'src/data/funding.json',
+  'src/data/lobbying.json',
+  'src/data/party-unity.json',
+];
+const missingData = REQUIRED_DATA.filter((rel) => !fs.existsSync(path.join(ROOT, rel)));
+if (missingData.length) {
+  findings.push({
+    level: 'fail',
+    check: 'data.missing',
+    message: `화면이 쓰는 데이터 파일 ${missingData.length}개가 없다`,
+    samples: missingData,
+  });
+}
+
 const unityPath = path.join(ROOT, 'src/data/party-unity.json');
 if (fs.existsSync(unityPath)) {
   const unity = JSON.parse(fs.readFileSync(unityPath, 'utf8')) as UnityFile;

@@ -710,6 +710,7 @@ describe('checkPartyUnity', () => {
     },
     medians: { 'House|R': 1.77 },
     people: { massie: person() },
+    excluded: { trump: 'notInCongress' },
   };
   const ids = new Set(['massie']);
 
@@ -782,6 +783,37 @@ describe('checkPartyUnity', () => {
   it('막대 축을 넘는 값이 있으면 잡는다', () => {
     const bad = { ...ok, axisMax: 10 };
     expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.axis');
+  });
+
+  // 축이 없으면 `rate > undefined` 가 false 라 unity.axis 가 통째로 무력해진다.
+  it('막대 축이 없으면 잡는다 — 없으면 축 검사 자체가 죽는다', () => {
+    const bad = { ...ok, axisMax: undefined } as unknown as UnityFile;
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.axis');
+  });
+
+  // 0 은 ?? 를 통과하고, 0 으로 나누면 모든 막대가 가득 찬다.
+  it('막대 축이 0 이면 잡는다', () => {
+    expect(checkPartyUnity({ ...ok, axisMax: 0 }, ids).map((x) => x.check)).toContain('unity.axis');
+  });
+
+  // 파일이 들고 온 minVotes 로만 재면 그 값이 낮아졌을 때 검사도 같이 낮아진다.
+  it('최소 표결 수가 기준보다 낮으면 잡는다 — 파일 값에 끌려가지 않는다', () => {
+    const bad = { ...ok, minVotes: 3, people: { massie: person({ votes: 3, against: 1, rate: 33.3 }) } };
+    const checks = checkPartyUnity(bad, ids).map((x) => x.check);
+    expect(checks).toContain('unity.threshold');
+    expect(checks).toContain('unity.thin');
+  });
+
+  // 값도 사유도 없으면 화면이 아무 이유나 골라 적는다.
+  it('값도 제외 사유도 없는 인물을 알린다', () => {
+    const found = checkPartyUnity(ok, new Set(['massie', 'warren']));
+    expect(found.map((x) => x.check)).toContain('unity.unexplained');
+  });
+
+  it('제외 사유가 있으면 알리지 않는다', () => {
+    const withReason = { ...ok, excluded: { trump: 'notInCongress', warren: 'noVotes' } };
+    const found = checkPartyUnity(withReason, new Set(['massie', 'warren']));
+    expect(found.map((x) => x.check)).not.toContain('unity.unexplained');
   });
 
   // 분모를 너무 넓게 잡으면 모두가 0% 가 된다. 막지는 않는다 — 데이터 오류가 아니라

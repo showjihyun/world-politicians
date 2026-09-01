@@ -22,6 +22,11 @@ export interface PersonUnity {
   chamber: 'House' | 'Senate';
 }
 
+export type ExcludedReason = 'notInCongress' | 'noSide' | 'noVotes' | 'thinRecord';
+
+/** JSON 이 없거나 못 읽었을 때 쓰는 축. 데이터가 오면 언제나 그쪽이 이긴다. */
+const FALLBACK_AXIS_MAX = 30;
+
 interface UnityFile {
   congress: number;
   minVotes: number;
@@ -30,6 +35,8 @@ interface UnityFile {
   /** "House|R" → 같은 당·같은 원의 중앙값 */
   medians: Record<string, number>;
   people: Record<string, PersonUnity>;
+  /** 값이 없는 사람은 왜 없는지 — 이유를 뭉개면 화면이 틀린 말을 한다 */
+  excluded: Record<string, ExcludedReason>;
 }
 
 let cache: UnityFile | null = null;
@@ -44,7 +51,13 @@ function load(): Promise<UnityFile | null> {
       subs.forEach((fn) => fn());
       return cache;
     })
-    .catch(() => null);
+    .catch(() => {
+      // 실패한 약속을 들고 있으면 그 세션 내내 다시 시도하지 않는다.
+      // 화면은 "아직 불러오는 중" 과 똑같아 보이는데 영원히 그 상태다 —
+      // 없다는 사실을 적으려고 만든 장치가 바로 그 실패에서 사라진다.
+      loading = null;
+      return null;
+    });
   return loading;
 }
 
@@ -58,8 +71,10 @@ export interface UnityState {
    */
   axisMax: number;
   congress: number;
-  /** 이 사람의 표결 기록이 있는가 — 없으면 "없음" 이라고 적어야 한다 */
+  /** 데이터를 읽었는가 — 아직 못 읽은 것과 기록이 없는 것은 다르다 */
   known: boolean;
+  /** 값이 없다면 왜 없는가. 이유마다 화면 문구가 다르다. */
+  reason: ExcludedReason | null;
 }
 
 export function useUnity(personId: string | null): UnityState {
@@ -75,15 +90,18 @@ export function useUnity(personId: string | null): UnityState {
     };
   }, [personId]);
 
-  if (!personId) return { unity: null, median: null, axisMax: 30, congress: 0, known: false };
+  if (!personId)
+    return { unity: null, median: null, axisMax: FALLBACK_AXIS_MAX, congress: 0, known: false, reason: null };
   const unity = cache?.people[personId] ?? null;
   return {
     unity,
     median: unity ? (cache?.medians[`${unity.chamber}|${unity.side}`] ?? null) : null,
-    axisMax: cache?.axisMax ?? 30,
+    // 0 은 ?? 를 통과한다. 0 으로 나누면 모든 막대가 가득 찬다.
+    axisMax: cache?.axisMax && cache.axisMax > 0 ? cache.axisMax : FALLBACK_AXIS_MAX,
     congress: cache?.congress ?? 0,
     // 아직 안 불러온 것과 기록이 없는 것을 구분한다 — 둘 다 빈 화면이면
     // "판정이 없다" 가 아니라 그냥 빈약한 항목으로 보인다.
     known: cache !== null,
+    reason: unity ? null : (cache?.excluded[personId] ?? null),
   };
 }

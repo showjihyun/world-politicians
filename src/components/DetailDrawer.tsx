@@ -39,7 +39,14 @@ export default function DetailDrawer() {
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
   const { funding, cycle: fundingCycle, through: fundingThrough } = useFunding(person?.id ?? null);
-  const { unity, median: unityMedian, axisMax, congress, known: unityKnown } = useUnity(person?.id ?? null);
+  const {
+    unity,
+    median: unityMedian,
+    axisMax,
+    congress,
+    known: unityKnown,
+    reason: unityReason,
+  } = useUnity(person?.id ?? null);
   const { lobbying, years: lobbyYears } = useLobbying(person?.id ?? null);
   // 음수(환불)와 0 나눗셈을 여기서 한 번만 막는다
   const pct = (n: number) =>
@@ -257,9 +264,9 @@ export default function DetailDrawer() {
           )}
 
           {/*
-            기록이 없는 사람(대통령·주지사·전직 등 35명)에게 아무것도 안 그리면
-            "아직 불러오는 중" 과 구분되지 않는다. 미분류 신호를 "미판정" 이라고
-            적는 것과 같은 이유로, 없다는 사실을 적는다.
+            기록이 없는 사람에게 아무것도 안 그리면
+            "아직 불러오는 중" 과 구분되지 않는다. 이유는 뭉개지 않는다 — 자리는
+            있었는데 표결이 없던 사람에게 "현직이 아니다" 라고 적으면 거짓이 된다.
           */}
           {!unity && unityKnown && (
             <p
@@ -267,7 +274,7 @@ export default function DetailDrawer() {
               className="mx-4 mb-3 rounded-xl border border-slate-400/10 bg-white/[0.02] px-3 py-2 text-[10.5px] leading-relaxed text-slate-600"
             >
               <span className="font-mono uppercase tracking-[0.16em] text-slate-500">{t.unityTitle}</span>{' '}
-              — {t.unityNone}
+              — {t.unityNone(unityReason ?? 'notInCongress')}
             </p>
           )}
           {funding && funding.receipts > 0 && (

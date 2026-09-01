@@ -23,7 +23,7 @@ import path from 'node:path';
 // CSV 파싱은 crosswalk-core 의 parseCsv 를 쓴다. 같은 Voteview 파일을 위해
 // 이미 쓰여 있고 테스트도 있다 — bioname 의 `"WARREN, Elizabeth"` 가 그 이유다.
 // 복제하면 이스케이프된 따옴표와 길이가 어긋난 행에서 조용히 갈라진다.
-import { parseCsv } from './crosswalk-core.mts';
+import { countRaggedRows, num, parseCsv } from './crosswalk-core.mts';
 import {
   castOf,
   defectionRate,
@@ -47,13 +47,19 @@ const MIN_VOTES = 30;
 const CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 const BASE = 'https://voteview.com/static/data/out';
 
-async function grab(url: string, name: string): Promise<string> {
+/** 이 바이트가 언제 받아진 것인가 — generatedAt 은 "쓴 시각" 이 아니라 이것이다 */
+interface Grabbed {
+  text: string;
+  fetchedAt: Date;
+}
+
+async function grab(url: string, name: string): Promise<Grabbed> {
   fs.mkdirSync(cacheDir, { recursive: true });
   const cached = path.join(cacheDir, name);
   // 캐시를 무기한 믿으면 회기가 진행돼도 같은 표결에 머문 채 generatedAt 만
   // 새로 찍힌다 — "다시 쓴 시각" 을 "수집한 시각" 으로 내보내는 그 실수다.
   if (fs.existsSync(cached) && Date.now() - fs.statSync(cached).mtimeMs < CACHE_MAX_AGE_MS) {
-    return fs.readFileSync(cached, 'utf8');
+    return { text: fs.readFileSync(cached, 'utf8'), fetchedAt: new Date(fs.statSync(cached).mtimeMs) };
   }
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${name} ${res.status} — ${url}`);
@@ -62,7 +68,20 @@ async function grab(url: string, name: string): Promise<string> {
   const tmp = `${cached}.part`;
   fs.writeFileSync(tmp, text);
   fs.renameSync(tmp, cached);
-  return text;
+  return { text, fetchedAt: new Date() };
+}
+
+/**
+ * 받은 CSV 를 표로 만든다.
+ *
+ * parseCsv 는 길이가 어긋난 행을 **말없이 버린다.** 그 침묵이 분모를 조용히
+ * 깎으면 모든 비율이 함께 어긋나는데 어떤 검사도 걸리지 않는다 — 이 스크립트가
+ * 막으려는 실패 그 자체다. 하나라도 버려졌으면 멈춘다.
+ */
+function rows(g: Grabbed, what: string): Record<string, string>[] {
+  const dropped = countRaggedRows(g.text);
+  if (dropped) throw new Error(`${what}: 열 개수가 어긋난 행 ${dropped}개 — 파일이 바뀌었다`);
+  return parseCsv(g.text);
 }
 
 /**
@@ -78,11 +97,6 @@ function requireCols(rows: Record<string, string>[], cols: string[], what: strin
   if (missing.length) throw new Error(`${what}: 열이 없다 — ${missing.join(', ')}`);
 }
 
-/** Number('') 는 NaN 이 아니라 0 이다. 빈 icpsr 를 넘기면 0번 의원이 생긴다. */
-function num(v: string | undefined): number {
-  const t = (v ?? '').trim();
-  return t === '' ? NaN : Number(t);
-}
 
 const cwPath = path.join(ROOT, 'src/data/crosswalk.json');
 if (!fs.existsSync(cwPath)) {
@@ -105,8 +119,11 @@ async function main(): Promise<void> {
   const caucusByBio = new Map(cross.members.map((m) => [m.bioguide, m.caucus ?? null]));
 
   // ── 의원 명부 ──
-  const memRows = parseCsv(await grab(`${BASE}/members/HSall_members.csv`, 'HSall_members.csv'));
+  const memGrab = await grab(`${BASE}/members/HSall_members.csv`, 'HSall_members.csv');
+  const memRows = rows(memGrab, 'members');
   requireCols(memRows, ['congress', 'chamber', 'icpsr', 'party_code', 'bioguide_id'], 'members');
+  // 어느 파일이든 가장 오래된 수집 시각이 이 데이터의 수집 시각이다.
+  let fetchedAt = memGrab.fetchedAt;
 
   const CHAMBERS = new Set(['House', 'Senate']);
   const members = new Map<number, Member>();
@@ -130,9 +147,11 @@ async function main(): Promise<void> {
   const calls = new Map<string, Map<number, Cast>>();
   for (const ch of ['H', 'S']) {
     const name = `${ch}${CONGRESS}_votes.csv`;
-    const rows = parseCsv(await grab(`${BASE}/votes/${name}`, name));
-    requireCols(rows, ['rollnumber', 'icpsr', 'cast_code'], name);
-    for (const r of rows) {
+    const g = await grab(`${BASE}/votes/${name}`, name);
+    if (g.fetchedAt < fetchedAt) fetchedAt = g.fetchedAt;
+    const voteRows = rows(g, name);
+    requireCols(voteRows, ['rollnumber', 'icpsr', 'cast_code'], name);
+    for (const r of voteRows) {
       const cast = castOf(num(r.cast_code));
       if (!cast) continue;
       const icpsr = num(r.icpsr);
@@ -187,28 +206,59 @@ async function main(): Promise<void> {
   }
 
   // ── POLARIS 인물에 붙인다 ──
-  const bioToIcpsr = new Map([...members.entries()].map(([ic, m]) => [m.bioguide, ic]));
+  // Voteview 는 회기 중 당적을 바꾼 의원에게 두 번째 행을 준다 — icpsr + 70000.
+  // 119대에 실제로 한 명 있다(Kiley 22336 / 92336). bioguide 하나에 icpsr 하나만
+  // 들고 있으면 나중 것만 남아 표결 절반이 사라지는데, 그래도 최소 표결 수는
+  // 넘어서 어떤 검사에도 안 걸린다.
+  const icpsrsByBio = new Map<string, number[]>();
+  for (const [ic, m] of members) {
+    const list = icpsrsByBio.get(m.bioguide);
+    if (list) list.push(ic);
+    else icpsrsByBio.set(m.bioguide, [ic]);
+  }
   const people: Record<string, { rate: number; votes: number; against: number; side: Side; chamber: string }> = {};
   // 빠지는 이유가 셋이다. 하나로 합치면 "의원이 아니다" 가 "표결이 적다" 까지
   // 뜻하게 되어 이름이 사실을 뒤집는다.
-  const skipped = { notInCongress: 0, noVotes: 0, thinRecord: 0 };
+  const skipped = { notInCongress: 0, noSide: 0, noVotes: 0, thinRecord: 0 };
+  // 왜 빠졌는지를 화면까지 들고 간다. 이유를 뭉개면 현직 의원에게
+  // '현직 의원이 아니다' 라고 적게 된다 — 실제로 vance·rubio 가 그랬다.
+  const excluded: Record<string, string> = {};
   for (const [id, v] of Object.entries(cross.polaris)) {
-    const icpsr = v.bioguide ? bioToIcpsr.get(v.bioguide) : undefined;
-    const m = icpsr != null ? members.get(icpsr) : undefined;
-    if (!m?.side) {
+    const ids = v.bioguide ? (icpsrsByBio.get(v.bioguide) ?? []) : [];
+    const seats = ids.map((ic) => members.get(ic)!).filter(Boolean);
+    if (!seats.length) {
       skipped.notInCongress++;
+      excluded[id] = "notInCongress";
       continue;
     }
-    const t = icpsr != null ? tally.get(icpsr) : undefined;
-    if (!t) {
+    const seat = seats.find((m) => m.side);
+    if (!seat?.side) {
+      // 자리는 있는데 소속을 못 정했다 — 무소속인데 코커스가 비어 있다.
+      // '의원이 아니다' 로 세면 명부 사실인 척하며 크로스워크 구멍을 숨긴다.
+      skipped.noSide++;
+      excluded[id] = "noSide";
+      continue;
+    }
+    // 당적을 바꾼 사람은 두 icpsr 에 표결이 나뉘어 있다 — 합쳐야 온전한 기록이다.
+    const t = ids.reduce(
+      (acc, ic) => {
+        const r = tally.get(ic);
+        return r ? { votes: acc.votes + r.votes, against: acc.against + r.against } : acc;
+      },
+      { votes: 0, against: 0 }
+    );
+    if (!t.votes) {
       skipped.noVotes++;
+      excluded[id] = "noVotes";
       continue;
     }
     const rate = defectionRate(t, MIN_VOTES);
     if (rate === null) {
       skipped.thinRecord++;
+      excluded[id] = "thinRecord";
       continue;
     }
+    const m = seat;
     people[id] = {
       rate: Math.round(rate * 10) / 10,
       votes: t.votes,
@@ -220,7 +270,9 @@ async function main(): Promise<void> {
 
   const rates = Object.values(people).map((p) => p.rate);
   const out = {
-    generatedAt: new Date().toISOString(),
+    // 파일을 쓴 시각이 아니라 이 바이트를 받은 시각이다. 캐시에서 왔으면
+    // 그 캐시가 만들어진 때다 — 안 그러면 같은 데이터가 새것으로 보인다.
+    generatedAt: fetchedAt.toISOString(),
     congress: CONGRESS,
     source: 'Voteview (voteview.com) — DW-NOMINATE 프로젝트의 호명투표 원본',
     note:
@@ -242,6 +294,7 @@ async function main(): Promise<void> {
     },
     medians,
     people,
+    excluded,
   };
 
   const top = Object.entries(people).sort((a, b) => b[1].rate - a[1].rate);
@@ -250,7 +303,7 @@ async function main(): Promise<void> {
   console.log(`${CONGRESS}대 · 호명투표 ${calls.size}건 중 정당 표결 ${partyVotes}건 (${Math.round((partyVotes / calls.size) * 100)}%)`);
   console.log(
     `POLARIS ${Object.keys(people).length}명 산출 · 제외 ${skipped.notInCongress + skipped.noVotes + skipped.thinRecord}명` +
-      ` (의원 아님 ${skipped.notInCongress} · 표결 없음 ${skipped.noVotes} · ${MIN_VOTES}건 미만 ${skipped.thinRecord})`
+      ` (의원 아님 ${skipped.notInCongress} · 소속 불명 ${skipped.noSide} · 표결 없음 ${skipped.noVotes} · ${MIN_VOTES}건 미만 ${skipped.thinRecord})`
   );
   console.log(`막대 축 0~${out.axisMax}%`);
   console.log('중앙값: ' + Object.entries(medians).map(([k, v]) => `${k} ${v}%`).join(' · '));

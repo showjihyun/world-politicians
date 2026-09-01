@@ -301,7 +301,26 @@ export function filterParties(members: Member[], parties: readonly string[]): Me
  * 줄을 쉼표로 그냥 자르면 그 뒤 열이 통째로 한 칸씩 밀린다 — 에러가 아니라
  * 조용히 틀린 값이 들어온다.
  */
-export function parseCsv(text: string): Record<string, string>[] {
+/**
+ * Number('') 는 NaN 이 아니라 0 이다. 빈 칸을 그대로 넘기면 icpsr 0 번 의원이
+ * 생긴다 — 에러 없이 틀린 id 가 박힌다. Voteview 를 읽는 곳이 둘이라 꺼내 둔다.
+ */
+export function num(v: string | undefined): number {
+  const t = (v ?? '').trim();
+  return t === '' ? NaN : Number(t);
+}
+
+/**
+ * 길이가 어긋난 행이 몇 개 버려졌는가. parseCsv 는 그것을 말없이 버리는데,
+ * 그 침묵이 분모를 조용히 깎는다 — 세어서 호출부가 판단하게 한다.
+ */
+export function countRaggedRows(text: string): number {
+  const all = parseCsvRaw(text);
+  if (!all.head) return 0;
+  return all.rows.filter((r) => r.length !== all.head!.length).length;
+}
+
+function parseCsvRaw(text: string): { head: string[] | undefined; rows: string[][] } {
   const rows: string[][] = [];
   let row: string[] = [];
   let cell = '';
@@ -321,9 +340,13 @@ export function parseCsv(text: string): Record<string, string>[] {
     else cell += c;
   }
   if (cell || row.length) { row.push(cell); rows.push(row); }
+  return { head: rows.shift(), rows };
+}
 
-  const head = rows.shift();
+export function parseCsv(text: string): Record<string, string>[] {
+  const { head, rows } = parseCsvRaw(text);
   if (!head) return [];
+  // 길이가 어긋난 행은 버린다. 몇 개 버렸는지 알아야 하는 곳은 countRaggedRows 를 쓴다.
   return rows
     .filter((r) => r.length === head.length)
     .map((r) => Object.fromEntries(head.map((h, i) => [h, r[i]])));
@@ -340,12 +363,6 @@ export function icpsrByBioguide(rows: Record<string, string>[]): Map<string, num
   const best = new Map<string, { congress: number; icpsr: number }>();
   for (const r of rows) {
     const bio = (r.bioguide_id ?? '').trim();
-    // Number('') 는 NaN 이 아니라 0 이다. 빈 칸을 그대로 넘기면 icpsr 0 번
-    // 의원이 생긴다 — 에러 없이 틀린 id 가 박힌다.
-    const num = (v: string | undefined) => {
-      const t = (v ?? '').trim();
-      return t === '' ? NaN : Number(t);
-    };
     const icpsr = num(r.icpsr);
     const congress = num(r.congress);
     if (!bio || !Number.isFinite(icpsr) || !Number.isFinite(congress)) continue;

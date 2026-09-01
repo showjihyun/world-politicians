@@ -1070,6 +1070,7 @@ export interface UnityFile {
     string,
     { rate: number; votes: number; against: number; side: 'D' | 'R'; chamber: string }
   >;
+  excluded: Record<string, string>;
 }
 
 /**
@@ -1080,6 +1081,13 @@ export interface UnityFile {
  * 모든 행이 조용히 걸러져 people 이 {} 가 되고, 스크립트는 0 으로 끝나고,
  * 화면에서는 섹션이 그냥 사라진다. 그래서 비어 있는 것부터 잡는다.
  */
+/**
+ * 최소 표결 수의 바닥. 파일이 들고 온 minVotes 로만 재면 그 값이 3 으로
+ * 낮아졌을 때 검사가 같이 낮아져 아무 말도 하지 않는다 — 지키려는 기준을
+ * 지켜지는지 재는 쪽이 들고 있어야 한다.
+ */
+const UNITY_MIN_VOTES_FLOOR = 30;
+
 export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] {
   const out: Finding[] = [];
   const entries = Object.entries(u.people);
@@ -1092,6 +1100,36 @@ export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] 
       message: `데이터가 비었다 — 인물 ${entries.length} · 정당표결 ${u.stats.partyVotes} · 중앙값 ${Object.keys(u.medians).length}`,
     });
     return out;
+  }
+
+  // 축이 없거나 0 이면 화면의 모든 막대가 가득 찬다 — unity.axis 가 잡으려던
+  // 바로 그 상태인데, 축 자체가 없으면 그 비교가 false 라 통과해 버린다.
+  if (!Number.isFinite(u.axisMax) || u.axisMax <= 0) {
+    out.push({
+      level: 'fail',
+      check: 'unity.axis',
+      message: `막대 축이 없거나 0 이다 (${u.axisMax}) — 모든 막대가 가득 찬다`,
+    });
+  }
+
+  if (!Number.isFinite(u.minVotes) || u.minVotes < UNITY_MIN_VOTES_FLOOR) {
+    out.push({
+      level: 'fail',
+      check: 'unity.threshold',
+      message: `최소 표결 수가 ${u.minVotes} 로 기준(${UNITY_MIN_VOTES_FLOOR})보다 낮다 — 3건 중 1건이 33% 로 올라온다`,
+    });
+  }
+
+  // 값이 없는 사람은 왜 없는지가 있어야 한다. 없으면 화면이 아무 이유나 고른다.
+  const known = [...knownIds];
+  const unexplained = known.filter((id) => !u.people[id] && !u.excluded[id]);
+  if (unexplained.length) {
+    out.push({
+      level: 'warn',
+      check: 'unity.unexplained',
+      message: `값도 제외 사유도 없는 인물 ${unexplained.length}명`,
+      samples: cap(unexplained),
+    });
   }
 
   // 요약 수치가 실제와 어긋나면 둘 중 하나는 낡은 것이다.
@@ -1143,7 +1181,8 @@ export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] 
   }
 
   // 분모가 얇으면 3건 중 1건이 33% 가 되어 화면 최상위로 올라온다.
-  const thin = entries.filter(([, p]) => p.votes < u.minVotes);
+  const floor = Math.max(UNITY_MIN_VOTES_FLOOR, u.minVotes);
+  const thin = entries.filter(([, p]) => p.votes < floor);
   if (thin.length) {
     out.push({
       level: 'fail',

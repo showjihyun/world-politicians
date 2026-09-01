@@ -102,7 +102,14 @@ export const UI_KO: UIDict = {
   unityMedian: (v: string) => `당 중앙값 ${v}`,
   unityCounts: (a: number, b: number) => `정당 표결 ${b}건 중 ${a}건`,
   unityCongress: (n: number) => `${n}대 의회`,
-  unityNone: '표결 기록 없음 — 이번 의회의 현직 의원이 아닙니다.',
+  unityNone: (reason: string): string =>
+    reason === 'thinRecord'
+      ? '이번 의회의 정당 표결이 너무 적어 비율을 내지 않습니다.'
+      : reason === 'noVotes'
+        ? '이번 의회에 자리는 있었으나 표결 기록이 없습니다.'
+        : reason === 'noSide'
+          ? '소속을 확정하지 못해 무엇을 어기는 것인지 말할 수 없습니다.'
+          : '이번 의회의 현직 의원이 아닙니다.',
   unityCaveat: '양당 다수가 갈린 표결에서 자기 당과 반대로 던진 비율입니다. 당으로부터의 독립성을 재는 값이지 누군가와의 갈등을 재는 값이 아닙니다 — 이탈이 가장 잦은 인물들은 당내 갈등 기록이 없습니다.',
 
   fundingTitle: '선거 자금',

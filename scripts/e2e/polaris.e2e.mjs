@@ -649,7 +649,7 @@ async function main() {
   const unityBox = page.locator('[data-testid=party-unity]');
   await unityBox.waitFor({ state: 'visible', timeout: 8000 }).catch(() => {});
   const unityText = (await unityBox.innerText().catch(() => '')).replace(/\s+/g, ' ');
-  const rate = Number(/(\d+(?:\.\d+)?)%\s*of/.exec(unityText)?.[1] ?? NaN);
+  const rate = Number(/(\d+(?:\.\d+)?)%\s*of/i.exec(unityText)?.[1] ?? NaN);
   const counts = /(\d+) of (\d+) party-line votes/i.exec(unityText);
   check(
     'party defection section renders with its denominator',
@@ -699,6 +699,26 @@ async function main() {
   check(
     'revolving door caveat present',
     /not that they lobby this office/i.test(lobbyText)
+  );
+
+  // 기록이 없는 사람에게는 없다는 사실을 적어야 한다. 아무것도 안 그리면
+  // "아직 불러오는 중" 과 구분되지 않는다. Trump 는 의원이 아니라 값이 없다.
+  await page.getByPlaceholder('Search politicians…').fill('Trump');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'Donald J. Trump' }).first().click();
+  await page.waitForTimeout(900);
+  const noneBox = page.locator('[data-testid=party-unity-none]');
+  await noneBox.waitFor({ state: 'visible', timeout: 8000 }).catch(() => {});
+  const noneText = await noneBox.innerText().catch(() => '');
+  check(
+    'people without a roll-call record are told so',
+    /not a sitting member/i.test(noneText),
+    noneText.replace(/\s+/g, " ").slice(0, 70) || "안내가 없다 — 로딩 중과 구분되지 않는다"
+  );
+  check(
+    'the value box and the none box never show together',
+    (await page.locator('[data-testid=party-unity]').count()) === 0,
+    "값 상자와 없음 안내가 함께 떠 있다"
   );
   await page.keyboard.press('Escape');
   await page.waitForTimeout(500);

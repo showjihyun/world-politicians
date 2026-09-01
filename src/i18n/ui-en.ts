@@ -107,7 +107,14 @@ export const UI_EN = {
       two >= 11 && two <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
     return `${n}${suffix} Congress`;
   },
-  unityNone: 'No roll-call record — not a sitting member of this Congress.',
+  unityNone: (reason: string): string =>
+    reason === 'thinRecord'
+      ? 'Too few party-line votes this Congress to report a rate.'
+      : reason === 'noVotes'
+        ? 'Seated this Congress but no roll-call votes recorded.'
+        : reason === 'noSide'
+          ? 'Party affiliation unresolved — cannot say what defecting would mean.'
+          : 'Not a sitting member of this Congress.',
   unityCaveat: 'Share of votes where the two parties split and this member went against their own. It measures independence from the party, not conflict with anyone — the most frequent defectors here have no recorded feuds inside their party.',
 
   fundingTitle: 'Campaign finance',
