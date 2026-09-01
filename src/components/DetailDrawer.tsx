@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
-import { X, MapPin, Zap, Crown, Briefcase, Landmark, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
+import { X, MapPin, Zap, Crown, Briefcase, Gavel, Landmark, Newspaper, ExternalLink, Globe, BookOpen, AtSign, BookmarkPlus, BookmarkCheck, FileText } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { cosponsorCount } from '../data/cosponsorship';
 import { FACTION_MAP } from '../data/factions';
 import { SIGNALS_BY_PERSON, signalCountFor } from '../data/signals';
 import { money, useFunding } from '../lib/funding';
+import { useUnity } from '../lib/party-unity';
 import { useLobbying } from '../lib/lobbying';
 import { usePortrait } from '../lib/portrait';
 import { siteUrlOf, xSearchUrl, newsSearchUrl } from '../lib/links';
@@ -38,6 +39,7 @@ export default function DetailDrawer() {
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
   const { funding, cycle: fundingCycle, through: fundingThrough } = useFunding(person?.id ?? null);
+  const { unity, median: unityMedian, congress } = useUnity(person?.id ?? null);
   const { lobbying, years: lobbyYears } = useLobbying(person?.id ?? null);
   // 음수(환불)와 0 나눗셈을 여기서 한 번만 막는다
   const pct = (n: number) =>
@@ -208,6 +210,51 @@ export default function DetailDrawer() {
             )}
           </div>
 
+          {unity && (
+            <div
+              data-testid="party-unity"
+              className="mx-4 mb-3 rounded-xl border border-violet-400/20 bg-violet-400/[0.05] p-3"
+            >
+              <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-violet-300">
+                <Gavel size={10} /> {t.unityTitle}
+                <span className="ml-auto font-normal normal-case text-slate-600">
+                  {t.unityCongress(congress)}
+                </span>
+              </h4>
+
+              <div className="mb-1.5 flex items-baseline gap-2">
+                <span className="font-mono text-[15px] font-bold text-slate-200">
+                  {unity.rate.toFixed(1)}%
+                </span>
+                <span className="text-[10.5px] text-slate-500">{t.unityRate}</span>
+              </div>
+
+              {/*
+                분포가 심하게 쏠려 있다 — 중앙값 0.4%, 최대 28.5%. 0~100% 축에
+                그리면 거의 모두가 빈 막대가 되고, 중앙값 눈금은 왼쪽 끝에 붙어
+                보이지 않는다. 관측 최대치 근처(30%)로 축을 좁히고 중앙값은 글로 적는다.
+                넘치는 값은 가득 찬 막대로 눌러 둔다 — 축을 벗어났다는 사실이
+                막대가 아니라 숫자로 이미 보인다.
+              */}
+              <div className="mb-1 h-1.5 overflow-hidden rounded-full bg-slate-700/40">
+                <span
+                  className="block h-full bg-violet-400/80"
+                  style={{ width: `${Math.min(100, (unity.rate / 30) * 100)}%` }}
+                />
+              </div>
+              <p className="font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
+                {unityMedian != null && (
+                  <>
+                    {t.unityMedian(`${unityMedian.toFixed(1)}%`)}
+                    <span className="text-slate-700"> · </span>
+                  </>
+                )}
+                {t.unityCounts(unity.against, unity.votes)}
+              </p>
+
+              <p className="mt-1.5 text-[10.5px] leading-relaxed text-slate-600">{t.unityCaveat}</p>
+            </div>
+          )}
           {funding && funding.receipts > 0 && (
             <div className="mx-4 mb-3 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-3">
               <h4 className="mb-2 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-emerald-300">

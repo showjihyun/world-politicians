@@ -17,6 +17,7 @@ import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
   checkAccuracy,
   checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
+  checkPartyUnity, type UnityFile,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type AccuracyFile,
   type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type LobbyingFile, type SignalRef, type SourceRef,
@@ -121,6 +122,12 @@ if (fs.existsSync(fundPath)) {
   findings.push(...checkFunding(fund, knownIds));
 }
 
+// 당론 이탈률 — 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나온다.
+const unityPath = path.join(ROOT, 'src/data/party-unity.json');
+if (fs.existsSync(unityPath)) {
+  const unity = JSON.parse(fs.readFileSync(unityPath, 'utf8')) as UnityFile;
+  findings.push(...checkPartyUnity(unity, knownIds));
+}
 // 로비 회전문 — 위험은 수치가 아니라 의미다. 매칭이 헐거워지면 성 하나로 붙는다.
 const lobbyPath = path.join(ROOT, 'src/data/lobbying.json');
 if (fs.existsSync(lobbyPath)) {

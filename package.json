@@ -26,7 +26,9 @@
     "audit:data": "node --experimental-strip-types scripts/audit/data.mts",
     "audit:boundary": "node --experimental-strip-types scripts/audit/boundary.mts",
     "audit": "npm run audit:boundary && npm run audit:conventions && npm run audit:data",
-    "audit:conventions": "node --experimental-strip-types scripts/audit/conventions.mts"
+    "audit:conventions": "node --experimental-strip-types scripts/audit/conventions.mts",
+    "party-unity": "node --experimental-strip-types scripts/sources/party-unity.mts",
+    "party-unity:dry": "node --experimental-strip-types scripts/sources/party-unity.mts --dry"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",

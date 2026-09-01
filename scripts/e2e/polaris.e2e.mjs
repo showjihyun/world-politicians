@@ -642,6 +642,30 @@ async function main() {
     'funding section renders',
     (await page.locator('text=Campaign finance').count()) > 0
   );
+
+  // 당론 이탈률. 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나오므로 분모까지 본다.
+  const unity = await page.evaluate(() => {
+    const el = document.querySelector('[data-testid=party-unity]');
+    if (!el) return null;
+    const txt = (el.textContent || '').replace(/\s+/g, ' ');
+    return {
+      rate: /(\d+(?:\.\d+)?)%\s*of/.exec(txt)?.[1] ?? null,
+      hasMedian: /party median/i.test(txt),
+      hasCounts: /of \d+ party-line votes/i.test(txt),
+      // 이 값이 관계를 설명한다고 읽히면 안 된다 — 단서가 반드시 붙어 있어야 한다
+      hasCaveat: /not conflict with anyone/i.test(txt),
+    };
+  });
+  check(
+    'party defection section renders with its denominator',
+    !!unity && unity.rate !== null && unity.hasMedian && unity.hasCounts,
+    unity ? `${unity.rate}% · median ${unity.hasMedian} · counts ${unity.hasCounts}` : "섹션 없음"
+  );
+  check(
+    'party defection says what it is not',
+    !!unity && unity.hasCaveat,
+    unity?.hasCaveat ? "단서 있음" : "단서 없음 — 관계 신호로 읽힐 수 있다"
+  );
   const fundingText = await page.locator('[data-testid=drawer-scroll]').first().innerText();
   check(
     'funding shows a dollar total',

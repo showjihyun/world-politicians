@@ -1054,3 +1054,87 @@ export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn:
   const warn = findings.filter((f) => f.level === 'warn').length;
   return { ok: fail === 0, fail, warn };
 }
+
+export interface UnityFile {
+  congress: number;
+  minVotes: number;
+  stats: { rollCalls: number; partyVotes: number; people: number; withoutSeat: number };
+  medians: Record<string, number>;
+  people: Record<
+    string,
+    { rate: number; votes: number; against: number; side: 'D' | 'R'; chamber: string }
+  >;
+}
+
+/**
+ * 당론 이탈률.
+ *
+ * 이 값은 눈으로 검산할 수 없다 — 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나온다.
+ * 분모(정당 표결)를 잘못 잡으면 모두가 0% 에 몰리고, 그래도 화면은 멀쩡해 보인다.
+ */
+export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] {
+  const out: Finding[] = [];
+  const entries = Object.entries(u.people);
+
+  const unknown = entries.map(([id]) => id).filter((id) => !knownIds.has(id));
+  if (unknown.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.references',
+      message: `데이터셋에 없는 인물 id ${unknown.length}종`,
+      samples: cap(unknown),
+    });
+  }
+
+  // 비율은 0~100 이고, against/votes 와 맞아야 한다. 어긋나면 반올림이 아니라
+  // 분자·분모를 다른 곳에서 가져온 것이다.
+  const bad = entries.filter(([, p]) => {
+    if (!(p.rate >= 0 && p.rate <= 100)) return true;
+    if (p.against > p.votes) return true;
+    return Math.abs((p.against / p.votes) * 100 - p.rate) > 0.06;
+  });
+  if (bad.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.arithmetic',
+      message: `비율이 against/votes 와 맞지 않는 인물 ${bad.length}명`,
+      samples: cap(bad.map(([id, p]) => `${id} ${p.rate}% vs ${p.against}/${p.votes}`)),
+    });
+  }
+
+  // 분모가 얇으면 3건 중 1건이 33% 가 되어 화면 최상위로 올라온다.
+  const thin = entries.filter(([, p]) => p.votes < u.minVotes);
+  if (thin.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.thin',
+      message: `정당 표결이 ${u.minVotes}건 미만인데 값이 있는 인물 ${thin.length}명`,
+      samples: cap(thin.map(([id, p]) => `${id} ${p.votes}건`)),
+    });
+  }
+
+  // 화면은 같은 당·같은 원의 중앙값을 곁들여 보여준다. 없으면 비율만 홀로 남아
+  // 높은지 낮은지 알 수 없게 된다.
+  const noMedian = entries.filter(([, p]) => u.medians[`${p.chamber}|${p.side}`] == null);
+  if (noMedian.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.median',
+      message: `비교할 중앙값이 없는 인물 ${noMedian.length}명`,
+      samples: cap(noMedian.map(([id, p]) => `${id} ${p.chamber}|${p.side}`)),
+    });
+  }
+
+  // 분모를 잘못 잡으면(만장일치 표결까지 넣으면) 이탈이 희석돼 모두가 0% 가 된다.
+  // 통과하는데 뜻이 없어지는 종류라 수치로 잡는다.
+  const moved = entries.filter(([, p]) => p.rate > 0).length;
+  if (entries.length && moved / entries.length < 0.3) {
+    out.push({
+      level: 'warn',
+      check: 'unity.flat',
+      message: `이탈이 0 이 아닌 인물이 ${moved}/${entries.length} 뿐 — 분모가 너무 넓지 않은지 본다`,
+    });
+  }
+
+  return out;
+}
