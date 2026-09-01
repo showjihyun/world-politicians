@@ -302,6 +302,7 @@ scripts/sources/llm.mts          LLM 호출 어댑터 (재시도·빈 배열 반
 scripts/eval/labels.json         정확도 라벨 세트 (사람이 truth 를 채운다)
 
 src/lib/, scripts/**/*.mts       어댑터. 데이터셋·fs·network 를 여기서 묶는다
+src/lib/lazy-dataset.ts          인물 상세에서 늦게 불러오는 데이터셋 공통 (자금·로비·이탈률)
 src/data/signals/                월별 파티션 + 매니페스트 + recent
 src/data/crosswalk.json          소스 간 ID 확정값 (bioguide·icpsr·fec)
 src/data/cosponsorship*.json     공동발의 엣지 + 근거 (엣지는 즉시, 근거는 지연)

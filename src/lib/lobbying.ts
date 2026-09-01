@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { createLazyDataset } from './lazy-dataset';
 
 /**
  * 로비 회전문 — 눌렀을 때 불러온다.
@@ -30,21 +30,7 @@ interface LobbyingFile {
   people: Record<string, PersonLobbying>;
 }
 
-let cache: LobbyingFile | null = null;
-let loading: Promise<LobbyingFile | null> | null = null;
-const subs = new Set<() => void>();
-
-function load(): Promise<LobbyingFile | null> {
-  if (cache) return Promise.resolve(cache);
-  loading ??= import('../data/lobbying.json')
-    .then((m) => {
-      cache = (m.default ?? m) as unknown as LobbyingFile;
-      subs.forEach((fn) => fn());
-      return cache;
-    })
-    .catch(() => null);
-  return loading;
-}
+const dataset = createLazyDataset<LobbyingFile>(() => import('../data/lobbying.json'));
 
 export interface LobbyingState {
   lobbying: PersonLobbying | null;
@@ -52,18 +38,7 @@ export interface LobbyingState {
 }
 
 export function useLobbying(personId: string | null): LobbyingState {
-  const [, force] = useState(0);
-
-  useEffect(() => {
-    if (!personId) return;
-    const fn = () => force((v) => v + 1);
-    subs.add(fn);
-    void load().then(fn);
-    return () => {
-      subs.delete(fn);
-    };
-  }, [personId]);
-
+  const file = dataset.use(personId);
   if (!personId) return { lobbying: null, years: [] };
-  return { lobbying: cache?.people[personId] ?? null, years: cache?.years ?? [] };
+  return { lobbying: file?.people[personId] ?? null, years: file?.years ?? [] };
 }

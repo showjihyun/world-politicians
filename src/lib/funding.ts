@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { createLazyDataset } from './lazy-dataset';
 
 /**
  * FEC 자금 기록 — 눌렀을 때 불러온다.
@@ -34,21 +34,7 @@ interface FundingFile {
   people: Record<string, PersonFunding>;
 }
 
-let cache: FundingFile | null = null;
-let loading: Promise<FundingFile | null> | null = null;
-const subs = new Set<() => void>();
-
-function load(): Promise<FundingFile | null> {
-  if (cache) return Promise.resolve(cache);
-  loading ??= import('../data/funding.json')
-    .then((m) => {
-      cache = (m.default ?? m) as unknown as FundingFile;
-      subs.forEach((fn) => fn());
-      return cache;
-    })
-    .catch(() => null);
-  return loading;
-}
+const dataset = createLazyDataset<FundingFile>(() => import('../data/funding.json'));
 
 export interface FundingState {
   funding: PersonFunding | null;
@@ -58,24 +44,13 @@ export interface FundingState {
 }
 
 export function useFunding(personId: string | null): FundingState {
-  const [, force] = useState(0);
-
-  useEffect(() => {
-    if (!personId) return;
-    const fn = () => force((v) => v + 1);
-    subs.add(fn);
-    void load().then(fn);
-    return () => {
-      subs.delete(fn);
-    };
-  }, [personId]);
-
+  const file = dataset.use(personId);
   if (!personId) return { funding: null, cycle: 0, through: '', loading: false };
   return {
-    funding: cache?.people[personId] ?? null,
-    cycle: cache?.cycle ?? 0,
-    through: cache?.coverageThrough ?? '',
-    loading: cache === null,
+    funding: file?.people[personId] ?? null,
+    cycle: file?.cycle ?? 0,
+    through: file?.coverageThrough ?? '',
+    loading: file === null,
   };
 }
 

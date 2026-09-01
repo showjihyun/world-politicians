@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { createLazyDataset } from './lazy-dataset';
 
 /**
  * 당론 이탈률 — 자기 당 다수와 반대로 던진 비율.
@@ -39,27 +39,7 @@ interface UnityFile {
   excluded: Record<string, ExcludedReason>;
 }
 
-let cache: UnityFile | null = null;
-let loading: Promise<UnityFile | null> | null = null;
-const subs = new Set<() => void>();
-
-function load(): Promise<UnityFile | null> {
-  if (cache) return Promise.resolve(cache);
-  loading ??= import('../data/party-unity.json')
-    .then((m) => {
-      cache = (m.default ?? m) as unknown as UnityFile;
-      subs.forEach((fn) => fn());
-      return cache;
-    })
-    .catch(() => {
-      // 실패한 약속을 들고 있으면 그 세션 내내 다시 시도하지 않는다.
-      // 화면은 "아직 불러오는 중" 과 똑같아 보이는데 영원히 그 상태다 —
-      // 없다는 사실을 적으려고 만든 장치가 바로 그 실패에서 사라진다.
-      loading = null;
-      return null;
-    });
-  return loading;
-}
+const dataset = createLazyDataset<UnityFile>(() => import('../data/party-unity.json'));
 
 export interface UnityState {
   unity: PersonUnity | null;
@@ -78,30 +58,19 @@ export interface UnityState {
 }
 
 export function useUnity(personId: string | null): UnityState {
-  const [, force] = useState(0);
-
-  useEffect(() => {
-    if (!personId) return;
-    const fn = () => force((v) => v + 1);
-    subs.add(fn);
-    void load().then(fn);
-    return () => {
-      subs.delete(fn);
-    };
-  }, [personId]);
-
+  const file = dataset.use(personId);
   if (!personId)
     return { unity: null, median: null, axisMax: FALLBACK_AXIS_MAX, congress: 0, known: false, reason: null };
-  const unity = cache?.people[personId] ?? null;
+  const unity = file?.people[personId] ?? null;
   return {
     unity,
-    median: unity ? (cache?.medians[`${unity.chamber}|${unity.side}`] ?? null) : null,
+    median: unity ? (file?.medians[`${unity.chamber}|${unity.side}`] ?? null) : null,
     // 0 은 ?? 를 통과한다. 0 으로 나누면 모든 막대가 가득 찬다.
-    axisMax: cache?.axisMax && cache.axisMax > 0 ? cache.axisMax : FALLBACK_AXIS_MAX,
-    congress: cache?.congress ?? 0,
+    axisMax: file?.axisMax && file.axisMax > 0 ? file.axisMax : FALLBACK_AXIS_MAX,
+    congress: file?.congress ?? 0,
     // 아직 안 불러온 것과 기록이 없는 것을 구분한다 — 둘 다 빈 화면이면
     // "판정이 없다" 가 아니라 그냥 빈약한 항목으로 보인다.
-    known: cache !== null,
-    reason: unity ? null : (cache?.excluded[personId] ?? null),
+    known: file !== null,
+    reason: unity ? null : (file?.excluded[personId] ?? null),
   };
 }
