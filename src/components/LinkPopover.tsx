@@ -81,7 +81,7 @@ export default function LinkPopover() {
             const srcs = rel.sources;
             return (
               <div className="mt-3" data-testid="edge-sources">
-                <div className="mb-1.5 flex items-center gap-1.5 font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                <div className="mb-1.5 flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
                   <FileText size={10} />
                   {t.sourcesLabel}
                   {srcs.length > 0 && <span className="text-slate-600">{srcs.length}</span>}
@@ -99,7 +99,7 @@ export default function LinkPopover() {
                 ) : (
                   <div className="flex flex-col gap-1">
                     {!rel.curated && (
-                      <p className="mb-0.5 text-[9.5px] leading-snug text-slate-600">
+                      <p className="mb-0.5 text-[10.5px] leading-snug text-slate-600">
                         {t.sourcesAuto}
                       </p>
                     )}
@@ -113,7 +113,7 @@ export default function LinkPopover() {
                       >
                         <ExternalLink size={10} className="shrink-0" />
                         <span className="truncate">{s.title}</span>
-                        <span className="ml-auto shrink-0 font-mono text-[9.5px] uppercase tracking-wider opacity-70">
+                        <span className="ml-auto shrink-0 font-mono text-[10.5px] uppercase tracking-wider opacity-70">
                           {s.date} · {s.source}
                         </span>
                       </a>

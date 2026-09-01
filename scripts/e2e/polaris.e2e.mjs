@@ -533,6 +533,23 @@ async function main() {
     await page.waitForTimeout(4500);
     check('mode toggle switched to 3D', (await modeBtn.innerText()) === '3D');
     check('3D neural mode renders', (await page.locator('canvas').count()) >= 1);
+
+    // 3D 라벨도 2D 와 같은 문제를 갖고 있었다 — 영향력이 높으면 무조건 그려서
+    // 이름이 서로를 덮었다. 스프라이트라 화면으로 투영해야 겹침을 알 수 있다.
+    await page.waitForTimeout(1200);
+    const labels3d = await page.evaluate(() => {
+      const el = document.querySelector('[data-labels]');
+      if (!el) return null;
+      return {
+        placed: Number(el.getAttribute('data-labels')),
+        candidates: Number(el.getAttribute('data-label-candidates')),
+      };
+    });
+    check(
+      '3D labels are culled too, not drawn on top of each other',
+      !!labels3d && labels3d.placed > 2 && labels3d.placed < labels3d.candidates,
+      labels3d ? `놓음 ${labels3d.placed} / 후보 ${labels3d.candidates}` : 'data-labels 없음'
+    );
     await page.screenshot({ path: `${SHOTS}/07-3d.png` });
     await modeBtn.click();
     await page.waitForTimeout(800);

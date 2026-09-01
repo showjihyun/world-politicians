@@ -173,7 +173,7 @@ function PairTimelineCard({
         ))}
       </div>
 
-      <div className="mt-1 flex justify-between font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+      <div className="mt-1 flex justify-between font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
         <span>{tl.cells[0]?.ym}</span>
         <span>{tl.cells[tl.cells.length - 1]?.ym}</span>
       </div>
@@ -183,7 +183,7 @@ function PairTimelineCard({
           key={f.ym}
           className="mt-1.5 flex items-start gap-1.5 rounded-lg border border-amber-400/20 bg-amber-400/[0.06] px-2 py-1"
         >
-          <span className="mt-0.5 font-mono text-[10px] font-bold text-amber-300">
+          <span className="mt-0.5 font-mono text-[10.5px] font-bold text-amber-300">
             {f.ym}
           </span>
           <span className="line-clamp-2 text-[11px] leading-snug text-amber-100/80">

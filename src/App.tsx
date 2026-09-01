@@ -148,7 +148,7 @@ export default function App() {
       </div>
 
       <footer
-        className={`pointer-events-none absolute bottom-1 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.14em] text-slate-700 transition-opacity duration-500 ${
+        className={`pointer-events-none absolute bottom-1 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap font-mono text-[10.5px] uppercase tracking-[0.14em] text-slate-700 transition-opacity duration-500 ${
           dockHidden ? 'opacity-0' : 'opacity-100'
         }`}
         data-testid="data-footer"

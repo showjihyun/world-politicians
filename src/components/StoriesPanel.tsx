@@ -32,13 +32,13 @@ export default function StoriesPanel() {
               {story.emoji}
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-[12.5px] font-semibold text-slate-200 group-hover:text-white">
+              <span className="line-clamp-2 block text-[12.5px] font-semibold leading-snug text-slate-200 group-hover:text-white">
                 {L(story.title)}
               </span>
               <span className="mt-0.5 line-clamp-2 block text-[11px] leading-snug text-slate-500">
                 {L(story.subtitle)}
               </span>
-              <span className="mt-1 block font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+              <span className="mt-1 block font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
                 {story.focusIds.length} {t.storyFigures}
               </span>
             </span>

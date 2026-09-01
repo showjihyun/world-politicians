@@ -21,7 +21,7 @@ function polarityColor(p?: string): string {
 }
 
 const linkChip =
-  'flex items-center gap-1 rounded-full border border-slate-400/15 bg-white/[0.04] px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-200';
+  'flex min-h-[26px] items-center gap-1 rounded-full border border-slate-400/15 bg-white/[0.04] px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-slate-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-200';
 
 export default function DetailDrawer() {
   const { t, L, locale } = useI18n();
@@ -184,7 +184,7 @@ export default function DetailDrawer() {
               color="#fbbf24"
             />
             <Meter
-              icon={<span className="font-mono text-[9.5px]">Σ</span>}
+              icon={<span className="font-mono text-[10.5px]">Σ</span>}
               label={t.degree}
               value={(adjacency.get(person.id)?.size ?? 0) * 14}
               color="#34d399"
@@ -233,7 +233,7 @@ export default function DetailDrawer() {
                 <span className="bg-slate-400/70" style={{ width: `${pct(funding.individual)}%` }} />
                 <span className="bg-emerald-400/80" style={{ width: `${pct(funding.pacDirect)}%` }} />
               </div>
-              <p className="mb-2.5 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+              <p className="mb-2.5 font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
                 {t.fundingIndividual} {Math.round(pct(funding.individual))}%
                 {' · '}
                 <span className={funding.pacDirect < 0 ? 'text-rose-400/70' : 'text-emerald-400/80'}>
@@ -261,7 +261,7 @@ export default function DetailDrawer() {
 
               {/* 독립지출은 기부가 아니다. 특히 반대 지출을 후원으로 읽게 두면 안 된다 */}
               {(funding.ieSupport > 0 || funding.ieOppose > 0) && (
-                <p className="mt-2 border-t border-emerald-400/15 pt-1.5 font-mono text-[9.5px] uppercase tracking-wider">
+                <p className="mt-2 border-t border-emerald-400/15 pt-1.5 font-mono text-[10.5px] uppercase tracking-wider">
                   <span className="text-slate-600">{t.fundingOutside}</span>{' '}
                   {funding.ieSupport > 0 && (
                     <span className="text-sky-400/80">
@@ -277,7 +277,7 @@ export default function DetailDrawer() {
                 </p>
               )}
 
-              <p className="mt-1.5 text-[9.5px] leading-relaxed text-slate-600">{t.fundingCaveat}</p>
+              <p className="mt-1.5 text-[10.5px] leading-relaxed text-slate-600">{t.fundingCaveat}</p>
             </div>
           )}
           {lobbying && lobbying.alumniCount > 0 && (
@@ -297,7 +297,7 @@ export default function DetailDrawer() {
                 {lobbying.alumni.slice(0, 4).map((a) => (
                   <div key={`${a.name}-${a.firm}`} className="leading-snug">
                     <span className="text-[11.5px] text-slate-300">{a.name}</span>
-                    <span className="ml-1.5 font-mono text-[9.5px] uppercase tracking-wider text-amber-400/70">
+                    <span className="ml-1.5 font-mono text-[10.5px] uppercase tracking-wider text-amber-400/70">
                       {a.firm}
                     </span>
                     <span className="block truncate text-[10.5px] text-slate-600">{a.role}</span>
@@ -306,14 +306,14 @@ export default function DetailDrawer() {
               </div>
 
               {lobbying.topClients.length > 0 && (
-                <p className="mt-2 border-t border-amber-400/15 pt-1.5 text-[10px] leading-relaxed text-slate-600">
+                <p className="mt-2 border-t border-amber-400/15 pt-1.5 text-[10.5px] leading-relaxed text-slate-600">
                   <span className="font-mono uppercase tracking-wider">{t.lobbyClients}</span>{' '}
                   {lobbying.topClients.slice(0, 3).map((c) => c.name).join(' · ')}
                 </p>
               )}
 
               {/* 고객은 기업이다. 이걸 "이 의원을 로비한다" 로 읽게 두면 안 된다 */}
-              <p className="mt-1.5 text-[9.5px] leading-relaxed text-slate-600">{t.lobbyCaveat}</p>
+              <p className="mt-1.5 text-[10.5px] leading-relaxed text-slate-600">{t.lobbyCaveat}</p>
             </div>
           )}
           {(SIGNALS_BY_PERSON.get(person.id)?.length ?? 0) > 0 && (
@@ -343,7 +343,7 @@ export default function DetailDrawer() {
                       <span className="line-clamp-2 block text-[12px] leading-snug text-slate-300 group-hover:text-white">
                         {s.title}
                       </span>
-                      <span className="mt-0.5 flex items-center gap-1 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+                      <span className="mt-0.5 flex items-center gap-1 font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
                         {s.date} · {s.source}
                         {/*
                           분류에 실패한 신호는 극성도 요약도 없다. 아무 표시 없이
@@ -451,12 +451,12 @@ export default function DetailDrawer() {
                             대신 측정값이 그 관계를 뒷받침하면 건수만 조용히 붙인다.
                           */}
                           {leanNote && (
-                            <p className="mt-1 font-mono text-[10px] tracking-wide text-sky-400/70">
+                            <p className="mt-1 font-mono text-[10.5px] tracking-wide text-sky-400/70">
                               {leanNote}
                             </p>
                           )}
                           {link.rel.type !== 'cosponsor' && cosponsorCount(link.rel.a, link.rel.b) > 0 && (
-                            <p className="mt-1 font-mono text-[10px] tracking-wide text-sky-400/70">
+                            <p className="mt-1 font-mono text-[10.5px] tracking-wide text-sky-400/70">
                               {t.cosponsorCorroboration(cosponsorCount(link.rel.a, link.rel.b))}
                             </p>
                           )}
@@ -501,7 +501,7 @@ function Meter({
 }) {
   return (
     <div className="flex-1 rounded-lg border border-slate-400/10 bg-white/[0.03] px-2 py-1.5">
-      <div className="flex items-center gap-1 text-[10px] text-slate-500">
+      <div className="flex items-center gap-1 text-[10.5px] text-slate-500">
         <span style={{ color }}>{icon}</span>
         {label}
       </div>

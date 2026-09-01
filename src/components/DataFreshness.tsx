@@ -46,7 +46,7 @@ export default function DataFreshness() {
       data-testid="data-freshness"
       className="pointer-events-auto rounded-2xl border border-slate-400/15 bg-ink-900/85 px-3 py-2 shadow-2xl shadow-black/40 backdrop-blur-2xl"
     >
-      <div className="flex items-center gap-1.5 font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
+      <div className="flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">
         <Database size={10} />
         {t.dataCoverage}
       </div>

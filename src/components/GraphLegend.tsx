@@ -55,7 +55,7 @@ export default function GraphLegend() {
         })}
       </div>
 
-      <p className="mt-1.5 border-t border-slate-400/10 px-1 pt-1.5 text-[10px] leading-relaxed text-slate-600">
+      <p className="mt-1.5 border-t border-slate-400/10 px-1 pt-1.5 text-[10.5px] leading-relaxed text-slate-600">
         · {t.edgeWidth}
         <br />· {t.nodeSize}
         <br />· {t.particleNote}

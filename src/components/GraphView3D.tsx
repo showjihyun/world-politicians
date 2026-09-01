@@ -8,6 +8,7 @@ import { PARTY_COLOR } from '../lib/colors';
 import { REL_META } from '../types';
 import { useVisibleGraph } from '../hooks/useVisibleGraph';
 import { createCenteringForce } from '../lib/graph';
+import { placeLabels, type LabelBox } from '../domain/labels';
 import type { GraphLink, GraphNode } from '../lib/graph';
 
 type Vec3 = { x: number; y: number; z: number };
@@ -18,6 +19,8 @@ type FG3 = {
     (): Vec3;
     (pos: Vec3, lookAt?: Vec3, ms?: number): void;
   };
+  /** 라벨을 화면으로 투영하려면 카메라가 필요하다 */
+  camera: () => THREE.PerspectiveCamera;
   zoomToFit: (ms?: number, px?: number) => void;
   d3Force: (name: string, force?: unknown) => unknown;
 } | null;
@@ -50,6 +53,8 @@ function makeLabelSprite(text: string): THREE.Sprite {
   texture.needsUpdate = true;
   const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
   const sprite = new THREE.Sprite(material);
+  // 겹침은 스프라이트가 아니라 글자끼리 봐야 한다 — 캔버스에는 여백이 있다.
+  sprite.userData.ink = { x: (canvas.width - 48) / canvas.width, y: 44 / canvas.height };
   const scale = 22;
   sprite.scale.set((canvas.width / canvas.height) * scale, scale, 1);
   sprite.position.set(0, 15, 0);
@@ -222,7 +227,7 @@ export default function GraphView3D() {
   const cacheRef = useRef(new Map<string, THREE.Group>());
   const haloRef = useRef(new Map<string, THREE.Mesh>());
   const coreRef = useRef(new Map<string, THREE.Mesh>());
-  const labelRef = useRef(new Map<string, { sprite: THREE.Sprite; always: boolean }>());
+  const labelRef = useRef(new Map<string, { sprite: THREE.Sprite; always: boolean; prominence: number }>());
   const cacheTagRef = useRef('');
 
   const nodeThreeObject = useCallback(
@@ -278,7 +283,7 @@ export default function GraphView3D() {
       cacheRef.current.set(n.id, group);
       haloRef.current.set(n.id, halo);
       coreRef.current.set(n.id, core);
-      labelRef.current.set(n.id, { sprite: label, always: n.prominence >= 8 });
+      labelRef.current.set(n.id, { sprite: label, always: n.prominence >= 8, prominence: n.prominence });
       return group;
     },
     // selectedId 는 의도적으로 제외 — 넣으면 클릭마다 전 노드가 재생성된다
@@ -354,6 +359,7 @@ export default function GraphView3D() {
     labelRef.current.forEach((l, id) => {
       l.sprite.visible = l.always || id === selectedId;
     });
+    cullLabelsRef.current?.();
   }, [selectedId]);
 
   // 범례 필터로 걸러진 노드는 어둡게 — 2D 의 dim 과 같은 규칙
@@ -378,6 +384,86 @@ export default function GraphView3D() {
       cache.clear();
     };
   }, []);
+
+
+  // 3D 라벨도 2D 와 같은 문제를 갖고 있었다 — prominence >= 8 이면 무조건 그려서
+  // 이름이 서로를 덮었다. 스프라이트는 세계 좌표에 있으므로 화면으로 투영해야
+  // 겹치는지 알 수 있고, 카메라가 움직이면 결과가 달라진다.
+  //
+  // 매 프레임 다시 하면 비싸다. 카메라가 움직이는 동안에만 의미가 있으므로
+  // 120ms 로 묶는다 — 눈으로는 즉시로 보이고 계산은 초당 8번이다.
+  const labelCountRef = useRef(-1);
+  const cullLabelsRef = useRef<(() => void) | null>(null);
+  useEffect(() => {
+    const center = new THREE.Vector3();
+    const right = new THREE.Vector3();
+    const up = new THREE.Vector3();
+    const dir = new THREE.Vector3();
+    const probe = new THREE.Vector3();
+
+    const cull = () => {
+      const fg = fgRef.current;
+      const el = wrapRef.current;
+      const cam = fg?.camera?.();
+      if (!cam || !el) return;
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      if (!w || !h) return;
+      cam.updateMatrixWorld();
+      cam.matrixWorld.extractBasis(right, up, dir);
+
+      const toScreen = (v: THREE.Vector3) => {
+        probe.copy(v).project(cam);
+        return { x: (probe.x * 0.5 + 0.5) * w, y: (-probe.y * 0.5 + 0.5) * h };
+      };
+
+      const cands = [...labelRef.current.entries()]
+        .filter(([id, l]) => l.always || id === selectedId)
+        .sort((a, b) =>
+          (a[0] === selectedId ? 0 : 1) - (b[0] === selectedId ? 0 : 1) ||
+          b[1].prominence - a[1].prominence ||
+          a[0].localeCompare(b[0])
+        );
+
+      const boxes: LabelBox[] = [];
+      const behind: string[] = [];
+      for (const [id, l] of cands) {
+        l.sprite.getWorldPosition(center);
+        // 카메라 뒤로 넘어간 라벨은 투영이 뒤집힌다 — 그리지 않는다
+        probe.copy(center).project(cam);
+        if (probe.z > 1) { behind.push(id); continue; }
+        const c = toScreen(center);
+        const ink = (l.sprite.userData.ink as { x: number; y: number } | undefined) ?? { x: 1, y: 1 };
+        const halfW = Math.abs(toScreen(probe.copy(center).addScaledVector(right, (l.sprite.scale.x * ink.x) / 2)).x - c.x);
+        const halfH = Math.abs(toScreen(probe.copy(center).addScaledVector(up, (l.sprite.scale.y * ink.y) / 2)).y - c.y);
+        boxes.push({ id, left: c.x - halfW, right: c.x + halfW, top: c.y - halfH, bottom: c.y + halfH });
+      }
+
+      const keep = placeLabels(boxes, 3);
+      for (const [id, l] of cands) l.sprite.visible = keep.has(id);
+      for (const id of behind) labelRef.current.get(id)!.sprite.visible = false;
+      if (labelCountRef.current !== keep.size) {
+        labelCountRef.current = keep.size;
+        el.setAttribute('data-labels', String(keep.size));
+        el.setAttribute('data-label-candidates', String(cands.length));
+      }
+    };
+
+    cullLabelsRef.current = cull;
+    let raf = 0;
+    let last = 0;
+    const tick = (t: number) => {
+      raf = requestAnimationFrame(tick);
+      if (t - last < 120) return;
+      last = t;
+      cull();
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      cullLabelsRef.current = null;
+    };
+  }, [selectedId, locale]);
 
   return (
     <div ref={wrapRef} className="absolute inset-0">

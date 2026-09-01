@@ -51,7 +51,7 @@ export default function InsightsPanel() {
                     <span className="block truncate text-[12px] text-slate-300 group-hover:text-white">
                       {nameOf(s.pair[0])} × {nameOf(s.pair[1])}
                     </span>
-                    <span className="font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+                    <span className="font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
                       {s.date} · {s.source}
                     </span>
                   </span>
@@ -195,7 +195,7 @@ function RankList({
                   <span className="ml-auto shrink-0 font-mono text-[11px] text-amber-300/90">
                     {it.value}
                     {it.suffix && (
-                      <span className="ml-0.5 text-[10px] text-slate-500">{it.suffix}</span>
+                      <span className="ml-0.5 text-[10.5px] text-slate-500">{it.suffix}</span>
                     )}
                   </span>
                 </button>

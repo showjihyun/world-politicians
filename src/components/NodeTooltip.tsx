@@ -67,7 +67,7 @@ export default function NodeTooltip({
             style={{ backgroundColor: faction.color }}
           />
           {L(faction.label)}
-          <span className="ml-auto rounded px-1 py-0.5 font-mono text-[9.5px] uppercase"
+          <span className="ml-auto rounded px-1 py-0.5 font-mono text-[10.5px] uppercase"
             style={{
               color: PARTY_COLOR[node.party],
               backgroundColor: PARTY_COLOR[node.party] + '18',
@@ -79,7 +79,7 @@ export default function NodeTooltip({
       )}
 
       <div className="mt-2">
-        <div className="flex items-center justify-between text-[10px] text-slate-500">
+        <div className="flex items-center justify-between text-[10.5px] text-slate-500">
           <span>{t.buzzScore}</span>
           <span className="font-mono text-cyan-300">{node.buzz}</span>
         </div>
@@ -91,7 +91,7 @@ export default function NodeTooltip({
         </div>
       </div>
 
-      <div className="mt-2 border-t border-slate-400/10 pt-1.5 font-mono text-[9.5px] uppercase tracking-wider text-slate-600">
+      <div className="mt-2 border-t border-slate-400/10 pt-1.5 font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
         click → network
       </div>
     </div>
