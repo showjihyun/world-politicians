@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  checkDryConvention, checkFlagDirection, readScriptFacts,
+  checkDryConvention, checkFlagDirection, checkReclassifyDedupe, readScriptFacts,
   type ConventionViolation, type ScriptFacts,
 } from './convention-rules.mts';
 
@@ -40,6 +40,7 @@ for (const dir of DIRS) {
     const src = fs.readFileSync(path.join(abs, name), 'utf8');
     facts.push(readScriptFacts(rel, src));
     violations.push(...checkFlagDirection(rel, src, ALLOWED_FLAGS));
+    violations.push(...checkReclassifyDedupe(rel, src));
   }
 }
 violations.push(...checkDryConvention(facts));

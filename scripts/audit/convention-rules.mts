@@ -115,3 +115,33 @@ export function checkFlagDirection(
       reason: `'${f}' 는 등록되지 않은 플래그다. 새 축이 필요하면 관례에 먼저 추가한다 (허용: ${allowed.join(', ')})`,
     }));
 }
+
+/**
+ * 재분류 결과를 다시 거르는가.
+ *
+ * 중복 판정 키에는 관계쌍이 들어간다. 미분류 신호는 쌍이 비어 있어 거르기를
+ * 통과하는데, 그 뒤에 reclassify 가 쌍을 붙이면 기존 신호와 같은 키가 된다.
+ * 그래서 **거르기는 최종 데이터에 걸어야 한다.**
+ *
+ * 2026-08-31 야간 실행이 이것 때문에 signals.duplicate 로 죽었고, 커밋 단계가
+ * 감사 뒤에 있어 그날 수집분이 통째로 버려졌다. --dry 는 reclassify 를 건너뛰므로
+ * 미리보기로는 재현되지 않는다 — 그래서 코드 모양으로 잡는다.
+ */
+export function checkReclassifyDedupe(file: string, source: string): ConventionViolation[] {
+  // 정의하는 쪽(extract.mts)이나 이 규칙 파일이 아니라, 실제로 부르는 쪽만 본다.
+  const call = source.search(/await\s+reclassify\s*\(/);
+  if (call === -1) return [];
+
+  // 감싸서 부르거나, 결과를 받아 뒤에서 거르거나 — 둘 다 최종 데이터에 걸린다.
+  const wrapped = /dedupeByStory\s*\(\s*await\s+reclassify\s*\(/.test(source);
+  const afterwards = source.slice(call).includes('dedupeByStory(');
+  if (wrapped || afterwards) return [];
+
+  return [
+    {
+      file,
+      rule: 'reclassify-dedupe',
+      reason: 'reclassify 가 쌍을 붙이면 중복 키가 바뀐다 — 결과를 dedupeByStory 로 다시 걸러야 한다',
+    },
+  ];
+}

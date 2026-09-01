@@ -464,3 +464,36 @@ describe('storyTitleKey 계약 — 파이프라인과 감사가 같은 키를 �
     expect(storyTitleKeyMirror(title)).toBe(storyTitleKey(title));
   });
 });
+
+/**
+ * 2026-08-31 야간 실행이 signals.duplicate 로 죽어 그날 수집분이 커밋되지 못했다.
+ *
+ * 중복 판정 키에는 관계쌍이 들어간다. 미분류 신호는 쌍이 비어 있어 다른 키로
+ * 거르기를 통과하는데, 그 뒤에 reclassify 가 쌍을 붙이면 기존 신호와 같은 키가
+ * 된다 — 중간 결과에 걸어 둔 거르기는 최종 데이터를 보장하지 못한다.
+ */
+describe('거르기는 최종 데이터에 걸어야 한다', () => {
+  const base = { date: '2026-08-30', people: ['cruz', 'trump'] };
+  const classified = { ...base, id: 'a', url: 'https://thehill.com/x', title: 'Cruz defends Trump', classified: true, pair: ['cruz', 'trump'] };
+  const unclassified = { ...base, id: 'b', url: 'https://news.google.com/rss/z', title: 'Cruz defends Trump - The Hill', classified: false };
+
+  it('쌍이 붙기 전에는 같은 기사라도 둘 다 통과한다 — 이게 함정이다', () => {
+    expect(dedupeByStory([classified, unclassified])).toHaveLength(2);
+  });
+
+  it('쌍이 붙고 나면 하나로 합쳐진다', () => {
+    const paired = { ...unclassified, classified: true, pair: ['cruz', 'trump'] };
+    expect(dedupeByStory([classified, paired])).toHaveLength(1);
+  });
+
+  it('applyResult 로 쌍이 붙은 뒤 다시 거르면 사라진다', () => {
+    const after = applyResult(unclassified, {
+      idx: 0,
+      pair: ['cruz', 'trump'],
+      polarity: 'ally',
+      confidence: 0.9,
+    });
+    expect(after.pair, 'applyResult 가 쌍을 붙여야 이 테스트가 뜻이 있다').toEqual(['cruz', 'trump']);
+    expect(dedupeByStory([classified, after])).toHaveLength(1);
+  });
+});

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   checkDryConvention,
   checkFlagDirection,
+  checkReclassifyDedupe,
   readScriptFacts,
 } from './convention-rules.mts';
 
@@ -101,5 +102,39 @@ describe('checkFlagDirection', () => {
   it('같은 플래그가 여러 번 나와도 한 번만 보고한다', () => {
     const src = `process.argv.includes('--force')\nprocess.argv.includes('--force')`;
     expect(checkFlagDirection('x.mts', src, allowed)).toHaveLength(1);
+  });
+});
+
+/**
+ * 2026-08-31 야간 실행이 signals.duplicate 로 죽어 그날 수집분이 커밋되지 못했다.
+ * --dry 는 reclassify 를 건너뛰므로 미리보기로 재현되지 않는다 — 코드 모양으로 잡는다.
+ */
+describe('checkReclassifyDedupe', () => {
+  const call = 'const merged = dry ? acc : await reclassify(acc);';
+
+  it('거르지 않고 부르면 잡는다 — 8/31 사고 당시 코드', () => {
+    const v = checkReclassifyDedupe('pipeline.mts', call);
+    expect(v).toHaveLength(1);
+    expect(v[0].rule).toBe('reclassify-dedupe');
+  });
+
+  it('감싸서 부르면 통과한다', () => {
+    const ok = 'const merged = dry ? acc : dedupeByStory(await reclassify(acc));';
+    expect(checkReclassifyDedupe('pipeline.mts', ok)).toEqual([]);
+  });
+
+  it('결과를 받아 뒤에서 걸러도 통과한다', () => {
+    const ok = ['const r = await reclassify(acc);', 'const merged = dedupeByStory(r);'].join('\n');
+    expect(checkReclassifyDedupe('pipeline.mts', ok)).toEqual([]);
+  });
+
+  // 정의하는 쪽(extract.mts)까지 잡으면 고칠 수 없는 위반이 영영 남는다.
+  it('정의만 있는 파일은 보지 않는다', () => {
+    const def = 'export async function reclassify(signals) { return signals; }';
+    expect(checkReclassifyDedupe('extract.mts', def)).toEqual([]);
+  });
+
+  it('reclassify 를 쓰지 않는 파일은 보지 않는다', () => {
+    expect(checkReclassifyDedupe('merge.mts', 'const x = 1;')).toEqual([]);
   });
 });
