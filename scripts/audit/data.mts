@@ -213,6 +213,11 @@ if (fs.existsSync(lobbyPath)) {
   const lob = JSON.parse(fs.readFileSync(lobbyPath, 'utf8')) as LobbyingFile;
   console.log(`회전문 ${lob.stats.people}명 · 전직 보좌진 ${lob.stats.matched}명 (${lob.years[0]}~${lob.years[lob.years.length - 1]})`);
 }
+
+if (fs.existsSync(unityPath)) {
+  const uni = JSON.parse(fs.readFileSync(unityPath, 'utf8')) as UnityFile;
+  console.log(`당론 이탈 ${uni.stats.people}명 · 정당표결 ${uni.stats.partyVotes}/${uni.stats.rollCalls} · ${uni.congress}대 · 축 0~${uni.axisMax}%`);
+}
 console.log('─'.repeat(58));
 
 const v = verdict(findings);

@@ -25,6 +25,8 @@ export interface PersonUnity {
 interface UnityFile {
   congress: number;
   minVotes: number;
+  /** 막대 축의 최대치 — 관측 최대치에서 계산해 내려온다 */
+  axisMax: number;
   /** "House|R" → 같은 당·같은 원의 중앙값 */
   medians: Record<string, number>;
   people: Record<string, PersonUnity>;
@@ -50,7 +52,14 @@ export interface UnityState {
   unity: PersonUnity | null;
   /** 같은 당·같은 원의 중앙값 — 홀로 놓인 비율은 높은지 낮은지 알 수 없다 */
   median: number | null;
+  /**
+   * 막대 축의 최대치. 화면에 상수로 박으면 데이터가 그 위로 올라간 날
+   * 상위 몇 명이 똑같이 가득 찬 막대가 되어 구분이 사라진다.
+   */
+  axisMax: number;
   congress: number;
+  /** 이 사람의 표결 기록이 있는가 — 없으면 "없음" 이라고 적어야 한다 */
+  known: boolean;
 }
 
 export function useUnity(personId: string | null): UnityState {
@@ -66,11 +75,15 @@ export function useUnity(personId: string | null): UnityState {
     };
   }, [personId]);
 
-  if (!personId) return { unity: null, median: null, congress: 0 };
+  if (!personId) return { unity: null, median: null, axisMax: 30, congress: 0, known: false };
   const unity = cache?.people[personId] ?? null;
   return {
     unity,
     median: unity ? (cache?.medians[`${unity.chamber}|${unity.side}`] ?? null) : null,
+    axisMax: cache?.axisMax ?? 30,
     congress: cache?.congress ?? 0,
+    // 아직 안 불러온 것과 기록이 없는 것을 구분한다 — 둘 다 빈 화면이면
+    // "판정이 없다" 가 아니라 그냥 빈약한 항목으로 보인다.
+    known: cache !== null,
   };
 }

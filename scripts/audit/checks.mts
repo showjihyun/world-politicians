@@ -1058,7 +1058,13 @@ export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn:
 export interface UnityFile {
   congress: number;
   minVotes: number;
-  stats: { rollCalls: number; partyVotes: number; people: number; withoutSeat: number };
+  axisMax: number;
+  stats: {
+    rollCalls: number;
+    partyVotes: number;
+    people: number;
+    skipped: { notInCongress: number; noVotes: number; thinRecord: number };
+  };
   medians: Record<string, number>;
   people: Record<
     string,
@@ -1070,11 +1076,43 @@ export interface UnityFile {
  * 당론 이탈률.
  *
  * 이 값은 눈으로 검산할 수 없다 — 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나온다.
- * 분모(정당 표결)를 잘못 잡으면 모두가 0% 에 몰리고, 그래도 화면은 멀쩡해 보인다.
+ * 가장 위험한 실패는 틀린 값이 아니라 **빈 값**이다. Voteview 가 열 이름을 바꾸면
+ * 모든 행이 조용히 걸러져 people 이 {} 가 되고, 스크립트는 0 으로 끝나고,
+ * 화면에서는 섹션이 그냥 사라진다. 그래서 비어 있는 것부터 잡는다.
  */
 export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] {
   const out: Finding[] = [];
   const entries = Object.entries(u.people);
+
+  // 비어 있으면 아래 검사가 전부 빈 배열을 훑고 통과한다 — 여기서 먼저 막는다.
+  if (!entries.length || !u.stats.partyVotes || !Object.keys(u.medians).length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.empty',
+      message: `데이터가 비었다 — 인물 ${entries.length} · 정당표결 ${u.stats.partyVotes} · 중앙값 ${Object.keys(u.medians).length}`,
+    });
+    return out;
+  }
+
+  // 요약 수치가 실제와 어긋나면 둘 중 하나는 낡은 것이다.
+  const skipped = u.stats.skipped;
+  const bad = [
+    u.stats.people !== entries.length ? `people ${u.stats.people} vs 실제 ${entries.length}` : "",
+    u.stats.partyVotes > u.stats.rollCalls
+      ? `partyVotes ${u.stats.partyVotes} > rollCalls ${u.stats.rollCalls}`
+      : "",
+    !skipped || [skipped.notInCongress, skipped.noVotes, skipped.thinRecord].some((n) => typeof n !== "number")
+      ? "skipped 가 세 갈래로 나뉘어 있지 않다"
+      : "",
+  ].filter(Boolean);
+  if (bad.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.stats',
+      message: '요약 수치가 실제와 다르다',
+      samples: cap(bad),
+    });
+  }
 
   const unknown = entries.map(([id]) => id).filter((id) => !knownIds.has(id));
   if (unknown.length) {
@@ -1086,19 +1124,21 @@ export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] 
     });
   }
 
-  // 비율은 0~100 이고, against/votes 와 맞아야 한다. 어긋나면 반올림이 아니라
-  // 분자·분모를 다른 곳에서 가져온 것이다.
-  const bad = entries.filter(([, p]) => {
-    if (!(p.rate >= 0 && p.rate <= 100)) return true;
-    if (p.against > p.votes) return true;
+  // 비율은 0~100 이고 against/votes 와 맞아야 한다. 어긋나면 반올림이 아니라
+  // 분자·분모를 다른 곳에서 가져온 것이다. votes 가 0 이면 나눗셈이 NaN 이 되고
+  // NaN > 0.06 은 false 라 그냥 통과한다 — 0 을 먼저 막는다.
+  const badMath = entries.filter(([, p]) => {
+    if (!Number.isFinite(p.rate) || p.rate < 0 || p.rate > 100) return true;
+    if (!Number.isFinite(p.votes) || p.votes <= 0) return true;
+    if (!Number.isFinite(p.against) || p.against < 0 || p.against > p.votes) return true;
     return Math.abs((p.against / p.votes) * 100 - p.rate) > 0.06;
   });
-  if (bad.length) {
+  if (badMath.length) {
     out.push({
       level: 'fail',
       check: 'unity.arithmetic',
-      message: `비율이 against/votes 와 맞지 않는 인물 ${bad.length}명`,
-      samples: cap(bad.map(([id, p]) => `${id} ${p.rate}% vs ${p.against}/${p.votes}`)),
+      message: `비율이 against/votes 와 맞지 않는 인물 ${badMath.length}명`,
+      samples: cap(badMath.map(([id, p]) => `${id} ${p.rate}% vs ${p.against}/${p.votes}`)),
     });
   }
 
@@ -1125,10 +1165,21 @@ export function checkPartyUnity(u: UnityFile, knownIds: Set<string>): Finding[] 
     });
   }
 
+  // 막대 축이 데이터보다 작으면 상위 몇 명이 똑같이 가득 찬 막대가 되어 구분이 사라진다.
+  const over = entries.filter(([, p]) => p.rate > u.axisMax);
+  if (over.length) {
+    out.push({
+      level: 'fail',
+      check: 'unity.axis',
+      message: `막대 축(${u.axisMax}%)을 넘는 인물 ${over.length}명 — 막대가 구분되지 않는다`,
+      samples: cap(over.map(([id, p]) => `${id} ${p.rate}%`)),
+    });
+  }
+
   // 분모를 잘못 잡으면(만장일치 표결까지 넣으면) 이탈이 희석돼 모두가 0% 가 된다.
   // 통과하는데 뜻이 없어지는 종류라 수치로 잡는다.
   const moved = entries.filter(([, p]) => p.rate > 0).length;
-  if (entries.length && moved / entries.length < 0.3) {
+  if (moved / entries.length < 0.3) {
     out.push({
       level: 'warn',
       check: 'unity.flat',

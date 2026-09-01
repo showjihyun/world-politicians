@@ -100,7 +100,13 @@ export const UI_EN = {
   unityRate: 'of party-line votes against own party',
   unityMedian: (v: string) => `party median ${v}`,
   unityCounts: (a: number, b: number) => `${a} of ${b} party-line votes`,
-  unityCongress: (n: number) => `${n}th Congress`,
+  // 121th 가 되지 않게. 11~13 은 영어에서 예외라 먼저 거른다.
+  unityCongress: (n: number) => {
+    const two = n % 100;
+    const suffix =
+      two >= 11 && two <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
+    return `${n}${suffix} Congress`;
+  },
   unityNone: 'No roll-call record — not a sitting member of this Congress.',
   unityCaveat: 'Share of votes where the two parties split and this member went against their own. It measures independence from the party, not conflict with anyone — the most frequent defectors here have no recorded feuds inside their party.',
 

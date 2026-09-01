@@ -39,7 +39,7 @@ export default function DetailDrawer() {
 
   const person = selectedId ? graph.find((p) => p.id === selectedId) : null;
   const { funding, cycle: fundingCycle, through: fundingThrough } = useFunding(person?.id ?? null);
-  const { unity, median: unityMedian, congress } = useUnity(person?.id ?? null);
+  const { unity, median: unityMedian, axisMax, congress, known: unityKnown } = useUnity(person?.id ?? null);
   const { lobbying, years: lobbyYears } = useLobbying(person?.id ?? null);
   // 음수(환불)와 0 나눗셈을 여기서 한 번만 막는다
   const pct = (n: number) =>
@@ -232,14 +232,14 @@ export default function DetailDrawer() {
               {/*
                 분포가 심하게 쏠려 있다 — 중앙값 0.4%, 최대 28.5%. 0~100% 축에
                 그리면 거의 모두가 빈 막대가 되고, 중앙값 눈금은 왼쪽 끝에 붙어
-                보이지 않는다. 관측 최대치 근처(30%)로 축을 좁히고 중앙값은 글로 적는다.
-                넘치는 값은 가득 찬 막대로 눌러 둔다 — 축을 벗어났다는 사실이
-                막대가 아니라 숫자로 이미 보인다.
+                보이지 않는다. 축은 관측 최대치에서 계산해 데이터가 내려보낸다 — 화면에
+                박아 두면 데이터가 그 위로 올라간 날 상위 몇 명이 똑같이 가득 찬
+                막대가 된다. 중앙값은 눈금 대신 글로 적는다.
               */}
               <div className="mb-1 h-1.5 overflow-hidden rounded-full bg-slate-700/40">
                 <span
                   className="block h-full bg-violet-400/80"
-                  style={{ width: `${Math.min(100, (unity.rate / 30) * 100)}%` }}
+                  style={{ width: `${Math.min(100, (unity.rate / axisMax) * 100)}%` }}
                 />
               </div>
               <p className="font-mono text-[10.5px] uppercase tracking-wider text-slate-600">
@@ -254,6 +254,21 @@ export default function DetailDrawer() {
 
               <p className="mt-1.5 text-[10.5px] leading-relaxed text-slate-600">{t.unityCaveat}</p>
             </div>
+          )}
+
+          {/*
+            기록이 없는 사람(대통령·주지사·전직 등 35명)에게 아무것도 안 그리면
+            "아직 불러오는 중" 과 구분되지 않는다. 미분류 신호를 "미판정" 이라고
+            적는 것과 같은 이유로, 없다는 사실을 적는다.
+          */}
+          {!unity && unityKnown && (
+            <p
+              data-testid="party-unity-none"
+              className="mx-4 mb-3 rounded-xl border border-slate-400/10 bg-white/[0.02] px-3 py-2 text-[10.5px] leading-relaxed text-slate-600"
+            >
+              <span className="font-mono uppercase tracking-[0.16em] text-slate-500">{t.unityTitle}</span>{' '}
+              — {t.unityNone}
+            </p>
           )}
           {funding && funding.receipts > 0 && (
             <div className="mx-4 mb-3 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.05] p-3">

@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   checkAccuracy,
   checkAllowlist, checkCosponsor, checkCrosswalk, checkDates, checkFunding, checkLobbying, checkDocClaims, checkDuplicates, checkFreshness,
+  checkPartyUnity,
+  type UnityFile,
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type AccuracyFile,
   type FundingFile,
@@ -683,5 +685,115 @@ describe('checkUnclassified', () => {
 
   it('신호가 없으면 판정하지 않는다 — 0 으로 나누지 않는다', () => {
     expect(checkUnclassified([])).toEqual([]);
+  });
+});
+
+/**
+ * 가장 위험한 실패는 틀린 값이 아니라 **빈 값**이다. Voteview 가 열 이름을 바꾸면
+ * 모든 행이 조용히 걸러져 people 이 {} 가 되는데, 그러면 다른 검사들은 전부
+ * 빈 배열을 훑고 통과한다 — 통과하는데 아무것도 증명하지 않는 상태다.
+ */
+describe('checkPartyUnity', () => {
+  const person = (over: Partial<UnityFile['people'][string]> = {}) => ({
+    rate: 15, votes: 400, against: 60, side: 'R' as const, chamber: 'House',
+    ...over,
+  });
+  const ok: UnityFile = {
+    congress: 119,
+    minVotes: 30,
+    axisMax: 30,
+    stats: {
+      rollCalls: 1533,
+      partyVotes: 1279,
+      people: 1,
+      skipped: { notInCongress: 35, noVotes: 1, thinRecord: 1 },
+    },
+    medians: { 'House|R': 1.77 },
+    people: { massie: person() },
+  };
+  const ids = new Set(['massie']);
+
+  it('맞으면 아무것도 보고하지 않는다', () => {
+    expect(checkPartyUnity(ok, ids)).toHaveLength(0);
+  });
+
+  // 열 이름이 바뀌면 이 모양이 된다. 여기서 안 막으면 화면에서 섹션이 조용히 사라진다.
+  it('비어 있으면 잡는다 — 다른 검사는 전부 통과해 버린다', () => {
+    const empty = { ...ok, stats: { ...ok.stats, people: 0 }, people: {} };
+    expect(checkPartyUnity(empty, ids).map((x) => x.check)).toContain('unity.empty');
+  });
+
+  it('정당 표결이 0 이면 잡는다', () => {
+    const none = { ...ok, stats: { ...ok.stats, partyVotes: 0 } };
+    expect(checkPartyUnity(none, ids).map((x) => x.check)).toContain('unity.empty');
+  });
+
+  it('중앙값이 통째로 없으면 잡는다', () => {
+    expect(checkPartyUnity({ ...ok, medians: {} }, ids).map((x) => x.check)).toContain('unity.empty');
+  });
+
+  it('요약 수치가 실제와 다르면 잡는다', () => {
+    const bad = { ...ok, stats: { ...ok.stats, people: 99 } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.stats');
+  });
+
+  it('정당 표결이 호명투표보다 많으면 잡는다', () => {
+    const bad = { ...ok, stats: { ...ok.stats, partyVotes: 9999 } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.stats');
+  });
+
+  // 셋으로 나뉘어 있지 않으면 "의원이 아니다" 가 "표결이 적다" 까지 뜻하게 된다.
+  it('제외 사유가 세 갈래로 나뉘어 있지 않으면 잡는다', () => {
+    const bad = { ...ok, stats: { ...ok.stats, skipped: { notInCongress: 1 } } } as unknown as UnityFile;
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.stats');
+  });
+
+  it('사라진 인물을 가리키면 잡는다', () => {
+    expect(checkPartyUnity(ok, new Set(['warren'])).map((x) => x.check)).toContain('unity.references');
+  });
+
+  it('비율이 against/votes 와 안 맞으면 잡는다', () => {
+    const bad = { ...ok, people: { massie: person({ rate: 99 }) } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.arithmetic');
+  });
+
+  // votes 가 0 이면 나눗셈이 NaN 이고 NaN > 0.06 은 false 라 그냥 통과한다.
+  it('분모가 0 이면 잡는다 — NaN 비교로 새어 나가지 않는다', () => {
+    const bad = { ...ok, minVotes: 0, people: { massie: person({ votes: 0, against: 0, rate: 0 }) } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.arithmetic');
+  });
+
+  it('이탈이 분모보다 많으면 잡는다', () => {
+    const bad = { ...ok, people: { massie: person({ against: 500, rate: 125 }) } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.arithmetic');
+  });
+
+  it('분모가 최소치 미만인데 값이 있으면 잡는다', () => {
+    const bad = { ...ok, people: { massie: person({ votes: 20, against: 3, rate: 15 }) } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.thin');
+  });
+
+  it('비교할 중앙값이 없으면 잡는다', () => {
+    const bad = { ...ok, medians: { 'Senate|D': 3.7 } };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.median');
+  });
+
+  // 축을 넘으면 상위 몇 명이 똑같이 가득 찬 막대가 되어 구분이 사라진다.
+  it('막대 축을 넘는 값이 있으면 잡는다', () => {
+    const bad = { ...ok, axisMax: 10 };
+    expect(checkPartyUnity(bad, ids).map((x) => x.check)).toContain('unity.axis');
+  });
+
+  // 분모를 너무 넓게 잡으면 모두가 0% 가 된다. 막지는 않는다 — 데이터 오류가 아니라
+  // 기준이 흔들린 신호다.
+  it('모두가 0% 면 경고한다 (막지는 않는다)', () => {
+    const flat = {
+      ...ok,
+      medians: { 'House|R': 0 },
+      people: { massie: person({ rate: 0, against: 0 }) },
+    };
+    const found = checkPartyUnity(flat, ids);
+    expect(found.map((x) => x.check)).toContain('unity.flat');
+    expect(found.find((x) => x.check === 'unity.flat')?.level).toBe('warn');
   });
 });

@@ -644,27 +644,30 @@ async function main() {
   );
 
   // 당론 이탈률. 화면에는 어떤 숫자든 그럴듯한 퍼센트로 나오므로 분모까지 본다.
-  const unity = await page.evaluate(() => {
-    const el = document.querySelector('[data-testid=party-unity]');
-    if (!el) return null;
-    const txt = (el.textContent || '').replace(/\s+/g, ' ');
-    return {
-      rate: /(\d+(?:\.\d+)?)%\s*of/.exec(txt)?.[1] ?? null,
-      hasMedian: /party median/i.test(txt),
-      hasCounts: /of \d+ party-line votes/i.test(txt),
-      // 이 값이 관계를 설명한다고 읽히면 안 된다 — 단서가 반드시 붙어 있어야 한다
-      hasCaveat: /not conflict with anyone/i.test(txt),
-    };
-  });
+  // 고정 대기로 한 번만 훑으면 지연 로딩한 JSON 이 늦게 오는 날 간헐 실패한다 —
+  // 이 저장소가 framer-motion 으로 이미 당한 종류라 locator 로 기다린다.
+  const unityBox = page.locator('[data-testid=party-unity]');
+  await unityBox.waitFor({ state: 'visible', timeout: 8000 }).catch(() => {});
+  const unityText = (await unityBox.innerText().catch(() => '')).replace(/\s+/g, ' ');
+  const rate = Number(/(\d+(?:\.\d+)?)%\s*of/.exec(unityText)?.[1] ?? NaN);
+  const counts = /(\d+) of (\d+) party-line votes/i.exec(unityText);
   check(
     'party defection section renders with its denominator',
-    !!unity && unity.rate !== null && unity.hasMedian && unity.hasCounts,
-    unity ? `${unity.rate}% · median ${unity.hasMedian} · counts ${unity.hasCounts}` : "섹션 없음"
+    Number.isFinite(rate) && !!counts && /party median/i.test(unityText),
+    unityText.slice(0, 80) || "섹션 없음"
+  );
+  // 비율이 있다는 것만 보면, against 를 비율 칸에 그려도 통과한다.
+  // 분자·분모가 같은 화면에 있으므로 실제로 맞는지 계산한다.
+  const expectedRate = counts ? (Number(counts[1]) / Number(counts[2])) * 100 : NaN;
+  check(
+    'the shown rate actually equals against / party-line votes',
+    Number.isFinite(rate) && Number.isFinite(expectedRate) && Math.abs(rate - expectedRate) <= 0.06,
+    counts ? `${rate}% vs ${counts[1]}/${counts[2]} = ${expectedRate.toFixed(2)}%` : "분모를 못 읽었다"
   );
   check(
     'party defection says what it is not',
-    !!unity && unity.hasCaveat,
-    unity?.hasCaveat ? "단서 있음" : "단서 없음 — 관계 신호로 읽힐 수 있다"
+    /not conflict with anyone/i.test(unityText),
+    /not conflict with anyone/i.test(unityText) ? "단서 있음" : "단서 없음 — 관계 신호로 읽힐 수 있다"
   );
   const fundingText = await page.locator('[data-testid=drawer-scroll]').first().innerText();
   check(

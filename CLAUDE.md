@@ -8,12 +8,13 @@
 ```
 npm test           단위 테스트 (도메인, ~0.4초)
 npm run audit      경계 + 데이터 감사 (종료 코드로 판정)
-npm run e2e        Playwright 53개 (~90초, dev 서버 자동 기동)
+npm run e2e        Playwright 76개 (~90초, dev 서버 자동 기동)
 npm run news:dry   뉴스 파이프라인 미리보기 (실제 수집은 야간 자동)
 npm run crosswalk:dry  소스 간 ID 크로스워크 미리보기 (bioguide·icpsr·fec)
 npm run cosponsor:dry  공동발의 엣지 미리보기 (GovInfo 벌크)
 npm run funding:dry    FEC 자금 미리보기 (기부·독립지출)
 npm run lobbying:dry   로비 회전문 미리보기 (하원 LD-1 원본)
+npm run party-unity:dry 당론 이탈률 미리보기 (Voteview 호명투표)
 npm run eval           LLM 판정 정확도 (라벨 세트 채점)
 npm run eval:sample    라벨 표본 추가 (--dry 지원)
 npm run build      tsc + vite
@@ -253,6 +254,34 @@ Chris Murphy 등 **7명이 조용히 빠졌다.** 데이터에는 Michael·Richa
 계속 스테이징하고 있었다. `git add` 는 없는 경로에서 실패하므로, 수집은
 성공하고 **커밋 단계에서 죽어 그날 누적분이 통째로 유실될** 뻔했다.
 
+### 인물 속성과 관계 신호를 섞지 않는다
+
+자금·로비·당론 이탈률은 **인물에 대한 사실**이지 관계에 대한 값이 아니다.
+그럴듯해 보여서 엣지로 만들고 싶어지는데, 이 저장소에서 여섯 번 재서 여섯 번 다
+무신호였다.
+
+```
+공유 후원자 × 큐레이션 ally/feud    27% vs 28%
+공유 후원자 × 공동발의 20건 이상    19% vs 17%
+PAC 비중   × 초당파 엣지            10.3% vs 8.3%
+NOMINATE 이탈 × 당내 feud           p = 0.813
+당론 이탈률 × 당내 feud             p = 0.992
+당론 이탈률 × 외부 공격 자금        p = 0.058 (용량-반응 없음, 경쟁도 교란)
+```
+
+Collins 16.5% · Fitzpatrick 22.9% 는 이탈률 상위인데 당내 feud 가 0 이다 —
+**조용히 상시 이탈하는 것은 공개 충돌을 낳지 않는다.** 이 그래프의 feud 는
+시끄럽고 인격적인 충돌이고 표결 축과 직교한다.
+
+표결 **일치도**는 이미 기각돼 있다(Cruz × Hawley 98.6% = 소속). 이탈률은 자기
+당을 기준으로 잡아 소속을 상수로 만들기 때문에 다른 값이고, 그래서 인물 사실로는
+쓸 만하다. 다만 그 이상을 주장하면 안 되고, 화면 단서에 이 값이 무엇이 **아닌지**
+를 적어 둔다.
+
+순위표도 조심한다. "가장 공격받은 인물" 은 순위가 아니었다 — 반대지출 총액의
+56% 가 한 명이고 89% 가 셋이다. 회전문 인원수는 상원 5.6명 대 하원 2.9명으로
+**보좌진 규모 × 재직 연수**를 센다.
+
 ### 근거 링크는 확인 가능한 것만
 
 Google News 리다이렉트(`news.google.com/rss/articles/...`)는 목적지도 매체도
@@ -278,6 +307,7 @@ src/data/crosswalk.json          소스 간 ID 확정값 (bioguide·icpsr·fec)
 src/data/cosponsorship*.json     공동발의 엣지 + 근거 (엣지는 즉시, 근거는 지연)
 src/data/funding.json            FEC 자금 (지연 로딩, 인물 속성)
 src/data/lobbying.json           로비 회전문 (지연 로딩, 인물 속성)
+src/data/party-unity.json        당론 이탈률 (지연 로딩, 인물 속성). 관계 신호가 아니다
 ```
 
 도메인에 값 import 를 넣고 싶어지면 그건 인자로 받아야 할 것이다.
