@@ -179,7 +179,7 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   headline. The honest part: only 20 of those 118 answers were filled in by a person, and
   the rest were seeded by the same model being scored. Until human labels reach 40 the audit
   cannot fail on a regression, so read the figure as a floor to beat, not a score to trust.
-- **The source mix is concentrated, and the wires barely register.** The whole archive comes from 17 outlets, but the top five carry 71% of it and AP plus Reuters together are 3.6% — a handful of politics desks decide what the classifier ever gets to see. The insights panel shows that breakdown rather than burying it, because this selection sits upstream of anything the classifier can get right.
+- **The source mix is concentrated, and the wires barely register.** The whole archive comes from 18 outlets, but the top five carry 69% of it and AP plus Reuters together are 4.9% — a handful of politics desks decide what the classifier ever gets to see. The insights panel shows that breakdown rather than burying it, because this selection sits upstream of anything the classifier can get right.
 - **The aggregation rules came out of that.** Because the mix is what it is, the news layer
   counts one vote per pair per day rather than one per article, wants a two-to-one margin
   before a month flips, and hatches months the outlets split on. Two further ideas — weighting
