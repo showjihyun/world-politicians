@@ -6,7 +6,9 @@ import {
   accumulate as accumulatePure,
   dedupeByStory,
   bySalience,
+  canonicalSourceName,
   buildStats as buildStatsPure,
+  dateRange,
   partitionByMonth,
   pickRecent as pickRecentPure,
   resolveGeneratedAt,
@@ -43,10 +45,27 @@ export interface SignalsIndex {
   months: string[];
   /** personId → 아카이브 전체 기준 건수 */
   counts: Record<string, number>;
+  /** 매체명 → 아카이브 전체 기준 건수. 화면이 소스 구성을 표시하는 데 쓴다 */
+  outlets: Record<string, number>;
 }
 
 const MONTH_RE = /^\d{4}-\d{2}\.json$/;
 const RETENTION_DAYS = 365;
+
+/**
+ * 매체명을 알 수 없는 신호가 들어가는 자리.
+ *
+ * 피드가 매체명을 주지 않으면 `canonicalSourceName` 이 빈 문자열을 돌려준다.
+ * 예전에는 그런 신호를 매체 집계에서 통째로 뺐는데, 화면은 건수를
+ * `stats.total` 로 적고 비율은 이 집계의 합으로 나눈다 — 하나만 빠져도
+ * **"302 signals" 위에 295 의 100%** 가 그려지고, 어디에도 에러가 남지 않는다.
+ *
+ * 그래서 버리지 않고 이 라벨로 센다. 미분류 신호를 지우지 않고 '미판정' 이라고
+ * 적는 것과 같은 이유다 — 모르는 것은 모른다고 적어야 셈이 맞는다.
+ * 빈 문자열을 키로 쓰지 않는 이유: 화면이 `name.length > 0` 으로 다시 걸러
+ * 결국 같은 곳으로 되돌아간다.
+ */
+export const UNATTRIBUTED = 'Unattributed';
 
 /** 화면이 즉시 필요로 하는 양 — 인물당 4건(드로어) + 전체 6건(인사이트) */
 const PER_PERSON = 4;
@@ -129,8 +148,27 @@ export function accumulate(existing: SignalsFile | null, incoming: Signal[]): Si
 
 const buildStats = buildStatsPure;
 
+/**
+ * 화면이 **매체를 셀 때** 쓸 정본 이름을 붙인다.
+ *
+ * 시계열은 "하루 한 표" 를 매체 단위로 세는데, 그 매체 정체성이 원본 `source`
+ * 문자열이면 같은 뉴스룸이 이름만 달라도 각각 한 표를 던진다 — 아카이브에는
+ * `Politico`·`POLITICO Pro`·`E&E News by POLITICO` 가 함께 있다. 그러면 한 뉴스룸이
+ * 혼자 3분의 2 다수를 만들고 가중까지 부풀린다.
+ *
+ * `source` 는 그대로 둔다. 와이어 목록과 근거 표시는 기사에 실제로 적힌 이름을
+ * 보여야 한다. 정본은 **집계용 별도 필드**로 두고, 원본과 같으면 아예 넣지 않는다 —
+ * 302건에 같은 문자열을 한 번 더 쓸 이유가 없다.
+ */
+function withOutlet(signals: Signal[]): Signal[] {
+  return signals.map((s) => {
+    const canonical = canonicalSourceName(s.source ?? '', CONFIG.allowedSourceNames);
+    return canonical && canonical !== s.source ? { ...s, outlet: canonical } : s;
+  });
+}
+
 export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFile {
-  const sorted = [...signals].sort(bySalience).slice(0, cap);
+  const sorted = withOutlet([...signals].sort(bySalience).slice(0, cap));
   return {
     generatedAt: new Date().toISOString(),
     windowDays: CONFIG.windowDays,
@@ -146,6 +184,52 @@ export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFi
  */
 export function pickRecent(signals: Signal[]): Signal[] {
   return pickRecentPure(signals, PER_PERSON, GLOBAL_RECENT);
+}
+
+/**
+ * 매니페스트를 만든다 — 앱이 아카이브를 받지 않고도 전체를 서술할 수 있는 만큼.
+ *
+ * `outlets` 는 "이 아카이브가 어느 매체로 이루어져 있는가" 다. 신뢰의 문제라서
+ * 싣는다 — 극성 분포(feud 68%)는 관계의 분포가 아니라 **어느 매체를 얼마나 담았는가**
+ * 에 딸려 온다. 그걸 숨긴 채 비율만 보여주면 읽는 사람이 판단할 재료가 없다.
+ * 건수는 아카이브 전체 기준이다. recent.json 기준으로 세면 즉시 로드분의 구성이
+ * 전체의 구성인 것처럼 보인다.
+ *
+ * generatedAt 은 인자로 받는다 — 보존이냐 갱신이냐는 resolveGeneratedAt 이 정할 일이고
+ * 여기서 `new Date()` 를 부르면 재처리가 조용히 수집 시각을 갱신한다.
+ */
+export function buildIndex(file: SignalsFile, generatedAt: string, months: string[]): SignalsIndex {
+  const { first, last } = dateRange(file.signals);
+  const counts: Record<string, number> = {};
+  for (const s of file.signals) for (const p of s.people) counts[p] = (counts[p] ?? 0) + 1;
+
+  // 표시 이름만 정본으로 모은다. `Signal.source` 원본은 건드리지 않는다 —
+  // 화면의 와이어 목록과 E2E 가 그 값을 쓴다.
+  // 건수 내림차순으로 고정한다. 신호 순서를 그대로 따르면 정렬이 동점에서 흔들려
+  // 데이터가 안 바뀐 날에도 매니페스트에 키 순서 diff 가 생긴다.
+  const tally = new Map<string, number>();
+  for (const s of file.signals) {
+    // 이름을 못 찾아도 건너뛰지 않는다 — 합계가 stats.total 과 어긋나는 순간
+    // 화면의 비율이 전부 거짓이 된다. audit 의 manifest.outlets 가 이걸 지킨다.
+    const name =
+      canonicalSourceName((s.source ?? '').trim(), CONFIG.allowedSourceNames) || UNATTRIBUTED;
+    tally.set(name, (tally.get(name) ?? 0) + 1);
+  }
+  const outlets: Record<string, number> = {};
+  for (const [name, n] of [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) {
+    outlets[name] = n;
+  }
+
+  return {
+    generatedAt,
+    windowDays: file.windowDays,
+    stats: file.stats,
+    firstDate: first,
+    lastDate: last,
+    months,
+    counts,
+    outlets,
+  };
 }
 
 /**
@@ -175,7 +259,8 @@ export function writeOutput(file: SignalsFile, dry: boolean, opts: { fresh?: boo
   } catch {
     /* 매니페스트가 없으면 넘어온 값을 그대로 쓴다 */
   }
-  const generatedAt = resolveGeneratedAt(previous, file.generatedAt, opts.fresh ?? false, file.lastDate);
+  // 재처리는 수집 시각을 건드리지 않는다. 실제 수집만 `{ fresh: true }` 를 준다.
+  const generatedAt = resolveGeneratedAt(previous, file.generatedAt, opts.fresh ?? false);
 
   const byMonth = partitionByMonth(file.signals);
 
@@ -195,19 +280,7 @@ export function writeOutput(file: SignalsFile, dry: boolean, opts: { fresh?: boo
     );
   }
 
-  const dates = file.signals.map((s) => s.date).filter(Boolean).sort();
-  const counts: Record<string, number> = {};
-  for (const s of file.signals) for (const p of s.people) counts[p] = (counts[p] ?? 0) + 1;
-
-  const index: SignalsIndex = {
-    generatedAt,
-    windowDays: file.windowDays,
-    stats: file.stats,
-    firstDate: dates[0] ?? null,
-    lastDate: dates[dates.length - 1] ?? null,
-    months,
-    counts,
-  };
+  const index = buildIndex(file, generatedAt, months);
   fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify(index, null, 1) + '\n');
 
   const recent = pickRecent(file.signals);

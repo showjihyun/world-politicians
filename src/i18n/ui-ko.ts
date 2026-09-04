@@ -87,6 +87,14 @@ export const UI_KO: UIDict = {
   wireTitle: '최신 와이어',
   polNeutral: '동반 언급',
   polUnclassified: '미판정',
+
+  srcMixTitle: '소스 구성',
+  srcMixLede: (signals: number, outlets: number) =>
+    `매체 ${outlets}곳에서 모은 신호 ${signals.toLocaleString()}건 — 위 와이어가 아니라 아카이브 전체 기준입니다.`,
+  srcMixOthers: (n: number) => `그 외 ${n}곳`,
+  srcMixFewer: '접기',
+  srcMixCaveat: (topN: number, share: number) =>
+    `상위 ${topN}곳이 ${share}% 를 차지합니다. 극성은 헤드라인만 보고 분류한 값으로, 관계에 대한 판정이 아니라 그 사건이 어떻게 보도됐는지에 대한 신호입니다.`,
   rotateGesture: 'Ctrl + 드래그로 회전',
   dataCoverage: '수집 기간',
   dataUpdated: '갱신',
@@ -146,6 +154,9 @@ export const UI_KO: UIDict = {
   noWatch: '프로필을 열고 추적 버튼을 누르면 관계 변화를 비교할 수 있습니다.',
   turningPoint: '변곡점',
   curatedArc: '큐레이션 아크',
+  tlContested: '매체 간 판정 불일치',
+  tlContestedHint:
+    '빗금: 그 달은 매체마다 극성이 갈렸거나, 이긴 쪽이 반대쪽의 2배에 못 미쳤습니다. 색은 이긴 쪽 그대로입니다.',
   website: '공식 사이트',
   wikipedia: '위키백과',
   xPosts: 'X 게시물',

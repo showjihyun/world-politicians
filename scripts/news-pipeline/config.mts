@@ -14,6 +14,37 @@ function loadDotEnv(): void {
 }
 loadDotEnv();
 
+/**
+ * 허용 호스트 → 정본 매체명.
+ *
+ * **Google News 가 매체명을 호스트 형태로 줄 때가 있다.** 같은 응답 안에 `PBS` 와
+ * `aljazeera.com` 이 함께 온다. 그러면 수집은 통과하는데(`<source url>` 의 호스트가
+ * 맞으므로) 아카이브에는 `foxnews.com` 이 남고, 감사는 기사 link(구글 리다이렉트)와
+ * 그 이름으로 다시 판정해 **허용 목록 밖**이라고 떨어뜨린다. 2026-09-01~03 사흘치
+ * 야간 수집이 이것 때문에 커밋 직전에 통째로 버려졌다.
+ *
+ * 호스트와 이름을 한 표에 둔다 — 따로 두면 둘이 조용히 어긋난다.
+ */
+export const SOURCE_HOSTS: Record<string, string> = {
+  'apnews.com': 'AP News',
+  'reuters.com': 'Reuters',
+  'cnn.com': 'CNN',
+  'foxnews.com': 'Fox News',
+  'nbcnews.com': 'NBC News',
+  'abcnews.go.com': 'ABC News',
+  'cbsnews.com': 'CBS News',
+  'npr.org': 'NPR',
+  'politico.com': 'Politico',
+  'thehill.com': 'The Hill',
+  'axios.com': 'Axios',
+  'rollcall.com': 'Roll Call',
+  'washingtonexaminer.com': 'Washington Examiner',
+  'semafor.com': 'Semafor',
+  'nytimes.com': 'The New York Times',
+  'washingtonpost.com': 'The Washington Post',
+  'wsj.com': 'The Wall Street Journal',
+};
+
 export const CONFIG = {
   windowDays: 30,
   maxSignals: 300,
@@ -21,25 +52,8 @@ export const CONFIG = {
   requestDelayMs: 120,
 
   /** Top US outlets — 기사 출처 화이트리스트 */
-  allowedSourceHosts: [
-    'apnews.com',
-    'reuters.com',
-    'cnn.com',
-    'foxnews.com',
-    'nbcnews.com',
-    'abcnews.go.com',
-    'cbsnews.com',
-    'npr.org',
-    'politico.com',
-    'thehill.com',
-    'axios.com',
-    'rollcall.com',
-    'washingtonexaminer.com',
-    'semafor.com',
-    'nytimes.com',
-    'washingtonpost.com',
-    'wsj.com',
-  ],
+  /** SOURCE_HOSTS 에서 파생한다 — 호스트 목록을 두 곳에 두면 조용히 어긋난다 */
+  allowedSourceHosts: Object.keys(SOURCE_HOSTS),
   allowedSourceNames: [
     'Associated Press', 'AP News', 'AP', 'Reuters', 'CNN', 'Fox News',
     'NBC News', 'ABC News', 'CBS News', 'NPR', 'Politico', 'The Hill',

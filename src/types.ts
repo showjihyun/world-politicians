@@ -93,7 +93,14 @@ export interface Story {
 export interface NewsSignal {
   id: string;
   date: string;
+  /** 기사에 적힌 매체명 그대로 — 와이어 목록에 보이는 값 */
   source: string;
+  /**
+   * 집계용 정본 매체명. 파이프라인이 원본과 다를 때만 넣는다.
+   * 시계열이 매체를 셀 때 이 값을 쓴다 — 원본으로 세면 `Politico` 와 `POLITICO Pro`
+   * 가 다른 매체로 잡혀 한 뉴스룸이 여러 표를 던진다.
+   */
+  outlet?: string;
   url: string;
   title: string;
   people: string[];

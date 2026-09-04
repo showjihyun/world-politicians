@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "news": "node --experimental-strip-types scripts/news-pipeline/pipeline.mts",
     "news:dry": "node --experimental-strip-types scripts/news-pipeline/pipeline.mts --dry",
+    "news:recover": "node --experimental-strip-types scripts/news-pipeline/recover.mts",
+    "news:recover:dry": "node --experimental-strip-types scripts/news-pipeline/recover.mts --dry",
     "crosswalk": "node --experimental-strip-types scripts/sources/crosswalk.mts",
     "crosswalk:dry": "node --experimental-strip-types scripts/sources/crosswalk.mts --dry",
     "cosponsor": "node --experimental-strip-types scripts/sources/cosponsor.mts",

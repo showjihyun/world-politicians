@@ -30,6 +30,26 @@ export interface SignalsStats {
 }
 
 /**
+ * 매체명이 단어로 들어 있는가. 둘 다 소문자로 넘겨야 한다.
+ *
+ * 허용 판정(`isAllowedSource`)과 표시 이름(`canonicalSourceName`)이 이 규칙을
+ * 공유한다. 갈라지면 **"수집은 허용됐는데 표시 이름은 못 찾는" 매체**가 생기고,
+ * 반대로 표시 쪽이 헐거우면 허용 판정에서 막은 CoinGape 가 매니페스트에
+ * 'AP 9건' 으로 되살아난다.
+ *
+ * 첫 등장만 본다 — 원래 `isAllowedSource` 가 그랬다. 여기서 모든 등장으로
+ * 넓히면 예전에 막았던 매체가 조용히 다시 통과하므로 그대로 둔다.
+ */
+function containsAsWord(name: string, needle: string): boolean {
+  if (name === needle) return true;
+  const i = name.indexOf(needle);
+  if (i === -1) return false;
+  const before = i === 0 ? '' : name[i - 1];
+  const after = name[i + needle.length] ?? '';
+  return !/[a-z0-9]/.test(before) && !/[a-z0-9]/.test(after);
+}
+
+/**
  * 매체 허용 판정.
  *
  * 이름은 반드시 단어 경계로 맞춘다. 부분일치를 쓰면 목록의 짧은 항목 하나가
@@ -46,15 +66,71 @@ export function isAllowedSource(
   const name = sourceName.trim().toLowerCase();
   if (!name) return false;
 
-  return names.some((raw) => {
-    const n = raw.toLowerCase();
-    if (name === n) return true;
-    const i = name.indexOf(n);
-    if (i === -1) return false;
-    const before = i === 0 ? '' : name[i - 1];
-    const after = name[i + n.length] ?? '';
-    return !/[a-z0-9]/.test(before) && !/[a-z0-9]/.test(after);
-  });
+  return names.some((raw) => containsAsWord(name, raw.toLowerCase()));
+}
+
+/**
+ * 원본 매체명을 허용 목록의 정본 이름으로 바꾼다. 못 찾으면 원본을 그대로 돌려준다.
+ *
+ * 피드가 주는 이름은 제각각이다 — `ABC News - Breaking News, Latest News and Videos`,
+ * `POLITICO Pro`, `E&E News by POLITICO`. 매니페스트의 매체 구성은 "이 아카이브가
+ * 무엇으로 이루어져 있는가" 를 보이려는 것이라, 같은 매체가 세 줄로 갈라져 나가면
+ * 신뢰를 보이려던 것이 오히려 산만해진다.
+ *
+ * **새 매핑을 지어내지 않는다.** 허용 목록이 이미 "이 매체다" 를 판정하는 데
+ * 쓰이고 있으므로, 같은 목록으로 표시 이름을 정하는 것은 있는 규칙을 다시
+ * 쓰는 것이다. 목록에 없는 이름은 원본을 남긴다 — 조용히 버리면 매니페스트
+ * 합계가 아카이브 건수와 어긋난다.
+ *
+ * 가장 긴 이름을 고른다. 'AP News' 가 'AP' 로 줄면 목록의 짧은 항목이 긴 이름을
+ * 삼키고, 그러면 config 의 목록 순서만 바뀌어도 화면의 매체 이름이 달라진다.
+ */
+export function canonicalSourceName(sourceName: string, names: readonly string[]): string {
+  const name = sourceName.trim().toLowerCase();
+  if (!name) return sourceName;
+
+  let best = '';
+  for (const raw of names) {
+    if (raw.length > best.length && containsAsWord(name, raw.toLowerCase())) best = raw;
+  }
+  return best || sourceName;
+}
+
+/**
+ * 저장할 매체명을 정한다.
+ *
+ * **이 함수가 없어서 야간 수집이 사흘 죽었다.** Google News 는 매체명을 때때로
+ * 호스트 형태로 준다(`foxnews.com`, `thehill.com`, `apnews.com`, `washingtonpost.com`).
+ * 수집 단계는 `<source url>` 의 호스트로 판정하므로 통과시키지만, 아카이브에는 그
+ * 호스트 문자열이 남는다. 나중에 감사가 **기사 link**(구글 리다이렉트)와 그 이름으로
+ * 다시 판정하면 호스트도 이름도 안 맞아 "허용 목록 밖" 이 된다 — 같은 함수가 입력이
+ * 달라 반대 답을 낸다.
+ *
+ * 그래서 **저장하기 전에 정본 이름으로 바꾼다.** 나중에 무엇으로 재판정하든 같은 답이
+ * 나오게 하는 것이 요점이다.
+ */
+export function resolveSourceName(
+  sourceName: string,
+  sourceUrl: string,
+  names: readonly string[],
+  hostNames: Readonly<Record<string, string>>
+): string {
+  const name = (sourceName ?? '').trim();
+
+  // **호스트를 먼저 본다.** 이름은 같은 매체를 여러 표기로 준다 — `WSJ` 와
+  // `The Wall Street Journal` 이 둘 다 허용 목록에 있어서, 이름을 먼저 보면 한 매체가
+  // 매체 구성에서 두 줄로 갈라지고 시계열에서 두 표를 던진다. 호스트는 하나뿐이다.
+  // 가장 긴 호스트를 고른다 — 짧은 것이 긴 것을 삼키면 안 된다.
+  const hay = `${sourceUrl ?? ''} ${name}`.toLowerCase();
+  let best = '';
+  for (const host of Object.keys(hostNames)) {
+    if (host.length > best.length && hay.includes(host)) best = host;
+  }
+  if (best) return hostNames[best];
+
+  // 호스트를 못 찾았다. 이름만으로 허용되면 그 목록의 정본 표기로 돌려준다
+  if (name && isAllowedSource('', name, [], names)) return canonicalSourceName(name, names);
+  return name;
 }
 
 /** 분류·비중립을 앞세우고 그 안에서 최신순 */
@@ -242,6 +318,21 @@ function isRedirect(url: string): boolean {
 /**
  * 기존 + 신규를 id 로 합치고 보관 기간이 지난 것만 버린다.
  * 덮어쓰지 않는 것이 핵심이다 — 신규가 비어도 기존은 남아야 한다.
+ *
+ * **미분류 신규는 분류된 기존을 덮지 못한다.** 30일 창 안의 기사는 매일 다시
+ * 수집되고, 그 실행의 LLM 배치가 실패하면 incoming 은 `classified: false` 로
+ * 들어온다. 무조건 `map.set` 하던 시절에는 아카이브에 있던 판정이 그것으로
+ * 지워졌다 — 라벨 표본 10건을 커밋별로 따라간 결과다:
+ *
+ *   e5deb7f 08-29 perf   미분류 0      10건 모두 분류됨
+ *   d780891 08-29 수집   미분류 30
+ *   b94f2c3 08-30 수집   미분류 0      다시 전부 분류됨
+ *   a7ba1c8 08-31 fix    미분류 0
+ *   d70f233 09-01 수집   미분류 27     ← 10건 전부 판정을 잃었다
+ *
+ * `applyResult` 의 "판정을 못 받으면 원본 유지" 와 같은 원칙이다. 침묵을
+ * 덮어쓰기로 처리하면 이미 분류된 것까지 지워진다. 그 외에는 지금처럼
+ * incoming 이 이긴다 — 제목·날짜 수정과 재분류 결과가 반영되어야 한다.
  */
 export function accumulate<T extends SignalLike>(
   existing: T[],
@@ -251,7 +342,11 @@ export function accumulate<T extends SignalLike>(
 ): T[] {
   const map = new Map<string, T>();
   for (const s of existing) map.set(s.id, s);
-  for (const s of incoming) map.set(s.id, s);
+  for (const s of incoming) {
+    const prev = map.get(s.id);
+    if (prev?.classified && !s.classified) continue;
+    map.set(s.id, s);
+  }
   const cutoff = now.getTime() - retentionDays * 86_400_000;
   return [...map.values()].filter((s) => {
     const ts = new Date(`${s.date}T00:00:00Z`).getTime();
@@ -296,6 +391,28 @@ export function pickRecent<T extends SignalLike>(
   return sorted.filter((s) => keep.has(s.id));
 }
 
+/**
+ * 아카이브가 담고 있는 날짜의 처음과 끝.
+ *
+ * 형식이 깨진 날짜는 세지 않는다. 비교가 문자열이라 `'undefined'` 하나가
+ * 섞이면 그것이 끝으로 뽑히고, 그 값이 `resolveGeneratedAt` 의 판단과 매니페스트의
+ * `lastDate` 를 동시에 흔든다.
+ */
+export function dateRange(signals: { date?: string }[]): {
+  first: string | null;
+  last: string | null;
+} {
+  let first: string | null = null;
+  let last: string | null = null;
+  for (const s of signals) {
+    const d = s.date ?? '';
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) continue;
+    if (first === null || d < first) first = d;
+    if (last === null || d > last) last = d;
+  }
+  return { first, last };
+}
+
 /** 신호를 'YYYY-MM' 으로 묶는다. 날짜가 이상한 것은 버린다 */
 export function partitionByMonth<T extends SignalLike>(signals: T[]): Map<string, T[]> {
   const out = new Map<string, T[]>();
@@ -314,18 +431,25 @@ export function partitionByMonth<T extends SignalLike>(signals: T[]): Map<string
  * generatedAt 은 "뉴스를 실제로 수집한 시각" 이다. 분할·정규화 같은 재처리가
  * 이 값을 갱신하면 화면의 신선도 배지가 재처리 시각을 수집 시각으로 표시한다.
  * 그래서 기본은 기존 값 유지이고, 실제 수집일 때만 새 값을 쓴다.
+ *
+ * 한동안 네 번째 인자(`lastDate`)를 받아 "보존한 값이 최신 기사보다 이르면 후보를 쓴다"
+ * 는 분기를 뒀다. **지웠다.** 두 가지가 틀렸었다.
+ *
+ *  1. 그 분기는 **재처리에서만 돈다.** 실제 수집은 `fresh` 에서 먼저 반환한다. 즉 분기의
+ *     유일한 효과가 "재처리가 수집 시각을 지금으로 찍는 것" 이었고, 그건 이 함수가
+ *     존재하는 이유 자체를 뒤집는다
+ *  2. 그 분기를 둔 명분은 "안 그러면 야간 워크플로에서 `audit:data` 가
+ *     `meta.generatedAt.beforeData` 로 죽어 그날 누적분이 날아간다" 였는데, 야간은
+ *     `fresh: true` 라 애초에 여기 오지 않는다
+ *
+ * 보존한 값이 데이터보다 이르면 그건 **재처리가 만든 문제가 아니라 이미 있던 문제**다.
+ * 재처리가 시각을 지어내 덮으면 그 사실이 감사에서 사라진다. 감사가 잡게 둔다.
  */
 export function resolveGeneratedAt(
   previous: string | null | undefined,
   candidate: string,
-  fresh: boolean,
-  lastDate?: string | null
+  fresh: boolean
 ): string {
   if (fresh) return candidate;
-  if (!previous) return candidate;
-  // 보존이 기본이지만, 데이터가 기록된 시각보다 새로우면 그대로 둘 수 없다.
-  // 수집 시각이 최신 기사보다 이르면 감사가 meta.generatedAt.beforeData 로 잡는다.
-  // 재처리라도 실제로 새 기사를 승격했다면 그건 수집이 있었다는 뜻이다.
-  if (lastDate && previous.slice(0, 10) < lastDate) return candidate;
-  return previous;
+  return previous || candidate;
 }

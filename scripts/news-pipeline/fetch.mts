@@ -1,6 +1,6 @@
 import fs from 'node:fs';
-import { CONFIG, PERSON_ALIASES } from './config.mts';
-import { isAllowedSource as isAllowed } from './core.mts';
+import { CONFIG, PERSON_ALIASES, SOURCE_HOSTS } from './config.mts';
+import { isAllowedSource as isAllowed, resolveSourceName } from './core.mts';
 
 export interface Person {
   id: string;
@@ -119,13 +119,22 @@ export async function fetchAllArticles(): Promise<Article[]> {
     if (!title || title.length < 20) return;
     const ts = pubDate ? new Date(pubDate).getTime() : NaN;
     if (!Number.isNaN(ts) && ts < cutoff) return;
-    if (link.includes('news.google.com') && !isAllowedSource(sourceUrl, sourceName)) return;
+    // **정본 이름으로 먼저 바꾼다.** 그다음에 판정하고, 그 이름을 저장한다.
+    // 호스트 형태로 온 이름을 그대로 저장하면 수집은 통과하고 감사는 떨어뜨린다 —
+    // 같은 함수가 입력이 달라 반대 답을 내고, 그날 수집분이 커밋 직전에 버려진다.
+    const resolved = resolveSourceName(
+      sourceName,
+      sourceUrl || link,
+      CONFIG.allowedSourceNames,
+      SOURCE_HOSTS
+    );
+    if (link.includes('news.google.com') && !isAllowedSource(sourceUrl, resolved)) return;
     const key = dedupeKey({ title });
     if (byKey.has(key)) return;
     byKey.set(key, {
       url: link || sourceUrl,
       title,
-      source: sourceName || new URL(link.startsWith('http') ? link : 'https://x.invalid').hostname,
+      source: resolved || new URL(link.startsWith('http') ? link : 'https://x.invalid').hostname,
       date: Number.isNaN(ts) ? new Date().toISOString().slice(0, 10) : new Date(ts).toISOString().slice(0, 10),
       people: [],
     });

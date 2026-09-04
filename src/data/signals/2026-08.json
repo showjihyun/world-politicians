@@ -139,7 +139,8 @@
    "confidence": 0.9,
    "summary_en": "Gov. Shapiro and RFK Jr. clash publicly over measles-linked deaths in Pennsylvania.",
    "summary_ko": "샤피로 펜실베이니아 주지사와 RFK 주니어가 홍역 관련 사망자를 두고 공개 설전을 벌였다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-96dd9eb2",
@@ -519,7 +520,8 @@
    "confidence": 0.9,
    "summary_en": "Hegseth seeks to punish Senator Mark Kelly again over his military service comments.",
    "summary_ko": "헤그세스 국방장관이 마크 켈리 상원의원의 군 관련 발언을 문제 삼아 재차 징계를 추진하고 있다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-792c665d",
@@ -619,7 +621,8 @@
    "confidence": 0.9,
    "summary_en": "Barack Obama criticizes Donald Trump's racist video post as deeply troubling to most Americans.",
    "summary_ko": "버락 오바마가 도널드 트럼프의 인종차별적 동영상 게시물을 대다수 미국인이 '깊이 우려한다'고 비판함.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-2ba9c2ec",
@@ -759,7 +762,8 @@
    "confidence": 0.85,
    "summary_en": "Senator Adam Schiff launches probe into Freedom250 group selling access to Donald Trump for donations.",
    "summary_ko": "애덤 시프 상원의원이 기부 대가로 트럼프 접근권을 판매한 '프리덤250' 단체 조사에 착수함.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-6988d132",
@@ -780,6 +784,26 @@
    "summary_en": "Jeffries defends meeting with Kushner while vowing strict oversight of Trump.",
    "summary_ko": "제프리스가 쿠슈너와의 회동을 옹호하면서도 트럼프에 대한 강력한 감독을 다짐했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-77e8e2d2",
+   "date": "2026-08-25",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9rSkdFUnRvNUR1eC1CVVBxNk4yRGxlckxnLXpVX3JhbGo4NU40ZDBmYjFpMXRKTjR3TmhUYktLU2w2RlI4djNZdHV1T3hhWnd1WUhWaG1B?oc=5",
+   "title": "James Carville unloads on Rep. Hakeem Jeffries over private sit-down with key Trump insider - Fox News",
+   "people": [
+    "trump",
+    "jeffries"
+   ],
+   "classified": true,
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Carville attacks Jeffries for a private meeting with a key Trump insider.",
+   "summary_ko": "카빌이 제프리스의 트럼프 핵심 측근과의 비공개 회동을 강하게 비판했다.",
+   "pair": [
+    "jeffries",
+    "trump"
+   ]
   },
   {
    "id": "sig-42b9211e",
@@ -943,6 +967,46 @@
    "classified": true
   },
   {
+   "id": "sig-6af8a729",
+   "date": "2026-08-24",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5mU0ZxakpLTzNhSzE2VVNxRElxbjM2eVgtd1IzYlU4NEc4bVFMMHJvZ0ZkYVFBTkpnSFB4Y2tUUjBaaEl3bVF0alFHRjJuRVExc1VhNTFKdi0zOHhLSXdoT0xOcHZnTWx2ajlzVlNjQlRxSERLRWMxTUlxUzI3ZUU?oc=5",
+   "title": "Vance asks Mainers to vote Republican — as Trump ups the trade war with Canada - Politico",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Vance campaigns for Republicans in Maine while Trump escalates the trade war with Canada, showing coordinated messaging.",
+   "summary_ko": "밴스가 메인주에서 공화당 지지를 호소하는 동안 트럼프가 대캐나다 무역 전쟁을 확대하며 조율된 메시지를 발신했다.",
+   "pair": [
+    "trump",
+    "vance"
+   ]
+  },
+  {
+   "id": "sig-9aaae681",
+   "date": "2026-08-24",
+   "source": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZHBZd3V0b2sySFhUajY0b2NBeVcwZzFLdGpNMENHWGRyMHEtX0NqYi1fUXU2a1E4UGVqS25vS3hpTkd2MW5xLVRtTi1pSnZ3R1VpZDBxY1lLLW9WbEdKdzFZbTlzbjZMRlJGQmt1OS1kTlBpZkhkbVJXYWd4elhfRTV5SENBRG80WHlhbURPeGZRYWt5TmxoN0FlSHVZb2QweFJlQWtkemoyQnRhak5ncnl6S29SWHdadjRUamdRdw?oc=5",
+   "title": "Trump bought shares in Elon Musk's SpaceX in June, financial disclosure shows - Reuters",
+   "people": [
+    "trump",
+    "musk"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Financial disclosure shows Trump bought shares in Musk's SpaceX in June.",
+   "summary_ko": "재무 공개 내역에 따르면 트럼프가 6월 머스크의 스페이스X 주식을 매입한 것으로 나타났다.",
+   "pair": [
+    "musk",
+    "trump"
+   ]
+  },
+  {
    "id": "sig-688c0d",
    "date": "2026-08-23",
    "source": "Fox News",
@@ -1001,6 +1065,26 @@
    "summary_en": "Jeffries meets with Kushner to discuss potential cooperation between Democrats and Trump.",
    "summary_ko": "제프리스가 쿠슈너와 만나 민주당과 트럼프 간 협력 방안을 논의했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-c918d1f0",
+   "date": "2026-08-23",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdlh0SDgycnRtLUFJd19rOU5TSGNDb0cwdGJ5MXdfSzhESEhncFA2NldGRTRhTHl6OWlEcE5TbnEwX3JNQWpwLTFEbng3TGUyWjFBTXNjQ2x0SnlDcUFwVEZjdjNyN0IxbUJneEc0Nkc0RG9wNVUwZG9USXFWM08wQ3BUOUNRV21KV25WMFVKZHlvZHhCT1VqaEN5cm41OXluaVNuTWVwOFRVTm10ZHMyYnQ1Vi0wbHYtWktnMtIBwgFBVV95cUxNdEVrQlA2Sm1KRC1MSzZXcy1SZGJkS2d0dlA3OEFaNVNBZFQwUDNMT2ZZeWEwczdISUx2Q2lpSnlVeVlRdzJhcDF1SXNIRDNQMnUzUmhqMkxCblRRby1EMFRjQVZLRXhpR3dIaVhDMFpLUTlFMUZFOW5kbHgyS3lEUzBhM09kblp1VkZnS1pfLUFxcnhxRHhHb2Z4M3BNWkJwcHZ5THJqUkJnUFpuNzZKTjJPVVhDeFZ6ekh5Z3JYbld0dw?oc=5",
+   "title": "El-Sayed under fire online after taking aim at Usha Vance, female Trump aide in weekend social media posts - Fox News",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Vance and a female Trump aide are defended after online attacks, showing internal solidarity.",
+   "summary_ko": "온라인 공격에 직면한 밴스 부인과 트럼프 여성 보좌관을 옹호하며 내부 결속을 과시했다.",
+   "pair": [
+    "trump",
+    "vance"
+   ]
   },
   {
    "id": "sig-2ffdb541",
@@ -1180,7 +1264,8 @@
    "confidence": 0.99,
    "summary_en": "AOC backs fellow Green New Deal sponsor Markey in his Senate race.",
    "summary_ko": "AOC가 그린 뉴딜 공동 발의자인 마키의 상원 선거를 지지했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "Politico"
   },
   {
    "id": "sig-2dbadcc3",
@@ -1240,7 +1325,8 @@
    "confidence": 0.95,
    "summary_en": "AOC endorses fellow Green New Deal sponsor Ed Markey.",
    "summary_ko": "AOC가 그린 뉴딜 공동 발의자인 에드 마키를 지지한다.",
-   "classified": true
+   "classified": true,
+   "outlet": "Politico"
   },
   {
    "id": "sig-945f5d73",
@@ -1282,6 +1368,26 @@
    "summary_en": "Vice President Vance attacks AOC in a TikTok video.",
    "summary_ko": "밴스 부통령이 틱톡 영상에서 AOC를 강하게 비판했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-4dfa5e5c",
+   "date": "2026-08-20",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNakRaWDRDQ3FzTk5GdloySlpCZkg0Sjh0M1JjWmVmenZqNVJsWkdabWlpSHhRWW9NVUxlbnFtdVhBT3Q5OTVFcHgzblZuZWhuWTBuYTByLUdWLWlOZjE2MWJJUXFoS1laVFkzZ2Q4bktiQ3psbGtFaFNJd01Fc0t5UXJKS2RPVUIyQ1JkZ0EzUEd4RUotXzMxQzBIQ09acHhxa2Zodm9oTDJvaWNrNERCRGlEU2QwY1pCcVHSAb8BQVVfeXFMT3ZBOW9OcWxaWXMzNklpVXB4b3NPRF9YMEx5b3pXR2NTc1RKSW5WM0JUODBZUGhWa3dfc0dqTFlQandKaW92eGlHUGlpUlBabUZDbGo0eHBpTmRQMTZUYzJzZXQyZ0NGZFBrai1mS01nOG1UdTlFRm14eUlpQVpacmRfQkYzTC1nTGFUYXV2NEowejU3T1ZBZzVUaHZoaWVaNW1sc0pWcnFTQU5TVmx5SEhQZENpQVBlaV9xUG1maWM?oc=5",
+   "title": "Obama strategist turns on rising Dem star over viral Trump attack: 'Gratuitous and unnecessary' - Fox News",
+   "people": [
+    "trump",
+    "obama"
+   ],
+   "classified": true,
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "An Obama strategist criticizes a rising Democrat for attacking Trump unnecessarily.",
+   "summary_ko": "오바마 측 전략가가 떠오르는 민주당 스타의 불필요한 트럼프 공격을 비판했습니다.",
+   "pair": [
+    "obama",
+    "trump"
+   ]
   },
   {
    "id": "sig-1d572874",
@@ -1442,6 +1548,46 @@
    "summary_en": "Ossoff's jab at Trump sparks a White House media frenzy.",
    "summary_ko": "오소프의 트럼프 조롱 발언이 백악관 언론 공방을 촉발했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-356e33dd",
+   "date": "2026-08-19",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWHpHZjFsTHJMZUlYYS1xak1NYnN5OWpmX0I5clNrUXJZSWIwbzdDdld2bnFuazl2M2hXemFTdjBDenk3dHgyT2RXenpRQS1UZXhOekpaRExYc29UVWxjdEdLaDNMUnZCQi1ZLU1xUGh6Rm1GMTctWF9PbUVWYm5pN2J5eWl6MWFDVjRHQTNxQVZhTHg5T3NOWNIBngFBVV95cUxQOXg2dVEwN3VQYjJod2pxbHdGZVlJeWYwWDBScnhDbkJGZzlrbkEwTWJ2ZklFOW9vVWk5YkU1eVVzZE1UWVBReUlIYzB1d21Pc3RXRVFtS2VDYTcyVW1SSU9wZFZPbUxVTm91NzB1TzczS19WOTFaSDNIOEZPWjE5T1ZXZTVCdWZ3bnJHN2dJR2c1TTZ3bGYxTGN3S2REUQ?oc=5",
+   "title": "Rick Scott: Trump will have to resume full war with Iran - The Hill",
+   "people": [
+    "trump",
+    "rick-scott"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Senator Rick Scott predicts Trump will resume full-scale war with Iran, supporting a hardline stance.",
+   "summary_ko": "릭 스콧 상원의원이 트럼프가 이란과의 전면전을 재개할 것이라고 예측하며 강경 노선을 지지했습니다.",
+   "pair": [
+    "rick-scott",
+    "trump"
+   ]
+  },
+  {
+   "id": "sig-995a23f5",
+   "date": "2026-08-19",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRTZUbG95SGNrZjZkR3huRVNQU1gyUmwwd250djM3b3RaODVtbElQdnlTN1BxT3ZiTjhKUi1IVy03eDhjT2VSbU9yQmlKcG1HQ1JKN0hlS2l6WDlBbXZhRzJ3bktGVWJ1YUp4Nkg5MGUxaFNWVHhoTzJob2VIXzFIWDJtTVNZUFVraU02U2twcDJLckMwZmtBV3phdlVDMHNXRVE?oc=5",
+   "title": "Trump ‘is going to have to’ escalate Iran war: Rick Scott - Washington Examiner",
+   "people": [
+    "trump",
+    "rick-scott"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Rick Scott states Trump will have to escalate military action against Iran, aligning with administration pressure.",
+   "summary_ko": "릭 스콧이 트럼프가 이란과의 전쟁을 확대해야 할 것이라고 발언하며 행정부 입장에 동조했습니다.",
+   "pair": [
+    "rick-scott",
+    "trump"
+   ]
   },
   {
    "id": "sig-b0b609c9",
@@ -1704,6 +1850,26 @@
    "classified": true
   },
   {
+   "id": "sig-19ecd316",
+   "date": "2026-08-18",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZ0N6NlRfTlVwRzVvYU1yUUdRZXFLSS1waEhRUXZXckNJMDJFOWJDeENMNDlmR3hoVXV0c3NjaGxBTnh3dUVJNms5X2thcE9feGlUOG9vRml0bjdISGlNenBxb2RMR2kyVlB0ZzRVb3oyN2FsUHFvaUVUMjVwaFpfN2p0MUdnYW9hMkgtU1I3VjBOdjVZYVdTVndCb3NzTl9ieTdsZlhzSdIBrAFBVV95cUxPSmMwVXg4dVJ0N3czMlVsQXd2Yno0WDMtVVdOX014OWY3eWtKcjFIYzN3X09EUkptNVQ1UF9RSWhkQ1NKeW5hOC1HdUo4aEdtbk1FNEpyYjExQ010aGN3SDFfdmdYU09NLV82WmRmTy1SME93d2lCWDFZMXFuUEdNWF9hMVJ3QzZ2RjNLWVJCMWFxelg3emVkSFFsWnpPSGZ4X2tudEZFc0tqcXZk?oc=5",
+   "title": "Republican who kicked Liz Cheney out of Congress seeks higher office in reddest state - Fox News",
+   "people": [
+    "dick-cheney",
+    "liz-cheney"
+   ],
+   "classified": true,
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "The Republican who ousted Liz Cheney from Congress now seeks higher office in Wyoming.",
+   "summary_ko": "리즈 체니를 축출한 공화당 의원이 와이오밍에서 상위 직책을 노리고 나섰다.",
+   "pair": [
+    "dick-cheney",
+    "liz-cheney"
+   ]
+  },
+  {
    "id": "sig-cfd2dbb4",
    "date": "2026-08-17",
    "source": "Fox News",
@@ -1921,7 +2087,8 @@
    "confidence": 0.85,
    "summary_en": "Trump publicly contradicts Vance, stating nuclear threat outranks oil prices in Iran policy.",
    "summary_ko": "트럼프가 밴스와 공개적으로 엇갈리며, 이란 정책에서 핵 위협이 유가보다 최우선이라고 밝혔습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-fb95ed80",
@@ -2121,7 +2288,8 @@
    "confidence": 0.95,
    "summary_en": "Sen. Cassidy describes Trump's vaccine executive order as 'just a stupid thing to do.'",
    "summary_ko": "캐시디 상원의원이 트럼프의 백신 행정명령을 '단순히 멍청한 짓'이라고 표현했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-c9cb0669",
@@ -2161,7 +2329,8 @@
    "confidence": 0.85,
    "summary_en": "Sen. Cassidy criticizes Trump's vaccine executive order on ABC News.",
    "summary_ko": "캐시디 상원의원이 ABC 뉴스에서 트럼프의 백신 행정명령을 비판했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-650f2f3f",
@@ -2201,7 +2370,8 @@
    "confidence": 0.9,
    "summary_en": "Sen. Ruben Gallego blames Trump administration for poor conditions aboard USS Lincoln.",
    "summary_ko": "루벤 갈레고 상원의원이 USS 링컨함의 열악한 상황을 트럼프 행정부 탓으로 돌렸습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-ef19180a",
@@ -2281,7 +2451,8 @@
    "confidence": 0.9,
    "summary_en": "Senator Warren demands answers from RFK Jr. over his 'calamitous' response to a cyclosporiasis outbreak.",
    "summary_ko": "워런 상원의원이 RFK 주니어의 사이클로스포라증 발병 대응을 '재앙적'이라 비판하며 해명을 요구했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-3e496507",
@@ -2624,6 +2795,46 @@
    "summary_en": "Pelosi denies awareness of Biden's decline and says those who knew should have acted.",
    "summary_ko": "펠로시가 바이든의 쇠퇴를 인지하지 못했다며 알았던 이들이 행동했어야 한다고 주장했다.",
    "classified": true
+  },
+  {
+   "id": "sig-5f5d49a4",
+   "date": "2026-08-12",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeUU5TlBEYnVfQ2g0V3VIRWtkVHhMOHNfV0ZDeDNZQ2hvY1NIaWljUkJydE1naFpla2pST21nTGtyeHdnaXdJY0I2UG9JX0V5TnpPNmhRV1E4STFvQjBUTVVpaFhNMjRRNmVnX0VSZFA4aUViV0ZTU1dZaUh5ZHlmODRCcWR6bnpEUWpJX0l6a0xCa05tZEFNc2MtNDdzbGs?oc=5",
+   "title": "Rubio and Bessent stayed on decoy flight from Turkey as Trump switched planes, official says - AP News",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.75,
+   "summary_en": "Rubio stayed on decoy flight from Turkey as Trump switched planes, showing coordination.",
+   "summary_ko": "트럼프가 전용기 교체 시 루비오가 터키발 미끼 비행기에 남아 협조함.",
+   "pair": [
+    "rubio",
+    "trump"
+   ]
+  },
+  {
+   "id": "sig-d4da3b7d",
+   "date": "2026-08-12",
+   "source": "The New York Times",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE92dTl0THFwbG55TmtyeTZkZDhsUGsxczd4akx3a1g4Q18wRGh4ZXhtY3VSaVNkcmR2STR0bk54dXBqYUFEb0p4cnhLdzNsRFh2YU5EV0xlbFpodFpWR2ZKQ0RST2k3bzN0NkhvNE5FejMwZ1pydGdyOFVR?oc=5",
+   "title": "Opinion | I Was Dick Cheney’s Cardiologist. Trump Has Not Looked Well, and We Should Know Why. - The New York Times",
+   "people": [
+    "trump",
+    "dick-cheney"
+   ],
+   "classified": true,
+   "polarity": "feud",
+   "confidence": 0.75,
+   "summary_en": "Cheney's former cardiologist questions Trump's health in op-ed, implying unfitness.",
+   "summary_ko": "체니 전 부통령의 주치의가 칼럼에서 트럼프 건강 상태를 문제 삼으며 부적격 시사.",
+   "pair": [
+    "dick-cheney",
+    "trump"
+   ]
   },
   {
    "id": "sig-61671bf0",
@@ -3489,6 +3700,26 @@
    "classified": true
   },
   {
+   "id": "sig-f3990a6a",
+   "date": "2026-08-06",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNXzd3MnJYUU1ENGc1UGdvNUFKc0pCdUtjMG5pUmRGMUp3V1U3S29JcFNqUTY4ZjZ1cjJ2d0JSSFFnMmt5RDQwd0V1VUF0SDlzUWxTMms1bXBBN1M3WkY1OVlzaUV2NVdia2g5dWd0OEFkUFl5ZFFyNURCSFFUbmtveUNMU2E5RF9oZlRBcEpMNjdnR0NmWDRNWElHR0tUUURXRzljbmNxdDdFVE03djY5aVhJNTJpcHFKdWZZVS0yMFJmUQ?oc=5",
+   "title": "3 Republicans endorse Jon Ossoff in Georgia Senate race as Mike Collins faces scrutiny - CBS News",
+   "people": [
+    "collins-susan",
+    "ossoff"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.75,
+   "summary_en": "Three Republicans, including Susan Collins, endorse Jon Ossoff in the Georgia Senate race.",
+   "summary_ko": "수전 콜린스를 포함한 공화당 의원 3명이 조지아 상원 선거에서 존 오소프를 지지했습니다.",
+   "pair": [
+    "collins-susan",
+    "ossoff"
+   ]
+  },
+  {
    "id": "sig-5a97f5e",
    "date": "2026-08-05",
    "source": "NBC News",
@@ -3607,6 +3838,46 @@
    "summary_en": "Schiff presses Trump's judicial nominees on the 2020 election results, challenging Trump's narrative.",
    "summary_ko": "시프가 트럼프의 사법부 지명자들에게 2020년 대선 결과를 압박하며 트럼프의 주장을 정면으로 반박했다.",
    "classified": true
+  },
+  {
+   "id": "sig-26b571f0",
+   "date": "2026-08-05",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYVJoSzAzRHRQbWZoYmxYYUxIeDYzNmlHOWZxYkpOZ3MzbV9fSjRxQmdTTTlJZW5hSVM1Q3JSdmNqVnhjeFgtUDVMbVJjWWVsOFlldGU5OFRnZllFVzA5dGFNTXg2Q3BtQmhNNkVpNTl6NUlCVUlJVURSQk5RMDZqdmdDSExhU0tUb2RvQnQ0RHkxQ1JlSGdvSmZPcWM1SzZpZC1wcndKcnVqeWJXNkHSAbMBQVVfeXFMT2JTWjVROWFzRjJ5cE5aQlJYcUJ2amtVMDhWUFFlRVRaUTNOY2Mwai1zYjIwOG1rd0pWMVc4WlFQZWJBaVRRWERiU3ZYTjg3Zm9iQUhuV1JFQ21TcEx2QWRGU2MtWDZsT0ZPck9TTWx5TGxrR0FKRVpqVUZDSUtjRERRYTVrRG5hTWVQc05kMVo3eXpqNXNZTDFuZjlqQ0tYWTVIaHB2VkNDTHlqWFQza0NHY3M?oc=5",
+   "title": "McConnell's absence puts Trump agenda at risk as Kentucky succession questions grow - Fox News",
+   "people": [
+    "trump",
+    "mcconnell"
+   ],
+   "classified": true,
+   "polarity": "feud",
+   "confidence": 0.7,
+   "summary_en": "McConnell's absence puts Trump's agenda at risk amid Kentucky succession questions.",
+   "summary_ko": "매코넬의 부재로 켄터키 승계 문제가 불거지며 트럼프의 의제가 위험에 처했습니다.",
+   "pair": [
+    "mcconnell",
+    "trump"
+   ]
+  },
+  {
+   "id": "sig-e6647637",
+   "date": "2026-08-05",
+   "source": "Axios",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1kQWhWdEJIMm5DS3NVR3R3Qm4tV1RrOXVXdVNtNEFCeHRiWTIwMkJ5QzAyNG9IUDMxTUZKbFpTeUs2UFZfWVBWZ2dFVzRqWmRkSHllSGZOd1oya05BWk55WWlka1RzUG1tVzJTODFLMTlvdUoxUFM2eU9samo?oc=5",
+   "title": "Trump's golden age reality check - Axios",
+   "people": [
+    "trump",
+    "golden-jared"
+   ],
+   "classified": true,
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Axios examines Trump's 'golden age' narrative alongside Jared Kushner's influence.",
+   "summary_ko": "악시오스가 트럼프의 '황금기' 서사와 재러드 쿠슈너의 영향력을 함께 조명합니다.",
+   "pair": [
+    "golden-jared",
+    "trump"
+   ]
   },
   {
    "id": "sig-77f686bc",
@@ -4108,7 +4379,8 @@
    "confidence": 0.7,
    "summary_en": "Red-state Democrats distance themselves from Biden and Harris to improve electoral prospects.",
    "summary_ko": "레드스테이트 민주당 후보들이 당선 가능성을 높이기 위해 바이든과 해리스와 거리를 두고 있다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-7ae80148",
@@ -4140,7 +4412,15 @@
     "biden",
     "harris"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.8,
+   "summary_en": "Iowa Democratic gubernatorial candidate declines campaign support from Biden and Harris.",
+   "summary_ko": "아이오와 민주당 주지사 후보가 바이든과 해리스의 선거 지원을 원하지 않는다고 밝혔다.",
+   "pair": [
+    "biden",
+    "harris"
+   ]
   },
   {
    "id": "sig-98d40b30",
@@ -4152,19 +4432,15 @@
     "vance",
     "obama"
    ],
-   "classified": false
-  },
-  {
-   "id": "sig-77e8e2d2",
-   "date": "2026-08-25",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9rSkdFUnRvNUR1eC1CVVBxNk4yRGxlckxnLXpVX3JhbGo4NU40ZDBmYjFpMXRKTjR3TmhUYktLU2w2RlI4djNZdHV1T3hhWnd1WUhWaG1B?oc=5",
-   "title": "James Carville unloads on Rep. Hakeem Jeffries over private sit-down with key Trump insider - Fox News",
-   "people": [
-    "trump",
-    "jeffries"
-   ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "An opinion piece compares JD Vance's political trajectory to Barack Obama's rise.",
+   "summary_ko": "칼럼에서 JD 밴스의 정치적 행보를 버락 오바마의 부상과 비교했다.",
+   "pair": [
+    "obama",
+    "vance"
+   ]
   },
   {
    "id": "sig-7673d66b",
@@ -4185,30 +4461,6 @@
    "summary_en": "Ted Cruz states the GOP has not yet coalesced behind JD Vance for the 2028 nomination.",
    "summary_ko": "테드 크루즈는 공화당이 아직 2028년 대선 후보로 JD 밴스에게 결집하지 않았다고 밝혔습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-6af8a729",
-   "date": "2026-08-24",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5mU0ZxakpLTzNhSzE2VVNxRElxbjM2eVgtd1IzYlU4NEc4bVFMMHJvZ0ZkYVFBTkpnSFB4Y2tUUjBaaEl3bVF0alFHRjJuRVExc1VhNTFKdi0zOHhLSXdoT0xOcHZnTWx2ajlzVlNjQlRxSERLRWMxTUlxUzI3ZUU?oc=5",
-   "title": "Vance asks Mainers to vote Republican — as Trump ups the trade war with Canada - Politico",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-9aaae681",
-   "date": "2026-08-24",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZHBZd3V0b2sySFhUajY0b2NBeVcwZzFLdGpNMENHWGRyMHEtX0NqYi1fUXU2a1E4UGVqS25vS3hpTkd2MW5xLVRtTi1pSnZ3R1VpZDBxY1lLLW9WbEdKdzFZbTlzbjZMRlJGQmt1OS1kTlBpZkhkbVJXYWd4elhfRTV5SENBRG80WHlhbURPeGZRYWt5TmxoN0FlSHVZb2QweFJlQWtkemoyQnRhak5ncnl6S29SWHdadjRUamdRdw?oc=5",
-   "title": "Trump bought shares in Elon Musk's SpaceX in June, financial disclosure shows - Reuters",
-   "people": [
-    "trump",
-    "musk"
-   ],
-   "classified": false
   },
   {
    "id": "sig-e39a8691",
@@ -4269,18 +4521,6 @@
    "summary_en": "Donalds comments on Kushner's meeting with Jeffries, describing it as keeping communication open.",
    "summary_ko": "도널즈가 쿠슈너의 제프리스 만남을 '소통 창구 유지' 차원이라고 평가했습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-c918d1f0",
-   "date": "2026-08-23",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdlh0SDgycnRtLUFJd19rOU5TSGNDb0cwdGJ5MXdfSzhESEhncFA2NldGRTRhTHl6OWlEcE5TbnEwX3JNQWpwLTFEbng3TGUyWjFBTXNjQ2x0SnlDcUFwVEZjdjNyN0IxbUJneEc0Nkc0RG9wNVUwZG9USXFWM08wQ3BUOUNRV21KV25WMFVKZHlvZHhCT1VqaEN5cm41OXluaVNuTWVwOFRVTm10ZHMyYnQ1Vi0wbHYtWktnMtIBwgFBVV95cUxNdEVrQlA2Sm1KRC1MSzZXcy1SZGJkS2d0dlA3OEFaNVNBZFQwUDNMT2ZZeWEwczdISUx2Q2lpSnlVeVlRdzJhcDF1SXNIRDNQMnUzUmhqMkxCblRRby1EMFRjQVZLRXhpR3dIaVhDMFpLUTlFMUZFOW5kbHgyS3lEUzBhM09kblp1VkZnS1pfLUFxcnhxRHhHb2Z4M3BNWkJwcHZ5THJqUkJnUFpuNzZKTjJPVVhDeFZ6ekh5Z3JYbld0dw?oc=5",
-   "title": "El-Sayed under fire online after taking aim at Usha Vance, female Trump aide in weekend social media posts - Fox News",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "classified": false
   },
   {
    "id": "sig-107c2af6",
@@ -4363,18 +4603,6 @@
    "classified": true
   },
   {
-   "id": "sig-4dfa5e5c",
-   "date": "2026-08-20",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNakRaWDRDQ3FzTk5GdloySlpCZkg0Sjh0M1JjWmVmenZqNVJsWkdabWlpSHhRWW9NVUxlbnFtdVhBT3Q5OTVFcHgzblZuZWhuWTBuYTByLUdWLWlOZjE2MWJJUXFoS1laVFkzZ2Q4bktiQ3psbGtFaFNJd01Fc0t5UXJKS2RPVUIyQ1JkZ0EzUEd4RUotXzMxQzBIQ09acHhxa2Zodm9oTDJvaWNrNERCRGlEU2QwY1pCcVHSAb8BQVVfeXFMT3ZBOW9OcWxaWXMzNklpVXB4b3NPRF9YMEx5b3pXR2NTc1RKSW5WM0JUODBZUGhWa3dfc0dqTFlQandKaW92eGlHUGlpUlBabUZDbGo0eHBpTmRQMTZUYzJzZXQyZ0NGZFBrai1mS01nOG1UdTlFRm14eUlpQVpacmRfQkYzTC1nTGFUYXV2NEowejU3T1ZBZzVUaHZoaWVaNW1sc0pWcnFTQU5TVmx5SEhQZENpQVBlaV9xUG1maWM?oc=5",
-   "title": "Obama strategist turns on rising Dem star over viral Trump attack: 'Gratuitous and unnecessary' - Fox News",
-   "people": [
-    "trump",
-    "obama"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-a873c8bf",
    "date": "2026-08-20",
    "source": "The New York Times",
@@ -4384,7 +4612,15 @@
     "trump",
     "golden-jared"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.5,
+   "summary_en": "Trump announces a new 'Golden Age of Space Transportation' policy.",
+   "summary_ko": "트럼프가 '우주 수송의 황금기'를 위한 새 정책을 발표했습니다.",
+   "pair": [
+    "golden-jared",
+    "trump"
+   ]
   },
   {
    "id": "sig-108f4e0",
@@ -4396,7 +4632,15 @@
     "vance",
     "rubio"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Poll shows Rubio outperforming Vance in hypothetical 2028 match-ups.",
+   "summary_ko": "여론조사에서 루비오가 2028년 가상 대결에서 밴스를 앞서는 것으로 나타났다.",
+   "pair": [
+    "rubio",
+    "vance"
+   ]
   },
   {
    "id": "sig-57efcd3c",
@@ -4409,31 +4653,15 @@
     "rubio",
     "buttigieg"
    ],
-   "classified": false
-  },
-  {
-   "id": "sig-356e33dd",
-   "date": "2026-08-19",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWHpHZjFsTHJMZUlYYS1xak1NYnN5OWpmX0I5clNrUXJZSWIwbzdDdld2bnFuazl2M2hXemFTdjBDenk3dHgyT2RXenpRQS1UZXhOekpaRExYc29UVWxjdEdLaDNMUnZCQi1ZLU1xUGh6Rm1GMTctWF9PbUVWYm5pN2J5eWl6MWFDVjRHQTNxQVZhTHg5T3NOWNIBngFBVV95cUxQOXg2dVEwN3VQYjJod2pxbHdGZVlJeWYwWDBScnhDbkJGZzlrbkEwTWJ2ZklFOW9vVWk5YkU1eVVzZE1UWVBReUlIYzB1d21Pc3RXRVFtS2VDYTcyVW1SSU9wZFZPbUxVTm91NzB1TzczS19WOTFaSDNIOEZPWjE5T1ZXZTVCdWZ3bnJHN2dJR2c1TTZ3bGYxTGN3S2REUQ?oc=5",
-   "title": "Rick Scott: Trump will have to resume full war with Iran - The Hill",
-   "people": [
-    "trump",
-    "rick-scott"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-995a23f5",
-   "date": "2026-08-19",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRTZUbG95SGNrZjZkR3huRVNQU1gyUmwwd250djM3b3RaODVtbElQdnlTN1BxT3ZiTjhKUi1IVy03eDhjT2VSbU9yQmlKcG1HQ1JKN0hlS2l6WDlBbXZhRzJ3bktGVWJ1YUp4Nkg5MGUxaFNWVHhoTzJob2VIXzFIWDJtTVNZUFVraU02U2twcDJLckMwZmtBV3phdlVDMHNXRVE?oc=5",
-   "title": "Trump ‘is going to have to’ escalate Iran war: Rick Scott - Washington Examiner",
-   "people": [
-    "trump",
-    "rick-scott"
-   ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.6,
+   "summary_en": "Poll shows Buttigieg performs best against Vance or Rubio in a hypothetical 2028 matchup.",
+   "summary_ko": "여론조사에서 부티지지가 2028년 가상 대결 시 밴스나 루비오 상대로 가장 경쟁력 있는 것으로 나타났습니다.",
+   "pair": [
+    "buttigieg",
+    "vance"
+   ]
   },
   {
    "id": "sig-b32938d8",
@@ -4485,7 +4713,15 @@
     "trump",
     "biden"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.5,
+   "summary_en": "U.S. national debt surpasses $40 trillion after doubling under both Trump and Biden administrations.",
+   "summary_ko": "미국 국가 부채가 트럼프와 바이든 행정부에서 두 배로 늘어 40조 달러를 돌파했습니다.",
+   "pair": [
+    "biden",
+    "trump"
+   ]
   },
   {
    "id": "sig-753e793c",
@@ -4506,18 +4742,6 @@
    "summary_en": "Rep. Donalds says Trump's decision on campaigning together is up to Trump.",
    "summary_ko": "도널즈 하원의원이 트럼프와의 합동 유세 여부는 트럼프의 결정에 달렸다고 말했습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-19ecd316",
-   "date": "2026-08-18",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZ0N6NlRfTlVwRzVvYU1yUUdRZXFLSS1waEhRUXZXckNJMDJFOWJDeENMNDlmR3hoVXV0c3NjaGxBTnh3dUVJNms5X2thcE9feGlUOG9vRml0bjdISGlNenBxb2RMR2kyVlB0ZzRVb3oyN2FsUHFvaUVUMjVwaFpfN2p0MUdnYW9hMkgtU1I3VjBOdjVZYVdTVndCb3NzTl9ieTdsZlhzSdIBrAFBVV95cUxPSmMwVXg4dVJ0N3czMlVsQXd2Yno0WDMtVVdOX014OWY3eWtKcjFIYzN3X09EUkptNVQ1UF9RSWhkQ1NKeW5hOC1HdUo4aEdtbk1FNEpyYjExQ010aGN3SDFfdmdYU09NLV82WmRmTy1SME93d2lCWDFZMXFuUEdNWF9hMVJ3QzZ2RjNLWVJCMWFxelg3emVkSFFsWnpPSGZ4X2tudEZFc0tqcXZk?oc=5",
-   "title": "Republican who kicked Liz Cheney out of Congress seeks higher office in reddest state - Fox News",
-   "people": [
-    "dick-cheney",
-    "liz-cheney"
-   ],
-   "classified": false
   },
   {
    "id": "sig-de02216b",
@@ -4597,7 +4821,8 @@
    "confidence": 0.7,
    "summary_en": "Report details how $600B in Biden clean energy funding avoided Trump's budget cuts.",
    "summary_ko": "바이든 행정부의 6000억 달러 청정에너지 예산이 트럼프의 삭감 조치를 피한 경위가 보도되었습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "Politico"
   },
   {
    "id": "sig-30bd8c47",
@@ -4637,7 +4862,8 @@
    "confidence": 0.3,
    "summary_en": "Sen. Cassidy and Sen. Gallego appear together on a panel discussing the generational divide in the Democratic Party.",
    "summary_ko": "캐시디 상원의원과 갈레고 상원의원이 민주당 내 세대 격차를 논하는 패널에 함께 출연했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-548385d1",
@@ -4661,18 +4887,6 @@
    "classified": true
   },
   {
-   "id": "sig-80ee66d5",
-   "date": "2026-08-15",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZlBmOGloMmZfOGVaZDZSTlMtb2V6OEhLVkV0WmlPUURUMnhJaDlldDd2SmlTbWZYM0FsRzZsZnlIMk1kWEVHSU9mNjVVcndaNDBEdnZjU0pUaW5HRFVtNnlSaVpCX3M3QXhJR2VWQmtGMDk2SlZHdl8xT2l2eHR0SUw1MDZBc2pSTkJCR3RfX2s?oc=5",
-   "title": "How $600B of Biden’s clean energy funding escaped Trump’s cuts - Politico",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-ad7fcd41",
    "date": "2026-08-14",
    "source": "The Washington Post",
@@ -4682,7 +4896,15 @@
     "trump",
     "golden-jared"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.6,
+   "summary_en": "Trump reportedly wants to add golden seals to the White House ballroom decor.",
+   "summary_ko": "트럼프가 백악관 무도회장 장식에 금색 도장을 추가하려 한다는 보도입니다.",
+   "pair": [
+    "golden-jared",
+    "trump"
+   ]
   },
   {
    "id": "sig-22ffddf3",
@@ -4702,7 +4924,8 @@
    "confidence": 0.6,
    "summary_en": "Sens. Cassidy and Gallego appear together on a Sunday show panel.",
    "summary_ko": "캐시디와 갈레고 상원의원이 일요 시사 프로그램 패널로 함께 출연했습니다.",
-   "classified": true
+   "classified": true,
+   "outlet": "ABC News"
   },
   {
    "id": "sig-7c4821a1",
@@ -4723,42 +4946,6 @@
    "summary_en": "Rubio and Bessent remained on a decoy plane during Trump's Air Force One switch.",
    "summary_ko": "트럼프의 에어포스원 교체 당시 루비오와 베센트가 미끼 비행기에 남겨졌습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-c25d5118",
-   "date": "2026-08-13",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWXBmbU1oa3NhT1FfcnRKc1lHYUNYcEVQUWtLOVNxbFpzbEM0SjBfYkxyTWhEb2RoenJkaUlXS2Y1N3Z1TFBSVjdXWWJiMS1sdTZYRk5MUE9PcWk2Vy0zSG9ZNGVndnc0Sk9hdDRrYzI2cW1CZ1Y5TWdNTTFsLU1NNEkxaXlGTThMODktNVdXRF8yTkkyZ3NXS0FCX2dzOVFzXzJ5dGF6QWRDRDJtR0IwbTU5MnNqb25JSjdtYTZaYmHSAcYBQVVfeXFMTjkzeTVjRUxGVHVOUElEdlBoNDlySDd1Ym5uOEk3ZWVYV25tSm5CSnY4SXpzakRzZ0xJMGVCXy1aSHV2ZFFLSTNnbUswMTZEMzRmdUcxRVNsSVNTcW01dVNBeEg2S3VFeUxLeDRDUjJSZ2NhaDhwUThaNjlFNEFOZHd3U19HQ1VfUEpHa1dFM1l1bzVsZFNqMm84SFMwajNWaGtRQzg5ZlRmampxYkNyVnFPU3dxUWRMaFdsOUcwWVl4OWlkdFFB?oc=5",
-   "title": "Rubio, Bessent stayed on decoy plane after Trump switch: Reports - The Hill",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-5f5d49a4",
-   "date": "2026-08-12",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeUU5TlBEYnVfQ2g0V3VIRWtkVHhMOHNfV0ZDeDNZQ2hvY1NIaWljUkJydE1naFpla2pST21nTGtyeHdnaXdJY0I2UG9JX0V5TnpPNmhRV1E4STFvQjBUTVVpaFhNMjRRNmVnX0VSZFA4aUViV0ZTU1dZaUh5ZHlmODRCcWR6bnpEUWpJX0l6a0xCa05tZEFNc2MtNDdzbGs?oc=5",
-   "title": "Rubio and Bessent stayed on decoy flight from Turkey as Trump switched planes, official says - AP News",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-d4da3b7d",
-   "date": "2026-08-12",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE92dTl0THFwbG55TmtyeTZkZDhsUGsxczd4akx3a1g4Q18wRGh4ZXhtY3VSaVNkcmR2STR0bk54dXBqYUFEb0p4cnhLdzNsRFh2YU5EV0xlbFpodFpWR2ZKQ0RST2k3bzN0NkhvNE5FejMwZ1pydGdyOFVR?oc=5",
-   "title": "Opinion | I Was Dick Cheney’s Cardiologist. Trump Has Not Looked Well, and We Should Know Why. - The New York Times",
-   "people": [
-    "trump",
-    "dick-cheney"
-   ],
-   "classified": false
   },
   {
    "id": "sig-ca0e70b9",
@@ -4791,7 +4978,15 @@
     "aoc",
     "newsom"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Polymarket betting odds show AOC surpassing Newsom as 2028 Democratic presidential favorite.",
+   "summary_ko": "폴리마켓 베팅 배당률에서 AOC가 2028년 민주당 대선 주자 선호도 1위로 뉴섬 추월.",
+   "pair": [
+    "aoc",
+    "newsom"
+   ]
   },
   {
    "id": "sig-44a4c674",
@@ -4823,7 +5018,15 @@
     "trump",
     "rubio"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.6,
+   "summary_en": "Marco Rubio travels on a decoy plane from Turkey without Donald Trump.",
+   "summary_ko": "마르코 루비오가 도널드 트럼프 없이 터키에서 미끼 비행기로 이동합니다.",
+   "pair": [
+    "rubio",
+    "trump"
+   ]
   },
   {
    "id": "sig-bdc956c5",
@@ -4835,7 +5038,15 @@
     "trump",
     "graham"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Trump's influence is tested in the Republican race to succeed Lindsey Graham.",
+   "summary_ko": "린지 그레이엄 후임 공화당 경선에서 트럼프의 영향력이 시험대에 올랐습니다.",
+   "pair": [
+    "graham",
+    "trump"
+   ]
   },
   {
    "id": "sig-630c50e9",
@@ -4847,7 +5058,15 @@
     "trump",
     "obama"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.6,
+   "summary_en": "Trump is unmentioned but looms over Obama, Clinton, and Bush's new presidential essays.",
+   "summary_ko": "트럼프는 언급되지 않았지만 오바마, 클린턴, 부시의 새 대통령 에세이 속에 그림자처럼 드리워져 있습니다.",
+   "pair": [
+    "obama",
+    "trump"
+   ]
   },
   {
    "id": "sig-afd1f3e4",
@@ -4869,18 +5088,6 @@
    "summary_en": "Trump weighs Vance versus Rubio as potential 2028 successors, per donor meeting reports.",
    "summary_ko": "트럼프가 2028년 대권 후계자로 밴스와 루비오를 저울질하고 있다는 보도가 나왔다.",
    "classified": true
-  },
-  {
-   "id": "sig-f3990a6a",
-   "date": "2026-08-06",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNXzd3MnJYUU1ENGc1UGdvNUFKc0pCdUtjMG5pUmRGMUp3V1U3S29JcFNqUTY4ZjZ1cjJ2d0JSSFFnMmt5RDQwd0V1VUF0SDlzUWxTMms1bXBBN1M3WkY1OVlzaUV2NVdia2g5dWd0OEFkUFl5ZFFyNURCSFFUbmtveUNMU2E5RF9oZlRBcEpMNjdnR0NmWDRNWElHR0tUUURXRzljbmNxdDdFVE03djY5aVhJNTJpcHFKdWZZVS0yMFJmUQ?oc=5",
-   "title": "3 Republicans endorse Jon Ossoff in Georgia Senate race as Mike Collins faces scrutiny - CBS News",
-   "people": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "classified": false
   },
   {
    "id": "sig-efb15a1",
@@ -4932,7 +5139,15 @@
     "jeffries",
     "schumer"
    ],
-   "classified": false
+   "classified": true,
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Brazile cautions that Jeffries and Schumer will encounter a tough battle ahead to hold onto their leadership roles.",
+   "summary_ko": "브라질이 제프리스와 슈머가 지도부 직위를 지키기 위한 힘든 전투에 직면할 것이라고 경고했습니다.",
+   "pair": [
+    "jeffries",
+    "schumer"
+   ]
   },
   {
    "id": "sig-7485524c",
@@ -4973,30 +5188,6 @@
    "summary_en": "Donna Brazile warns that Schumer and Jeffries face a difficult fight to retain their Democratic leadership positions.",
    "summary_ko": "도나 브라질이 슈머와 제프리스가 민주당 지도부 유지를 위해 힘든 싸움을 벌여야 한다고 경고했습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-26b571f0",
-   "date": "2026-08-05",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYVJoSzAzRHRQbWZoYmxYYUxIeDYzNmlHOWZxYkpOZ3MzbV9fSjRxQmdTTTlJZW5hSVM1Q3JSdmNqVnhjeFgtUDVMbVJjWWVsOFlldGU5OFRnZllFVzA5dGFNTXg2Q3BtQmhNNkVpNTl6NUlCVUlJVURSQk5RMDZqdmdDSExhU0tUb2RvQnQ0RHkxQ1JlSGdvSmZPcWM1SzZpZC1wcndKcnVqeWJXNkHSAbMBQVVfeXFMT2JTWjVROWFzRjJ5cE5aQlJYcUJ2amtVMDhWUFFlRVRaUTNOY2Mwai1zYjIwOG1rd0pWMVc4WlFQZWJBaVRRWERiU3ZYTjg3Zm9iQUhuV1JFQ21TcEx2QWRGU2MtWDZsT0ZPck9TTWx5TGxrR0FKRVpqVUZDSUtjRERRYTVrRG5hTWVQc05kMVo3eXpqNXNZTDFuZjlqQ0tYWTVIaHB2VkNDTHlqWFQza0NHY3M?oc=5",
-   "title": "McConnell's absence puts Trump agenda at risk as Kentucky succession questions grow - Fox News",
-   "people": [
-    "trump",
-    "mcconnell"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-e6647637",
-   "date": "2026-08-05",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1kQWhWdEJIMm5DS3NVR3R3Qm4tV1RrOXVXdVNtNEFCeHRiWTIwMkJ5QzAyNG9IUDMxTUZKbFpTeUs2UFZfWVBWZ2dFVzRqWmRkSHllSGZOd1oya05BWk55WWlka1RzUG1tVzJTODFLMTlvdUoxUFM2eU9samo?oc=5",
-   "title": "Trump's golden age reality check - Axios",
-   "people": [
-    "trump",
-    "golden-jared"
-   ],
-   "classified": false
   },
   {
    "id": "sig-c4638ade",

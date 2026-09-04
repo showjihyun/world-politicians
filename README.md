@@ -13,7 +13,7 @@ directly from congressional bill records. A nightly pipeline that reads the poli
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Nightly news pipeline](https://img.shields.io/badge/news-refreshed%20nightly-34d399)
-![E2E](https://img.shields.io/badge/E2E-45%20checks-22d3ee)
+![E2E](https://img.shields.io/badge/E2E-87%20checks-22d3ee)
 
 ![POLARIS demo](docs/demo.gif)
 
@@ -32,7 +32,8 @@ The thesis it makes visible: modern U.S. politics is a **hub-and-spoke network**
 | **Relationship graph** | 2D canvas and 3D WebGL views of 101 figures across the executive branch, Senate, House, governorships, and non-elected power. Ctrl-drag to rotate in either mode. |
 | **Legend as filter** | The legend at bottom-left *is* the control. Toggle a relationship type and those edges vanish while any node left without a visible tie dims — so you see what was filtered, not just a thinner graph. |
 | **Live news wire** | Each profile shows recent articles that mention the person, classified by an LLM as alliance-leaning, feud-leaning, or neutral. |
-| **Relationship timeline** | Track two people and the ANALYSIS tab draws a month-by-month strip of their relationship polarity, marking the turning points. Trump × Musk shows the June 2025 blow-up and the January 2026 Mar-a-Lago reconciliation. |
+| **Relationship timeline** | Track two people and the ANALYSIS tab draws a month-by-month strip of their relationship polarity, marking the turning points. A pair gets one vote per day rather than one per article, a flip has to outweigh the other side 2:1 to land, and a month the outlets split on is hatched instead of recoloured. Trump × Musk shows the June 2025 blow-up and the January 2026 Mar-a-Lago reconciliation. |
+| **Source mix** | The insights panel breaks the whole archive down by outlet, names how concentrated it is, and says on the same line that polarity comes from the headline alone. |
 | **Guided stories** | Seven curated tours through structural patterns — the Mar-a-Lago gravity well, the GOP civil war, the Democratic generational fight, endangered bipartisan bridges. |
 | **Bilingual** | Every label, description, and LLM-generated summary exists in both English and Korean. The classifier writes both languages in a single pass. |
 | **Data recency, visible** | A badge shows the actual date range of the articles in the dataset and how long ago the pipeline last ran — green under 24h, amber under 3 days, red beyond. |
@@ -53,7 +54,7 @@ flowchart TB
         L(["NVIDIA NIM<br/>Nemotron"])
         F["3 · merge<br/>365-day rolling archive"]
         G["4 · validate<br/>schema + person-id integrity"]
-        H["5 · commit<br/>news-signals.json"]
+        H["5 · commit<br/>signals/YYYY-MM.json"]
     end
 
     subgraph B2["Browser — no runtime backend"]
@@ -77,7 +78,7 @@ The short version:
 
 1. **Fetch** — seven outlet RSS feeds directly, plus per-person Google News queries built from an alias table. Google News results pass an allowlist of 17 domains and 20 outlet names. Only articles naming two or more people in the dataset become pair candidates.
 2. **Classify** — candidates go to an LLM in batches of ten, which returns the relevant pair, a polarity, a confidence score, and a bilingual summary. Without an API key the pipeline degrades to unclassified co-mention signals rather than failing.
-3. **Merge** — new signals are unioned with the existing archive by stable id, trimmed to 365 days, capped at 1,500. A single run only sees a 30-day window; the archive is what makes the timeline possible. Output is written as monthly partitions (`src/data/signals/YYYY-MM.json`) plus a manifest and a small `recent.json`, so the browser loads the whole archive only when you open the timeline — the initial payload stays flat as the archive grows.
+3. **Merge** — new signals are unioned with the existing archive by stable id, trimmed to 365 days, capped at 1,500. A re-fetched article never overwrites a verdict the archive already holds, so a failed LLM batch costs nothing. A single run only sees a 30-day window; the archive is what makes the timeline possible. Output is written as monthly partitions (`src/data/signals/YYYY-MM.json`) plus a manifest and a small `recent.json`, so the browser loads the whole archive only when you open the timeline — the initial payload stays flat as the archive grows.
 4. **Validate** — schema, count consistency, and that every referenced person id actually exists.
 5. **Commit** — the workflow writes the JSON back to the repo. There is no server: the dataset ships as a static import.
 
@@ -98,8 +99,9 @@ Portraits and biography links come from the **Wikipedia REST API**, fetched lazi
 - **A weak centering force.** Link-less nodes receive only charge repulsion and drift off-screen forever. A gentle pull toward the origin keeps the layout compact — and fixes the framing problem at its root.
 - **Fit on engine stop, once.** Fitting on a timer frames coordinates that are still spreading. Fitting on *every* stop yanks the camera back each time the user rotates.
 - **Cache 3D node objects; mutate materials for selection.** Building `nodeThreeObject` inline captures selection state, so every click rebuilt all 101 nodes' geometry and canvas textures — a 167 ms frame and a steady GPU leak. Caching by id and updating material colour in place: worst frame 50 ms, heap 69 → 40 MB.
-- **Accumulate, never overwrite, time-series data.** The pipeline originally replaced its output each run, so a weak fetch could erase the archive. It merges by id with a 365-day window instead.
+- **Accumulate, never overwrite — including inside the merge.** The pipeline originally replaced its output each run, so a weak fetch could erase the archive; merging by id with a 365-day window fixed that. Only half of it: a re-fetched article whose LLM batch had failed came back unclassified and still won the merge, erasing a polarity the archive already held — 25 of them in one night, with no error and no log line. Silence has to mean *keep the old value*, and `npm run news:recover` pulled the lost verdicts back out of git history.
 - **Match source names on word boundaries.** A bare `'AP'` in an allowlist, matched by substring, silently admits CoinG**ap**e, Yahoo News Sing**ap**ore, and Tele**grap**hHerald.
+- **A check that matches nothing reports "pass."** Two audit rules compared numbers in this README against the data by regex. The sentences were reworded at some point, the patterns stopped matching, and the audit kept printing green — the Korean README had no live check at all. Zero matches and a clean pass are indistinguishable from the outside, which makes a dead check worse than no check: it buys confidence it isn't paying for. Every doc-number rule now reports when its pattern finds nothing, and every new check gets a deliberately wrong value fed to it before it is trusted.
 
 ### Running it
 
@@ -110,12 +112,21 @@ npm install
 npm run dev          # http://localhost:5173
 npm run build
 
+npm test             # unit tests over the pure domain (~1s)
+npm run audit        # boundary + data audit — decides by exit code
+npm run e2e          # Playwright checks against a real browser (~90s)
+npm run eval         # score the classifier against the label set
+
 npm run news         # refresh news signals (needs NEWS_LLM_API_KEY)
 npm run news:dry     # same, writes to a scratch file instead
+npm run news:recover:dry   # preview verdicts recoverable from git history
 
-node scripts/e2e/polaris.e2e.mjs    # 45 Playwright checks against a real browser
 node scripts/demo/record.mjs        # regenerate docs/demo.gif (needs ffmpeg)
 ```
+
+`npm run audit` is the one that matters. It re-derives every number in this README from the
+data and warns when they drift, checks that the domain layer imports no values, and refuses
+manifests whose totals disagree with the partitions they summarise.
 
 The LLM step expects an OpenAI-compatible endpoint. It defaults to NVIDIA NIM:
 
@@ -155,10 +166,26 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   It is not a graph layer because the data would not support one: only 5 pairs share
   8+ of their top funders, and all 5 are same-caucus.
 - **The relationship data is editorial.** Those 266 edges are hand-curated from public reporting. Someone else reading the same coverage would draw a different graph. Treat it as an argument, not a record. Every edge now carries its own evidence panel — click the document icon on any relationship to see the articles behind it, or to see that there aren't any.
-- **Evidence links are verifiable, and that cost coverage.** An earlier version attached 478 links to 218 edges — but 94% were Google News redirect URLs, which resolve only in a browser and carry no way to confirm the destination or the outlet. They were replaced with direct article URLs from the GDELT archive, each one relevance-filtered by an LLM and then actually fetched to confirm it resolves (5 dead links were caught and dropped). **The result is 64 of 266 edges with 162 links — every one a real outlet URL you can inspect before clicking.** The other 202 edges say plainly that they have no linked source.
+- **Evidence links are verifiable, and that cost coverage.** An earlier version attached 478 links to 218 edges — but 94% were Google News redirect URLs, which resolve only in a browser and carry no way to confirm the destination or the outlet. They were replaced with direct article URLs from the GDELT archive, each one relevance-filtered by an LLM and then actually fetched to confirm it resolves (5 dead links were caught and dropped). **64 of 266 edges have evidence, 162 links in all — every one a real outlet URL you can inspect before clicking.** The other 202 edges say plainly that they have no linked source.
 - **Evidence is machine-filtered, not human-verified.** The LLM judges headlines, not article bodies, so marginal calls get through. Treat a linked article as supporting context, not as a citation someone checked.
 - **Dates mean slightly different things per source.** News-signal dates come from the RSS `pubDate` (the publish date). Evidence-link dates come from GDELT's `seendate` — when GDELT crawled the article, usually within a day of publication but not identical to it. Recent coverage comes from Google News, older events from the GDELT archive (which reaches back to 2017) — the 48 remaining are mostly pre-2017 relationships that neither source can reach.
 - **The LLM classifier is not a fact-checker.** It reads headlines and summaries, not full articles, and it is wrong sometimes. Polarity is a signal, not a verdict.
+- **Its accuracy is measured, and it is not a baseline yet.** `npm run eval` scores the
+  pipeline against a stratified label set: **84.7% on polarity and 87.3% on pairing across
+  118 articles.** The errors are lopsided — 10 of 18 are a neutral article called a feud,
+  and exactly one is a true ally/feud reversal. So the failure mode is not "it picks the
+  wrong side," it is "it sees a fight where two names merely appear together." That is why
+  a month now needs agreement across outlets and days to change colour, rather than one
+  headline. The honest part: only 20 of those 118 answers were filled in by a person, and
+  the rest were seeded by the same model being scored. Until human labels reach 40 the audit
+  cannot fail on a regression, so read the figure as a floor to beat, not a score to trust.
+- **The source mix is concentrated, and the wires barely register.** The whole archive comes from 17 outlets, but the top five carry 71% of it and AP plus Reuters together are 3.6% — a handful of politics desks decide what the classifier ever gets to see. The insights panel shows that breakdown rather than burying it, because this selection sits upstream of anything the classifier can get right.
+- **The aggregation rules came out of that.** Because the mix is what it is, the news layer
+  counts one vote per pair per day rather than one per article, wants a two-to-one margin
+  before a month flips, and hatches months the outlets split on. Two further ideas — weighting
+  outlets by how often they cry feud, and cross-checking against signed-triad balance — were
+  measured here and dropped. Notes:
+  [`docs/research/media-bias-literature.md`](docs/research/media-bias-literature.md).
 - **Coverage skews to national English-language press**, and therefore toward the figures that press covers most.
 
 ### Deploying
@@ -179,10 +206,10 @@ The build is a static bundle, so anything that serves files will do. Two paths a
 
 A reader asked whether this could grow to cover staffer networks, donor flows, lobbying
 disclosures, and roll-call votes — mapping who actually influences federal decision-making.
-It's the right question, and the honest answer has numbers attached: **75 of the 101 figures
-match a current or former member of Congress — 56 have roll-call records, 75 have an FEC id.**
-But measured against edges rather than people, vote data only touches the 74 legislator-to-legislator
-relationships out of 266. See [`docs/roadmap.md`](docs/roadmap.md)
+It's the right question, and the honest answer has numbers attached: **84 of the 101 figures
+match a current or former member of Congress — all 84 have roll-call records, 83 have an FEC id.**
+But measured against edges rather than people, vote data reaches only the 145 relationships
+with a legislator at both ends, out of 266. See [`docs/roadmap.md`](docs/roadmap.md)
 for which sources are reachable today, why the join is the hard part, and what has to be
 decided before any of it starts.
 

@@ -86,6 +86,15 @@ export const UI_EN = {
   wireTitle: 'Latest Wire',
   polNeutral: 'co-mention',
   polUnclassified: 'unclassified',
+
+  // 소스 구성 — 자랑이 아니라 한계를 먼저 적는 블록. 수치는 전부 코드가 센다
+  srcMixTitle: 'Source mix',
+  srcMixLede: (signals: number, outlets: number) =>
+    `${signals.toLocaleString()} signals from ${outlets} outlet${outlets === 1 ? '' : 's'} — the whole archive, not just the wire above.`,
+  srcMixOthers: (n: number) => `${n} more outlet${n === 1 ? '' : 's'}`,
+  srcMixFewer: 'Show fewer',
+  srcMixCaveat: (topN: number, share: number) =>
+    `Top ${topN} carry ${share}% of it. Polarity is classified from the headline alone — a signal about how a story was covered, not a verdict on the relationship.`,
   rotateGesture: 'Ctrl + drag to rotate',
   dataCoverage: 'Data coverage',
   dataUpdated: 'Updated',
@@ -151,6 +160,9 @@ export const UI_EN = {
   noWatch: 'Open a profile and press Track to start comparing relationship arcs.',
   turningPoint: 'Turning point',
   curatedArc: 'curated arc',
+  tlContested: 'Outlets disagreed',
+  tlContestedHint:
+    'Hatched: outlets split on that month, or the winning side never doubled the other. The colour still shows which side won.',
   website: 'Website',
   wikipedia: 'Wikipedia',
   xPosts: 'X posts',

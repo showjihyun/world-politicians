@@ -57,6 +57,8 @@ const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'
   lastDate: string | null;
   months: string[];
   counts: Record<string, number>;
+  /** 매체명 → 아카이브 전체 기준 건수. 화면의 소스 구성이 이 값으로 비율을 낸다 */
+  outlets?: Record<string, number>;
 };
 
 const sourcesByEdge = JSON.parse(
@@ -168,16 +170,101 @@ findings.push(
   ...checkManifest(manifest, { months, total: signals.length, counts: actualCounts })
 );
 
-// 문서 수치는 손으로 갱신해 왔다 — 조용히 낡는 것을 잡는다
+// 소스 구성 수치는 야간 파이프라인이 **매일** 바꾼다. 화면은 매니페스트에서
+// 다시 세지만 README 는 손으로 적혀 있어 며칠이면 낡는다.
+//
+// 산식은 InsightsPanel.tsx 의 SourceMix 와 같아야 한다 — 갈리면 감사가 화면에
+// 없는 값을 요구하게 되고, 사람은 둘 중 어느 쪽이 맞는지 알 수 없다.
+//   · 이름이 비었거나 0건인 항목은 세지 않는다 (`name.length > 0 && n > 0`)
+//   · 건수 내림차순, 동점은 이름순 (매니페스트 키 순서에 기대지 않는다)
+//   · 상위 5곳(MIX_TOP)의 몫을 정수 퍼센트로 반올림
+const MIX_TOP = 5;
+/** 통신사 — 허용 목록이 이 매체에 쓰는 정본 이름들 */
+const WIRE_NAMES = /^(ap|ap news|associated press|reuters)$/i;
+const outletEntries = Object.entries(manifest.outlets ?? {})
+  .filter(([name, n]) => name.length > 0 && n > 0)
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const outletTotal = outletEntries.reduce((n, [, c]) => n + c, 0);
+const shareOf = (part: number, digits: number) => {
+  if (!outletTotal) return 0;
+  const f = 10 ** digits;
+  return Math.round((part / outletTotal) * 100 * f) / f;
+};
+const topShare = shareOf(
+  outletEntries.slice(0, MIX_TOP).reduce((n, [, c]) => n + c, 0),
+  0
+);
+const wireShare = shareOf(
+  outletEntries.filter(([name]) => WIRE_NAMES.test(name)).reduce((n, [, c]) => n + c, 0),
+  1
+);
+
+/**
+ * 크로스워크·정확도 수치 — README 의 "어디로 가는가" 와 한계 절이 이 값들을 적는다.
+ *
+ * 이 넷은 실제로 낡았다. 크로스워크를 확정하며 매칭이 75 → 84 로, 표결 대조가 가능한
+ * 엣지가 74 → 145 로 바뀌었는데 README 는 옛 숫자를 그대로 들고 있었다. 어느 검사도
+ * 그 문장을 보고 있지 않았기 때문이다.
+ */
+const cwForDocs = fs.existsSync(cwPath)
+  ? (JSON.parse(fs.readFileSync(cwPath, 'utf8')) as CrosswalkFile)
+  : null;
+const memberByBioguide = new Map((cwForDocs?.members ?? []).map((m) => [m.bioguide, m]));
+const matchedPolaris = Object.values(cwForDocs?.polaris ?? {}).filter((v) => v.bioguide);
+const withRollCall = matchedPolaris.filter(
+  (v) => memberByBioguide.get(v.bioguide!)?.icpsr != null
+).length;
+const withFec = matchedPolaris.filter(
+  (v) => (memberByBioguide.get(v.bioguide!)?.fec ?? []).length > 0
+).length;
+/** 양쪽 다 호명투표 기록이 있는 엣지 — 표결 데이터가 실제로 닿는 범위 */
+const hasRollCall = (id: string): boolean => {
+  const bio = cwForDocs?.polaris?.[id]?.bioguide;
+  return Boolean(bio && memberByBioguide.get(bio)?.icpsr != null);
+};
+const bothLegislators = [
+  ...relText.matchAll(/\ba:\s*'([a-z0-9-]+)',\s*b:\s*'([a-z0-9-]+)'/g),
+].filter((m) => hasRollCall(m[1]) && hasRollCall(m[2])).length;
+
+// 문서 수치는 손으로 갱신해 왔다 — 조용히 낡는 것을 잡는다.
+//
+// **공백을 먼저 접는다.** 이 검사가 한 번 죽었던 이유가 그것이다 — 문장을 줄바꿈으로
+// 다시 감쌌더니 정규식이 빗나갔고, 매칭 0건이 통과로 보고됐다. 패턴을 한 줄로 쓰고
+// 문서 쪽을 정규화하면 서식 변경이 검사를 조용히 끄지 못한다.
 const docs = ['README.md', 'README.ko.md']
   .filter((f) => fs.existsSync(path.join(ROOT, f)))
-  .map((f) => ({ file: f, text: fs.readFileSync(path.join(ROOT, f), 'utf8') }));
+  .map((f) => ({
+    file: f,
+    text: fs.readFileSync(path.join(ROOT, f), 'utf8').replace(/[ \t]*\r?\n[ \t]*/g, ' '),
+  }));
 findings.push(
   ...checkDocClaims(docs, [
     { pattern: /\*\*(\d+) of 266 edges have evidence/, actual: Object.keys(sourcesByEdge).length, label: '근거 보유 엣지' },
     { pattern: /\*\*266개 중 (\d+)개에 근거가 있고/, actual: Object.keys(sourcesByEdge).length, label: '근거 보유 엣지' },
     { pattern: /(\d+) figures\./, actual: knownIds.size, label: '인물 수' },
     { pattern: /(\d+) curated relationships/, actual: edgeCount, label: '관계 수' },
+    // 소스 구성.
+    //
+    // **신호 총계는 일부러 문서에 두지 않는다.** 아카이브는 매일 밤 커지므로 그 수를
+    // README 에 적으면 하루 이상 맞을 수 없고, 감사가 매일 경고한다. 늘 켜져 있는 경고는
+    // 사람이 읽지 않게 되어 없는 것보다 나쁘다 — 옆의 진짜 경고까지 같이 묻힌다.
+    // 총계는 화면(데이터 커버리지 배지·소스 구성)이 매니페스트에서 직접 읽어 보여준다.
+    // 아래 셋은 몇 주에 한 번 움직이므로, 경고가 뜨면 그때가 실제로 고칠 때다.
+    { pattern: /archive comes from ([\d,]+) outlets/, actual: outletEntries.length, label: '매체 수 (EN)' },
+    { pattern: /top five carry (\d+)% of it/, actual: topShare, label: '상위 5곳 비중 (EN)' },
+    { pattern: /AP plus Reuters together are ([\d.]+)%/, actual: wireShare, label: '통신사 비중 (EN)' },
+    { pattern: /아카이브 전체는 ([\d,]+)개 매체에서 왔지만/, actual: outletEntries.length, label: '매체 수 (KO)' },
+    { pattern: /상위 5곳이 (\d+)%를 차지하고/, actual: topShare, label: '상위 5곳 비중 (KO)' },
+    { pattern: /AP 와 Reuters 를 합쳐도 ([\d.]+)%/, actual: wireShare, label: '통신사 비중 (KO)' },
+    // 크로스워크 — 여기가 실제로 낡아 75/56/75/74 를 오래 들고 있던 자리다
+    { pattern: /\*\*(\d+) of the 101 figures\s*\n?match a current or former member/, actual: matchedPolaris.length, label: '의원 매칭 (EN)' },
+    { pattern: /all (\d+) have roll-call records/, actual: withRollCall, label: '호명투표 보유 (EN)' },
+    { pattern: /roll-call records, (\d+) have an FEC id/, actual: withFec, label: 'FEC 보유 (EN)' },
+    { pattern: /reaches only the (\d+) relationships/, actual: bothLegislators, label: '양쪽 다 의원인 엣지 (EN)' },
+    { pattern: /\*\*101명 중 (\d+)명이 현직 또는 역대 의원과/, actual: matchedPolaris.length, label: '의원 매칭 (KO)' },
+    { pattern: /표결 기록은\s*\n?(\d+)명 전원/, actual: withRollCall, label: '호명투표 보유 (KO)' },
+    { pattern: /FEC id 는 (\d+)명/, actual: withFec, label: 'FEC 보유 (KO)' },
+    { pattern: /266개 중 양쪽 다 의원인 (\d+)개/, actual: bothLegislators, label: '양쪽 다 의원인 엣지 (KO)' },
   ])
 );
 

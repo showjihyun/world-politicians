@@ -23,6 +23,11 @@ interface SignalsIndex {
   lastDate: string | null;
   months: string[];
   counts: Record<string, number>;
+  /**
+   * 매체명 → 아카이브 전체 기준 건수. 화면이 "이 데이터가 무엇으로 만들어졌는지" 를
+   * 보여줄 때 쓴다. 키(매체명)는 정규화 과정에서 바뀐다 — 하드코딩하지 않는다.
+   */
+  outlets: Record<string, number>;
 }
 
 const INDEX = indexJson as unknown as SignalsIndex;
@@ -40,6 +45,8 @@ export const SIGNALS_META = {
   firstDate: INDEX.firstDate ?? null,
   lastDate: INDEX.lastDate ?? null,
   months: INDEX.months ?? [],
+  /** 매체 구성 — 매니페스트가 없거나 필드가 없으면 빈 객체. 화면은 비면 블록을 감춘다 */
+  outlets: INDEX.outlets ?? {},
 };
 
 export const SIGNALS_BY_PERSON = new Map<string, NewsSignal[]>();

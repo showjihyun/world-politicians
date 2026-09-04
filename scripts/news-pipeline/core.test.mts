@@ -7,10 +7,13 @@ import {
   rank,
   accumulate,
   buildStats,
+  dateRange,
   isAllowedSource,
+  canonicalSourceName,
   partitionByMonth,
   pickRecent,
   resolveGeneratedAt,
+  resolveSourceName,
   type SignalLike,
   storyTitleKey,
 } from './core.mts';
@@ -59,6 +62,56 @@ describe('isAllowedSource', () => {
   });
 });
 
+describe('canonicalSourceName', () => {
+  // 매니페스트의 매체 구성을 화면에 보이려는 것이므로 표시 이름이 정본이어야 한다.
+  // 매핑을 새로 지어내지 않는다 — 허용 목록이 이미 "이 매체다" 를 판정하고 있고,
+  // 같은 목록으로 표시 이름을 정하는 것은 있는 규칙을 다시 쓰는 것이다.
+  it('꼬리표가 붙은 이름을 정본으로 줄인다', () => {
+    expect(
+      canonicalSourceName('ABC News - Breaking News, Latest News and Videos', [
+        ...NAMES,
+        'ABC News',
+      ])
+    ).toBe('ABC News');
+  });
+
+  it('같은 매체의 여러 표기를 한 이름으로 모은다', () => {
+    expect(canonicalSourceName('POLITICO Pro', NAMES)).toBe('Politico');
+    expect(canonicalSourceName('E&E News by POLITICO', NAMES)).toBe('Politico');
+  });
+
+  // 회귀: 'AP' 를 부분일치로 쓰다가 CoinGape 가 통과했다. 허용 판정에서 막은 것을
+  // 표시 이름에서 다시 열면 화면에 "AP 9건" 처럼 없는 기사가 생긴다.
+  it.each(['CoinGape', 'Yahoo News Singapore', 'TelegraphHerald.com'])(
+    '단어 경계가 아닌 부분일치로 끌어오지 않는다: %s',
+    (name) => {
+      expect(canonicalSourceName(name, NAMES)).toBe(name);
+    }
+  );
+
+  // 목록 순서에 기대면 안 된다. config 의 allowedSourceNames 에서 'AP' 가 'AP News'
+  // 앞으로 옮겨지는 것만으로 화면의 매체 이름이 바뀌면 안 된다.
+  it('여러 이름이 걸리면 긴 쪽을 고른다 — 목록 순서와 무관해야 한다', () => {
+    expect(canonicalSourceName('AP News', ['AP', 'AP News'])).toBe('AP News');
+    expect(canonicalSourceName('AP News', ['AP News', 'AP'])).toBe('AP News');
+    expect(canonicalSourceName('AP News', NAMES)).toBe('AP News');
+  });
+
+  it('목록에 없으면 원본을 그대로 둔다 — 조용히 버리지 않는다', () => {
+    expect(canonicalSourceName('Some Local Paper', NAMES)).toBe('Some Local Paper');
+  });
+
+  // 허용된 매체는 반드시 표시 이름을 찾을 수 있어야 한다. 두 함수가 경계 판정을
+  // 공유하지 않으면 "수집은 됐는데 이름은 못 찾는" 매체가 생긴다.
+  it.each(['AP News', 'The Hill', 'Politico', 'NPR', 'The Hill - Breaking News'])(
+    '허용 판정과 어긋나지 않는다: %s',
+    (name) => {
+      expect(isAllowedSource('', name, HOSTS, NAMES)).toBe(true);
+      expect(NAMES).toContain(canonicalSourceName(name, NAMES));
+    }
+  );
+});
+
 describe('accumulate', () => {
   const old = [sig({ id: 'old', date: '2026-08-01' })];
 
@@ -87,6 +140,53 @@ describe('accumulate', () => {
   it('날짜가 깨진 항목은 버리지 않는다 — 파싱 실패로 데이터를 잃으면 안 된다', () => {
     const merged = accumulate([sig({ id: 'weird', date: 'not-a-date' })], [], 365, new Date('2026-08-20'));
     expect(merged).toHaveLength(1);
+  });
+
+  // 회귀: 30일 창 안의 기사는 매일 다시 수집된다. 그 실행의 LLM 배치가 실패하면
+  // incoming 은 classified:false 이고, 무조건 map.set 하던 시절에는 아카이브의
+  // 판정이 그것으로 덮였다. 09-01 수집에서 라벨 표본 10건이 전부 판정을 잃었다.
+  // "판정을 못 받으면 원본 유지" 는 applyResult 에만 있었고 여기에는 없었다.
+  it('미분류 신규가 분류된 기존을 덮지 않는다', () => {
+    const existing = [
+      {
+        ...sig({ id: 'x', date: '2026-08-01' }),
+        polarity: 'feud' as const,
+        summary_ko: '트럼프가 매시를 공격했다',
+        summary_en: 'Trump attacked Massie',
+      },
+    ];
+    const incoming = [
+      { ...sig({ id: 'x', date: '2026-08-01', classified: false }), polarity: undefined },
+    ];
+    const merged = accumulate(existing, incoming, 365, new Date('2026-08-20'));
+    expect(merged).toHaveLength(1);
+    expect(merged[0].classified).toBe(true);
+    expect(merged[0].polarity).toBe('feud');
+    expect(merged[0].summary_ko).toBe('트럼프가 매시를 공격했다');
+    expect(merged[0].summary_en).toBe('Trump attacked Massie');
+  });
+
+  it('분류된 신규는 분류된 기존을 덮는다 — 재분류 결과가 반영되어야 한다', () => {
+    const merged = accumulate(
+      [sig({ id: 'x', date: '2026-08-01', polarity: 'feud' })],
+      [sig({ id: 'x', date: '2026-08-01', polarity: 'ally' })],
+      365,
+      new Date('2026-08-20')
+    );
+    expect(merged).toHaveLength(1);
+    expect(merged[0].polarity).toBe('ally');
+  });
+
+  it('미분류 기존은 미분류 신규로 갱신된다 — 제목·날짜 수정이 반영되어야 한다', () => {
+    const merged = accumulate(
+      [{ ...sig({ id: 'x', date: '2026-08-01', classified: false }), title: '옛 제목' }],
+      [{ ...sig({ id: 'x', date: '2026-08-02', classified: false }), title: '고친 제목' }],
+      365,
+      new Date('2026-08-20')
+    );
+    expect(merged).toHaveLength(1);
+    expect(merged[0].date).toBe('2026-08-02');
+    expect(merged[0].title).toBe('고친 제목');
   });
 });
 
@@ -150,6 +250,35 @@ describe('resolveGeneratedAt', () => {
 
   it('기존 값이 없으면 후보를 쓴다', () => {
     expect(resolveGeneratedAt(null, '2026-08-29T13:00:00Z', false)).toBe('2026-08-29T13:00:00Z');
+  });
+
+  // 회귀: 한때 "보존한 값이 최신 기사보다 이르면 후보를 쓴다" 는 분기가 있었다.
+  // 그 분기는 재처리에서만 돌아서(실제 수집은 fresh 로 먼저 반환한다), 유일한 효과가
+  // 재처리가 수집 시각을 지금으로 찍는 것이었다. 데이터가 기록보다 새로운 것은
+  // 이미 있던 문제이고, 재처리가 덮으면 감사에서 그 사실이 사라진다.
+  it('데이터가 기록보다 새로워도 재처리는 덮지 않는다', () => {
+    expect(resolveGeneratedAt('2026-08-01T00:00:00Z', '2026-09-02T03:00:00Z', false))
+      .toBe('2026-08-01T00:00:00Z');
+  });
+});
+
+describe('dateRange', () => {
+  it('처음과 끝을 돌려준다', () => {
+    expect(
+      dateRange([{ date: '2026-08-15' }, { date: '2026-07-28' }, { date: '2026-09-01' }])
+    ).toEqual({ first: '2026-07-28', last: '2026-09-01' });
+  });
+
+  it('비어 있으면 null', () => {
+    expect(dateRange([])).toEqual({ first: null, last: null });
+  });
+
+  // 문자열 비교라 형식이 깨진 값 하나가 끝을 통째로 밀어낸다. 그 값이
+  // resolveGeneratedAt 의 판단과 매니페스트의 lastDate 를 동시에 흔든다.
+  it('형식이 깨진 날짜는 세지 않는다', () => {
+    expect(
+      dateRange([{ date: '2026-08-15' }, { date: 'undefined' }, { date: '' }, {}])
+    ).toEqual({ first: '2026-08-15', last: '2026-08-15' });
   });
 });
 
@@ -335,35 +464,69 @@ describe('pickForRetry', () => {
   });
 });
 
-describe('resolveGeneratedAt — 데이터보다 이른 시각을 남기지 않는다', () => {
+describe('resolveSourceName — 호스트로 온 매체명을 정본으로 바꾼다', () => {
+  const HOSTS = { 'foxnews.com': 'Fox News', 'thehill.com': 'The Hill', 'apnews.com': 'AP News' };
+
+  // 회귀: Google News 가 매체명을 호스트로 줄 때가 있다. 그대로 저장하면 수집은
+  // 통과하고(`<source url>` 로 판정하므로) 감사는 기사 link 로 다시 판정해 떨어뜨린다.
+  // 2026-09-01~03 사흘치 야간 수집이 이것 때문에 커밋 직전에 버려졌다.
+  it.each([
+    ['foxnews.com', 'https://www.foxnews.com', 'Fox News'],
+    ['thehill.com', 'https://thehill.com', 'The Hill'],
+    ['apnews.com', 'https://apnews.com', 'AP News'],
+  ])('%s → %s', (name, url, expected) => {
+    expect(resolveSourceName(name, url, NAMES, HOSTS)).toBe(expected);
+  });
+
+  it('이름이 비어 있어도 url 의 호스트로 찾는다', () => {
+    expect(resolveSourceName('', 'https://www.foxnews.com/politics/x', NAMES, HOSTS)).toBe('Fox News');
+  });
+
+  it('제대로 온 이름은 목록의 정본 표기로 돌려준다', () => {
+    expect(resolveSourceName('AP News', '', NAMES, HOSTS)).toBe('AP News');
+    expect(resolveSourceName('The Hill - Breaking News', '', NAMES, HOSTS)).toBe('The Hill');
+  });
+
+  // 이 함수가 헐거우면 허용 판정에서 막은 매체가 정본 이름을 달고 되살아난다
+  it('허용 목록 밖은 그대로 둔다 — 이름을 지어내지 않는다', () => {
+    expect(resolveSourceName('aljazeera.com', 'https://www.aljazeera.com', NAMES, HOSTS)).toBe('aljazeera.com');
+    expect(resolveSourceName('CoinGape', 'https://coingape.com', NAMES, HOSTS)).toBe('CoinGape');
+  });
+
+  it('여러 호스트가 걸리면 긴 쪽을 고른다', () => {
+    const nested = { 'news.com': 'News', 'foxnews.com': 'Fox News' };
+    expect(resolveSourceName('', 'https://www.foxnews.com', NAMES, nested)).toBe('Fox News');
+  });
+
+  // 회귀: 허용 목록에 `WSJ` 와 `The Wall Street Journal` 이 둘 다 있다. 이름을 먼저
+  // 보면 한 매체가 매체 구성에서 두 줄이 되고 시계열에서 두 표를 던진다.
+  it('같은 매체의 두 표기를 호스트로 합친다', () => {
+    const names = [...NAMES, 'WSJ', 'The Wall Street Journal'];
+    const hosts = { 'wsj.com': 'The Wall Street Journal' };
+    expect(resolveSourceName('WSJ', 'https://www.wsj.com', names, hosts)).toBe(
+      'The Wall Street Journal'
+    );
+    expect(resolveSourceName('The Wall Street Journal', 'https://www.wsj.com', names, hosts)).toBe(
+      'The Wall Street Journal'
+    );
+  });
+});
+
+describe('resolveGeneratedAt — 재처리는 수집 시각을 건드리지 않는다', () => {
   const PREV = '2026-08-29T17:00:00.000Z';
   const NOW = '2026-08-31T03:00:00.000Z';
 
   it('실제 수집이면 새 값을 쓴다', () => {
-    expect(resolveGeneratedAt(PREV, NOW, true, '2026-08-31')).toBe(NOW);
+    expect(resolveGeneratedAt(PREV, NOW, true)).toBe(NOW);
   });
 
   // 분할·정규화가 이 값을 덮어써서 배지가 27.7시간 어긋난 적이 있다
-  it('재처리이고 데이터가 더 오래됐으면 보존한다', () => {
-    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-29')).toBe(PREV);
-  });
-
-  // 보존만 하면 수집 시각이 최신 기사보다 이르러 감사가 실패한다
-  it('재처리라도 데이터가 더 새로우면 갱신한다', () => {
-    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-30')).toBe(NOW);
+  it('재처리는 데이터가 더 새롭든 아니든 보존한다', () => {
+    expect(resolveGeneratedAt(PREV, NOW, false)).toBe(PREV);
   });
 
   it('이전 값이 없으면 새 값을 쓴다', () => {
-    expect(resolveGeneratedAt(null, NOW, false, '2026-08-30')).toBe(NOW);
-  });
-
-  it('lastDate 를 모르면 보존한다 — 함부로 갱신하지 않는다', () => {
-    expect(resolveGeneratedAt(PREV, NOW, false)).toBe(PREV);
-    expect(resolveGeneratedAt(PREV, NOW, false, null)).toBe(PREV);
-  });
-
-  it('같은 날이면 보존한다', () => {
-    expect(resolveGeneratedAt(PREV, NOW, false, '2026-08-29')).toBe(PREV);
+    expect(resolveGeneratedAt(null, NOW, false)).toBe(NOW);
   });
 });
 

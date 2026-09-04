@@ -93,7 +93,12 @@ describe('checkFreshness', () => {
 });
 
 describe('checkManifest', () => {
-  const manifest = { stats: { total: 2 }, months: ['2026-08'], counts: { a: 2 } };
+  const manifest = {
+    stats: { total: 2 },
+    months: ['2026-08'],
+    counts: { a: 2 },
+    outlets: { Politico: 2 },
+  };
 
   it('일치하면 조용하다', () => {
     expect(checkManifest(manifest, { months: ['2026-08'], total: 2, counts: { a: 2 } })).toHaveLength(0);
@@ -113,6 +118,51 @@ describe('checkManifest', () => {
   it('인물별 건수가 어긋나면 FAIL — 화면의 "N건" 이 틀리게 된다', () => {
     const f = checkManifest(manifest, { months: ['2026-08'], total: 2, counts: { a: 7 } });
     expect(f.some((x) => x.check === 'manifest.counts')).toBe(true);
+  });
+
+  // 화면은 건수를 stats.total 로 적고(302) 비율은 outlets 합계로 나눈다(295).
+  // 어긋나면 독자는 "302건" 위에서 100% 가 되는 막대를 본다.
+  it('매체 합계가 총계보다 적으면 FAIL', () => {
+    const f = checkManifest(
+      { ...manifest, outlets: { Politico: 1 } },
+      { months: ['2026-08'], total: 2, counts: { a: 2 } }
+    );
+    expect(f.some((x) => x.check === 'manifest.outlets')).toBe(true);
+    expect(f.find((x) => x.check === 'manifest.outlets')!.level).toBe('fail');
+  });
+
+  it('매체 합계가 총계보다 많아도 FAIL', () => {
+    const f = checkManifest(
+      { ...manifest, outlets: { Politico: 2, CNN: 1 } },
+      { months: ['2026-08'], total: 2, counts: { a: 2 } }
+    );
+    expect(f.some((x) => x.check === 'manifest.outlets')).toBe(true);
+  });
+
+  // 화면은 이름이 비었거나 0건인 항목을 세지 않는다(`name.length > 0 && n > 0`).
+  // 감사가 그것까지 세면 화면이 그리는 것과 다른 합계를 검사하게 된다 —
+  // 아래 '' 3건을 합계에 넣으면 4 가 되어 어긋남이 사라지고 조용히 통과한다.
+  it('화면이 세지 않는 항목(빈 이름·0건)은 합계에서 빼고 샘플로 보여준다', () => {
+    const f = checkManifest(
+      { ...manifest, outlets: { Politico: 1, '': 3, CNN: 0 } },
+      { months: ['2026-08'], total: 2, counts: { a: 2 } }
+    );
+    const hit = f.find((x) => x.check === 'manifest.outlets');
+    expect(hit?.level).toBe('fail');
+    expect(hit!.message).toContain('매체 합계 1');
+    expect(hit!.samples).toContain('"" 3건');
+    expect(hit!.samples).toContain('"CNN" 0건');
+  });
+
+  // 매체 구성이 통째로 없으면 화면은 블록을 감춘다 — 거짓 비율은 안 나오므로
+  // 막지는 않는다. 다만 매니페스트가 아카이브를 서술하기를 멈춘 것이라 알린다.
+  it('매체 구성이 비면 WARN', () => {
+    const f = checkManifest(
+      { ...manifest, outlets: {} },
+      { months: ['2026-08'], total: 2, counts: { a: 2 } }
+    );
+    const hit = f.find((x) => x.check === 'manifest.outlets.absent');
+    expect(hit?.level).toBe('warn');
   });
 });
 
@@ -196,6 +246,32 @@ describe('checkDocClaims', () => {
   it('일치하면 조용하다', () => {
     const f = checkDocClaims(
       [{ file: 'README.md', text: '**64 of 266 edges have evidence**' }],
+      [{ pattern: /\*\*(\d+) of 266 edges have evidence/, actual: 64, label: '근거 보유 엣지' }]
+    );
+    expect(f).toHaveLength(0);
+  });
+
+  // 매칭이 0건인 것과 통과는 다르다. 문장을 손보면 정규식이 조용히 빗나가고,
+  // 그때부터 그 수치는 아무도 안 보는 채로 낡는다 — 검사가 있다는 사실이
+  // 오히려 안심시킨다.
+  it('어느 문서에도 걸리지 않은 claim 은 WARN', () => {
+    const f = checkDocClaims(
+      [{ file: 'README.md', text: 'The archive holds 302 signals.' }],
+      [{ pattern: /from (\d+) outlets/, actual: 17, label: '매체 수' }]
+    );
+    expect(f).toHaveLength(1);
+    expect(f[0].check).toBe('docs.claims.unmatched');
+    expect(f[0].level).toBe('warn');
+    expect(f[0].samples?.join('')).toContain('매체 수');
+  });
+
+  // EN 전용·KO 전용 패턴이 정상이다. 문서 하나에만 걸려도 그 claim 은 살아 있다.
+  it('한 문서에만 걸리면 조용하다 — EN·KO 전용 패턴이 정상이다', () => {
+    const f = checkDocClaims(
+      [
+        { file: 'README.md', text: '**64 of 266 edges have evidence**' },
+        { file: 'README.ko.md', text: '근거는 266개 중 64개' },
+      ],
       [{ pattern: /\*\*(\d+) of 266 edges have evidence/, actual: 64, label: '근거 보유 엣지' }]
     );
     expect(f).toHaveLength(0);

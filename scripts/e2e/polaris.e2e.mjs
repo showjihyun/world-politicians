@@ -386,7 +386,45 @@ async function main() {
     'wire ticker in insights',
     (await page.locator('aside >> text=Latest Wire').count()) > 0
   );
+
+  // 소스 구성 — 이 데이터가 무엇으로 만들어졌는지 화면에 적혀 있는가
+  check('source mix block renders', await page.locator('[data-testid=source-mix]').isVisible());
+  const mixRows = await page.locator('[data-testid=source-mix-row]').count();
+  check('source mix lists outlets', mixRows >= 3, `${mixRows} rows`);
+  // 첫 화면은 recent.json(최근분)만 들고 있다. 여기 적힌 건수가 그것이면 거짓말이 된다
+  const idx = JSON.parse(fs.readFileSync('src/data/signals/index.json', 'utf8'));
+  const recentCount = (
+    JSON.parse(fs.readFileSync('src/data/signals/recent.json', 'utf8')).signals ?? []
+  ).length;
+  const mixLede = (await page.locator('[data-testid=source-mix-lede]').innerText()).replace(
+    /,/g,
+    ''
+  );
+  check(
+    'source mix counts the whole archive',
+    mixLede.includes(String(idx.stats.total)),
+    `archive ${idx.stats.total} · first-paint ${recentCount} · "${mixLede.slice(0, 48)}…"`
+  );
   await page.screenshot({ path: `${SHOTS}/05-insights.png` });
+  // 접어 둔 나머지가 실제로 펼쳐지는가 — 상위만 보이고 끝나면 "그 외" 가 거짓말이 된다
+  // 화면이 세는 것과 같은 필터여야 한다. 감사(checks.mts)도 같은 규칙을 쓴다 —
+  // 여기만 원본 키를 세면 매니페스트에 빈 이름이 하나 들어오는 순간, 화면은 명세대로
+  // 동작하는데 E2E 가 엉뚱한 층을 가리키며 빨간불이 된다.
+  const outletTotal = Object.entries(idx.outlets ?? {}).filter(
+    ([name, n]) => name.length > 0 && n > 0
+  ).length;
+  const moreBtn = page.locator('[data-testid=source-mix-more]');
+  const foldable = (await moreBtn.count()) > 0;
+  if (foldable) {
+    await moreBtn.click();
+    await page.waitForTimeout(300);
+  }
+  const expandedRows = await page.locator('[data-testid=source-mix-row]').count();
+  check(
+    'source mix expands to every outlet',
+    expandedRows === outletTotal && (!foldable || expandedRows > mixRows),
+    `${mixRows} → ${expandedRows} of ${outletTotal}${foldable ? '' : ' (nothing folded)'}`
+  );
   await page.locator('button', { hasText: 'FILTERS' }).click();
 
   // ── 7b. ANALYSIS (시계열) — 두 번째 인물 추적 후 페어 아크 확인 ──
@@ -397,6 +435,17 @@ async function main() {
     .filter({ hasText: 'Elon Musk' })
     .first()
     .click();
+  await page.waitForTimeout(900);
+  await page.locator('[data-testid=track-btn]').click();
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(400);
+
+  // 세 번째를 넣는 이유: 판정 불일치 셀이 실제로 있는 쌍이 필요하다
+  // (Trump × Vance 2026-08 — 같은 달을 매체가 갈라 썼다). musk 쌍에는 없다
+  await page.getByPlaceholder('Search politicians…').fill('vance');
+  await page.waitForTimeout(400);
+  await page.getByRole('button').filter({ hasText: 'JD Vance' }).first().click();
   await page.waitForTimeout(900);
   await page.locator('[data-testid=track-btn]').click();
   await page.waitForTimeout(300);
@@ -428,6 +477,40 @@ async function main() {
   check(
     'timeline strip cells render',
     (await page.locator('[data-testid=tl-cell]').count()) > 6
+  );
+
+  // 판정 불일치 표기 — 모든 셀이 상태를 말하고, 갈린 달은 표시가 붙고, 무늬가 설명된다.
+  //
+  // `[data-contested]` 가 붙었는지만 세면 검사가 아니다 — 속성이 언제나 렌더되므로
+  // 그 수는 셀 수와 항상 같고, contested 를 상수로 박아 놔도 통과한다. 속성값과
+  // **실제로 그려진 것**을 맞대야 검사가 된다.
+  const cellStates = await page.$$eval('[data-testid=tl-cell]', (els) =>
+    els.map((el) => ({
+      flag: el.getAttribute('data-contested'),
+      hatched: getComputedStyle(el).backgroundImage !== 'none',
+    }))
+  );
+  check(
+    'every timeline cell reports its contested state',
+    cellStates.length > 0 && cellStates.every((c) => c.flag === 'true' || c.flag === 'false'),
+    `${cellStates.length} cells`
+  );
+  check(
+    'the contested flag matches what is drawn',
+    cellStates.every((c) => (c.flag === 'true') === c.hatched),
+    `${cellStates.filter((c) => c.hatched).length} hatched of ${cellStates.length}`
+  );
+  const contested = cellStates.filter((c) => c.flag === 'true').length;
+  // 이 검사만 아카이브 데이터에 기댄다. 빨간불이면 코드가 깨진 것이 아니라
+  // 표기할 불일치가 사라졌다는 뜻이다 — 추적 중인 쌍을 불일치가 있는 쌍으로 바꾼다.
+  check(
+    'contested months are marked',
+    contested > 0,
+    `${contested} cell(s) — 0 이면 이 쌍들에 갈린 달이 없다는 뜻이다`
+  );
+  check(
+    'contested marking is explained on the card',
+    (await page.locator('[data-testid=tl-contested-hint]').count()) > 0
   );
   await page.screenshot({ path: `${SHOTS}/08-analysis.png` });
   await page.locator('button', { hasText: 'FILTERS' }).click();
@@ -526,6 +609,10 @@ async function main() {
   );
 
   // ── 10. 3D 모드 ──
+  // 이 블록은 성공하면 검사 4개, 실패하면 1개를 냈다. 그러면 총 검사 수가 환경에 따라
+  // 달라지고, 맨 끝의 README 배지 대조가 "배지 숫자가 틀렸다" 고 보고한다 — WebGL 이
+  // 없는 것이 원인인데 README 를 고치라고 말하게 된다. 어느 쪽이든 4개를 내게 맞춘다.
+  const before3d = results.length;
   try {
     const modeBtn = page.locator('[data-testid=mode-toggle]');
     check('mode toggle shows current 2D', (await modeBtn.innerText()) === '2D');
@@ -555,6 +642,7 @@ async function main() {
     await page.waitForTimeout(800);
   } catch (e) {
     check('3D neural mode renders', false, String(e).slice(0, 80));
+    while (results.length - before3d < 4) check('3D check did not run', false, '3D 실패로 건너뜀');
   }
 
   // ── 11. 콘솔 에러 + 데이터 시점 표시 ──
@@ -744,6 +832,20 @@ async function main() {
   await page.waitForTimeout(400);
 
   await browser.close();
+
+  // README 의 배지가 이 파일의 검사 수를 광고한다. 검사를 하나 더할 때마다 낡는데,
+  // 감사는 그 숫자를 셀 수 없다 — 실제로 세려면 브라우저를 띄워야 하기 때문이다.
+  // 그래서 진실을 아는 쪽이 대조한다. 이 검사도 자기 자신을 포함해서 센다.
+  const expected = results.length + 1;
+  const stale = ['README.md', 'README.ko.md'].filter((f) => {
+    const m = fs.readFileSync(f, 'utf8').match(/E2E-(\d+)%20checks/);
+    return !m || Number(m[1]) !== expected;
+  });
+  check(
+    'the README badge matches the real check count',
+    stale.length === 0,
+    stale.length ? `${stale.join(', ')} 가 ${expected} 가 아니다` : `${expected} checks`
+  );
 
   const passed = results.filter((r) => r.ok).length;
   console.log(`\n=== E2E RESULT: ${passed}/${results.length} passed ===`);

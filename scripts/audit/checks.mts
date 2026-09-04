@@ -157,9 +157,21 @@ export function checkFreshness(
   return out;
 }
 
+/**
+ * 화면(InsightsPanel)이 매체 구성을 셀 때 버리는 것들.
+ * 감사가 화면과 다른 합계를 재면, 화면이 멀쩡히 거짓말하는 동안 감사는 통과한다.
+ */
+const drawnOutlets = (outlets: Record<string, number>): [string, number][] =>
+  Object.entries(outlets).filter(([name, n]) => name.length > 0 && n > 0);
+
 /** 매니페스트가 실제 파티션과 일치하는가 — 분할 이후 새로 생긴 어긋남 지점 */
 export function checkManifest(
-  manifest: { stats: { total: number }; months: string[]; counts: Record<string, number> },
+  manifest: {
+    stats: { total: number };
+    months: string[];
+    counts: Record<string, number>;
+    outlets?: Record<string, number>;
+  },
   actual: { months: string[]; total: number; counts: Record<string, number> }
 ): Finding[] {
   const out: Finding[] = [];
@@ -191,6 +203,35 @@ export function checkManifest(
       samples: cap(mismatched),
     });
   }
+
+  // 매체 구성은 화면에서 두 수를 섞어 쓴다: 건수는 stats.total 로 적고("302 signals")
+  // 비율은 outlets 합계로 나눈다. 둘이 어긋나면 독자는 302 위에서 100% 가 되는
+  // 막대를 본다 — 어느 쪽도 에러를 내지 않으므로 눈으로는 잡히지 않는다.
+  //
+  // 실제 경로: canonicalSourceName('') 이 '' 를 돌려주면 그 신호는 어느 매체에도
+  // 세어지지 않는다. 세는 쪽(buildIndex)에서 막았지만, 다시 새면 여기서 잡힌다.
+  const outlets = manifest.outlets ?? {};
+  const drawn = drawnOutlets(outlets);
+  const dropped = Object.entries(outlets).filter(([name, n]) => !(name.length > 0 && n > 0));
+  const sum = drawn.reduce((n, [, c]) => n + c, 0);
+
+  if (!drawn.length) {
+    // 화면은 빈 구성이면 블록 자체를 감춘다 — 거짓 비율은 나오지 않으므로 막지 않는다.
+    // 다만 매니페스트가 아카이브를 서술하기를 멈춘 것이라 조용히 두지도 않는다.
+    out.push({
+      level: 'warn',
+      check: 'manifest.outlets.absent',
+      message: `매체 구성이 비었다 (전체 ${manifest.stats.total}건) — 화면의 소스 구성 블록이 통째로 사라진다`,
+    });
+  } else if (sum !== manifest.stats.total) {
+    out.push({
+      level: 'fail',
+      check: 'manifest.outlets',
+      message: `매체 합계 ${sum} vs 전체 ${manifest.stats.total} — 화면은 ${manifest.stats.total}건이라 적고 비율은 ${sum}으로 나눈다`,
+      samples: cap(dropped.map(([name, n]) => `${JSON.stringify(name)} ${n}건`)),
+    });
+  }
+
   return out;
 }
 
@@ -302,16 +343,25 @@ export function checkDuplicates(byEdge: Record<string, SourceRef[]>): Finding[] 
 /**
  * 문서에 적힌 수치가 실제 데이터와 맞는가.
  * README 숫자는 손으로 갱신해 왔고, 그래서 조용히 낡는다.
+ *
+ * **매칭이 0건인 것과 통과는 다르다.** 문장을 손보면 정규식이 조용히 빗나가고,
+ * 그때부터 그 수치는 아무도 안 보는 채로 낡는다 — 검사가 있다는 사실이 오히려
+ * 안심시킨다. 그래서 어느 문서에도 걸리지 않은 claim 자체를 결함으로 본다.
+ * EN·KO 전용 패턴이 있으므로 판정은 **문서별이 아니라 claim 별**이다.
  */
 export function checkDocClaims(
   docs: { file: string; text: string }[],
   claims: { pattern: RegExp; actual: number; label: string }[]
 ): Finding[] {
   const out: Finding[] = [];
+  const unmatched: string[] = [];
+
   for (const { pattern, actual, label } of claims) {
+    let hit = false;
     for (const doc of docs) {
       const m = doc.text.match(pattern);
       if (!m) continue;
+      hit = true;
       const stated = Number(m[1].replace(/,/g, ''));
       if (stated !== actual) {
         out.push({
@@ -321,6 +371,16 @@ export function checkDocClaims(
         });
       }
     }
+    if (!hit) unmatched.push(`${label} — ${String(pattern)}`);
+  }
+
+  if (unmatched.length) {
+    out.push({
+      level: 'warn',
+      check: 'docs.claims.unmatched',
+      message: `어느 문서에도 걸리지 않은 claim ${unmatched.length}건 — 문장이 바뀌었거나 패턴이 틀렸다. 통과가 아니라 검사가 없는 것이다`,
+      samples: cap(unmatched),
+    });
   }
   return out;
 }

@@ -3,8 +3,9 @@ import { X, LineChart, Sparkles } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useI18n } from '../i18n';
 import { buildPairTimeline, polColor } from '../lib/timeline';
+import type { Pol } from '../lib/timeline';
 import { loadArchive, signalsByPair } from '../data/signals';
-import type { NewsSignal } from '../types';
+import { REL_META, type NewsSignal } from '../types';
 import { pairKey } from '../lib/graph';
 
 const WINDOWS = [1, 3, 6, 12] as const;
@@ -143,8 +144,14 @@ function PairTimelineCard({
   const { t, L } = useI18n();
   const tl = useMemo(() => buildPairTimeline(a, b, win, byPair), [a, b, win, byPair]);
 
+  // 극성을 문자열 그대로 쓰면 한국어 화면에 `feud` 가 그대로 나간다. 옆의 라벨은
+  // 번역해 두고 이것만 원값이면 내부 enum 이 새는 것이다 — 엔티티가 화면에
+  // 그대로 나갔던 것과 같은 종류다
+  const polLabel = (p: Pol): string => (p === 'neutral' ? t.polNeutral : L(REL_META[p].label));
+
   if (!tl) return null;
   const recentFlips = [...tl.flips].reverse().slice(0, 2);
+  const hasContested = tl.cells.some((c) => c.contested);
 
   return (
     <button
@@ -163,10 +170,19 @@ function PairTimelineCard({
           <div
             key={c.ym}
             data-testid="tl-cell"
-            title={`${c.ym} · ${c.polarity}${c.note ? `\n${L(c.note)}` : ''}`}
+            data-contested={c.contested ? 'true' : 'false'}
+            // 미판정 건수를 적는다. 아무 표시 없이 회색으로 내보내면 "판정이 없다" 가
+            // 아니라 "그냥 한산한 달" 로 읽힌다 — 근거 없는 엣지를 "근거 없음" 이라고
+            // 적는 것과 같은 이유다
+            title={`${c.ym} · ${polLabel(c.polarity)}${c.contested ? ` · ${t.tlContested}` : ''}${
+              c.unclassified ? ` · ${c.unclassified} ${t.polUnclassified}` : ''
+            }${c.note ? `\n${L(c.note)}` : ''}`}
             className="h-5 flex-1 rounded-[3px] transition-transform hover:scale-y-125"
             style={{
+              // 색은 극성 그대로다. 불일치는 그 위에 얹는 부가 정보라 빗금으로 표시하고,
+              // flip(흰 테두리)과 겹쳐도 서로 구분된다 — 둘은 뜻이 다르다
               backgroundColor: polColor(c.polarity) + (c.curated ? '99' : 'e6'),
+              backgroundImage: c.contested ? CONTESTED_HATCH : undefined,
               boxShadow: c.flip ? `0 0 0 1.5px ${COLORS_WHITE}` : undefined,
             }}
           />
@@ -178,6 +194,22 @@ function PairTimelineCard({
         <span>{tl.cells[tl.cells.length - 1]?.ym}</span>
       </div>
 
+      {/* 빗금이 있는 카드에만 범례를 붙인다. 설명 없는 무늬는 노이즈로 읽힌다.
+          카드마다 반복되므로 한 줄로 두고 규칙 전문은 툴팁에 남긴다 */}
+      {hasContested && (
+        <span
+          data-testid="tl-contested-hint"
+          title={t.tlContestedHint}
+          className="mt-1 flex items-center gap-1.5 text-[11px] leading-snug text-slate-500"
+        >
+          <span
+            className="h-3 w-3 shrink-0 rounded-[2px]"
+            style={{ backgroundColor: '#64748be6', backgroundImage: CONTESTED_HATCH }}
+          />
+          <span className="truncate">{t.tlContested}</span>
+        </span>
+      )}
+
       {recentFlips.map((f) => (
         <div
           key={f.ym}
@@ -188,7 +220,9 @@ function PairTimelineCard({
           </span>
           <span className="line-clamp-2 text-[11px] leading-snug text-amber-100/80">
             <span className="font-semibold">{t.turningPoint}: </span>
-            {f.note ? L(f.note) : `${f.polarity}`}
+            {/* 노트 없는 달이 생길 수 있다 — 동률로 중립이 됐거나 이전 달을 물려받은
+                달이다. 예전에는 여기에 `neutral` 이라는 원값이 그대로 나갔다 */}
+            {f.note ? L(f.note) : polLabel(f.polarity)}
           </span>
         </div>
       ))}
@@ -197,3 +231,6 @@ function PairTimelineCard({
 }
 
 const COLORS_WHITE = 'rgba(255,255,255,0.85)';
+/** 판정 불일치 표시. 색조를 건드리지 않고 무늬만 얹는다 */
+const CONTESTED_HATCH =
+  'repeating-linear-gradient(135deg, rgba(255,255,255,0.5) 0 1.5px, rgba(255,255,255,0) 1.5px 4.5px)';

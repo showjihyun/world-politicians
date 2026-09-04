@@ -7,7 +7,14 @@ import type { Article } from './fetch.mts';
 export interface Signal {
   id: string;
   date: string;
+  /** 기사에 적힌 매체명 그대로. 화면의 와이어 목록이 이 값을 보여준다 */
   source: string;
+  /**
+   * 집계용 정본 매체명. `source` 와 같으면 넣지 않는다.
+   * 시계열이 "하루 한 표" 를 매체 단위로 셀 때 이 값을 쓴다 — 원본으로 세면
+   * `Politico` 와 `POLITICO Pro` 가 서로 다른 매체로 잡혀 한 뉴스룸이 두 표를 던진다.
+   */
+  outlet?: string;
   url: string;
   title: string;
   people: string[];
