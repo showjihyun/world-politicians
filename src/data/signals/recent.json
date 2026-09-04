@@ -35,29 +35,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Senator Britt urges Congress to codify Trump's data center pledge into law.",
-   "summary_ko": "브리트 상원의원이 트럼프의 데이터센터 공약을 법제화할 것을 의회에 촉구했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-4fe7c393",
-   "date": "2026-09-04",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaWc5empObmtOMmNiT0YydHkyMjhqSy0wUEpQbzZGRDNTc0RHSDRTc1RNd05TSXpJZnlRQVVkc1ZJamVoTnRIY2l2cGpkY2VPMXd2YlBVS0VEYkdoSm5XeFNXMzNMLXlZRnhyY25YMEJ0UUQ1REVER3R6bmc1ak1wVTYxbWVGV3hTMWxSUzFZbm43Nzd0amtlN2F5dmk3OWRfazM5YXlDRFY5b2l6RDQtdkVpWFlZdUFPVzNuMGhQdw?oc=5",
-   "title": "Ted Cruz Is Testing the Waters for a 2028 Run—and Taking Swipes at JD Vance - WSJ",
-   "people": [
-    "vance",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "vance"
-   ],
-   "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Ted Cruz takes swipes at JD Vance while testing waters for a 2028 run.",
-   "summary_ko": "테드 크루즈가 2028년 대선 출마를 저울질하며 JD 밴스를 비판했습니다.",
+   "summary_en": "Senator Britt urges Congress to codify Trump's data center pledge into law.",
+   "summary_ko": "브리트 상원의원이 트럼프의 데이터센터 공약을 법제화할 것을 의회에 촉구했다.",
    "classified": true
   },
   {
@@ -101,6 +81,46 @@
    "classified": true
   },
   {
+   "id": "sig-6a325688",
+   "date": "2026-09-04",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPSDRBdkwxSWlZeDY2OElmc283aE9QUlJFYmxVZ052YVNpb3ZyZEJIeVYxVG5MR0RkeW9ydVd1SG1tMHQzbjJMWG01R3k0VzVrUklBSTBCRU9nMDdRc003c2VISU1aN09DaC1SZUdCb2VxenJ2X2ZTaGpTQmJQQ2pIdURXb2hJb1ZFYTFHcHhKY25YdTRCYWhtOU1ZcGVCNzBrY0xVd1hwaXEyMzJJTkhxTHVXcWRDY1lEZnhLU0stR3RuZUpzS0pNeQ?oc=5",
+   "title": "The Morning Risk Report: Bernie, AOC and Bannon All Want to Fight Data Centers - WSJ",
+   "people": [
+    "bannon",
+    "aoc"
+   ],
+   "pair": [
+    "aoc",
+    "bannon"
+   ],
+   "polarity": "ally",
+   "confidence": 0.75,
+   "summary_en": "Bannon and AOC align in opposing data centers, per WSJ risk report.",
+   "summary_ko": "WSJ 보도에 따르면 배넌과 AOC가 데이터센터 반대에서 입장을 같이했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-4fe7c393",
+   "date": "2026-09-03",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaWc5empObmtOMmNiT0YydHkyMjhqSy0wUEpQbzZGRDNTc0RHSDRTc1RNd05TSXpJZnlRQVVkc1ZJamVoTnRIY2l2cGpkY2VPMXd2YlBVS0VEYkdoSm5XeFNXMzNMLXlZRnhyY25YMEJ0UUQ1REVER3R6bmc1ak1wVTYxbWVGV3hTMWxSUzFZbm43Nzd0amtlN2F5dmk3OWRfazM5YXlDRFY5b2l6RDQtdkVpWFlZdUFPVzNuMGhQdw?oc=5",
+   "title": "Ted Cruz Is Testing the Waters for a 2028 Run—and Taking Swipes at JD Vance - WSJ",
+   "people": [
+    "vance",
+    "cruz"
+   ],
+   "pair": [
+    "cruz",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Ted Cruz takes swipes at JD Vance while testing waters for a 2028 presidential run.",
+   "summary_ko": "테드 크루즈가 2028년 대선 출마를 저울질하며 JD 밴스를 비판했다.",
+   "classified": true
+  },
+  {
    "id": "sig-f8c2978f",
    "date": "2026-09-03",
    "source": "The Hill",
@@ -136,9 +156,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Vance defends Tucker Carlson against criticism from Trump and Rogers.",
-   "summary_ko": "밴스가 트럼프와 로저스의 비판에도 터커 칼슨을 '친구'라며 옹호했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Vance refuses to turn on Carlson despite criticism from Trump and Rogers.",
+   "summary_ko": "밴스 부통령이 트럼프와 로저스의 비판에도 칼슨을 배신하지 않겠다고 밝혔다.",
    "classified": true
   },
   {
@@ -156,9 +176,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Vance expresses enthusiasm about attending the 9/11 ceremony with Biden.",
-   "summary_ko": "밴스가 9·11 추모식에서 바이든과 함께할 것을 기대한다고 밝혔다.",
+   "confidence": 0.9,
+   "summary_en": "Vance expresses enthusiasm about spending time with Biden at the 9/11 ceremony.",
+   "summary_ko": "밴스 부통령이 9.11 추모식에서 바이든 대통령과 함께할 것을 기대한다고 밝혔다.",
    "classified": true
   },
   {
@@ -173,13 +193,13 @@
     "tillis"
    ],
    "pair": [
-    "hegseth",
-    "tillis"
+    "tillis",
+    "trump"
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Tillis calls for Hegseth's removal and criticizes Pentagon leadership.",
-   "summary_ko": "틸리스 상원의원이 헤그세스 교체를 트럼프에게 촉구하며 국방부 지도부를 강하게 비판했다.",
+   "summary_en": "Senator Tillis publicly urges Trump to fire Hegseth and criticizes Pentagon leadership.",
+   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 국방장관 교체를 공개 촉구하며 펜타곤 지도부를 강하게 비판했다.",
    "classified": true
   },
   {
@@ -220,7 +240,7 @@
    "polarity": "ally",
    "confidence": 0.9,
    "summary_en": "Newsom and Schiff jointly support Trump's Hollywood policy proposal.",
-   "summary_ko": "뉴섬과 시프가 트럼프의 할리우드 정책을 공동으로 지지했다.",
+   "summary_ko": "뉴섬과 시프가 트럼프의 할리우드 정책을 공동 지지했습니다.",
    "classified": true
   },
   {
@@ -240,8 +260,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Tillis urges Trump to replace Hegseth and attacks Pentagon leadership.",
-   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 교체를 촉구하며 국방부 수뇌부를 강하게 비판했다.",
+   "summary_en": "Senator Tillis publicly urges Trump to fire Hegseth as defense secretary.",
+   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 국방장관 경질을 공개 촉구했습니다.",
    "classified": true
   },
   {
@@ -261,8 +281,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Tillis criticizes Hegseth's priorities and urges Trump to fire him as defense secretary.",
-   "summary_ko": "틸리스가 헤그세스의 우선순위를 비판하며 트럼프에게 국방장관 해임을 촉구했다.",
+   "summary_en": "Tillis criticizes Hegseth's priorities and calls for his removal as defense secretary.",
+   "summary_ko": "틸리스가 헤그세스의 우선순위를 비판하며 국방장관직 사퇴를 요구했습니다.",
    "classified": true
   },
   {
@@ -281,8 +301,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Massie criticizes Vance for claiming the Iran conflict is not a war, calling it an insult to service members.",
-   "summary_ko": "매시가 이란 분쟁이 전쟁이 아니라는 밴스 발언을 군인들에 대한 모욕이라며 강하게 비판했다.",
+   "summary_en": "Massie attacks Vance for saying the Iran conflict is not a war.",
+   "summary_ko": "매시가 이란 분쟁이 전쟁이 아니라는 밴스 발언을 강하게 비판했습니다.",
    "classified": true
   },
   {
@@ -321,8 +341,29 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Following a rift with Trump, Musk starts spending to support Republican candidates.",
-   "summary_ko": "트럼프와 결별한 뒤 머스크가 공화당 후보 지원을 위한 지출을 시작했다.",
+   "summary_en": "Following a rift with Trump, Elon Musk starts spending to boost Republican candidates.",
+   "summary_ko": "트럼프와 결별한 머스크가 공화당 후보 지원을 위한 자금 지출을 시작했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-d76501fd",
+   "date": "2026-09-03",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdWpCdE9JLTJCaFlreWdfcnRyUkFzcmVVUTN5SEdyNUVrd2xvUzhuOHg3RWdsWVpRZU5GUkxpQ28td0M1RE1tVzduVTJ5WTZ5ZDg2ekVsNVVDTUM1VzJMZjhqa0lBTVBIYlRUQlp1R21kbXNhVlJHd0ViTTdsWC1leV9B0gGHAUFVX3lxTE56cEdpYlI3bGNxSGlHOFY5cFlYdVRmNENGbFZ4bEhsU0R0Zmlrd05xRWlaWHlIeGFmWU1scWpPVkhVTm55R0N5RzNvSEhrZDkxTEU2Q24wX3ZTSy1qVndEdDVSUXhBRkxzU2ZRR25FRWdPbUNfVTRPRzZBaTlrQ01sRlpDY25mZw?oc=5",
+   "title": "Bacon echoes Tillis: Hegseth ‘would not be on my team’ - The Hill",
+   "people": [
+    "hegseth",
+    "bacon-don",
+    "tillis"
+   ],
+   "pair": [
+    "hegseth",
+    "tillis"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Senator Tillis criticizes Hegseth, saying he would not be on his team, echoed by Rep. Bacon.",
+   "summary_ko": "틸리스 상원의원이 헤그세스를 '내 팀에 둘 수 없다'고 비판했고, 베이컨 의원이 동조했다.",
    "classified": true
   },
   {
@@ -361,9 +402,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Newsom and Schiff support Trump's proposal for a federal film tax credit.",
-   "summary_ko": "뉴섬과 시프가 트럼프의 연방 영화 세액공제 추진을 지지했다.",
+   "confidence": 0.95,
+   "summary_en": "Newsom and Schiff support Trump's federal film tax credit proposal.",
+   "summary_ko": "뉴섬과 시프가 트럼프의 연방 영화 세액공제 추진을 지지했습니다.",
    "classified": true
   },
   {
@@ -383,7 +424,7 @@
    "polarity": "ally",
    "confidence": 0.9,
    "summary_en": "Thune urges Trump to assist in the Texas Senate race.",
-   "summary_ko": "튠이 텍사스 상원 선거에서 트럼프의 지원을 촉구했다.",
+   "summary_ko": "튠이 텍사스 상원 선거에서 트럼프의 지원을 촉구했습니다.",
    "classified": true
   },
   {
@@ -402,9 +443,9 @@
     "liz-cheney"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
+   "confidence": 0.9,
    "summary_en": "Collins dismisses Liz Cheney's political impact.",
-   "summary_ko": "콜린스가 리즈 체니의 정치적 영향력을 일축했다.",
+   "summary_ko": "콜린스 의원이 리즈 체니의 정치적 영향력을 일축했습니다.",
    "classified": true
   },
   {
@@ -442,9 +483,9 @@
     "donalds"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Donalds and DeSantis signal a truce before the November election.",
-   "summary_ko": "도널즈와 드산티스가 11월 선거를 앞두고 화해를 시사했다.",
+   "confidence": 0.95,
+   "summary_en": "Donalds and DeSantis signal a thaw in their relationship ahead of the election.",
+   "summary_ko": "도널즈와 드산티스가 선거를 앞두고 관계 개선 신호를 보냈습니다.",
    "classified": true
   },
   {
@@ -462,9 +503,9 @@
     "massie"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Reps. Massie and Khanna are jointly pushing to fully release the Epstein files.",
-   "summary_ko": "매시와 칸나 의원이 엡스타인 파일 전면 공개를 위해 공동으로 노력하고 있습니다.",
+   "confidence": 0.95,
+   "summary_en": "Massie and Khanna collaborate to push for the release of Epstein files.",
+   "summary_ko": "매시와 칸나 의원이 엡스타인 파일 공개를 위해 협력하고 있습니다.",
    "classified": true
   },
   {
@@ -483,8 +524,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Haley publicly challenges Vance to choose between supporting Israel or Tucker Carlson.",
-   "summary_ko": "헤일리가 밴스에게 이스라엘 지지와 터커 칼슨 지지 중 하나를 선택하라고 공개 압박했습니다.",
+   "summary_en": "Nikki Haley publicly challenges Vance to pick a side between Israel and Tucker Carlson.",
+   "summary_ko": "니키 헤일리가 밴스에게 이스라엘과 터커 칼슨 중 한쪽을 선택하라고 공개적으로 압박합니다.",
    "classified": true
   },
   {
@@ -502,9 +543,9 @@
     "donalds"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "DeSantis endorses a Florida GOP slate that includes Byron Donalds in the governor's race.",
-   "summary_ko": "디샌티스가 플로리다 주지사 경선에 나선 바이런 도널즈를 포함한 공화당 후보 명단을 지지했습니다.",
+   "confidence": 0.98,
+   "summary_en": "DeSantis endorses a Florida GOP slate that includes Byron Donalds.",
+   "summary_ko": "드산티스가 바이런 도널즈를 포함한 플로리다 공화당 후보들을 지지했습니다.",
    "classified": true
   },
   {
@@ -523,8 +564,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump and Rubio collaborate on a Venezuela oil pact aimed at weakening the regime.",
-   "summary_ko": "트럼프와 루비오가 베네수엘라 정권 약화를 목표로 원유 협정을 공동 추진합니다.",
+   "summary_en": "Trump and Rubio collaborate on a Venezuela oil agreement aimed at weakening communist influence.",
+   "summary_ko": "트럼프와 루비오가 베네수엘라 석유 협정을 통해 공산주의 세력을 약화시키기 위해 협력합니다.",
    "classified": true
   },
   {
@@ -543,28 +584,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Trump and Rick Scott jointly present an economic argument in an op-ed.",
-   "summary_ko": "트럼프와 릭 스콧이 공동 칼럼을 통해 경제적 해법을 제시했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-ed8c11a3",
-   "date": "2026-09-01",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEhsX3VWMDUyMlQ3VWlOQXd4QWVOY0FKZ05GdFZJOElDdC1jU1Q0d3NtUHMwdDVhWjlvNElZUGRhVWVLaUtLaWU2SjJ2Nlk0MmZyN2JhZkxrX2paWjRPa0M3b3JrSmhwM2xhRFMta1NaZEU0WXB6bkg0V1BWSDlYX3lGSmlvbnUxMUs3WXZvS01NeDc3ZGNqMkN0U2dkTWpzQjhGNkg4TdIBrAFBVV95cUxOYk5hV1ExRHJyd0NNWUtTN1ZuMDl3LTNhT1UxcVN4NG5VaUVHLUt1cS1nTFRFNGh0b3hBN2lYTW5PN0ptMnB2YzM2WGlVZk1PZzFWVXUwWUl2QlVWZ0t3aDJVM3B4MHBDdlNtaXZXbGVrMWJBamU5d3MwRVVxeU9uZmttTUdId1hpLVVua05ZZVZzU256RGN2SGg1eDJmdHBFQjNhY0tVSnNXdm83?oc=5",
-   "title": "Ted Cruz shuts down Trump Supreme Court talk with a fiery 'not just no, but hell no' - foxnews.com",
-   "people": [
-    "trump",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Sen. Cruz forcefully rejects Trump's Supreme Court talk, saying 'not just no, but hell no.'",
-   "summary_ko": "크루즈 상원의원이 트럼프의 대법원 관련 발언을 '절대 안 된다'며 강하게 일축했습니다.",
+   "summary_en": "Trump and Rick Scott jointly present an economic policy vision.",
+   "summary_ko": "트럼프와 릭 스콧이 공동으로 경제 정책 비전을 제시합니다.",
    "classified": true
   },
   {
@@ -583,8 +604,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Sen. Thune says Trump's engagement is needed to win the expensive Texas Senate race.",
-   "summary_ko": "튠 상원의원이 비용이 많이 드는 텍사스 상원 선거 승리를 위해 트럼프의 지원이 필요하다고 밝혔습니다.",
+   "summary_en": "Senator Thune states Trump's engagement is necessary for the Texas Senate race.",
+   "summary_ko": "튠 상원의원이 텍사스 상원 선거를 위해 트럼프의 지원이 필요하다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -602,9 +623,9 @@
     "vance"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Nikki Haley publicly demands JD Vance pick a side between Israel and its critics.",
-   "summary_ko": "니키 헤일리가 JD 밴스에게 이스라엘과 비판자들 사이에서 입장을 정하라고 공개 요구했다.",
+   "confidence": 0.95,
+   "summary_en": "Nikki Haley demands Vance choose between Israel and its critics in a public challenge.",
+   "summary_ko": "니키 헤일리가 밴스에게 이스라엘과 비판론자 중 한쪽을 선택하라고 공개 요구합니다.",
    "classified": true
   },
   {
@@ -622,9 +643,9 @@
     "hegseth"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Rep. Don Bacon criticizes Secretary Hegseth for firing many senior military officers.",
-   "summary_ko": "돈 베이컨 하원의원이 헤그세스 국방장관이 다수의 고위 장성을 해임한 것을 비판했다.",
+   "confidence": 0.9,
+   "summary_en": "Rep. Don Bacon criticizes Hegseth's firing of senior military officers as concerning.",
+   "summary_ko": "돈 베이컨 의원이 헤그세스의 고위 장성 해임을 우려스럽다고 비판합니다.",
    "classified": true
   },
   {
@@ -643,28 +664,48 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Majority Leader Thune states Trump and his team must be engaged in the Texas midterm.",
-   "summary_ko": "튠 원내대표가 텍사스 중간선거에서 트럼프와 그의 팀의 적극적 참여가 필요하다고 말했습니다.",
+   "summary_en": "Majority Leader Thune calls for Trump and his team to engage in the Texas midterm race.",
+   "summary_ko": "튠 원내대표가 텍사스 중간선거를 위해 트럼프와 그의 팀의 참여를 요청합니다.",
    "classified": true
   },
   {
-   "id": "sig-b6a179a2",
-   "date": "2026-08-31",
-   "source": "NPR",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObkhwZmhoRmxIdERlUW9kV3pqUDcyQ1FpS2pKN3lvdG9iVEFhcTd4MjBvb2NyT2dkdEx2dEZwS2p2WlBQZkxXRmJHSVJPaFZKWFZMRzhHb0dnMURXamt5U2FjcXJOaEtRa3FHQnY0el8zX0hjVDd3d2VtdkQ3MHVXV1ZERlhWRGZ0VjlTOWd0VEhQQjZmNDhBN3NQRF9xVzRTZ0Zwc0dhS3A4SDVYcTVjMkx5Wm40enJOWHE5NQ?oc=5",
-   "title": "Facing tough reelection bid, Sen. Susan Collins navigates Trump's tariffs on Canada - NPR",
+   "id": "sig-d2c04bde",
+   "date": "2026-09-01",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEhsX3VWMDUyMlQ3VWlOQXd4QWVOY0FKZ05GdFZJOElDdC1jU1Q0d3NtUHMwdDVhWjlvNElZUGRhVWVLaUtLaWU2SjJ2Nlk0MmZyN2JhZkxrX2paWjRPa0M3b3JrSmhwM2xhRFMta1NaZEU0WXB6bkg0V1BWSDlYX3lGSmlvbnUxMUs3WXZvS01NeDc3ZGNqMkN0U2dkTWpzQjhGNkg4TQ?oc=5",
+   "title": "Ted Cruz shuts down Trump Supreme Court talk with a fiery 'not just no, but hell no' - Fox News",
    "people": [
     "trump",
-    "collins-susan"
+    "cruz"
    ],
    "pair": [
-    "collins-susan",
+    "cruz",
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Collins navigates Trump's tariffs on Canada amid a tough reelection bid.",
-   "summary_ko": "콜린스가 힘든 재선 도전 속에서 트럼프의 캐나다 관세를 헤쳐나갑니다.",
+   "confidence": 0.95,
+   "summary_en": "Ted Cruz forcefully rejects Trump's Supreme Court proposal with a 'hell no' response.",
+   "summary_ko": "테드 크루즈가 트럼프의 대법원 제안을 '절대 안 된다'며 강력히 거부합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-8778f4ec",
+   "date": "2026-08-31",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZ2tteUNMSmtvOXJsRUFGNmcyaVBuVVRkajduUGc3dDBUaUx1bUh5dUF6ZDdvSHFtREdUVGdPc1lNb2JlSU45U2VFTGFZQ0JXMU43ZklBeUlUU29MbVk0M3A3Yi1kd1Y1YjR3cmx0eE5WY1B4ZGl1Zm4xbGV2TWNSVWJzbmtuX0dEZXVXbzdNTzAxNEpZQzhnbXNQWVdiNFRZ?oc=5",
+   "title": "Rubio stays off campaign trail as Trump Cabinet rallies behind Republicans - Washington Examiner",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.65,
+   "summary_en": "Trump’s Cabinet rallies behind Republicans while Rubio stays off the campaign trail.",
+   "summary_ko": "트럼프 내각이 공화당 후보들을 지원하는 동안 루비오 의원은 유세에 불참했다.",
    "classified": true
   },
   {
@@ -702,9 +743,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
+   "confidence": 0.8,
    "summary_en": "Massie criticizes Trump's move to ease meat processing restrictions despite cheaper beef.",
-   "summary_ko": "트럼프가 소고기 가격을 낮췄음에도 매시는 육가공 규제 완화 조치를 비판하며 분노했다.",
+   "summary_ko": "매시가 트럼프의 육류 가공 규제 완화 조치를 비판하며 소고기 가격 인하에도 불구하고 분노를 표출했다.",
    "classified": true
   },
   {
@@ -763,7 +804,7 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "RFK Jr.'s Health Department is leading Trump's initiative to add political appointees to the federal workforce.",
+   "summary_en": "RFK Jr.'s Health Department spearheads Trump's initiative to add political appointees to federal workforce.",
    "summary_ko": "RFK 주니어의 보건부가 트럼프의 연방 공무원 정치 임명 추진을 주도하고 있다.",
    "classified": true
   },
@@ -783,8 +824,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Clinton mocks Trump's Lake Ontario renaming, sparking viral conservative backlash.",
-   "summary_ko": "클린턴이 트럼프의 온타리오호 명칭 변경을 조롱해 보수 진영의 거센 반발을 샀다.",
+   "summary_en": "Clinton mocks Trump over Lake Ontario name change, sparking viral backlash against her.",
+   "summary_ko": "클린턴이 온타리오호 명칭 변경 문제로 트럼프를 조롱했다가 거센 역풍을 맞았다.",
    "classified": true
   },
   {
@@ -862,9 +903,9 @@
     "shapiro"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Governor Shapiro and RFK Jr. spar publicly over measles-associated deaths in Pennsylvania.",
-   "summary_ko": "펜실베이니아 주지사 샤피로와 RFK 주니어가 홍역 관련 사망 문제를 두고 공개 설전을 벌이고 있다.",
+   "confidence": 0.98,
+   "summary_en": "Gov. Shapiro and RFK Jr. spar over measles-associated deaths in Pennsylvania.",
+   "summary_ko": "펜실베이니아 주지사 샤피로와 RFK 주니어가 홍역 관련 사망자를 두고 설전을 벌입니다.",
    "classified": true
   },
   {
@@ -882,9 +923,9 @@
     "shapiro"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "The vaccine policy clash between Governor Shapiro and RFK Jr. continues to intensify.",
-   "summary_ko": "샤피로 주지사와 RFK 주니어 사이의 백신 정책 충돌이 더욱 격화되고 있다.",
+   "confidence": 0.97,
+   "summary_en": "Axios reports the vaccine clash between Shapiro and RFK Jr. is intensifying.",
+   "summary_ko": "악시오스는 샤피로와 RFK 주니어의 백신 충돌이 격화되고 있다고 보도합니다.",
    "classified": true
   },
   {
@@ -902,9 +943,9 @@
     "shapiro"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Governor Shapiro and RFK Jr. clash following reports of two measles-related deaths in Pennsylvania.",
-   "summary_ko": "펜실베이니아 보건 당국의 홍역 관련 사망 2건 보고 후 샤피로 주지사와 RFK 주니어가 충돌했다.",
+   "confidence": 0.98,
+   "summary_en": "Shapiro and RFK Jr. clash following report of two measles-related deaths in Pennsylvania.",
+   "summary_ko": "펜실베이니아 보건당국의 홍역 사망 2건 보고 후 샤피로와 RFK 주니어가 충돌합니다.",
    "classified": true
   },
   {
@@ -923,8 +964,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Former President Obama will headline a fundraiser with House Minority Leader Hakeem Jeffries in New York.",
-   "summary_ko": "오바마 전 대통령이 뉴욕에서 하킴 제프리스 하원 원내대표와 함께 모금 행사를 연다.",
+   "summary_en": "Barack Obama headlines a fundraiser with Hakeem Jeffries in New York.",
+   "summary_ko": "버락 오바마가 뉴욕에서 하킴 제프리스와 함께 모금 행사를 공동 주최합니다.",
    "classified": true
   },
   {
@@ -963,8 +1004,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Susan Collins attempts to remove Trump from the Maine ballot.",
-   "summary_ko": "수전 콜린스가 트럼프를 메인주 투표용지에서 제외하려 시도합니다.",
+   "summary_en": "Sen. Susan Collins attempts to keep Donald Trump off the Maine ballot.",
+   "summary_ko": "수전 콜린스 상원의원이 도널드 트럼프를 메인주 투표용지에서 제외하려 시도합니다.",
    "classified": true
   },
   {
@@ -1022,10 +1063,10 @@
     "graham",
     "trump"
    ],
-   "polarity": "feud",
+   "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Trump backs a primary challenger to replace Lindsey Graham.",
-   "summary_ko": "트럼프가 린지 그레이엄을 대체할 예비선거 후보를 지지합니다.",
+   "summary_en": "Trump endorses Darline Graham to replace Senator Lindsey Graham in South Carolina.",
+   "summary_ko": "트럼프가 사우스캐롤라이나 상원의원 린지 그레이엄의 후임으로 달린 그레이엄을 지지했습니다.",
    "classified": true
   },
   {
@@ -1044,8 +1085,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump criticizes a lawmaker for endorsing Nikki Haley.",
-   "summary_ko": "트럼프가 니키 헤일리를 지지한 의원을 비판합니다.",
+   "summary_en": "Trump criticizes Ralph Norman for endorsing Nikki Haley after Darline Graham's runoff win.",
+   "summary_ko": "트럼프가 달린 그레이엄의 결선 승리 후 랄프 노먼의 니키 헤일리 지지를 비판했습니다.",
    "classified": true
   },
   {
@@ -1125,8 +1166,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "A Newsom ally attacks Buttigieg over his South Carolina trip.",
-   "summary_ko": "뉴섬의 측근이 버티지지의 사우스캐롤라이나 방문을 조롱합니다.",
+   "summary_en": "A Newsom ally taunts Buttigieg over his South Carolina visit as the 2028 race heats up.",
+   "summary_ko": "뉴섬 측근이 2028년 대선 경쟁이 격화되는 가운데 버티지의 사우스캐롤라이나 방문을 조롱했습니다.",
    "classified": true
   },
   {
@@ -1171,6 +1212,26 @@
    "outlet": "ABC News"
   },
   {
+   "id": "sig-42b9211e",
+   "date": "2026-08-24",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVFE5Q0VIaDk0emhIZGxWd0h0Q0hKVmVPU2N2VjVSa2ZBQmJIa2RLRF94eG5HTEs0SVJwbUFNVDF1RUpSUTlab0NiWWptLVVWemI2YzJHYmt6QW1VdVREUEl5T25WckdieVY5dWZrekVTYzZmaVA4VU4zWjBNWEFCQll3OHBLNFBZTnU2bFM3RGxMX1hOOGRnSXVTUGh4N1E2eDdz0gGoAUFVX3lxTE5oQmJLRXA0N3lOcmRKTjRKaEU0TFNYYmJzcThNdU5BZm4ySG5FYzk1VS0zWEhqN2JUczM2bVBSOUs1dUJrdWpnckF2ZmVuYVNMTmZTYzRoYWpSWk1UNWVLYXJqbDdVZU5kZHpLdkJLQ0F5QWVVWjlDTTB5NWh6Q09SM1VwNjF1RF8wNDY4WDU0SFZkeXo3dVhHUG1acVpTTzJVVUluVXNYSw?oc=5",
+   "title": "Vance defends Canada trade war in visit to Maine; Collins skips rally - The Hill",
+   "people": [
+    "vance",
+    "collins-susan"
+   ],
+   "pair": [
+    "collins-susan",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Vance defends Canada trade war while Collins skips his Maine rally.",
+   "summary_ko": "밴스가 캐나다 무역 전쟁을 옹호하는 동안 콜린스는 그의 메인 유세에 불참했다.",
+   "classified": true
+  },
+  {
    "id": "sig-9965d1ad",
    "date": "2026-08-24",
    "source": "The Hill",
@@ -1186,9 +1247,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Trump attacks Marjorie Taylor Greene and others during a rally, criticizing their positions.",
-   "summary_ko": "트럼프가 마조리 테일러 그린 등을 공개적으로 비판하며 공격했다.",
+   "confidence": 0.9,
+   "summary_en": "Trump attacks MTG along with Tucker Carlson and Massie.",
+   "summary_ko": "트럼프가 MTG를 터커 칼슨, 매시와 함께 공격했다.",
    "classified": true
   },
   {
@@ -1206,9 +1267,9 @@
     "manchin"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Manchin repeats warning that an AOC presidency would be devastating.",
-   "summary_ko": "맨친이 AOC 대통령 당선이 파멸적 결과를 낳을 것이라고 재차 경고했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Joe Manchin warns that an AOC presidency would be devastating.",
+   "summary_ko": "조 맨친이 AOC가 대통령이 되면 파괴적일 것이라고 경고했다.",
    "classified": true
   },
   {
@@ -1347,8 +1408,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.98,
-   "summary_en": "AOC endorses Senator Ed Markey in his primary challenge.",
-   "summary_ko": "AOC가 에드 마키 상원의원의 예비선거 도전을 지지했습니다.",
+   "summary_en": "Rep. Alexandria Ocasio-Cortez endorses Sen. Ed Markey in his Democratic primary against Rep. Seth Moulton.",
+   "summary_ko": "알렉산드리아 오카시오-코르테즈 하원의원이 세스 몰튼 하원의원과의 민주당 경선에서 에드 마키 상원의원을 지지했습니다.",
    "classified": true
   },
   {
@@ -1388,8 +1449,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.98,
-   "summary_en": "AOC backs Senator Markey in the Massachusetts Senate primary.",
-   "summary_ko": "AOC가 매사추세츠 상원 예비선거에서 마키 의원을 지지했습니다.",
+   "summary_en": "AOC endorses Markey in the Massachusetts Senate primary.",
+   "summary_ko": "AOC가 매사추세츠 상원 예비선거에서 마키 의원을 공개 지지했다.",
    "classified": true
   },
   {
@@ -1449,8 +1510,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Jon Ossoff has been repeatedly criticizing Trump, seen as a 2028 audition.",
-   "summary_ko": "존 오소프가 수개월간 트럼프를 반복적으로 비판하며 2028년 대선 출마를 저울질하고 있습니다.",
+   "summary_en": "Sen. Jon Ossoff has repeatedly attacked Donald Trump, seen by many as a 2028 presidential audition.",
+   "summary_ko": "존 오소프 상원의원이 수개월간 도널드 트럼프를 공격해왔으며, 많은 이들이 이를 2028년 대선 출마 준비로 봅니다.",
    "classified": true
   },
   {
@@ -1470,8 +1531,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Vice President JD Vance attacks AOC in a rapid-fire TikTok roast.",
-   "summary_ko": "JD 밴스 부통령이 급작스러운 틱톡 로스트에서 AOC를 공격했습니다.",
+   "summary_en": "Vice President Vance attacks AOC and others in a TikTok video.",
+   "summary_ko": "밴스 부통령이 틱톡 영상에서 AOC 등 진보 정치인들을 신랄하게 비판했다.",
    "classified": true
   },
   {
@@ -1511,8 +1572,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Vice President JD Vance attacks AOC in a TikTok video.",
-   "summary_ko": "JD 밴스 부통령이 틱톡 영상에서 AOC를 공격했습니다.",
+   "summary_en": "Vice President JD Vance launches a scathing attack on Rep. AOC and others on TikTok.",
+   "summary_ko": "JD 밴스 부통령이 틱톡에서 AOC 하원의원 등을 향해 신랄한 비판을 퍼부었습니다.",
    "classified": true
   },
   {
@@ -1591,8 +1652,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Rep. Bacon publicly urges Trump to 'say less' following contradictory messages on Iran.",
-   "summary_ko": "베이컨 하원의원이 이란 관련 모순된 메시지 이후 트럼프에게 '말을 줄이라'고 공개 촉구했다.",
+   "summary_en": "Don Bacon criticizes Trump's contradictory Iran messages and urges him to say less.",
+   "summary_ko": "돈 베이컨이 트럼프의 모순된 이란 메시지를 비판하며 말을 아낄 것을 촉구했습니다.",
    "classified": true
   },
   {
@@ -1630,9 +1691,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Senator Mark Kelly confronts Trump over the USS Abraham Lincoln, boosting Democratic morale.",
-   "summary_ko": "마크 켈리 상원의원이 에이브러햄 링컨함 문제를 두고 트럼프와 맞서며 민주당에 힘을 실어줬다.",
+   "confidence": 0.95,
+   "summary_en": "Senator Mark Kelly criticizes Trump over the USS Abraham Lincoln deployment.",
+   "summary_ko": "마크 켈리 상원의원이 에이브러햄 링컨 항모 배치 문제를 두고 트럼프를 정면 비판했다.",
    "classified": true
   },
   {
@@ -1711,8 +1772,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Speaker Mike Johnson taunts Hakeem Jeffries over Democrats' internal divisions and leadership struggles.",
-   "summary_ko": "존슨 하원의장이 제프리스 민주당 원내대표를 당내 내분 패배로 조롱했습니다.",
+   "summary_en": "Speaker Mike Johnson mocks Hakeem Jeffries for losing the Democratic civil war in his own district.",
+   "summary_ko": "마이크 존슨 하원의장이 해킴 제프리스가 자신의 지역구에서 민주당 내전을 패배했다고 조롱했습니다.",
    "classified": true
   },
   {
@@ -1770,29 +1831,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Senator Mark Kelly calls Trump's decision to reduce military exercises with South Korea shortsighted.",
-   "summary_ko": "마크 켈리 상원의원이 트럼프의 한미 연합훈련 축소 결정을 근시안적 실수라고 비판했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-8e222850",
-   "date": "2026-08-17",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNa3I0VWdyT2FmVll1WG52VUc5UlJHbExWV01xQ3dKQ19oZERrS1VRWXJrLTYyOWlZc1kza0FLTmtNSDhmVWpkTGdJRjRheG1hZzVibzRnWjhCWVM4RU5jLXhoQjFVWFUwZjJYQ19aV3cweTNhZUF6aXZVUi1aX0xRM1EtcG5UTWFhU3E40gGQAUFVX3lxTE9yYXVqLTZ6bS1hQVpMRmhSRktxSERvNEsyb0stcklaVHR2MjRLN1BhSW9waE9aS3JlNlUyOUlmM25kRExfMmtfeExpdzROd0hIaEpuOGNGTTgtSC0tX05wLUhwb1hfVHJlcUhnMGxyTHRINTFoUVo5NW5HTTI5RkFfR0RRSUNWaG5nZklXR0xYSQ?oc=5",
-   "title": "Bacon concerned about Trump not being ‘aware’ of missile shortage - The Hill",
-   "people": [
-    "trump",
-    "bacon-don"
-   ],
-   "pair": [
-    "bacon-don",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Rep. Bacon expresses concern that Trump is unaware of a missile shortage, questioning his awareness.",
-   "summary_ko": "베이컨 의원이 트럼프가 미사일 부족 사태를 인지하지 못하고 있다며 우려를 표했습니다.",
+   "confidence": 0.8,
+   "summary_en": "Senator Mark Kelly criticizes Trump's decision to cut joint military exercises with South Korea.",
+   "summary_ko": "마크 켈리 상원의원이 트럼프의 한미 연합군사훈련 축소 결정을 '근시안적 실수'라고 비판했다.",
    "classified": true
   },
   {
@@ -1811,8 +1852,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Governor Moore contradicts Trump on USS Abraham Lincoln deployment.",
-   "summary_ko": "무어 주지사가 USS 에이브러햄 링컨 배치 문제로 트럼프와 모순되는 입장을 밝혔다.",
+   "summary_en": "Governor Wes Moore contradicts Trump's claims about the USS Abraham Lincoln deployment.",
+   "summary_ko": "웨스 무어 주지사가 USS 에이브러햄 링컨함 배치 관련 트럼프 주장을 반박했습니다.",
    "classified": true
   },
   {
@@ -1858,7 +1899,7 @@
   {
    "id": "sig-b3208763",
    "date": "2026-08-16",
-   "source": "ABC News - Breaking News, Latest News and Videos",
+   "source": "ABC News",
    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1XcVJYTHptNFJEVENkenE3eHVfU3FZQ3AxcllfbmlFNHMzcU9pRmQxekVhdFczelVUeklxcUhPeHM1WTNhZDBDQ2tGSE8?oc=5",
    "title": "Video Sen. Ruben Gallego blames Trump administration for USS Lincoln conditions - ABC News - Breaking News, Latest News and Videos",
    "people": [
@@ -1870,11 +1911,10 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Ruben Gallego blames Trump administration for poor conditions aboard USS Lincoln.",
+   "confidence": 0.95,
+   "summary_en": "Senator Ruben Gallego blames the Trump administration for poor conditions aboard the USS Lincoln.",
    "summary_ko": "루벤 갈레고 상원의원이 USS 링컨함의 열악한 상황을 트럼프 행정부 탓으로 돌렸습니다.",
-   "classified": true,
-   "outlet": "ABC News"
+   "classified": true
   },
   {
    "id": "sig-819e3e54",
@@ -1892,8 +1932,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Gallego attacks Trump for treating service members as 'toys' over USS Lincoln issues.",
-   "summary_ko": "갈레고가 USS 링컨 문제를 거론하며 트럼프가 군인을 '장난감'처럼 대한다고 비난했다.",
+   "summary_en": "Gallego attacks Trump, saying USS Lincoln issues show he treats service members as toys.",
+   "summary_ko": "갈레고가 USS 링컨 문제를 거론하며 트럼프가 군인들을 '장난감'처럼 대한다고 비난했습니다.",
    "classified": true
   },
   {
@@ -1912,29 +1952,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Gallego blames Trump administration for poor conditions on USS Lincoln.",
-   "summary_ko": "갈레고가 USS 링컨의 열악한 상황을 트럼프 행정부 탓으로 돌렸다.",
-   "classified": true
-  },
-  {
-   "id": "sig-548385d1",
-   "date": "2026-08-15",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOYXRoejFwMXZlbzJ2UEJpSnZJaWstNkEzQ0ZIS0ZBdHJPNm9YeHFsR2RsVU85R25QYmptRmNOb0Y3ZHpjczJScmM3dEFBb1NVYl9PSkFSOG40MVlIUUhoSFB3Uk9fVXcyNHpyYkg2ekNiN2RjLW4yTHM2YzMxWmNBS01nVdIBiAFBVV95cUxPdzhIc2R0cGlES3J2V3R6YXFkN3lEa0N3YzlQdkxIaGFQdXFmRmYtd2Z0azFjRXFWMURNV2tfT19Ub1otaEVtTUpqS280UWwtektpZDhxTE5zN1Q4dDI2T3RjenZsLThtS2FhYU5raXFnay1aV2g4clZWMkxoR05ZRDFZYnFPVFZ4?oc=5",
-   "title": "Ben Shapiro says Rubio’s potential 2028 White House bid against Vance could backfire - The Hill",
-   "people": [
-    "vance",
-    "rubio",
-    "shapiro"
-   ],
-   "pair": [
-    "rubio",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Ben Shapiro warns that a potential 2028 Rubio presidential bid against Vance could backfire politically.",
-   "summary_ko": "벤 샤피로가 2028년 루비오의 밴스 대항 출마가 역효과를 낼 수 있다고 경고했습니다.",
+   "summary_en": "Gallego blames Trump administration for USS Lincoln conditions, citing a true lack of leadership.",
+   "summary_ko": "갈레고가 USS 링컨함 상황을 트럼프 행정부 책임이라며 진정한 리더십 부재라고 비판했습니다.",
    "classified": true
   },
   {
@@ -1953,8 +1972,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Warren demands accountability from RFK Jr. over the handling of a cyclosporiasis outbreak.",
-   "summary_ko": "워런 상원의원이 사이클로스포라증 발병 대응 실패를 이유로 RFK 주니어에게 해명을 요구했습니다.",
+   "summary_en": "Sen. Warren demands accountability from RFK Jr. over a cyclosporiasis outbreak response.",
+   "summary_ko": "워런 상원의원이 사이클로스포라증 발병 대응 실패를 이유로 RFK 주니어에게 해명을 요구했다.",
    "classified": true
   },
   {
@@ -1973,8 +1992,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Mark Kelly mocks Trump's knowledge regarding an aircraft carrier catapult order.",
-   "summary_ko": "마크 켈리 상원의원이 항공모함 캐터펄트 주문 관련 트럼프의 지식을 조롱했습니다.",
+   "summary_en": "Sen. Mark Kelly mocks Trump's knowledge of aircraft carrier catapult technology.",
+   "summary_ko": "마크 켈리 상원의원이 트럼프의 항공모함 캐터펄트 기술 지식을 조롱했다.",
    "classified": true
   },
   {
@@ -1991,15 +2010,15 @@
     "biden",
     "trump"
    ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "A Democratic governor credits Trump for completing a Michigan project that Biden failed to finish.",
-   "summary_ko": "민주당 주지사가 바이든이 완수하지 못한 미시간 프로젝트를 트럼프가 완료했다고 칭찬했습니다.",
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "A Democratic governor praises Trump for completing a Michigan project Biden failed to finish.",
+   "summary_ko": "민주당 주지사가 바이든이 완수하지 못한 미시간 프로젝트를 트럼프가 완료했다고 칭찬했다.",
    "classified": true
   },
   {
    "id": "sig-820ab89f",
-   "date": "2026-08-14",
+   "date": "2026-08-13",
    "source": "The Wall Street Journal",
    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0xMVNPVTdKMDRBZDdCNWh0Q3IwRWVHQkdBbEVWT2FfOEh0MjBsOHI3ZC1Wc1FVQ0pyQnFESGFRZWZneThwTVNzd29BSU9UZ1czZDNmekZDUjdCdzBrWDhRNUVQZ2JmQWoyUnZRUUZyVGsxcnVv?oc=5",
    "title": "How Trump and Musk Rekindled a Relationship That Seemed Beyond Repair - WSJ",
@@ -2012,9 +2031,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump and Elon Musk have repaired their previously broken relationship and are working together again.",
-   "summary_ko": "트럼프와 일론 머스크가 파탄 났던 관계를 복원하고 다시 협력하고 있습니다.",
+   "confidence": 0.9,
+   "summary_en": "Trump and Musk have repaired their previously broken relationship.",
+   "summary_ko": "트럼프와 머스크가 이전에 깨졌던 관계를 복원했다.",
    "classified": true
   },
   {
@@ -2054,8 +2073,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senator Warren questions RFK Jr. about his connections to Trump through a lettuce distributor.",
-   "summary_ko": "워런 상원의원이 RFK 주니어의 상추 유통업체 관련 트럼프 연관성을 추궁하다.",
+   "summary_en": "Sen. Warren questions RFK Jr. about Trump administration ties to a lettuce distributor.",
+   "summary_ko": "워런 상원의원이 RFK 주니어에게 트럼프 행정부의 상추 유통업체 연관성을 추궁했다.",
    "classified": true
   },
   {
@@ -2174,8 +2193,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Pelosi criticizes those who knew of Biden's decline for failing to act.",
-   "summary_ko": "펠로시가 바이든의 인지 저하를 알고도 행동하지 않은 이들을 비판했습니다.",
+   "summary_en": "Nancy Pelosi criticizes those who knew of Biden's decline but failed to act.",
+   "summary_ko": "낸시 펠로시가 바이든의 인지 저하를 알고도 행동하지 않은 이들을 비판합니다.",
    "classified": true
   },
   {
@@ -2194,8 +2213,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama mocks Trump's gold signage in the Oval Office.",
-   "summary_ko": "오바마가 트럼프의 집무실 금색 간판을 조롱했다.",
+   "summary_en": "Barack Obama mocks Donald Trump's Oval Office gold signage.",
+   "summary_ko": "버락 오바마가 도널드 트럼프의 집무실 금색 간판을 조롱합니다.",
    "classified": true
   },
   {
@@ -2235,9 +2254,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Crockett criticizes Republicans as performative and says many dislike Trump.",
-   "summary_ko": "크로켓이 공화당원들을 '연기적'이라 비판하며 다수가 트럼프를 싫어한다고 주장했다.",
+   "confidence": 0.85,
+   "summary_en": "Jasmine Crockett criticizes Republicans and suggests many dislike Donald Trump.",
+   "summary_ko": "재스민 크로켓이 공화당원들을 비판하며 그들 중 다수가 도널드 트럼프를 싫어한다고 말합니다.",
    "classified": true
   },
   {
@@ -2256,8 +2275,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump attacks Thune; GOP senators rally to defend Thune.",
-   "summary_ko": "트럼프가 툰을 공격하자 공화당 상원의원들이 툰을 옹호하며 결집했다.",
+   "summary_en": "GOP senators rally behind John Thune after Trump criticizes the Senate leader.",
+   "summary_ko": "트럼프가 상원 원내대표를 비판하자 공화당 상원의원들이 존 튠을 지지하며 결집합니다.",
    "classified": true
   },
   {
@@ -2276,8 +2295,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Warren and Mike Lee partner on legislation to curb defense CEO pay.",
-   "summary_ko": "워렌과 마이크 리가 방산 CEO 보수 제한 법안으로 협력한다.",
+   "summary_en": "Elizabeth Warren and Mike Lee partner on legislation to curb defense CEO payouts.",
+   "summary_ko": "엘리자베스 워렌과 마이크 리가 방산업체 CEO 보수 제한 법안을 위해 협력합니다.",
    "classified": true
   },
   {
@@ -2295,9 +2314,9 @@
     "warren"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Warren supports Trump's push to limit defense contractor CEO compensation.",
-   "summary_ko": "워렌이 트럼프의 방산업체 CEO 보수 제한 추진을 지지했다.",
+   "confidence": 0.8,
+   "summary_en": "Elizabeth Warren supports a Trump-backed initiative to limit defense contractor CEO compensation.",
+   "summary_ko": "엘리자베스 워렌이 트럼프가 지지하는 방산업체 CEO 보수 제한 추진을 지지합니다.",
    "classified": true
   },
   {
@@ -2315,9 +2334,9 @@
     "walz"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Democrats select Klobuchar as their candidate to succeed Governor Walz.",
-   "summary_ko": "민주당이 클로버샤를 월즈 주지사의 후임 후보로 낙점했다.",
+   "confidence": 0.85,
+   "summary_en": "Amy Klobuchar is selected as the Democratic nominee to succeed Governor Tim Walz.",
+   "summary_ko": "에이미 클로버샤가 팀 월즈 주지사의 후임으로 민주당 후보로 지명되었습니다.",
    "classified": true
   },
   {
@@ -2334,10 +2353,10 @@
     "graham",
     "trump"
    ],
-   "polarity": "feud",
+   "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump backs a primary challenger to unseat Lindsey Graham.",
-   "summary_ko": "트럼프가 린지 그레이엄을 낙선시키기 위한 예비선거 도전자를 지지한다.",
+   "summary_en": "Trump endorses Darline Graham in the primary to replace Senator Lindsey Graham.",
+   "summary_ko": "트럼프가 린지 그레이엄 상원의원 후임 경선에서 다를린 그레이엄을 지지합니다.",
    "classified": true
   },
   {
@@ -2356,8 +2375,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Hegseth advocates for Pentagon funding at a base renaming ceremony honoring Graham.",
-   "summary_ko": "헤그세스가 그레이엄 명의 기지 명명식에서 국방부 예산 증액을 주장했습니다.",
+   "summary_en": "Hegseth pushes Pentagon funding while renaming a base after Graham.",
+   "summary_ko": "헤그세스가 그레이엄 명의로 기지명을 변경하며 국방예산 증액을 추진합니다.",
    "classified": true
   },
   {
@@ -2456,8 +2475,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Harris criticizes Biden's past religious stance in a post-Trump commentary.",
-   "summary_ko": "해리스가 트럼프 이후 공화당의 '깨달음'을 논하며 바이든의 과거 신앙을 비판했다.",
+   "summary_en": "Kamala Harris criticizes Joe Biden's past faith in a post-Trump epiphany for Republicans.",
+   "summary_ko": "카말라 해리스가 트럼프 이후 공화당의 '깨달음' 맥락에서 조 바이든의 과거 신념을 비판했습니다.",
    "classified": true
   },
   {
@@ -2476,8 +2495,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Rep. Andy Harris accuses Gov. Wes Moore of using redistricting for 2028 ambitions.",
-   "summary_ko": "앤디 해리스 의원이 웨스 무어 주지사가 선거구 재조정을 2028년 야망에 이용한다고 비난함.",
+   "summary_en": "Rep. Andy Harris accuses Gov. Wes Moore of leveraging redistricting for his 2028 ambitions.",
+   "summary_ko": "앤디 해리스 의원이 웨스 무어 주지사가 2028년 야망을 위해 메릴랜드 선거구 재조정을 이용한다고 비난했습니다.",
    "classified": true
   },
   {
@@ -2516,8 +2535,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senator Murkowski demands answers from Trump over Smithsonian disclaimers.",
-   "summary_ko": "머코스키 상원의원이 스미스소니언 면책 조항과 관련해 트럼프에게 답변을 요구함.",
+   "summary_en": "Murkowski demands answers from Trump over Smithsonian disclaimers.",
+   "summary_ko": "머코스키가 스미스소니언 면책 조항과 관련해 트럼프에게 해명을 요구했습니다.",
    "classified": true
   },
   {
@@ -2944,26 +2963,6 @@
    "classified": true
   },
   {
-   "id": "sig-933a2a7",
-   "date": "2026-07-30",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNdWpLZ2ZKRkRrV25iRTRRbHUyUV9fNWxTd1I5MHdoMm8zblV5a1lZdTBwRTJpTGJHc291U0pZM1g4SHFLYUdlam5RemNCUUg5QTNFQmdzVVhqQ2FfV0dhYS1YUXhBQlhTSENlV2JZX0xZZklqbFFvWTJyLXoweFo3S1MyLXFCOVRjREEyQWhlNTg1bjhBdlVCM0xXMWpySzlNNERfYkNieTQ0WEtfNV9IRnB5QzhaUQ?oc=5",
-   "title": "How the Big Beautiful Bill became law: Bannon, Vance push back on GOP tax norms - Washington Examiner",
-   "people": [
-    "vance",
-    "bannon"
-   ],
-   "pair": [
-    "bannon",
-    "vance"
-   ],
-   "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Bannon and Vance push back on GOP tax norms to pass the Big Beautiful Bill.",
-   "summary_ko": "배넌과 밴스가 '빅 뷰티풀 법안' 통과를 위해 공화당 세금 관행에 맞섰다.",
-   "classified": true
-  },
-  {
    "id": "sig-a87562fd",
    "date": "2026-07-30",
    "source": "The Hill",
@@ -3197,8 +3196,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.8,
-   "summary_en": "Speaker Mike Johnson plans to meet with Elon Musk in Texas.",
-   "summary_ko": "마이크 존슨 하원의장이 텍사스에서 일론 머스크와 만날 예정이다.",
+   "summary_en": "Speaker Johnson plans to meet with Elon Musk in Texas for discussions.",
+   "summary_ko": "존슨 하원의장이 텍사스에서 일론 머스크와 회동할 예정이다.",
    "classified": true
   },
   {
@@ -3257,9 +3256,9 @@
     "paul-rand"
    ],
    "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "Sen. Rand Paul dismisses concerns over Sen. McConnell's health, saying he doesn't understand the buzz.",
-   "summary_ko": "랜드 폴 상원의원이 매코넬 상원의원의 건강 우려에 대해 '이해할 수 없다'며 일축했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Rand Paul dismisses concerns about Mitch McConnell's health.",
+   "summary_ko": "랜드 폴이 미치 매코널의 건강에 대한 우려를 일축했습니다.",
    "classified": true
   },
   {
@@ -3277,9 +3276,9 @@
     "slotkin"
    ],
    "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Slotkin formally requests Hegseth confirm troops won't be deployed to polling places.",
-   "summary_ko": "슬로킨이 헤그세스에게 군대가 투표소에 배치되지 않을 것임을 확인해달라고 공식 요청했다.",
+   "confidence": 0.9,
+   "summary_en": "Senator Slotkin questions Secretary Hegseth on troop deployment to polling places.",
+   "summary_ko": "슬롯킨 상원의원이 헤그세스 국방장관에게 투표소 병력 투입 여부를 확인해달라고 요청했다.",
    "classified": true
   },
   {
@@ -3301,18 +3300,6 @@
    "summary_en": "Byron Donalds and David Jolly compete to replace DeSantis as Florida governor.",
    "summary_ko": "바이런 도널즈와 데이비드 졸리가 드산티스 후임 플로리다 주지사 자리를 놓고 경쟁한다.",
    "classified": true
-  },
-  {
-   "id": "sig-4d0ebaa7",
-   "date": "2026-08-18",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZ0N6NlRfTlVwRzVvYU1yUUdRZXFLSS1waEhRUXZXckNJMDJFOWJDeENMNDlmR3hoVXV0c3NjaGxBTnh3dUVJNms5X2thcE9feGlUOG9vRml0bjdISGlNenBxb2RMR2kyVlB0ZzRVb3oyN2FsUHFvaUVUMjVwaFpfN2p0MUdnYW9hMkgtU1I3VjBOdjVZYVdTVndCb3NzTl9ieTdsZlhzSdIBrAFBVV95cUxPSmMwVXg4dVJ0N3czMlVsQXd2Yno0WDMtVVdOX014OWY3eWtKcjFIYzN3X09EUkptNVQ1UF9RSWhkQ1NKeW5hOC1HdUo4aEdtbk1FNEpyYjExQ010aGN3SDFfdmdYU09NLV82WmRmTy1SME93d2lCWDFZMXFuUEdNWF9hMVJ3QzZ2RjNLWVJCMWFxelg3emVkSFFsWnpPSGZ4X2tudEZFc0tqcXZk?oc=5",
-   "title": "Republican who kicked Liz Cheney out of Congress seeks higher office in reddest state - foxnews.com",
-   "people": [
-    "dick-cheney",
-    "liz-cheney"
-   ],
-   "classified": false
   },
   {
    "id": "sig-934218f0",
