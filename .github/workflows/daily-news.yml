@@ -3,16 +3,34 @@ name: daily-news
 on:
   schedule:
     - cron: '0 13 * * *' # 매일 13:00 UTC (미 동부 아침)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      simulate_failure:
+        description: '알림을 시험한다 — 일부러 실패시켜 이슈가 열리는지 본다'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+  issues: write # 실패를 이슈로 남긴다
+
+env:
+  # 실패 이슈의 제목. 이걸로 기존 이슈를 찾으므로 바꾸면 새 이슈가 열린다.
+  ALERT_TITLE: '야간 수집이 실패하고 있다'
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 알림이 실제로 울리는지 확인하는 통로. 예약 실행에서는 켤 수 없다.
+      # 값싼 자리에 둔다 — 알림을 시험하려고 LLM 배치를 돌릴 이유가 없다.
+      - name: Simulate a failure (알림 시험용)
+        if: inputs.simulate_failure
+        run: |
+          echo '알림 경로를 시험하려고 일부러 실패한다. 수집은 돌지 않았다.'
+          exit 1
 
       - uses: actions/setup-node@v4
         with:
@@ -27,8 +45,12 @@ jobs:
         run: node --experimental-strip-types scripts/news-pipeline/pipeline.mts
 
       # 수집 결과가 깨졌으면 커밋하지 않는다. 커밋된 뒤에 알면 되돌려야 한다.
+      #
+      # `shell: bash` 는 `-eo pipefail` 을 준다. **이게 없으면 tee 가 감사의 종료 코드를
+      # 삼켜서** 깨진 데이터가 그대로 커밋된다 — 게이트를 로그 남기려다 없애는 셈이다.
       - name: Audit collected data
-        run: npm run audit:data
+        shell: bash
+        run: npm run audit:data 2>&1 | tee "$RUNNER_TEMP/audit.log"
 
       - name: Commit refreshed signals
         run: |
@@ -39,3 +61,66 @@ jobs:
           git add -A src/data/signals
           git diff --cached --quiet || git commit -m "news: refresh relationship signals [skip ci]"
           git push
+
+      # ── 알림 ────────────────────────────────────────────────────────────
+      #
+      # 이 작업은 **조용히 실패한다.** 감사가 커밋을 막으면 그날 수집분이 버려지는데,
+      # 저장소에는 아무 흔적이 남지 않는다. 실제로 2026-09-01~03 사흘치가 그렇게
+      # 사라졌고, 화면 배지가 빨강이 된 것 말고는 알 방법이 없었다.
+      #
+      # 비밀값을 요구하지 않는다. Slack·메일 웹훅은 사람이 따로 설정해야 하고,
+      # 설정을 잊으면 **알림이 없는데 있다고 믿는 상태**가 된다 — 지금보다 나쁘다.
+      # 기본 GITHUB_TOKEN 으로 되는 이슈를 쓴다.
+      - name: 실패를 이슈로 남긴다
+        if: failure()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          log="$RUNNER_TEMP/audit.log"
+          if [ -f "$log" ]; then
+            detail=$(grep -E '^(FAIL|WARN)' "$log" | head -20)
+            [ -z "$detail" ] && detail=$(tail -20 "$log")
+          else
+            detail='감사 단계 이전에 실패했다 — 수집이나 설치에서 죽었을 수 있다.'
+          fi
+
+          body=$(printf '실행이 실패해 **그날 수집분이 커밋되지 않았다.** 감사가 커밋 앞에 있어서,\n실패하면 그날 기사는 버려지고 다음 실행이 30일 창으로 다시 긁어와야 한다.\n\n- 실행: %s\n- 시각: %s\n\n```\n%s\n```\n' \
+            "$RUN_URL" "$(date -u '+%Y-%m-%d %H:%M UTC')" "$detail")
+
+          # 실패가 이어질 때 이슈를 매일 새로 만들지 않는다 — 하나에 쌓는다.
+          # 열린 이슈가 곧 "지금 야간이 깨져 있다" 는 뜻이 되게 한다.
+          # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
+          # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
+          # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
+          num=$(gh issue list --state open --limit 50 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty")
+
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body "$body"
+            echo "기존 이슈 #$num 에 덧붙였다"
+          else
+            gh issue create --title "$ALERT_TITLE" --body "$body" \
+              --assignee "${{ github.repository_owner }}"
+            echo '새 이슈를 열었다'
+          fi
+
+      # 복구되면 닫는다. 안 닫으면 열린 이슈가 "지금 깨져 있다" 는 뜻을 잃는다.
+      # 이 단계가 실패해도 수집은 이미 성공했다 — 초록불을 빨강으로 바꾸지 않는다.
+      - name: 복구되면 이슈를 닫는다
+        if: success()
+        continue-on-error: true
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
+          # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
+          # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
+          num=$(gh issue list --state open --limit 50 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty")
+          [ -z "$num" ] && exit 0
+          gh issue close "$num" --comment "복구됐다 — $RUN_URL"
+          echo "이슈 #$num 을 닫았다"
