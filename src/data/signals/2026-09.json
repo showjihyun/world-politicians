@@ -16,9 +16,9 @@
     "schumer"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
+   "confidence": 0.9,
    "summary_en": "Ted Cruz claims Chuck Schumer fears the far-left progressive wave.",
-   "summary_ko": "테드 크루즈가 척 슈머가 극좌파 진보 물결을 두려워한다고 주장했습니다.",
+   "summary_ko": "테드 크루즈가 척 슈머가 극좌 진보 물결을 두려워한다고 주장했습니다.",
    "classified": true
   },
   {
@@ -36,17 +36,57 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
+   "confidence": 0.85,
    "summary_en": "Senator Britt urges Congress to codify Trump's data center pledge into law.",
    "summary_ko": "브리트 상원의원이 트럼프의 데이터센터 공약을 법제화할 것을 의회에 촉구했습니다.",
    "classified": true
   },
   {
-   "id": "sig-5fc4f58b",
+   "id": "sig-4fe7c393",
+   "date": "2026-09-04",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaWc5empObmtOMmNiT0YydHkyMjhqSy0wUEpQbzZGRDNTc0RHSDRTc1RNd05TSXpJZnlRQVVkc1ZJamVoTnRIY2l2cGpkY2VPMXd2YlBVS0VEYkdoSm5XeFNXMzNMLXlZRnhyY25YMEJ0UUQ1REVER3R6bmc1ak1wVTYxbWVGV3hTMWxSUzFZbm43Nzd0amtlN2F5dmk3OWRfazM5YXlDRFY5b2l6RDQtdkVpWFlZdUFPVzNuMGhQdw?oc=5",
+   "title": "Ted Cruz Is Testing the Waters for a 2028 Run—and Taking Swipes at JD Vance - WSJ",
+   "people": [
+    "vance",
+    "cruz"
+   ],
+   "pair": [
+    "cruz",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Ted Cruz takes swipes at JD Vance while testing waters for a 2028 run.",
+   "summary_ko": "테드 크루즈가 2028년 대선 출마를 저울질하며 JD 밴스를 비판했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-aa29f45c",
+   "date": "2026-09-04",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTS1jR3ZsbzNLZkpWWm1pUlhRclUtQ3JGR2ZXNC1HQnJUU0ZYd05FdHA5U2Z5YUd1a3FyT0NSdHZVZWppa2tVLWFvNWphcXVCNEN1RHdXaEc1LWZGUV81N1FrMjVUQlJYTkJFdEI1RDNNZ3lscnB5YlZlREZGMVpCMHJaZm5BUWZxZVVMQTE5RS1iVktQVWJXVUlldzZybmhETGIxaDdBRFp1dw?oc=5",
+   "title": "Kamala Harris, Hillary Clinton, Oprah Winfrey and others pay tribute to Gloria Steinem - AP News",
+   "people": [
+    "harris",
+    "hillary"
+   ],
+   "classified": true,
+   "pair": [
+    "harris",
+    "hillary"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Harris and Clinton join others in paying tribute to Gloria Steinem.",
+   "summary_ko": "해리스와 클린턴이 글로리아 스타이넘에게 경의를 표하는 행사에 함께했다."
+  },
+  {
+   "id": "sig-1077d63c",
    "date": "2026-09-04",
    "source": "AP News",
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQUDhITzU0TDIyV0VyQTBvT0FPZmZBZHJaTGFKc3dQaFl6VHpmbmM1TVUtTXRtY2Z1d2dONVdDcXhpUHB4Z2xVcjF4NnBac2ZRUXVBcXpOU0VOZlJfejNfWHZVNEVxeGk3TzZ6MWVIYWljN194YjEtbExGeWJtYk52UTdabG0yWTNQQnlFTy0wd2E2amE1QnBqSDZTaldIb1M4MzFR?oc=5",
-   "title": "Vance says Iran fight isn't a 'war' as Trump tries to navigate unpopular conflict as election nears - AP News",
+   "title": "Vance says Iran fight isn't a 'war' as Trump tries to navigate unpopular conflict as election nears - apnews.com",
    "people": [
     "trump",
     "vance"
@@ -56,9 +96,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Vance downplays the Iran conflict as not a 'war' while Trump navigates the unpopular situation.",
-   "summary_ko": "밴스가 이란 분쟁을 '전쟁'이 아니라고 축소하며 트럼프가 인기 없는 상황을 헤쳐나가고 있다고 보도했습니다.",
+   "confidence": 0.75,
+   "summary_en": "Vance downplays Iran conflict as not a 'war' while Trump navigates the unpopular situation before the election.",
+   "summary_ko": "밴스가 이란 분쟁을 '전쟁'이 아니라고 축소하는 동안 트럼프는 선거 전 여론이 나쁜 상황을 관리하려 한다.",
    "classified": true
   },
   {
@@ -77,9 +117,9 @@
     "hegseth"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Rep. Bacon agrees with Sen. Tillis that Hegseth would not be on his team.",
-   "summary_ko": "베이컨 의원이 틸리스 상원의원에 동조해 헤그세스가 자신의 팀에 없을 것이라고 비판했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Don Bacon echoes Tillis, saying Hegseth would not be on his team.",
+   "summary_ko": "돈 베이컨이 틸리스에 동조하며 헤그세스가 자신의 팀에 없을 것이라고 말했습니다.",
    "classified": true
   },
   {
@@ -117,9 +157,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Vance expresses enthusiasm about spending time with Biden at the 9/11 ceremony.",
-   "summary_ko": "밴스가 9/11 추모식에서 바이든과 함께 시간을 보내길 고대한다고 밝혔습니다.",
+   "confidence": 0.85,
+   "summary_en": "Vance expresses enthusiasm about attending the 9/11 ceremony with Biden.",
+   "summary_ko": "밴스가 9·11 추모식에서 바이든과 함께할 것을 기대한다고 밝혔다.",
    "classified": true
   },
   {
@@ -139,8 +179,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Tillis publicly calls for Hegseth's removal as Defense Secretary.",
-   "summary_ko": "틸리스 상원의원이 헤그세스 국방장관 교체를 공개적으로 요구했습니다.",
+   "summary_en": "Senator Tillis calls for Hegseth's removal and criticizes Pentagon leadership.",
+   "summary_ko": "틸리스 상원의원이 헤그세스 교체를 트럼프에게 촉구하며 국방부 지도부를 강하게 비판했다.",
    "classified": true
   },
   {
@@ -159,8 +199,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "White House attacks a Biden-appointed judge who blocked Trump's birthright citizenship order.",
-   "summary_ko": "백악관이 트럼프의 출생시민권 행정명령을 뒤집은 바이든 지명 판사를 맹비난합니다.",
+   "summary_en": "The Trump White House attacks a Biden-appointed judge for blocking the birthright citizenship order.",
+   "summary_ko": "트럼프 백악관이 바이든이 임명한 판사의 출생시민권 행정명령 차단을 맹비난했다.",
    "classified": true
   },
   {
@@ -180,8 +220,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom and Schiff jointly support Trump's Hollywood policy initiative.",
-   "summary_ko": "뉴섬 주지사와 시프 의원이 트럼프의 할리우드 정책을 공동 지지했습니다.",
+   "summary_en": "Newsom and Schiff jointly support Trump's Hollywood policy proposal.",
+   "summary_ko": "뉴섬과 시프가 트럼프의 할리우드 정책을 공동으로 지지했다.",
    "classified": true
   },
   {
@@ -202,7 +242,7 @@
    "polarity": "feud",
    "confidence": 0.95,
    "summary_en": "Senator Tillis urges Trump to replace Hegseth and attacks Pentagon leadership.",
-   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 교체를 촉구하며 펜타곤 지도부를 비판했습니다.",
+   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 교체를 촉구하며 국방부 수뇌부를 강하게 비판했다.",
    "classified": true
   },
   {
@@ -222,8 +262,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Tillis criticizes Hegseth's priorities and urges Trump to remove him as Defense Secretary.",
-   "summary_ko": "틸리스가 헤그세스의 우선순위를 비판하며 트럼프에게 국방장관 해임을 촉구했습니다.",
+   "summary_en": "Tillis criticizes Hegseth's priorities and urges Trump to fire him as defense secretary.",
+   "summary_ko": "틸리스가 헤그세스의 우선순위를 비판하며 트럼프에게 국방장관 해임을 촉구했다.",
    "classified": true
   },
   {
@@ -243,7 +283,7 @@
    "polarity": "feud",
    "confidence": 0.95,
    "summary_en": "Massie criticizes Vance for claiming the Iran conflict is not a war, calling it an insult to service members.",
-   "summary_ko": "매시가 이란 분쟁이 전쟁이 아니라는 밴스 발언을 군인들에 대한 모욕이라며 강하게 비판했습니다.",
+   "summary_ko": "매시가 이란 분쟁이 전쟁이 아니라는 밴스 발언을 군인들에 대한 모욕이라며 강하게 비판했다.",
    "classified": true
   },
   {
@@ -282,8 +322,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Following a rift with Trump, Musk starts spending to support Republicans independently.",
-   "summary_ko": "트럼프와의 결별 후 머스크가 독자적으로 공화당 지원을 위한 자금 지출을 시작했다고 보도했습니다.",
+   "summary_en": "Following a rift with Trump, Musk starts spending to support Republican candidates.",
+   "summary_ko": "트럼프와 결별한 뒤 머스크가 공화당 후보 지원을 위한 지출을 시작했다.",
    "classified": true
   },
   {
@@ -302,28 +342,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Tillis publicly calls for Hegseth's firing as Defense Secretary.",
-   "summary_ko": "틸리스 상원의원이 헤그세스 국방장관의 해임을 공개적으로 요구했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-4fe7c393",
-   "date": "2026-09-03",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaWc5empObmtOMmNiT0YydHkyMjhqSy0wUEpQbzZGRDNTc0RHSDRTc1RNd05TSXpJZnlRQVVkc1ZJamVoTnRIY2l2cGpkY2VPMXd2YlBVS0VEYkdoSm5XeFNXMzNMLXlZRnhyY25YMEJ0UUQ1REVER3R6bmc1ak1wVTYxbWVGV3hTMWxSUzFZbm43Nzd0amtlN2F5dmk3OWRfazM5YXlDRFY5b2l6RDQtdkVpWFlZdUFPVzNuMGhQdw?oc=5",
-   "title": "Ted Cruz Is Testing the Waters for a 2028 Run—and Taking Swipes at JD Vance - WSJ",
-   "people": [
-    "vance",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Senator Cruz takes swipes at potential 2028 rival Vance while exploring his own presidential run.",
-   "summary_ko": "크루즈 상원의원이 2028년 대선 출마를 저울질하며 잠재적 라이벌인 밴스를 견제하고 나섰습니다.",
+   "summary_en": "Senator Tillis calls for Hegseth's firing as Pentagon chief faces mounting pressure.",
+   "summary_ko": "틸리스 상원의원이 헤그세스 국방장관 해임을 요구하며 압박이 거세지고 있다.",
    "classified": true
   },
   {
@@ -361,7 +381,7 @@
     "ossoff"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
+   "confidence": 0.75,
    "summary_en": "Newsom deliberately avoids Georgia and Ossoff during his southern tour.",
    "summary_ko": "뉴섬이 남부 순방 중 조지아주와 오소프를 의도적으로 피했다.",
    "classified": true
@@ -383,7 +403,7 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom and Schiff support Trump's push for a federal film tax credit.",
+   "summary_en": "Newsom and Schiff support Trump's proposal for a federal film tax credit.",
    "summary_ko": "뉴섬과 시프가 트럼프의 연방 영화 세액공제 추진을 지지했다.",
    "classified": true
   },
@@ -489,26 +509,6 @@
    "classified": true
   },
   {
-   "id": "sig-fa049b5b",
-   "date": "2026-09-02",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOc3hqVzZ4VnAwbXk0aUd2LWlMWVpzN1loVU9vRXBtSUZqWFRxNEZlbmZTLWUyM3JpLWtDaWduMXdLS29IMTFaWWtXUTZvbktfS0pPc3NXdHJRNlhNeDVKT1BOSXF6NEhZSnVNR2tRMmlEYnhvclB1RVg1NlA5WGVNWlpR?oc=5",
-   "title": "DeSantis endorses Florida GOP slate including Byron Donalds in governor's race - foxnews.com",
-   "people": [
-    "donalds",
-    "desantis"
-   ],
-   "pair": [
-    "desantis",
-    "donalds"
-   ],
-   "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "DeSantis endorses a Florida GOP slate that includes Byron Donalds in the governor's race.",
-   "summary_ko": "디샌티스가 플로리다 주지사 경선에 나선 바이런 도널즈를 포함한 공화당 후보 명단을 지지했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-e15f8bb9",
    "date": "2026-09-02",
    "source": "CNN",
@@ -525,7 +525,7 @@
    "polarity": "ally",
    "confidence": 0.9,
    "summary_en": "Reps. Massie and Khanna are jointly pushing to fully release the Epstein files.",
-   "summary_ko": "매시와 카나 의원이 엡스타인 파일 전면 공개를 위해 공동으로 노력하고 있습니다.",
+   "summary_ko": "매시와 칸나 의원이 엡스타인 파일 전면 공개를 위해 공동으로 노력하고 있습니다.",
    "classified": true
   },
   {
@@ -540,33 +540,13 @@
     "tillis"
    ],
    "pair": [
-    "tillis",
-    "trump"
+    "hegseth",
+    "tillis"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
+   "confidence": 0.95,
    "summary_en": "Sen. Tillis urges Trump to fire Hegseth, criticizing his management of the military.",
-   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 국방장관 해임을 촉구하며 군 운영 무능을 비판했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a3df928e",
-   "date": "2026-09-02",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbE9OWmh3eFl3R25pN1FjeUZGMFlkNXFzb1hnWmtvYUEzRUFqSzFrVHRjcE91X25zajI5bG1ocVFiVS1GeUdNUW1Cd2x4X1JUbEZraWt0TVIwbDJiUUlfckxzRmRPUmFKQU5aNmVjNHl5d3ZZLWZaanB1LWk5WHRJeFlJU0E0MHFrWGFRdGp1WGJOT3R2M3daYkdMQlNTVnJVd3h3VGp30gGrAUFVX3lxTE03Q3ZXNk1CX24xV0tyYXYyaWRaMzM4RjYyUWNpcmJFZEtxZU4waFNSdGVQUkZaU3U5ZWUzUi16WnY5M1RkZDdMeEd1UHR3SThJU1hwZFZIX0tNbmhYX1YyT1RVU0pYTHpJMU1NNkwwRVJnTjY5MXpzUDJSS2s4dnUyQUlKUmtNTHFDcnowR0dvVUlnRmJhb0lqQ0pmQ284ZEI0dkx6eFFMblNXTQ?oc=5",
-   "title": "Trump and Rubio’s bold Venezuela oil pact could finally crush communism’s grip - foxnews.com",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Trump and Rubio collaborate on a Venezuela oil pact aimed at weakening communism's grip.",
-   "summary_ko": "트럼프와 루비오가 베네수엘라 석유 협정을 통해 공산주의 세력을 약화시키기 위해 협력하고 있습니다.",
+   "summary_ko": "틸리스 상원의원이 트럼프에게 헤그세스 해임을 촉구하며 그의 군 운영을 비판했습니다.",
    "classified": true
   },
   {
@@ -584,9 +564,49 @@
     "vance"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
+   "confidence": 0.95,
    "summary_en": "Haley publicly challenges Vance to choose between supporting Israel or Tucker Carlson.",
-   "summary_ko": "헤일리가 밴스에게 이스라엘 지지와 터커 칼슨 지지 중 하나를 선택하라고 공개적으로 압박했습니다.",
+   "summary_ko": "헤일리가 밴스에게 이스라엘 지지와 터커 칼슨 지지 중 하나를 선택하라고 공개 압박했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-7e80f1aa",
+   "date": "2026-09-02",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOc3hqVzZ4VnAwbXk0aUd2LWlMWVpzN1loVU9vRXBtSUZqWFRxNEZlbmZTLWUyM3JpLWtDaWduMXdLS29IMTFaWWtXUTZvbktfS0pPc3NXdHJRNlhNeDVKT1BOSXF6NEhZSnVNR2tRMmlEYnhvclB1RVg1NlA5WGVNWlpR?oc=5",
+   "title": "DeSantis endorses Florida GOP slate including Byron Donalds in governor's race - Fox News",
+   "people": [
+    "donalds",
+    "desantis"
+   ],
+   "pair": [
+    "desantis",
+    "donalds"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "DeSantis endorses a Florida GOP slate that includes Byron Donalds in the governor's race.",
+   "summary_ko": "디샌티스가 플로리다 주지사 경선에 나선 바이런 도널즈를 포함한 공화당 후보 명단을 지지했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2929fa9d",
+   "date": "2026-09-02",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbE9OWmh3eFl3R25pN1FjeUZGMFlkNXFzb1hnWmtvYUEzRUFqSzFrVHRjcE91X25zajI5bG1ocVFiVS1GeUdNUW1Cd2x4X1JUbEZraWt0TVIwbDJiUUlfckxzRmRPUmFKQU5aNmVjNHl5d3ZZLWZaanB1LWk5WHRJeFlJU0E0MHFrWGFRdGp1WGJOT3R2M3daYkdMQlNTVnJVd3h3VGp30gGrAUFVX3lxTE03Q3ZXNk1CX24xV0tyYXYyaWRaMzM4RjYyUWNpcmJFZEtxZU4waFNSdGVQUkZaU3U5ZWUzUi16WnY5M1RkZDdMeEd1UHR3SThJU1hwZFZIX0tNbmhYX1YyT1RVU0pYTHpJMU1NNkwwRVJnTjY5MXpzUDJSS2s4dnUyQUlKUmtNTHFDcnowR0dvVUlnRmJhb0lqQ0pmQ284ZEI0dkx6eFFMblNXTQ?oc=5",
+   "title": "Trump and Rubio’s bold Venezuela oil pact could finally crush communism’s grip - Fox News",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Trump and Rubio collaborate on a Venezuela oil pact aimed at weakening the regime.",
+   "summary_ko": "트럼프와 루비오가 베네수엘라 정권 약화를 목표로 원유 협정을 공동 추진합니다.",
    "classified": true
   },
   {
@@ -605,8 +625,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Trump and Rick Scott jointly present an economic argument or proposal.",
-   "summary_ko": "트럼프와 릭 스콧이 함께 경제적 해법을 제시했습니다.",
+   "summary_en": "Trump and Rick Scott jointly present an economic argument in an op-ed.",
+   "summary_ko": "트럼프와 릭 스콧이 공동 칼럼을 통해 경제적 해법을 제시했습니다.",
    "classified": true
   },
   {
@@ -645,28 +665,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Sen. Thune says Trump's help will be needed for the expensive Texas Senate race.",
-   "summary_ko": "튠 상원의원이 비용이 많이 드는 텍사스 상원 선거에서 트럼프의 지원이 필요할 것이라고 밝혔습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f7aaf05b",
-   "date": "2026-09-01",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wZWw2OXhqR2lHcXkzRUk1MFRHRWFHNXI4bHhOUTI0eVNVN2l3clJUUFcwRmVtVXU1M2hGbEp5Tk5QM3FWUHNrTVE1OUdfbHJhblktUUtB?oc=5",
-   "title": "Sen Majority Leader John Thune: We'll need Trump and his team engaged in Texas' midterm - foxnews.com",
-   "people": [
-    "trump",
-    "thune"
-   ],
-   "pair": [
-    "thune",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Senate Majority Leader John Thune calls for Trump's engagement in Texas midterms.",
-   "summary_ko": "존 튠 상원 원내대표가 텍사스 중간선거를 위해 트럼프의 참여를 촉구했다.",
+   "summary_en": "Sen. Thune says Trump's engagement is needed to win the expensive Texas Senate race.",
+   "summary_ko": "튠 상원의원이 비용이 많이 드는 텍사스 상원 선거 승리를 위해 트럼프의 지원이 필요하다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -684,9 +684,9 @@
     "vance"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Nikki Haley publicly demands Vance choose a side between Israel and its critics.",
-   "summary_ko": "니키 헤일리가 밴스에게 이스라엘과 비판자들 사이에서 입장을 정하라고 공개 요구했다.",
+   "confidence": 0.9,
+   "summary_en": "Nikki Haley publicly demands JD Vance pick a side between Israel and its critics.",
+   "summary_ko": "니키 헤일리가 JD 밴스에게 이스라엘과 비판자들 사이에서 입장을 정하라고 공개 요구했다.",
    "classified": true
   },
   {
@@ -704,22 +704,30 @@
     "hegseth"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Rep. Don Bacon criticizes Hegseth's firing of senior military officers.",
-   "summary_ko": "돈 베이컨 의원이 헤그세스의 고위 장성들 해임을 비판했다.",
+   "confidence": 0.95,
+   "summary_en": "Rep. Don Bacon criticizes Secretary Hegseth for firing many senior military officers.",
+   "summary_ko": "돈 베이컨 하원의원이 헤그세스 국방장관이 다수의 고위 장성을 해임한 것을 비판했다.",
    "classified": true
   },
   {
-   "id": "sig-aa29f45c",
-   "date": "2026-09-04",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTS1jR3ZsbzNLZkpWWm1pUlhRclUtQ3JGR2ZXNC1HQnJUU0ZYd05FdHA5U2Z5YUd1a3FyT0NSdHZVZWppa2tVLWFvNWphcXVCNEN1RHdXaEc1LWZGUV81N1FrMjVUQlJYTkJFdEI1RDNNZ3lscnB5YlZlREZGMVpCMHJaZm5BUWZxZVVMQTE5RS1iVktQVWJXVUlldzZybmhETGIxaDdBRFp1dw?oc=5",
-   "title": "Kamala Harris, Hillary Clinton, Oprah Winfrey and others pay tribute to Gloria Steinem - AP News",
+   "id": "sig-71e9d0aa",
+   "date": "2026-09-01",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wZWw2OXhqR2lHcXkzRUk1MFRHRWFHNXI4bHhOUTI0eVNVN2l3clJUUFcwRmVtVXU1M2hGbEp5Tk5QM3FWUHNrTVE1OUdfbHJhblktUUtB?oc=5",
+   "title": "Sen Majority Leader John Thune: We'll need Trump and his team engaged in Texas' midterm - Fox News",
    "people": [
-    "harris",
-    "hillary"
+    "trump",
+    "thune"
    ],
-   "classified": false
+   "pair": [
+    "thune",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Majority Leader Thune states Trump and his team must be engaged in the Texas midterm.",
+   "summary_ko": "튠 원내대표가 텍사스 중간선거에서 트럼프와 그의 팀의 적극적 참여가 필요하다고 말했습니다.",
+   "classified": true
   },
   {
    "id": "sig-6a325688",
@@ -768,7 +776,7 @@
     "vance"
    ],
    "polarity": "neutral",
-   "confidence": 0.9,
+   "confidence": 0.8,
    "summary_en": "Vance declines to endorse Thune for continued Senate leadership.",
    "summary_ko": "밴스가 튠의 상원 원내대표 연임 지지를 거부했습니다.",
    "classified": true
@@ -789,28 +797,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Vance declines to endorse Thune for another term as Senate leader.",
-   "summary_ko": "밴스 부통령이 튠 상원 원내대표 연임 지지를 거부했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-522a428d",
-   "date": "2026-09-03",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQd1MzX1hmeUlGY2Zwbm5Fc0ZkSVAxTWlPWUsxYWo1enY2Z21zNDNicEI3YmFhLUpGMy0xT2hxc2VDNXNQbTdib1BYM1VUdUhJU3A0MjBxb0xJS0xPampuWUxWYl83ZUxhTVY5OUFvdnRjNnl2STdMc2RPTWl1RWxxbHE0MUo5eVhORVhuRUgwLWU1UVpCQi11clRkdXlOZVoyNWtUaGJkcjF6Q1E?oc=5",
-   "title": "The Trump administration halted a Great Lakes project. Then Whitmer called Trump - AP News",
-   "people": [
-    "trump",
-    "whitmer"
-   ],
-   "pair": [
-    "trump",
-    "whitmer"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Whitmer contacts Trump after his administration halts a Great Lakes project.",
-   "summary_ko": "트럼프 행정부의 오대호 프로젝트 중단 후 휘트머 주지사가 트럼프에게 연락했습니다.",
+   "summary_en": "Vance declines to endorse Thune for another term as Senate Republican leader.",
+   "summary_ko": "밴스가 튠의 상원 공화당 원내대표 연임 지지를 거부하며 거리를 뒀다.",
    "classified": true
   },
   {
@@ -852,9 +840,29 @@
     "trump"
    ],
    "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Hegseth favors Sean Parnell for Army secretary, but Trump's preference remains unclear.",
+   "summary_ko": "헤그세스가 육군장관으로 숀 파넬을 선호하지만 트럼프의 의중은 불분명하다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1ab5a9fe",
+   "date": "2026-09-03",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQd1MzX1hmeUlGY2Zwbm5Fc0ZkSVAxTWlPWUsxYWo1enY2Z21zNDNicEI3YmFhLUpGMy0xT2hxc2VDNXNQbTdib1BYM1VUdUhJU3A0MjBxb0xJS0xPampuWUxWYl83ZUxhTVY5OUFvdnRjNnl2STdMc2RPTWl1RWxxbHE0MUo5eVhORVhuRUgwLWU1UVpCQi11clRkdXlOZVoyNWtUaGJkcjF6Q1E?oc=5",
+   "title": "The Trump administration halted a Great Lakes project. Then Whitmer called Trump - apnews.com",
+   "people": [
+    "trump",
+    "whitmer"
+   ],
+   "pair": [
+    "trump",
+    "whitmer"
+   ],
+   "polarity": "neutral",
    "confidence": 0.8,
-   "summary_en": "Hegseth favors Parnell for Army secretary, but Trump's short list is unclear.",
-   "summary_ko": "헤그세스가 파넬을 육군장관으로 밀지만 트럼프의 최종 후보군은 불투명합니다.",
+   "summary_en": "Whitmer contacts Trump after his administration halts a Great Lakes project.",
+   "summary_ko": "트럼프 행정부가 오대호 사업을 중단하자 휘트머가 트럼프에게 직접 연락했다.",
    "classified": true
   },
   {
@@ -874,7 +882,7 @@
    "polarity": "neutral",
    "confidence": 0.7,
    "summary_en": "Collins discusses Trump, tariffs, and her Senate race in an interview.",
-   "summary_ko": "콜린스가 트럼프, 관세, 자신의 상원 선거에 대해 인터뷰했다.",
+   "summary_ko": "콜린스가 트럼프, 관세, 상원 선거 등에 대해 인터뷰했다.",
    "classified": true
   },
   {
@@ -898,16 +906,24 @@
    "classified": true
   },
   {
-   "id": "sig-3efd6710",
+   "id": "sig-38136ad1",
    "date": "2026-09-02",
    "source": "AP News",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQODVvcmNHVFpnZlZ4Q2ItSllvVjJjVENYTURRQUU3VG9uU2x4QTNCamwyTWVhN2lxLUFZRDg1Vy0zelpKT1p6Y2s3cmFVZ0puNnlyWTBKSlo1SXc0cThBSU16cXhyZHo2aE81SUZnb3VOYXU1RnVEc0taOXNjR1ptRF9TMk80Zjkx?oc=5",
-   "title": "Vance talks about the end times and the attempted assassination of Trump in Christian podcast - AP News",
+   "title": "Vance talks about the end times and the attempted assassination of Trump in Christian podcast - apnews.com",
    "people": [
     "trump",
     "vance"
    ],
-   "classified": false
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Vance discusses the attempted assassination of Trump and end times theology on a Christian podcast.",
+   "summary_ko": "밴스가 기독교 팟캐스트에서 트럼프 암살 미수 사건과 종말론을 논의했다.",
+   "classified": true
   },
   {
    "id": "sig-c03005c1",
