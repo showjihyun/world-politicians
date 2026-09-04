@@ -492,7 +492,14 @@ function measurePanels(): Panel[] {
           // 노드를 고르면 그 노드에 붙은 엣지에만 입자를 흘린다.
           // 전체가 흐르면 무엇이 선택됐는지 오히려 읽기 어렵다.
           if (focusActive && !touchesFocus(l)) return 0;
-          return l.rel.type === 'feud' ? 2 + l.rel.strength : l.rel.strength - 1;
+          // **입자는 방향을 뜻한다.** 도메인이 `initiator` 로 흐르는 쪽을 정한다 —
+          // feud 는 먼저 공격한 쪽, 공동발의는 더 많이 서명한 쪽이다.
+          //
+          // 방향을 모르는 엣지에 흘리면 없는 방향을 있다고 말하게 된다. 예전에는
+          // 강도만 보고 흘려서, initiator 가 없는 동맹 113개와 공동발의 62개가
+          // a→b 순서(= 데이터에 적힌 순서)로 흐르고 있었다. 그건 뜻이 아니라 우연이다.
+          if (!l.rel.initiator) return 0;
+          return l.rel.type === 'feud' ? 2 + l.rel.strength : l.rel.strength;
         }}
         linkDirectionalParticleSpeed={() => 0.006}
         linkDirectionalParticleWidth={(lRaw) => 1.4 + (lRaw as unknown as GraphLink).rel.strength * 0.7}

@@ -5,6 +5,39 @@
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+// 앱이 쓰는 그 함수를 그대로 부른다. 규칙을 여기 다시 구현하면 둘이 갈라지고,
+// 그때부터 검사는 화면이 아니라 자기 자신을 검사한다.
+import { buildPairTimeline } from '../../src/domain/timeline.ts';
+import { pairKey } from '../../src/domain/graph.ts';
+
+/** ANALYSIS 탭에서 추적하는 인물 — 아래 기대값 계산과 화면 조작이 같은 목록을 쓴다 */
+const WATCHED = ['trump', 'musk', 'vance'];
+/** 화면의 기본 창 (1Y) */
+const WATCH_WINDOW = 12;
+
+/** 추적 중인 쌍들에서 불일치로 표시되어야 하는 셀 수 — 도메인이 답한다 */
+function expectedContestedCells(ids) {
+  const dir = 'src/data/signals';
+  const byPair = new Map();
+  for (const f of fs.readdirSync(dir).filter((n) => /^\d{4}-\d{2}\.json$/.test(n))) {
+    for (const s of JSON.parse(fs.readFileSync(`${dir}/${f}`, 'utf8')).signals ?? []) {
+      if (!s.pair) continue;
+      const k = pairKey(s.pair[0], s.pair[1]);
+      if (!byPair.has(k)) byPair.set(k, []);
+      byPair.get(k).push(s);
+    }
+  }
+  let n = 0;
+  for (let i = 0; i < ids.length; i++) {
+    for (let j = i + 1; j < ids.length; j++) {
+      // 큐레이션 아크는 넘기지 않는다. 불일치는 live 월에서만 나오고(아크가 채운
+      // 셀은 항상 contested:false), 아크 모듈은 Node 가 못 푸는 import 를 갖고 있다.
+      const tl = buildPairTimeline(ids[i], ids[j], WATCH_WINDOW, byPair, []);
+      n += (tl?.cells ?? []).filter((c) => c.contested).length;
+    }
+  }
+  return n;
+}
 
 const BASE = 'http://localhost:5173';
 const SHOTS = 'e2e/screenshots';
@@ -501,16 +534,24 @@ async function main() {
     `${cellStates.filter((c) => c.hatched).length} hatched of ${cellStates.length}`
   );
   const contested = cellStates.filter((c) => c.flag === 'true').length;
-  // 이 검사만 아카이브 데이터에 기댄다. 빨간불이면 코드가 깨진 것이 아니라
-  // 표기할 불일치가 사라졌다는 뜻이다 — 추적 중인 쌍을 불일치가 있는 쌍으로 바꾼다.
+
+  // 예전에는 `contested > 0` 을 단언했다. 아카이브가 매일 바뀌므로 추적 중인 쌍에서
+  // 갈린 달이 사라지는 순간 코드는 멀쩡한데 빨간불이 됐다 — 실제로 그렇게 깨졌다.
+  //
+  // 대신 **앱이 쓰는 그 함수로 기대값을 계산해** DOM 과 맞댄다. 규칙을 여기 다시
+  // 구현하면 둘이 갈라지고, 그때부터 검사는 화면이 아니라 자기 자신을 검사한다.
+  const wantContested = expectedContestedCells(WATCHED);
   check(
-    'contested months are marked',
-    contested > 0,
-    `${contested} cell(s) — 0 이면 이 쌍들에 갈린 달이 없다는 뜻이다`
+    'contested cells match what the domain says',
+    contested === wantContested,
+    `화면 ${contested} · 도메인 ${wantContested}`
   );
   check(
-    'contested marking is explained on the card',
-    (await page.locator('[data-testid=tl-contested-hint]').count()) > 0
+    // 빗금이 있으면 설명이 있어야 하고, 없으면 설명도 없어야 한다. 어느 쪽이든
+    // 단언이다 — "있을 때만 본다" 로 두면 빗금이 사라진 날 검사가 통째로 잠든다.
+    'contested marking is explained exactly when it is drawn',
+    ((await page.locator('[data-testid=tl-contested-hint]').count()) > 0) === contested > 0,
+    contested > 0 ? '빗금 있음 · 설명 있어야 함' : '빗금 없음 · 설명도 없어야 함'
   );
   await page.screenshot({ path: `${SHOTS}/08-analysis.png` });
   await page.locator('button', { hasText: 'FILTERS' }).click();

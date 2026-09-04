@@ -26,7 +26,9 @@ export const UI_EN = {
 
   legend: 'Legend',
   edgeWidth: 'Line width = intensity',
-  particleNote: 'Particles flow from the instigator of a feud',
+  // 입자는 방향을 뜻한다. feud 만 적어 두면 공동발의 화살표를 설명하지 못하고,
+  // 방향이 없는 엣지가 왜 조용한지도 설명하지 못한다.
+  particleNote: 'Particles run from whoever started it — the attack, or the bill signed. No recorded direction, no flow',
   statusActive: 'Active',
   statusDeparted: 'Departed / Retired',
   statusLegacy: 'Legacy / In memoriam',

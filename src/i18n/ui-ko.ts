@@ -28,7 +28,7 @@ export const UI_KO: UIDict = {
 
   legend: '범례',
   edgeWidth: '선 굵기 = 관계 강도',
-  particleNote: '입자는 갈등의 시작점에서 흘러갑니다',
+  particleNote: '입자는 시작한 쪽에서 흐릅니다 — 먼저 건 공격, 또는 서명한 법안. 방향이 없으면 흐르지 않습니다',
   statusActive: '현직',
   statusDeparted: '사임·은퇴',
   statusLegacy: '레거시·추모',
