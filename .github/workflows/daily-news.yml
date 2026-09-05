@@ -2,7 +2,18 @@ name: daily-news
 
 on:
   schedule:
-    - cron: '0 13 * * *' # 매일 13:00 UTC (미 동부 아침)
+    # 매일 13:23 UTC (미 동부 아침 9:23 ET).
+    #
+    # **정각을 쓰지 않는다.** GitHub 문서: "The schedule event can be delayed during
+    # periods of high loads of GitHub Actions workflow runs. High load times include
+    # the start of every hour... To decrease the chance of delay, schedule your
+    # workflow to run at a different time of the hour."
+    #
+    # `0 13` 으로 열흘 재 보니 정시(±5분) 도착이 **0건**이었다. 중앙값 236분 지연,
+    # 최대 589분. 예약 실행은 보장이 아니라 최선 노력이고, 같은 문서가 부하가 높으면
+    # 일부 작업은 **아예 버려질 수 있다**고 적어 둔다. 정시가 꼭 필요하면 예약이
+    # 아니라 외부에서 workflow_dispatch 를 호출해야 한다.
+    - cron: '23 13 * * *'
   workflow_dispatch:
     inputs:
       simulate_failure:
