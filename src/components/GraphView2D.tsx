@@ -55,6 +55,21 @@ export default function GraphView2D() {
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
 
+  /**
+   * 현재 줌 배율.
+   *
+   * 링크 폭과 입자 폭은 **그래프 단위**라 확대하면 화면에서 그대로 커진다. 배율 12쯤
+   * 되면 선 하나가 화면을 덮고, 그걸 매 프레임 채우느라 한 프레임이 67ms 가 된다
+   * (2560×1440 dpr2 실측 15fps). 노드를 안 그려도, 라벨을 안 그려도 그대로였고
+   * 링크 폭만 줄이면 12ms 로 떨어졌다 — 선의 면적이 비용의 전부다.
+   *
+   * 그래서 확대할 때는 **화면 폭을 고정한다.** 축소는 건드리지 않는다(k<1 에서 선이
+   * 더 얇아지면 오히려 안 보인다). ref 에 담아 React 리렌더를 일으키지 않는다.
+   */
+  const zoomRef = useRef(1);
+  /** 확대 시 폭이 커지지 않게 나눌 값. 축소(k<1)에서는 1 이라 현재 동작 그대로다 */
+  const widthScale = () => Math.max(1, zoomRef.current);
+
   const hoveredNode = useMemo(
     () => (hoveredId ? graph.find((g) => g.id === hoveredId) ?? null : null),
     [hoveredId, graph]
@@ -480,10 +495,15 @@ function measurePanels(): Panel[] {
           if (focusActive && !touchesFocus(l)) return 'rgba(148,163,184,0.05)';
           return REL_META[l.rel.type].color + 'b3';
         }}
+        onZoom={({ k }) => {
+          zoomRef.current = k;
+        }}
         linkWidth={(lRaw) => {
           const l = lRaw as unknown as GraphLink;
           const w = 0.5 + l.rel.strength * 0.75;
-          return l.id === selectedLinkId ? w + 1.6 : w;
+          // 확대해도 화면 폭을 유지한다 — 그래프 단위로 두면 선의 면적이 배율만큼
+          // 커져서 확대할수록 프레임이 무거워진다
+          return (l.id === selectedLinkId ? w + 1.6 : w) / widthScale();
         }}
         linkLineDash={(lRaw) => REL_META[(lRaw as unknown as GraphLink).rel.type].dash ?? null}
         linkVisibility={(lRaw) => visibleLinkIds.has((lRaw as unknown as GraphLink).id)}
@@ -502,7 +522,9 @@ function measurePanels(): Panel[] {
           return l.rel.type === 'feud' ? 2 + l.rel.strength : l.rel.strength;
         }}
         linkDirectionalParticleSpeed={() => 0.006}
-        linkDirectionalParticleWidth={(lRaw) => 1.4 + (lRaw as unknown as GraphLink).rel.strength * 0.7}
+        linkDirectionalParticleWidth={(lRaw) =>
+          (1.4 + (lRaw as unknown as GraphLink).rel.strength * 0.7) / widthScale()
+        }
         linkDirectionalParticleColor={(lRaw) => REL_META[(lRaw as unknown as GraphLink).rel.type].color}
         linkCurvature={0.12}
         onNodeClick={(nRaw) => select((nRaw as unknown as GraphNode).id)}
