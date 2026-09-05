@@ -12,7 +12,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { CONFIG } from '../news-pipeline/config.mts';
+import { CONFIG, SOURCE_NAME_ALIASES } from '../news-pipeline/config.mts';
 import { isAllowedSource } from '../news-pipeline/fetch.mts';
 import {
   checkAccuracy,
@@ -21,7 +21,7 @@ import {
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type AccuracyFile,
   type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type LobbyingFile, type SignalRef, type SourceRef,
-  checkSignalDuplicates, checkUnclassified,
+  checkSignalDuplicates, checkUnclassified, checkSourceAliases,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -88,6 +88,7 @@ findings.push(...checkUnclassified(signals));
 findings.push(...checkPresentation(sourceLinks));
 findings.push(...checkVerifiable(sourceLinks));
 findings.push(...checkDuplicates(sourcesByEdge));
+findings.push(...checkSourceAliases(CONFIG.allowedSourceNames, SOURCE_NAME_ALIASES));
 
 // 크로스워크는 이후 단계 전부가 얹히는 바닥이다. 인물이 늘거나 바뀌었는데
 // 다시 만들지 않으면 흔들리지 않는 대신 일관되게 틀린 값이 된다.

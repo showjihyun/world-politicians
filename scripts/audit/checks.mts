@@ -65,6 +65,41 @@ export function checkAllowlist(
   ];
 }
 
+/**
+ * 매체명 별칭표가 허용 목록과 맞물리는가.
+ *
+ * `canonicalSourceName` 은 허용 목록에서 고른 정본에만 별칭을 적용한다. 그래서
+ * 목록에 없는 키는 **한 번도 발동하지 않는데 설정에는 살아 있는 것처럼 보인다.**
+ * 반대로 값이 목록에 없으면 그 이름을 단 신호를 `isAllowedSource` 가 거부한다.
+ * 둘 다 조용히 틀린다 — 이 저장소가 가장 싫어하는 방식이다.
+ */
+export function checkSourceAliases(
+  names: readonly string[],
+  aliases: Readonly<Record<string, string>>
+): Finding[] {
+  const known = new Set(names);
+  const deadKeys = Object.keys(aliases).filter((k) => !known.has(k));
+  const badValues = [...new Set(Object.values(aliases))].filter((v) => !known.has(v));
+  const out: Finding[] = [];
+  if (deadKeys.length) {
+    out.push({
+      level: 'fail',
+      check: 'sources.aliasKey',
+      message: `허용 목록에 없는 별칭 키 ${deadKeys.length}건 — 발동하지 않는다`,
+      samples: cap(deadKeys),
+    });
+  }
+  if (badValues.length) {
+    out.push({
+      level: 'fail',
+      check: 'sources.aliasValue',
+      message: `허용 목록에 없는 별칭 값 ${badValues.length}건 — 그 이름을 단 신호가 거부된다`,
+      samples: cap(badValues),
+    });
+  }
+  return out;
+}
+
 /** 날짜가 말이 되는가 */
 export function checkDates(
   items: { date: string }[],

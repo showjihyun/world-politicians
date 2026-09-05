@@ -176,9 +176,11 @@ function withOutlet(signals: Signal[]): Signal[] {
  * `buildIndex` 가 `withOutlet` 뒤에 온다는 암묵적 전제는 언젠가 깨진다.
  */
 function outletOf(s: Signal): string {
-  return (
-    s.outlet ?? canonicalSourceName(s.source ?? '', CONFIG.allowedSourceNames, SOURCE_NAME_ALIASES)
-  );
+  // **저장된 `outlet` 을 읽지 않는다.** 읽으면 옛 규칙으로 쓰인 값이 365일 아카이브에
+  // 굳는다 — 별칭을 고쳐도 이미 쌓인 행은 영영 옛 이름으로 남고, 매니페스트의 분모와
+  // 시계열의 투표 키가 시대별로 다른 말을 하게 된다. `outlet` 은 출력일 뿐이고
+  // 정본은 언제나 `source` 에서 다시 만든다.
+  return canonicalSourceName(s.source ?? '', CONFIG.allowedSourceNames, SOURCE_NAME_ALIASES);
 }
 
 export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFile {

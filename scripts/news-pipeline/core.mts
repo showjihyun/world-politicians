@@ -126,7 +126,9 @@ export function resolveSourceName(
   sourceName: string,
   sourceUrl: string,
   names: readonly string[],
-  hostNames: Readonly<Record<string, string>>
+  hostNames: Readonly<Record<string, string>>,
+  /** 같은 뉴스룸의 다른 허용 표기 → 정본. `canonicalSourceName` 과 같은 표를 쓴다 */
+  aliases: Readonly<Record<string, string>> = {}
 ): string {
   const name = (sourceName ?? '').trim();
 
@@ -138,7 +140,11 @@ export function resolveSourceName(
   // `https://agg.example/?u=https://www.cnn.com/x` 도 통과시킨다. 이 이름이 그대로
   // 허용 판정으로 되돌아가므로(fetch.mts), 목록 밖 매체가 CNN 으로 둔갑해 들어온다 —
   // 이름 축에서 이미 한 번 막았던 그 구멍(`'AP'` 가 CoinGape 를 통과시킨 것)이다.
-  const host = hostOf(sourceUrl) || hostOf(`https://${name}`);
+  // 이름을 호스트로 볼 때는 **호스트처럼 생긴 것만** 본다. `new URL()` 은
+  // `https://spam@foxnews.com` 의 호스트를 `foxnews.com` 이라고 답하므로, 이름에
+  // `@` 하나만 넣으면 목록 밖 매체가 Fox News 로 둔갑한다 — 그 이름이 그대로 허용
+  // 판정으로 되돌아가므로 수집까지 통과한다.
+  const host = hostOf(sourceUrl) || (looksLikeHost(name) ? hostOf(`https://${name}`) : '');
   if (host) {
     let best = '';
     for (const h of Object.keys(hostNames)) {
@@ -148,9 +154,25 @@ export function resolveSourceName(
     if (best) return hostNames[best];
   }
 
-  // 호스트를 못 찾았다. 이름만으로 허용되면 그 목록의 정본 표기로 돌려준다
-  if (name && isAllowedSource('', name, [], names)) return canonicalSourceName(name, names);
+  // 호스트를 못 찾았다. 이름만으로 허용되면 그 목록의 정본 표기로 돌려준다.
+  // **별칭도 같이 넘긴다** — 안 넘기면 같은 매체가 수집 경로에 따라 다른 이름으로
+  // 남는다. 호스트로 들어온 WSJ 기사는 'The Wall Street Journal', 이름만으로 들어온
+  // 것은 'WSJ' 가 되어, 이 함수가 없애려던 갈라짐을 이 함수가 만든다.
+  if (name && isAllowedSource('', name, [], names)) {
+    return canonicalSourceName(name, names, aliases);
+  }
   return name;
+}
+
+/**
+ * 호스트로 볼 만한 문자열인가.
+ *
+ * `new URL('https://' + x)` 는 관대해서 `spam@foxnews.com` 의 호스트를
+ * `foxnews.com` 이라고 답한다. 매체명을 그대로 넣으면 `@` 하나로 허용 매체를
+ * 사칭할 수 있으므로, 호스트 모양이 아닌 것은 아예 넘기지 않는다.
+ */
+function looksLikeHost(s: string): boolean {
+  return /^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/i.test(s.trim());
 }
 
 /** URL 에서 호스트만 뽑는다. 주소가 아니면 빈 문자열 — 지어내지 않는다 */

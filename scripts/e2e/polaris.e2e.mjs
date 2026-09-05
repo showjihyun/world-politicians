@@ -10,33 +10,59 @@ import fs from 'node:fs';
 import { buildPairTimeline } from '../../src/domain/timeline.ts';
 import { pairKey } from '../../src/domain/graph.ts';
 
-/** ANALYSIS 탭에서 추적하는 인물 — 아래 기대값 계산과 화면 조작이 같은 목록을 쓴다 */
+/**
+ * ANALYSIS 탭에서 추적하는 인물.
+ *
+ * 화면 조작은 이름으로 하고(검색·클릭) 여기는 id 라 **두 벌이다.** 목록이 갈리면
+ * DOM 은 4명의 6쌍을 그리는데 기대값은 3쌍만 세어, 있지도 않은 불일치를 보고한다.
+ * 그래서 아래에서 카드 수가 C(n,2) 와 맞는지 단언한다 — 갈리면 그 검사가 먼저 운다.
+ */
 const WATCHED = ['trump', 'musk', 'vance'];
+/**
+ * 3D 블록이 내는 검사 수. **블록 안의 `check(` 호출 수와 같아야 한다.**
+ * 배지 대조가 이 수를 빼서 계산하므로, 갈리면 문서를 탓하게 된다 —
+ * 아래에 그 일치를 단언하는 검사를 따로 뒀다.
+ */
+const CHECKS_3D = 4;
+
 /** 화면의 기본 창 (1Y) */
 const WATCH_WINDOW = 12;
 
-/** 추적 중인 쌍들에서 불일치로 표시되어야 하는 셀 수 — 도메인이 답한다 */
-function expectedContestedCells(ids) {
+/**
+ * 추적 중인 쌍에 대해 도메인이 말하는 것 — 카드 수와 불일치 셀 수.
+ *
+ * 카드 수는 C(n,2) 가 아니다. 데이터가 없는 쌍은 `buildPairTimeline` 이 null 을
+ * 돌려주고 카드가 아예 안 그려진다. 여기서도 도메인에 물어야 한다.
+ */
+function expectedTimeline(ids) {
   const dir = 'src/data/signals';
   const byPair = new Map();
+  // 앱의 `loadArchive` 와 같이 id 로 한 번 거른다. 같은 id 가 두 파티션에 들어갈 수
+  // 있다는 전제로 앱이 거르고 있는데 여기서 안 거르면, 표가 하나 더 들어가 임계를
+  // 넘기고 "도메인과 화면이 다르다" 는 빨간불이 뜬다 — 둘 다 옳게 동작하는데도.
+  const seen = new Set();
   for (const f of fs.readdirSync(dir).filter((n) => /^\d{4}-\d{2}\.json$/.test(n))) {
     for (const s of JSON.parse(fs.readFileSync(`${dir}/${f}`, 'utf8')).signals ?? []) {
-      if (!s.pair) continue;
+      if (!s.pair || seen.has(s.id)) continue;
+      seen.add(s.id);
       const k = pairKey(s.pair[0], s.pair[1]);
       if (!byPair.has(k)) byPair.set(k, []);
       byPair.get(k).push(s);
     }
   }
-  let n = 0;
+  let contested = 0;
+  let cards = 0;
   for (let i = 0; i < ids.length; i++) {
     for (let j = i + 1; j < ids.length; j++) {
       // 큐레이션 아크는 넘기지 않는다. 불일치는 live 월에서만 나오고(아크가 채운
       // 셀은 항상 contested:false), 아크 모듈은 Node 가 못 푸는 import 를 갖고 있다.
       const tl = buildPairTimeline(ids[i], ids[j], WATCH_WINDOW, byPair, []);
-      n += (tl?.cells ?? []).filter((c) => c.contested).length;
+      if (!tl) continue;
+      cards++;
+      contested += tl.cells.filter((c) => c.contested).length;
     }
   }
-  return n;
+  return { cards, contested };
 }
 
 const BASE = 'http://localhost:5173';
@@ -511,6 +537,16 @@ async function main() {
     'timeline strip cells render',
     (await page.locator('[data-testid=tl-cell]').count()) > 6
   );
+  // 화면이 추적하는 인물과 이 파일의 WATCHED 가 갈리지 않는지 본다. 갈리면 DOM 은
+  // 다른 쌍을 그리는데 기대값은 다른 쌍을 세어, 있지도 않은 불일치를 보고한다 —
+  // 그때 이 검사가 먼저 울어 원인을 가리킨다.
+  const want = expectedTimeline(WATCHED);
+  const cards = await page.locator('[data-testid=tl-strip]').count();
+  check(
+    'the watchlist on screen matches the list this file computes from',
+    cards === want.cards,
+    `카드 ${cards} · 도메인 ${want.cards}`
+  );
 
   // 판정 불일치 표기 — 모든 셀이 상태를 말하고, 갈린 달은 표시가 붙고, 무늬가 설명된다.
   //
@@ -540,11 +576,10 @@ async function main() {
   //
   // 대신 **앱이 쓰는 그 함수로 기대값을 계산해** DOM 과 맞댄다. 규칙을 여기 다시
   // 구현하면 둘이 갈라지고, 그때부터 검사는 화면이 아니라 자기 자신을 검사한다.
-  const wantContested = expectedContestedCells(WATCHED);
   check(
     'contested cells match what the domain says',
-    contested === wantContested,
-    `화면 ${contested} · 도메인 ${wantContested}`
+    contested === want.contested,
+    `화면 ${contested} · 도메인 ${want.contested}`
   );
   check(
     // 빗금이 있으면 설명이 있어야 하고, 없으면 설명도 없어야 한다. 어느 쪽이든
@@ -683,12 +718,19 @@ async function main() {
     await page.waitForTimeout(800);
   } catch (e) {
     check('3D neural mode renders', false, String(e).slice(0, 80));
-    while (results.length - before3d < 4) check('3D check did not run', false, '3D 실패로 건너뜀');
+    while (results.length - before3d < CHECKS_3D) check('3D check did not run', false, '3D 실패로 건너뜀');
   }
   // 모자란 쪽만 채우면 **넘치는 쪽**이 남는다 — 네 검사가 다 돈 뒤 스크린샷이나
   // 모드 복귀에서 던지면 5개가 되고, 배지 대조가 다시 README 를 탓한다. 초과분을
   // 기록해 두고 그 수만큼 빼서 센다.
-  const extra3d = results.length - before3d - 4;
+  const extra3d = results.length - before3d - CHECKS_3D;
+  // 상수와 블록 내용이 갈리는 것을 숨기지 않는다. 3D 검사를 하나 더하면 성공 실행마다
+  // extra3d 가 1 이 되어 문서 대조가 맞는 숫자를 틀렸다고 보고한다.
+  check(
+    'the 3D block emits the number of checks the badge maths assumes',
+    extra3d === 0,
+    `3D 검사 ${results.length - before3d}개 · 기대 ${CHECKS_3D}개`
+  );
 
   // ── 11. 콘솔 에러 + 데이터 시점 표시 ──
   const benign = /favicon|net::ERR_|googleapis|gstatic|jsdelivr|ERR_ABORTED|wikipedia/i;

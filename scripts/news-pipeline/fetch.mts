@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { CONFIG, PERSON_ALIASES, SOURCE_HOSTS } from './config.mts';
+import { CONFIG, PERSON_ALIASES, SOURCE_HOSTS, SOURCE_NAME_ALIASES } from './config.mts';
 import { isAllowedSource as isAllowed, resolveSourceName } from './core.mts';
 
 export interface Person {
@@ -126,7 +126,8 @@ export async function fetchAllArticles(): Promise<Article[]> {
       sourceName,
       sourceUrl || link,
       CONFIG.allowedSourceNames,
-      SOURCE_HOSTS
+      SOURCE_HOSTS,
+      SOURCE_NAME_ALIASES
     );
     if (link.includes('news.google.com') && !isAllowedSource(sourceUrl, resolved)) return;
     const key = dedupeKey({ title });

@@ -50,6 +50,22 @@ describe('buildIndex — 매체 구성', () => {
     expect(idx.outlets).toEqual({ Politico: 3 });
   });
 
+  // 회귀: 저장된 `outlet` 을 그대로 읽으면 옛 규칙으로 쓰인 값이 365일 아카이브에
+  // 굳는다. 별칭을 고쳐도 이미 쌓인 행은 옛 이름으로 남아, 매니페스트의 분모와
+  // 시계열의 투표 키가 시대별로 다른 말을 하게 된다.
+  it('저장된 outlet 이 낡았어도 source 에서 다시 만든다', () => {
+    const idx = buildIndex(
+      fileOf([
+        // 예전 실행이 남긴 값 — 지금 규칙이면 'Politico' 가 되어야 한다
+        { ...sig({ id: '1', source: 'POLITICO Pro' }), outlet: '옛 이름' },
+        sig({ id: '2', source: 'Politico' }),
+      ]),
+      '2026-09-01T15:10:22.882Z',
+      ['2026-08']
+    );
+    expect(idx.outlets).toEqual({ Politico: 2 });
+  });
+
   // 회귀: canonicalSourceName('') 이 '' 를 돌려주고 `if (name)` 이 그 신호를
   // 통째로 건너뛰었다. 화면은 건수를 stats.total 로 적고 비율은 outlets 합계로
   // 나누므로, 독자는 302 위에서 100% 가 되는 막대를 보게 된다.

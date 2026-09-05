@@ -13,7 +13,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Nightly news pipeline](https://img.shields.io/badge/news-refreshed%20nightly-34d399)
-![E2E](https://img.shields.io/badge/E2E-87%20checks-22d3ee)
+![E2E](https://img.shields.io/badge/E2E-89%20checks-22d3ee)
 
 ![POLARIS demo](docs/demo.gif)
 

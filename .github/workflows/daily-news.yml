@@ -99,8 +99,14 @@ jobs:
           # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
           # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
           # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
-          num=$(gh issue list --state open --limit 200 --json number,title \
-            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty" || true)
+          # 조회가 실패했는지와 "없다" 를 구분해 적는다. `|| true` 만 두면 API 오류가
+          # "열린 이슈 없음" 으로 읽혀, 실패 단계에서는 이슈가 하나 더 열리고 복구
+          # 단계에서는 열린 이슈가 조용히 안 닫힌다. 둘 다 로그가 없으면 설명이 안 된다.
+          if ! num=$(gh issue list --state open --limit 200 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty"); then
+            echo '::warning::이슈 조회에 실패했다 — 아래 판단은 "열린 이슈 없음" 을 가정한다'
+            num=''
+          fi
 
           if [ -n "$num" ]; then
             gh issue comment "$num" --body "$body"
@@ -124,8 +130,14 @@ jobs:
           # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
           # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
           # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
-          num=$(gh issue list --state open --limit 200 --json number,title \
-            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty" || true)
+          # 조회가 실패했는지와 "없다" 를 구분해 적는다. `|| true` 만 두면 API 오류가
+          # "열린 이슈 없음" 으로 읽혀, 실패 단계에서는 이슈가 하나 더 열리고 복구
+          # 단계에서는 열린 이슈가 조용히 안 닫힌다. 둘 다 로그가 없으면 설명이 안 된다.
+          if ! num=$(gh issue list --state open --limit 200 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty"); then
+            echo '::warning::이슈 조회에 실패했다 — 아래 판단은 "열린 이슈 없음" 을 가정한다'
+            num=''
+          fi
           [ -z "$num" ] && exit 0
           gh issue close "$num" --comment "복구됐다 — $RUN_URL"
           echo "이슈 #$num 을 닫았다"

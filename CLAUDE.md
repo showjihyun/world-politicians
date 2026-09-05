@@ -9,7 +9,7 @@
 ```
 npm test           단위 테스트 (도메인, ~0.4초)
 npm run audit      경계 + 데이터 감사 (종료 코드로 판정)
-npm run e2e        Playwright 87개 (~90초, dev 서버 자동 기동)
+npm run e2e        Playwright 89개 (~90초, dev 서버 자동 기동)
 npm run news:dry   뉴스 파이프라인 미리보기 (실제 수집은 야간 자동)
 npm run news:recover:dry  지워진 판정을 git 이력에서 되살리기 미리보기
 npm run crosswalk:dry  소스 간 ID 크로스워크 미리보기 (bioguide·icpsr·fec)

@@ -32,3 +32,22 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # E2E 가 CI 에 없으면 여기서만 도는 검사들이 사실상 아무 때도 안 돈다.
+      # 실제로 그래서 CLAUDE.md 의 검사 개수가 85 에 멈춰 있었다 — 그 수를 지키는
+      # 유일한 장치가 로컬 실행뿐이었다. 화면·문서 대조는 브라우저를 띄워야만 알 수 있다.
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E (real browser)
+        run: npm run e2e
+
+      # 실패한 화면을 보지 못하면 원인을 못 찾는다. 성공해도 올려 둔다 —
+      # 스크린샷은 커밋된 산출물이라 CI 것과 대조할 수 있어야 한다.
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots
+          path: e2e/screenshots/
+          if-no-files-found: warn

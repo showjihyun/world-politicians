@@ -140,6 +140,10 @@ export function groupByDay(signals: NewsSignal[]): DayUnit[] {
       const share = win ? Math.max(ally, feud) / decisive : 0.5;
       if (win && share >= DAY_MAJORITY) polarity = win;
       else contested = true;
+      // 자기 안에서 갈린 매체가 하나라도 있으면 그날은 불일치다. 다른 매체가 다수를
+      // 만들었다는 이유로 그 사실을 지우면, "가장 센 불일치" 라고 적어 둔 바로 그
+      // 상태가 다수 하나에 가려진다.
+      if (split > 0) contested = true;
     } else if (split > 0) {
       // **모든 매체가 각자 안에서 갈린 날.** 표를 낸 매체가 하나도 없지만, 이건
       // "아무 일도 없었다" 가 아니라 가장 센 불일치다. 예전에는 여기로 떨어져

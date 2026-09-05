@@ -523,6 +523,29 @@ describe('resolveSourceName — 호스트로 온 매체명을 정본으로 바�
     expect(resolveSourceName('', 'https://feeds.foxnews.com/foxnews/politics', NAMES, HOSTS)).toBe('Fox News');
   });
 
+  // 회귀: `new URL('https://spam@foxnews.com').hostname` 은 'foxnews.com' 이다.
+  // 매체명을 그대로 URL 에 끼워 넣으면 `@` 하나로 허용 매체를 사칭할 수 있고,
+  // 그 이름이 그대로 허용 판정으로 되돌아가 수집까지 통과한다.
+  it.each(['spam@foxnews.com', 'evil.example/foxnews.com', 'foxnews.com evil'])(
+    '이름이 호스트 모양이 아니면 호스트로 읽지 않는다: %s',
+    (name) => {
+      expect(resolveSourceName(name, '', NAMES, HOSTS)).toBe(name);
+    }
+  );
+
+  // 회귀: 별칭을 안 넘기면 같은 매체가 수집 경로에 따라 다른 이름으로 남는다.
+  // 호스트로 들어오면 'The Wall Street Journal', 이름만으로 들어오면 'WSJ'.
+  it('이름 경로에서도 별칭을 적용한다 — 경로에 따라 이름이 갈리면 안 된다', () => {
+    const names = [...NAMES, 'WSJ', 'The Wall Street Journal'];
+    const hosts = { 'wsj.com': 'The Wall Street Journal' };
+    const alias = { WSJ: 'The Wall Street Journal' };
+    expect(resolveSourceName('WSJ', 'https://www.wsj.com/x', names, hosts, alias)).toBe(
+      'The Wall Street Journal'
+    );
+    // url 이 없어 이름만으로 판정하는 경로 — 같은 답이 나와야 한다
+    expect(resolveSourceName('WSJ', '', names, hosts, alias)).toBe('The Wall Street Journal');
+  });
+
   it('여러 호스트가 걸리면 긴 쪽을 고른다', () => {
     const nested = { 'news.com': 'News', 'foxnews.com': 'Fox News' };
     expect(resolveSourceName('', 'https://www.foxnews.com', NAMES, nested)).toBe('Fox News');

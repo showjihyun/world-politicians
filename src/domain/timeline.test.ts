@@ -242,6 +242,19 @@ describe('groupByDay — 하루 한 표', () => {
     expect(oneVoter.weight).toBeLessThan(threeVoters.weight);
   });
 
+  // 회귀: 갈린 매체가 있어도 다른 매체가 다수를 만들면 불일치 표시가 사라졌다.
+  // "가장 센 불일치" 라고 적어 둔 상태가 다수 하나에 가려진다.
+  it('다수가 있어도 갈린 매체가 있으면 불일치다', () => {
+    const [u] = groupByDay([
+      { ...from('2026-08-05', 'feud', 'CNN'), id: 'c1' },
+      { ...from('2026-08-05', 'feud', 'NPR'), id: 'n1' },
+      { ...from('2026-08-05', 'ally', 'Fox News'), id: 'f1' },
+      { ...from('2026-08-05', 'feud', 'Fox News'), id: 'f2' },
+    ]);
+    expect(u.polarity).toBe('feud'); // CNN·NPR 이 다수
+    expect(u.contested).toBe(true); // 그래도 Fox 는 갈렸다
+  });
+
   it('한 매체가 같은 날 갈리면 그 매체는 어느 쪽도 밀지 않는다', () => {
     const [u] = groupByDay([
       { ...from('2026-08-05', 'feud', 'The Hill'), id: 'h1' },

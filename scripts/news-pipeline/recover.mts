@@ -78,7 +78,7 @@ function git(args: string[]): string {
  * 어디서 멈췄는지는 반드시 돌려준다. 조용히 덜 찾고 "이력에도 없다" 고 적으면
  * 그것이 이 스크립트가 내놓는 **거짓 결론**이 된다.
  */
-function candidateCommits(): { commits: string[]; total: number; stoppedAt: string | null } {
+function candidateCommits(): { commits: string[]; total: number | null; stoppedAt: string | null } {
   const parse = (s: string) => s.split('\n').map((l) => l.trim()).filter(Boolean);
   const since = new Date(Date.now() - SCAN_DAYS * 86_400_000).toISOString().slice(0, 10);
   const withinWindow = parse(git(['log', `--since=${since}`, '--format=%H', '--', TRACKED_DIR]));
@@ -87,14 +87,20 @@ function candidateCommits(): { commits: string[]; total: number; stoppedAt: stri
   // 전체 이력은 **세기만** 한다. 예전에는 해시를 전부 받아 파싱해 놓고 길이만 썼는데,
   // 이 디렉터리는 매일 밤 커밋이 쌓여 이력이 무한정 길어진다 — 쓰지도 않을 목록을
   // 위해 전체를 한 번 더 훑는 셈이었다.
-  const total = Number(parse(git(['rev-list', '--count', 'HEAD', '--', TRACKED_DIR]))[0] ?? 0);
+  const counted = Number(parse(git(['rev-list', '--count', 'HEAD', '--', TRACKED_DIR]))[0]);
+  // 셀 수 없으면 **모른다고 말한다.** NaN 을 그냥 두면 `withinWindow.length < NaN` 이
+  // false 라 "이력을 끝까지 봤다" 로 보고된다 — 90일 창만 훑고도 그보다 오래된 판정을
+  // 조용히 "없다" 고 단정하게 된다. `Number('')` 이 0 인 것과 같은 종류의 함정이다.
+  const total = Number.isFinite(counted) ? counted : null;
 
   const stoppedAt =
     commits.length < withinWindow.length
       ? `커밋 ${SCAN_LIMIT}개 상한`
-      : withinWindow.length < total
-        ? `보관 기간(${SCAN_DAYS}일, ${since} 이후) 밖`
-        : null;
+      : total === null
+        ? '전체 이력 커밋 수를 세지 못했다'
+        : withinWindow.length < total
+          ? `보관 기간(${SCAN_DAYS}일, ${since} 이후) 밖`
+          : null;
   return { commits, total, stoppedAt };
 }
 
@@ -161,7 +167,7 @@ for (const commit of commits) {
 
 console.log(
   `[recover] 후보 커밋 ${commits.length}개${
-    stoppedAt ? ` (이력 ${commitTotal}개 중 — ${stoppedAt}에서 멈췄다)` : ''
+    stoppedAt ? ` (이력 ${commitTotal ?? '?'}개 중 — ${stoppedAt}에서 멈췄다)` : ''
   } · 복구 가능 ${found.size}건`
 );
 for (const [id, { signal, commit }] of found) {
@@ -181,7 +187,7 @@ if (stoppedAt && stuck.length) {
   // "이력에도 없다" 는 훑은 범위 안에서의 이야기다. 범위를 잘랐으면 그 사실을
   // 결론 옆에 붙여야 한다 — 안 그러면 덜 찾은 것이 없는 것으로 읽힌다.
   console.log(
-    `[recover] 다만 이력을 끝까지 보지 않았다 — ${stoppedAt}에서 멈췄다 (커밋 ${commits.length}/${commitTotal}개)`
+    `[recover] 다만 이력을 끝까지 보지 않았다 — ${stoppedAt}에서 멈췄다 (커밋 ${commits.length}/${commitTotal ?? '?'}개)`
   );
 }
 
