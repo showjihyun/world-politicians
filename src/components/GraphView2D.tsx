@@ -19,6 +19,7 @@ type FG = {
   zoomToFit: (ms?: number, px?: number, nodeFilter?: (n: unknown) => boolean) => void;
   d3Force: (name: string, force?: unknown) => unknown;
   graph2ScreenCoords: (x: number, y: number) => { x: number; y: number };
+  screen2GraphCoords: (x: number, y: number) => { x: number; y: number };
 } | null;
 
 function sid(n: unknown): string {
@@ -56,19 +57,22 @@ export default function GraphView2D() {
   const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
 
   /**
-   * 현재 줌 배율.
+   * 지금 화면에 보이는 그래프 좌표 사각형. 화면 밖 링크를 그리지 않으려고 둔다.
    *
-   * 링크 폭과 입자 폭은 **그래프 단위**라 확대하면 화면에서 그대로 커진다. 배율 12쯤
-   * 되면 선 하나가 화면을 덮고, 그걸 매 프레임 채우느라 한 프레임이 67ms 가 된다
-   * (2560×1440 dpr2 실측 15fps). 노드를 안 그려도, 라벨을 안 그려도 그대로였고
-   * 링크 폭만 줄이면 12ms 로 떨어졌다 — 선의 면적이 비용의 전부다.
+   * 확대하면 프레임이 무거워진다 — 2560×1440 dpr2 에서 배율 12일 때 67ms(15fps).
+   * 원인은 **화면 밖까지 전부 그리는 것**이다. 배율 12면 그래프가 뷰포트의 12배로
+   * 펼쳐져 링크 대부분이 화면 밖인데, force-graph 는 색·폭·점선이 같은 링크를 한
+   * 경로로 묶어 통째로 stroke 한다. 경로 길이가 배율만큼 늘어난다.
    *
-   * 그래서 확대할 때는 **화면 폭을 고정한다.** 축소는 건드리지 않는다(k<1 에서 선이
-   * 더 얇아지면 오히려 안 보인다). ref 에 담아 React 리렌더를 일으키지 않는다.
+   * **선을 얇게 만들어 해결하지 않는다.** 한 번 그렇게 고쳤다가 되돌렸다 —
+   * force-graph 는 이미 `lineWidth = width / globalScale` 로 화면 폭을 고정해 두므로
+   * (force-graph.mjs:633, 컨텍스트는 k 로 스케일됨) 거기서 또 나누면 확대할수록
+   * 선이 사라진다. 빨라진 것이 아니라 안 그린 것이었다.
+   *
+   * 매 프레임 갱신한다 — 줌·팬·리사이즈를 따로 붙들 필요가 없고, 좌표 변환 두 번이라
+   * 값싸다. ref 라 React 리렌더를 일으키지 않는다.
    */
-  const zoomRef = useRef(1);
-  /** 확대 시 폭이 커지지 않게 나눌 값. 축소(k<1)에서는 1 이라 현재 동작 그대로다 */
-  const widthScale = () => Math.max(1, zoomRef.current);
+  const viewRef = useRef<{ x0: number; y0: number; x1: number; y1: number } | null>(null);
 
   const hoveredNode = useMemo(
     () => (hoveredId ? graph.find((g) => g.id === hoveredId) ?? null : null),
@@ -495,26 +499,42 @@ function measurePanels(): Panel[] {
           if (focusActive && !touchesFocus(l)) return 'rgba(148,163,184,0.05)';
           return REL_META[l.rel.type].color + 'b3';
         }}
-        onZoom={({ k }) => {
-          zoomRef.current = k;
+        onRenderFramePre={() => {
+          // 보이는 영역을 그래프 좌표로 잡아 둔다. 곡률(0.12)과 선 두께 때문에 끝점이
+          // 화면 밖이어도 곡선의 배는 안으로 들어올 수 있어 여유를 준다.
+          const fg = fgRef.current;
+          if (!fg?.screen2GraphCoords) return;
+          const a = fg.screen2GraphCoords(0, 0);
+          const b = fg.screen2GraphCoords(size.w, size.h);
+          const mx = Math.abs(b.x - a.x) * 0.2;
+          const my = Math.abs(b.y - a.y) * 0.2;
+          viewRef.current = {
+            x0: Math.min(a.x, b.x) - mx,
+            y0: Math.min(a.y, b.y) - my,
+            x1: Math.max(a.x, b.x) + mx,
+            y1: Math.max(a.y, b.y) + my,
+          };
         }}
         linkWidth={(lRaw) => {
           const l = lRaw as unknown as GraphLink;
           const w = 0.5 + l.rel.strength * 0.75;
-          // 확대해도 화면 폭을 유지한다 — 그래프 단위로 두면 선의 면적이 배율만큼
-          // 커져서 확대할수록 프레임이 무거워진다
-          return (l.id === selectedLinkId ? w + 1.6 : w) / widthScale();
+          return l.id === selectedLinkId ? w + 1.6 : w;
         }}
-        linkLineDash={(lRaw) => {
-          // 폭과 같은 축으로 줄인다. 점선 간격만 그래프 단위로 남기면 확대할 때
-          // `[4,3]` 이 화면에서 48px 씩 벌어져, 점선으로 구분해 둔 관계 유형이
-          // 끊긴 실선으로 보인다 — 범례가 나누는 구분이 확대하면 사라진다.
-          const dash = REL_META[(lRaw as unknown as GraphLink).rel.type].dash;
-          if (!dash) return null;
-          const s = widthScale();
-          return s === 1 ? dash : dash.map((d) => d / s);
+        linkLineDash={(lRaw) => REL_META[(lRaw as unknown as GraphLink).rel.type].dash ?? null}
+        linkVisibility={(lRaw) => {
+          const l = lRaw as unknown as GraphLink;
+          if (!visibleLinkIds.has(l.id)) return false;
+          // 화면 밖 링크는 그리지 않는다. 확대하면 대부분이 화면 밖인데, 색·폭·점선이
+          // 같은 링크는 한 경로로 묶여 통째로 stroke 되므로 경로 길이가 배율만큼 는다.
+          const v = viewRef.current;
+          if (!v) return true; // 첫 프레임 — 아직 변환을 모른다. 다 그린다
+          const s = l.source as unknown as { x?: number; y?: number };
+          const t = l.target as unknown as { x?: number; y?: number };
+          if (s?.x == null || t?.x == null || s?.y == null || t?.y == null) return true;
+          if (Math.max(s.x, t.x) < v.x0 || Math.min(s.x, t.x) > v.x1) return false;
+          if (Math.max(s.y, t.y) < v.y0 || Math.min(s.y, t.y) > v.y1) return false;
+          return true;
         }}
-        linkVisibility={(lRaw) => visibleLinkIds.has((lRaw as unknown as GraphLink).id)}
         linkDirectionalParticles={(lRaw) => {
           const l = lRaw as unknown as GraphLink;
           // 노드를 고르면 그 노드에 붙은 엣지에만 입자를 흘린다.
@@ -530,9 +550,7 @@ function measurePanels(): Panel[] {
           return l.rel.type === 'feud' ? 2 + l.rel.strength : l.rel.strength;
         }}
         linkDirectionalParticleSpeed={() => 0.006}
-        linkDirectionalParticleWidth={(lRaw) =>
-          (1.4 + (lRaw as unknown as GraphLink).rel.strength * 0.7) / widthScale()
-        }
+        linkDirectionalParticleWidth={(lRaw) => 1.4 + (lRaw as unknown as GraphLink).rel.strength * 0.7}
         linkDirectionalParticleColor={(lRaw) => REL_META[(lRaw as unknown as GraphLink).rel.type].color}
         linkCurvature={0.12}
         onNodeClick={(nRaw) => select((nRaw as unknown as GraphNode).id)}
