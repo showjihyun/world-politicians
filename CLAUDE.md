@@ -105,6 +105,21 @@ CRLF 파일에서 **조용히 실패**한다(에러가 아니라 "못 찾음"으
 금지돼 자기 것을 쓴다. **셋이 같은 값을 내는지는 `keys-core.test.mts` 의 계약
 테스트가 고정한다.**
 
+### 화면이 세는 방법도 산식이다
+
+매체 구성 산식(무엇을 세고, 어떻게 정렬하고, 상위 몇 곳을 묶는가)이 **다섯 곳**에
+복제돼 있었다 — 화면·감사 두 곳·E2E·문서 대조. 조인 키와 달리 이건 갈려도
+**각자는 멀쩡히 일관된다.** 화면은 자기 분모로 나누고 감사는 자기 분모로 재서
+통과시킨다. 종료 코드는 0 이고, 사람은 둘 중 어느 쪽이 맞는지 알 수 없다.
+
+정본은 `src/domain/source-mix.ts` 하나다. `checks.mts` 만 값 import 가 금지돼
+`countsTowardMixMirror` 사본을 두고, `source-mix-contract.test.mts` 가 둘을 묶는다.
+**사본은 술어 하나로 끝낸다** — 크게 베낄수록 갈라질 자리가 늘어난다.
+
+계약 테스트의 표본에 정상값만 넣으면 두 구현이 달라도 통과한다. 빈 이름·공백
+이름·0·음수·NaN 을 넣는 이유다. 실제로 양쪽에 각각 불량을 주입해 6건·4건이
+빨간불이 되는지 확인했다.
+
 ### 이름을 성으로 맞추지 않는다
 
 로비 신고서의 `coveredPosition` 은 "Legislative Director, Rep. Marsha Blackburn"
@@ -314,6 +329,7 @@ Google News 리다이렉트(`news.google.com/rss/articles/...`)는 목적지도 
 
 ```
 src/domain/                      순수. 값 import 금지 (audit:boundary 가 강제)
+src/domain/source-mix.ts         매체 구성 산식 정본 (화면·감사·E2E 가 같이 쓴다)
 scripts/news-pipeline/core.mts   누적·선별·파티션 규칙 (순수)
 scripts/audit/checks.mts         감사 판정 규칙 (순수)
 scripts/sources/*-core.mts       소스별 판정 규칙 (순수). keys-core 만 import 허용

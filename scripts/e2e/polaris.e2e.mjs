@@ -9,6 +9,7 @@ import fs from 'node:fs';
 // 그때부터 검사는 화면이 아니라 자기 자신을 검사한다.
 import { buildPairTimeline } from '../../src/domain/timeline.ts';
 import { pairKey } from '../../src/domain/graph.ts';
+import { outletMix } from '../../src/domain/source-mix.ts';
 
 /**
  * ANALYSIS 탭에서 추적하는 인물.
@@ -466,12 +467,10 @@ async function main() {
   );
   await page.screenshot({ path: `${SHOTS}/05-insights.png` });
   // 접어 둔 나머지가 실제로 펼쳐지는가 — 상위만 보이고 끝나면 "그 외" 가 거짓말이 된다
-  // 화면이 세는 것과 같은 필터여야 한다. 감사(checks.mts)도 같은 규칙을 쓴다 —
-  // 여기만 원본 키를 세면 매니페스트에 빈 이름이 하나 들어오는 순간, 화면은 명세대로
-  // 동작하는데 E2E 가 엉뚱한 층을 가리키며 빨간불이 된다.
-  const outletTotal = Object.entries(idx.outlets ?? {}).filter(
-    ([name, n]) => name.length > 0 && n > 0
-  ).length;
+  // 화면이 세는 것과 **같은 함수**를 부른다. 여기만 원본 키를 세면 매니페스트에 빈
+  // 이름이 하나 들어오는 순간, 화면은 명세대로 동작하는데 E2E 가 엉뚱한 층을
+  // 가리키며 빨간불이 된다.
+  const outletTotal = outletMix(idx.outlets ?? {}).entries.length;
   const moreBtn = page.locator('[data-testid=source-mix-more]');
   const foldable = (await moreBtn.count()) > 0;
   if (foldable) {

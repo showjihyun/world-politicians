@@ -193,11 +193,21 @@ export function checkFreshness(
 }
 
 /**
- * 화면(InsightsPanel)이 매체 구성을 셀 때 버리는 것들.
+ * `src/domain/source-mix.ts` 의 `countsTowardMix` 사본.
+ *
+ * 이 파일은 값 import 가 금지돼(boundary 규칙) 복제 말고는 방법이 없다.
+ * `storyTitleKeyMirror`·`pairKey` 와 같은 사정이고, 같은 방식으로 계약 테스트가
+ * 두 구현이 같은 답을 내는지 고정한다 — 그래서 export 한다.
+ *
  * 감사가 화면과 다른 합계를 재면, 화면이 멀쩡히 거짓말하는 동안 감사는 통과한다.
+ * 사본은 이 술어 하나로 끝낸다. 크게 베낄수록 갈라질 자리가 늘어난다.
  */
+export function countsTowardMixMirror(name: string, count: number): boolean {
+  return name.length > 0 && count > 0;
+}
+
 const drawnOutlets = (outlets: Record<string, number>): [string, number][] =>
-  Object.entries(outlets).filter(([name, n]) => name.length > 0 && n > 0);
+  Object.entries(outlets).filter(([name, n]) => countsTowardMixMirror(name, n));
 
 /** 매니페스트가 실제 파티션과 일치하는가 — 분할 이후 새로 생긴 어긋남 지점 */
 export function checkManifest(
@@ -247,7 +257,7 @@ export function checkManifest(
   // 세어지지 않는다. 세는 쪽(buildIndex)에서 막았지만, 다시 새면 여기서 잡힌다.
   const outlets = manifest.outlets ?? {};
   const drawn = drawnOutlets(outlets);
-  const dropped = Object.entries(outlets).filter(([name, n]) => !(name.length > 0 && n > 0));
+  const dropped = Object.entries(outlets).filter(([name, n]) => !countsTowardMixMirror(name, n));
   const sum = drawn.reduce((n, [, c]) => n + c, 0);
 
   if (!drawn.length) {

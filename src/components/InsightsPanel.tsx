@@ -6,6 +6,7 @@ import { useI18n } from '../i18n';
 import { LATEST_SIGNALS, SIGNALS_META } from '../data/signals';
 import { PARTY_LABEL } from '../lib/colors';
 import type { Party } from '../types';
+import { outletMix } from '../domain/source-mix';
 
 function wireDot(p?: string): string {
   return p === 'ally' ? '#34d399' : p === 'feud' ? '#fb7185' : '#94a3b8';
@@ -130,8 +131,6 @@ export default function InsightsPanel() {
   );
 }
 
-/** 이름을 붙여 세는 상위 매체 수. 나머지는 접어서 한 줄로 묶는다 */
-const MIX_TOP = 5;
 /**
  * 단색 농도 램프. 매체마다 다른 색을 주면 색이 분류처럼 읽혀서
  * "이 매체는 이런 성향" 이라는 뜻이 없는데 있는 것처럼 보인다.
@@ -164,22 +163,9 @@ function SourceMix() {
   const [open, setOpen] = useState(true);
   const [expanded, setExpanded] = useState(false);
 
-  const mix = useMemo(() => {
-    const entries = Object.entries(SIGNALS_META.outlets)
-      .filter(([name, n]) => name.length > 0 && n > 0)
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const total = entries.reduce((sum, [, n]) => sum + n, 0);
-    const rest = entries.slice(MIX_TOP);
-    const restTotal = rest.reduce((sum, [, n]) => sum + n, 0);
-    return {
-      entries,
-      total,
-      top: entries.slice(0, MIX_TOP),
-      rest,
-      restTotal,
-      topShare: total ? Math.round(((total - restTotal) / total) * 100) : 0,
-    };
-  }, []);
+  // 산식은 도메인이 정본이다. 여기서 다시 세면 감사·E2E 와 갈라진다 — 갈라져도
+  // 합계는 맞으므로 종료 코드는 0 이고, 아무도 모른다. src/domain/source-mix.ts 참고.
+  const mix = useMemo(() => outletMix(SIGNALS_META.outlets), []);
 
   // 매니페스트에 매체 구성이 없으면 블록을 아예 내지 않는다 — 빈 막대는 거짓말이 된다
   if (mix.entries.length === 0 || mix.total === 0) return null;
