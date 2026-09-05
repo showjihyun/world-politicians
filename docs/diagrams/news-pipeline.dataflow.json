@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "POLARIS 야간 뉴스 파이프라인",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1072,
+      780
+    ],
+    "views": [
+      {
+        "id": "collect",
+        "label": "수집 경로",
+        "focus": [
+          "rss",
+          "feeds",
+          "fetch",
+          "extract",
+          "llm"
+        ],
+        "note": "RSS 두 갈래가 허용 매체 판정을 지나 신호가 되기까지."
+      },
+      {
+        "id": "merge-guard",
+        "label": "판정을 지키는 합류",
+        "focus": [
+          "archive",
+          "accumulate",
+          "reclassify",
+          "llm"
+        ],
+        "note": "LLM 이 침묵한 날 기존 판정이 살아남는 지점."
+      },
+      {
+        "id": "commit-gate",
+        "label": "커밋 게이트",
+        "focus": [
+          "partition",
+          "manifest",
+          "audit",
+          "commit"
+        ],
+        "note": "감사가 커밋 앞에 있어 실패하면 그날 수집분이 버려진다."
+      }
+    ],
+    "legend": {
+      "mode": "all",
+      "entries": {
+        "default": {
+          "label": "데이터 흐름"
+        },
+        "emphasis": {
+          "label": "주 경로"
+        },
+        "security": {
+          "label": "보존 규칙"
+        },
+        "dashed": {
+          "label": "다음 실행으로"
+        },
+        "database": {
+          "label": "저장소"
+        }
+      }
+    }
+  },
+  "stages": [
+    {
+      "label": "원천"
+    },
+    {
+      "label": "수집 · 분류"
+    },
+    {
+      "label": "합류"
+    },
+    {
+      "label": "출력"
+    },
+    {
+      "label": "게이트"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "rss",
+      "type": "external",
+      "label": "Google News RSS",
+      "sublabel": "인물별 쿼리",
+      "stage": 0,
+      "row": 0,
+      "tag": "30일 창"
+    },
+    {
+      "id": "feeds",
+      "type": "external",
+      "label": "매체 직접 피드",
+      "sublabel": "CONFIG.outletFeeds",
+      "stage": 0,
+      "row": 2,
+      "tag": "직접 수집"
+    },
+    {
+      "id": "fetch",
+      "type": "backend",
+      "label": "fetch",
+      "sublabel": "허용 매체만 통과",
+      "stage": 1,
+      "row": 0,
+      "tag": "단어 경계"
+    },
+    {
+      "id": "extract",
+      "type": "backend",
+      "label": "extract",
+      "sublabel": "신호 생성 · 쌍 후보",
+      "stage": 1,
+      "row": 2,
+      "tag": "id = url+제목"
+    },
+    {
+      "id": "llm",
+      "type": "external",
+      "label": "LLM 분류",
+      "sublabel": "10건 배치 · 극성",
+      "stage": 1,
+      "row": 4,
+      "tag": "실패 = 침묵"
+    },
+    {
+      "id": "reclassify",
+      "type": "backend",
+      "label": "reclassify",
+      "sublabel": "갇힌 미분류 재시도",
+      "stage": 2,
+      "row": 0,
+      "tag": "최대 60건"
+    },
+    {
+      "id": "accumulate",
+      "type": "backend",
+      "label": "accumulate",
+      "sublabel": "분류본을 덮지 않는다",
+      "stage": 2,
+      "row": 2,
+      "tag": "합류 지점"
+    },
+    {
+      "id": "archive",
+      "type": "database",
+      "label": "기존 아카이브",
+      "sublabel": "365일 롤링 누적",
+      "stage": 2,
+      "row": 4,
+      "tag": "365일"
+    },
+    {
+      "id": "partition",
+      "type": "database",
+      "label": "월별 파티션",
+      "sublabel": "YYYY-MM 단위",
+      "stage": 3,
+      "row": 0,
+      "tag": "지연 로드"
+    },
+    {
+      "id": "manifest",
+      "type": "database",
+      "label": "매니페스트",
+      "sublabel": "index + recent",
+      "stage": 3,
+      "row": 2,
+      "tag": "즉시 로드"
+    },
+    {
+      "id": "audit",
+      "type": "security",
+      "label": "audit:data",
+      "sublabel": "종료 코드로 판정",
+      "stage": 4,
+      "row": 2,
+      "tag": "커밋 앞"
+    },
+    {
+      "id": "commit",
+      "type": "cloud",
+      "label": "야간 커밋",
+      "sublabel": "polaris-bot · 스냅샷",
+      "stage": 4,
+      "row": 4,
+      "tag": "저장소가 곧 DB"
+    }
+  ],
+  "flows": [
+    {
+      "id": "rss-in",
+      "from": "rss",
+      "to": "fetch",
+      "label": "기사 후보",
+      "classification": "RSS · 30일 창",
+      "variant": "default",
+      "route": "straight",
+      "labelAt": [
+        208,
+        132
+      ]
+    },
+    {
+      "id": "feeds-in",
+      "from": "feeds",
+      "to": "fetch",
+      "label": "피드 원본",
+      "classification": "RSS",
+      "variant": "default"
+    },
+    {
+      "id": "fetch-out",
+      "from": "fetch",
+      "to": "extract",
+      "label": "인물 2명 이상",
+      "classification": "허용 매체 · 30일 이내",
+      "variant": "emphasis",
+      "labelAt": [
+        315,
+        271
+      ]
+    },
+    {
+      "id": "classify-req",
+      "from": "extract",
+      "to": "llm",
+      "label": "10건 배치",
+      "classification": "제목 · 매체 · 인물",
+      "variant": "default",
+      "labelAt": [
+        235,
+        460
+      ]
+    },
+    {
+      "id": "classify-res",
+      "from": "llm",
+      "to": "extract",
+      "label": "극성 · 관계쌍",
+      "classification": "없으면 원본 유지",
+      "variant": "security",
+      "labelAt": [
+        395,
+        538
+      ]
+    },
+    {
+      "id": "new-signals",
+      "from": "extract",
+      "to": "accumulate",
+      "label": "신규 신호",
+      "classification": "미분류 포함",
+      "variant": "emphasis"
+    },
+    {
+      "id": "existing",
+      "from": "archive",
+      "to": "accumulate",
+      "label": "365일 누적분",
+      "classification": "덮이면 안 되는 판정",
+      "variant": "security",
+      "labelAt": [
+        530,
+        499
+      ]
+    },
+    {
+      "id": "retry",
+      "from": "accumulate",
+      "to": "reclassify",
+      "label": "합쳐진 신호",
+      "classification": "미분류 우선",
+      "variant": "default",
+      "labelAt": [
+        530,
+        271
+      ]
+    },
+    {
+      "id": "to-partition",
+      "from": "reclassify",
+      "to": "partition",
+      "label": "월별 분할",
+      "classification": "dedupeByStory",
+      "variant": "emphasis"
+    },
+    {
+      "id": "derive",
+      "from": "partition",
+      "to": "manifest",
+      "label": "집계 재생성",
+      "classification": "generatedAt 보존",
+      "variant": "default",
+      "labelAt": [
+        745,
+        271
+      ]
+    },
+    {
+      "id": "to-audit",
+      "from": "manifest",
+      "to": "audit",
+      "label": "쓰인 데이터",
+      "classification": "감사 입력",
+      "variant": "default"
+    },
+    {
+      "id": "gate",
+      "from": "audit",
+      "to": "commit",
+      "label": "통과해야 커밋",
+      "classification": "실패 시 그날치 폐기",
+      "variant": "security",
+      "labelAt": [
+        960,
+        499
+      ]
+    },
+    {
+      "id": "loop",
+      "from": "commit",
+      "to": "archive",
+      "label": "다음 실행의 기존분",
+      "classification": "스냅샷",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "합류 지점의 규칙",
+      "items": [
+        "accumulate 는 incoming 이 미분류이고 existing 이 분류돼 있으면 existing 을 지킨다",
+        "reclassify 는 재시도에 실패해도 원본을 그대로 둔다 — 빈 값으로 덮지 않는다",
+        "LLM 의 침묵은 삭제가 아니라 판정 없음이다. 세 곳 모두 같은 규칙을 쓴다"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "실제로 사라졌던 것",
+      "items": [
+        "2026-09-01 수집이 이미 분류된 25건을 미분류로 덮었다 — 에러도 로그도 없었다",
+        "2026-08-12~17 엿새치 29건이 갇힌 미분류로 남았다. 새 기사만 분류했기 때문",
+        "2026-09-01~03 사흘치는 감사가 커밋을 막아 통째로 버려졌다"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "재처리가 건드리면 안 되는 것",
+      "items": [
+        "generatedAt 은 수집 시각이다. 실제 수집(pipeline)만 fresh 를 준다",
+        "finalize 는 캐시를 승격하는 재처리라 fresh 없이 돈다 — 배지가 27.7시간 어긋난 적이 있다",
+        "id 체계는 바꾸지 않는다. 바꾸면 쌓인 신호의 id 가 전부 달라져 아카이브가 두 배가 된다"
+      ]
+    }
+  ]
+}

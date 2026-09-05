@@ -1,0 +1,5 @@
+# archify 생성 산출물. 산출 영수증의 sha256 이 체크아웃본과 맞아야 하므로
+# 줄바꿈을 변환하지 않는다. 저장소 전체는 CRLF/LF 가 섞여 있어(CLAUDE.md)
+# 여기서 전역 규칙을 세우지 않고 이 디렉터리만 고정한다.
+docs/diagrams/*.html -text
+docs/diagrams/*.json -text
