@@ -124,9 +124,12 @@ export function groupByDay(signals: NewsSignal[]): DayUnit[] {
     }
     let ally = 0;
     let feud = 0;
+    /** 자기 안에서 갈려 어느 쪽도 밀지 않은 매체 */
+    let split = 0;
     for (const t of byOutlet.values()) {
       if (t.ally > t.feud) ally++;
       else if (t.feud > t.ally) feud++;
+      else split++;
     }
 
     const decisive = ally + feud;
@@ -137,12 +140,21 @@ export function groupByDay(signals: NewsSignal[]): DayUnit[] {
       const share = win ? Math.max(ally, feud) / decisive : 0.5;
       if (win && share >= DAY_MAJORITY) polarity = win;
       else contested = true;
+    } else if (split > 0) {
+      // **모든 매체가 각자 안에서 갈린 날.** 표를 낸 매체가 하나도 없지만, 이건
+      // "아무 일도 없었다" 가 아니라 가장 센 불일치다. 예전에는 여기로 떨어져
+      // 조용한 중립이 됐다 — 화면이 가장 크게 말해야 할 날에 아무 말도 안 했다.
+      contested = true;
+      polarity = 'neutral';
     } else {
       // 결정적 판정이 없는 날. 중립이든 미분류든 셀을 회색으로 채운다
       polarity = 'neutral';
     }
 
-    const outlets = byOutlet.size;
+    // **판정을 낸 매체만 센다.** 갈려서 어느 쪽도 밀지 않은 매체까지 세면, 한 매체가
+    // 판정하고 다섯이 서로 갈린 날(1+ln 6 = 2.79)이 세 매체가 합의한 날(1+ln 3 = 2.10)
+    // 보다 무거워진다 — 이 필드가 막으려던 바로 그 역전이다.
+    const outlets = decisive;
     units.push({
       date,
       polarity,
@@ -292,7 +304,13 @@ export function buildPairTimeline(
   // 극성만 이어받는다. 노트는 일부러 들고 다니지 않는다 — 앞선 달의 요약을 빈 달에
   // 붙이면 그 달에 없던 사건을 설명하게 된다. 예전에는 note 를 담아 놓고 소비하는
   // 쪽이 전부 null 을 넣어, 다음 사람이 "버그" 로 보고 되살릴 여지가 있었다.
-  let carried: Pol | null = seed ? (seed.polarity as Pol) : null;
+  // **출처도 함께 이어받는다.** 폴라리티만 들고 다니면, live 로 정해진 달 다음의
+  // 빈 달이 `curated: true` 로 그려진다 — 화면과 범례는 그걸 "손으로 큐레이션한
+  // 편집 판단" 이라고 말한다. 측정값을 편집 판단으로 둔갑시키는 것이라,
+  // 이 저장소가 절대 섞지 말라고 적어 둔 그 구분이 깨진다.
+  let carried: { pol: Pol; curated: boolean } | null = seed
+    ? { pol: seed.polarity as Pol, curated: true }
+    : null;
   const totalMonths = monthDiff(start, nowYm) + 1;
 
   for (let i = 0; i < totalMonths; i++) {
@@ -310,11 +328,11 @@ export function buildPairTimeline(
         contested: liveEntry.contested,
         unclassified: liveEntry.unclassified,
       });
-      carried = liveEntry.pol;
+      carried = { pol: liveEntry.pol, curated: false };
       continue;
     }
     if (cp) {
-      carried = cp.polarity as Pol;
+      carried = { pol: cp.polarity as Pol, curated: true };
       cells.push({
         ym,
         polarity: cp.polarity as Pol,
@@ -329,9 +347,9 @@ export function buildPairTimeline(
     if (carried) {
       cells.push({
         ym,
-        polarity: carried,
+        polarity: carried.pol,
         note: null,
-        curated: true,
+        curated: carried.curated,
         flip: false,
         contested: false,
         unclassified: 0,

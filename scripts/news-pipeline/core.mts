@@ -85,7 +85,19 @@ export function isAllowedSource(
  * 가장 긴 이름을 고른다. 'AP News' 가 'AP' 로 줄면 목록의 짧은 항목이 긴 이름을
  * 삼키고, 그러면 config 의 목록 순서만 바뀌어도 화면의 매체 이름이 달라진다.
  */
-export function canonicalSourceName(sourceName: string, names: readonly string[]): string {
+export function canonicalSourceName(
+  sourceName: string,
+  names: readonly string[],
+  /**
+   * 같은 뉴스룸의 다른 허용 표기를 하나로 모은다.
+   *
+   * 허용 목록에 `WSJ` 와 `The Wall Street Journal` 이 **둘 다** 있어서, 이름만 보면
+   * 한 매체가 매체 구성에서 두 줄이 되고 시계열에서 두 표를 던진다. 실제로
+   * 아카이브에 `The Wall Street Journal` 8건과 `WSJ` 4건이 함께 있었고, 화면과
+   * README 는 매체가 18곳이라고 말하고 있었다 — 뉴스룸은 17곳이다.
+   */
+  aliases: Readonly<Record<string, string>> = {}
+): string {
   const name = sourceName.trim().toLowerCase();
   if (!name) return sourceName;
 
@@ -93,7 +105,8 @@ export function canonicalSourceName(sourceName: string, names: readonly string[]
   for (const raw of names) {
     if (raw.length > best.length && containsAsWord(name, raw.toLowerCase())) best = raw;
   }
-  return best || sourceName;
+  if (!best) return sourceName;
+  return aliases[best] ?? best;
 }
 
 /**
@@ -120,17 +133,35 @@ export function resolveSourceName(
   // **호스트를 먼저 본다.** 이름은 같은 매체를 여러 표기로 준다 — `WSJ` 와
   // `The Wall Street Journal` 이 둘 다 허용 목록에 있어서, 이름을 먼저 보면 한 매체가
   // 매체 구성에서 두 줄로 갈라지고 시계열에서 두 표를 던진다. 호스트는 하나뿐이다.
-  // 가장 긴 호스트를 고른다 — 짧은 것이 긴 것을 삼키면 안 된다.
-  const hay = `${sourceUrl ?? ''} ${name}`.toLowerCase();
-  let best = '';
-  for (const host of Object.keys(hostNames)) {
-    if (host.length > best.length && hay.includes(host)) best = host;
+  //
+  // **부분일치로 찾지 않는다.** `hay.includes('cnn.com')` 은 `notreallycnn.com` 도
+  // `https://agg.example/?u=https://www.cnn.com/x` 도 통과시킨다. 이 이름이 그대로
+  // 허용 판정으로 되돌아가므로(fetch.mts), 목록 밖 매체가 CNN 으로 둔갑해 들어온다 —
+  // 이름 축에서 이미 한 번 막았던 그 구멍(`'AP'` 가 CoinGape 를 통과시킨 것)이다.
+  const host = hostOf(sourceUrl) || hostOf(`https://${name}`);
+  if (host) {
+    let best = '';
+    for (const h of Object.keys(hostNames)) {
+      // 정확히 그 호스트이거나 그 하위 도메인일 때만. 가장 긴 것을 고른다
+      if (h.length > best.length && (host === h || host.endsWith(`.${h}`))) best = h;
+    }
+    if (best) return hostNames[best];
   }
-  if (best) return hostNames[best];
 
   // 호스트를 못 찾았다. 이름만으로 허용되면 그 목록의 정본 표기로 돌려준다
   if (name && isAllowedSource('', name, [], names)) return canonicalSourceName(name, names);
   return name;
+}
+
+/** URL 에서 호스트만 뽑는다. 주소가 아니면 빈 문자열 — 지어내지 않는다 */
+function hostOf(url: string): string {
+  const raw = (url ?? '').trim();
+  if (!raw) return '';
+  try {
+    return new URL(raw).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {
+    return '';
+  }
 }
 
 /** 분류·비중립을 앞세우고 그 안에서 최신순 */

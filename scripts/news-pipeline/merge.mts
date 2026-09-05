@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { CONFIG } from './config.mts';
+import { CONFIG, SOURCE_NAME_ALIASES } from './config.mts';
 import { decodeEntities } from '../sources/parse-core.mts';
 import {
   accumulate as accumulatePure,
@@ -162,9 +162,23 @@ const buildStats = buildStatsPure;
  */
 function withOutlet(signals: Signal[]): Signal[] {
   return signals.map((s) => {
-    const canonical = canonicalSourceName(s.source ?? '', CONFIG.allowedSourceNames);
+    const canonical = outletOf(s);
     return canonical && canonical !== s.source ? { ...s, outlet: canonical } : s;
   });
+}
+
+/**
+ * 집계용 매체 정체성 — **파생은 여기 한 곳에서만 한다.**
+ *
+ * `withOutlet` 이 이미 붙였으면 그 값을 쓰고, 아니면 지금 계산한다. 두 군데에서
+ * 각자 계산하면 매니페스트의 분모(소스 구성)와 시계열의 투표 키가 서로 다른 분할을
+ * 말할 수 있는데, 합계는 맞으니 감사는 통과한다. 호출 순서에 기대지도 않는다 —
+ * `buildIndex` 가 `withOutlet` 뒤에 온다는 암묵적 전제는 언젠가 깨진다.
+ */
+function outletOf(s: Signal): string {
+  return (
+    s.outlet ?? canonicalSourceName(s.source ?? '', CONFIG.allowedSourceNames, SOURCE_NAME_ALIASES)
+  );
 }
 
 export function buildFile(signals: Signal[], cap = CONFIG.maxSignals): SignalsFile {
@@ -211,8 +225,9 @@ export function buildIndex(file: SignalsFile, generatedAt: string, months: strin
   for (const s of file.signals) {
     // 이름을 못 찾아도 건너뛰지 않는다 — 합계가 stats.total 과 어긋나는 순간
     // 화면의 비율이 전부 거짓이 된다. audit 의 manifest.outlets 가 이걸 지킨다.
-    const name =
-      canonicalSourceName((s.source ?? '').trim(), CONFIG.allowedSourceNames) || UNATTRIBUTED;
+    // `outletOf` 하나로 모은다 — `withOutlet` 이 이미 붙였으면 그 값을 쓰고,
+    // 아니면 같은 규칙으로 지금 계산한다. 호출 순서에 기대지 않는다.
+    const name = outletOf(s).trim() || UNATTRIBUTED;
     tally.set(name, (tally.get(name) ?? 0) + 1);
   }
   const outlets: Record<string, number> = {};

@@ -212,6 +212,36 @@ describe('groupByDay — 하루 한 표', () => {
     expect(u.contested).toBe(true);
   });
 
+  // 회귀: 모든 매체가 각자 안에서 갈린 날은 표가 하나도 없어 중립으로 떨어졌다.
+  // "아무 일도 없었다" 가 아니라 가장 센 불일치인데 화면이 조용했다.
+  it('모든 매체가 각자 갈린 날은 불일치로 표시한다', () => {
+    const [u] = groupByDay([
+      { ...from('2026-08-05', 'ally', 'CNN'), id: 'c1' },
+      { ...from('2026-08-05', 'feud', 'CNN'), id: 'c2' },
+      { ...from('2026-08-05', 'ally', 'Fox News'), id: 'f1' },
+      { ...from('2026-08-05', 'feud', 'Fox News'), id: 'f2' },
+    ]);
+    expect(u.contested).toBe(true);
+    expect(u.polarity).toBe('neutral');
+  });
+
+  // 회귀: 갈려서 어느 쪽도 밀지 않은 매체까지 세면, 한 매체가 판정하고 다섯이 서로
+  // 갈린 날이 세 매체가 합의한 날보다 무거워진다. 이 필드가 막으려던 역전이다.
+  it('갈린 매체는 가중에 세지 않는다', () => {
+    const [oneVoter] = groupByDay([
+      { ...from('2026-08-05', 'feud', 'CNN'), id: 'c1' },
+      ...['A', 'B', 'C', 'D', 'E'].flatMap((s, i) => [
+        { ...from('2026-08-05', 'ally', s), id: `a${i}` },
+        { ...from('2026-08-05', 'feud', s), id: `b${i}` },
+      ]),
+    ]);
+    const [threeVoters] = groupByDay(
+      ['CNN', 'Fox News', 'NPR'].map((s) => from('2026-08-06', 'feud', s))
+    );
+    expect(oneVoter.outlets).toBe(1);
+    expect(oneVoter.weight).toBeLessThan(threeVoters.weight);
+  });
+
   it('한 매체가 같은 날 갈리면 그 매체는 어느 쪽도 밀지 않는다', () => {
     const [u] = groupByDay([
       { ...from('2026-08-05', 'feud', 'The Hill'), id: 'h1' },
@@ -326,6 +356,23 @@ describe('buildPairTimeline — 하루 한 표가 셀에 반영된다', () => {
       NOW
     );
     expect(tl!.cells[tl!.cells.length - 1].unclassified).toBe(1);
+  });
+
+  // 회귀: live 로 정해진 달 다음의 빈 달이 `curated: true` 로 그려졌다. 화면과
+  // 범례는 그걸 손으로 큐레이션한 편집 판단이라고 말한다 — 측정값을 편집 판단으로
+  // 둔갑시키는 것이라, 이 저장소가 절대 섞지 말라고 한 구분이 깨진다.
+  it('뉴스로 정해진 달을 이어받은 빈 달은 큐레이션이 아니다', () => {
+    const tl = buildPairTimeline(
+      'a', 'b', 3,
+      pairs(['01', '02', '03'].map((d) => sig(`2026-06-${d}`, 'feud'))),
+      [],
+      NOW
+    );
+    const cells = tl!.cells;
+    expect(cells.find((c) => c.ym === '2026-06')!.curated).toBe(false);
+    // 07·08 은 데이터가 없어 이어받은 달이다 — 출처는 여전히 뉴스다
+    expect(cells.find((c) => c.ym === '2026-07')!.curated).toBe(false);
+    expect(cells.find((c) => c.ym === '2026-08')!.curated).toBe(false);
   });
 
   // 창을 좁혔다는 이유만으로 같은 달의 색이 달라지면 안 된다

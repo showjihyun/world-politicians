@@ -505,7 +505,15 @@ function measurePanels(): Panel[] {
           // 커져서 확대할수록 프레임이 무거워진다
           return (l.id === selectedLinkId ? w + 1.6 : w) / widthScale();
         }}
-        linkLineDash={(lRaw) => REL_META[(lRaw as unknown as GraphLink).rel.type].dash ?? null}
+        linkLineDash={(lRaw) => {
+          // 폭과 같은 축으로 줄인다. 점선 간격만 그래프 단위로 남기면 확대할 때
+          // `[4,3]` 이 화면에서 48px 씩 벌어져, 점선으로 구분해 둔 관계 유형이
+          // 끊긴 실선으로 보인다 — 범례가 나누는 구분이 확대하면 사라진다.
+          const dash = REL_META[(lRaw as unknown as GraphLink).rel.type].dash;
+          if (!dash) return null;
+          const s = widthScale();
+          return s === 1 ? dash : dash.map((d) => d / s);
+        }}
         linkVisibility={(lRaw) => visibleLinkIds.has((lRaw as unknown as GraphLink).id)}
         linkDirectionalParticles={(lRaw) => {
           const l = lRaw as unknown as GraphLink;

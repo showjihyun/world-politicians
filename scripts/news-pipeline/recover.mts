@@ -27,6 +27,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { CONFIG } from './config.mts';
 import { buildFile, writeOutput, readExisting, type SignalsFile } from './merge.mts';
+import { decodeEntities } from '../sources/parse-core.mts';
 import { dedupeByStory } from './core.mts';
 import { validate } from './validate.mts';
 import type { Signal } from './extract.mts';
@@ -79,18 +80,22 @@ function git(args: string[]): string {
  */
 function candidateCommits(): { commits: string[]; total: number; stoppedAt: string | null } {
   const parse = (s: string) => s.split('\n').map((l) => l.trim()).filter(Boolean);
-  const all = parse(git(['log', '--format=%H', '--', TRACKED_DIR]));
   const since = new Date(Date.now() - SCAN_DAYS * 86_400_000).toISOString().slice(0, 10);
   const withinWindow = parse(git(['log', `--since=${since}`, '--format=%H', '--', TRACKED_DIR]));
   const commits = withinWindow.slice(0, SCAN_LIMIT);
 
+  // 전체 이력은 **세기만** 한다. 예전에는 해시를 전부 받아 파싱해 놓고 길이만 썼는데,
+  // 이 디렉터리는 매일 밤 커밋이 쌓여 이력이 무한정 길어진다 — 쓰지도 않을 목록을
+  // 위해 전체를 한 번 더 훑는 셈이었다.
+  const total = Number(parse(git(['rev-list', '--count', 'HEAD', '--', TRACKED_DIR]))[0] ?? 0);
+
   const stoppedAt =
     commits.length < withinWindow.length
       ? `커밋 ${SCAN_LIMIT}개 상한`
-      : withinWindow.length < all.length
+      : withinWindow.length < total
         ? `보관 기간(${SCAN_DAYS}일, ${since} 이후) 밖`
         : null;
-  return { commits, total: all.length, stoppedAt };
+  return { commits, total, stoppedAt };
 }
 
 /** 그 커밋 시점의 월 파티션 전체를 읽는다. 없거나 깨졌으면 조용히 건너뛴다 */
@@ -139,7 +144,11 @@ for (const commit of commits) {
     if (!past.classified) continue;
     const now = wanted.get(past.id);
     if (!now || found.has(past.id)) continue;
-    if (past.url !== now.url || past.title !== now.title) {
+    // 제목은 엔티티를 푼 뒤에 비교한다. `normalizeTitles` 가 병합 때마다
+    // `Trump&#8217;s` → `Trump's` 로 아카이브의 제목을 고쳐 쓰기 때문에, 그 변경보다
+    // 앞선 커밋의 판정은 제목이 다르다는 이유로 영영 복구되지 않는다 — git 에 답이
+    // 있는데 "이력에도 판정이 없다" 고 보고하게 된다. id 는 그대로 대조한다.
+    if (past.url !== now.url || decodeEntities(past.title) !== decodeEntities(now.title)) {
       // id 가 같아도 url·title 이 다르면 같은 기사라고 단정하지 않는다
       if (!mismatched.has(past.id)) {
         mismatched.set(past.id, past.url !== now.url ? 'url' : 'title');

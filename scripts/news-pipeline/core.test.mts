@@ -101,6 +101,21 @@ describe('canonicalSourceName', () => {
     expect(canonicalSourceName('Some Local Paper', NAMES)).toBe('Some Local Paper');
   });
 
+  // 회귀: 허용 목록은 매체를 통과시킬 목적이라 한 뉴스룸의 여러 표기를 함께 담는다.
+  // 표시·집계에서는 그게 갈라짐이 된다 — 아카이브에 `The Wall Street Journal` 8건과
+  // `WSJ` 4건이 따로 잡혀 매체가 18곳으로 세어지고 있었다(뉴스룸은 17곳).
+  it('같은 뉴스룸의 다른 허용 표기를 하나로 모은다', () => {
+    const names = [...NAMES, 'WSJ', 'The Wall Street Journal'];
+    const alias = { WSJ: 'The Wall Street Journal', AP: 'AP News' };
+    expect(canonicalSourceName('WSJ', names, alias)).toBe('The Wall Street Journal');
+    expect(canonicalSourceName('The Wall Street Journal', names, alias)).toBe('The Wall Street Journal');
+    expect(canonicalSourceName('AP', names, alias)).toBe('AP News');
+  });
+
+  it('별칭을 주지 않으면 예전과 같이 동작한다', () => {
+    expect(canonicalSourceName('WSJ', [...NAMES, 'WSJ'])).toBe('WSJ');
+  });
+
   // 허용된 매체는 반드시 표시 이름을 찾을 수 있어야 한다. 두 함수가 경계 판정을
   // 공유하지 않으면 "수집은 됐는데 이름은 못 찾는" 매체가 생긴다.
   it.each(['AP News', 'The Hill', 'Politico', 'NPR', 'The Hill - Breaking News'])(
@@ -491,6 +506,21 @@ describe('resolveSourceName — 호스트로 온 매체명을 정본으로 바�
   it('허용 목록 밖은 그대로 둔다 — 이름을 지어내지 않는다', () => {
     expect(resolveSourceName('aljazeera.com', 'https://www.aljazeera.com', NAMES, HOSTS)).toBe('aljazeera.com');
     expect(resolveSourceName('CoinGape', 'https://coingape.com', NAMES, HOSTS)).toBe('CoinGape');
+  });
+
+  // 회귀: 부분일치로 호스트를 찾으면 목록 밖 매체가 정본 이름을 달고 들어온다.
+  // 이 이름이 그대로 허용 판정으로 되돌아가므로(fetch.mts) 수집까지 통과한다 —
+  // 이름 축에서 'AP' 가 CoinGape 를 통과시켰던 그 구멍을 호스트 축에 다시 낸 셈이다.
+  it.each([
+    ['notreallyfoxnews.com', 'https://notreallyfoxnews.com/x'],
+    ['어그리게이터', 'https://agg.example/?u=https://www.foxnews.com/x'],
+    ['thehill.com.evil.example', 'https://thehill.com.evil.example/x'],
+  ])('호스트를 부분일치로 끌어오지 않는다: %s', (name, url) => {
+    expect(resolveSourceName(name, url, NAMES, HOSTS)).toBe(name);
+  });
+
+  it('하위 도메인은 같은 매체로 본다', () => {
+    expect(resolveSourceName('', 'https://feeds.foxnews.com/foxnews/politics', NAMES, HOSTS)).toBe('Fox News');
   });
 
   it('여러 호스트가 걸리면 긴 쪽을 고른다', () => {

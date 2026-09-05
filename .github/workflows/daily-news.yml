@@ -78,13 +78,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          # `|| true` 가 없으면 이 줄이 알림을 죽인다. 이 단계는 `-eo pipefail` 로 도는데
+          # grep 은 못 찾으면 1 을 돌려주므로, **FAIL 줄이 없는 실패**(감사 앞 단계에서
+          # 죽거나 예외가 난 경우)에서 대입문이 그대로 스텝을 끝낸다 — 알림을 붙인 이유가
+          # 바로 그런 조용한 실패인데 거기서만 안 울리게 된다.
           log="$RUNNER_TEMP/audit.log"
           if [ -f "$log" ]; then
-            detail=$(grep -E '^(FAIL|WARN)' "$log" | head -20)
-            [ -z "$detail" ] && detail=$(tail -20 "$log")
+            detail=$(grep -E '^(FAIL|WARN)' "$log" | head -20 || true)
+            [ -z "$detail" ] && detail=$(tail -20 "$log" || true)
           else
             detail='감사 단계 이전에 실패했다 — 수집이나 설치에서 죽었을 수 있다.'
           fi
+          [ -z "$detail" ] && detail='로그를 읽지 못했다. 실행 링크를 볼 것.'
 
           body=$(printf '실행이 실패해 **그날 수집분이 커밋되지 않았다.** 감사가 커밋 앞에 있어서,\n실패하면 그날 기사는 버려지고 다음 실행이 30일 창으로 다시 긁어와야 한다.\n\n- 실행: %s\n- 시각: %s\n\n```\n%s\n```\n' \
             "$RUN_URL" "$(date -u '+%Y-%m-%d %H:%M UTC')" "$detail")
@@ -94,8 +99,8 @@ jobs:
           # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
           # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
           # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
-          num=$(gh issue list --state open --limit 50 --json number,title \
-            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty")
+          num=$(gh issue list --state open --limit 200 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty" || true)
 
           if [ -n "$num" ]; then
             gh issue comment "$num" --body "$body"
@@ -119,8 +124,8 @@ jobs:
           # gh 내장 필터를 쓴다 — jq 를 따로 부르지 않으면 의존이 하나 줄고,
           # 이 표현식은 로컬 gh 로도 그대로 확인할 수 있다.
           # (제목에 따옴표를 넣지 않는다. 넣으면 아래 jq 프로그램이 깨진다)
-          num=$(gh issue list --state open --limit 50 --json number,title \
-            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty")
+          num=$(gh issue list --state open --limit 200 --json number,title \
+            --jq "map(select(.title == \"$ALERT_TITLE\")) | .[0].number // empty" || true)
           [ -z "$num" ] && exit 0
           gh issue close "$num" --comment "복구됐다 — $RUN_URL"
           echo "이슈 #$num 을 닫았다"

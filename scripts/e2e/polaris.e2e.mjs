@@ -685,6 +685,10 @@ async function main() {
     check('3D neural mode renders', false, String(e).slice(0, 80));
     while (results.length - before3d < 4) check('3D check did not run', false, '3D 실패로 건너뜀');
   }
+  // 모자란 쪽만 채우면 **넘치는 쪽**이 남는다 — 네 검사가 다 돈 뒤 스크린샷이나
+  // 모드 복귀에서 던지면 5개가 되고, 배지 대조가 다시 README 를 탓한다. 초과분을
+  // 기록해 두고 그 수만큼 빼서 센다.
+  const extra3d = results.length - before3d - 4;
 
   // ── 11. 콘솔 에러 + 데이터 시점 표시 ──
   const benign = /favicon|net::ERR_|googleapis|gstatic|jsdelivr|ERR_ABORTED|wikipedia/i;
@@ -877,15 +881,21 @@ async function main() {
   // README 의 배지가 이 파일의 검사 수를 광고한다. 검사를 하나 더할 때마다 낡는데,
   // 감사는 그 숫자를 셀 수 없다 — 실제로 세려면 브라우저를 띄워야 하기 때문이다.
   // 그래서 진실을 아는 쪽이 대조한다. 이 검사도 자기 자신을 포함해서 센다.
-  const expected = results.length + 1;
-  const stale = ['README.md', 'README.ko.md'].filter((f) => {
-    const m = fs.readFileSync(f, 'utf8').match(/E2E-(\d+)%20checks/);
+  const expected = results.length + 1 - extra3d;
+  // CLAUDE.md 도 이 수를 적는다. 에이전트가 가장 먼저 읽는 파일인데 아무것도 대조하지
+  // 않아 85 에 머물러 있었다 — 검사가 있는 두 파일만 87 로 갱신됐다.
+  const stale = [
+    ['README.md', /E2E-(\d+)%20checks/],
+    ['README.ko.md', /E2E-(\d+)%20checks/],
+    ['CLAUDE.md', /Playwright (\d+)개/],
+  ].filter(([f, re]) => {
+    const m = fs.readFileSync(f, 'utf8').match(re);
     return !m || Number(m[1]) !== expected;
   });
   check(
-    'the README badge matches the real check count',
+    'the docs match the real check count',
     stale.length === 0,
-    stale.length ? `${stale.join(', ')} 가 ${expected} 가 아니다` : `${expected} checks`
+    stale.length ? `${stale.map(([f]) => f).join(', ')} 가 ${expected} 가 아니다` : `${expected} checks`
   );
 
   const passed = results.filter((r) => r.ok).length;

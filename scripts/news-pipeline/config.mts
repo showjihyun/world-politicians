@@ -45,6 +45,22 @@ export const SOURCE_HOSTS: Record<string, string> = {
   'wsj.com': 'The Wall Street Journal',
 };
 
+/**
+ * 같은 뉴스룸의 서로 다른 허용 표기 → 정본.
+ *
+ * 허용 목록은 매체를 "통과시킬" 목적이라 한 뉴스룸의 여러 표기를 함께 담고 있다.
+ * 표시·집계에서는 그게 갈라짐이 된다 — `WSJ` 와 `The Wall Street Journal` 이
+ * 아카이브에 각각 4건·8건으로 따로 잡혀 매체가 18곳으로 세어졌다.
+ *
+ * 값은 `SOURCE_HOSTS` 와 같은 이름이어야 한다. 다르면 같은 매체가 수집 경로에 따라
+ * 다른 이름으로 남는다.
+ */
+export const SOURCE_NAME_ALIASES: Record<string, string> = {
+  WSJ: 'The Wall Street Journal',
+  AP: 'AP News',
+  'Associated Press': 'AP News',
+};
+
 export const CONFIG = {
   windowDays: 30,
   maxSignals: 300,
