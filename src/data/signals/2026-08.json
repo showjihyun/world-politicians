@@ -36,9 +36,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Vance defends Trump's Kharg Island post as a strategic message to Iran.",
-   "summary_ko": "밴스가 트럼프의 카르그섬 게시물이 이란에 보내는 전략적 메시지였다고 옹호했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Vance explains Trump's Kharg Island post was a message to Iran.",
+   "summary_ko": "밴스가 트럼프의 카르그섬 게시물이 이란에 보낸 메시지라고 설명했다.",
    "classified": true
   },
   {
@@ -176,9 +176,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Clinton mocks Trump over Lake Ontario rename; Trump allies fire back.",
-   "summary_ko": "클린턴이 온타리오호 명칭 변경 문제로 트럼프를 조롱하자 트럼프 측이 반격했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Clinton mocks Trump's Lake Ontario renaming idea, drawing viral backlash.",
+   "summary_ko": "클린턴이 트럼프의 온타리오호 명칭 변경 구상을 조롱해 거센 역풍을 맞았다.",
    "classified": true
   },
   {
@@ -296,9 +296,9 @@
     "durbin"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Senators Durbin and Duckworth jointly seek answers on the Amtrak maintenance facility plan.",
-   "summary_ko": "더빈과 덕워스 상원의원이 암트랙 정비 시설 계획에 대해 공동으로 답변을 요구하고 있다.",
+   "confidence": 0.9,
+   "summary_en": "Senators Durbin and Duckworth jointly demand answers on the Amtrak Chicago facility plan.",
+   "summary_ko": "더빈과 덕워스 상원의원이 암트랙 시카고 시설 계획에 대해 공동으로 해명을 요구했다.",
    "classified": true
   },
   {
@@ -336,9 +336,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.98,
+   "confidence": 0.95,
    "summary_en": "Governor Shapiro sues the Trump administration over reproductive care access.",
-   "summary_ko": "샤피로 주지사가 생식 의료 접근권을 놓고 트럼프 행정부를 상대로 소송을 제기했다.",
+   "summary_ko": "샤피로 주지사가 '생명 구하는 생식 의료'를 두고 트럼프 행정부를 상대로 소송을 제기했다.",
    "classified": true
   },
   {
@@ -476,9 +476,9 @@
     "shapiro"
    ],
    "polarity": "feud",
-   "confidence": 0.98,
+   "confidence": 0.95,
    "summary_en": "RFK Jr. accuses Shapiro's office of potentially fabricating measles death data.",
-   "summary_ko": "RFK 주니어가 샤피로 사무실이 홍역 사망 데이터를 조작했을 가능성을 제기했다.",
+   "summary_ko": "RFK 주니어가 샤피로 사무실이 홍역 사망자 수를 조작했을 수 있다고 비난했습니다.",
    "classified": true
   },
   {
@@ -678,8 +678,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "RFK Jr. fires back at Shapiro in escalating dispute over measles deaths.",
-   "summary_ko": "RFK 주니어가 홍역 사망자 논쟁에서 샤피로에 반박하며 갈등 격화하다.",
+   "summary_en": "RFK Jr. responds to Shapiro regarding measles-related deaths.",
+   "summary_ko": "RFK 주니어가 홍역 관련 사망자를 두고 샤피로에 대응했습니다.",
    "classified": true
   },
   {
@@ -879,8 +879,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "A Newsom ally taunts Buttigieg over his South Carolina visit as the 2028 primary fight intensifies.",
-   "summary_ko": "뉴섬 주지사의 측근이 2028년 경선을 앞두고 버티지 전 장관의 사우스캐롤라이나 방문을 조롱했다.",
+   "summary_en": "Newsom's surrogate attacks Buttigieg over South Carolina visit as 2028 race heats up.",
+   "summary_ko": "뉴섬의 측근이 2028년 대선 경쟁이 격화되는 가운데 버티지의 사우스캐롤라이나 방문을 조롱했습니다.",
    "classified": true
   },
   {
@@ -904,26 +904,6 @@
    "classified": true
   },
   {
-   "id": "sig-6988d132",
-   "date": "2026-08-24",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTTVDVUtfMVFRODBIWEd2NWtOWENQQ2F1aU9heWFxMVZieU9PWVdiRGhrSUhPSFFNUW5NajBodG5nSlozUFYxNnJqZXB4QTd4QWdkeUkzV0RycVd2Rzd6dmxIWkpHNk5Ya1hpOWJQSjVVVmtOQ0ZEaEU0MEU4X0k0WHVpNE5DbG9HODVldzBycUh1T0dPUl9Z?oc=5",
-   "title": "Jeffries Defends Kushner Meeting, Vowing Tough Oversight of Trump - The New York Times",
-   "people": [
-    "trump",
-    "jeffries"
-   ],
-   "pair": [
-    "jeffries",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Jeffries defends the Kushner meeting but pledges aggressive oversight of Trump.",
-   "summary_ko": "제프리스가 쿠슈너 회동을 옹호하면서도 트럼프에 대한 강경한 감독을 약속함.",
-   "classified": true
-  },
-  {
    "id": "sig-42b9211e",
    "date": "2026-08-24",
    "source": "The Hill",
@@ -938,9 +918,9 @@
     "vance"
    ],
    "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Vance campaigns in Maine for the Canada trade war while Senator Collins notably skips his rally.",
-   "summary_ko": "밴스가 캐나다 무역전쟁 지지 유세를 메인에서 벌이는 동안 콜린스 상원의원이 불참해 대조를 이룸.",
+   "confidence": 0.9,
+   "summary_en": "Vance defends the Canada trade war in Maine while Collins skips his rally.",
+   "summary_ko": "밴스 부통령이 메인주에서 캐나다 무역 전쟁을 옹호하는 동안 콜린스 의원은 집회에 불참했다.",
    "classified": true
   },
   {
@@ -980,8 +960,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Shapiro slams Trump's Canada tariffs as choosing chaos and cruelty.",
-   "summary_ko": "샤피로 주지사는 트럼프 전 대통령의 캐나다 관세가 혼동과 잔혹함을 선택한 것이라고 비난했다.",
+   "summary_en": "Governor Shapiro accuses Trump of choosing chaos and cruelty on Canada tariffs.",
+   "summary_ko": "샤피로 주지사가 트럼프의 캐나다 관세 정책을 '혼란과 잔혹함'의 선택이라고 비난했다.",
    "classified": true
   },
   {
@@ -1000,8 +980,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Manchin warns that an AOC presidency would be devastating for the country.",
-   "summary_ko": "맨친 전 의원은 AOC가 대통령이 될 경우 국가에 파멸적일 것이라고 경고했다.",
+   "summary_en": "Manchin warns that an AOC presidency would be devastating.",
+   "summary_ko": "맨친 전 의원이 AOC가 대통령이 되면 '파멸적'일 것이라고 경고했다.",
    "classified": true
   },
   {
@@ -1180,8 +1160,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Jeffries meets Kushner to explore cooperation between Democrats and Trump.",
-   "summary_ko": "제프리스가 쿠슈너를 만나 민주당과 트럼프 간 협력 방안을 논의했습니다.",
+   "summary_en": "Jeffries meets Kushner to discuss potential Democratic cooperation with Trump.",
+   "summary_ko": "제프리스가 쿠슈너와 만나 민주당과 트럼프의 협력 방안을 논의했다.",
    "classified": true
   },
   {
@@ -1240,8 +1220,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Gavin Newsom endorses Trump's social media accounts, becoming an unlikely supporter.",
-   "summary_ko": "개빈 뉴섬이 트럼프의 소셜 미디어 계정을 지지하며 예상치 못한 지지자가 되었습니다.",
+   "summary_en": "Gavin Newsom unexpectedly endorses Trump's social media accounts.",
+   "summary_ko": "개빈 뉴섬이 트럼프의 소셜 미디어 계정을 뜻밖에도 지지했습니다.",
    "classified": true
   },
   {
@@ -1300,8 +1280,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.98,
-   "summary_en": "Rep. Alexandria Ocasio-Cortez endorses Sen. Ed Markey in his Democratic primary challenge.",
-   "summary_ko": "알렉산드리아 오카시오-코르테즈 하원의원이 에드 마키 상원의원의 민주당 경선 도전을 지지했습니다.",
+   "summary_en": "AOC endorses Senator Ed Markey in his primary race.",
+   "summary_ko": "AOC가 에드 마키 상원의원의 예비선거를 지지했습니다.",
    "classified": true
   },
   {
@@ -1360,9 +1340,9 @@
     "markey"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "AOC endorses Markey in the Massachusetts Senate primary.",
-   "summary_ko": "AOC가 매사추세츠 상원 경선에서 마키를 지지했다.",
+   "confidence": 0.98,
+   "summary_en": "AOC backs Markey in the Massachusetts Senate primary.",
+   "summary_ko": "AOC가 매사추세츠 상원 예비선거에서 마키를 지지했습니다.",
    "classified": true
   },
   {
@@ -1424,7 +1404,7 @@
    "polarity": "feud",
    "confidence": 0.95,
    "summary_en": "Vice President Vance attacks AOC in a TikTok video.",
-   "summary_ko": "밴스 부통령이 틱톡 영상에서 AOC를 강하게 비판했다.",
+   "summary_ko": "밴스 부통령이 틱톡 영상에서 AOC를 비난했다.",
    "classified": true
   },
   {
@@ -1464,8 +1444,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Vice President JD Vance launches a scathing attack on Rep. AOC and others on TikTok.",
-   "summary_ko": "JD 밴스 부통령이 틱톡에서 AOC 하원의원 등을 향해 신랄한 비판을 퍼부었습니다.",
+   "summary_en": "JD Vance launches a scathing attack against AOC on TikTok.",
+   "summary_ko": "JD 밴스가 틱톡에서 AOC를 맹렬히 공격했습니다.",
    "classified": true
   },
   {
@@ -1504,8 +1484,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Sen. Jon Ossoff has repeatedly attacked Trump, seen by many as a 2028 presidential audition.",
-   "summary_ko": "존 오소프 상원의원이 수개월간 트럼프를 공격해왔으며, 많은 이들이 이를 2028년 대선 출마 포석으로 봅니다.",
+   "summary_en": "Jon Ossoff has been repeatedly attacking Trump, seen as a 2028 audition.",
+   "summary_ko": "존 오소프가 수개월간 트럼프를 공격해왔으며, 이는 2028년 대선 출마 포석으로 보입니다.",
    "classified": true
   },
   {
@@ -1604,8 +1584,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Ossoff's criticism of Trump triggers White House backlash.",
-   "summary_ko": "오소프의 트럼프 비판이 백악관의 반발을 불러일으켰다.",
+   "summary_en": "Ossoff's jab at Trump triggers a media frenzy.",
+   "summary_ko": "오소프의 트럼프 조롱이 언론의 집중 보도를 불렀다.",
    "classified": true
   },
   {
@@ -1723,9 +1703,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "The conflict between Senator Ossoff and the Trump White House escalates into increasingly nasty personal attacks.",
-   "summary_ko": "오소프 상원의원과 트럼프 백악관 간의 갈등이 점점 더 험악한 인신공격으로 치닫고 있습니다.",
+   "confidence": 0.9,
+   "summary_en": "The confrontation between Ossoff and Trump turns increasingly hostile.",
+   "summary_ko": "오소프와 트럼프, 백악관 간의 대립이 점점 더 험악해지고 있다.",
    "classified": true
   },
   {
@@ -1743,9 +1723,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.98,
-   "summary_en": "Ossoff intensifies his feud with the White House by denouncing Trump as a 'draft-dodging, crook president.'",
-   "summary_ko": "오소프가 트럼프를 '병역 기피자이자 사기꾼 대통령'로 비난하며 백악관과의 갈등을 격화시켰습니다.",
+   "confidence": 0.95,
+   "summary_en": "Ossoff intensifies his feud with Trump, denouncing him as a 'draft-dodging, crook president.'",
+   "summary_ko": "오소프가 트럼프를 '병역 기피자이자 사기꾼 대통령'으로 비난하며 백악관과의 갈등을 격화시켰다.",
    "classified": true
   },
   {
@@ -2004,8 +1984,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Speaker Mike Johnson mocks Hakeem Jeffries for losing the Democratic civil war in his own district.",
-   "summary_ko": "마이크 존슨 하원의장이 하킴 제프리스가 자신의 지역구에서 민주당 내전을 잃었다고 조롱했습니다.",
+   "summary_en": "Speaker Mike Johnson mocks Hakeem Jeffries over Democratic infighting in New York.",
+   "summary_ko": "마이크 존슨 하원의장이 뉴욕주 내 민주당 내분을 두고 하킴 제프리스를 조롱했습니다.",
    "classified": true
   },
   {
@@ -2063,8 +2043,8 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Mark Kelly criticizes Trump's decision to cut joint military exercises with South Korea as shortsighted.",
+   "confidence": 0.95,
+   "summary_en": "Senator Mark Kelly criticizes Trump's decision to cut joint military exercises with South Korea as shortsighted.",
    "summary_ko": "마크 켈리 상원의원이 트럼프의 한미 연합군사훈련 축소 결정을 근시안적 실수라고 비판했습니다.",
    "classified": true
   },
@@ -2084,8 +2064,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Analysis of Ossoff's takedown of Trump highlights the starkly contrasting visions of America they represent.",
-   "summary_ko": "오소프의 트럼프 비판 분석은 두 사람이 대표하는 미국 상이 뚜렷이 대조됨을 보여줍니다.",
+   "summary_en": "Analysis highlights Ossoff's aggressive takedown of Trump as a clash of two Americas.",
+   "summary_ko": "오소프의 트럼프 맹공이 두 개의 서로 다른 미국 간의 충돌을 드러낸다는 분석.",
    "classified": true
   },
   {
@@ -2123,9 +2103,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Ossoff sparks a personal feud with the White House by targeting Trump's aide Natalie Harp.",
-   "summary_ko": "오소프가 트럼프 보좌관 나탈리 하프를 겨냥하며 백악관과의 개인적 feud를 촉발시켰습니다.",
+   "confidence": 0.9,
+   "summary_en": "Ossoff sparks a personal feud with Trump by targeting his aide Natalie Harp.",
+   "summary_ko": "오소프가 트럼프 보좌관 나탈리 하프를 겨냥하며 트럼프와의 개인적 feud를 촉발시켰다.",
    "classified": true
   },
   {
@@ -2229,26 +2209,6 @@
    "classified": true
   },
   {
-   "id": "sig-30bd8c47",
-   "date": "2026-08-17",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSd1ZrQjdPOG9BWHctTjN4NDhVa1VRYUFXZFpoTVoxc3FEbHhvYjNLZkRCYTk2LUhMY2hObXg3RkdfYnhnTDFpalA4N0hRc2oxeDJVNE1kQzkwZTVDWkRkaXZvSmdXNDZlLXMxbzVETnliVzAwaUE?oc=5",
-   "title": "RFK Jr.'s quiet hunt for autism culprits stalls as Trump orders baseless changes to childhood shots - CBS News",
-   "people": [
-    "trump",
-    "rfk-jr"
-   ],
-   "pair": [
-    "rfk-jr",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "RFK Jr.'s autism research stalls as Trump orders changes to childhood vaccines, undermining his efforts.",
-   "summary_ko": "트럼프가 소아 백신 변경을 명령하면서 RFK 주니어의 자폐증 원인 연구가 중단되었습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-f5ff62a4",
    "date": "2026-08-17",
    "source": "Washington Examiner",
@@ -2266,26 +2226,6 @@
    "confidence": 0.85,
    "summary_en": "DOJ expands fraud office reach amid pressure from Vance to investigate Walz.",
    "summary_ko": "밴스의 압박으로 법무부가 사기 수사 사무소 확대를 통해 월즈 수사에 나섰습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-b93af4c8",
-   "date": "2026-08-16",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeHRzT0haSFU2UFUtOE1aTVlnbHQ1amkyRWpBcFRpQURTRmpPcFNJVUdSZGVCNDZZa3AyaXpCRXV1UV9ISzUzRHItalFLTEdiZHdHZFAzUHpaU2tHVXR2WUdRd09XRzQ5MkJrNFhieVBGUnBmcmQ1SmQ4Zml1MFduRGRtRk9IYi1sdHU3TFp6aDdJOVdHZm15QnZfUGFRdw?oc=5",
-   "title": "Trump directs Hegseth to scale back joint military exercises with South Korea - Politico",
-   "people": [
-    "trump",
-    "hegseth"
-   ],
-   "pair": [
-    "hegseth",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "President Trump directs Defense Secretary Hegseth to scale back joint military exercises with South Korea.",
-   "summary_ko": "트럼프 대통령이 헤그세스 국방장관에게 한미 연합군사훈련 축소를 지시했습니다.",
    "classified": true
   },
   {
@@ -2385,8 +2325,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Hakeem Jeffries rejects Medicare for All while Ro Khanna calls it a top priority.",
-   "summary_ko": "제프리스가 메디케어 포 올을 거부한 반면 칸나는 최우선 과제라고 주장했다.",
+   "summary_en": "Jeffries rejects Medicare for All while Khanna champions it as top priority, highlighting Democratic divide.",
+   "summary_ko": "제프리스가 '모두를 위한 메디케어'를 거부한 반면 카나는 이를 최우선 과제로 꼽으며 민주당 내 분열을 드러냈습니다.",
    "classified": true
   },
   {
@@ -2524,9 +2464,9 @@
     "rfk-jr"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Senator Cassidy accuses RFK Jr. of lying about changing the vaccine schedule.",
-   "summary_ko": "캐시디 상원의원이 RFK 주니어가 백신 일정 변경에 대해 거짓말을 했다고 비난했다.",
+   "confidence": 0.95,
+   "summary_en": "Senator Cassidy accuses RFK Jr. of lying about vaccine schedule changes in sharp rebuke.",
+   "summary_ko": "캐시디 상원의원이 RFK 주니어가 백신 일정 변경에 대해 거짓말을 했다고 강하게 비판했습니다.",
    "classified": true
   },
   {
@@ -2605,28 +2545,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Sen. Cassidy labels Trump's MMR vaccine claims a 'crazy, stupid thing'.",
-   "summary_ko": "캐시디 의원이 트럼프의 MMR 백신 주장을 '미친, 어리석은 짓'이라고 비난했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-6d46fd3e",
-   "date": "2026-08-16",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQY1ZYZFFxZ2ZwY200MGxEOWNtSUU3dktxcWFpbUJoMldRcjZwb29sOV93TXFSTzg5b1NQckNNRFBMdmlQd2dKTHZ3RlFpbXJZVVJFQ3cyc0hqelpGTlNIbnFpdFRpVXN2MTdHcG1hSGdzQ1ducEU1dWNhcVdVLVFobWtKSXFVd3YyWFRn0gGQAUFVX3lxTE1aX0ZGZ1JvcGpPVzBRM2hjSlBrZlI4cUtsSGlIaWcyOGxCc3JkUTdNcFlENS05Smh2YkU5WGpDa3VTOWhJXzRXNUxfNXVFT01TdUVXN0dhWUtzanAxdVVwcHJzWjJSZUN4UW8xR2ZCOTY2STRwdnRMWVAwSnBtTktnUHBTLWFoUHVjeC1IazB4VA?oc=5",
-   "title": "Trump directs Hegseth to reduce US joint exercises in South Korea - The Hill",
-   "people": [
-    "trump",
-    "hegseth"
-   ],
-   "pair": [
-    "hegseth",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump directs Hegseth to cut back U.S.-South Korea joint military exercises.",
-   "summary_ko": "트럼프가 헤그세스에게 한미 연합훈련 축소를 지시했다.",
+   "summary_en": "Senator Cassidy denounces Trump's MMR vaccine claims as 'crazy, stupid.'",
+   "summary_ko": "캐시디 상원의원이 트럼프의 MMR 백신 주장을 '미친, 어리석은 짓'이라고 강력히 비난했습니다.",
    "classified": true
   },
   {
@@ -2645,28 +2565,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.8,
-   "summary_en": "JD Vance and the Trump team are aligned in shifting positions on Iran policy.",
-   "summary_ko": "밴스와 트럼프 팀이 이란 정책에서 보조를 맞춰 입장을 바꾸고 있다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a7ef5e48",
-   "date": "2026-08-16",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1kYTNEd3hCYkhEY3FQVENlVUpQMHl3aHlMekktVUgtaU1GMEdZM0FRRUM4QUN3VkpKQWpZOERSVEZCQllRcFpBakpJYzdDZ1hkcDVnYUNHNl9fV2ZCdUs2TC1OcmVqRmJsazJOdV82Y21NNGJiQnhLdWpGNWZCdw?oc=5",
-   "title": "Trump tells Hegseth to cut back U.S.-South Korea drills - Axios",
-   "people": [
-    "trump",
-    "hegseth"
-   ],
-   "pair": [
-    "hegseth",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump orders Hegseth to reduce joint military drills with South Korea.",
-   "summary_ko": "트럼프가 헤그세스에게 한미 연합훈련 축소를 명령했다.",
+   "summary_en": "Vance aligns with Trump team on shifting Iran policy positions, showing coordinated approach.",
+   "summary_ko": "밴스가 트럼프 팀과 이란 정책에서 보조를 맞추며 공동 대응하는 모습을 보였습니다.",
    "classified": true
   },
   {
@@ -4694,6 +4594,26 @@
    "classified": true
   },
   {
+   "id": "sig-6988d132",
+   "date": "2026-08-24",
+   "source": "The New York Times",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPTTVDVUtfMVFRODBIWEd2NWtOWENQQ2F1aU9heWFxMVZieU9PWVdiRGhrSUhPSFFNUW5NajBodG5nSlozUFYxNnJqZXB4QTd4QWdkeUkzV0RycVd2Rzd6dmxIWkpHNk5Ya1hpOWJQSjVVVmtOQ0ZEaEU0MEU4X0k0WHVpNE5DbG9HODVldzBycUh1T0dPUl9Z?oc=5",
+   "title": "Jeffries Defends Kushner Meeting, Vowing Tough Oversight of Trump - The New York Times",
+   "people": [
+    "trump",
+    "jeffries"
+   ],
+   "pair": [
+    "jeffries",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Jeffries defends meeting with Kushner while promising strict oversight of Trump.",
+   "summary_ko": "제프리스가 쿠슈너 회동을 옹호하며 트럼프에 대한 강력한 감독을 약속했다.",
+   "classified": true
+  },
+  {
    "id": "sig-3a845112",
    "date": "2026-08-24",
    "source": "The Hill",
@@ -4810,18 +4730,6 @@
    "classified": false
   },
   {
-   "id": "sig-6ca61785",
-   "date": "2026-08-23",
-   "source": "NBC News",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQLU5PLW1oV0RpNzlkejBxaGZscmRqczJUYXNTOHdKUWRQbzRZTXJmSGRBS3VqZ3Jjck9CenA1UGRjcjlQLXpMYU1DNWZoV3dCZ0czUzFTelZTei1Vd2tzeU5CTkRWR0l4dXRYQnB2dzYzY3k1WEJtVGd1WTlUOEJVRHlocEI3U0RndDVPdjZWRlBsS25rVU01QUE4UkVSUXowUnAwdnpRUFZsaW00T1VoUHZyTWpNbUVSSW1HLXdnclR0aldqYm9RNWpYREd3dw?oc=5",
-   "title": "Hakeem Jeffries and Jared Kushner meet in NYC to discuss how Democrats and Trump could cooperate - nbcnews.com",
-   "people": [
-    "trump",
-    "jeffries"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-c6e3e677",
    "date": "2026-08-21",
    "source": "Reuters",
@@ -4870,6 +4778,18 @@
    "people": [
     "trump",
     "biden"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-706a2df6",
+   "date": "2026-08-21",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZmRJd19TelVBUVBiN0s3SjlmUFdnNTdEMmVsS3NCeUZ1MldCSWFNc19TTzI0amgxdDZJVGFJaFFVVEh0V0lhd0E5LTE0eExOb1ZGbnRra0NGRDhxRmYzOUgyY2VtTk9iMWwwN0lhblVIT09lNlNQcTRadUs5N3RsbFE2bWhqeWhXRERERUZ3?oc=5",
+   "title": "Vance says war in \"new phase\" of economic pressure as Iran dismisses Trump threat - CBS News",
+   "people": [
+    "trump",
+    "vance"
    ],
    "classified": false
   },
@@ -4982,8 +4902,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Senator Rick Scott predicts Trump will need to escalate military action against Iran.",
-   "summary_ko": "릭 스콧 상원의원이 트럼프가 이란에 대한 군사 행동을 확대해야 할 것이라고 예측했습니다.",
+   "summary_en": "Rick Scott predicts Trump will have to escalate the Iran conflict.",
+   "summary_ko": "릭 스콧이 트럼프가 이란 분쟁을 확대해야 할 것이라고 전망했다.",
    "classified": true
   },
   {
@@ -5001,9 +4921,9 @@
     "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Rick Scott states Trump will have to resume full-scale war with Iran.",
-   "summary_ko": "릭 스콧이 트럼프가 이란과의 전면전을 재개해야 할 것이라고 밝혔습니다.",
+   "confidence": 0.7,
+   "summary_en": "Senator Rick Scott predicts Trump will need to resume full-scale conflict with Iran.",
+   "summary_ko": "릭 스콧 상원의원이 트럼프가 이란과의 전면전을 재개해야 할 것이라고 예측했습니다.",
    "classified": true
   },
   {
@@ -5021,9 +4941,9 @@
     "paul-rand"
    ],
    "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "Rand Paul dismisses media attention on Mitch McConnell's health as puzzling.",
-   "summary_ko": "랜드 폴이 미치 매코널 건강에 대한 언론의 관심을 이해하기 어렵다고 일축했습니다.",
+   "confidence": 0.8,
+   "summary_en": "Rand Paul dismisses public concern over Mitch McConnell's health as incomprehensible.",
+   "summary_ko": "랜드 폴이 미치 매코널 건강에 대한 대중의 관심을 이해하기 어렵다고 일축했습니다.",
    "classified": true
   },
   {
@@ -5113,9 +5033,9 @@
     "donalds"
    ],
    "polarity": "neutral",
-   "confidence": 0.95,
-   "summary_en": "Byron Donalds and Aaron Bean compete to replace DeSantis as Florida governor.",
-   "summary_ko": "바이런 도널즈와 아론 빈이 드산티스 후임 플로리다 주지사 자리를 놓고 경쟁한다.",
+   "confidence": 0.8,
+   "summary_en": "Byron Donalds competes to replace DeSantis as Florida governor, framing the race around the outgoing governor's seat.",
+   "summary_ko": "바이런 도널즈가 드산티스 후임 주지사 자리를 놓고 경쟁에 나섰다.",
    "classified": true
   },
   {
@@ -5139,19 +5059,23 @@
    "classified": true
   },
   {
-   "id": "sig-c74b07d0",
-   "date": "2026-08-18",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUjVGalFsbUZfMzN3dDlNcXZlZk84eWwzRVoxLUswUWt6S1VBQWhvdjE5MzJQSFBZbXZGbTlxNjEwVmRkVXBERks0U2RRSUdrU1RDX1RQZnhZTks1cTJwd0Z6SHVVOEpZQnVhRDNVODNrSVNJSnlkZk9xbWRtWGJ5N29iMWprYTBsNXfSAY8BQVVfeXFMUFV2ZkxfZ0doM1NHVlB6MjJNcVR0RTQ4cldvYmdDU0FoUlEwX1M3QjFhNmJZZGJKazd3andoc3RHZzhhR2hpMFMtc203WERjck56OUVFOGdrMURkS29HQ09GVTRKcktEeFpiZ3FHS1JnT1hTOVphNU1wZHNtTXQ2M29wbW9vQS1KSzBrbEhPeG8?oc=5",
-   "title": "Donalds, Jolly to face off to replace DeSantis in Florida - thehill.com",
+   "id": "sig-30bd8c47",
+   "date": "2026-08-17",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSd1ZrQjdPOG9BWHctTjN4NDhVa1VRYUFXZFpoTVoxc3FEbHhvYjNLZkRCYTk2LUhMY2hObXg3RkdfYnhnTDFpalA4N0hRc2oxeDJVNE1kQzkwZTVDWkRkaXZvSmdXNDZlLXMxbzVETnliVzAwaUE?oc=5",
+   "title": "RFK Jr.'s quiet hunt for autism culprits stalls as Trump orders baseless changes to childhood shots - CBS News",
    "people": [
-    "donalds",
-    "desantis"
+    "trump",
+    "rfk-jr"
+   ],
+   "pair": [
+    "rfk-jr",
+    "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "Byron Donalds and David Jolly will compete in the GOP primary to succeed Ron DeSantis as Florida governor.",
-   "summary_ko": "바이런 도널즈와 데이비드 졸리가 론 디샌티스 플로리다 주지사 후임을 놓고 공화당 경선에서 맞붙는다.",
+   "confidence": 0.8,
+   "summary_en": "Trump's vaccine order stalls RFK Jr.'s autism research efforts, per CBS News.",
+   "summary_ko": "트럼프의 백신 명령으로 RFK 주니어의 자폐증 원인 연구가 지연되고 있다고 CBS가 보도했습니다.",
    "classified": true
   },
   {
@@ -5196,6 +5120,46 @@
    "outlet": "Politico"
   },
   {
+   "id": "sig-b93af4c8",
+   "date": "2026-08-16",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeHRzT0haSFU2UFUtOE1aTVlnbHQ1amkyRWpBcFRpQURTRmpPcFNJVUdSZGVCNDZZa3AyaXpCRXV1UV9ISzUzRHItalFLTEdiZHdHZFAzUHpaU2tHVXR2WUdRd09XRzQ5MkJrNFhieVBGUnBmcmQ1SmQ4Zml1MFduRGRtRk9IYi1sdHU3TFp6aDdJOVdHZm15QnZfUGFRdw?oc=5",
+   "title": "Trump directs Hegseth to scale back joint military exercises with South Korea - Politico",
+   "people": [
+    "trump",
+    "hegseth"
+   ],
+   "pair": [
+    "hegseth",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.9,
+   "summary_en": "Trump orders Hegseth to reduce U.S.-South Korea joint military exercises as commander-in-chief directive.",
+   "summary_ko": "트럼프 대통령이 헤그세스 국방장관에게 한미 연합군사훈련 축소를 지시했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-a7ef5e48",
+   "date": "2026-08-16",
+   "source": "Axios",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1kYTNEd3hCYkhEY3FQVENlVUpQMHl3aHlMekktVUgtaU1GMEdZM0FRRUM4QUN3VkpKQWpZOERSVEZCQllRcFpBakpJYzdDZ1hkcDVnYUNHNl9fV2ZCdUs2TC1OcmVqRmJsazJOdV82Y21NNGJiQnhLdWpGNWZCdw?oc=5",
+   "title": "Trump tells Hegseth to cut back U.S.-South Korea drills - Axios",
+   "people": [
+    "trump",
+    "hegseth"
+   ],
+   "pair": [
+    "hegseth",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.9,
+   "summary_en": "Trump instructs Hegseth to scale back joint military drills with South Korea in policy directive.",
+   "summary_ko": "트럼프가 헤그세스에게 한미 연합훈련 축소를 지시하며 국방 정책을 직접 지휘했습니다.",
+   "classified": true
+  },
+  {
    "id": "sig-934218f0",
    "date": "2026-08-16",
    "source": "ABC News - Breaking News, Latest News and Videos",
@@ -5215,6 +5179,26 @@
    "summary_ko": "캐시디 상원의원과 갈레고 상원의원이 민주당 내 세대 격차를 논하는 패널에 함께 출연했습니다.",
    "classified": true,
    "outlet": "ABC News"
+  },
+  {
+   "id": "sig-4ad8dc43",
+   "date": "2026-08-16",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQY1ZYZFFxZ2ZwY200MGxEOWNtSUU3dktxcWFpbUJoMldRcjZwb29sOV93TXFSTzg5b1NQckNNRFBMdmlQd2dKTHZ3RlFpbXJZVVJFQ3cyc0hqelpGTlNIbnFpdFRpVXN2MTdHcG1hSGdzQ1ducEU1dWNhcVdVLVFobWtKSXFVd3YyWFRn0gGQAUFVX3lxTE1aX0ZGZ1JvcGpPVzBRM2hjSlBrZlI4cUtsSGlIaWcyOGxCc3JkUTdNcFlENS05Smh2YkU5WGpDa3VTOWhJXzRXNUxfNXVFT01TdUVXN0dhWUtzanAxdVVwcHJzWjJSZUN4UW8xR2ZCOTY2STRwdnRMWVAwSnBtTktnUHBTLWFoUHVjeC1IazB4VA?oc=5",
+   "title": "Trump directs Hegseth to reduce US joint exercises in South Korea - thehill.com",
+   "people": [
+    "trump",
+    "hegseth"
+   ],
+   "pair": [
+    "hegseth",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.9,
+   "summary_en": "Trump directs Defense Secretary Hegseth to reduce U.S. joint military exercises in South Korea.",
+   "summary_ko": "트럼프가 헤그세스 국방장관에게 주한미군 연합훈련 감축을 명령했습니다.",
+   "classified": true
   },
   {
    "id": "sig-80ee66d5",
