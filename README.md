@@ -37,6 +37,105 @@ The thesis it makes visible: modern U.S. politics is a **hub-and-spoke network**
 | **Guided stories** | Seven curated tours through structural patterns — the Mar-a-Lago gravity well, the GOP civil war, the Democratic generational fight, endangered bipartisan bridges. |
 | **Bilingual** | Every label, description, and LLM-generated summary exists in both English and Korean. The classifier writes both languages in a single pass. |
 | **Data recency, visible** | A badge shows the actual date range of the articles in the dataset and how long ago the pipeline last ran — green under 24h, amber under 3 days, red beyond. |
+| **Co-sponsorship layer** | Edges measured from the 119th Congress's bill records, drawn dashed with their own legend toggle. An arrow appears only where one side does most of the signing. |
+| **Influence profile** | A legislator's profile adds FEC campaign money, former staff now registered as lobbyists, and how often they vote against their own party — each with a line saying what the number does *not* mean. |
+| **Evidence panel** | Click the document icon on any relationship to see the articles behind it — or a plain statement that there aren't any. |
+
+### What's new since the first release
+
+POLARIS was first shared on Reddit in late August 2026. The replies asked two hard questions:
+*could this show who actually influences federal decisions?* and *how far can you trust a graph
+built on biased, clickbait headlines?* Most of the work since then answers one or the other.
+
+**New data layers — measured, not curated**
+
+| | |
+|---|---|
+| **Co-sponsorship edges** | 112 new edges from GovInfo's BILLSTATUS bulk data (pairs with 10+ shared bills). They are kept visually apart from the curated edges so a measurement is never mistaken for an editorial claim. Direction is preserved, and "cross-party" is judged by caucus, not party label. |
+| **Campaign money** | FEC 2026-cycle receipts, top PAC funders and outside spending on 70 profiles. Spending *for* and *against* a candidate are separated, joint-fundraising transfers are removed, and refunds stay negative. The panel also says that named PAC money is only about 6% of the total. |
+| **Lobbying revolving door** | Drawn from the House Clerk's raw LD-1 filings, 2022–2026: 295 former staffers of 61 figures who now register as lobbyists. Each one shows the filing phrase that matched them. Matching uses full names only — there have been 33 members of Congress named Harris. |
+| **Party-line defection** | Voteview roll calls: the share of party-divided votes (1,279 in the 119th Congress) on which a member broke with their own party's majority, for 64 members. |
+| **ID crosswalk** | Every sitting member of Congress, plus the former members the graph needs, is joined across bioguide, ICPSR and FEC ids. Cases where automatic name matching failed (Mike ↔ Michael, Dick ↔ Richard) were checked by hand and written down, not guessed. |
+
+Money, lobbying and defection sit on the profile, not in the graph. Each was tested as a
+relationship signal (shared donors, PAC share, defection versus intra-party feuds), and none of
+them predicted who is allied or feuding. Collins and Fitzpatrick are among the most frequent
+defectors and have no intra-party feuds at all — quiet, steady defection doesn't produce public fights.
+
+**Trust and measurement**
+
+- **The classifier is scored.** `npm run eval` grades the LLM against a fixed, stratified
+  label set (see *Honest caveats* for the numbers and their limits). The largest error group
+  is a neutral article read as a feud, not a reversed ally/feud call.
+- **Media bias is handled in the aggregation, not just the prompt** — see the next block.
+- **"Unjudged" is said out loud.** An article the classifier failed on gets retried on later
+  runs, and until it gets a verdict it is labelled *unjudged* instead of passing silently as a weak signal.
+- **One story, one signal.** A re-headlined article (or its `Video` version) used to come back
+  under a new id. Signals are now also deduplicated by URL and pair.
+
+**Handling media bias**
+
+A reader pointed out that partisan coverage and clickbait headlines undermine a graph built
+from the news. That's right, and a better prompt can't fix it on its own. The media-bias
+literature (D'Alessio & Allen's meta-analysis, Groseclose & Milyo, Gentzkow & Shapiro, Soroka on
+negativity bias — [notes](docs/research/media-bias-literature.md)) separates bias into three
+layers, and the pipeline had all of them:
+
+| Layer | What it means here | What was done |
+|---|---|---|
+| **Gatekeeping** — what becomes news | Feuds were two-thirds of ally/feud headlines | Counting changed (below) so one loud story can't decide a month |
+| **Visibility** — who gets covered | Trump appeared in 71% of signals when this was studied | Shown on screen, not corrected — it is a collection problem, not a maths one |
+| **Tone** — how it is told | The LLM's polarity call | Scored against a label set; tested for outlet-name bias |
+
+What changed in the timeline (`src/domain/timeline.ts`):
+
+- **One vote per pair per day, not per article.** Five outlets running the same story used to cast
+  five votes. A day now casts one, weighted `1 + ln(outlets)`, and only when two-thirds of that
+  day's coverage agrees. Decisive votes fell from 244 to 175. I tried grouping by story with
+  headline similarity first, and dropped it because it failed both ways. "Trump blames … on Walz"
+  and "Fact check: Trump baselessly claims Walz …" are the same event but score J = 0.10.
+- **A month needs a 2:1 margin to flip.** Previously the month's first non-neutral headline set
+  the colour, so one feud headline could outvote six ally ones that came after it. Real reversals
+  (Trump × Musk) are covered by many outlets over many days and clear the bar; one clickbait
+  headline doesn't. Three cells changed. Jeffries × Trump in August 2026, for example, had 5 feud
+  signals against 2 ally and was showing *ally*.
+- **Disagreement is shown, not resolved.** When Fox calls Graham × Trump an alliance and CBS
+  calls it a feud, the month is hatched instead of one side being picked.
+- **The source mix is on screen.** The insights panel lists every outlet's share, says how
+  concentrated the archive is, and notes that polarity comes from the headline alone.
+
+What was tested and dropped:
+
+- **Outlet-name bias in the classifier.** Fox News and NPR were swapped on the same 14 headlines,
+  with the outlet suffix stripped from each title. **0 of 14 polarity calls changed**, while
+  re-running identical input moved up to 13%. A planned second "outlet-blind" pass was dropped,
+  since it would double the cost to fix an effect that couldn't be measured.
+
+What is waiting on data, and why:
+
+- **Weighting outlets by how often they cry feud.** The neutral baseline would be the wires, but
+  AP and Reuters supplied only about a dozen articles, so any calibration would mostly echo
+  the global average. More wire feeds have to come first.
+- **Down-weighting feud headlines by measured error rates.** The labels show neutral → feud is
+  the biggest leak (about 30%), but most of those labels were model-seeded. Using them would be
+  the model grading itself, so this waits for 40 human labels.
+- **Signed-triad balance checks.** 37 of the 39 triangles the news can form pass through Trump,
+  so the test would really only ask "is this consistent with Trump?"
+
+**Pipeline reliability**
+
+- **A failed LLM batch can't erase the archive.** If an article comes back unclassified, the merge keeps the verdict the archive
+  already holds. Verdicts lost before the fix were recovered from git history (`npm run news:recover`).
+- **A failed nightly run opens a GitHub issue.** The pipeline once stayed dead for three days without anyone noticing.
+- **`npm run audit` checks this README against the data.** Each audited number is recomputed and
+  flagged when it drifts. Each rule was fed a deliberately wrong value before it was trusted.
+
+**Interface**
+
+- Names are laid out once per frame, so labels no longer pile on top of each other.
+- The graph fits the visible area instead of drawing a third of itself behind the side panel.
+- Mobile header controls fold away, and the minimum type size is larger.
+- Flow particles run only on edges that have a recorded direction.
 
 ### How it works
 
@@ -179,7 +278,7 @@ NEWS_LLM_MODEL=nvidia/nemotron-3-ultra-550b-a55b
   headline. The honest part: only 20 of those 118 answers were filled in by a person, and
   the rest were seeded by the same model being scored. Until human labels reach 40 the audit
   cannot fail on a regression, so read the figure as a floor to beat, not a score to trust.
-- **The source mix is concentrated, and the wires barely register.** The whole archive comes from 17 outlets, but the top five carry 69% of it and AP plus Reuters together are 4.9% — a handful of politics desks decide what the classifier ever gets to see. The insights panel shows that breakdown rather than burying it, because this selection sits upstream of anything the classifier can get right.
+- **The source mix is concentrated, and the wires barely register.** The whole archive comes from 17 outlets, but the top five carry 63% of it and AP plus Reuters together are 4.6% — a handful of politics desks decide what the classifier ever gets to see. The insights panel shows that breakdown rather than burying it, because this selection sits upstream of anything the classifier can get right.
 - **The aggregation rules came out of that.** Because the mix is what it is, the news layer
   counts one vote per pair per day rather than one per article, wants a two-to-one margin
   before a month flips, and hatches months the outlets split on. Two further ideas — weighting
@@ -209,9 +308,14 @@ disclosures, and roll-call votes — mapping who actually influences federal dec
 It's the right question, and the honest answer has numbers attached: **84 of the 101 figures
 match a current or former member of Congress — all 84 have roll-call records, 83 have an FEC id.**
 But measured against edges rather than people, vote data reaches only the 145 relationships
-with a legislator at both ends, out of 266. See [`docs/roadmap.md`](docs/roadmap.md)
-for which sources are reachable today, why the join is the hard part, and what has to be
-decided before any of it starts.
+with a legislator at both ends, out of 266.
+
+Since then the ID crosswalk, co-sponsorship, FEC money, the lobbying revolving door and
+party-line defection have shipped (see *What's new* above). Still open: staffer-to-staffer
+movement between offices, individual donors (a separate, very large FEC file where only gifts
+over $200 are itemised), and Senate-side lobbying data, which currently blocks automated access.
+[`docs/roadmap.md`](docs/roadmap.md) records which sources were reachable, why the join was
+the hard part, and which ideas the data ruled out.
 
 ### Found an edge that's wrong?
 
