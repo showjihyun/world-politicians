@@ -84,14 +84,22 @@ async function ensureServer() {
     /* fallthrough */
   }
   console.log('[e2e] dev server starting…');
-  const child = spawn('cmd', ['/c', 'npm', 'run', 'dev'], {
+  // vite 를 node 로 직접 띄운다. 예전에는 `cmd /c npm run dev` 였는데 cmd 는 Windows 에만
+  // 있어서 CI(ubuntu)에서는 시작하자마자 ENOENT 로 죽었다 — E2E 를 CI 에 건 날부터 한 번도
+  // 돌지 않았다. npm 을 거치면 Windows 에서 shell 이 필요해지므로 셸 없이 가는 쪽을 택한다.
+  const child = spawn(process.execPath, ['node_modules/vite/bin/vite.js'], {
     cwd: process.cwd(),
     detached: true,
     stdio: 'ignore',
   });
+  // 서버가 뜨기 전에 죽으면 45초를 기다리지 않고 바로 알린다
+  let exited = null;
+  child.on('exit', (code) => (exited = code));
+  child.on('error', (e) => (exited = e.message));
   child.unref();
   for (let i = 0; i < 45; i++) {
     await new Promise((r) => setTimeout(r, 1000));
+    if (exited !== null) throw new Error(`dev server exited early (${exited})`);
     try {
       await fetch(BASE);
       return;
