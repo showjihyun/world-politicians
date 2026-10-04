@@ -2,23 +2,63 @@
  "month": "2026-10",
  "signals": [
   {
-   "id": "sig-56e0f1e1",
-   "date": "2026-10-03",
-   "source": "The Hill",
-   "url": "https://thehill.com/opinion/campaign/6124490-vance-must-champion-working-class/",
-   "title": "The Trump administration needs a crash course in ‘Working Class’ from JD Vance",
+   "id": "sig-c7ef1b98",
+   "date": "2026-10-04",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQejRNeDdaRXJuRV80M0kzSVR3b1hmcG1JZE9fTG1takY0dklqMC12MzlDT2x5S0lhQndBUTB6X0xzSDlDc0M4dWhSSzRaTGMyZkpmMUpJWVlqblNlRm9fT2RlVHlYcExrR2pqblg5YUlIb1pMcVhMbGtCVzJ0MlhPbW1xdmozNjVTRDBySmxCcm5MSFZxdHc4QklmcTFERVEwZ0NKWUxjUE5wWGEtWWxMbdIBtgFBVV95cUxQQ0pmMk1YV3NMSG5IOEg1VVV5TDdrYWdvN0pBaExDMW5HYXhoanJQNVBEcmt0NlMyaHZndUo3N2dFWDB1RnQ0VkhtQnp5Vk1DWl9ybXBTUnJzdkFPWFpYdWtzUmhaTV82Z1U4bkV1d1RYaGg2N0UyMGFMeUdJM21JVWpMb3lMbUc4bXRzT3ZBU0hWQkNHdnI0dHhMM2FfMHQxREJYRUdGN1o3S284WUZXRDBXUjh0Zw?oc=5",
+   "title": "Trump fires DHS secretary Kristi Noem, replaces her with Sen. Markwayne Mullin - ABC News - Breaking News, Latest News and Videos",
    "people": [
     "trump",
-    "vance"
+    "noem"
    ],
    "pair": [
-    "trump",
-    "vance"
+    "noem",
+    "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Headline suggests Trump administration lacks working-class understanding compared to Vance.",
-   "summary_ko": "헤드라인은 트럼프 행정부가 밴스에 비해 노동계급 이해가 부족하다고 시사합니다.",
+   "confidence": 0.99,
+   "summary_en": "Trump fires DHS Secretary Kristi Noem and replaces her with Senator Mullin.",
+   "summary_ko": "트럼프가 크리스티 노엄 국토안보부 장관을 해임하고 멀린 상원의원으로 교체했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-fefaba49",
+   "date": "2026-10-04",
+   "source": "The New York Times",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa08xdzJDUFRrcXdaZDZubUJ4TlBRQnB3aU4wTFBYaHpCNGxRU2Ytenh3cUxPdVRJZkxPRTlOOWJSTHdSMTVPbVhUQVcxUnpEbm1lVVM4UlVCYmc3MzFOTUNfLThWdXJiWlJkV19JZkVic2Y3RkJoMnV0THYwQTQ1dUZ3?oc=5",
+   "title": "Trump Urges People to Call Senator Tom Cotton Over Daylight Saving Bill - The New York Times",
+   "people": [
+    "trump",
+    "cotton"
+   ],
+   "pair": [
+    "cotton",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Trump urges the public to pressure Senator Cotton over a daylight saving bill.",
+   "summary_ko": "트럼프가 서머타임 법안을 두고 코튼 상원의원에게 전화 압박을 독려했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-213a9a8d",
+   "date": "2026-10-04",
+   "source": "The Washington Post",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRGp6MjI4cHhDUDBqblFvT01fcjlZb3pXMXRKODlaS0tIZ3MzZG9xR0hVSWpveGVRSW1rU0tmQXFwSUxYLThkM2gzYmk3NVJZM0lMRnZ0NjVNUTNnRnRxay1Nb1hENmxSaDdVUmxMZXdfR0Q1N2lIVnppejRrejZ1WFRTZ3lKVVp1S3kzUmZxOEFsTGxQOWNsdXVZNURqWk8yZFJuaW5fSU5GTExOWElya0FpdE8yM01OQzNwMm1SN2lhZw?oc=5",
+   "title": "Trump reveals Tom Cotton’s phone number in daylight saving time standoff - The Washington Post",
+   "people": [
+    "trump",
+    "cotton"
+   ],
+   "pair": [
+    "cotton",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.98,
+   "summary_en": "Trump publicly releases Senator Cotton's phone number in a daylight saving dispute.",
+   "summary_ko": "트럼프가 서머타임 대립 중 코튼 상원의원의 전화번호를 공개했다.",
    "classified": true
   },
   {
@@ -36,9 +76,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Newsom imposes tax on detention centers to oppose Trump policy.",
-   "summary_ko": "뉴섬이 구금 시설에 세금을 부과해 트럼프 정책에 반대합니다.",
+   "confidence": 0.95,
+   "summary_en": "Newsom imposes a tax on detention centers to push back against Trump policy.",
+   "summary_ko": "뉴섬이 민간 구금시설에 세금을 부과하며 트럼프 정책에 맞섰다.",
    "classified": true
   },
   {
@@ -56,17 +96,57 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Trump publishes Cotton's phone number over daylight savings bill dispute.",
-   "summary_ko": "트럼프가 서머타임 법안 분쟁으로 코튼의 전화번호를 공개합니다.",
+   "confidence": 0.98,
+   "summary_en": "Trump releases Senator Cotton's cellphone number over a daylight savings bill.",
+   "summary_ko": "트럼프가 서머타임 법안 문제로 코튼 상원의원의 휴대전화 번호를 공개했다.",
    "classified": true
   },
   {
-   "id": "sig-2e0002d4",
+   "id": "sig-e3a88a7a",
    "date": "2026-10-03",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOWZfTGZXSTQxREJOeEFhQzdQQUFiZEh5QUU4S2o3OXdhVDVtOTZGVzlpZ1V2TV8xdU1lRF9yc3RGWlB2SzhPN2VNZi1jaFl2NF9wU2I5d08xZ0c2Sm9BSjZuSjh1dF9QT1FRdjlWZ1NLYnpjWTc3OG12cVA5SjZacHE0OG9ocXlISGp2eENMdGhnQlExM1N1ZXNB?oc=5",
-   "title": "Trump apparently shares Tom Cotton’s phone number in push to make Daylight Saving Time permanent - Politico",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUlHVDJBVWdsYTFLblYwdXZUMUt3bVNmVWR2dHhYVEo3NURqQ1kwcmFOeWFvRDI5RE5DcnBOTWpYS3lFMUNZQlJUMUUxdGxsejVwTzJRc3BBNmUxV25pUVdpb0RmNXFfWk8wSVN3Q2hJOENrQ2RLNkVHa2VJUHp5NkJOMkRsdWlHTlRvNEYzT3hqcTVzdFJDMTkzOUtXcHJkWG1mOdIBqgFBVV95cUxNbklnOURHYXdvZ1Y0aXVZRzRneV9KbjFRbnV0bjhBTnpOYTJwb19sSEYwdzcyaDRuTDBnX2hBOG5XTFZoWHVZVmp5NDd0SXVSQXY1YjdYUTJReVhkS0dUN2FQcGtQUVprTDFJSFl0MmtDcFFDQTg2U3lmd2RqY2xEOE1FdDJTckNfaFg3anhrcmpiT2k5TjZOV2tZSlBmb3BRZnpMdktRNUJJdw?oc=5",
+   "title": "In Massie's Kentucky district, Trump attacks GOP congressman as 'disloyal to America' - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "massie"
+   ],
+   "pair": [
+    "massie",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Trump attacks Rep. Massie in his Kentucky district, calling him 'disloyal to America'.",
+   "summary_ko": "트럼프가 매시 의원의 켄터키 지역구에서 그를 '미국에 불충하다'고 공격했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1d577e55",
+   "date": "2026-10-03",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNjhfTEJXM2JrU2prV2RfbHVyV1JHYTNsSkRkelBkNDE3Y25YcEQyNVJVM3c3amoyRjV3aDk4d3lCNTZVX2NhNGJJTDRrNXczWGNxcnJOUUNxTTU3bTF2b3Y1WGhOYlRRdG1zU1FEZGhoODZUaU1xTzBITVVXS1dCdXE0Tk5OZFVkdGU2amt0V3p5R0VBVXo4QzB5dS0zd1l0RTlB0gGoAUFVX3lxTE1zNnlHZ2dfZ0I5cjRiNjg5blI0VE5PdWVvdWtSTWxmTXBqd1RKS3RHVllLMDlfdGxIVDNyckVhbnp6Y3dTVndubFo1UjhyUTRBV3lKb1pRbjQ3RHhQRGNkcktJa2xIbU53R3plc19GMl9lR28yeUVZUkdHRWRPTEdHQS1vakFvWjBOM1R1NzhwMkxKaU84d0c4NUpMaFRJY01MWld3WWR6aw?oc=5",
+   "title": "Obama responds to Trump racist video post, says most Americans find it 'deeply troubling' - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "obama"
+   ],
+   "pair": [
+    "obama",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Obama responds to Trump's racist video post, calling it 'deeply troubling' for most Americans.",
+   "summary_ko": "오바마가 트럼프의 인종차별적 동영상 게시물에 대응하며 대다수 미국인이 '깊이 우려한다'고 밝혔다.",
+   "classified": true
+  },
+  {
+   "id": "sig-75f17bc9",
+   "date": "2026-10-03",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5veWV3RXJiYm5MMGFqbS1MUWVIQ1ZVcHJIbFVBSk9jREo1UzZfZEZOU3pGd21ZMkdhMU1iMDVpS3cyUFVsejdyeEEwZ3VlQzN2ZXRubFdDZlh3Q1IwQ1l2VDBHZmVsRU5rMWpxVmFIZFl0eGRYUWc?oc=5",
+   "title": "Trump urges calls to cellphone of Arkansas Sen. Tom Cotton in battle over permanent daylight saving time bill - CBS News",
    "people": [
     "trump",
     "cotton"
@@ -76,9 +156,29 @@
     "trump"
    ],
    "polarity": "feud",
+   "confidence": 0.98,
+   "summary_en": "Trump urges calls to Senator Cotton's cellphone in a battle over daylight saving time.",
+   "summary_ko": "트럼프가 서머타임 영구화 법안 대결에서 코튼 상원의원 휴대전화로 전화 독려했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-a29f429c",
+   "date": "2026-10-03",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNLUZGQmY2OFNrVGQtcWZjUEYwcjI4VHpDdUw1RUZLWVloYjZFUndPUnZBbVhOdEdlOFNucGp1dXBHVS1iR3Z5NEEtM1dNTGFnazlPNVhKRGVkSVhIM2xjSWc4Q1dha3BDOWtSVTAxSlI0TTVQeExyYng5RVpxZ3VaM2dOcW1udUhHUDdvNXB5OWpzZDBIODhPemZ4Vzh2X3RUTkcxQkVOTGdaWGpVaFVuUE9PXy0xUjdkRTdDRVU3VVV3V1cwTGh0bGliSQ?oc=5",
+   "title": "Ted Cruz blasts JD Vance as ‘insecure,’ says he’s focused on helping GOP win midterms - Politico",
+   "people": [
+    "vance",
+    "cruz"
+   ],
+   "pair": [
+    "cruz",
+    "vance"
+   ],
+   "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump shares Cotton's phone number to pressure on daylight saving time.",
-   "summary_ko": "트럼프가 서머타임 영구화를 압박하며 코튼의 전화번호를 공유합니다.",
+   "summary_en": "Ted Cruz criticizes JD Vance as insecure while emphasizing his focus on GOP midterm victories.",
+   "summary_ko": "테드 크루즈가 JD 밴스를 '불안정한 사람'이라 비판하며 자신은 공화당 중간선거 승리에 집중하고 있다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -102,26 +202,6 @@
    "classified": true
   },
   {
-   "id": "sig-c7ef1b98",
-   "date": "2026-10-02",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQejRNeDdaRXJuRV80M0kzSVR3b1hmcG1JZE9fTG1takY0dklqMC12MzlDT2x5S0lhQndBUTB6X0xzSDlDc0M4dWhSSzRaTGMyZkpmMUpJWVlqblNlRm9fT2RlVHlYcExrR2pqblg5YUlIb1pMcVhMbGtCVzJ0MlhPbW1xdmozNjVTRDBySmxCcm5MSFZxdHc4QklmcTFERVEwZ0NKWUxjUE5wWGEtWWxMbdIBtgFBVV95cUxQQ0pmMk1YV3NMSG5IOEg1VVV5TDdrYWdvN0pBaExDMW5HYXhoanJQNVBEcmt0NlMyaHZndUo3N2dFWDB1RnQ0VkhtQnp5Vk1DWl9ybXBTUnJzdkFPWFpYdWtzUmhaTV82Z1U4bkV1d1RYaGg2N0UyMGFMeUdJM21JVWpMb3lMbUc4bXRzT3ZBU0hWQkNHdnI0dHhMM2FfMHQxREJYRUdGN1o3S284WUZXRDBXUjh0Zw?oc=5",
-   "title": "Trump fires DHS secretary Kristi Noem, replaces her with Sen. Markwayne Mullin - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "noem"
-   ],
-   "pair": [
-    "noem",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Trump fires DHS Secretary Kristi Noem and replaces her with Sen. Markwayne Mullin.",
-   "summary_ko": "트럼프가 크리스티 노엄 국토안보부 장관을 해임하고 마크웨인 멀린 상원의원으로 교체했다.",
-   "classified": true
-  },
-  {
    "id": "sig-19f9fb75",
    "date": "2026-10-02",
    "source": "ABC News",
@@ -139,26 +219,6 @@
    "confidence": 0.9,
    "summary_en": "Senators Warren and Moreno propose a bipartisan Social Security fix.",
    "summary_ko": "워렌과 모레노 상원의원이 초당적 사회보장 개혁안을 제안했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-e3a88a7a",
-   "date": "2026-10-02",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUlHVDJBVWdsYTFLblYwdXZUMUt3bVNmVWR2dHhYVEo3NURqQ1kwcmFOeWFvRDI5RE5DcnBOTWpYS3lFMUNZQlJUMUUxdGxsejVwTzJRc3BBNmUxV25pUVdpb0RmNXFfWk8wSVN3Q2hJOENrQ2RLNkVHa2VJUHp5NkJOMkRsdWlHTlRvNEYzT3hqcTVzdFJDMTkzOUtXcHJkWG1mOdIBqgFBVV95cUxNbklnOURHYXdvZ1Y0aXVZRzRneV9KbjFRbnV0bjhBTnpOYTJwb19sSEYwdzcyaDRuTDBnX2hBOG5XTFZoWHVZVmp5NDd0SXVSQXY1YjdYUTJReVhkS0dUN2FQcGtQUVprTDFJSFl0MmtDcFFDQTg2U3lmd2RqY2xEOE1FdDJTckNfaFg3anhrcmpiT2k5TjZOV2tZSlBmb3BRZnpMdktRNUJJdw?oc=5",
-   "title": "In Massie's Kentucky district, Trump attacks GOP congressman as 'disloyal to America' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "massie"
-   ],
-   "pair": [
-    "massie",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.98,
-   "summary_en": "Trump publicly attacks Rep. Thomas Massie as 'disloyal to America' in his Kentucky district.",
-   "summary_ko": "트럼프가 자신의 켄터키 지역구에서 토머스 매시 의원을 '미국에 불충하다'고 공개 공격했다.",
    "classified": true
   },
   {
@@ -222,46 +282,6 @@
    "classified": true
   },
   {
-   "id": "sig-1d577e55",
-   "date": "2026-10-02",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNjhfTEJXM2JrU2prV2RfbHVyV1JHYTNsSkRkelBkNDE3Y25YcEQyNVJVM3c3amoyRjV3aDk4d3lCNTZVX2NhNGJJTDRrNXczWGNxcnJOUUNxTTU3bTF2b3Y1WGhOYlRRdG1zU1FEZGhoODZUaU1xTzBITVVXS1dCdXE0Tk5OZFVkdGU2amt0V3p5R0VBVXo4QzB5dS0zd1l0RTlB0gGoAUFVX3lxTE1zNnlHZ2dfZ0I5cjRiNjg5blI0VE5PdWVvdWtSTWxmTXBqd1RKS3RHVllLMDlfdGxIVDNyckVhbnp6Y3dTVndubFo1UjhyUTRBV3lKb1pRbjQ3RHhQRGNkcktJa2xIbU53R3plc19GMl9lR28yeUVZUkdHRWRPTEdHQS1vakFvWjBOM1R1NzhwMkxKaU84d0c4NUpMaFRJY01MWld3WWR6aw?oc=5",
-   "title": "Obama responds to Trump racist video post, says most Americans find it 'deeply troubling' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "obama"
-   ],
-   "pair": [
-    "obama",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Former President Obama condemns a racist video posted by Trump as 'deeply troubling.'",
-   "summary_ko": "오바마 전 대통령이 트럼프가 올린 인종차별적 영상을 '깊이 우려스럽다'고 비판했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-71ceff5f",
-   "date": "2026-10-02",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMlF6RlZzSWU5aXFxWkNoR1IyUnRIY2NVeXFsejhreTV4ajQwUlh6SDhVdmZHblFtQzY5VFlPbVZTYjU3UWRFRFItOWROdEtvdjU1U0J5b19Hb042ZVZZOFRIVE11T0p5TTJYT1dWRi1TTC0teXVyQTI3ZEttOXR0alFIWnhiQnRxWjVJQjJNSjJxX2xlZVVQQllNZGo4UdIBowFBVV95cUxNaGdYajUtQXotMFpXWGI2NXpPQlJIU2g2TGxkd1YycUpPVGhBYUJmY1lBUDROZi1PLUJic0dKWkVRRzlyTHZNZmpfNG1mTTg1Vk9lbmhBRTF4RFQ5ZVBja0l1c1FhekstWGlTT0ZFZDU5bUJfd3hhSE92eVlmUm5zT0R6eEluX1lUYmkxWXNHQi1LMlctQUQzSUFZRElkbGs0VFZR?oc=5",
-   "title": "Trump replacing Pam Bondi as attorney general, Todd Blanche to step in - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "bondi"
-   ],
-   "pair": [
-    "bondi",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump removes Pam Bondi as Attorney General, replacing her with Todd Blanche.",
-   "summary_ko": "트럼프가 팸 본디 법무장관을 해임하고 토드 블란슈로 교체했다.",
-   "classified": true
-  },
-  {
    "id": "sig-1277ec26",
    "date": "2026-10-02",
    "source": "CBS News",
@@ -276,9 +296,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Moore invites Trump to visit the Key Bridge reconstruction site.",
-   "summary_ko": "무어 주지사가 트럼프를 키 브리지 재건 현장에 초청했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Maryland Governor Wes Moore invites Trump to visit the Key Bridge reconstruction site.",
+   "summary_ko": "메릴랜드 주지사 웨스 무어가 트럼프를 키 브리지 재건 현장에 초청했습니다.",
    "classified": true
   },
   {
@@ -297,28 +317,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Sanders and Ocasio-Cortez jointly introduce legislation targeting Flock cameras.",
-   "summary_ko": "샌더스와 오카시오-코르테즈가 플록 카메라 규제 법안을 공동 발의했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f21b6b84",
-   "date": "2026-10-02",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdjdweVRuYWpGTEVLOVI0S2NjRTVhTi1TYW1fNVFKVEoxZ0hIcmVhY01UdlY0MG9qOGViN1FhLWo1dnB2ZThsMVRkVVI4ZGxLRkpaWnBSUGNCWFpLR2RVV0U2RE05Z1lCdEM2R0V3MFpZeUJrT2x4dlRWdzJYRUNxOGEza3lKSzFwVUNMQW8zZlpNY1daSFFka093?oc=5",
-   "title": "Hawley strikes a different tone from Trump on AI - Politico",
-   "people": [
-    "trump",
-    "hawley"
-   ],
-   "pair": [
-    "hawley",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.7,
-   "summary_en": "Hawley diverges from Trump's stance on AI policy.",
-   "summary_ko": "호울리가 AI 정책에서 트럼프와 다른 입장을 취합니다.",
+   "summary_en": "Bernie Sanders and AOC jointly introduce legislation targeting Flock surveillance cameras.",
+   "summary_ko": "버니 샌더스와 AOC가 플록 감시 카메라를 규제하는 법안을 공동 발의했습니다.",
    "classified": true
   },
   {
@@ -356,9 +356,29 @@
     "newsom"
    ],
    "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Gavin Newsom expresses admiration for Bill Clinton and seeks his advice.",
+   "summary_ko": "개빈 뉴섬이 빌 클린턴을 존경한다고 밝히며 그의 조언을 구하고 있습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-f487387f",
+   "date": "2026-10-02",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6125698-vance-cruz-gop-presidential-bid/",
+   "title": "Vance: ‘Really obvious’ Cruz is running for president",
+   "people": [
+    "vance",
+    "cruz"
+   ],
+   "pair": [
+    "cruz",
+    "vance"
+   ],
+   "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Newsom expresses admiration for Clinton and seeks his advice.",
-   "summary_ko": "뉴섬이 클린턴을 존경하며 자문을 구한다고 밝혔습니다.",
+   "summary_en": "JD Vance claims it is obvious Ted Cruz is running for president, implying political calculation.",
+   "summary_ko": "JD 밴스가 테드 크루즈가 대선에 출마할 것이 '정말 명백하다'고 말하며 정치적 의도를 암시했습니다.",
    "classified": true
   },
   {
@@ -376,9 +396,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Schiff launches investigation into a group selling access to Trump for donations.",
-   "summary_ko": "시프 상원의원이 트럼프 접근권을 기부 대가로 판매한 단체를 조사 개시했다.",
+   "confidence": 0.95,
+   "summary_en": "Schiff investigates a group selling access to Trump for donations.",
+   "summary_ko": "시프가 트럼프 접근권을 기부 대가로 판매한 단체를 조사함.",
    "classified": true
   },
   {
@@ -417,8 +437,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Newsom counters Trump's AI decree with a California executive order.",
-   "summary_ko": "뉴섬 주지사가 트럼프의 AI 행정명령에 맞서 캘리포니아 행정명령으로 대응한다.",
+   "summary_en": "Newsom counters Trump's AI decree with a California AI order.",
+   "summary_ko": "뉴섬이 트럼프의 AI 칙령에 맞서 캘리포니아 AI 행정명령을 내림.",
    "classified": true
   },
   {
@@ -482,6 +502,138 @@
    "classified": true
   },
   {
+   "id": "sig-9e13c0c",
+   "date": "2026-10-01",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxObXpqdHpfQWk5cmxRQ1o1YjhkWk1fbUhuQXlIZU1XeXc1N2lGbWZ5dWFwejV4R250VmY2XzBDYmJPYUc4cm03ZHRRMDduc05oVEJQSWgwZjMweWhfQ3FaLTlRTGhfcEpETEFMQnlHQzJTZ2lhczBNXzFsd3hCTURhQzJocFFnMzB2RXo1TE14SGZLOHZxQVo3dFh5MzBlcHNMelNVRS1IRm1iMXl1TmdOdjVFMjRaUQ?oc=5",
+   "title": "Article | AOC, Schumer lead push to restore Essential Plan coverage - POLITICO Pro",
+   "people": [
+    "aoc",
+    "schumer"
+   ],
+   "pair": [
+    "aoc",
+    "schumer"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "AOC and Schumer jointly lead effort to restore Essential Plan coverage.",
+   "summary_ko": "AOC와 슈머가 에센셜 플랜 보장 복원을 공동 주도함.",
+   "classified": true
+  },
+  {
+   "id": "sig-9f28c5a1",
+   "date": "2026-10-04",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/trump-touts-golden-age-ohio-rally-urges-voters-deliver-gop-midterm-wins",
+   "title": "Trump touts ‘golden age’ at Ohio rally, urges voters to deliver GOP midterm wins",
+   "people": [
+    "trump",
+    "golden-jared"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-9316d80e",
+   "date": "2026-10-04",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbmJMVk5ua2Jsa29kdDB4Y0FMcHF5TFRJR0thOVdidGNRcHhsQWpHaFU0NGl1MU1ReWxlUGpSQWk3ZU94T2JJR3lLZTVJN2NLUnpIR3E3Q1BiWXZNMGdOYTZfcVZYVXhXaGlSQ08ybnJRU001dkNzZVB3UEZZS1Q2ZWNLNWR4MTZZUmpycnhmTDVfdEs1WmRJMjlkNlpsWUc2dV9qTTM4eENPYVNCa3BRUlVEYjhsb3NXbTcyeXhyNzFnN0FF?oc=5",
+   "title": "Byron Donalds Walks a Tightrope of Trump Loyalty in Florida’s Race for Governor - WSJ",
+   "people": [
+    "trump",
+    "donalds"
+   ],
+   "pair": [
+    "donalds",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Byron Donalds navigates Trump loyalty in the Florida governor race.",
+   "summary_ko": "바이런 도널즈가 플로리다 주지사 경선에서 트럼프 충성도를 조율하고 있다.",
+   "classified": true
+  },
+  {
+   "id": "sig-17531c10",
+   "date": "2026-10-03",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxON2N2RFRvVnlDYnUxak5DVkpRb21sTE51VXpXblJjTXYzbU92UTBJcXdwa0NabDB5cTE3WXlxZ09lN1p3NnFzcnQyeDVnWWhiV2I2d0dpZlkySWdxVkhKTDhTZFo0OEhCc2pTOUhqd0daQV9LUFRDV05iVG1xVGpicFhXZ1c4aS1pNHBzVTg2b2U5b3JGZWREcjVpcFY2TzRTRm530gGoAUFVX3lxTE14WGZKdlZMNEJmUUZXQzl3VTdjZC1PVmNjWTFkUGhJMEIxcnJKX3BDajBuY0UyTEM2RDRQRm9DOEptcnRob0Z6Z1V0cGFFcEZJb0poYklOcFFEdjVnSGdWa0tNdVpQakdhMDhGbk5EUXZzaGpmZ0JzOFhEX1pnN0tzbFVyUHl4cG80VXEwU0oyMGtqeHhjdjhSeW5EUllJZFRyMHY4QzlTVw?oc=5",
+   "title": "Trump has discussed removing Pam Bondi as attorney general, sources say - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "bondi"
+   ],
+   "pair": [
+    "bondi",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.9,
+   "summary_en": "Sources say Trump has discussed removing Pam Bondi as attorney general.",
+   "summary_ko": "소식통에 따르면 트럼프가 팸 본디 법무장관 해임을 논의한 것으로 전해졌다.",
+   "classified": true
+  },
+  {
+   "id": "sig-56e0f1e1",
+   "date": "2026-10-03",
+   "source": "The Hill",
+   "url": "https://thehill.com/opinion/campaign/6124490-vance-must-champion-working-class/",
+   "title": "The Trump administration needs a crash course in ‘Working Class’ from JD Vance",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.8,
+   "summary_en": "An opinion piece suggests the Trump administration should learn from JD Vance.",
+   "summary_ko": "칼럼이 트럼프 행정부가 JD 밴스에게서 배워야 한다고 주장했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2e0002d4",
+   "date": "2026-10-03",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOWZfTGZXSTQxREJOeEFhQzdQQUFiZEh5QUU4S2o3OXdhVDVtOTZGVzlpZ1V2TV8xdU1lRF9yc3RGWlB2SzhPN2VNZi1jaFl2NF9wU2I5d08xZ0c2Sm9BSjZuSjh1dF9QT1FRdjlWZ1NLYnpjWTc3OG12cVA5SjZacHE0OG9ocXlISGp2eENMdGhnQlExM1N1ZXNB?oc=5",
+   "title": "Trump apparently shares Tom Cotton’s phone number in push to make Daylight Saving Time permanent - Politico",
+   "people": [
+    "trump",
+    "cotton"
+   ],
+   "pair": [
+    "cotton",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Trump shares Sen. Cotton's phone number publicly while pushing for permanent Daylight Saving Time.",
+   "summary_ko": "트럼프가 영구 서머타임 도입을 밀어붙이며 톰 코튼 상원의원의 전화번호를 공개했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-71ceff5f",
+   "date": "2026-10-03",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMlF6RlZzSWU5aXFxWkNoR1IyUnRIY2NVeXFsejhreTV4ajQwUlh6SDhVdmZHblFtQzY5VFlPbVZTYjU3UWRFRFItOWROdEtvdjU1U0J5b19Hb042ZVZZOFRIVE11T0p5TTJYT1dWRi1TTC0teXVyQTI3ZEttOXR0alFIWnhiQnRxWjVJQjJNSjJxX2xlZVVQQllNZGo4UdIBowFBVV95cUxNaGdYajUtQXotMFpXWGI2NXpPQlJIU2g2TGxkd1YycUpPVGhBYUJmY1lBUDROZi1PLUJic0dKWkVRRzlyTHZNZmpfNG1mTTg1Vk9lbmhBRTF4RFQ5ZVBja0l1c1FhekstWGlTT0ZFZDU5bUJfd3hhSE92eVlmUm5zT0R6eEluX1lUYmkxWXNHQi1LMlctQUQzSUFZRElkbGs0VFZR?oc=5",
+   "title": "Trump replacing Pam Bondi as attorney general, Todd Blanche to step in - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "bondi"
+   ],
+   "pair": [
+    "bondi",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.9,
+   "summary_en": "Trump is replacing Pam Bondi as attorney general with Todd Blanche stepping in.",
+   "summary_ko": "트럼프가 팸 본디 법무장관을 교체하고 토드 블랑슈를 후임으로 세운다.",
+   "classified": true
+  },
+  {
    "id": "sig-85b80080",
    "date": "2026-10-03",
    "source": "CBS News",
@@ -509,28 +661,72 @@
    ],
    "polarity": "neutral",
    "confidence": 0.8,
-   "summary_en": "Jeffries responds to Crockett's decision not to endorse Talarico.",
-   "summary_ko": "제프리스가 크로켓의 탈라리코 미지지 결정에 반응합니다.",
+   "summary_en": "House Minority Leader Jeffries reacts to Rep. Crockett's decision not to endorse Talarico.",
+   "summary_ko": "제프리스 하원 원내대표가 크로켓 의원의 탈라리코 불지지 선언에 반응했다.",
    "classified": true
   },
   {
-   "id": "sig-f487387f",
-   "date": "2026-10-02",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6125698-vance-cruz-gop-presidential-bid/",
-   "title": "Vance: ‘Really obvious’ Cruz is running for president",
+   "id": "sig-87b42162",
+   "date": "2026-10-03",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE41bnUxRkZreU5QWXJqOG1SWlk3bVhoSXRabUE2TnFQMDd4R2NNR004YjFYU2pfZVZ3UFk2QmtrNHFqbUxuejFVNF9sLWFFSGhYRXp4ZUZn?oc=5",
+   "title": "WATCH LIVE: Abdul El-Sayed holds town hall tour stop with Elissa Slotkin in Warren, MI - Fox News",
    "people": [
-    "vance",
-    "cruz"
+    "warren",
+    "slotkin"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-92d54eda",
+   "date": "2026-10-03",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbEk3bDEwandBcjAtbmR4dlk3b2g0OVlKUGRyd1RVMnd3QzdzbkVyVlREUW52SkJFcE5yNTIxZjV3TzYzVDZKWFBndXcyNDY1VGV3eDhOZ0l0aG4zeUppYzd3Q3g2aUxVaGxvX2hvMjRRd3l1VS1zREY2NE01YXJubEtFRy1MejRRSTU4OGlUQ1JxUVBhVGF2UXF0aS1HSnpOcjFyQ0JqdEJxdmItU01FbnRDTkROZms?oc=5",
+   "title": "Trump appears to post Sen. Tom Cotton’s cell number in push to make daylight saving time permanent - NBC News",
+   "people": [
+    "trump",
+    "cotton"
    ],
    "pair": [
-    "cruz",
-    "vance"
+    "cotton",
+    "trump"
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Vance comments that Cruz's presidential ambitions are apparent.",
-   "summary_ko": "밴스가 크루즈의 대권 야망이 명백하다고 언급합니다.",
+   "summary_en": "Trump appears to post Sen. Cotton's cell number in a push for permanent Daylight Saving Time.",
+   "summary_ko": "트럼프가 영구 서머타임 추진을 위해 톰 코튼 상원의원의 휴대전화 번호를 게시한 것으로 보인다.",
+   "classified": true
+  },
+  {
+   "id": "sig-e85e429e",
+   "date": "2026-10-03",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNNklIY3ZKQnpYemFHNXUzakFwM2ZLMGNwbmxmTlV1SmlhSmxtakRiRThtN2V0UmdiMFhBY2J2Qk5tX2pLRzBYUE44cnF2eE5EWGNzN3Nwdm51ZlZ5RWdnUGFzeFJpUXBPTkVWU1BXVHBONENJeWtxZjBJdkFkTms5WkhzS09yd9IBiwFBVV95cUxQdElPX3lfUkM3S2Z1VjFoUWZXbkNOUVdDOElybHh3dGEzUTRncUdMVHo3UExfb3NweDZxbG9EX2YzMGJmanRzc0E3ckFrU1VLeVo2NFBZWTBVMzUwNmtWUzJueEdmRmliVlVUZ3F2OW1FX2trVkhLcmFXOWxDbFZKNWEwbS1WX21vM3pr?oc=5",
+   "title": "The Trump administration needs a crash course in ‘Working Class’ from JD Vance - The Hill",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-f21b6b84",
+   "date": "2026-10-02",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdjdweVRuYWpGTEVLOVI0S2NjRTVhTi1TYW1fNVFKVEoxZ0hIcmVhY01UdlY0MG9qOGViN1FhLWo1dnB2ZThsMVRkVVI4ZGxLRkpaWnBSUGNCWFpLR2RVV0U2RE05Z1lCdEM2R0V3MFpZeUJrT2x4dlRWdzJYRUNxOGEza3lKSzFwVUNMQW8zZlpNY1daSFFka093?oc=5",
+   "title": "Hawley strikes a different tone from Trump on AI - Politico",
+   "people": [
+    "trump",
+    "hawley"
+   ],
+   "pair": [
+    "hawley",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Josh Hawley adopts a different stance from Trump on artificial intelligence policy.",
+   "summary_ko": "조시 홀리가 인공지능 정책에서 트럼프와 다른 입장을 취하고 있습니다.",
    "classified": true
   },
   {
