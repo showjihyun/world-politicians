@@ -2,6 +2,287 @@
  "month": "2026-10",
  "signals": [
   {
+   "id": "sig-c7ef1b98",
+   "date": "2026-10-06",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQejRNeDdaRXJuRV80M0kzSVR3b1hmcG1JZE9fTG1takY0dklqMC12MzlDT2x5S0lhQndBUTB6X0xzSDlDc0M4dWhSSzRaTGMyZkpmMUpJWVlqblNlRm9fT2RlVHlYcExrR2pqblg5YUlIb1pMcVhMbGtCVzJ0MlhPbW1xdmozNjVTRDBySmxCcm5MSFZxdHc4QklmcTFERVEwZ0NKWUxjUE5wWGEtWWxMbdIBtgFBVV95cUxQQ0pmMk1YV3NMSG5IOEg1VVV5TDdrYWdvN0pBaExDMW5HYXhoanJQNVBEcmt0NlMyaHZndUo3N2dFWDB1RnQ0VkhtQnp5Vk1DWl9ybXBTUnJzdkFPWFpYdWtzUmhaTV82Z1U4bkV1d1RYaGg2N0UyMGFMeUdJM21JVWpMb3lMbUc4bXRzT3ZBU0hWQkNHdnI0dHhMM2FfMHQxREJYRUdGN1o3S284WUZXRDBXUjh0Zw?oc=5",
+   "title": "Trump fires DHS secretary Kristi Noem, replaces her with Sen. Markwayne Mullin - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "noem"
+   ],
+   "pair": [
+    "noem",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.98,
+   "summary_en": "President Trump fired DHS Secretary Kristi Noem and replaced her with Senator Markwayne Mullin.",
+   "summary_ko": "트럼프 대통령이 크리스티 노엄 국토안보부 장관을 해임하고 마크웨인 멀린 상원의원으로 교체했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-bf2448da",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/senate/6130895-tillis-trump-impeachment-snap-trial/",
+   "title": "Tillis says Trump impeachment over Jan 6 was ‘weighty,’ a ‘vote of no confidence’",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "pair": [
+    "tillis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Sen. Tillis describes Trump's impeachment as a significant 'vote of no confidence.'",
+   "summary_ko": "틸리스 상원의원이 트럼프 탄핵을 중요한 '불신임 투표'로 평가했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-ccbd4264",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/state-watch/6131167-gavin-newsom-donald-trump-rhetoric-los-angeles/",
+   "title": "Newsom rips Trump for saying Iran can ‘take out’ LA and San Diego",
+   "people": [
+    "trump",
+    "newsom"
+   ],
+   "pair": [
+    "newsom",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Gov. Newsom strongly criticizes Trump's remarks about Iran targeting California cities.",
+   "summary_ko": "뉴섬 주지사가 이란의 캘리포니아 도시 공격 발언에 대해 트럼프를 강하게 비판했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-24551295",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/senate/6131250-tillis-warns-trump-number-leak/",
+   "title": "Tillis on possibility Trump doxes him: ‘I got his number too’",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "pair": [
+    "tillis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Sen. Tillis warns Trump he has his phone number amid doxxing concerns.",
+   "summary_ko": "틸리스 상원의원이 신상 공개 우려 속에 트럼프에게 자신의 전화번호도 있음을 경고했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-bd6cfa56",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/state-watch/6131686-newsom-trump-iran-los-angeles-san-diego/",
+   "title": "Newsom tags in State Threat Assessment Center over Trump’s Iran nuclear comments",
+   "people": [
+    "trump",
+    "newsom"
+   ],
+   "pair": [
+    "newsom",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Gov. Newsom activates state threat center in response to Trump's Iran remarks.",
+   "summary_ko": "뉴섬 주지사가 트럼프의 이란 발언에 대응해 주 위협 평가 센터를 가동했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-dcadbb5d",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/senate/6131942-schumer-urges-probe-trump-ads/",
+   "title": "Schumer alleges illegal coordination between Trump, PAC on ads",
+   "people": [
+    "trump",
+    "schumer"
+   ],
+   "pair": [
+    "schumer",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Sen. Schumer accuses Trump of illegal coordination with a PAC on advertising.",
+   "summary_ko": "슈머 상원의원이 트럼프의 PAC와의 불법 광고 공모를 주장했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-aec3db3c",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6132137-newsom-calls-trump-mentally-ill/",
+   "title": "Newsom calls for 25th Amendment after Trump’s remarks on California",
+   "people": [
+    "trump",
+    "newsom"
+   ],
+   "pair": [
+    "newsom",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Gov. Newsom invokes the 25th Amendment following Trump's comments on California.",
+   "summary_ko": "뉴섬 주지사가 트럼프의 캘리포니아 발언 후 수정헌법 25조 발동을 촉구했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-3cf4c3ee",
+   "date": "2026-10-06",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLXJ1WkNmMi1tM2Z5Um8xZm9WZFo5TWc2WW00N0k5NF9jTDhzR1FLUG1DZWdCVUxPZUpkc2s2dWFUWkwwYUJhYXltalh1aDhjdUVMT3hraVdHSWFETEdRYUE2R1h3eTFwbUlzV3laenZXZENkT2EyUEY5SGZyeW1hTkI1VXBUcjRXMmpvR2NkWVZwRjVVYkRqa2pwWkN2ZFZHM0lmOHVTbS12SGZfSlNB?oc=5",
+   "title": "Sen. Booker: Trump was ‘scared straight’ on voting by mail - CNN",
+   "people": [
+    "trump",
+    "booker"
+   ],
+   "pair": [
+    "booker",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Sen. Booker mocks Trump's shift on mail-in voting as being 'scared straight.'",
+   "summary_ko": "부커 상원의원이 트럼프의 우편투표 입장 변화를 '겁먹고 태도 바꿈'으로 조롱했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-5b45b8ee",
+   "date": "2026-10-06",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE0wR2d5U2dHSE5nWHROODNjeTAtZGZGR1Q2dkN3VHpkOWE3Q2tNdjBTUFh1OXR3Vm00eVJqVi12SHRTYnpWTlJ6QU9OMHc?oc=5",
+   "title": "Video Sen. Thom Tillis on Trump, midterms and why he regrets vote to confirm Pete Hegseth - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "hegseth",
+    "tillis"
+   ],
+   "pair": [
+    "hegseth",
+    "tillis"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Tillis expresses regret over his vote to confirm Pete Hegseth.",
+   "summary_ko": "틸리스가 피트 헤그세스 인준 투표를 후회한다고 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-4476c6fd",
+   "date": "2026-10-06",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TQ0MzVzRta29vVU80WUVqM1B6RDVXNFZtWTBLX2VjWmhtTkJHUnlILWxtVGYwM3RDRlJBUjBnWUh1cUJXVFBNc3JQVHVDMUs2dlRtV1NR?oc=5",
+   "title": "Thom Tillis spars with hosts of 'The View' over Trump - Fox News",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "pair": [
+    "tillis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "Tillis clashes with 'The View' hosts while defending Trump.",
+   "summary_ko": "틸리스가 '더 뷰' 진행자들과 트럼프를 두고 충돌했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-55d01ed6",
+   "date": "2026-10-06",
+   "source": "The Washington Post",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdDgxSTNySzZPYjJYNklwSWtya2VYRE5XQmstSk9sWHh5c2tOUlpSQnR5bENzMGhIdmR1cnpJaGRGX0dIcEd4TlpTS0lzeWpwV1J1Y1lVYkNJUzlaNFBzZUVCNU1lYzFnS2NsMjJvRGExUW1IYjdLMzRhUG16a3ljRV9hRTlOdXVvTG40bkxidmxEclBaaTJjeVVwaFFVZnZ1Y1J3SVJR?oc=5",
+   "title": "Susan Collins, a political survivor, tries to outrun Trump - The Washington Post",
+   "people": [
+    "trump",
+    "collins-susan"
+   ],
+   "pair": [
+    "collins-susan",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.75,
+   "summary_en": "Collins attempts to distance herself politically from Trump.",
+   "summary_ko": "콜린스가 정치적으로 트럼프와 거리를 두려 시도합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-7d1f8c4b",
+   "date": "2026-10-06",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNMThWMXJFUEVyRlN5dU5DeTkzbEp1bU56VkViQWM5T0d6aTFSS1poZEJBRHdJX3k5Y2NoOURZXzdOVlZoUkI4NXdzOUR6ZGlQLUluU0V3Z2tLdzd6S0dqUTJWX3p4Q0dGTFFiY1dXTl9LRVo1VFo2VEVHT0doZjExTkN5LTZtX0Fia2wySXVZeUJ2LW1NQ095ajQwNDBFVWtZeEYyY1pBOG1LdmtkdG1FdHphWUtWOVdzUUUyZzNXNlhVamM1RGU4MnJoaDVrM2c?oc=5",
+   "title": "Thune presses Trump for more funding toward swinging battleground races red - Washington Examiner",
+   "people": [
+    "trump",
+    "thune"
+   ],
+   "pair": [
+    "thune",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Thune urges Trump to provide more funding for competitive battleground races.",
+   "summary_ko": "튠이 트럼프에게 경합주 선거에 더 많은 자금을 압박했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-bb8c5f1f",
+   "date": "2026-10-06",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdThWWlY3ZXl2ZG9zeWJVTEdjc2wyTEY4ZTB5U0FzNHByVmVYY3NoRGpXdklMZmE1ekE2UzJjMTkzQm1KNjlNSG1PZE16NmRlYW1TWnFvX3B6V2lkMDM4dVNYellKaWpMbFpLMXE2MUxrcVB2TnlZR2hTaS0wdnVXOVZBTkwzUHBCaFA2ejBNNzlTc3NVUUpYU3NsNmZRUGp1TUdCUkZpdEVLc3ox?oc=5",
+   "title": "Thune and Trump plot GOP money wave - Politico",
+   "people": [
+    "trump",
+    "thune"
+   ],
+   "pair": [
+    "thune",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Thune and Trump collaborate on a GOP fundraising strategy.",
+   "summary_ko": "튠과 트럼프가 공화당 자금 모금 전략을 협력합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-88e60460",
+   "date": "2026-10-06",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE8tX0s3dTN0VWFMd3hqck9yT0lLcWlmRloweTd5dWtJUmEzVC1WQ2NhSE5yX0JpRzBwV2I2OEdIRHAxcjE4ajcycXV4cXdiOE5YazFsQTlldnZRZHNJekhSdFJnZkZRbml6N242LVNLT0xjUQ?oc=5",
+   "title": "Trump admin blocks Democratic Gov. Wes Moore from speaking at Maryland shipbuilding event - CNN",
+   "people": [
+    "trump",
+    "moore-wes"
+   ],
+   "pair": [
+    "moore-wes",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "The Trump administration blocked Maryland Governor Wes Moore from speaking at a shipbuilding event.",
+   "summary_ko": "트럼프 행정부가 메릴랜드 주지사 웨스 무어의 조선소 행사 연설을 차단했습니다.",
+   "classified": true
+  },
+  {
    "id": "sig-2b007017",
    "date": "2026-10-05",
    "source": "The Hill",
@@ -142,43 +423,123 @@
    "classified": true
   },
   {
-   "id": "sig-de11758e",
+   "id": "sig-e935635a",
    "date": "2026-10-05",
    "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQeEJCU0hVcU90NXhXWUVXVGppX19FaFh6N2FpbnBxRnVLbXBJaGh1THdQZjdCNTMwQThBMUxjNGI0eFZ1R3NXYTVHcDdSeERLMUZmSmNjOUVGOFBoTXlxNFdRLVkwalkxQkFsN3c5MGJzMHp5NGxTUnV2eVFWaW0wRzVqT3JFTFZqSzJvLU9WRk9WMmNERXZ3eFliRkItcUgwbEQ3UC1iRE9mNzQ2RTdvc2lZNmRST1RZWVAyaUZma9IBxAFBVV95cUxQRFp3aUZpSlctdXYtVDFNTVZFUW1ydk1fNFA2M28wd0doaVM3OXlWZ051cVlDRmFJQWY5aUxYRHB6YWJQRGpZaUpDa1VLZ2RJQ1R6UmRjMFVEcjZhWHd2c19WNHFkQ3RoY3IxdVRHbF9vMkhGSWUxVktQT3JpaTc2cFp5b2s5bGFMTHFiczlPNTFtY2FFRWVSaFlkZFdSVmtaSmVZMk5DOGtQUHNwTTRMYWxoeG53U280NHJjMUZMVVpzRVpO?oc=5",
-   "title": "Watch live: RFK Jr., Trump officials unveil health care price transparency push - thehill.com",
+   "url": "https://thehill.com/homenews/senate/6130753-tillis-regrets-hegseth-vote/",
+   "title": "Tillis calls Hegseth vote his ‘biggest regret’",
    "people": [
-    "trump",
-    "rfk-jr"
+    "hegseth",
+    "tillis"
    ],
    "pair": [
-    "rfk-jr",
-    "trump"
+    "hegseth",
+    "tillis"
    ],
-   "polarity": "ally",
+   "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "RFK Jr. and Trump officials jointly announce a health care price transparency initiative.",
-   "summary_ko": "RFK 주니어와 트럼프 행정부 관계자들이 의료비 가격 투명성 이니셔티브를 공동 발표한다.",
+   "summary_en": "Senator Tillis called his vote for Hegseth his 'biggest regret.'",
+   "summary_ko": "틸리스 상원의원이 헤그세스 인준 표결을 '가장 큰 후회'라고 밝혔습니다.",
    "classified": true
   },
   {
-   "id": "sig-c7ef1b98",
-   "date": "2026-10-04",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQejRNeDdaRXJuRV80M0kzSVR3b1hmcG1JZE9fTG1takY0dklqMC12MzlDT2x5S0lhQndBUTB6X0xzSDlDc0M4dWhSSzRaTGMyZkpmMUpJWVlqblNlRm9fT2RlVHlYcExrR2pqblg5YUlIb1pMcVhMbGtCVzJ0MlhPbW1xdmozNjVTRDBySmxCcm5MSFZxdHc4QklmcTFERVEwZ0NKWUxjUE5wWGEtWWxMbdIBtgFBVV95cUxQQ0pmMk1YV3NMSG5IOEg1VVV5TDdrYWdvN0pBaExDMW5HYXhoanJQNVBEcmt0NlMyaHZndUo3N2dFWDB1RnQ0VkhtQnp5Vk1DWl9ybXBTUnJzdkFPWFpYdWtzUmhaTV82Z1U4bkV1d1RYaGg2N0UyMGFMeUdJM21JVWpMb3lMbUc4bXRzT3ZBU0hWQkNHdnI0dHhMM2FfMHQxREJYRUdGN1o3S284WUZXRDBXUjh0Zw?oc=5",
-   "title": "Trump fires DHS secretary Kristi Noem, replaces her with Sen. Markwayne Mullin - ABC News - Breaking News, Latest News and Videos",
+   "id": "sig-d62a4f7e",
+   "date": "2026-10-05",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOUDJ3a1RaWm9HN0JtNXZlWndvU1dzckw3bVFBcUlSVURrZEVNSWlfeVBub2lqVzFDWlhGRWdidW81dHItMGl2cnJ1bkFObXkzN0VyQjkzbWZna0Q4RDNnNHNXUjZsMlJONk8xREhtZ2t0eU5WRUEzRGIwMXlrVy0xckN0RGtpWGFUR21oanExbnNrRkNSb1BPZl9aTktXLVM3eE42VHQ3NGhNbk5Xa1FPTUtUZF9xWWhOdGVLeW9ENmxRemhINFZmc2lnM01rNVllS0h3X0FPeUhsdFZaRy1OVk5PdHpmbGV0T1N0YWM0UEtVOVdnTHkyZzd2YkwzS0lzYkpCbEtCX0I?oc=5",
+   "title": "WSJ Opinion: Sen. Thom Tillis on Losing Friends, Antagonizing Trump, and the GOP’s Future - WSJ",
    "people": [
     "trump",
-    "noem"
+    "tillis"
    ],
    "pair": [
-    "noem",
+    "tillis",
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.99,
-   "summary_en": "Trump fires DHS Secretary Kristi Noem and replaces her with Senator Mullin.",
-   "summary_ko": "트럼프가 크리스티 노엄 국토안보부 장관을 해임하고 멀린 상원의원으로 교체했다.",
+   "confidence": 0.9,
+   "summary_en": "WSJ opinion piece discusses Tillis antagonizing Trump and the GOP's future.",
+   "summary_ko": "WSJ 칼럼이 틸리스의 트럼프 자극과 공화당의 미래를 다뤘습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-9a212e74",
+   "date": "2026-10-05",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNck15akhISmhqc2ZqZTJaQlRLTmVwUEZ5S0RiQ1BaZW1HZXhVdVFPMkphUDVfWWttdVpkTEExYTkxMl93QjE1UF9yd2tHaTNydDhXZFlfbEp2ZmhRM2ZGMzl2Z25pVS1WLU00czRWanY5UXdjdzA5TVZCRDdWM0NITU5yWDBaUC0xOXpSSlpPcktodw?oc=5",
+   "title": "Tillis reveals ‘biggest regret of my career’ in new book on Trump 2.0 - Washington Examiner",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "pair": [
+    "tillis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Tillis reveals his 'biggest career regret' regarding Trump in a new book.",
+   "summary_ko": "틸리스가 신간 '트럼프 2.0'에서 자신의 '경력상 최대 후회'를 트럼프 관련으로 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-546bf8b5",
+   "date": "2026-10-05",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQaHFlWVNyUExIV21GRllzQkZLd1BxRXFFQzBzcllnX1F0Q0tFenJHQ2h5XzZveXQyNl9UaWEzcEE0c21DTlZSN1VvUmRoQ3gzc0Z4OVF1NE1od3RkdkRVUUo3RFprTnpVYmNNZlhqZmdmbTVCWEYtNGtIbU44RjBLRmE1VXlhbkR6YmJjaXpNNmplYXNmdWhpYjFnYmdJc0JySlZJUy0zRWlxRzRIa2FnRmp2blY?oc=5",
+   "title": "JD Vance says he thinks Ted Cruz is running for president, Cruz calls Vance insecure - CBS News",
+   "people": [
+    "vance",
+    "cruz"
+   ],
+   "pair": [
+    "cruz",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Vance speculates Cruz is running for president; Cruz fires back calling Vance insecure.",
+   "summary_ko": "밴스가 크루즈의 대권 도전을 거론하자 크루즈가 밴스를 '불안정하다'고 반박했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-f12d61db",
+   "date": "2026-10-05",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9KdUxuaEktc2VZQlBHcDc4OVZ0WlFjLWlYVjhlVzBnSTdGaXAxa1ZBYWw1ZFN4SFA4SGNkeENsQVY4bUI3bm9IbFdSZ3pLV0JIRTJiVFBB?oc=5",
+   "title": "'LOST THEIR MINDS': Trump rallies Nebraska, Thune warns Republicans - Fox News",
+   "people": [
+    "trump",
+    "thune"
+   ],
+   "pair": [
+    "thune",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Trump rallies in Nebraska while Senate leader Thune warns Republicans, signaling tension.",
+   "summary_ko": "트럼프가 네브래스카 유세를 벌이는 동안 튠 원내대표가 공화당에 경고하며 긴장감이 감돌았습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-c8155381",
+   "date": "2026-10-05",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPNlFYUEpyYkotSEFkMG5NWTBqOU1qNjBzR0FuWXMzZE44MHo0b1d3NEZhZXZvZDBsaU9BSmR1RmoxbHZOamQ2bmdLUVY1ZnRzLUp1ZnE2NVhUaGh6WVdxVzVETE5GRjQtRk52RmdUWVZhSWFTU0s2WGJGaktaeHlXUEF4d2JnTWhuZzFCMlRLSGJPOUh3MldYMFR1Z3p5YlU4ck1CcnpJTTc?oc=5",
+   "title": "Republican Sen. Tillis calls his vote for Hegseth the 'biggest regret of my career' in a new book - AP News",
+   "people": [
+    "hegseth",
+    "tillis"
+   ],
+   "pair": [
+    "hegseth",
+    "tillis"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Senator Tillis regrets his vote confirming Hegseth, calling it his biggest career regret.",
+   "summary_ko": "틸리스 상원의원이 헤그세스 인준 표결을 '경력 최대 후회'라고 밝혔습니다.",
    "classified": true
   },
   {
@@ -196,9 +557,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump pressures Senator Tom Cotton by urging constituents to call him over a daylight saving bill.",
-   "summary_ko": "트럼프가 서머타임 법안을 두고 톰 코튼 상원의원에게 전화하라고 지지자들을 독려하며 압박한다.",
+   "confidence": 0.95,
+   "summary_en": "Trump urged supporters to call Senator Cotton to pressure him on a daylight saving time bill.",
+   "summary_ko": "트럼프 전 대통령이 지지자들에게 톰 코튼 상원의원에게 전화해 서머타임 영구화 법안을 압박할 것을 촉구했습니다.",
    "classified": true
   },
   {
@@ -217,8 +578,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump escalates conflict with Cotton by publicly revealing his phone number during a policy standoff.",
-   "summary_ko": "트럼프가 정책 대치 중 코튼의 전화번호를 공개하며 갈등을 격화시킨다.",
+   "summary_en": "Donald Trump publicly shared Senator Tom Cotton's phone number during a dispute over daylight saving time legislation.",
+   "summary_ko": "도널드 트럼프 전 대통령이 서머타임 영구화 법안을 둘러싼 대립 중 톰 코튼 상원의원의 전화번호를 공개했습니다.",
    "classified": true
   },
   {
@@ -357,8 +718,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Ted Cruz criticizes JD Vance as insecure while emphasizing his own focus on GOP midterm victories.",
-   "summary_ko": "테드 크루즈가 JD 밴스를 '불안정한' 인물로 비판하며 자신은 공화당 중간선거 승리에 집중하고 있다고 강조했습니다.",
+   "summary_en": "Senator Ted Cruz criticizes Vice President JD Vance as 'insecure' and says he is focused on GOP midterm wins.",
+   "summary_ko": "테드 크루즈 상원의원이 JD 밴스 부통령을 '불안정하다'고 비판하며 중간선거 승리에 집중하고 있다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -396,9 +757,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump apparently shares Sen. Tom Cotton's phone number in a push to make Daylight Saving Time permanent.",
-   "summary_ko": "트럼프가 영구 서머타임 시행을 밀어붙이며 톰 코튼 상원의원의 전화번호를 공유한 것으로 보인다.",
+   "confidence": 0.95,
+   "summary_en": "Trump shared Senator Cotton's phone number to pressure him on making Daylight Saving Time permanent.",
+   "summary_ko": "트럼프 전 대통령이 영구 서머타임 시행을 압박하기 위해 톰 코튼 상원의원의 전화번호를 공유한 것으로 보입니다.",
    "classified": true
   },
   {
@@ -417,8 +778,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump appears to post Sen. Tom Cotton's cell number in a push for permanent daylight saving time.",
-   "summary_ko": "트럼프가 영구 서머타임 추진을 위해 톰 코튼 상원의원의 휴대전화 번호를 올린 것으로 보인다.",
+   "summary_en": "Trump posts Senator Tom Cotton's personal cell number to pressure him on daylight saving time legislation.",
+   "summary_ko": "트럼프가 톰 코튼 상원의원의 개인 전화번호를 공개하며 서머타임 영구화 법안에 압박을 가했습니다.",
    "classified": true
   },
   {
@@ -437,8 +798,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump publishes Sen. Tom Cotton's personal cellphone number amid a dispute over daylight saving time legislation.",
-   "summary_ko": "트럼프가 서머타임 법안을 둘러싼 갈등 속에서 톰 코튼 상원의원의 개인 휴대전화 번호를 공개했다.",
+   "summary_en": "Trump released Senator Cotton's cellphone number in a dispute over the daylight saving time bill.",
+   "summary_ko": "트럼프 전 대통령이 서머타임 영구화 법안 갈등 중 톰 코튼 상원의원의 휴대전화 번호를 공개했습니다.",
    "classified": true
   },
   {
@@ -577,8 +938,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Maryland Governor Wes Moore invites Trump to visit the Key Bridge reconstruction site.",
-   "summary_ko": "메릴랜드 주지사 웨스 무어가 트럼프를 키 브리지 재건 현장에 초청했습니다.",
+   "summary_en": "Maryland Governor Wes Moore invites President Trump to visit the Key Bridge reconstruction site.",
+   "summary_ko": "웨스 무어 메릴랜드 주지사가 트럼프 대통령을 키 브리지 재건 현장에 초청했습니다.",
    "classified": true
   },
   {
@@ -597,8 +958,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Bernie Sanders and Alexandria Ocasio-Cortez jointly introduce legislation targeting Flock surveillance cameras.",
-   "summary_ko": "버니 샌더스와 알렉산드리아 오카시오-코르테스가 플록 감시 카메라를 규제하는 법안을 공동 발의했습니다.",
+   "summary_en": "Sanders and Ocasio-Cortez jointly introduced legislation targeting Flock surveillance cameras.",
+   "summary_ko": "Sanders와 Ocasio-Cortez가 플록 감시 카메라를 겨냥한 법안을 공동 발의했다.",
    "classified": true
   },
   {
@@ -717,8 +1078,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Newsom and Trump exchange sharp words over AI policy directives.",
-   "summary_ko": "뉴섬과 트럼프가 AI 정책 지시를 놓고 설전을 벌인다.",
+   "summary_en": "Newsom counters Trump's AI decree with a California order, escalating a war of words.",
+   "summary_ko": "Newsom이 트럼프의 AI 행정명령에 맞서 캘리포니아 행정명령으로 대응하며 설전이 격화됐다.",
    "classified": true
   },
   {
@@ -797,9 +1158,98 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "AOC and Schumer jointly lead efforts to restore Essential Plan health coverage.",
-   "summary_ko": "AOC와 슈머가 에센셜 플랜 건강보험 복원을 공동 주도한다.",
+   "summary_en": "AOC and Schumer spearhead a legislative push to restore Essential Plan health coverage.",
+   "summary_ko": "AOC와 Schumer가 에센셜 플랜 건강보험 복원을 위한 입법 추진을 주도하고 있다.",
    "classified": true
+  },
+  {
+   "id": "sig-45617871",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/blogs/in-the-know/6131321-phil-collins-piers-morgan-trump/",
+   "title": "Phil Collins says Trump ‘sees everything as a deal’: ‘Very scary time’",
+   "people": [
+    "trump",
+    "collins-susan"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-f27e9c0",
+   "date": "2026-10-06",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6131972-abbott-skips-trump-san-antonio-rally/",
+   "title": "Abbott not joining Trump at San Antonio campaign stop",
+   "people": [
+    "trump",
+    "abbott-greg"
+   ],
+   "pair": [
+    "abbott-greg",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.8,
+   "summary_en": "Gov. Abbott skips Trump's campaign event in San Antonio.",
+   "summary_ko": "애벗 주지사가 샌안토니오 트럼프 유세 행사에 불참했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1b3b71dd",
+   "date": "2026-10-06",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/biden-conspicuously-absent-from-campaign-trail-obama-harris-step-up-midterm-push",
+   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push",
+   "people": [
+    "biden",
+    "harris",
+    "obama"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-c60aa787",
+   "date": "2026-10-06",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPYlNzZEtIOVZZeW1FWVRBRWlJRS1MTmxNT0xQS3RNbDJPNTdaVWRGVExGSk5qcTF5TERybE5LRklkN3pxUXRNUUJhMTFhVXY1WEMteVh5YmFEMUE4TjJNOWNvN1VaZU02UWJTTWFUYTBGMGIyZ0NwT3NnUV9tWG14NzlvMFFMYm9Sem1IMlU2LXBjWTRKWnhDMW4yNXp5LXpYNDFNcnVnSFFJMG53ZGRpT1JkUmxDT1IyV0Fhd1JnanVaVDk1M2Myc0g4a2NIN0Z1cE1Z?oc=5",
+   "title": "'The View' expected Thom Tillis to bash Trump, but he didn't: Joe Concha - Washington Examiner",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-b4ca162e",
+   "date": "2026-10-06",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa211QzlZM1pjNmhGQnA3QXp4a3VDRThfWk5zTk9zRHpjS2pDSlNCMWJJQTRYbVB6SG12c1BaWHZUb0wwVXdwNU9mR3NSQnpsQ2RqRS02WGlGNjlxNjh5NUpONG5IZXdsVXd1N3hZZXg5Mnp1dTYwSUxlSVhHNURIaW41VG9CMS11Mjgtb1JfcUtFRVQ5bS00VkgxVTFZVzdnYlE?oc=5",
+   "title": "Buttigieg, Gallego and other potential 2028 Democratic contenders set to discuss party’s future at post-midterms meeting - CNN",
+   "people": [
+    "buttigieg",
+    "gallego"
+   ],
+   "pair": [
+    "buttigieg",
+    "gallego"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Buttigieg and Gallego join other potential 2028 contenders for a post-midterms meeting.",
+   "summary_ko": "부티지지와 갈레고가 다른 2028년 대선 주자들과 중간선거 후 회동합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-f240fa96",
+   "date": "2026-10-06",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQOGo5cXpKcTluUzFQdjJGMVB3THB4R0duV19HTkRUa0NJMUw0X0RkS0M1c09wNG5pWnd0YjVNLThUOEQ3RWc5d19wS0V4T21HV09raDlIb1lqRUlxa19oclo1anJFeGZqOFpYOEUtRlhyWm1YcHlEeWJkQk5RekpURHZHOTg4aUliTVAtZnVISXo1SloxVDhLVU9hNXc4Y0dhWldQdC12elFLQzNyWklWWlhScThLQQ?oc=5",
+   "title": "As Trump voters sour, Vance is changing his tune - Politico",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": false
   },
   {
    "id": "sig-4db9acfb",
@@ -831,6 +1281,30 @@
     "trump",
     "vance",
     "rubio"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-6a427f92",
+   "date": "2026-10-05",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPZ2ZFaVdDVGtsUHJwai1fSHZjdGFSN3V0dVRFODUyZWxkMng3SDVVamV5R3YzZkdoUnVsanlmNG5vM1NYSFdGZ3BkQ3ppMno2eG9xNDlKQjdNZlNvYmJja2NVOWk4OE01WjROeXdyOWc1WDV3VlNHVG9CSlBac0d4WE0wWUpxUlFQWVZacFd2LXR4XzZkYkEwUFRYTWFSTl8yY3l2RW5rWWs5dl8xZEc2ZUIxX2hwc1lTUUUzamlKenFiN25qdDdXdlM0Q190Tm9jTFE?oc=5",
+   "title": "El Sayed announces campaign stops with Obama, AOC, and Mamdani - Washington Examiner",
+   "people": [
+    "obama",
+    "aoc"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-4cb5e5e4",
+   "date": "2026-10-05",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMGhxblhfanFURFVnbmJLUmgtYVBxb0ViT2dUcERMcnFiTGF6bE43bFdNaE9Uek5mUUg0MFBWRE9oQWNmcTVLUE9JZFAwcEg2Q3NDS2E0LUxoWmNaMG1UbmtSdUMtWDBDS21pTTZzcEVEWmhaVjhOWXlfcHp6NERhR0hBbDAzTklrTVY1Wg?oc=5",
+   "title": "Susan Collins and Troy Jackson tied in new poll as Jeffries praises Democrats' midterm prospects - CBS News",
+   "people": [
+    "jeffries",
+    "collins-susan"
    ],
    "classified": false
   },
@@ -954,8 +1428,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Democratic leader Hakeem Jeffries reacts to Rep. Jasmine Crockett not endorsing a candidate.",
-   "summary_ko": "민주당 지도자 하킴 제프리스가 재스민 크로켓 의원의 후보 미지지 선언에 반응했다.",
+   "summary_en": "House Minority Leader Hakeem Jeffries responds to Rep. Jasmine Crockett's decision not to endorse a candidate.",
+   "summary_ko": "하킴 제프리스 하원 원내대표가 재스민 크로켓 의원의 후보 미지지 결정에 반응했습니다.",
    "classified": true
   },
   {
@@ -998,8 +1472,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Josh Hawley adopts a different stance on AI policy compared to Donald Trump.",
-   "summary_ko": "조시 홀리가 AI 정책에서 도널드 트럼프와 다른 입장을 취하고 있습니다.",
+   "summary_en": "Senator Josh Hawley takes a different policy stance from President Trump on artificial intelligence regulation.",
+   "summary_ko": "조시 홀리 상원의원이 인공지능 규제 문제에서 트럼프 대통령과 다른 정책 입장을 취했습니다.",
    "classified": true
   },
   {
