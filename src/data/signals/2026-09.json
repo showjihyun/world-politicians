@@ -117,8 +117,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.8,
-   "summary_en": "Schumer embraces Trump's campaign travel and assesses Senate fight at 50/50.",
-   "summary_ko": "슈머가 트럼프의 유세 일정을 수용하고 상원 승부를 50대 50으로 평가했습니다.",
+   "summary_en": "Sen. Schumer embraces Trump's campaign travel schedule, aligning with the president's political strategy.",
+   "summary_ko": "슈머 상원의원이 트럼프의 유세 일정을 수용하며 대통령의 정치적 전략에 동조하고 있다.",
    "classified": true
   },
   {
@@ -137,8 +137,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Blackburn blocks Trump's judicial nominee in Tennessee.",
-   "summary_ko": "블랙번 상원의원이 테네시주에서 트럼프의 판사 지명을 차단했습니다.",
+   "summary_en": "Senator Marsha Blackburn blocked President Trump's judicial nominee for Tennessee, opposing his selection.",
+   "summary_ko": "마샤 블랙번 상원의원이 트럼프 대통령의 테네시주 판사 지명을 차단하며 그의 인선에 반대했습니다.",
    "classified": true
   },
   {
@@ -157,8 +157,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom consults 'master' Bill Clinton while plotting 'Project 2029'.",
-   "summary_ko": "뉴섬이 '프로젝트 2029'를 계획하며 '스승' 빌 클린턴과 상담합니다.",
+   "summary_en": "Gavin Newsom is seeking advice from Bill Clinton as he plans his 'Project 2029' political initiative.",
+   "summary_ko": "개빈 뉴섬 주지사가 '프로젝트 2029' 구상을 위해 빌 클린턴 전 대통령의 자문을 구하고 있습니다.",
    "classified": true
   },
   {
@@ -358,7 +358,7 @@
    "polarity": "feud",
    "confidence": 0.95,
    "summary_en": "Buttigieg criticizes Trump's rollback of fuel-economy standards.",
-   "summary_ko": "부티지지 전 장관이 트럼프의 연비 기준 완화를 비판했다.",
+   "summary_ko": "부티지지가 트럼프의 연비 기준 철회를 비판했다.",
    "classified": true
   },
   {
@@ -396,9 +396,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Article explores Trump potentially revoking Omar's citizenship over allegations.",
-   "summary_ko": "트럼프가 오마르 의원의 시민권 박탈 가능성을 검토한다는 보도가 나왔다.",
+   "confidence": 0.85,
+   "summary_en": "Fox News examines if Trump could revoke Omar's citizenship over alleged brother marriage.",
+   "summary_ko": "폭스뉴스가 트럼프의 오마르 시민권 박탈 가능성을 형제 결혼 의혹과 함께 다뤘다.",
    "classified": true
   },
   {
@@ -456,9 +456,29 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Article explores Trump potentially revoking Omar's citizenship over allegations.",
-   "summary_ko": "트럼프가 오마르 의원의 시민권 박탈 가능성을 검토한다는 보도가 나왔다.",
+   "confidence": 0.85,
+   "summary_en": "Fox News explores whether Trump could revoke Omar's citizenship over marriage allegations.",
+   "summary_ko": "폭스뉴스가 트럼프가 결혼 의혹으로 오마르 시민권을 박탈할 수 있는지 분석했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-b11ff8ca",
+   "date": "2026-09-29",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUWFEa1FyVDg2QzZTazhkRTdCQmhqZW1RQzhON2t0RG1sNDdQdElYUGd1Vzd3dXBkR0dSSFdXNXpYQjhndkxRQVF4WVBYeHZraHViZ0s5aHJjYVA5V2N0UEh1S2oydGduTjB0cjBVeG5QcUdYenNoU3lnT3JCQWFjd01CTUNMZmVNQmcwZVBrczNnZEwxeld0N1BXc3B2c3BhcVFlSWpQNENYdFVJb1NvQVZlQ05xN1V6TVF1RQ?oc=5",
+   "title": "Mike Lee blocks effort to prevent Trump from tearing down presidential memorials - Washington Examiner",
+   "people": [
+    "trump",
+    "lee-mike"
+   ],
+   "pair": [
+    "lee-mike",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Senator Mike Lee blocked a legislative effort aimed at stopping Trump from dismantling presidential memorials, supporting Trump's authority.",
+   "summary_ko": "마이크 리 상원의원이 대통령 기념물 철거를 막으려는 입법 시도를 차단하며 트럼프의 권한을 지지했습니다.",
    "classified": true
   },
   {
@@ -537,8 +557,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senator Thune criticizes Trump's campaign-style PSA ads for using taxpayer money.",
-   "summary_ko": "튠 상원의원이 트럼프의 캠페인성 PSA 광고가 세금을 낭비한다고 비판했습니다.",
+   "summary_en": "Thune criticizes Trump's taxpayer-funded campaign-style PSA ads.",
+   "summary_ko": "툰이 트럼프의 세금으로 운영되는 캠페인성 PSA 광고를 비판했다.",
    "classified": true
   },
   {
@@ -557,8 +577,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Thune announces he will skip a White House AI meeting with Trump, Johnson, and tech CEOs.",
-   "summary_ko": "튠 상원의원이 트럼프, 존슨, 기술 CEO들과의 백악관 AI 회의에 불참하겠다고 밝혔습니다.",
+   "summary_en": "Thune declines to attend White House AI meeting with Trump and tech CEOs.",
+   "summary_ko": "툰이 트럼프와 기술 CEO들이 참석하는 백악관 AI 회의를 불참했다.",
    "classified": true
   },
   {
@@ -816,9 +836,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Sen. Mark Kelly criticizes Trump's Iran war strategy as lacking an exit plan.",
-   "summary_ko": "마크 켈리 상원의원이 트럼프의 이란 전쟁 전략에 출구 전략이 없다고 비판했다.",
+   "confidence": 0.9,
+   "summary_en": "Senator Mark Kelly criticizes Trump for being stuck in an Iran war without an exit strategy.",
+   "summary_ko": "마크 켈리 상원의원이 트럼프가 출구 전략 없이 이란 전쟁에 '갇혀있다'고 비판했다.",
    "classified": true
   },
   {
@@ -836,9 +856,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Vance appeals to skeptical conservatives with his own take on Trump's messaging.",
-   "summary_ko": "밴스가 트럼프의 메시지를 자신만의 방식으로 해석해 회의적인 보수층을 설득하고 있다.",
+   "confidence": 0.8,
+   "summary_en": "Vance appeals to skeptical conservatives by putting his own spin on Trump's messaging.",
+   "summary_ko": "밴스가 트럼프의 메시지를 자신만의 방식으로 재해석해 회의적인 보수층을 설득하고 있습니다.",
    "classified": true
   },
   {
@@ -1317,8 +1337,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Senators Tim Scott and Raphael Warnock jointly introduced legislation to strengthen critical mineral supply chains.",
-   "summary_ko": "팀 스콧과 라파엘 워녹 상원의원이 핵심 광물 공급망 강화를 위한 법안을 공동 발의했습니다.",
+   "summary_en": "Scott and Warnock jointly introduce bipartisan legislation on critical minerals.",
+   "summary_ko": "스콧과 워녹이 핵심 광물 공급망 강화를 위한 초당적 법안을 공동 발의했다.",
    "classified": true
   },
   {
@@ -1337,8 +1357,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Trump and House Speaker Mike Johnson plan to meet with tech CEOs to discuss AI policy next week.",
-   "summary_ko": "트럼프와 마이크 존슨 하원의장이 다음 주 기술 기업 CEO들과 만나 AI 정책을 논의할 예정입니다.",
+   "summary_en": "Trump and Speaker Johnson plan to meet with tech CEOs to discuss AI policy.",
+   "summary_ko": "트럼프와 존슨 하원의장이 다음 주 기술 CEO들과 만나 AI 정책을 논의할 예정이다.",
    "classified": true
   },
   {
@@ -1377,8 +1397,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Hillary Clinton calls Trump's media ban 'deeply disturbing'.",
-   "summary_ko": "힐러리 클린턴이 트럼프의 언론 금지를 '매우 충격적'이라고 비난했습니다.",
+   "summary_en": "Clinton calls Trump's media ban 'deeply disturbing' in latest remarks.",
+   "summary_ko": "클린턴이 트럼프의 언론 금지를 '매우 충격적'이라고 비난했다.",
    "classified": true
   },
   {
@@ -1436,9 +1456,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Senator Mike Lee may soon be positioned to fulfill a major Senate priority for Trump.",
-   "summary_ko": "마이크 리 상원의원이 트럼프의 주요 상원 숙원을 들어줄 위치에 오를 전망이다.",
+   "confidence": 0.75,
+   "summary_en": "Mike Lee may soon be positioned to fulfill a major Senate priority for Trump.",
+   "summary_ko": "마이크 리가 곧 트럼프의 주요 상원 숙원 사업을 들어줄 수 있는 위치에 오를 전망이다.",
    "classified": true
   },
   {
@@ -1458,7 +1478,7 @@
    "polarity": "feud",
    "confidence": 0.9,
    "summary_en": "Hillary Clinton criticizes Trump's ban on White House reporters.",
-   "summary_ko": "힐러리 클린턴이 트럼프의 백악관 기자 출입 금지를 비판했습니다.",
+   "summary_ko": "힐러리 클린턴이 트럼프의 백악관 기자 출입 금지를 비판했다.",
    "classified": true
   },
   {
@@ -1497,8 +1517,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senators Ossoff and Collins exchanged sharp words over a Republican lawmaker's former aide ahead of the midterms.",
-   "summary_ko": "오소프와 콜린스 상원의원이 중간선거를 앞두고 공화당 의원의 전 보좌관을 두고 설전을 벌였습니다.",
+   "summary_en": "Senators Collins and Ossoff clash over a Republican lawmaker's former aide ahead of midterms.",
+   "summary_ko": "콜린스와 오소프 상원의원이 중간선거를 앞두고 공화당 의원의 전 보좌관을 두고 설전을 벌였다.",
    "classified": true
   },
   {
@@ -1556,9 +1576,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Kamala Harris frames midterms as a 'stopgap' against Trump and urges Democratic unity.",
-   "summary_ko": "카말라 해리스가 중간선거를 트럼프에 대한 '임시방편'으로 규정하며 민주당 단결을 촉구했습니다.",
+   "confidence": 0.8,
+   "summary_en": "Kamala Harris frames midterms as a stopgap against Trump and urges Democratic unity.",
+   "summary_ko": "카말라 해리스가 중간선거를 트럼프에 대한 '임시방편'으로 규정하고 민주당 단결을 촉구했습니다.",
    "classified": true
   },
   {
@@ -1597,8 +1617,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump attacks CNN's Kaitlan Collins after she was barred from covering an event.",
-   "summary_ko": "트럼프가 CNN의 케이틀란 콜린스가 취재 금지된 후 그녀를 맹비난했습니다.",
+   "summary_en": "Trump attacks CNN's Kaitlan Collins after a ban, saying she shouldn't cover him.",
+   "summary_ko": "트럼프가 출입금지 후 CNN 케일런 콜린스를 비난하며 '나를 취재해선 안 된다'고 말했다.",
    "classified": true
   },
   {
@@ -1757,8 +1777,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Rubio defends Trump's media bans, downplaying press freedom concerns.",
-   "summary_ko": "루비오가 트럼프의 언론사 금지를 옹호하며 언론 자유 우려를 일축했다.",
+   "summary_en": "Rubio publicly defends Trump's media bans, downplaying their severity.",
+   "summary_ko": "루비오가 트럼프의 언론사 출입 금지를 공개 옹호하며 그 심각성을 축소했다.",
    "classified": true
   },
   {
@@ -1817,8 +1837,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Bill Clinton mocks Trump's battle over renaming the Kennedy Center.",
-   "summary_ko": "빌 클린턴 전 대통령이 트럼프의 케네디 센터 명칭 변경 싸움을 조롱했습니다.",
+   "summary_en": "Bill Clinton mocks Trump's Kennedy Center renaming fight as hard to make up.",
+   "summary_ko": "빌 클린턴이 트럼프의 케네디센터 개명 싸움을 '지어내기 힘들 정도'라며 조롱했다.",
    "classified": true
   },
   {
@@ -1877,8 +1897,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump has mentioned Biden nearly 900 times as his top 2026 campaign target.",
-   "summary_ko": "트럼프가 2026년 선거 캠페인에서 바이든을 최우선 공격 대상으로 삼아 약 900회 언급했습니다.",
+   "summary_en": "Trump makes Biden his top 2026 campaign target with nearly 900 mentions.",
+   "summary_ko": "트럼프가 바이든을 2026년 선거의 최우선 공격 대상으로 삼아 약 900회 언급했습니다.",
    "classified": true
   },
   {
@@ -1896,7 +1916,7 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.6,
+   "confidence": 0.7,
    "summary_en": "Fox News frames Rubio's new role as a Trump-backed promotion.",
    "summary_ko": "폭스뉴스는 루비오의 새 역할을 트럼프가 밀어준 승진으로 보도했다.",
    "classified": true
@@ -1937,8 +1957,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Florida gubernatorial candidate Byron Donalds scrubs Trump mentions from his campaign site.",
-   "summary_ko": "플로리다 주지사 후보 바이런 도널즈가 캠페인 사이트에서 트럼프 언급을 지웠다.",
+   "summary_en": "Byron Donalds removes Trump references from his Florida gubernatorial campaign website.",
+   "summary_ko": "바이런 도널즈가 플로리다 주지사 선거 캠페인 웹사이트에서 트럼프 관련 언급을 삭제했습니다.",
    "classified": true
   },
   {
@@ -1977,8 +1997,8 @@
    ],
    "polarity": "ally",
    "confidence": 1,
-   "summary_en": "Jared Golden crosses party lines to endorse Mike Lawler for re-election.",
-   "summary_ko": "제러드 골든이 당을 넘어 마이크 롤러의 재선을 지지했다.",
+   "summary_en": "Rep. Golden crosses party lines to endorse Rep. Lawler for re-election.",
+   "summary_ko": "골든 의원이 당적을 넘어 롤러 의원의 재선을 공식 지지했다.",
    "classified": true
   },
   {
@@ -2217,8 +2237,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Cassidy pressures Trump to be 'radically honest' about vaccines during measles outbreak.",
-   "summary_ko": "캐시디가 홍역 유행 중 트럼프에게 백신에 대해 '철저히 정직'할 것을 압박했다.",
+   "summary_en": "Sen. Cassidy pressures Trump to be 'radically honest' about vaccines amid measles outbreak.",
+   "summary_ko": "캐시디 상원의원이 홍역 유행 속 트럼프에게 백신 관련 '철저한 정직함'을 요구했다.",
    "classified": true
   },
   {
@@ -2358,8 +2378,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Newsom signs legislation to block Trump's potential interference in midterm elections.",
-   "summary_ko": "뉴섬이 트럼프의 중간선거 개입을 막기 위한 법안에 서명함.",
+   "summary_en": "Governor Newsom signs legislation designed to block Trump from meddling in the midterms.",
+   "summary_ko": "뉴섬 주지사가 트럼프의 중간선거 개입을 차단하기 위한 법안에 서명함.",
    "classified": true
   },
   {
@@ -2538,8 +2558,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Durbin holds Trump personally responsible for rising gas and record diesel prices.",
-   "summary_ko": "더빈이 상승하는 휘발유가와 역대 최고 경유가에 대해 트럼프가 개인적으로 책임 있다고 비난함.",
+   "summary_en": "Durbin again blames Trump for rising fuel costs, calling him personally responsible.",
+   "summary_ko": "더빈이 연료비 상승의 책임을 다시 트럼프에게 묻으며 '직접적 책임'이 있다고 주장함.",
    "classified": true
   },
   {
@@ -2557,9 +2577,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump signs the Russia sanctions bill that Graham championed, showing legislative alignment.",
-   "summary_ko": "트럼프가 그레이엄이 주도한 러시아 제재 법안에 서명하며 입법적 연대를 보였다.",
+   "confidence": 0.9,
+   "summary_en": "Trump signs a Russia sanctions bill that was championed by Senator Lindsey Graham.",
+   "summary_ko": "트럼프가 그레이엄 상원의원이 주도한 러시아 제재 법안에 서명함.",
    "classified": true
   },
   {
@@ -2664,6 +2684,26 @@
    "classified": true
   },
   {
+   "id": "sig-505b1144",
+   "date": "2026-09-18",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdUFGS3JkZFRqRUJxeW5qZDZHUS1MbnI0eU9NU3p5Nk1DZWRCZmxyT0hOVzUxZ2tweTdfVUI4YWI2SkhtbU1yVkxuYmk5WEg1S1Zma2JmVDc4Z3ppbmlDbm9MSE5nZGhWZmcwSGlmVW5WNTdYbFJhV0pISjJPa2RXbWVfN0dTNFNrRU56UVhKNHNHT0l5aVJsSmg4am9ZREJGTmY4ZzgzcHB5em8tRFZwVmd1SnY?oc=5",
+   "title": "El diputado Thomas Massie afirma que Johnson se saltó la votación sobre la destitución de Pete Hegseth - Fox News",
+   "people": [
+    "hegseth",
+    "massie"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "Rep. Massie claims Speaker Johnson skipped a vote on Hegseth's impeachment, signaling GOP pressure on the Defense Secretary.",
+   "summary_ko": "매시 의원이 존슨 하원의장이 헤그세스 국방장관 탄핵 표결을 건너뛰었다고 주장하며 공화당 내 압박을 시사했다.",
+   "classified": true
+  },
+  {
    "id": "sig-4a4f21cd",
    "date": "2026-09-17",
    "source": "The New York Times",
@@ -2679,8 +2719,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Bannon and Sanders jointly condemn tech oligarchs and demand AI reforms.",
-   "summary_ko": "배넌과 샌더스가 기술 과두제를 공동 규탄하고 AI 개혁을 요구하다.",
+   "summary_en": "Bannon and Sanders unite across ideological lines to condemn tech oligarchs and demand AI reforms.",
+   "summary_ko": "배넌과 샌더스가 이념을 초월해 기술 과두정치를 규탄하고 AI 개혁을 공동 요구했다.",
    "classified": true
   },
   {
@@ -2941,7 +2981,7 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Massie concealed his impeachment push against Hegseth from Republican leadership.",
+   "summary_en": "Massie concealed his impeachment push against Hegseth from GOP leaders.",
    "summary_ko": "매시가 헤그세스 탄핵 추진을 공화당 지도부에게 비밀로 했다.",
    "classified": true
   },
@@ -3042,8 +3082,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Rep. Thomas Massie forces a House vote on impeaching Defense Secretary Pete Hegseth.",
-   "summary_ko": "토머스 매시 하원의원이 피트 헤그세스 국방장관 탄핵 표결을 강행한다.",
+   "summary_en": "Massie forces a vote on Hegseth's impeachment.",
+   "summary_ko": "매시가 헤그세스 탄핵 표결을 강행했습니다.",
    "classified": true
   },
   {
@@ -3082,9 +3122,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Steve Bannon aligns with Bernie Sanders on AI policy, breaking with Donald Trump's position.",
-   "summary_ko": "스티브 배넌이 AI 정책에서 버니 샌더스 편에 서며 도널드 트럼프와 결별했다.",
+   "confidence": 0.9,
+   "summary_en": "Bannon aligned with Sanders on AI policy, breaking with Trump.",
+   "summary_ko": "배넌이 AI 정책에서 샌더스 편에 서며 트럼프와 결별했다.",
    "classified": true
   },
   {
@@ -3163,8 +3203,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Thomas Massie files impeachment resolution against Pete Hegseth over Iran war conduct.",
-   "summary_ko": "토머스 매시가 이란 전쟁 관련 피트 헤그세스 탄핵 결의안을 제출했다.",
+   "summary_en": "Massie filed impeachment articles against Hegseth over Iran war.",
+   "summary_ko": "매시가 이란 전쟁 관련 헤그세스 탄핵 소추안을 제출했다.",
    "classified": true
   },
   {
@@ -3224,8 +3264,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Massie accuses Johnson of sending House home early to block Hegseth impeachment.",
-   "summary_ko": "매시가 존슨이 헤그세스 탄핵을 막으려 조기 휴회한다고 주장하다.",
+   "summary_en": "Massie claims Johnson is recessing the House early to block a vote on Hegseth's impeachment.",
+   "summary_ko": "매시가 존슨 의장이 헤그세스 탄핵 표결을 막으려 조기 휴회한다고 주장했습니다.",
    "classified": true
   },
   {
@@ -3323,9 +3363,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Sanders and Bannon call for stronger AI oversight in a rare bipartisan display.",
-   "summary_ko": "샌더스와 배넌이 드문 초당적 협력으로 더 강력한 AI 감독을 촉구했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Sanders and Bannon jointly call for stronger AI oversight in rare bipartisan display.",
+   "summary_ko": "샌더스와 배넌이 드물게 초당적으로 더 강력한 AI 감독을 촉구했다.",
    "classified": true
   },
   {
@@ -3343,9 +3383,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
+   "confidence": 0.9,
    "summary_en": "Bernie Sanders and Steve Bannon call for AI regulation together.",
-   "summary_ko": "버니 샌더스와 스티브 배넌이 함께 AI 규제를 촉구했습니다.",
+   "summary_ko": "버니 샌더스와 스티브 배넌이 함께 AI 규제를 촉구했다.",
    "classified": true
   },
   {
@@ -3564,8 +3604,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Unlikely allies Bernie Sanders and Steve Bannon discuss making AI 'humans first' in Washington.",
-   "summary_ko": "뜻밖의 동반자인 버니 샌더스와 스티브 배넌이 워싱턴에서 '인간 우선' AI를 논의했다.",
+   "summary_en": "Unlikely allies Sanders and Bannon collaborate on 'humans first' AI policy approach.",
+   "summary_ko": "뜻밖의 동맹 샌더스와 배넌이 '인간 중심' AI 정책을 위해 협력한다.",
    "classified": true
   },
   {
@@ -3663,9 +3703,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Bernie Sanders and Steve Bannon join forces to demand AI regulation.",
-   "summary_ko": "버니 샌더스와 스티브 배넌이 손을 잡고 AI 규제를 요구했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Bernie Sanders and Steve Bannon join forces to advocate for AI regulation.",
+   "summary_ko": "버니 샌더스와 스티브 배넌이 AI 규제를 위해 힘을 합쳤다.",
    "classified": true
   },
   {
@@ -3683,9 +3723,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Sen. Bernie Sanders and Steve Bannon appear together at an AI safety rally calling for regulation.",
-   "summary_ko": "버니 샌더스 상원의원과 스티브 배넌이 AI 안전 집회에 함께 참석해 규제를 촉구했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Sen. Bernie Sanders and Steve Bannon appear together at an AI safety rally.",
+   "summary_ko": "버니 샌더스 상원의원과 스티브 배넌이 AI 안전 집회에 함께 참석했다.",
    "classified": true
   },
   {
@@ -3703,9 +3743,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Bernie Sanders and Steve Bannon form an unlikely alliance in the fight over AI regulation.",
-   "summary_ko": "버니 샌더스와 스티브 배넌이 AI 규제 싸움에서 뜻밖의 동맹을 맺었다.",
+   "confidence": 0.9,
+   "summary_en": "Explainer on why Sanders and Bannon teamed up in the fight over AI policy.",
+   "summary_ko": "샌더스와 배넌이 AI 정책 싸움에서 왜 손을 잡았는지 분석한다.",
    "classified": true
   },
   {
@@ -3723,9 +3763,9 @@
     "sanders"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Bernie Sanders and Steve Bannon jointly call for restrictions on artificial intelligence.",
-   "summary_ko": "버니 샌더스와 스티브 배넌이 인공지능 규제를 공동으로 촉구했다.",
+   "confidence": 0.9,
+   "summary_en": "Bernie Sanders and Steve Bannon jointly call for AI restrictions in rare bipartisan agreement.",
+   "summary_ko": "버니 샌더스와 스티브 배넌이 드물게 초당적 합의로 AI 규제를 공동 촉구했다.",
    "classified": true
   },
   {
@@ -3763,9 +3803,9 @@
     "massie"
    ],
    "polarity": "feud",
-   "confidence": 0.98,
-   "summary_en": "Rep. Thomas Massie introduces impeachment articles against Hegseth over Iran war policy.",
-   "summary_ko": "토머스 매시 하원의원이 이란 전쟁 정책을 이유로 피트 헤그세스 국방장관에 대한 탄핵소추안을 제출했습니다.",
+   "confidence": 0.95,
+   "summary_en": "GOP Rep. Thomas Massie files impeachment articles against Hegseth over Iran war concerns.",
+   "summary_ko": "공화당 토머스 매시 의원이 이란 전쟁 관련해 헤그세스 장관 탄핵 소추안을 제출했다.",
    "classified": true
   },
   {
@@ -3784,8 +3824,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.98,
-   "summary_en": "Republican Rep. Massie moves to impeach Defense Secretary Hegseth over the Iran war.",
-   "summary_ko": "공화당 매시 하원의원이 이란 전쟁을 이유로 헤그세스 국방장관 탄핵을 추진한다.",
+   "summary_en": "Republican Massie moves to impeach Hegseth over unauthorized Iran war actions.",
+   "summary_ko": "공화당 매시가 무단 이란 전쟁 행위를 이유로 헤그세스 탄핵을 추진한다.",
    "classified": true
   },
   {
@@ -3884,8 +3924,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Despite deep differences, Steve Bannon and Bernie Sanders agree on the existential threat of AI.",
-   "summary_ko": "깊은 이견에도 불구하고 스티브 배넌과 버니 샌더스는 AI의 실존적 위협에 동의한다.",
+   "summary_en": "Despite ideological differences, Bannon and Sanders unite on existential AI threat warning.",
+   "summary_ko": "이념적 차이에도 배넌과 샌더스가 AI 실존적 위협 경고로 뜻을 모았다.",
    "classified": true
   },
   {
@@ -4205,8 +4245,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom pledges not to run if Harris runs again in 2028.",
-   "summary_ko": "뉴섬은 해리스가 2028년 다시 출마하면 출마하지 않겠다고 약속했다.",
+   "summary_en": "Gavin Newsom pledges not to run in 2028 if Kamala Harris enters the race.",
+   "summary_ko": "개빈 뉴섬이 카말라 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -4225,8 +4265,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Gavin Newsom pledges not to run for president in 2028 if Kamala Harris runs.",
-   "summary_ko": "개빈 뉴섬 주지사가 카멀라 해리스가 2028년 대선에 출마하면 불출마하겠다고 밝혔다.",
+   "summary_en": "Gavin Newsom pledges not to run in 2028 if Kamala Harris enters the race.",
+   "summary_ko": "개빈 뉴섬이 카말라 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -4266,8 +4306,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Sanders and Bannon form an unlikely alliance advocating for human-controlled AI.",
-   "summary_ko": "샌더스와 배넌이 인간 중심 AI를 지지하는 뜻밖의 동맹을 맺었다.",
+   "summary_en": "Steve Bannon and Bernie Sanders form an alliance advocating for human-controlled AI.",
+   "summary_ko": "스티브 배넌과 버니 샌더스가 인간 중심 AI를 옹호하며 연대했습니다.",
    "classified": true
   },
   {
@@ -4286,8 +4326,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Sanders and Bannon jointly raise concerns about AI risks at a shared event.",
-   "summary_ko": "샌더스와 배넌이 공동 행사에서 AI 위험성을 함께 경고하며 협력했습니다.",
+   "summary_en": "Bernie Sanders and Steve Bannon jointly warn about AI dangers at a shared event.",
+   "summary_ko": "버니 샌더스와 스티브 배넌이 공동 행사에서 AI 위험성을 함께 경고했습니다.",
    "classified": true
   },
   {
@@ -4326,8 +4366,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom pledges not to run in 2028 if Harris runs, clearing the field for her.",
-   "summary_ko": "뉴섬은 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혀 그녀의 길을 터줬다.",
+   "summary_en": "Gavin Newsom pledges not to run in 2028 if Kamala Harris enters the race.",
+   "summary_ko": "개빈 뉴섬이 카말라 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -4346,8 +4386,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Trump and Vance launch a joint midterm campaign tour as running mates.",
-   "summary_ko": "트럼프와 밴스가 중간선거를 앞두고 합동 유세 투어를 시작했습니다.",
+   "summary_en": "Trump and Vance launch a joint midterm campaign tour as GOP faces challenges.",
+   "summary_ko": "트럼프와 밴스가 공화당 위기 속에 공동 중간선거 유세를 시작했습니다.",
    "classified": true
   },
   {
@@ -4411,26 +4451,6 @@
    "classified": true
   },
   {
-   "id": "sig-8cdb6d28",
-   "date": "2026-09-14",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZVc4WUhyV2xZV0puOVJvWlU0VTlXblVHX0U4M2lXd0l6Vm1Wd2Y1WjNkMkVHYXJzLVFzNUJndXZkZzgybFlEN2g1ZzQydG9qWjdHekxWenlSelJDcDdrSGRlNVZvb2hHbEVYRFVwU3k0QjlvZlQtNGpXb2NRX3VLZWR3Y2JJNEE?oc=5",
-   "title": "Thune sees role for Congress on AI — Trump does not - Axios",
-   "people": [
-    "trump",
-    "thune"
-   ],
-   "pair": [
-    "thune",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Thune supports congressional action on AI while Trump opposes it, highlighting a policy split.",
-   "summary_ko": "튠은 AI에 대한 의회 역할을 지지하지만 트럼프는 반대해 정책적 분열을 드러냈다.",
-   "classified": true
-  },
-  {
    "id": "sig-4485abf7",
    "date": "2026-09-14",
    "source": "NBC News",
@@ -4446,8 +4466,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Newsom says he won't run for president in 2028 if Harris does.",
-   "summary_ko": "뉴섬은 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혔다.",
+   "summary_en": "Gavin Newsom pledges not to run in 2028 if Kamala Harris enters the race.",
+   "summary_ko": "개빈 뉴섬이 카말라 해리스가 출마하면 2028년 대선에 출마하지 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -4525,9 +4545,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Buttigieg mocks GOP candidates for trying to distance themselves from Trump's unpopularity.",
-   "summary_ko": "부티지지가 공화당 후보들이 트럼프의 부정적 이미지에서 벗어나려 한다고 조롱했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Buttigieg accuses GOP candidates of trying to distance themselves from Trump's toxicity.",
+   "summary_ko": "부티지지가 공화당 후보들이 트럼프의 '악취'를 떨쳐내려 한다고 비판했습니다.",
    "classified": true
   },
   {
@@ -4708,6 +4728,26 @@
    "confidence": 0.85,
    "summary_en": "Speaker Johnson indicates willingness to cooperate with Trump on delivering $5,000 payments to Americans.",
    "summary_ko": "존슨 의장이 트럼프와 협력해 미국인들에게 5천달러 지급을 추진할 수 있다고 언급함.",
+   "classified": true
+  },
+  {
+   "id": "sig-3ac1f12b",
+   "date": "2026-09-13",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMkFJb18tcW1MYVF1WVVVV0RKTklHX0pJUUhSTVVxcTVad2Z6bjNadm5lYkxBQUpUMjFuZnFydVE4NjJzRVhpaThnRXg5aTlCa1otSDRHN0lHYzlHWjBkMm1wTVZEZS1ZZzlaR1VDMkVfQ3U2QTZXZ3RYeEFOQ2lnU3IwQkJhd09yNG9nQzRhRlVrOUgwd1lVSVBQbS1MYmkzbEdYbXU5T2JuczTSAbABQVVfeXFMTWdIYmhZUXhpMTFtSDAyTEhfN2QzODVzT3lGWjRXN2p2Sm51SWZ1S3JvNDRtMG5vMkxyYXE4SV9CWURnWkVnR0NkLThtNDJhNGhvVmw3MEZlRFRCZXk4bWV1ZEhqSHlITHMyZDNqZWdyMFk4N0FhZy1vUlJERGJNeUFzY3RKNFVXLWxYX2VXNHRlU0FiRTRNUk0zLWZVd1pmVVRsZFVMLTkxZUQ0WE1Wc3g?oc=5",
+   "title": "Republican Rep. Lawler dodges pledge of allegiance to Trump: 'I pledge my allegiance to my constituents' - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "lawler-mike"
+   ],
+   "pair": [
+    "lawler-mike",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Lawler refuses personal allegiance to Trump, pledging loyalty to constituents instead.",
+   "summary_ko": "로울러 의원이 트럼프 개인에 대한 충성 서약을 거부하고 유권자 충성을 선언했습니다.",
    "classified": true
   },
   {
@@ -5125,9 +5165,9 @@
     "vance"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Vance and Trump jointly urge Americans to support Republicans on the convention's final night.",
-   "summary_ko": "밴스와 트럼프가 전당대회 마지막 날 공화당 지지를 공동으로 호소했다.",
+   "confidence": 0.95,
+   "summary_en": "JD Vance and Donald Trump jointly urge Americans to support Republican candidates on the final night of the convention.",
+   "summary_ko": "JD 밴스와 도널드 트럼프가 전당대회 마지막 날 공화당 후보 지지를 공동 호소했습니다.",
    "classified": true
   },
   {
@@ -5146,8 +5186,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Rick Scott explicitly rules out supporting Thune for leadership, deepening GOP rift.",
-   "summary_ko": "릭 스콧이 튠 지지를 '절대 아니다'라며 단호히 거부해 공화당 내분 심화.",
+   "summary_en": "Rick Scott explicitly rules out supporting Thune for GOP leader.",
+   "summary_ko": "릭 스콧이 튠의 공화당 대표 지지를 '절대 아니다'라고 명확히 거절했다.",
    "classified": true
   },
   {
@@ -5386,8 +5426,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Harris teams up with Ossoff for a Georgia campaign event ahead of midterms.",
-   "summary_ko": "해리스가 중간선거를 앞두고 조지아에서 오소프와 합동 유세를 펼칩니다.",
+   "summary_en": "Harris campaigns with Ossoff in Georgia for the midterms.",
+   "summary_ko": "해리스가 조지아에서 오소프와 함께 중간선거 유세에 나선다.",
    "classified": true
   },
   {
@@ -5406,8 +5446,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Trump and Vance jointly urge Americans to vote Republican on convention's final night.",
-   "summary_ko": "트럼프와 밴스가 전당대회 마지막 날 공화당 지지를 공동 호소했습니다.",
+   "summary_en": "Vance and Trump jointly urge voters to support Republicans.",
+   "summary_ko": "밴스와 트럼프가 함께 공화당 지지를 호소했다.",
    "classified": true
   },
   {
@@ -5687,8 +5727,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Fetterman vows to work with Trump on steel policy in surprise RNC appearance.",
-   "summary_ko": "페터만이 RNC 깜짝 등장해 트럼프와 철강 정책 협력을 약속했습니다.",
+   "summary_en": "Fetterman vows to work with Trump on steel policy at RNC.",
+   "summary_ko": "페터만이 전당대회에서 트럼프와 철강 정책 협력을 다짐했다.",
    "classified": true
   },
   {
@@ -7151,19 +7191,15 @@
     "vance",
     "rfk-jr"
    ],
-   "classified": false
-  },
-  {
-   "id": "sig-9c09249c",
-   "date": "2026-09-28",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQ2R1OUxmUThSUElMQ2lYZlpKNXdvQm9MbDVMUGhTRGFsdVhzZlhtMmRNNVhhQVoxd0MwX0Y2SDNVV0VPVmhsUm14MlJGU0RpYUttV2g1SG9HRXRXYkIzT3Q5WFdkZDBUZWNfazVYVGZsWDRPYzI1OFZTTFRUZE5yRE1sS1TSAYoBQVVfeXFMT1hndUNjck5sLXljWkN1aWRBQzBwX0xyaWxtZENUN0JXcEZOdGRmOUVwR2FfNGNiY3hTQk1oMFRPVVhsbHhoNkJCY1dlUENqMkd6bC1VdkJhSThManc3bVZVcTh1VjZNRG9RRy1aN0dnMEt1LWwtTGdQVnVnRndBdlVWRzdnaXc5Qk1B?oc=5",
-   "title": "Vance, RFK Jr., Mike Tyson to speak at MAHA Summit in DC - thehill.com",
-   "people": [
-    "vance",
-    "rfk-jr"
+   "classified": true,
+   "pair": [
+    "rfk-jr",
+    "vance"
    ],
-   "classified": false
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "MAHA activists criticize corporate sponsorship of a summit featuring both Vance and RFK Jr.",
+   "summary_ko": "MAHA 활동가들이 밴스와 RFK 주니어가 연사로 나서는 정상회의의 기업 후원을 비판한다."
   },
   {
    "id": "sig-c9ba7548",
@@ -7279,18 +7315,6 @@
    "classified": false
   },
   {
-   "id": "sig-62855d69",
-   "date": "2026-09-24",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQRDM1ZF9IXzVsSGFONE9BMEJ4MVpRTjk3eW8zb0xIMkZteUVPSHFlV19HZ0xfMXZCUjduek5hTVhnWUp1T01vRE9ZNEp5S1Fya0dQRWtVNjhuaE9EWG4xX1hsMHVjN3NRdS1sOHhIOHJKYlRBM3Y2em1fOU0ySFZIa3Fac3NNd29VRTZ1U250UkZGMWcxNVFJb0FB?oc=5",
-   "title": "Trump to headline \"Golden Age\" event with top officials, tech executives - cbsnews.com",
-   "people": [
-    "trump",
-    "golden-jared"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-97d09f83",
    "date": "2026-09-23",
    "source": "Reuters",
@@ -7305,9 +7329,9 @@
     "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.7,
+   "confidence": 0.8,
    "summary_en": "Rubio reports Trump discussed Venezuela debt overhaul with Rodriguez.",
-   "summary_ko": "루비오가 트럼프와 베네수엘라 로드리게스가 부채 개편을 논의했다고 전했습니다.",
+   "summary_ko": "루비오가 트럼프와 로드리게스가 베네수엘라 부채 개편을 논의했다고 전했다.",
    "classified": true
   },
   {
@@ -7337,9 +7361,9 @@
     "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Rubio says Trump invited Putin to G20 summit in Miami.",
-   "summary_ko": "루비오가 트럼프의 마이애미 G20 푸틴 초청을 밝혔습니다.",
+   "confidence": 0.8,
+   "summary_en": "Rubio says Trump invited Putin to the G20 in Miami.",
+   "summary_ko": "루비오가 트럼프의 마이애미 G20 푸틴 초청을 밝혔다.",
    "classified": true
   },
   {
@@ -7435,18 +7459,6 @@
    "classified": true
   },
   {
-   "id": "sig-4da762bd",
-   "date": "2026-09-22",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbGlpZnhwMGNLcFRVSXpreElTb0tqV2c2eDhfa0dBUnUyb2pqQTFWaEk4eDNBbGFaM2ZramFKcmRod2JEakNqSHpmN19SMWQ3X2dPY0VTOTk5MjY0YmJhWXgwdkhYQ1FvcW4wczdnOWVTS0hzNkRIWTZHdmY1SVZzT0RydWtieFRIODE5NlVVODB5NUM5cDd0MmVFdHZBVjA0VVpGNk9pWk1LeXRPTERDTldEdUPSAboBQVVfeXFMTi1WdEd3MmxlUl9CWFVfdm1OTldhR0RadlNDZTVpNUNxb29BZHB3bmR0a2UzR3BUV19SdnNVMi1Dd09LTEU5Y1VZcUFOVnVkQnI2VzJvMXZNOFZURGVBOGlkZ3pJS0JMeVV3aFlzVnJ6S0VMSHl4UW82OWNrbkFpQjZ0dTItcG9SQXRjWlZ3ZWVIMHdBM082dmRqZGhZRWNCTzg5RjI2QUFSYWE2VlFVYnZzYTN0d3BTaDVn?oc=5",
-   "title": "Republican senator calls for Judiciary Committee to subpoena Donald Trump Jr. and Hunter Biden - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-f772bafd",
    "date": "2026-09-22",
    "source": "Semafor",
@@ -7539,11 +7551,11 @@
    "classified": true
   },
   {
-   "id": "sig-2f779bac",
+   "id": "sig-e509353f",
    "date": "2026-09-22",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNc0RXbjFjTnZDdlJOOEoyZUg4OG51NkpxTzJBVktsYTJzSk1neElnWk0xMFltbVNxT3pYajQ2NFhIVFZiSFlUX3ZURV9Sci1WdUVIeWNyTGVIWU1WY0NGOUdQcVE0UkFQdzNLb3I0cHhrcDhPNnVhX0VZbXpxLVI5OFhNU01MdExlNlJ5RWFJMXk3T0dMLThSdGFQenFwaGxjcnZCRjlZM1nSAa4BQVVfeXFMT0lHMEpBYXB5SXZsLXFQVmRlX19WZVB0VVJTbVZNcVpkazZoU2k0Vm9VOENxR2c2X2pHLW9TRkd6eTZQbDVyTUJ0YTJOOHptWGN6WDhBWXRSMWdneThyWGdvZlJJaVVCVHBRMzRLd1ZhM3pfc2gwTGY5SzJMZUlNYkMxUUQzMThsTWNBcHBvWGhkdEZuM3d2NnFHY0Q1eEhNWUdMdVN0MWE4eV9PeFdR?oc=5",
-   "title": "Rubio’s meme-worthy job collection takes new turn with permanent Trump upgrade - foxnews.com",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQbURYb3lKcVZWZ18yQ1dhdEEwN2otdkVVenFoWS1yTkJJRkVLOXN0Y0VCT19NTVd2WVN5Ny1CSzB3N0l0VUpHSnR1QXVrOXBJdHUyejRFQjE2dGFhT1pxdDZVRVpfR190SkNUeFluV05tSFpNTGg5d2JQRUE5YWdWMDhmQVpnd9IBiwFBVV95cUxNb3Zmc0lDX29ZYjVwQjZpSVVWVHoxQTJsYWRreU8zQXpROEZINkhHbEl5T01hdjhYUFhBZWp4alllUXJORW5SRndUdlJ4LUxnb2hBTlY0SjhTVXVnTFBVdWRnWXRoRnB0aC1UNENrNWhrcmZtMDRTSTdtaWFIbjNCWmF3VmZrSUl4LXB3?oc=5",
+   "title": "Trump open to meeting Iran’s president on UN sidelines: Rubio - The Hill",
    "people": [
     "trump",
     "rubio"
@@ -7680,26 +7692,6 @@
    "confidence": 0.7,
    "summary_en": "Scalise expresses uncertainty about Trump's decision to ban three news outlets from the White House.",
    "summary_ko": "스칼리스가 트럼프의 백악관 3개 매체 출입 금지에 대해 '모르겠다'고 밝혔다.",
-   "classified": true
-  },
-  {
-   "id": "sig-505b1144",
-   "date": "2026-09-18",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdUFGS3JkZFRqRUJxeW5qZDZHUS1MbnI0eU9NU3p5Nk1DZWRCZmxyT0hOVzUxZ2tweTdfVUI4YWI2SkhtbU1yVkxuYmk5WEg1S1Zma2JmVDc4Z3ppbmlDbm9MSE5nZGhWZmcwSGlmVW5WNTdYbFJhV0pISjJPa2RXbWVfN0dTNFNrRU56UVhKNHNHT0l5aVJsSmg4am9ZREJGTmY4ZzgzcHB5em8tRFZwVmd1SnY?oc=5",
-   "title": "El diputado Thomas Massie afirma que Johnson se saltó la votación sobre la destitución de Pete Hegseth - Fox News",
-   "people": [
-    "hegseth",
-    "massie"
-   ],
-   "pair": [
-    "hegseth",
-    "massie"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.6,
-   "summary_en": "Massie claims Johnson skipped the vote on Hegseth's impeachment, not directly acting on Hegseth.",
-   "summary_ko": "매시가 존슨이 헤그세스 탄핵 투표를 건너뛰었다고 주장하며, 헤그세스에게 직접 행동하지는 않았다.",
    "classified": true
   },
   {
@@ -7840,6 +7832,18 @@
    "classified": true
   },
   {
+   "id": "sig-caf1f193",
+   "date": "2026-09-17",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQU1BXRy1OdHJzX1lSMVVZcWFMeE0wUVF4YVpJRGE4OXdwT1JYR1dVNlN2Y1h6YUdTSjFPVFFSY3NObXdoZFZNbmFCQmtOcERqOTJrUlRDbUtsOW9JbzlJTnRiVGFySUNmd0dXR0phUl9XZFJCU3ppZ29QTnc2aDlJbFExaHNfaW9EbGtKQV9QMDE2dUwzM3ItNXRtUmJSNVV4VFBJbDZUa2dBbklfcS1n0gG0AUFVX3lxTE5Qb1BFUENKc0VTd0ZQM3FhbHoteFNVdFM2UnN5NWFpTkNiSkdoRmlTMjZGMWJILXlvbUtvRXh6ZE5kUzNhRUphMWNzbE5xSUNWQWlkSkdoWlowR3FSOTNyZm9JNXBWM1MyTmwxSTVHV0I4YlJiUzJHQk50eDRxazlxcTN0ZHdQSTB6YTVENUFBbEtOMXMzdzF4aWVoU3FwVUJZblhrMjNicXhvT2lBaGM1TmQydg?oc=5",
+   "title": "Democrats reluctantly hand Trump major victory on fraud program targeting Tim Walz - Fox News",
+   "people": [
+    "trump",
+    "walz"
+   ],
+   "classified": false
+  },
+  {
    "id": "sig-e032763f",
    "date": "2026-09-16",
    "source": "NPR",
@@ -7855,8 +7859,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "House passes Russia sanctions bill named for Graham, sending it to Trump.",
-   "summary_ko": "하원이 그레이엄 명의 러시아 제재 법안을 통과시켜 트럼프에게 송부하다.",
+   "summary_en": "House passes Russia sanctions bill named for Graham, sending it to Trump for signature.",
+   "summary_ko": "하원이 그레이엄 명의의 러시아 제재 법안을 통과시켜 트럼프 서명을 위해 보냈습니다.",
    "classified": true
   },
   {
@@ -7875,8 +7879,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "House passes Graham-named Russia sanctions bill, sending it to Trump.",
-   "summary_ko": "하원이 그레이엄 명의 러시아 제재 법안을 통과시켜 트럼프에게 보내다.",
+   "summary_en": "House passes Russia sanctions bill named for Graham, sending it to Trump for signature.",
+   "summary_ko": "하원이 그레이엄 명의의 러시아 제재 법안을 통과시켜 트럼프 서명을 위해 보냈습니다.",
    "classified": true
   },
   {
@@ -8068,6 +8072,26 @@
    "classified": true
   },
   {
+   "id": "sig-8cdb6d28",
+   "date": "2026-09-14",
+   "source": "Axios",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZVc4WUhyV2xZV0puOVJvWlU0VTlXblVHX0U4M2lXd0l6Vm1Wd2Y1WjNkMkVHYXJzLVFzNUJndXZkZzgybFlEN2g1ZzQydG9qWjdHekxWenlSelJDcDdrSGRlNVZvb2hHbEVYRFVwU3k0QjlvZlQtNGpXb2NRX3VLZWR3Y2JJNEE?oc=5",
+   "title": "Thune sees role for Congress on AI — Trump does not - Axios",
+   "people": [
+    "trump",
+    "thune"
+   ],
+   "pair": [
+    "thune",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Senator Thune and Trump disagree on Congressional role in AI regulation policy.",
+   "summary_ko": "튠 상원의원과 트럼프가 AI 규제에서 의회의 역할을 두고 이견을 보인다.",
+   "classified": true
+  },
+  {
    "id": "sig-a99a24af",
    "date": "2026-09-14",
    "source": "The Washington Post",
@@ -8138,26 +8162,6 @@
     "golden-jared"
    ],
    "classified": false
-  },
-  {
-   "id": "sig-3ac1f12b",
-   "date": "2026-09-13",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMkFJb18tcW1MYVF1WVVVV0RKTklHX0pJUUhSTVVxcTVad2Z6bjNadm5lYkxBQUpUMjFuZnFydVE4NjJzRVhpaThnRXg5aTlCa1otSDRHN0lHYzlHWjBkMm1wTVZEZS1ZZzlaR1VDMkVfQ3U2QTZXZ3RYeEFOQ2lnU3IwQkJhd09yNG9nQzRhRlVrOUgwd1lVSVBQbS1MYmkzbEdYbXU5T2JuczTSAbABQVVfeXFMTWdIYmhZUXhpMTFtSDAyTEhfN2QzODVzT3lGWjRXN2p2Sm51SWZ1S3JvNDRtMG5vMkxyYXE4SV9CWURnWkVnR0NkLThtNDJhNGhvVmw3MEZlRFRCZXk4bWV1ZEhqSHlITHMyZDNqZWdyMFk4N0FhZy1vUlJERGJNeUFzY3RKNFVXLWxYX2VXNHRlU0FiRTRNUk0zLWZVd1pmVVRsZFVMLTkxZUQ0WE1Wc3g?oc=5",
-   "title": "Republican Rep. Lawler dodges pledge of allegiance to Trump: 'I pledge my allegiance to my constituents' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "lawler-mike"
-   ],
-   "pair": [
-    "lawler-mike",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Rep. Lawler declines to pledge allegiance to Trump, stating loyalty to constituents instead.",
-   "summary_ko": "로울러 의원이 트럼프에 대한 충성 서약을 거부하고 유권자들에게 충성을 다하겠다고 밝혔습니다.",
-   "classified": true
   },
   {
    "id": "sig-957a743c",
@@ -8683,6 +8687,18 @@
    "summary_en": "Newsom walks back comments related to Buttigieg amid political positioning.",
    "summary_ko": "뉴섬이 버티지지 관련 발언을 철회하며 정치적 입지를 조정하고 있다.",
    "classified": true
+  },
+  {
+   "id": "sig-4b7ce225",
+   "date": "2026-09-08",
+   "source": "The Washington Post",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQSkFjcDRnc2I5dnljSWdlRW41UTBZcEg0MGc5V0dneEthSVJtaFVqR3FRWV9xWlhTWEdzUU9KS095aUU3NEo4WnVxbzJfVENzT05ENlk3Q3FrZXJRZ01pdFNza1VRN00xRmd4amo5R3NYWnppcFVKd3lLQXBKMTBZN0xBVEpsYlZrX1lxc1pVNEhXMDJaX3FsY3RrLXNUM2ZRYXdvZ20waDI2OE00d242WVRJWTNKdHNrZTllbURDTHZmZFVwUU52VVE1SQ?oc=5",
+   "title": "Marco Rubio enjoyed major support among Venezuelans. Then came Trump’s oil deal. - The Washington Post",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "classified": false
   },
   {
    "id": "sig-7c35c694",
