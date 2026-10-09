@@ -11,6 +11,7 @@ import {
   type SourceRef,
   checkSignalDuplicates,
   checkUnclassified,
+  checkLocalizedText,
 } from './checks.mts';
 
 const NOW = new Date('2026-08-29T06:00:00Z');
@@ -903,5 +904,38 @@ describe('checkPartyUnity', () => {
     const found = checkPartyUnity(flat, ids);
     expect(found.map((x) => x.check)).toContain('unity.flat');
     expect(found.find((x) => x.check === 'unity.flat')?.level).toBe('warn');
+  });
+});
+
+describe('checkLocalizedText', () => {
+  const file = (text: string) => [{ name: 'x.ts', text }];
+
+  it('영어 칸이 영어면 조용하다', () => {
+    expect(checkLocalizedText(file(`note: L('Allies', '동맹'),`))).toHaveLength(0);
+  });
+
+  // trump×musk 2025-05 의 노트가 영어 칸에도 한국어였다 — 영어 화면에 그대로 나갔다
+  it('영어 칸에 한글이 있으면 실패한다', () => {
+    const f = checkLocalizedText(file(`note: L('DOGE 시절 최고의 동반자', 'DOGE 시절 최고의 동반자'),`));
+    expect(f[0]).toMatchObject({ level: 'fail', check: 'i18n.en' });
+  });
+
+  it('여러 줄로 나뉜 L( 도 읽는다', () => {
+    const f = checkLocalizedText(file(`bio: L(\r\n      '한국어가 섞였다',\r\n      '한국어'\r\n    ),`));
+    expect(f[0]?.level).toBe('fail');
+  });
+
+  it('이스케이프된 따옴표를 문자열 끝으로 착각하지 않는다', () => {
+    expect(checkLocalizedText(file(String.raw`L('MAGA\'s heir', '후계자')`))).toHaveLength(0);
+    expect(checkLocalizedText(file(String.raw`L('MAGA\'s 후계자', '후계자')`))[0]?.level).toBe('fail');
+  });
+
+  it('Larr 의 쌍도 본다', () => {
+    expect(checkLocalizedText(file(`tags: Larr(['Hub node', '허브 노드'], ['허브', '허브']),`))[0]?.level).toBe('fail');
+  });
+
+  // 매칭이 0건인 것은 통과가 아니다 — 패턴이 데이터에서 벗어나면 조용히 아무것도 안 본다
+  it('쌍을 하나도 못 읽으면 실패한다', () => {
+    expect(checkLocalizedText(file(`export const X = 1;`))[0]).toMatchObject({ level: 'fail', check: 'i18n.en' });
   });
 });

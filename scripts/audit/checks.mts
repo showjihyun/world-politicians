@@ -1153,6 +1153,48 @@ export function checkUnclassified(
   ];
 }
 
+// 따옴표 문자열 하나. 이스케이프된 따옴표(MAGA\'s)를 문자열 끝으로 보지 않는다
+const STR = ["'(?:[^'\\\\]|\\\\.)*'", '"(?:[^"\\\\]|\\\\.)*"', '`(?:[^`\\\\]|\\\\.)*`'].join('|');
+const L_PAIR = new RegExp(String.raw`\bL\(\s*(${STR})\s*,\s*(${STR})\s*\)`, 'g');
+// Larr(['en', 'ko'], ...) 의 쌍. 데이터 파일의 다른 두 칸 배열(focusIds 등)도 걸리지만
+// 첫 칸에 한글이 들어갈 일이 없어 오탐은 없고, 세는 수만 늘어난다
+const ARR_PAIR = new RegExp(String.raw`\[\s*(${STR})\s*,\s*(${STR})\s*\]`, 'g');
+const HANGUL = /[ᄀ-ᇿㄱ-ㆎ가-힣]/;
+
+/**
+ * 이중 언어 텍스트의 영어 칸에 한글이 들어갔는가.
+ *
+ * trump×musk 2025-05 노트가 L('DOGE 시절…', 'DOGE 시절…') 로 들어가 영어 화면에
+ * 한국어가 나갔다. 타입은 둘 다 string 이라 컴파일러가 못 잡는다.
+ * 데이터 파일을 텍스트로 받는다 — 감사는 앱 모듈을 import 하지 않는다.
+ */
+export function checkLocalizedText(files: { name: string; text: string }[]): Finding[] {
+  let pairs = 0;
+  const bad: string[] = [];
+  for (const f of files) {
+    const text = f.text.replace(/\r\n/g, '\n');
+    for (const re of [L_PAIR, ARR_PAIR]) {
+      for (const m of text.matchAll(re)) {
+        pairs++;
+        const en = m[1].slice(1, -1);
+        if (HANGUL.test(en)) bad.push(`${f.name}: ${en.slice(0, 50)}`);
+      }
+    }
+  }
+  if (!pairs) {
+    return [{ level: 'fail', check: 'i18n.en', message: 'L(en, ko) 쌍을 하나도 읽지 못했다 — 볼 게 없는 것은 통과가 아니다' }];
+  }
+  if (!bad.length) return [];
+  return [
+    {
+      level: 'fail',
+      check: 'i18n.en',
+      message: `영어 칸에 한글이 든 이중언어 텍스트 ${bad.length}건 — 영어 화면에 한국어가 나간다`,
+      samples: bad.slice(0, 5),
+    },
+  ];
+}
+
 /** 종료 코드 결정 — fail 이 하나라도 있으면 실패다 */
 export function verdict(findings: Finding[]): { ok: boolean; fail: number; warn: number } {
   const fail = findings.filter((f) => f.level === 'fail').length;

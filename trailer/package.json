@@ -1,0 +1,37 @@
+{
+  "name": "trailer",
+  "version": "1.0.0",
+  "description": "POLARIS 4K trailer (Remotion)",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/media": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.534",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "assets": "node scripts/fetch-assets.mjs",
+    "data": "esbuild scripts/prepare.ts --bundle --platform=node --format=esm --define:import.meta.env.DEV=false --outfile=scripts/.prepare.mjs --log-level=warning && node scripts/.prepare.mjs",
+    "capture": "node scripts/capture.mjs",
+    "dev": "remotion studio",
+    "render:en": "remotion render Trailer-EN out/polaris-trailer-en-4k60.mp4 --codec=h264 --crf=17",
+    "render:ko": "remotion render Trailer-KO out/polaris-trailer-ko-4k60.mp4 --codec=h264 --crf=17",
+    "render": "npm run render:en && npm run render:ko",
+    "lint": "eslint src && tsc",
+    "upgrade": "remotion upgrade"
+  }
+}

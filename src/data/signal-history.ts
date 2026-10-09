@@ -12,7 +12,7 @@ export const HISTORY_ARCS: HistoryArc[] = [
   {
     a: 'trump', b: 'musk',
     points: [
-      { ym: '2025-05', polarity: 'ally', note: L('DOGE 시절 최고의 동반자', 'DOGE 시절 최고의 동반자') },
+      { ym: '2025-05', polarity: 'ally', note: L('Closest partners of the DOGE era', 'DOGE 시절 최고의 동반자') },
       { ym: '2025-06', polarity: 'feud', note: L('Public breakup over the Big Beautiful Bill + Epstein bomb', '대형조세법 반대·에핀스타 폭탄으로 공개 결별') },
       { ym: '2026-01', polarity: 'ally', note: L('Mar-a-Lago dinner photo — reconciliation sealed', '마라라고 만찬 사진으로 화해 공식화') },
       { ym: '2026-08', polarity: 'ally', note: L('Backs GOP midterms with $100M+', '$1억+ 중간선거 자금으로 복귀') },

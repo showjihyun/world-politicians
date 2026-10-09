@@ -22,7 +22,7 @@ import {
   checkManifest, checkPresentation, checkReferences, checkVerifiable, verdict,
   type AccuracyFile,
   type CosponsorFile, type CrosswalkFile, type Finding, type FundingFile, type LobbyingFile, type SignalRef, type SourceRef,
-  checkSignalDuplicates, checkUnclassified, checkSourceAliases,
+  checkSignalDuplicates, checkUnclassified, checkSourceAliases, checkLocalizedText,
 } from './checks.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -90,6 +90,15 @@ findings.push(...checkPresentation(sourceLinks));
 findings.push(...checkVerifiable(sourceLinks));
 findings.push(...checkDuplicates(sourcesByEdge));
 findings.push(...checkSourceAliases(CONFIG.allowedSourceNames, SOURCE_NAME_ALIASES));
+
+// 이중 언어 텍스트를 쓰는 데이터 파일 전부 — 인물 파일과 src/data 의 .ts
+const bilingualFiles = [
+  ...fs.readdirSync(CONFIG.paths.politiciansDir).map((f) => path.join(CONFIG.paths.politiciansDir, f)),
+  ...fs.readdirSync(path.join(ROOT, 'src/data')).map((f) => path.join(ROOT, 'src/data', f)),
+]
+  .filter((p) => p.endsWith('.ts'))
+  .map((p) => ({ name: path.relative(ROOT, p).replace(/\\/g, '/'), text: fs.readFileSync(p, 'utf8') }));
+findings.push(...checkLocalizedText(bilingualFiles));
 
 // 크로스워크는 이후 단계 전부가 얹히는 바닥이다. 인물이 늘거나 바뀌었는데
 // 다시 만들지 않으면 흔들리지 않는 대신 일관되게 틀린 값이 된다.

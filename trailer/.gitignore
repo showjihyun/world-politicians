@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# 렌더 산출물 (mp4·스틸)과 번들
+out
+build
+*.mp4
+scripts/.prepare.mjs
+
+# 다시 만들 수 있는 자산 — npm run assets / npm run capture 가 채운다
+public/ui
+public/music
+public/fonts

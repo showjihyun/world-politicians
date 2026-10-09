@@ -215,7 +215,7 @@ export const HOUSE: Politician[] = [
   },
   {
     id: 'fitzpatrick',
-    name: L('Brian Fitzpatrick', '브라이언 핏제럴드'),
+    name: L('Brian Fitzpatrick', '브라이언 피츠패트릭'),
     enName: 'Brian Fitzpatrick',
     party: 'R',
     branch: 'house',

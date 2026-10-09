@@ -1,0 +1,4086 @@
+{
+ "generatedFrom": "trailer/scripts/prepare.ts",
+ "now": "2026-10-09",
+ "counts": {
+  "figures": 101,
+  "curated": 266,
+  "cosponsorFresh": 112,
+  "cosponsorAll": 125,
+  "billsScanned": 15544,
+  "crossParty": 11,
+  "signals": 811,
+  "classified": 747,
+  "stories": 7
+ },
+ "hub": {
+  "id": "trump",
+  "componentsBefore": 2,
+  "largestBefore": 100,
+  "componentsAfter": 9,
+  "largestAfter": 91,
+  "hubDegree": 75
+ },
+ "nodes": [
+  {
+   "id": "trump",
+   "en": "Donald J. Trump",
+   "ko": "도널드 트럼프",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 10,
+   "degree": 75,
+   "x": 2066,
+   "y": 931,
+   "ax": null,
+   "ay": null
+  },
+  {
+   "id": "vance",
+   "en": "JD Vance",
+   "ko": "J.D. 밴스",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 9,
+   "degree": 7,
+   "x": 1642,
+   "y": 1442,
+   "ax": 1660,
+   "ay": 1102
+  },
+  {
+   "id": "rubio",
+   "en": "Marco Rubio",
+   "ko": "마르코 루비오",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 8,
+   "degree": 2,
+   "x": 1585,
+   "y": 1635,
+   "ax": 1695,
+   "ay": 1210
+  },
+  {
+   "id": "hegseth",
+   "en": "Pete Hegseth",
+   "ko": "피트 헤그세스",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 3,
+   "x": 2600,
+   "y": 1576,
+   "ax": 2888,
+   "ay": 766
+  },
+  {
+   "id": "rfk-jr",
+   "en": "Robert F. Kennedy Jr.",
+   "ko": "로버트 F. 케네디 주니어",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 8,
+   "degree": 5,
+   "x": 1843,
+   "y": 1179,
+   "ax": 1801,
+   "ay": 1025
+  },
+  {
+   "id": "gabbard",
+   "en": "Tulsi Gabbard",
+   "ko": "털시 개버드",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 2,
+   "x": 2612,
+   "y": 561,
+   "ax": 2254,
+   "ay": 510
+  },
+  {
+   "id": "noem",
+   "en": "Kristi Noem",
+   "ko": "크리스티 노엄",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 2,
+   "x": 2264,
+   "y": 260,
+   "ax": 2197,
+   "ay": 385
+  },
+  {
+   "id": "bondi",
+   "en": "Pam Bondi",
+   "ko": "팜 본디",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 1,
+   "x": 1223,
+   "y": 901,
+   "ax": 486,
+   "ay": 596
+  },
+  {
+   "id": "musk",
+   "en": "Elon Musk",
+   "ko": "일론 머스크",
+   "party": "X",
+   "color": "#94a3b8",
+   "prominence": 9,
+   "degree": 10,
+   "x": 1941,
+   "y": 1540,
+   "ax": 1709,
+   "ay": 1020
+  },
+  {
+   "id": "bannon",
+   "en": "Steve Bannon",
+   "ko": "스티브 배넌",
+   "party": "X",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 2,
+   "x": 1462,
+   "y": 1489,
+   "ax": 1618,
+   "ay": 1178
+  },
+  {
+   "id": "biden",
+   "en": "Joe Biden",
+   "ko": "조 바이든",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 9,
+   "degree": 28,
+   "x": 2219,
+   "y": 585,
+   "ax": 1710,
+   "ay": 583
+  },
+  {
+   "id": "harris",
+   "en": "Kamala Harris",
+   "ko": "카멀라 해리스",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 9,
+   "degree": 9,
+   "x": 2893,
+   "y": 677,
+   "ax": 1802,
+   "ay": 558
+  },
+  {
+   "id": "obama",
+   "en": "Barack Obama",
+   "ko": "버락 오바마",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 9,
+   "degree": 9,
+   "x": 2427,
+   "y": 585,
+   "ax": 1937,
+   "ay": 478
+  },
+  {
+   "id": "pence",
+   "en": "Mike Pence",
+   "ko": "마이크 펜스",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 3,
+   "x": 1452,
+   "y": 611,
+   "ax": 1361,
+   "ay": 475
+  },
+  {
+   "id": "thune",
+   "en": "John Thune",
+   "ko": "존 투네",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 8,
+   "degree": 4,
+   "x": 1831,
+   "y": 1372,
+   "ax": 1713,
+   "ay": 927
+  },
+  {
+   "id": "mcconnell",
+   "en": "Mitch McConnell",
+   "ko": "미치 맥코널",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 8,
+   "degree": 8,
+   "x": 1710,
+   "y": 1021,
+   "ax": 1660,
+   "ay": 823
+  },
+  {
+   "id": "graham",
+   "en": "Lindsey Graham",
+   "ko": "린지 그레이엄",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 7,
+   "degree": 5,
+   "x": 1347,
+   "y": 1341,
+   "ax": 1408,
+   "ay": 825
+  },
+  {
+   "id": "cruz",
+   "en": "Ted Cruz",
+   "ko": "테드 크루즈",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 8,
+   "degree": 3,
+   "x": 1660,
+   "y": 1242,
+   "ax": 1623,
+   "ay": 984
+  },
+  {
+   "id": "hawley",
+   "en": "Josh Hawley",
+   "ko": "조시 홀리",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 7,
+   "degree": 6,
+   "x": 2087,
+   "y": 1406,
+   "ax": 1798,
+   "ay": 938
+  },
+  {
+   "id": "cotton",
+   "en": "Tom Cotton",
+   "ko": "톰 코튼",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 7,
+   "degree": 3,
+   "x": 2241,
+   "y": 1513,
+   "ax": 1904,
+   "ay": 698
+  },
+  {
+   "id": "paul-rand",
+   "en": "Rand Paul",
+   "ko": "랜드 폴",
+   "party": "R",
+   "color": "#eab308",
+   "prominence": 6,
+   "degree": 5,
+   "x": 1761,
+   "y": 1586,
+   "ax": 1552,
+   "ay": 1027
+  },
+  {
+   "id": "lee-mike",
+   "en": "Mike Lee",
+   "ko": "마이크 리",
+   "party": "R",
+   "color": "#eab308",
+   "prominence": 5,
+   "degree": 1,
+   "x": 2378,
+   "y": 1786,
+   "ax": 2592,
+   "ay": 1761
+  },
+  {
+   "id": "ernst",
+   "en": "Joni Ernst",
+   "ko": "조니 어니스트",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1198,
+   "y": 1271,
+   "ax": 445,
+   "ay": 938
+  },
+  {
+   "id": "collins-susan",
+   "en": "Susan Collins",
+   "ko": "수전 콜린스",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 5,
+   "x": 1905,
+   "y": 599,
+   "ax": 1559,
+   "ay": 521
+  },
+  {
+   "id": "murkowski",
+   "en": "Lisa Murkowski",
+   "ko": "리사 머코우스키",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 5,
+   "x": 1780,
+   "y": 705,
+   "ax": 1580,
+   "ay": 608
+  },
+  {
+   "id": "cassidy",
+   "en": "Bill Cassidy",
+   "ko": "빌 캐시디",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1507,
+   "y": 951,
+   "ax": 1836,
+   "ay": 1226
+  },
+  {
+   "id": "tillis",
+   "en": "Thom Tillis",
+   "ko": "톰 틸리스",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 1,
+   "x": 2753,
+   "y": 822,
+   "ax": 3395,
+   "ay": 703
+  },
+  {
+   "id": "tuberville",
+   "en": "Tommy Tuberville",
+   "ko": "토미 터버빌",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 1,
+   "x": 1722,
+   "y": 1738,
+   "ax": 929,
+   "ay": 1601
+  },
+  {
+   "id": "britt",
+   "en": "Katie Britt",
+   "ko": "케이티 브릿",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 1,
+   "x": 2061,
+   "y": 303,
+   "ax": 1647,
+   "ay": 433
+  },
+  {
+   "id": "blackburn",
+   "en": "Marsha Blackburn",
+   "ko": "마샤 블랙번",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 4,
+   "degree": 1,
+   "x": 2042,
+   "y": 1900,
+   "ax": 1667,
+   "ay": 1900
+  },
+  {
+   "id": "schmitt",
+   "en": "Eric Schmitt",
+   "ko": "에릭 슈미트",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 4,
+   "degree": 1,
+   "x": 1291,
+   "y": 1164,
+   "ax": 626,
+   "ay": 1136
+  },
+  {
+   "id": "moreno",
+   "en": "Bernie Moreno",
+   "ko": "버니 모레노",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 4,
+   "degree": 2,
+   "x": 1236,
+   "y": 1042,
+   "ax": 449,
+   "ay": 861
+  },
+  {
+   "id": "rick-scott",
+   "en": "Rick Scott",
+   "ko": "릭 스콧",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1509,
+   "y": 1323,
+   "ax": 1485,
+   "ay": 929
+  },
+  {
+   "id": "tim-scott",
+   "en": "Tim Scott",
+   "ko": "팀 스콧",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 3,
+   "x": 1372,
+   "y": 889,
+   "ax": 1267,
+   "ay": 685
+  },
+  {
+   "id": "schumer",
+   "en": "Chuck Schumer",
+   "ko": "척 슈머",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 8,
+   "degree": 16,
+   "x": 2332,
+   "y": 1156,
+   "ax": 1882,
+   "ay": 781
+  },
+  {
+   "id": "durbin",
+   "en": "Dick Durbin",
+   "ko": "딕 더빈",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1866,
+   "y": 1701,
+   "ax": 1580,
+   "ay": 829
+  },
+  {
+   "id": "warren",
+   "en": "Elizabeth Warren",
+   "ko": "엘리자베스 워런",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 7,
+   "degree": 5,
+   "x": 2278,
+   "y": 1339,
+   "ax": 1847,
+   "ay": 871
+  },
+  {
+   "id": "sanders",
+   "en": "Bernie Sanders",
+   "ko": "버니 샌더스",
+   "party": "I",
+   "color": "#22d3ee",
+   "prominence": 8,
+   "degree": 9,
+   "x": 2867,
+   "y": 1344,
+   "ax": 1978,
+   "ay": 771
+  },
+  {
+   "id": "klobuchar",
+   "en": "Amy Klobuchar",
+   "ko": "에이미 클로부처",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 4,
+   "x": 2010,
+   "y": 1116,
+   "ax": 1851,
+   "ay": 487
+  },
+  {
+   "id": "booker",
+   "en": "Cory Booker",
+   "ko": "코리 부커",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 7,
+   "degree": 6,
+   "x": 2559,
+   "y": 727,
+   "ax": 1855,
+   "ay": 407
+  },
+  {
+   "id": "warnock",
+   "en": "Raphael Warnock",
+   "ko": "래펠 워녹",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 6,
+   "degree": 3,
+   "x": 1888,
+   "y": 1006,
+   "ax": 1738,
+   "ay": 501
+  },
+  {
+   "id": "fetterman",
+   "en": "John Fetterman",
+   "ko": "존 페터먼",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 7,
+   "degree": 6,
+   "x": 2764,
+   "y": 985,
+   "ax": 1987,
+   "ay": 685
+  },
+  {
+   "id": "duckworth",
+   "en": "Tammy Duckworth",
+   "ko": "탬 더크워스",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 5,
+   "degree": 2,
+   "x": 3063,
+   "y": 962,
+   "ax": 2712,
+   "ay": 725
+  },
+  {
+   "id": "schiff",
+   "en": "Adam Schiff",
+   "ko": "애덤 시프",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 7,
+   "degree": 3,
+   "x": 2354,
+   "y": 406,
+   "ax": 1892,
+   "ay": 556
+  },
+  {
+   "id": "padilla",
+   "en": "Alex Padilla",
+   "ko": "알렉스 파디야",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 5,
+   "degree": 3,
+   "x": 2766,
+   "y": 539,
+   "ax": 2031,
+   "ay": 499
+  },
+  {
+   "id": "slotkin",
+   "en": "Elissa Slotkin",
+   "ko": "엘리사 슬롯킨",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 2,
+   "x": 2164,
+   "y": 1816,
+   "ax": 3001,
+   "ay": 798
+  },
+  {
+   "id": "kim-andy",
+   "en": "Andy Kim",
+   "ko": "앤디 김",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 5,
+   "degree": 1,
+   "x": 2910,
+   "y": 499,
+   "ax": 1961,
+   "ay": 260
+  },
+  {
+   "id": "markey",
+   "en": "Ed Markey",
+   "ko": "에드 마키",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 5,
+   "degree": 2,
+   "x": 3087,
+   "y": 1435,
+   "ax": 2137,
+   "ay": 835
+  },
+  {
+   "id": "gallego",
+   "en": "Ruben Gallego",
+   "ko": "루벤 갈레고",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 5,
+   "degree": 1,
+   "x": 3055,
+   "y": 464,
+   "ax": 2602,
+   "ay": 672
+  },
+  {
+   "id": "kelly-mark",
+   "en": "Mark Kelly",
+   "ko": "마크 켈리",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 4,
+   "x": 2524,
+   "y": 422,
+   "ax": 2453,
+   "ay": 676
+  },
+  {
+   "id": "murphy-chris",
+   "en": "Chris Murphy",
+   "ko": "크리스 머피",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 6,
+   "degree": 2,
+   "x": 2183,
+   "y": 402,
+   "ax": 1714,
+   "ay": 402
+  },
+  {
+   "id": "ossoff",
+   "en": "Jon Ossoff",
+   "ko": "존 오소프",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 6,
+   "degree": 2,
+   "x": 1385,
+   "y": 1049,
+   "ax": 1772,
+   "ay": 294
+  },
+  {
+   "id": "johnson-mike",
+   "en": "Mike Johnson",
+   "ko": "마이크 존슨",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 8,
+   "degree": 9,
+   "x": 2428,
+   "y": 1622,
+   "ax": 1920,
+   "ay": 918
+  },
+  {
+   "id": "scalise",
+   "en": "Steve Scalise",
+   "ko": "스티브 스칼리스",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 4,
+   "x": 2260,
+   "y": 1683,
+   "ax": 1955,
+   "ay": 1069
+  },
+  {
+   "id": "emmer",
+   "en": "Tom Emmer",
+   "ko": "톰 엠머",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 2,
+   "x": 2541,
+   "y": 1431,
+   "ax": 2063,
+   "ay": 1078
+  },
+  {
+   "id": "stefanik",
+   "en": "Elise Stefanik",
+   "ko": "엘리스 스테파니크",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 3,
+   "x": 1871,
+   "y": 439,
+   "ax": 1630,
+   "ay": 549
+  },
+  {
+   "id": "jordan-jim",
+   "en": "Jim Jordan",
+   "ko": "짐 조던",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 2,
+   "x": 1885,
+   "y": 1856,
+   "ax": 2052,
+   "ay": 1253
+  },
+  {
+   "id": "mtg",
+   "en": "Marjorie Taylor Greene",
+   "ko": "마저리 테일러 그린",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 7,
+   "degree": 13,
+   "x": 2134,
+   "y": 1233,
+   "ax": 1798,
+   "ay": 803
+  },
+  {
+   "id": "boebert",
+   "en": "Lauren Boebert",
+   "ko": "로런 보버트",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 5,
+   "x": 2109,
+   "y": 1621,
+   "ax": 1881,
+   "ay": 1050
+  },
+  {
+   "id": "mace-nancy",
+   "en": "Nancy Mace",
+   "ko": "낸시 메이스",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 4,
+   "x": 1978,
+   "y": 1284,
+   "ax": 1865,
+   "ay": 977
+  },
+  {
+   "id": "luna",
+   "en": "Anna Paulina Luna",
+   "ko": "애나 폴리나 루나",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 4,
+   "degree": 3,
+   "x": 2748,
+   "y": 1596,
+   "ax": 1988,
+   "ay": 955
+  },
+  {
+   "id": "massie",
+   "en": "Thomas Massie",
+   "ko": "토머스 매시",
+   "party": "R",
+   "color": "#eab308",
+   "prominence": 6,
+   "degree": 6,
+   "x": 2013,
+   "y": 1754,
+   "ax": 1795,
+   "ay": 1108
+  },
+  {
+   "id": "donalds",
+   "en": "Byron Donalds",
+   "ko": "바이런 도널즈",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1428,
+   "y": 1199,
+   "ax": 1563,
+   "ay": 1253
+  },
+  {
+   "id": "bacon-don",
+   "en": "Don Bacon",
+   "ko": "돈 베이컨",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 4,
+   "degree": 3,
+   "x": 2503,
+   "y": 1169,
+   "ax": 1727,
+   "ay": 784
+  },
+  {
+   "id": "fitzpatrick",
+   "en": "Brian Fitzpatrick",
+   "ko": "브라이언 핏제럴드",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 4,
+   "degree": 1,
+   "x": 3343,
+   "y": 1622,
+   "ax": 2403,
+   "ay": 889
+  },
+  {
+   "id": "lawler-mike",
+   "en": "Mike Lawler",
+   "ko": "마이크 로러",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 1,
+   "x": 3240,
+   "y": 1250,
+   "ax": 2257,
+   "ay": 710
+  },
+  {
+   "id": "jeffries",
+   "en": "Hakeem Jeffries",
+   "ko": "헤이키 제프리스",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 8,
+   "degree": 9,
+   "x": 2782,
+   "y": 1170,
+   "ax": 2059,
+   "ay": 733
+  },
+  {
+   "id": "pelosi",
+   "en": "Nancy Pelosi",
+   "ko": "낸시 펠로시",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 9,
+   "degree": 12,
+   "x": 2281,
+   "y": 920,
+   "ax": 1817,
+   "ay": 716
+  },
+  {
+   "id": "aoc",
+   "en": "Alexandria Ocasio-Cortez",
+   "ko": "알렉산드리아 오카시오코르테스",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 8,
+   "degree": 17,
+   "x": 2623,
+   "y": 1281,
+   "ax": 2051,
+   "ay": 822
+  },
+  {
+   "id": "omar-ilhan",
+   "en": "Ilhan Omar",
+   "ko": "일한 오마르",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 5,
+   "degree": 4,
+   "x": 2394,
+   "y": 1454,
+   "ax": 2056,
+   "ay": 972
+  },
+  {
+   "id": "tlaib",
+   "en": "Rashida Tlaib",
+   "ko": "래시다 틀리브",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 5,
+   "degree": 4,
+   "x": 2441,
+   "y": 841,
+   "ax": 1937,
+   "ay": 840
+  },
+  {
+   "id": "pressley",
+   "en": "Ayanna Pressley",
+   "ko": "아야나 프레슬리",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 4,
+   "degree": 2,
+   "x": 2665,
+   "y": 1710,
+   "ax": 2066,
+   "ay": 898
+  },
+  {
+   "id": "crockett",
+   "en": "Jasmine Crockett",
+   "ko": "재스민 크로켓",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 6,
+   "degree": 5,
+   "x": 2446,
+   "y": 1307,
+   "ax": 1996,
+   "ay": 884
+  },
+  {
+   "id": "frost-maxwell",
+   "en": "Maxwell Frost",
+   "ko": "맥스웰 프로스트",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 4,
+   "degree": 1,
+   "x": 2965,
+   "y": 1633,
+   "ax": 2226,
+   "ay": 919
+  },
+  {
+   "id": "khanna",
+   "en": "Ro Khanna",
+   "ko": "로 컨나",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 5,
+   "degree": 4,
+   "x": 2532,
+   "y": 1758,
+   "ax": 1934,
+   "ay": 998
+  },
+  {
+   "id": "torres-ritchie",
+   "en": "Ritchie Torres",
+   "ko": "리치 토레스",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 4,
+   "degree": 2,
+   "x": 3026,
+   "y": 1308,
+   "ax": 2178,
+   "ay": 771
+  },
+  {
+   "id": "golden-jared",
+   "en": "Jared Golden",
+   "ko": "재럴 골든",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 4,
+   "degree": 3,
+   "x": 2956,
+   "y": 1488,
+   "ax": 2217,
+   "ay": 823
+  },
+  {
+   "id": "perez-marie",
+   "en": "Marie Gluesenkamp Perez",
+   "ko": "마리 글루센캠프 페레즈",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 4,
+   "degree": 0,
+   "x": 497,
+   "y": 1457,
+   "ax": 525,
+   "ay": 1273
+  },
+  {
+   "id": "newsom",
+   "en": "Gavin Newsom",
+   "ko": "개빈 뉴섬",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 8,
+   "degree": 7,
+   "x": 2460,
+   "y": 1011,
+   "ax": 1724,
+   "ay": 707
+  },
+  {
+   "id": "whitmer",
+   "en": "Gretchen Whitmer",
+   "ko": "그레천 휘트머",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 7,
+   "degree": 3,
+   "x": 2710,
+   "y": 1445,
+   "ax": 1979,
+   "ay": 557
+  },
+  {
+   "id": "pritzker",
+   "en": "JB Pritzker",
+   "ko": "JB 프리츠커",
+   "party": "D",
+   "color": "#22d3ee",
+   "prominence": 6,
+   "degree": 2,
+   "x": 1476,
+   "y": 773,
+   "ax": 1502,
+   "ay": 262
+  },
+  {
+   "id": "shapiro",
+   "en": "Josh Shapiro",
+   "ko": "조쉬 샤피로",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 7,
+   "degree": 5,
+   "x": 2933,
+   "y": 1061,
+   "ax": 1855,
+   "ay": 631
+  },
+  {
+   "id": "walz",
+   "en": "Tim Walz",
+   "ko": "팀 월즈",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 4,
+   "x": 1801,
+   "y": 868,
+   "ax": 1633,
+   "ay": 902
+  },
+  {
+   "id": "moore-wes",
+   "en": "Wes Moore",
+   "ko": "웨스 무어",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 5,
+   "degree": 3,
+   "x": 2680,
+   "y": 417,
+   "ax": 1788,
+   "ay": 447
+  },
+  {
+   "id": "desantis",
+   "en": "Ron DeSantis",
+   "ko": "론 디샌티스",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 7,
+   "degree": 4,
+   "x": 2035,
+   "y": 487,
+   "ax": 1480,
+   "ay": 504
+  },
+  {
+   "id": "abbott-greg",
+   "en": "Greg Abbott",
+   "ko": "그렉 애벗",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 6,
+   "degree": 4,
+   "x": 1716,
+   "y": 384,
+   "ax": 1571,
+   "ay": 421
+  },
+  {
+   "id": "hillary",
+   "en": "Hillary Clinton",
+   "ko": "힐러리 클린턴",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 8,
+   "degree": 6,
+   "x": 2915,
+   "y": 876,
+   "ax": 2064,
+   "ay": 572
+  },
+  {
+   "id": "bill-clinton",
+   "en": "Bill Clinton",
+   "ko": "빌 클린턴",
+   "party": "D",
+   "color": "#60a5fa",
+   "prominence": 7,
+   "degree": 3,
+   "x": 2608,
+   "y": 898,
+   "ax": 2099,
+   "ay": 441
+  },
+  {
+   "id": "bush-w",
+   "en": "George W. Bush",
+   "ko": "조지 W. 부시",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 7,
+   "degree": 7,
+   "x": 1614,
+   "y": 667,
+   "ax": 1545,
+   "ay": 743
+  },
+  {
+   "id": "jeb-bush",
+   "en": "Jeb Bush",
+   "ko": "젭 부시",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 2,
+   "x": 1322,
+   "y": 749,
+   "ax": 1357,
+   "ay": 753
+  },
+  {
+   "id": "dick-cheney",
+   "en": "Dick Cheney",
+   "ko": "딕 체니",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 4,
+   "x": 1550,
+   "y": 1101,
+   "ax": 1507,
+   "ay": 859
+  },
+  {
+   "id": "liz-cheney",
+   "en": "Liz Cheney",
+   "ko": "리즈 체니",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 7,
+   "degree": 10,
+   "x": 1943,
+   "y": 772,
+   "ax": 1644,
+   "ay": 738
+  },
+  {
+   "id": "kinzinger",
+   "en": "Adam Kinzinger",
+   "ko": "애덤 킨징거",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 5,
+   "degree": 6,
+   "x": 2052,
+   "y": 650,
+   "ax": 1591,
+   "ay": 681
+  },
+  {
+   "id": "romney",
+   "en": "Mitt Romney",
+   "ko": "밋 롬니",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 9,
+   "x": 1746,
+   "y": 545,
+   "ax": 1508,
+   "ay": 579
+  },
+  {
+   "id": "mccain-john",
+   "en": "John McCain",
+   "ko": "존 매케인",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 7,
+   "degree": 8,
+   "x": 1631,
+   "y": 845,
+   "ax": 1517,
+   "ay": 659
+  },
+  {
+   "id": "manchin",
+   "en": "Joe Manchin",
+   "ko": "조 맨친",
+   "party": "I",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 8,
+   "x": 2323,
+   "y": 739,
+   "ax": 1775,
+   "ay": 640
+  },
+  {
+   "id": "sinema",
+   "en": "Kyrsten Sinema",
+   "ko": "키르스텐 시네마",
+   "party": "I",
+   "color": "#a78bfa",
+   "prominence": 5,
+   "degree": 4,
+   "x": 2715,
+   "y": 678,
+   "ax": 2057,
+   "ay": 652
+  },
+  {
+   "id": "gaetz-matt",
+   "en": "Matt Gaetz",
+   "ko": "맷 개츠",
+   "party": "R",
+   "color": "#ff5d5d",
+   "prominence": 5,
+   "degree": 5,
+   "x": 2181,
+   "y": 1077,
+   "ax": 1737,
+   "ay": 851
+  },
+  {
+   "id": "mccarthy-kevin",
+   "en": "Kevin McCarthy",
+   "ko": "케빈 맥카시",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 6,
+   "x": 2161,
+   "y": 762,
+   "ax": 1660,
+   "ay": 654
+  },
+  {
+   "id": "haley-nikki",
+   "en": "Nikki Haley",
+   "ko": "니키 헤일리",
+   "party": "R",
+   "color": "#f97316",
+   "prominence": 6,
+   "degree": 5,
+   "x": 1590,
+   "y": 498,
+   "ax": 1344,
+   "ay": 550
+  },
+  {
+   "id": "buttigieg",
+   "en": "Pete Buttigieg",
+   "ko": "피트 부티지지",
+   "party": "D",
+   "color": "#818cf8",
+   "prominence": 6,
+   "degree": 4,
+   "x": 2624,
+   "y": 1083,
+   "ax": 1935,
+   "ay": 624
+  }
+ ],
+ "links": [
+  {
+   "a": "trump",
+   "b": "vance",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "rubio",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "hegseth",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "noem",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "bondi",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "gabbard",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "rfk-jr",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "musk",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "bannon",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "mcconnell",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "thune",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "graham",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "cruz",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "hawley",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "cotton",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "paul-rand",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "tuberville",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "moreno",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "rick-scott",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "tim-scott",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "lee-mike",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "blackburn",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "schmitt",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "collins-susan",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "murkowski",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "cassidy",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "tillis",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "ernst",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "romney",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "pence",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "liz-cheney",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "dick-cheney",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "kinzinger",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "mccain-john",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "jeb-bush",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "bush-w",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "obama",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "biden",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "hillary",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "warren",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "schumer",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "jeffries",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "pelosi",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "aoc",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "omar-ilhan",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "tlaib",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "crockett",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "fetterman",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "newsom",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "pritzker",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "walz",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "whitmer",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "desantis",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "haley-nikki",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "manchin",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "ossoff",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "kelly-mark",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "slotkin",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "massie",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "boebert",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "mace-nancy",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "emmer",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "jordan-jim",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "scalise",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "stefanik",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "johnson-mike",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "trump",
+   "b": "donalds",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "abbott-greg",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "trump",
+   "b": "bill-clinton",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "klobuchar",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "trump",
+   "b": "bacon-don",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "vance",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "bannon",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "musk",
+   "b": "rubio",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "warren",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "paul-rand",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "newsom",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "musk",
+   "b": "walz",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "musk",
+   "b": "massie",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "vance",
+   "b": "thune",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "vance",
+   "b": "hawley",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "vance",
+   "b": "walz",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "vance",
+   "b": "donalds",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "vance",
+   "b": "rfk-jr",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "obama",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "harris",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "walz",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "biden",
+   "b": "booker",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "warnock",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "klobuchar",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "schumer",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "pelosi",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "mcconnell",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "mccain-john",
+   "type": "bipartisan",
+   "strength": 3
+  },
+  {
+   "a": "biden",
+   "b": "romney",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "manchin",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "sinema",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "abbott-greg",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "biden",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "tlaib",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "fetterman",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "shapiro",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "britt",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "bacon-don",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "schiff",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "liz-cheney",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "kinzinger",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "murphy-chris",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "biden",
+   "b": "moore-wes",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "buttigieg",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "biden",
+   "b": "collins-susan",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "obama",
+   "b": "hillary",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "obama",
+   "b": "bill-clinton",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "obama",
+   "b": "moore-wes",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "obama",
+   "b": "jeffries",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "obama",
+   "b": "booker",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "obama",
+   "b": "pelosi",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "hillary",
+   "b": "sanders",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "hillary",
+   "b": "gabbard",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "hillary",
+   "b": "pelosi",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "bill-clinton",
+   "b": "hillary",
+   "type": "family",
+   "strength": 3
+  },
+  {
+   "a": "bush-w",
+   "b": "jeb-bush",
+   "type": "family",
+   "strength": 3
+  },
+  {
+   "a": "bush-w",
+   "b": "mccain-john",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "bush-w",
+   "b": "romney",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "bush-w",
+   "b": "mcconnell",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "bush-w",
+   "b": "pelosi",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "dick-cheney",
+   "b": "bush-w",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "dick-cheney",
+   "b": "liz-cheney",
+   "type": "family",
+   "strength": 3
+  },
+  {
+   "a": "dick-cheney",
+   "b": "paul-rand",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "liz-cheney",
+   "b": "kinzinger",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "liz-cheney",
+   "b": "mccarthy-kevin",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "liz-cheney",
+   "b": "pelosi",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "liz-cheney",
+   "b": "mccain-john",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "liz-cheney",
+   "b": "stefanik",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "liz-cheney",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "kinzinger",
+   "b": "gaetz-matt",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "kinzinger",
+   "b": "mccarthy-kevin",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "kinzinger",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "romney",
+   "b": "mccain-john",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "romney",
+   "b": "collins-susan",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "romney",
+   "b": "murkowski",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "romney",
+   "b": "manchin",
+   "type": "bipartisan",
+   "strength": 3
+  },
+  {
+   "a": "manchin",
+   "b": "sinema",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "manchin",
+   "b": "sanders",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "manchin",
+   "b": "warren",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "manchin",
+   "b": "schumer",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "sinema",
+   "b": "kelly-mark",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "sinema",
+   "b": "aoc",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mccain-john",
+   "b": "collins-susan",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "mccain-john",
+   "b": "murkowski",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "mccain-john",
+   "b": "graham",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "collins-susan",
+   "b": "murkowski",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "murkowski",
+   "b": "manchin",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "massie",
+   "b": "khanna",
+   "type": "bipartisan",
+   "strength": 3
+  },
+  {
+   "a": "graham",
+   "b": "durbin",
+   "type": "bipartisan",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "pelosi",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "schumer",
+   "b": "jeffries",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "schumer",
+   "b": "klobuchar",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "schumer",
+   "b": "aoc",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "sanders",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "schumer",
+   "b": "schiff",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "padilla",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "warnock",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "durbin",
+   "type": "mentor",
+   "strength": 3
+  },
+  {
+   "a": "schumer",
+   "b": "fetterman",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "schumer",
+   "b": "johnson-mike",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "thune",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "schumer",
+   "b": "rfk-jr",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "pelosi",
+   "b": "aoc",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "pelosi",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "pelosi",
+   "b": "mccarthy-kevin",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "pelosi",
+   "b": "harris",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "pelosi",
+   "b": "newsom",
+   "type": "mentor",
+   "strength": 2
+  },
+  {
+   "a": "jeffries",
+   "b": "crockett",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "jeffries",
+   "b": "lawler-mike",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "jeffries",
+   "b": "golden-jared",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "jeffries",
+   "b": "johnson-mike",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "jeffries",
+   "b": "harris",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "jeffries",
+   "b": "torres-ritchie",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "harris",
+   "b": "newsom",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "harris",
+   "b": "shapiro",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "harris",
+   "b": "obama",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "harris",
+   "b": "booker",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "harris",
+   "b": "moore-wes",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "buttigieg",
+   "b": "klobuchar",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "buttigieg",
+   "b": "sanders",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "buttigieg",
+   "b": "harris",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "aoc",
+   "b": "sanders",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "aoc",
+   "b": "omar-ilhan",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "aoc",
+   "b": "tlaib",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "aoc",
+   "b": "pressley",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "aoc",
+   "b": "fetterman",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "aoc",
+   "b": "torres-ritchie",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "aoc",
+   "b": "golden-jared",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "aoc",
+   "b": "luna",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "aoc",
+   "b": "markey",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "aoc",
+   "b": "khanna",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "aoc",
+   "b": "crockett",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "aoc",
+   "b": "frost-maxwell",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "omar-ilhan",
+   "b": "boebert",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "omar-ilhan",
+   "b": "tlaib",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "pressley",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "crockett",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "crockett",
+   "b": "mace-nancy",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "khanna",
+   "b": "musk",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "khanna",
+   "b": "sanders",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "warren",
+   "b": "sanders",
+   "type": "ally",
+   "strength": 3
+  },
+  {
+   "a": "warren",
+   "b": "rfk-jr",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "sanders",
+   "b": "markey",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "sanders",
+   "b": "fetterman",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "murphy-chris",
+   "b": "trump",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "booker",
+   "b": "cotton",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "booker",
+   "b": "kim-andy",
+   "type": "mentor",
+   "strength": 2
+  },
+  {
+   "a": "booker",
+   "b": "trump",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "duckworth",
+   "b": "hegseth",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "slotkin",
+   "b": "hegseth",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "kelly-mark",
+   "b": "gallego",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "kelly-mark",
+   "b": "duckworth",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "padilla",
+   "b": "noem",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "schiff",
+   "b": "padilla",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "warnock",
+   "b": "ossoff",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "fetterman",
+   "b": "shapiro",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "johnson-mike",
+   "b": "scalise",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "johnson-mike",
+   "b": "emmer",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "johnson-mike",
+   "b": "massie",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "johnson-mike",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "johnson-mike",
+   "b": "luna",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "johnson-mike",
+   "b": "gaetz-matt",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "scalise",
+   "b": "jordan-jim",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "scalise",
+   "b": "gaetz-matt",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "stefanik",
+   "b": "mccarthy-kevin",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "boebert",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "boebert",
+   "b": "massie",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "boebert",
+   "b": "mace-nancy",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mace-nancy",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "luna",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "massie",
+   "b": "paul-rand",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "fitzpatrick",
+   "b": "golden-jared",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "bacon-don",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mcconnell",
+   "b": "thune",
+   "type": "mentor",
+   "strength": 3
+  },
+  {
+   "a": "mcconnell",
+   "b": "rick-scott",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mcconnell",
+   "b": "hawley",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mcconnell",
+   "b": "cruz",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "mcconnell",
+   "b": "mtg",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "paul-rand",
+   "b": "graham",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "hawley",
+   "b": "aoc",
+   "type": "bipartisan",
+   "strength": 1
+  },
+  {
+   "a": "hawley",
+   "b": "cotton",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "cruz",
+   "b": "hawley",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "tim-scott",
+   "b": "haley-nikki",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "tim-scott",
+   "b": "graham",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "ernst",
+   "b": "moreno",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "newsom",
+   "b": "desantis",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "newsom",
+   "b": "whitmer",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "newsom",
+   "b": "shapiro",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "whitmer",
+   "b": "shapiro",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "pritzker",
+   "b": "abbott-greg",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "desantis",
+   "b": "abbott-greg",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "desantis",
+   "b": "haley-nikki",
+   "type": "feud",
+   "strength": 2
+  },
+  {
+   "a": "haley-nikki",
+   "b": "pence",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "haley-nikki",
+   "b": "romney",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "pence",
+   "b": "romney",
+   "type": "ally",
+   "strength": 2
+  },
+  {
+   "a": "mccarthy-kevin",
+   "b": "trump",
+   "type": "ally",
+   "strength": 1
+  },
+  {
+   "a": "gaetz-matt",
+   "b": "mccarthy-kevin",
+   "type": "feud",
+   "strength": 3
+  },
+  {
+   "a": "gaetz-matt",
+   "b": "liz-cheney",
+   "type": "feud",
+   "strength": 1
+  },
+  {
+   "a": "rfk-jr",
+   "b": "cassidy",
+   "type": "ally",
+   "strength": 1
+  }
+ ],
+ "cosponsor": [
+  {
+   "a": "markey",
+   "b": "warren",
+   "bills": 78,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "markey",
+   "bills": 56,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "markey",
+   "b": "padilla",
+   "bills": 54,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "padilla",
+   "bills": 52,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "warren",
+   "bills": 43,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "durbin",
+   "bills": 40,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "fitzpatrick",
+   "b": "lawler-mike",
+   "bills": 38,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cruz",
+   "b": "rick-scott",
+   "bills": 34,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "rick-scott",
+   "bills": 33,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cruz",
+   "b": "lee-mike",
+   "bills": 33,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "padilla",
+   "b": "warren",
+   "bills": 33,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "durbin",
+   "bills": 32,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "klobuchar",
+   "b": "markey",
+   "bills": 31,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "pressley",
+   "b": "tlaib",
+   "bills": 31,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "padilla",
+   "b": "sanders",
+   "bills": 30,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "lee-mike",
+   "b": "rick-scott",
+   "bills": 29,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "cruz",
+   "bills": 28,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "sanders",
+   "bills": 28,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "markey",
+   "bills": 28,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "padilla",
+   "bills": 27,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "lee-mike",
+   "bills": 26,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "markey",
+   "b": "schiff",
+   "bills": 26,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "tillis",
+   "bills": 25,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "klobuchar",
+   "bills": 25,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "schiff",
+   "bills": 24,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "cruz",
+   "bills": 24,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "markey",
+   "bills": 24,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "duckworth",
+   "bills": 23,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "warren",
+   "bills": 23,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "warren",
+   "bills": 23,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "klobuchar",
+   "b": "padilla",
+   "bills": 23,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "markey",
+   "b": "murphy-chris",
+   "bills": 23,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "ernst",
+   "b": "rick-scott",
+   "bills": 22,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "tuberville",
+   "bills": 21,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "padilla",
+   "bills": 21,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "rick-scott",
+   "b": "tuberville",
+   "bills": 21,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "bacon-don",
+   "b": "lawler-mike",
+   "bills": 20,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "cassidy",
+   "bills": 20,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "ernst",
+   "bills": 20,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "kim-andy",
+   "b": "markey",
+   "bills": 20,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "omar-ilhan",
+   "b": "pressley",
+   "bills": 20,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "schiff",
+   "bills": 19,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "fitzpatrick",
+   "b": "perez-marie",
+   "bills": 19,
+   "initiator": null,
+   "crossParty": true
+  },
+  {
+   "a": "kim-andy",
+   "b": "padilla",
+   "bills": 19,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "bacon-don",
+   "b": "fitzpatrick",
+   "bills": 18,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "klobuchar",
+   "bills": 18,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "murphy-chris",
+   "bills": 18,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "lee-mike",
+   "b": "paul-rand",
+   "bills": 18,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "schiff",
+   "b": "warren",
+   "bills": 18,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "klobuchar",
+   "bills": 17,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "klobuchar",
+   "b": "warren",
+   "bills": 17,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "markey",
+   "b": "schumer",
+   "bills": 17,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "murphy-chris",
+   "b": "sanders",
+   "bills": 17,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "britt",
+   "bills": 16,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cotton",
+   "b": "cruz",
+   "bills": 16,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "sanders",
+   "bills": 16,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "tim-scott",
+   "bills": 15,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "collins-susan",
+   "b": "klobuchar",
+   "bills": 15,
+   "initiator": null,
+   "crossParty": true
+  },
+  {
+   "a": "cruz",
+   "b": "schmitt",
+   "bills": 15,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "khanna",
+   "b": "tlaib",
+   "bills": 15,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "kim-andy",
+   "b": "warren",
+   "bills": 15,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "massie",
+   "b": "mtg",
+   "bills": 15,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "cotton",
+   "b": "rick-scott",
+   "bills": 14,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "lawler-mike",
+   "b": "stefanik",
+   "bills": 14,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "lee-mike",
+   "b": "tuberville",
+   "bills": 14,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "murphy-chris",
+   "b": "padilla",
+   "bills": 14,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "murphy-chris",
+   "b": "warren",
+   "bills": 14,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "sanders",
+   "b": "schiff",
+   "bills": 14,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "cotton",
+   "bills": 13,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "klobuchar",
+   "bills": 13,
+   "initiator": "b",
+   "crossParty": true
+  },
+  {
+   "a": "britt",
+   "b": "tim-scott",
+   "bills": 13,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "tillis",
+   "bills": 13,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "kim-andy",
+   "bills": 13,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "sanders",
+   "bills": 13,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "durbin",
+   "b": "murphy-chris",
+   "bills": 13,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "gallego",
+   "b": "padilla",
+   "bills": 13,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "padilla",
+   "b": "tillis",
+   "bills": 13,
+   "initiator": "a",
+   "crossParty": true
+  },
+  {
+   "a": "schumer",
+   "b": "warren",
+   "bills": 13,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "hawley",
+   "bills": 12,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "tillis",
+   "bills": 12,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "tuberville",
+   "bills": 12,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "lawler-mike",
+   "b": "torres-ritchie",
+   "bills": 12,
+   "initiator": null,
+   "crossParty": true
+  },
+  {
+   "a": "lee-mike",
+   "b": "schmitt",
+   "bills": 12,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "murphy-chris",
+   "b": "schiff",
+   "bills": 12,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "graham",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "blackburn",
+   "b": "tuberville",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "schumer",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "booker",
+   "b": "warnock",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "warnock",
+   "bills": 11,
+   "initiator": "b",
+   "crossParty": true
+  },
+  {
+   "a": "cruz",
+   "b": "tillis",
+   "bills": 11,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "duckworth",
+   "b": "fetterman",
+   "bills": 11,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "ernst",
+   "b": "schmitt",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "hawley",
+   "b": "lee-mike",
+   "bills": 11,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "khanna",
+   "b": "omar-ilhan",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "klobuchar",
+   "b": "tillis",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": true
+  },
+  {
+   "a": "rick-scott",
+   "b": "tim-scott",
+   "bills": 11,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "tillis",
+   "b": "tim-scott",
+   "bills": 11,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "tillis",
+   "b": "warnock",
+   "bills": 11,
+   "initiator": "b",
+   "crossParty": true
+  },
+  {
+   "a": "britt",
+   "b": "cassidy",
+   "bills": 10,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "cotton",
+   "bills": 10,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "ernst",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "britt",
+   "b": "graham",
+   "bills": 10,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "collins-susan",
+   "bills": 10,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "cassidy",
+   "b": "lee-mike",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "cruz",
+   "b": "tuberville",
+   "bills": 10,
+   "initiator": "b",
+   "crossParty": false
+  },
+  {
+   "a": "fetterman",
+   "b": "markey",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "kelly-mark",
+   "b": "schiff",
+   "bills": 10,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "kelly-mark",
+   "b": "warren",
+   "bills": 10,
+   "initiator": null,
+   "crossParty": false
+  },
+  {
+   "a": "klobuchar",
+   "b": "murkowski",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": true
+  },
+  {
+   "a": "klobuchar",
+   "b": "thune",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": true
+  },
+  {
+   "a": "luna",
+   "b": "massie",
+   "bills": 10,
+   "initiator": "a",
+   "crossParty": false
+  },
+  {
+   "a": "schiff",
+   "b": "slotkin",
+   "bills": 10,
+   "initiator": "b",
+   "crossParty": false
+  }
+ ],
+ "topCosponsor": {
+  "a": {
+   "en": "Ed Markey",
+   "ko": "에드 마키"
+  },
+  "b": {
+   "en": "Elizabeth Warren",
+   "ko": "엘리자베스 워런"
+  },
+  "bills": 78,
+  "byA": 55,
+  "byB": 23
+ },
+ "timeline": {
+  "a": {
+   "en": "Donald J. Trump",
+   "ko": "도널드 트럼프"
+  },
+  "b": {
+   "en": "Elon Musk",
+   "ko": "일론 머스크"
+  },
+  "cells": [
+   {
+    "ym": "2025-05",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-06",
+    "polarity": "feud",
+    "flip": true,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-07",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-08",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-09",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-10",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-11",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2025-12",
+    "polarity": "feud",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-01",
+    "polarity": "ally",
+    "flip": true,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-02",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-03",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-04",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-05",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-06",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": true
+   },
+   {
+    "ym": "2026-07",
+    "polarity": "neutral",
+    "flip": true,
+    "contested": false,
+    "curated": false
+   },
+   {
+    "ym": "2026-08",
+    "polarity": "ally",
+    "flip": true,
+    "contested": false,
+    "curated": false
+   },
+   {
+    "ym": "2026-09",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": false
+   },
+   {
+    "ym": "2026-10",
+    "polarity": "ally",
+    "flip": false,
+    "contested": false,
+    "curated": false
+   }
+  ]
+ },
+ "mix": {
+  "total": 811,
+  "top": [
+   [
+    "The Hill",
+    191
+   ],
+   [
+    "Fox News",
+    134
+   ],
+   [
+    "CNN",
+    72
+   ],
+   [
+    "CBS News",
+    59
+   ],
+   [
+    "Washington Examiner",
+    58
+   ]
+  ],
+  "restTotal": 297,
+  "topShare": 63,
+  "outlets": 17
+ },
+ "manifest": {
+  "firstDate": "2026-07-28",
+  "lastDate": "2026-10-02",
+  "total": 811,
+  "classified": 747,
+  "ally": 237,
+  "feud": 368,
+  "neutral": 206
+ },
+ "wire": [
+  {
+   "date": "2026-10-02",
+   "source": "CBS News",
+   "title": "Maryland Gov. Wes Moore invites Trump to tour Key Bridge rebuild site - CBS News",
+   "pair": [
+    "moore-wes",
+    "trump"
+   ],
+   "polarity": "ally",
+   "summary_en": "Maryland Gov. Wes Moore invites Trump to visit the Key Bridge reconstruction site.",
+   "summary_ko": "메릴랜드 주지사 웨스 무어가 트럼프를 키 브리지 재건 현장에 초청했다.",
+   "names": [
+    {
+     "en": "Wes Moore",
+     "ko": "웨스 무어"
+    },
+    {
+     "en": "Donald J. Trump",
+     "ko": "도널드 트럼프"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-02",
+   "source": "The Washington Post",
+   "title": "Sanders, Ocasio-Cortez debut bill to crack down on Flock cameras - The Washington Post",
+   "pair": [
+    "aoc",
+    "sanders"
+   ],
+   "polarity": "ally",
+   "summary_en": "Sen. Sanders and Rep. Ocasio-Cortez jointly introduce legislation targeting Flock surveillance cameras.",
+   "summary_ko": "샌더스 상원의원과 오카시오-코르테스 하원의원이 플록 감시 카메라 규제 법안을 공동 발의했다.",
+   "names": [
+    {
+     "en": "Alexandria Ocasio-Cortez",
+     "ko": "알렉산드리아 오카시오코르테스"
+    },
+    {
+     "en": "Bernie Sanders",
+     "ko": "버니 샌더스"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-01",
+   "source": "Axios",
+   "title": "Musk returns to Trump world for Pentagon war study - axios.com",
+   "pair": [
+    "musk",
+    "trump"
+   ],
+   "polarity": "ally",
+   "summary_en": "Elon Musk rejoins Trump's orbit to assist with a Pentagon war study.",
+   "summary_ko": "일론 머스크가 트럼프 진영에 합류해 펜타곤 전쟁 연구를 돕는다.",
+   "names": [
+    {
+     "en": "Elon Musk",
+     "ko": "일론 머스크"
+    },
+    {
+     "en": "Donald J. Trump",
+     "ko": "도널드 트럼프"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-01",
+   "source": "Axios",
+   "title": "Exclusive: Sens. Hawley, Murphy push AI liability as Trump backs self-regulation - axios.com",
+   "pair": [
+    "hawley",
+    "trump"
+   ],
+   "polarity": "feud",
+   "summary_en": "Sen. Hawley pushes AI liability legislation while Trump supports self-regulation approach.",
+   "summary_ko": "홀리 상원의원이 AI 책임 법안을 추진하는 반면 트럼프는 자율 규제를 지지한다.",
+   "names": [
+    {
+     "en": "Josh Hawley",
+     "ko": "조시 홀리"
+    },
+    {
+     "en": "Donald J. Trump",
+     "ko": "도널드 트럼프"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-30",
+   "source": "The Washington Post",
+   "title": "Opinion | Why Trump might finally fire Pete Hegseth - The Washington Post",
+   "pair": [
+    "hegseth",
+    "trump"
+   ],
+   "polarity": "feud",
+   "summary_en": "Opinion piece suggests Trump may fire Hegseth, indicating tension.",
+   "summary_ko": "칼럼은 트럼프가 헤그세스를 해임할 수 있다고 제안하며 긴장을 시사한다.",
+   "names": [
+    {
+     "en": "Pete Hegseth",
+     "ko": "피트 헤그세스"
+    },
+    {
+     "en": "Donald J. Trump",
+     "ko": "도널드 트럼프"
+    }
+   ]
+  },
+  {
+   "date": "2026-09-30",
+   "source": "The Hill",
+   "title": "Paxton misses Vance rally; will stump with Trump on Thursday",
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "ally",
+   "summary_en": "Paxton will campaign alongside Trump after missing Vance's rally.",
+   "summary_ko": "팩스턴이 밴스 유세에 불참한 후 트럼프와 함께 유세할 예정이다.",
+   "names": [
+    {
+     "en": "Donald J. Trump",
+     "ko": "도널드 트럼프"
+    },
+    {
+     "en": "JD Vance",
+     "ko": "J.D. 밴스"
+    }
+   ]
+  }
+ ],
+ "funding": {
+  "people": 70,
+  "pacDirect": 29516395,
+  "ieSupport": 14392262,
+  "ieOppose": 18095096,
+  "namedSharePct": 5.6,
+  "massie": {
+   "name": {
+    "en": "Thomas Massie",
+    "ko": "토머스 매시"
+   },
+   "oppose": 10138856,
+   "support": 3622817
+  },
+  "opposeTop1SharePct": 56
+ },
+ "lobbying": {
+  "matched": 295,
+  "people": 61,
+  "years": [
+   2022,
+   2026
+  ]
+ },
+ "unity": {
+  "partyVotes": 1279,
+  "people": 64,
+  "collins": {
+   "name": {
+    "en": "Susan Collins",
+    "ko": "수전 콜린스"
+   },
+   "rate": 16.5
+  },
+  "fitzpatrick": {
+   "name": {
+    "en": "Brian Fitzpatrick",
+    "ko": "브라이언 핏제럴드"
+   },
+   "rate": 22.9
+  }
+ }
+}
