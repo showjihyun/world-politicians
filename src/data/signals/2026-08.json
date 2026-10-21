@@ -282,6 +282,26 @@
    "classified": true
   },
   {
+   "id": "sig-4b5995ae",
+   "date": "2026-08-28",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQOWtka0FYNE9qMzl5ODhyTWlZN2NpSFotN2NEd0xSZU5vWWpuaHhYQmRDM3NzdWZEakowSWFqb0Z4ckItVDNyOUNOOFUzSlEyUXBIMHh2Y2ZoWjdWSGNmdl9yaFRIVWxKYjJTUHFNVzJ2TDM4U2ZXNDBOc2xRS2RWbG55QVNUOVJMS1g5aGh6ZC1obk4zeW5hVnlCWmZsQQ?oc=5",
+   "title": "Why some Democrats running in red states are pushing away Biden, Harris - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "biden",
+    "harris"
+   ],
+   "classified": true,
+   "pair": [
+    "biden",
+    "harris"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Democrats in red states distance themselves from Biden and Harris to improve electoral prospects.",
+   "summary_ko": "레드 스테이트 민주당 후보들이 바이든과 해리스와 거리를 두며 선거 전망을 개선하려 합니다."
+  },
+  {
    "id": "sig-71d5eefd",
    "date": "2026-08-27",
    "source": "CBS News",
@@ -440,6 +460,26 @@
    "summary_en": "RFK Jr. and Pennsylvania Governor Shapiro clash publicly over measles-related deaths.",
    "summary_ko": "RFK 주니어와 펜실베이니아 주지사 샤피로가 홍역 관련 사망자를 두고 공개 충돌했다.",
    "classified": true
+  },
+  {
+   "id": "sig-580b477b",
+   "date": "2026-08-27",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5zYmpCdnlHdzNYTUpKODU2THIycU9xSWtKNTc4alBPTkh4TzFkSlRxT2lxWVpscERicG1GSlJxbFpkVDA0ZzFlWXRIRnQyUmlpaWhvQWVqNzZCS3FCT1BSeVBFVTJ2NnRyZG5wb1hSWnVWM1NVaDBN0gF8QVVfeXFMT3R5LV9aaXNBMXk0YTNhQ1R1NGtZVDhVWWNkVUhNeFhtbDF0OVloQ0VhOEg3bDR0RUFOVEVVTGVCZHE0czJiTklEXzJPNy1nalJVcVJHM2FtUG1rWkNUOG10YkhDSEZib2dac2xJbEtNVWU2NGFQWkdOSm9Kdw?oc=5",
+   "title": "Iowa Dem gubernatorial candidate says he would not want Biden or Harris to campaign for him - foxnews.com",
+   "people": [
+    "biden",
+    "harris"
+   ],
+   "classified": true,
+   "pair": [
+    "biden",
+    "harris"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Iowa Democratic candidate rejects campaign help from both Biden and Harris, signaling party distance.",
+   "summary_ko": "아이오와 민주당 후보가 바이든과 해리스의 선거 지원을 원치 않는다고 밝혀 당내 거리감을 시사했습니다."
   },
   {
    "id": "sig-10d389c0",
@@ -4406,27 +4446,6 @@
    "classified": true
   },
   {
-   "id": "sig-87fd0528",
-   "date": "2026-08-28",
-   "source": "ABC News - Breaking News, Latest News and Videos",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQOWtka0FYNE9qMzl5ODhyTWlZN2NpSFotN2NEd0xSZU5vWWpuaHhYQmRDM3NzdWZEakowSWFqb0Z4ckItVDNyOUNOOFUzSlEyUXBIMHh2Y2ZoWjdWSGNmdl9yaFRIVWxKYjJTUHFNVzJ2TDM4U2ZXNDBOc2xRS2RWbG55QVNUOVJMS1g5aGh6ZC1obk4zeW5hVnlCWmZsQdIBowFBVV95cUxPcG91OFhXUnlnQ0VYQ2h4TloyTWliR2RESkg1ekxiUnNUTWF2eklhZlBIUE5MRlVESl94dUpNdnU0Mk5aQW9QeGJwTzN2cXZkc2Z1YklEWklVRTRPT3o2R0FleWZmNlJlLVNZTW1zMGo3ZmxvODB0SWg1a1dxSTNqdHI3STUyUDRmLVlZcDliYXhOOUxBcnVrLVZIWXNXWFVqWjFJ?oc=5",
-   "title": "Why some Democrats running in red states are pushing away Biden, Harris - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "biden",
-    "harris"
-   ],
-   "pair": [
-    "biden",
-    "harris"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Red-state Democrats distance themselves from Biden and Harris to improve electoral prospects.",
-   "summary_ko": "레드스테이트 민주당 후보들이 당선 가능성을 높이기 위해 바이든과 해리스와 거리를 두고 있다.",
-   "classified": true,
-   "outlet": "ABC News"
-  },
-  {
    "id": "sig-7ae80148",
    "date": "2026-08-28",
    "source": "Fox News",
@@ -4465,50 +4484,6 @@
    "summary_en": "Speaker Mike Johnson plans to meet Elon Musk in Texas.",
    "summary_ko": "마이크 존슨 하원의장이 텍사스에서 일론 머스크와 만날 예정이다.",
    "classified": true
-  },
-  {
-   "id": "sig-4b5995ae",
-   "date": "2026-08-28",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQOWtka0FYNE9qMzl5ODhyTWlZN2NpSFotN2NEd0xSZU5vWWpuaHhYQmRDM3NzdWZEakowSWFqb0Z4ckItVDNyOUNOOFUzSlEyUXBIMHh2Y2ZoWjdWSGNmdl9yaFRIVWxKYjJTUHFNVzJ2TDM4U2ZXNDBOc2xRS2RWbG55QVNUOVJMS1g5aGh6ZC1obk4zeW5hVnlCWmZsQQ?oc=5",
-   "title": "Why some Democrats running in red states are pushing away Biden, Harris - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "biden",
-    "harris"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-71c08aca",
-   "date": "2026-08-27",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5zYmpCdnlHdzNYTUpKODU2THIycU9xSWtKNTc4alBPTkh4TzFkSlRxT2lxWVpscERicG1GSlJxbFpkVDA0ZzFlWXRIRnQyUmlpaWhvQWVqNzZCS3FCT1BSeVBFVTJ2NnRyZG5wb1hSWnVWM1NVaDBN0gF8QVVfeXFMT3R5LV9aaXNBMXk0YTNhQ1R1NGtZVDhVWWNkVUhNeFhtbDF0OVloQ0VhOEg3bDR0RUFOVEVVTGVCZHE0czJiTklEXzJPNy1nalJVcVJHM2FtUG1rWkNUOG10YkhDSEZib2dac2xJbEtNVWU2NGFQWkdOSm9Kdw?oc=5",
-   "title": "Iowa Dem gubernatorial candidate says he would not want Biden or Harris to campaign for him - Fox News",
-   "people": [
-    "biden",
-    "harris"
-   ],
-   "classified": true,
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Iowa Democratic gubernatorial candidate declines campaign support from Biden and Harris.",
-   "summary_ko": "아이오와 민주당 주지사 후보가 바이든과 해리스의 선거 지원을 원하지 않는다고 밝혔다.",
-   "pair": [
-    "biden",
-    "harris"
-   ]
-  },
-  {
-   "id": "sig-580b477b",
-   "date": "2026-08-27",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5zYmpCdnlHdzNYTUpKODU2THIycU9xSWtKNTc4alBPTkh4TzFkSlRxT2lxWVpscERicG1GSlJxbFpkVDA0ZzFlWXRIRnQyUmlpaWhvQWVqNzZCS3FCT1BSeVBFVTJ2NnRyZG5wb1hSWnVWM1NVaDBN0gF8QVVfeXFMT3R5LV9aaXNBMXk0YTNhQ1R1NGtZVDhVWWNkVUhNeFhtbDF0OVloQ0VhOEg3bDR0RUFOVEVVTGVCZHE0czJiTklEXzJPNy1nalJVcVJHM2FtUG1rWkNUOG10YkhDSEZib2dac2xJbEtNVWU2NGFQWkdOSm9Kdw?oc=5",
-   "title": "Iowa Dem gubernatorial candidate says he would not want Biden or Harris to campaign for him - foxnews.com",
-   "people": [
-    "biden",
-    "harris"
-   ],
-   "classified": false
   },
   {
    "id": "sig-98d40b30",
