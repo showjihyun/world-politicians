@@ -116,9 +116,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Schumer adopts Trump's campaign travel strategy as Senate control remains a toss-up.",
-   "summary_ko": "슈머 원내대표가 트럼프의 캠페인 이동 전략을 수용하며 상원 다수당 경쟁이 박빙임을 시사했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Schumer embraces Trump's campaign travel and assesses Senate control as a toss-up.",
+   "summary_ko": "슈머가 트럼프의 유세 일정을 수용하며 상원 다수당 경쟁을 '50대 50'으로 전망했다.",
    "classified": true
   },
   {
@@ -136,9 +136,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Senator Blackburn blocks Trump's judicial nominee in Tennessee, defying the president's selection.",
-   "summary_ko": "블랙번 상원의원이 트럼프의 테네시주 판사 지명을 차단하며 대통령의 인사권에 제동을 걸었습니다.",
+   "confidence": 0.9,
+   "summary_en": "Senator Blackburn blocks Trump's judicial nominee in Tennessee, defying the president.",
+   "summary_ko": "블랙번 상원의원이 테네시주 판사 지명자를 차단하며 트럼프에 반기를 들었다.",
    "classified": true
   },
   {
@@ -377,8 +377,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Buttigieg criticizes Trump's rollback of fuel-economy standards.",
-   "summary_ko": "부티지지가 트럼프의 연비 기준 철회를 비판했다.",
+   "summary_en": "Transportation Secretary Pete Buttigieg criticizes Trump's rollback of fuel-economy standards.",
+   "summary_ko": "피트 부티지지 교통부 장관이 트럼프의 연비 기준 완화를 비판했습니다.",
    "classified": true
   },
   {
@@ -399,26 +399,6 @@
    "confidence": 0.8,
    "summary_en": "Klobuchar mocks Schmitt over Hawks vs Hawkeyes confusion.",
    "summary_ko": "클로버샤가 슈미트를 호크스와 호크아이즈 혼동으로 조롱한다.",
-   "classified": true
-  },
-  {
-   "id": "sig-73461a36",
-   "date": "2026-09-29",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPdWFFRlZJTFo4RFZQLVRMQkxnYTFTNU1vaEpDbUhQMnFlcGJTa3dRMFdDbks3WWx1WUdrNEIyMGo5cFdsMU9xc3lDYzdOTXZ5YlY2SWdaaTBMZW1UOXdhR1RFYUhwR0Nab0RwTXllUC1iYXdzdGJPOEZnZHdVb0NpTW9HRDY3aGJXSHFpSWZFMjVjNWtTM0FuMkRsb0M5WDRSQUY0RkY4NTBBLXdacjB4ZEprcHNYR0pJU2hQZk9SYXZPX2JrYnBOTTU0XzhwbGfSAdQBQVVfeXFMTnlRVHgzZHFzN2taNy1LUnVCdnA3Z1dhN1FvUEUwclZuZ1ZiQnV1S2RZX2N6WUFiUkJDSXIxN2VpMENOdUM3MFl5cFJkLVdDSG00ampPTWxsbi1vQncxVnlNSUhlcnZDck43a1JadDBldWJ5TEV3bUh3bkU0Z210RzBNXzNZRDNONEhyVEM2R0R0eUgtNkp4VVhtc3JoWlBXaTZDRFZ2aG1UVXhRSHExb1BFNXJQNlJQR0E5c1FkU0FGWHVDWGx2QUROWW0yNHlFblFBTHY?oc=5",
-   "title": "Could Trump revoke Ilhan Omar's citizenship for alleged brother marriage? Ex federal prosecutor breaks it down - Fox News",
-   "people": [
-    "trump",
-    "omar-ilhan"
-   ],
-   "pair": [
-    "omar-ilhan",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Fox News explores whether Trump could revoke Ilhan Omar's citizenship over marriage allegations.",
-   "summary_ko": "폭스뉴스가 트럼프가 결혼 의혹을 이유로 일한 오마르의 시민권을 박탈할 수 있는지 분석했습니다.",
    "classified": true
   },
   {
@@ -497,8 +477,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Mike Lee blocks effort to stop Trump from removing presidential memorials.",
-   "summary_ko": "마이크 리가 트럼프의 대통령 기념물 철거를 막으려는 시도를 차단했다.",
+   "summary_en": "Sen. Mike Lee blocks a Democratic effort to stop Trump from dismantling presidential memorials.",
+   "summary_ko": "마이크 리 상원의원이 트럼프의 대통령 기념물 해체 시도를 막으려는 민주당의 시도를 저지했습니다.",
    "classified": true
   },
   {
@@ -520,6 +500,26 @@
    "summary_en": "Senator Schmitt gains attention as a potential vice presidential pick for Vance in 2028.",
    "summary_ko": "슈미트 상원의원이 2028년 밴스 부통령 후보로 거론되며 주목받고 있습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-4e80118b",
+   "date": "2026-09-29",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPdWFFRlZJTFo4RFZQLVRMQkxnYTFTNU1vaEpDbUhQMnFlcGJTa3dRMFdDbks3WWx1WUdrNEIyMGo5cFdsMU9xc3lDYzdOTXZ5YlY2SWdaaTBMZW1UOXdhR1RFYUhwR0Nab0RwTXllUC1iYXdzdGJPOEZnZHdVb0NpTW9HRDY3aGJXSHFpSWZFMjVjNWtTM0FuMkRsb0M5WDRSQUY0RkY4NTBBLXdacjB4ZEprcHNYR0pJU2hQZk9SYXZPX2JrYnBOTTU0XzhwbGc?oc=5",
+   "title": "Could Trump revoke Ilhan Omar's citizenship for alleged brother marriage? Ex federal prosecutor breaks it down - Fox News",
+   "people": [
+    "trump",
+    "omar-ilhan"
+   ],
+   "classified": true,
+   "pair": [
+    "omar-ilhan",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "Speculation arises on whether Trump could revoke Ilhan Omar's citizenship.",
+   "summary_ko": "트럼프가 일한 오마르의 시민권을 박탈할 수 있을지에 대한 추측이 제기되었습니다."
   },
   {
    "id": "sig-9084027a",
@@ -597,8 +597,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Thune criticizes Trump's taxpayer-funded political ads as improper.",
-   "summary_ko": "튠 의원이 트럼프의 세금 지원 정치 광고를 부적절하다고 비판했다.",
+   "summary_en": "Sen. Thune criticizes Trump's taxpayer-funded ads as campaign-style messaging.",
+   "summary_ko": "튠 상원의원이 트럼프의 세금으로 운영되는 광고를 선거 운동성 메시지로 비판했습니다.",
    "classified": true
   },
   {
@@ -616,9 +616,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Thune boycotts White House AI meeting with Trump in a sign of tension.",
-   "summary_ko": "튠 의원이 트럼프와의 백악관 AI 회의에 불참하며 긴장감을 보였다.",
+   "confidence": 0.8,
+   "summary_en": "Sen. John Thune skips a White House AI meeting with Trump, signaling tension.",
+   "summary_ko": "존 튠 상원의원이 트럼프와의 백악관 AI 회의에 불참하며 긴장감을 시사했습니다.",
    "classified": true
   },
   {
@@ -897,8 +897,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Sen. Kelly attacks Trump's Iran policy as stuck without exit strategy.",
-   "summary_ko": "켈리 의원이 트럼프의 이란 정책을 출구 없는 전쟁이라 비판했다.",
+   "summary_en": "Sen. Mark Kelly criticizes Trump's Iran policy, saying he is stuck without an exit strategy.",
+   "summary_ko": "마크 켈리 상원의원이 트럼프의 이란 정책을 비판하며 출구 전략 없이 발이 묶였다고 말했습니다.",
    "classified": true
   },
   {
@@ -1316,9 +1316,9 @@
     "warnock"
    ],
    "polarity": "ally",
-   "confidence": 0.98,
-   "summary_en": "Sens. Scott and Warnock introduce bipartisan legislation to secure critical mineral supply chains.",
-   "summary_ko": "스콧과 워녹 상원의원이 핵심 광물 공급망 강화를 위한 초당적 법안을 공동 발의했다.",
+   "confidence": 0.95,
+   "summary_en": "Senators Tim Scott and Raphael Warnock jointly introduced legislation to strengthen critical mineral supply chains.",
+   "summary_ko": "팀 스콧과 라파엘 워녹 상원의원이 핵심 광물 공급망 강화를 위한 법안을 공동 발의했습니다.",
    "classified": true
   },
   {
@@ -1339,6 +1339,26 @@
    "confidence": 0.9,
    "summary_en": "Florida gubernatorial candidate Byron Donalds reaffirms support for Trump after website edits removed mentions of the president.",
    "summary_ko": "플로리다 주지사 후보 바이런 도널즈가 웹사이트에서 트럼프 언급이 삭제된 후에도 트럼프 지지를 재확인했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-4c742fdd",
+   "date": "2026-09-24",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWkRhLW5PNURmT29reDJxTE9ndXNPNmN4N1hwUlYxNFdmbmtuYUJTTTZ5MWNZUHNZS0xLUHFfTDlvQlV3OFgyTklPams0VVhzMlhhdE5SV2tkTlZ3MUR3bzlwZHR1VGd2ZXBXbjVtMkNoRmVFdGVQa0F1SFh6THZNWV9VYjl4Q0JqSXpMSzFiVzQ2S2RQQ2x0VmVNVEVJbF9I0gGmAUFVX3lxTE9fWnJIYk1qeG5LUUVscGcwTmdGWG5YWW9nNWFYcHdmS1RvcUdZcWd1c2hVcld6b0NSUk02SmtCVk50Rk1JUUxHeWJ3X0xwVTl1ajR0ZHc0QmxNSjdFQ1JpSnVsaVdvOEdqS1hUVnkwa1VSUnl3dTJJMWFqb216ckNKRGZucFQzYzRvdVFFX19zZ2VWOTJGd2xxb1FJMlRiN2Npb0wzTlE?oc=5",
+   "title": "Trump, House Speaker Johnson expected to meet with tech CEOs on AI next week: Sources - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "johnson-mike"
+   ],
+   "pair": [
+    "johnson-mike",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Trump and House Speaker Mike Johnson are expected to meet with tech CEOs to discuss AI policy next week.",
+   "summary_ko": "트럼프와 마이크 존슨 하원의장이 다음 주 기술 기업 CEO들과 만나 AI 정책을 논의할 예정입니다.",
    "classified": true
   },
   {
@@ -7109,18 +7129,6 @@
    "classified": false
   },
   {
-   "id": "sig-6b57d1cc",
-   "date": "2026-09-30",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNeEdOYWRXSWVpemhtcmhkTTFqWWhXemtXQVNzUkptaEM3WXY3YWZRb0dVVlh1QTBhTXVOSlhNUDZfSU9MeExuS3hkUW5ldDlpSTAwbDd2RHVLd29fdXZQei1HQTRvWkU1YWV0UE12U2ZmMkpTWWhWQk1XWUYyc2VGQlVjaVBJXzNudkpRU09TMWXSAZYBQVVfeXFMTnMwX1RjWkpBczBTSVJFM1huYVRtdjg5X0M2RV9Qcl82cDcyWjJrZXdfdmFxYnVuN1ByX0VQWWpRYUg4enlXTVNDZEZuTHB6TXVMODhudXFFNkJHbUFINDVWSFBjekcxOW81elBLajdYcm5CSVAxZ2JQLVBtbkplaDdWTEx6M1gwOUhuMVBET0xFT0FBZEJ3?oc=5",
-   "title": "CFTC is investigating Kinzinger’s Kalshi trades related to Biden pardons - The Hill",
-   "people": [
-    "biden",
-    "kinzinger"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-5763e2",
    "date": "2026-09-29",
    "source": "The Hill",
@@ -7142,18 +7150,6 @@
     "trump",
     "biden",
     "obama"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-4e80118b",
-   "date": "2026-09-29",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPdWFFRlZJTFo4RFZQLVRMQkxnYTFTNU1vaEpDbUhQMnFlcGJTa3dRMFdDbks3WWx1WUdrNEIyMGo5cFdsMU9xc3lDYzdOTXZ5YlY2SWdaaTBMZW1UOXdhR1RFYUhwR0Nab0RwTXllUC1iYXdzdGJPOEZnZHdVb0NpTW9HRDY3aGJXSHFpSWZFMjVjNWtTM0FuMkRsb0M5WDRSQUY0RkY4NTBBLXdacjB4ZEprcHNYR0pJU2hQZk9SYXZPX2JrYnBOTTU0XzhwbGc?oc=5",
-   "title": "Could Trump revoke Ilhan Omar's citizenship for alleged brother marriage? Ex federal prosecutor breaks it down - Fox News",
-   "people": [
-    "trump",
-    "omar-ilhan"
    ],
    "classified": false
   },
@@ -7215,38 +7211,6 @@
    "confidence": 0.85,
    "summary_en": "House Democrats urge Jeffries to court RFK Jr.'s supporters.",
    "summary_ko": "하원 민주당이 제프리스에게 RFK 주니어 지지자들을 포섭하라고 촉구합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-6956706f",
-   "date": "2026-09-25",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNLTFxbEpVYmQxVFFqX29OV0U0WWRZZkFYOVBfWG1ZemlUMWtXdm1PWEZjTlFxQTltQjRxd3V5WHJ4T0cxelQ4ZXk0WW1ZcmMzSHJRbTdyWk4yaHJ4T0dkY0diWWVIY3FOVTh0ODgzUVFwaS15aWwyN0hnNHh1Z0RKYzZfcnNEVzRzQ3hrY3JQR0lqcG8zRVRtWlRFODY1eWZvZ0kyY1JsZw?oc=5",
-   "title": "House Dems to Jeffries: Woo RFK Jr.’s followers - Politico",
-   "people": [
-    "rfk-jr",
-    "jeffries"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-4c742fdd",
-   "date": "2026-09-24",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOWkRhLW5PNURmT29reDJxTE9ndXNPNmN4N1hwUlYxNFdmbmtuYUJTTTZ5MWNZUHNZS0xLUHFfTDlvQlV3OFgyTklPams0VVhzMlhhdE5SV2tkTlZ3MUR3bzlwZHR1VGd2ZXBXbjVtMkNoRmVFdGVQa0F1SFh6THZNWV9VYjl4Q0JqSXpMSzFiVzQ2S2RQQ2x0VmVNVEVJbF9I0gGmAUFVX3lxTE9fWnJIYk1qeG5LUUVscGcwTmdGWG5YWW9nNWFYcHdmS1RvcUdZcWd1c2hVcld6b0NSUk02SmtCVk50Rk1JUUxHeWJ3X0xwVTl1ajR0ZHc0QmxNSjdFQ1JpSnVsaVdvOEdqS1hUVnkwa1VSUnl3dTJJMWFqb216ckNKRGZucFQzYzRvdVFFX19zZ2VWOTJGd2xxb1FJMlRiN2Npb0wzTlE?oc=5",
-   "title": "Trump, House Speaker Johnson expected to meet with tech CEOs on AI next week: Sources - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "johnson-mike"
-   ],
-   "pair": [
-    "johnson-mike",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Trump and House Speaker Mike Johnson are scheduled to meet with tech CEOs next week to discuss artificial intelligence policy.",
-   "summary_ko": "트럼프와 마이크 존슨 하원의장이 다음 주 기술 기업 CEO들과 만나 AI 정책을 논의할 예정입니다.",
    "classified": true
   },
   {
