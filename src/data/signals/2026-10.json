@@ -2,6 +2,26 @@
  "month": "2026-10",
  "signals": [
   {
+   "id": "sig-a5dcd180",
+   "date": "2026-10-24",
+   "source": "The Hill",
+   "url": "https://thehill.com/opinion/campaign/6168998-ro-khanna-hypocrisy-wealth-inequality/",
+   "title": "Ro Khanna is wrong about the chaos in Europe — and about JD Vance",
+   "people": [
+    "vance",
+    "khanna"
+   ],
+   "pair": [
+    "khanna",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Article criticizes Ro Khanna's views on Europe and JD Vance.",
+   "summary_ko": "기사가 유럽과 JD 밴스에 대한 로 칸나의 견해를 비판합니다.",
+   "classified": true
+  },
+  {
    "id": "sig-16d8b57f",
    "date": "2026-10-23",
    "source": "The Hill",
@@ -17,8 +37,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Manchin publicly urges Collins to leave the Republican Party and become an independent.",
-   "summary_ko": "맨친이 콜린스에게 공화당을 탈당해 무소속이 되라고 공개 촉구했다.",
+   "summary_en": "Manchin publicly urges Collins to leave the Republican Party.",
+   "summary_ko": "맨친이 콜린스에게 공화당을 탈당하라고 공개적으로 촉구합니다.",
    "classified": true
   },
   {
@@ -139,6 +159,66 @@
    "confidence": 0.85,
    "summary_en": "Trump credits Musk with restoring Ukraine's Starlink, though Kyiv disputes full restoration.",
    "summary_ko": "트럼프가 머스크의 우크라이나 스타링크 복구를 치하했으나, 키예프는 여전히 제한적이라고 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2024232c",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6169066-desantis-trump-gold-coin-florida/",
+   "title": "DeSantis gifts Trump gold coin with engraved image of him ‘flipping the bird’",
+   "people": [
+    "trump",
+    "desantis"
+   ],
+   "pair": [
+    "desantis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "DeSantis gives Trump a mocking gold coin with an offensive gesture engraved.",
+   "summary_ko": "디샌티스가 트럼프에게 조롱 섞인 금화를 선물합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-62fa2270",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6167503-live-updates-donald-trump-midterm-elections/",
+   "title": "Live updates: Trump stumps in Florida, boosting Donalds and criticizing Omar",
+   "people": [
+    "trump",
+    "donalds"
+   ],
+   "pair": [
+    "donalds",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Trump campaigns in Florida to support Byron Donalds.",
+   "summary_ko": "트럼프가 플로리다에서 바이런 도널즈를 지원 유세합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-cd19a859",
+   "date": "2026-10-23",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/ilhan-omar-calls-trump-creep-president-revives-fake-name-marriage-allegations",
+   "title": "Ilhan Omar calls Trump ‘creep’ as president revives ‘fake name,’ marriage allegations",
+   "people": [
+    "trump",
+    "omar-ilhan"
+   ],
+   "pair": [
+    "omar-ilhan",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Ilhan Omar insults Trump as he revives allegations against her.",
+   "summary_ko": "일한 오마르가 트럼프를 모욕하고 트럼프는 그녀에 대한 의혹을 다시 제기합니다.",
    "classified": true
   },
   {
@@ -2639,6 +2719,26 @@
    "classified": true
   },
   {
+   "id": "sig-6b1e50c7",
+   "date": "2026-10-13",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1JSHJfYVNxT0lDZjF5Y1VFcHFBWXMwS1lGMF9QNDA0NXROMmlkWkZtOGFwWEdZSlIwbElXREJocGxxbkxxd0hhZDNWU2tXVWxxdkJvRjR3?oc=5",
+   "title": "WATCH LIVE: House Speaker Mike Johnson and Rep. Monica De La Cruz rally in Texas - Fox News",
+   "people": [
+    "johnson-mike",
+    "cruz"
+   ],
+   "classified": true,
+   "pair": [
+    "cruz",
+    "johnson-mike"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Speaker Mike Johnson and Rep. Monica De La Cruz hold a joint rally in Texas.",
+   "summary_ko": "마이크 존슨 하원의장과 모니카 델라크루즈 하원의원이 텍사스에서 합동 유세를 열었다."
+  },
+  {
    "id": "sig-e260e985",
    "date": "2026-10-12",
    "source": "NBC News",
@@ -2779,27 +2879,6 @@
    "classified": true
   },
   {
-   "id": "sig-e5c11fc5",
-   "date": "2026-10-12",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc3Q1eDN1N05RZXhwTzJuZERscTI4Z1ZtQlNNYXoySjRrd2Q5aVM5alh0cWJoWmtjUGMzTWEwSjNSZ1FZdUZPLUpCMHZXU1Jka191ZkJQLUhMWTZVUmRGalVFZEZMUnlhRDRWMFpHMG5ybWRuYjlsVklUdW50ZkV5c3o2NmfSAYoBQVVfeXFMTlpuRTJBOUFZTmxVcTRPTTFmR19RSDhwVU5HNGR1bS1ra1kyQkJfdUg4dmVBR1lacDJ4TjlzWWEtTVpBRDVUNllWci1jSFJyc2p3YlpjamR5LXltR1JoTm1JZGh1SWZZZFFjYVBGVzJxNE1fSHU5TVFNTUctaTQ0T2YyU2ZlUUpTTnZB?oc=5",
-   "title": "Hillary Clinton recalls viral moment with Obama: ‘I really hope that Donald Trump is watching’ - The Hill",
-   "people": [
-    "trump",
-    "obama",
-    "hillary"
-   ],
-   "pair": [
-    "hillary",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Hillary Clinton recalls a viral moment with Obama, directly addressing Trump.",
-   "summary_ko": "힐러리 클린턴이 오바마와의 바이럴 순간을 회상하며 트럼프가 보고 있길 바란다고 말했다.",
-   "classified": true
-  },
-  {
    "id": "sig-43c4fc8d",
    "date": "2026-10-12",
    "source": "AP News",
@@ -2898,6 +2977,27 @@
    "summary_en": "Speaker Mike Johnson opposes Hegseth's plan for a livestreamed execution.",
    "summary_ko": "마이크 존슨 하원의장이 헤그세스의 생중계 처형 계획에 반대 입장을 표명했다.",
    "classified": true
+  },
+  {
+   "id": "sig-778a59e0",
+   "date": "2026-10-12",
+   "source": "The Hill",
+   "url": "https://thehill.com/blogs/in-the-know/6143268-clinton-obama-nobel-peace-prize/",
+   "title": "Hillary Clinton recalls viral moment with Obama: ‘I really hope that Donald Trump is watching’",
+   "people": [
+    "trump",
+    "obama",
+    "hillary"
+   ],
+   "classified": true,
+   "pair": [
+    "hillary",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Clinton recalls a viral moment with Obama, hoping Trump is watching.",
+   "summary_ko": "클린턴이 오바마와의 바이럴 순간을 회상하며 트럼프가 보고 있기를 바란다고 말했다."
   },
   {
    "id": "sig-6ead4b1e",
@@ -3520,6 +3620,26 @@
    "summary_en": "Jon Ossoff slams Mike Collins in a Georgia debate, claiming he promoted neo-Nazi content.",
    "summary_ko": "존 오소프가 조지아 토론에서 마이크 콜린스가 신나치 콘텐츠를 홍보했다고 비난했다.",
    "classified": true
+  },
+  {
+   "id": "sig-97d7b78",
+   "date": "2026-10-09",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcXRyM0dKY29KVFNxVnpBN3Ezc1NYcjRDS3MtczZWTkVZMmRqZWV6bFkydFgyYVI0aDN6cVBreUhMUGNzeFNyX1ZpQVBhSjFrOFlRYlI3QlBpNU1TX2Ywd3lqMnVUOE5VeGNHUG8xRHZ2VDEtdlJMOGsyYzkzazYxeGdmTWdObl9wbGlQajh1TEs0WHJqU3NVWGhvMHVyNmdlczlNWUFNOGpFN3NEUFNQNExGb3Bsc2FBbkI5Ui0wV3NfalFqaE1YYmRR0gHPAUFVX3lxTE1ha1J4cmNxc0U3eHdxc2NYNUUxakQwaExoRmdnOHp4MW9pUXNxaW1zRWVaZW1EVVFidThUWDdYQWU2NFBINFJYSDRPLWtUSzNIcHNIc2tTOG1BcUNrWXhzc0xfQVRFWXhBTEZmVmZRdEZSWWthcml5eF9oNUNkbDAzaEVUOHBDbXJMejhRSThqWi1RTkVxT3dPcDJKUlV3OHphMGRiQ3BjWF9tQl90bjkzc24yZ294bEdIa1JPeEVfSHQ0VVhxaU9yVllSY0RrZw?oc=5",
+   "title": "Un gran jurado federal examina las pruebas de la investigación sobre el testimonio del 6 de enero de Cassidy Hutchinson, exasesora de Trump: fuente - Fox News",
+   "people": [
+    "trump",
+    "cassidy"
+   ],
+   "classified": true,
+   "pair": [
+    "cassidy",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "A federal grand jury reviews evidence from Cassidy Hutchinson's Jan. 6 testimony against Trump.",
+   "summary_ko": "연방 대배심이 캐시디 허친슨의 1월 6일 청문회 증언 관련 증거를 검토 중이다."
   },
   {
    "id": "sig-eca4f724",
@@ -4527,27 +4647,6 @@
    "classified": true
   },
   {
-   "id": "sig-bcd452",
-   "date": "2026-10-06",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbUdCaC1RNktjYk51Mkg4dEpLekpja3ZDeTRPTWNkQjlWc0taNnhaUlJWMHJXN1h1eVlUMmlRakFHdDZ4STZORHlST3ZtS0NaNHBpQkkwVFhpWGYzb2RReHQ1UFl2czhRYS1hdlRDdU5acTBxVmc2T3ByWVF3S2x4S3YwNmdSVWpmNUZRdC1EcDFOdjZkeE5CdE84Rm9kZVdYdnIzUW5YM2p0aEtaM3QzM3hQONIBuAFBVV95cUxNUXJPVmwzWGxDTmVCdnhiMml0QXRRcGtOLUpnOEVlTWFMSkExbnVNU0VKWWp4dnZDb18tLTc5eUdsYURWbjdjVGVmVVRiQVNjQUdOVUJKTWFMTXJpem5IeHBBcEEzOEFyRTRrb1ZzUHFzRWNlNXlJWFNOejBSRHJFZDVveWVuMms0NFk1bUpjeXlVY3lsYjZnZFEwakZoNjF1Q2U1MHJ1QWVBOWpwUWF6cUZrZ2IzMmdV?oc=5",
-   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push - Fox News",
-   "people": [
-    "biden",
-    "harris",
-    "obama"
-   ],
-   "pair": [
-    "harris",
-    "obama"
-   ],
-   "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Obama and Harris are jointly stepping up campaign efforts for the midterm push.",
-   "summary_ko": "오바마와 해리스가 중간선거를 위해 공동으로 선거운동을 강화하고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-24e99c29",
    "date": "2026-10-06",
    "source": "NBC News",
@@ -4606,6 +4705,27 @@
    "summary_en": "Ted Cruz appears to be launching early attacks against JD Vance ahead of the 2028 presidential race.",
    "summary_ko": "테드 크루즈가 2028년 대선을 앞두고 JD 밴스에게 초반 공세를 펴고 있다.",
    "classified": true
+  },
+  {
+   "id": "sig-1b3b71dd",
+   "date": "2026-10-06",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/biden-conspicuously-absent-from-campaign-trail-obama-harris-step-up-midterm-push",
+   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push",
+   "people": [
+    "biden",
+    "harris",
+    "obama"
+   ],
+   "classified": true,
+   "pair": [
+    "harris",
+    "obama"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Obama and Harris actively campaign together for Democrats in the midterm elections.",
+   "summary_ko": "오바마와 해리스가 중간선거에서 민주당을 위해 함께 유세에 나선다."
   },
   {
    "id": "sig-fb4529c7",
@@ -5448,6 +5568,19 @@
    "classified": true
   },
   {
+   "id": "sig-51a421e2",
+   "date": "2026-10-24",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6169684-live-updates-obama-harris-to-campaign-for-democrats-in-3-battleground-states-trump-travels-to-georgia/",
+   "title": "Live Updates: Obama, Harris to campaign for Democrats in 3 battleground states; Trump travels to Georgia",
+   "people": [
+    "trump",
+    "harris",
+    "obama"
+   ],
+   "classified": false
+  },
+  {
    "id": "sig-b4902d8d",
    "date": "2026-10-23",
    "source": "The Hill",
@@ -5463,8 +5596,8 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Trump denies having spoken to Musk about Starlink but says he will if issues persist.",
-   "summary_ko": "트럼프가 머스크와 스타링크 관련 대화를 나눈 적이 없다고 부인하면서도 필요시 대화하겠다고 밝혔다.",
+   "summary_en": "Trump denies contact with Musk about Starlink but says he will reach out.",
+   "summary_ko": "트럼프가 머스크와 스타링크 관련 접촉을 부인하면서도 연락할 것이라고 밝힙니다.",
    "classified": true
   },
   {
@@ -6602,18 +6735,6 @@
    "classified": true
   },
   {
-   "id": "sig-6b1e50c7",
-   "date": "2026-10-13",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1JSHJfYVNxT0lDZjF5Y1VFcHFBWXMwS1lGMF9QNDA0NXROMmlkWkZtOGFwWEdZSlIwbElXREJocGxxbkxxd0hhZDNWU2tXVWxxdkJvRjR3?oc=5",
-   "title": "WATCH LIVE: House Speaker Mike Johnson and Rep. Monica De La Cruz rally in Texas - Fox News",
-   "people": [
-    "johnson-mike",
-    "cruz"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-a1017598",
    "date": "2026-10-13",
    "source": "The New York Times",
@@ -6634,19 +6755,6 @@
    "people": [
     "trump",
     "booker"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-778a59e0",
-   "date": "2026-10-12",
-   "source": "The Hill",
-   "url": "https://thehill.com/blogs/in-the-know/6143268-clinton-obama-nobel-peace-prize/",
-   "title": "Hillary Clinton recalls viral moment with Obama: ‘I really hope that Donald Trump is watching’",
-   "people": [
-    "trump",
-    "obama",
-    "hillary"
    ],
    "classified": false
   },
@@ -6693,7 +6801,15 @@
     "romney",
     "mccain-john"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "mccain-john",
+    "romney"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.75,
+   "summary_en": "Emanuel warns the Romney-McCain wing is drifting from the Republican Party.",
+   "summary_ko": "에마누엘이 롬니-매케인 계파가 공화당에서 멀어지고 있다고 경고했다."
   },
   {
    "id": "sig-5d6ed9bf",
@@ -6760,18 +6876,6 @@
    "classified": true
   },
   {
-   "id": "sig-97d7b78",
-   "date": "2026-10-09",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcXRyM0dKY29KVFNxVnpBN3Ezc1NYcjRDS3MtczZWTkVZMmRqZWV6bFkydFgyYVI0aDN6cVBreUhMUGNzeFNyX1ZpQVBhSjFrOFlRYlI3QlBpNU1TX2Ywd3lqMnVUOE5VeGNHUG8xRHZ2VDEtdlJMOGsyYzkzazYxeGdmTWdObl9wbGlQajh1TEs0WHJqU3NVWGhvMHVyNmdlczlNWUFNOGpFN3NEUFNQNExGb3Bsc2FBbkI5Ui0wV3NfalFqaE1YYmRR0gHPAUFVX3lxTE1ha1J4cmNxc0U3eHdxc2NYNUUxakQwaExoRmdnOHp4MW9pUXNxaW1zRWVaZW1EVVFidThUWDdYQWU2NFBINFJYSDRPLWtUSzNIcHNIc2tTOG1BcUNrWXhzc0xfQVRFWXhBTEZmVmZRdEZSWWthcml5eF9oNUNkbDAzaEVUOHBDbXJMejhRSThqWi1RTkVxT3dPcDJKUlV3OHphMGRiQ3BjWF9tQl90bjkzc24yZ294bEdIa1JPeEVfSHQ0VVhxaU9yVllSY0RrZw?oc=5",
-   "title": "Un gran jurado federal examina las pruebas de la investigación sobre el testimonio del 6 de enero de Cassidy Hutchinson, exasesora de Trump: fuente - Fox News",
-   "people": [
-    "trump",
-    "cassidy"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-5ec0e86c",
    "date": "2026-10-09",
    "source": "Politico",
@@ -6833,7 +6937,15 @@
     "trump",
     "rfk-jr"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "rfk-jr",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Democrats press RFK Jr. and Zeldin about potential roles in future Trump pardons.",
+   "summary_ko": "민주당이 RFK 주니어와 젤딘을 상대로 향후 트럼프 사면에서의 역할 가능성을 추궁했다."
   },
   {
    "id": "sig-eadf273b",
@@ -6845,7 +6957,15 @@
     "trump",
     "donalds"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "donalds",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.8,
+   "summary_en": "Byron Donalds discusses AI, Trump, and the current political landscape.",
+   "summary_ko": "바이런 도널즈가 AI, 트럼프, 현재 정치 지형에 대해 논의했다."
   },
   {
    "id": "sig-a3068ae8",
@@ -7018,19 +7138,6 @@
    "summary_en": "Gov. Abbott skips Trump's campaign event in San Antonio.",
    "summary_ko": "애벗 주지사가 샌안토니오 트럼프 유세 행사에 불참했습니다.",
    "classified": true
-  },
-  {
-   "id": "sig-1b3b71dd",
-   "date": "2026-10-06",
-   "source": "Fox News",
-   "url": "https://www.foxnews.com/politics/biden-conspicuously-absent-from-campaign-trail-obama-harris-step-up-midterm-push",
-   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push",
-   "people": [
-    "biden",
-    "harris",
-    "obama"
-   ],
-   "classified": false
   },
   {
    "id": "sig-c60aa787",

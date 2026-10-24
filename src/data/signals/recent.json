@@ -1,6 +1,26 @@
 {
  "signals": [
   {
+   "id": "sig-a5dcd180",
+   "date": "2026-10-24",
+   "source": "The Hill",
+   "url": "https://thehill.com/opinion/campaign/6168998-ro-khanna-hypocrisy-wealth-inequality/",
+   "title": "Ro Khanna is wrong about the chaos in Europe — and about JD Vance",
+   "people": [
+    "vance",
+    "khanna"
+   ],
+   "pair": [
+    "khanna",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Article criticizes Ro Khanna's views on Europe and JD Vance.",
+   "summary_ko": "기사가 유럽과 JD 밴스에 대한 로 칸나의 견해를 비판합니다.",
+   "classified": true
+  },
+  {
    "id": "sig-16d8b57f",
    "date": "2026-10-23",
    "source": "The Hill",
@@ -16,8 +36,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Manchin publicly urges Collins to leave the Republican Party and become an independent.",
-   "summary_ko": "맨친이 콜린스에게 공화당을 탈당해 무소속이 되라고 공개 촉구했다.",
+   "summary_en": "Manchin publicly urges Collins to leave the Republican Party.",
+   "summary_ko": "맨친이 콜린스에게 공화당을 탈당하라고 공개적으로 촉구합니다.",
    "classified": true
   },
   {
@@ -138,6 +158,66 @@
    "confidence": 0.85,
    "summary_en": "Trump credits Musk with restoring Ukraine's Starlink, though Kyiv disputes full restoration.",
    "summary_ko": "트럼프가 머스크의 우크라이나 스타링크 복구를 치하했으나, 키예프는 여전히 제한적이라고 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2024232c",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6169066-desantis-trump-gold-coin-florida/",
+   "title": "DeSantis gifts Trump gold coin with engraved image of him ‘flipping the bird’",
+   "people": [
+    "trump",
+    "desantis"
+   ],
+   "pair": [
+    "desantis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "DeSantis gives Trump a mocking gold coin with an offensive gesture engraved.",
+   "summary_ko": "디샌티스가 트럼프에게 조롱 섞인 금화를 선물합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-62fa2270",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6167503-live-updates-donald-trump-midterm-elections/",
+   "title": "Live updates: Trump stumps in Florida, boosting Donalds and criticizing Omar",
+   "people": [
+    "trump",
+    "donalds"
+   ],
+   "pair": [
+    "donalds",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Trump campaigns in Florida to support Byron Donalds.",
+   "summary_ko": "트럼프가 플로리다에서 바이런 도널즈를 지원 유세합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-cd19a859",
+   "date": "2026-10-23",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/ilhan-omar-calls-trump-creep-president-revives-fake-name-marriage-allegations",
+   "title": "Ilhan Omar calls Trump ‘creep’ as president revives ‘fake name,’ marriage allegations",
+   "people": [
+    "trump",
+    "omar-ilhan"
+   ],
+   "pair": [
+    "omar-ilhan",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Ilhan Omar insults Trump as he revives allegations against her.",
+   "summary_ko": "일한 오마르가 트럼프를 모욕하고 트럼프는 그녀에 대한 의혹을 다시 제기합니다.",
    "classified": true
   },
   {
@@ -783,26 +863,6 @@
    "confidence": 0.8,
    "summary_en": "A Biden adviser blames Trump for the affordability crisis.",
    "summary_ko": "바이든 보좌관이 물가 위기의 책임을 트럼프에게 돌렸습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c4a5a332",
-   "date": "2026-10-20",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNWHBZSzRVaS1DOVNCcDR6NWl0VGJjQ1M0S3paRkFaNjRJd0w0Zjl6dHBGcy1ycjhoN1Z0eTN2NkR1V1VVTmYtbXI1MmlqYk1lYWlFOFhZNEd6SjhrSGNOMHYwZjRrN0VnOEg0dTVtcWhtNzBCSG1mYzk4aDczcjV4bXFrWEExTjhxTDFmTg?oc=5",
-   "title": "Vance declines to endorse Netanyahu’s reelection bid, breaking with Trump - CNN",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Vance declines to endorse Netanyahu, breaking with Trump's full support.",
-   "summary_ko": "밴스가 네타냐후 지지를 거부하며 트럼프의 전폭적 지지와 결별했습니다.",
    "classified": true
   },
   {
@@ -1551,6 +1611,26 @@
    "classified": true
   },
   {
+   "id": "sig-6b1e50c7",
+   "date": "2026-10-13",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1JSHJfYVNxT0lDZjF5Y1VFcHFBWXMwS1lGMF9QNDA0NXROMmlkWkZtOGFwWEdZSlIwbElXREJocGxxbkxxd0hhZDNWU2tXVWxxdkJvRjR3?oc=5",
+   "title": "WATCH LIVE: House Speaker Mike Johnson and Rep. Monica De La Cruz rally in Texas - Fox News",
+   "people": [
+    "johnson-mike",
+    "cruz"
+   ],
+   "classified": true,
+   "pair": [
+    "cruz",
+    "johnson-mike"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Speaker Mike Johnson and Rep. Monica De La Cruz hold a joint rally in Texas.",
+   "summary_ko": "마이크 존슨 하원의장과 모니카 델라크루즈 하원의원이 텍사스에서 합동 유세를 열었다."
+  },
+  {
    "id": "sig-dc061cd4",
    "date": "2026-10-12",
    "source": "The Hill",
@@ -1611,27 +1691,6 @@
    "classified": true
   },
   {
-   "id": "sig-e5c11fc5",
-   "date": "2026-10-12",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc3Q1eDN1N05RZXhwTzJuZERscTI4Z1ZtQlNNYXoySjRrd2Q5aVM5alh0cWJoWmtjUGMzTWEwSjNSZ1FZdUZPLUpCMHZXU1Jka191ZkJQLUhMWTZVUmRGalVFZEZMUnlhRDRWMFpHMG5ybWRuYjlsVklUdW50ZkV5c3o2NmfSAYoBQVVfeXFMTlpuRTJBOUFZTmxVcTRPTTFmR19RSDhwVU5HNGR1bS1ra1kyQkJfdUg4dmVBR1lacDJ4TjlzWWEtTVpBRDVUNllWci1jSFJyc2p3YlpjamR5LXltR1JoTm1JZGh1SWZZZFFjYVBGVzJxNE1fSHU5TVFNTUctaTQ0T2YyU2ZlUUpTTnZB?oc=5",
-   "title": "Hillary Clinton recalls viral moment with Obama: ‘I really hope that Donald Trump is watching’ - The Hill",
-   "people": [
-    "trump",
-    "obama",
-    "hillary"
-   ],
-   "pair": [
-    "hillary",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Hillary Clinton recalls a viral moment with Obama, directly addressing Trump.",
-   "summary_ko": "힐러리 클린턴이 오바마와의 바이럴 순간을 회상하며 트럼프가 보고 있길 바란다고 말했다.",
-   "classified": true
-  },
-  {
    "id": "sig-ab11211c",
    "date": "2026-10-12",
    "source": "CBS News",
@@ -1670,6 +1729,27 @@
    "summary_en": "Speaker Mike Johnson opposes Hegseth's plan for a livestreamed execution.",
    "summary_ko": "마이크 존슨 하원의장이 헤그세스의 생중계 처형 계획에 반대 입장을 표명했다.",
    "classified": true
+  },
+  {
+   "id": "sig-778a59e0",
+   "date": "2026-10-12",
+   "source": "The Hill",
+   "url": "https://thehill.com/blogs/in-the-know/6143268-clinton-obama-nobel-peace-prize/",
+   "title": "Hillary Clinton recalls viral moment with Obama: ‘I really hope that Donald Trump is watching’",
+   "people": [
+    "trump",
+    "obama",
+    "hillary"
+   ],
+   "classified": true,
+   "pair": [
+    "hillary",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Clinton recalls a viral moment with Obama, hoping Trump is watching.",
+   "summary_ko": "클린턴이 오바마와의 바이럴 순간을 회상하며 트럼프가 보고 있기를 바란다고 말했다."
   },
   {
    "id": "sig-5939a1a6",
@@ -1910,6 +1990,26 @@
    "summary_en": "Former President Obama endorses Governor Josh Shapiro's reelection bid.",
    "summary_ko": "오바마 전 대통령이 조시 샤피로 펜실베이니아 주지사의 재선 도전을 지지했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-97d7b78",
+   "date": "2026-10-09",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcXRyM0dKY29KVFNxVnpBN3Ezc1NYcjRDS3MtczZWTkVZMmRqZWV6bFkydFgyYVI0aDN6cVBreUhMUGNzeFNyX1ZpQVBhSjFrOFlRYlI3QlBpNU1TX2Ywd3lqMnVUOE5VeGNHUG8xRHZ2VDEtdlJMOGsyYzkzazYxeGdmTWdObl9wbGlQajh1TEs0WHJqU3NVWGhvMHVyNmdlczlNWUFNOGpFN3NEUFNQNExGb3Bsc2FBbkI5Ui0wV3NfalFqaE1YYmRR0gHPAUFVX3lxTE1ha1J4cmNxc0U3eHdxc2NYNUUxakQwaExoRmdnOHp4MW9pUXNxaW1zRWVaZW1EVVFidThUWDdYQWU2NFBINFJYSDRPLWtUSzNIcHNIc2tTOG1BcUNrWXhzc0xfQVRFWXhBTEZmVmZRdEZSWWthcml5eF9oNUNkbDAzaEVUOHBDbXJMejhRSThqWi1RTkVxT3dPcDJKUlV3OHphMGRiQ3BjWF9tQl90bjkzc24yZ294bEdIa1JPeEVfSHQ0VVhxaU9yVllSY0RrZw?oc=5",
+   "title": "Un gran jurado federal examina las pruebas de la investigación sobre el testimonio del 6 de enero de Cassidy Hutchinson, exasesora de Trump: fuente - Fox News",
+   "people": [
+    "trump",
+    "cassidy"
+   ],
+   "classified": true,
+   "pair": [
+    "cassidy",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "A federal grand jury reviews evidence from Cassidy Hutchinson's Jan. 6 testimony against Trump.",
+   "summary_ko": "연방 대배심이 캐시디 허친슨의 1월 6일 청문회 증언 관련 증거를 검토 중이다."
   },
   {
    "id": "sig-c32f8c98",
@@ -2314,27 +2414,6 @@
    "classified": true
   },
   {
-   "id": "sig-bcd452",
-   "date": "2026-10-06",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbUdCaC1RNktjYk51Mkg4dEpLekpja3ZDeTRPTWNkQjlWc0taNnhaUlJWMHJXN1h1eVlUMmlRakFHdDZ4STZORHlST3ZtS0NaNHBpQkkwVFhpWGYzb2RReHQ1UFl2czhRYS1hdlRDdU5acTBxVmc2T3ByWVF3S2x4S3YwNmdSVWpmNUZRdC1EcDFOdjZkeE5CdE84Rm9kZVdYdnIzUW5YM2p0aEtaM3QzM3hQONIBuAFBVV95cUxNUXJPVmwzWGxDTmVCdnhiMml0QXRRcGtOLUpnOEVlTWFMSkExbnVNU0VKWWp4dnZDb18tLTc5eUdsYURWbjdjVGVmVVRiQVNjQUdOVUJKTWFMTXJpem5IeHBBcEEzOEFyRTRrb1ZzUHFzRWNlNXlJWFNOejBSRHJFZDVveWVuMms0NFk1bUpjeXlVY3lsYjZnZFEwakZoNjF1Q2U1MHJ1QWVBOWpwUWF6cUZrZ2IzMmdV?oc=5",
-   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push - Fox News",
-   "people": [
-    "biden",
-    "harris",
-    "obama"
-   ],
-   "pair": [
-    "harris",
-    "obama"
-   ],
-   "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Obama and Harris are jointly stepping up campaign efforts for the midterm push.",
-   "summary_ko": "오바마와 해리스가 중간선거를 위해 공동으로 선거운동을 강화하고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-f0e1a00c",
    "date": "2026-10-06",
    "source": "The Hill",
@@ -2353,6 +2432,27 @@
    "summary_en": "Ted Cruz appears to be launching early attacks against JD Vance ahead of the 2028 presidential race.",
    "summary_ko": "테드 크루즈가 2028년 대선을 앞두고 JD 밴스에게 초반 공세를 펴고 있다.",
    "classified": true
+  },
+  {
+   "id": "sig-1b3b71dd",
+   "date": "2026-10-06",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/biden-conspicuously-absent-from-campaign-trail-obama-harris-step-up-midterm-push",
+   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push",
+   "people": [
+    "biden",
+    "harris",
+    "obama"
+   ],
+   "classified": true,
+   "pair": [
+    "harris",
+    "obama"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Obama and Harris actively campaign together for Democrats in the midterm elections.",
+   "summary_ko": "오바마와 해리스가 중간선거에서 민주당을 위해 함께 유세에 나선다."
   },
   {
    "id": "sig-fb4529c7",
@@ -2572,26 +2672,6 @@
    "confidence": 0.85,
    "summary_en": "Hakeem Jeffries outlines a strategy to target Trump-won districts, framing it as an electoral offensive against Trump's influence.",
    "summary_ko": "하킴 제프리스가 트럼프 승리 지역구를 공략해 2018년 압승을 재현하겠다는 전략을 밝혔습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a29f429c",
-   "date": "2026-10-03",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNLUZGQmY2OFNrVGQtcWZjUEYwcjI4VHpDdUw1RUZLWVloYjZFUndPUnZBbVhOdEdlOFNucGp1dXBHVS1iR3Z5NEEtM1dNTGFnazlPNVhKRGVkSVhIM2xjSWc4Q1dha3BDOWtSVTAxSlI0TTVQeExyYng5RVpxZ3VaM2dOcW1udUhHUDdvNXB5OWpzZDBIODhPemZ4Vzh2X3RUTkcxQkVOTGdaWGpVaFVuUE9PXy0xUjdkRTdDRVU3VVV3V1cwTGh0bGliSQ?oc=5",
-   "title": "Ted Cruz blasts JD Vance as ‘insecure,’ says he’s focused on helping GOP win midterms - Politico",
-   "people": [
-    "vance",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Cruz attacks Vance as insecure while claiming focus on GOP midterm victories.",
-   "summary_ko": "크루즈가 밴스를 '불안하다'고 공격하며 공화당 중간선거 승리에 집중한다고 주장했다.",
    "classified": true
   },
   {
@@ -2895,26 +2975,6 @@
    "classified": true
   },
   {
-   "id": "sig-10bec660",
-   "date": "2026-09-28",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1DOVZHR0hfUUpzOWJGUnk1T2M0RTlfemlQajVnTEQwcE1PZVB1UC05bWg0Q1hPSDVTbFBkQkV3LV9fVDdhVEk5cmRtTVU4Rm83cDBfbkJ3?oc=5",
-   "title": "WATCH: Ro Khanna blasts Trump's AI rebrand, calls for US-China safety standards - foxnews.com",
-   "people": [
-    "trump",
-    "khanna"
-   ],
-   "pair": [
-    "khanna",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Rep. Khanna criticizes Trump's AI rebrand and calls for US-China safety standards.",
-   "summary_ko": "카나 하원의원이 트럼프의 AI 리브랜딩을 비판하며 미중 안전 기준을 촉구했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-234fc0d0",
    "date": "2026-09-27",
    "source": "The Hill",
@@ -3152,26 +3212,6 @@
    "confidence": 0.95,
    "summary_en": "Senators Tim Scott and Raphael Warnock jointly introduced legislation to strengthen critical mineral supply chains.",
    "summary_ko": "팀 스콧과 라파엘 워녹 상원의원이 핵심 광물 공급망 강화를 위한 법안을 공동 발의했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-ea58fe53",
-   "date": "2026-09-24",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeG43ejY1Q3pzRU9CZXZlaXFiMjB3ZzZoSmVMTHJFa1RrTHItYmdTNzVXSlhiUlRuNkJYX2oydVZsZG5lMG4tOHdZRnFBWEV1U19MQXItTjhQUHpTY0h0Qm1YQmhXOUxoZFY3OF85ajRQUk5MSGJ5ZUh5NDdfc1diekZFYlBWMDBDb3FVcTBVODNlZnN4cndPQzU1TktuNk1nN1doeEpwdm0ydFRp?oc=5",
-   "title": "Florida governor candidate Byron Donalds stands by Trump after some mentions of the president removed from website - cbsnews.com",
-   "people": [
-    "trump",
-    "donalds"
-   ],
-   "pair": [
-    "donalds",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Florida gubernatorial candidate Byron Donalds reaffirms support for Trump after website edits removed mentions of the president.",
-   "summary_ko": "플로리다 주지사 후보 바이런 도널즈가 웹사이트에서 트럼프 언급이 삭제된 후에도 트럼프 지지를 재확인했습니다.",
    "classified": true
   },
   {
@@ -3455,26 +3495,6 @@
    "classified": true
   },
   {
-   "id": "sig-9b059064",
-   "date": "2026-09-20",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTnpFNDN0cEpYLTlJQl94Q24tMFh2VTJBNUgzUG0zUkY3d1RtQ1NjZlc4eDRULUExajJpYWhCX2NKcVdTNUVhaUZSSVZkNHNWUUFFbnV0YjEzRTRvZjA2RWlQTE9PNTdLdFpsN0FZYzluSVBXM0R5OFhaaVh4RzRVeGFB?oc=5",
-   "title": "Bill Cassidy urges FDA nominee to reject Trump’s vaccine claim - politico.com",
-   "people": [
-    "trump",
-    "cassidy"
-   ],
-   "pair": [
-    "cassidy",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Cassidy presses FDA nominee to reject Trump's vaccine claims during confirmation.",
-   "summary_ko": "캐시디 상원의원이 FDA 지명자에게 트럼프의 백신 주장을 거부할 것을 압박했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-19225fdf",
    "date": "2026-09-20",
    "source": "NBC News",
@@ -3713,27 +3733,6 @@
    "confidence": 0.95,
    "summary_en": "Steve Bannon aligns with Bernie Sanders on AI policy, breaking with Trump.",
    "summary_ko": "스티브 배넌이 AI 정책에서 버니 샌더스 편에 서며 트럼프와 결별했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-97f6636a",
-   "date": "2026-09-16",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOT0ZnRDBfRTF4ZWMwT0J3U05MdzA5QUF5VTd2cHNaaU53dWd0MzBiN0Y2S3doRjh5QmFDV1ZXNml0Q2tyRVJLZDlKOHdDY0tDNVFZSkxxTWtleXdGb3B4LVpyZ2l5U2REWGQ0YzZaRndsZ3NLUHlFRTVXTFgtNmlGTjdQS2lwVld0ZmZTNFJ3NzB4MDNJU2ltTnZwMDdCbWp1VWZuX0F2LUFxWW50b2Y3OTdhZTZOQQ?oc=5",
-   "title": "Speaker Johnson recesses the House early as Rep. Thomas Massie pushes Hegseth impeachment - apnews.com",
-   "people": [
-    "hegseth",
-    "johnson-mike",
-    "massie"
-   ],
-   "pair": [
-    "hegseth",
-    "massie"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Rep. Thomas Massie pushes for impeachment of Defense Secretary Pete Hegseth, prompting Speaker Johnson to recess the House early.",
-   "summary_ko": "토머스 매시 의원이 피트 헤그세스 국방장관 탄핵을 추진하자 마이크 존슨 하원의장이 본회의를 조기 휴회했다.",
    "classified": true
   },
   {
@@ -4200,26 +4199,6 @@
    "confidence": 0.95,
    "summary_en": "DeSantis endorses Byron Donalds as part of the Florida GOP slate.",
    "summary_ko": "드산티스가 플로리다 공화당 후보 명단에 바이런 도널즈를 포함해 지지했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c5bd49f8",
-   "date": "2026-09-01",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQd0lPaWdjZ1p5d1h2T0Exb0V5aHRwOXhpbzF6SjVyb0dPbXZyRG9hdWhXaklSSzNNYVNORUJIZlV1NnJTX2tjSUdyeTE3QjJRZVB6Q2UydEhSRUQzSDQ1ZXI2WEhoVXZ1enNXOVFWa3NoUUlGb1FpeWpaOTkxNk9yLUdNMVpRTElWVGtpZkdtM0JsZTFCLW4wbzg1VEN5U0E1aXRMTHFBcnJ0dkNaclNGcFdR?oc=5",
-   "title": "Donalds and DeSantis signal détente ahead of November election - Politico",
-   "people": [
-    "donalds",
-    "desantis"
-   ],
-   "pair": [
-    "desantis",
-    "donalds"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Donalds and DeSantis signal a thaw in relations ahead of the November election.",
-   "summary_ko": "도널즈와 드산티스가 11월 선거를 앞두고 관계 개선 신호를 보냈다.",
    "classified": true
   },
   {
@@ -5118,7 +5097,15 @@
     "romney",
     "mccain-john"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "mccain-john",
+    "romney"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.75,
+   "summary_en": "Emanuel warns the Romney-McCain wing is drifting from the Republican Party.",
+   "summary_ko": "에마누엘이 롬니-매케인 계파가 공화당에서 멀어지고 있다고 경고했다."
   },
   {
    "id": "sig-31910e57",
