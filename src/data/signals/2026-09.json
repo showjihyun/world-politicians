@@ -116,9 +116,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Schumer embraces Trump's campaign travel and assesses Senate control as a toss-up.",
-   "summary_ko": "슈머가 트럼프의 유세 일정을 수용하며 상원 다수당 경쟁을 '50대 50'으로 전망했다.",
+   "confidence": 0.9,
+   "summary_en": "Schumer embraces Trump's campaign travel approach and assesses Senate fight at 50/50.",
+   "summary_ko": "슈머가 트럼프의 유세 방식을 수용하며 상원 승부를 50대 50으로 본다.",
    "classified": true
   },
   {
@@ -377,8 +377,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Transportation Secretary Pete Buttigieg criticizes Trump's rollback of fuel-economy standards.",
-   "summary_ko": "피트 부티지지 교통부 장관이 트럼프의 연비 기준 완화를 비판했습니다.",
+   "summary_en": "Pete Buttigieg criticizes Trump's rollback of fuel-economy standards.",
+   "summary_ko": "피트 부티지지가 트럼프의 연비 기준 완화 조치를 비판했다.",
    "classified": true
   },
   {
@@ -476,9 +476,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Sen. Mike Lee blocks a Democratic effort to stop Trump from dismantling presidential memorials.",
-   "summary_ko": "마이크 리 상원의원이 트럼프의 대통령 기념물 해체 시도를 막으려는 민주당의 시도를 저지했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Senator Mike Lee blocks legislation aimed at stopping Trump from dismantling presidential memorials.",
+   "summary_ko": "마이크 리 상원의원이 대통령 기념물 철거를 막는 법안 통과를 저지하며 트럼프를 지원했다.",
    "classified": true
   },
   {
@@ -596,9 +596,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Thune criticizes Trump's taxpayer-funded ads as campaign-style messaging.",
-   "summary_ko": "튠 상원의원이 트럼프의 세금으로 운영되는 광고를 선거 운동성 메시지로 비판했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Sen. Thune criticizes Trump's taxpayer-funded political ads as improper use of public money.",
+   "summary_ko": "튠 상원의원이 트럼프의 세금 지원 정치 광고를 공금 유용으로 비판했습니다.",
    "classified": true
   },
   {
@@ -898,7 +898,7 @@
    "polarity": "feud",
    "confidence": 0.9,
    "summary_en": "Sen. Mark Kelly criticizes Trump's Iran policy, saying he is stuck without an exit strategy.",
-   "summary_ko": "마크 켈리 상원의원이 트럼프의 이란 정책을 비판하며 출구 전략 없이 발이 묶였다고 말했습니다.",
+   "summary_ko": "마크 켈리 상원의원이 트럼프의 이란 정책을 출구 전략 없이 갇혔다고 비판했습니다.",
    "classified": true
   },
   {
@@ -7125,6 +7125,18 @@
    "people": [
     "golden-jared",
     "newsom"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-6b57d1cc",
+   "date": "2026-09-30",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNeEdOYWRXSWVpemhtcmhkTTFqWWhXemtXQVNzUkptaEM3WXY3YWZRb0dVVlh1QTBhTXVOSlhNUDZfSU9MeExuS3hkUW5ldDlpSTAwbDd2RHVLd29fdXZQei1HQTRvWkU1YWV0UE12U2ZmMkpTWWhWQk1XWUYyc2VGQlVjaVBJXzNudkpRU09TMWXSAZYBQVVfeXFMTnMwX1RjWkpBczBTSVJFM1huYVRtdjg5X0M2RV9Qcl82cDcyWjJrZXdfdmFxYnVuN1ByX0VQWWpRYUg4enlXTVNDZEZuTHB6TXVMODhudXFFNkJHbUFINDVWSFBjekcxOW81elBLajdYcm5CSVAxZ2JQLVBtbkplaDdWTEx6M1gwOUhuMVBET0xFT0FBZEJ3?oc=5",
+   "title": "CFTC is investigating Kinzinger’s Kalshi trades related to Biden pardons - The Hill",
+   "people": [
+    "biden",
+    "kinzinger"
    ],
    "classified": false
   },
