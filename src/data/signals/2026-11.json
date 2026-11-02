@@ -2,6 +2,266 @@
  "month": "2026-11",
  "signals": [
   {
+   "id": "sig-dd3982c6",
+   "date": "2026-11-02",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/collins-accuses-schumer-pushing-attack-ads-filled-outright-lies-tight-maine-race",
+   "title": "Collins accuses Schumer of pushing attack ads filled with 'outright lies' in tight Maine race",
+   "people": [
+    "collins-susan",
+    "schumer"
+   ],
+   "pair": [
+    "collins-susan",
+    "schumer"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Susan Collins accuses Chuck Schumer of running attack ads with outright lies in the Maine Senate race.",
+   "summary_ko": "수전 콜린스가 척 슈머가 메인주 상원 선거에서 '명백한 거짓말'로 가득 찬 공격 광고를 내보낸다고 비난했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-74d9a2f6",
+   "date": "2026-11-02",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/house-dems-demand-haley-stevens-exile-jeffries-reveals-deadline-deciding-her-fate",
+   "title": "House Dems demand Haley Stevens' exile as Jeffries reveals deadline on deciding her fate",
+   "people": [
+    "jeffries",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "jeffries"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Hakeem Jeffries sets a deadline to decide Haley Stevens' fate after her Republican endorsement.",
+   "summary_ko": "하킴 제프리스가 헤일리 스티븐스의 공화당 후보 지지에 대한 징계 시한을 정했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1deddcc9",
+   "date": "2026-11-02",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPQnUwWDJFVlIydDZ3VTBlZm5jV245VDR0d1hpOHJTQ1RSNGVOVFdxa2tCUXlZSHJVQlFjdGRvY1MxX1N1YkZob1NTZDZkdDVCRC1SQzF6VnJrZGY0OWJEaHFDRkpPazlKVzJockVXS2pXWS1wV3dvQk54MU9PY2FUS2d0MnVOVzFFdHhfLWhFSWJmSkdqN2x0VQ?oc=5",
+   "title": "Chuck Schumer calls Haley Stevens' endorsement of Mike Rogers against Abdul El-Sayed a \"despicable betrayal\" - CBS News",
+   "people": [
+    "haley-nikki",
+    "schumer"
+   ],
+   "pair": [
+    "haley-nikki",
+    "schumer"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Chuck Schumer denounces Haley Stevens' endorsement of a Republican as a despicable betrayal.",
+   "summary_ko": "척 슈머가 헤일리 스티븐스의 공화당 후보 지지를 '비열한 배신'이라고 맹비난했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-497ec359",
+   "date": "2026-11-02",
+   "source": "The Washington Post",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRW12aHB1Qm0zVGd4RkplQW53cGxHdE8yeC1KUkJwQmMtZGZ1cVZXTnVqQVZOZWhfcG1ELWRHUUF2MHREc0Q5WnFVWTNrTlA2MExrOEJRRFRnXzNlU0dLclBkWG5MUTRRSmxKcGxNZEdlSzVyakRrY3hUc1k0T3F6bHRsUHV6cTJyVXpRbDJXRU1kVVhveHJOanA2OENoemhNYWJDTHk3dGxhQVRXWUlLQ2pINEVnVWpiVXpidXozaEFyUQ?oc=5",
+   "title": "Schumer calls Haley Stevens’s endorsement of a Republican ‘a despicable betrayal’ - The Washington Post",
+   "people": [
+    "haley-nikki",
+    "schumer"
+   ],
+   "pair": [
+    "haley-nikki",
+    "schumer"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Chuck Schumer denounces Haley Stevens' endorsement of a Republican as a despicable betrayal.",
+   "summary_ko": "척 슈머가 헤일리 스티븐스의 공화당 후보 지지를 '비열한 배신'이라고 맹비난했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-5614ce4f",
+   "date": "2026-11-02",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOUGtrNjZDWlJqaDJURmRNZnZfZTVJUE9wbmcyaE9HdVZacTVvOXB4NHY1ZENJaUhrNDBKclR5dUM4YlpmVHJCLUtmNWxqZWdCNjFBdW14aVJKMkFORkVTNVg2b1E1UGktZjZKQkEtZTA0R2J6SWRJWXY1em0yYkdwM0hhTWphY2lhMWJiMjNVLTBjUk1ISlFmQzZrR3V0Ym9oN245OWlCbGdDZ1BiZEtPd2d6dk9HU0Q0cDR6dnE5N3ZDZHlNWjVST1lhT1lsTllBUFFCNVotQUdGUQ?oc=5",
+   "title": "Jeffries says caucus will have discussion about ‘next steps’ for Haley Stevens after she endorsed Mike Rogers - Washington Examiner",
+   "people": [
+    "jeffries",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "jeffries"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Hakeem Jeffries announces caucus discussion on next steps for Haley Stevens after her Republican endorsement.",
+   "summary_ko": "하킴 제프리스가 헤일리 스티븐스의 공화당 후보 지지 후 의원총회에서 후속 조치를 논의하겠다고 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-3c561de1",
+   "date": "2026-11-02",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOOUEtd3ZmcldpUFppT3Q2bkNlc19jOWFKZmRBblI1bThqU0dDZ1VvX3pOZWhobUo1YzVwV3hubVItVXhVa25JQUxBeVBrT0dBdXpXRFN3SW9WSjl5NkFCemlEb0R2QUk1dFUzenB5RjZxMHo5SUJUZVAtd0RvZ1ZVbnNYQkNzbUNQUzF1RjBMdGJYb25EVmp1YjViaVVlRDlzNkluUlhwM21fM09FWjdHOUs0U1dXaWI2Xy1FNWJlSFFnclQ5aE5j?oc=5",
+   "title": "Josh Shapiro takes on Pennsylvania Democrats’ biggest challenge: Beating Brian Fitzpatrick - NBC News",
+   "people": [
+    "fitzpatrick",
+    "shapiro"
+   ],
+   "pair": [
+    "fitzpatrick",
+    "shapiro"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Shapiro targets Fitzpatrick as the top Democratic challenge in Pennsylvania.",
+   "summary_ko": "샤피로가 펜실베이니아 민주당의 최대 과제로 피츠패트릭 공략을 꼽았다.",
+   "classified": true
+  },
+  {
+   "id": "sig-243b75bf",
+   "date": "2026-11-02",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5abjhwMUtTSlFVcnBvY1J0VzZuWVdOcENJX2tDUjhZUU91c09ka2JUWGVsbmI5ZXJyWDdadHNHWXZEckpfRlVGejh1X2haNFpiWk1Hbm13?oc=5",
+   "title": "Rep Tom Emmer says Vance has been campaign 'workhorse' during midterms - Fox News",
+   "people": [
+    "vance",
+    "emmer"
+   ],
+   "pair": [
+    "emmer",
+    "vance"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Emmer praises Vance as a campaign workhorse during the midterms.",
+   "summary_ko": "에머가 중간선거 기간 밴스를 '일꾼'이라 칭하며 치하했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-c180c231",
+   "date": "2026-11-02",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5sY01VSzFudm9yZkFpbFBXNWMtYzNqeG82akwyaTk5bTlGMEptbVdfeDJYTF9JN2Z6Mm42TEtydTZITGhpeHpqdmNGQlVWYnAzQS1xRTV3?oc=5",
+   "title": "Mike Johnson breaks into Trump impression during Iowa campaign rally - Fox News",
+   "people": [
+    "trump",
+    "johnson-mike"
+   ],
+   "pair": [
+    "johnson-mike",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.75,
+   "summary_en": "Johnson performs a Trump impression at an Iowa rally, signaling alignment.",
+   "summary_ko": "존슨이 아이오와 유세장에서 트럼프 성대모사를 하며 친밀감을 과시했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-8bf7d9b1",
+   "date": "2026-11-02",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWU0ybnZyVHhQeUZNZGxVSEtxSnNDd0ZSaHo3YWE0SUxORDZYLWhqbU9Eb2c2NkM0LUFsWmZOaWhmdGNjQ1ctRUpFdTU3Q09OcFQ3R3RPLVZHLTBQanFBUi1odjExUjc0M2NGOG1PeWRiVmJEZm1OU1lGVUN1Mk5iWHhFUW1YZUc0eDVraWtSV0lVNms?oc=5",
+   "title": "Mike Johnson does impression of Trump | CNN Politics - CNN",
+   "people": [
+    "trump",
+    "johnson-mike"
+   ],
+   "pair": [
+    "johnson-mike",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.75,
+   "summary_en": "Johnson mimics Trump in a public appearance, reinforcing their alliance.",
+   "summary_ko": "존슨이 공개 석상에서 트럼프를 흉내 내며 동맹 관계를 부각했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-51e54c26",
+   "date": "2026-11-02",
+   "source": "The Washington Post",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQa2syYzYtYzktOWdVcm5IN0hqVmRJeGk3dlUwN2RrRW5CTGRZZjJZWkhwc1oweHpJVmkzMXM4WmRIQ2xLUXpCLVVPZElDd0xYWlJaSTVJWG81aTZ3U1pjMG1vN3prU3BEcDBMNkg0djFuNDBEc3ktanlxZ09wLUVVRUlrbWU0SmlUdFNreThuZThDYXRaTk80Y01CZ0cxLUdkQ29TN3BiVzB1Z1lSSHVlTWhJZnFfZFNlcVdLX0R0aHU?oc=5",
+   "title": "Kamala Harris and Gavin Newsom, weighing 2028 runs, rally together in California - The Washington Post",
+   "people": [
+    "harris",
+    "newsom"
+   ],
+   "pair": [
+    "harris",
+    "newsom"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Harris and Newsom hold a joint rally in California ahead of potential 2028 runs.",
+   "summary_ko": "해리스와 뉴섬이 2028년 대선 출마를 저울질하며 캘리포니아에서 합동 유세를 열었다.",
+   "classified": true
+  },
+  {
+   "id": "sig-9bb54ea0",
+   "date": "2026-11-02",
+   "source": "The New York Times",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPa21Xa1Y5U2s0ck9JcEM5dmV0d2IweEg2MG5ZWVR0VlVOUnlFNi12cm9meHN2M21zSE1ZOFNxbHBKc0tUcV9JZ2tKRk8xdkdjam9hUDFiS3NaM0hncno1R1ozNks2SmhZRFpWWUZ0RG5RUlRpOGN2b2RQR2xkM2Frdmg3UWxOc2c?oc=5",
+   "title": "Newsom and Harris Campaign in Los Angeles, With Little Hint of What’s to Come - The New York Times",
+   "people": [
+    "harris",
+    "newsom"
+   ],
+   "pair": [
+    "harris",
+    "newsom"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Newsom and Harris campaign together in Los Angeles with future ambitions unclear.",
+   "summary_ko": "뉴섬과 해리스가 로스앤젤레스에서 함께 유세했으나 향후 행보는 불투명하다.",
+   "classified": true
+  },
+  {
+   "id": "sig-531f4ad2",
+   "date": "2026-11-02",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPemt6NDZhaF8zTExJeHV1d09Ib2wzUWF6eWJiN0dFcmVqM0NORFpYbzF3RlhXSEpqZHNmZFFoY3dJM05YRHVyMWFFaGFYVlo4enBXWjdERTd2VVlsZE1XbThwVmlUbVlxNlc3SU90Z2lFRW9rN2NOVGdTaUo3aVpLYzM5dngyN2RHaVJkelo4dkR3VXZERzVz?oc=5",
+   "title": "Trump and Rubio didn’t build the wall at the Rio Grande — they built it in Guatemala - Washington Examiner",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Article frames Trump and Rubio as partners on border policy extending to Guatemala.",
+   "summary_ko": "기사는 트럼프와 루비오가 과테말라까지 국경 장벽 정책을 함께 추진했음을 시사한다.",
+   "classified": true
+  },
+  {
+   "id": "sig-91f04d5",
+   "date": "2026-11-02",
+   "source": "Axios",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9kbzdSM3VjTGRVRDFUMWxtX3V3THNJRzhfeldMaklLU21HMUxibTk2RGxUclZHWk1EeWlXV3lscmJpWTFQUzJRcVUzcHM1d1c5bk52UEVEbTQzRmdJdURFX0hVMA?oc=5",
+   "title": "Trump vows to protect Musk, floats pre-emptive staff pardons - Axios",
+   "people": [
+    "trump",
+    "musk"
+   ],
+   "pair": [
+    "musk",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Trump pledges to protect Musk and suggests pre-emptive pardons for staff.",
+   "summary_ko": "트럼프가 머스크를 보호하겠다고 약속하고 직원들에 대한 선제적 사면을 시사했다.",
+   "classified": true
+  },
+  {
    "id": "sig-de69cd67",
    "date": "2026-11-01",
    "source": "ABC News",
@@ -36,9 +296,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump works to defeat Massie in primary election.",
-   "summary_ko": "트럼프가 매시의 예비선거 패배를 도왔다.",
+   "confidence": 0.95,
+   "summary_en": "Trump actively worked to defeat Rep. Massie in Tuesday's primary elections.",
+   "summary_ko": "트럼프가 화요일 예비선거에서 매시 의원의 낙선을 적극 도왔다.",
    "classified": true
   },
   {
@@ -57,8 +317,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Warnock condemns Cruz's remarks about Muslims as bigotry.",
-   "summary_ko": "워녹이 크루즈의 무슬림 관련 발언을 편견이라고 강하게 비난했다.",
+   "summary_en": "Warnock denounces Cruz's remarks on Muslims as bigotry.",
+   "summary_ko": "워녹이 크루즈의 무슬림 관련 발언을 '순전한 편견'이라고 비난했다.",
    "classified": true
   },
   {
@@ -97,9 +357,173 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Pritzker accuses Trump of trying to rig elections.",
-   "summary_ko": "프리츠커가 트럼프가 선거를 조작하려 한다고 비난했다.",
+   "summary_en": "Pritzker accuses Trump of attempting to rig elections.",
+   "summary_ko": "프릿커가 트럼프가 선거를 조작하려 한다고 비난했다.",
    "classified": true
+  },
+  {
+   "id": "sig-60505dfb",
+   "date": "2026-11-01",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6187354-trump-haley-stevens-join-republican-party/",
+   "title": "Trump says he would ‘love to have’ Haley Stevens join Republican Party",
+   "people": [
+    "trump",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Trump welcomes Haley Stevens to the Republican Party.",
+   "summary_ko": "트럼프가 헤일리 스티븐스의 공화당 합류를 환영했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-efe540fc",
+   "date": "2026-11-01",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNc1RDVDZsNFUwRjVQN2d0M0puNjV2aFFNdUlZMlBNWWxINnRvNXpySFA2NWlUdmFpZ19ETHlkb0xDOUdGWUhaN1BvblB2UEpGZFp6dnN6YUJJYWwxOGFhaUdjMlZldmRuY2MxcFc5aG9xYl9pdnhwUXRUSkpFREpUQml1cVN0RHc2dVpIMTZTeThGcmxfREUtTWdZN1FNYUtXM0h5RV9WbTAyZi1nYzY2bVJoVDUyREM2eFRnaTgteng?oc=5",
+   "title": "Tim Scott says 'the midterm election is about’ Trump: Full interview - NBC News",
+   "people": [
+    "trump",
+    "tim-scott"
+   ],
+   "pair": [
+    "tim-scott",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.85,
+   "summary_en": "Tim Scott frames the midterm election as a referendum on Trump.",
+   "summary_ko": "팀 스콧이 중간선거가 트럼프에 대한 심판이라고 규정했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2fc1de04",
+   "date": "2026-11-01",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1CZXBSczRaZ3MwZWRsRjVzZU9CZF9RVlJaU09NZXVqc2d5eXY2dnJRWVpLN09CSGdYTWppelpiMmhROEtCdWJqRkdiQ3FQU0ZYVHRvUEpn?oc=5",
+   "title": "President Trump and Speaker Johnson RALLY supporters ahead of crucial election - Fox News",
+   "people": [
+    "trump",
+    "johnson-mike"
+   ],
+   "pair": [
+    "johnson-mike",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Trump and Speaker Johnson jointly rally supporters ahead of a crucial election.",
+   "summary_ko": "트럼프 대통령과 존슨 하원의장이 중요한 선거를 앞두고 지지자들을 공동으로 결집시켰다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2862003a",
+   "date": "2026-11-01",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQjRzVm9MTDlMcDBCUkE0eHBocHhxTG5iSGxEOTh4REZZel9LMVQtRVZPUE5GcDRqN0NfT1JlNVlzbXpIQTFnNFhGN1FGcVhyckVqdHdtenQ4YTFlWlhUMlVxeFY0RWZZbW9FV0hOdERJeEtxNVkyUElwdFpLUW5yeWd0ZHRkaFEyVmlLVDVKSERqeUZKaFE?oc=5",
+   "title": "Shapiro's strategy for tackling measles outbreak: Don't listen to RFK Jr. - Politico",
+   "people": [
+    "rfk-jr",
+    "shapiro"
+   ],
+   "pair": [
+    "rfk-jr",
+    "shapiro"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Shapiro advises the public to ignore RFK Jr. regarding the measles outbreak response.",
+   "summary_ko": "샤피로가 홍역 발생 대응과 관련해 RFK 주니어의 말을 듣지 말라고 권고했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1feffb27",
+   "date": "2026-11-02",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6189975-stevens-rogers-mccain-murkowski/",
+   "title": "Haley Stevens on Mike Rogers: ‘Maybe he can be a McCain-type person or a Lisa Murkowski’",
+   "people": [
+    "haley-nikki",
+    "murkowski"
+   ],
+   "pair": [
+    "haley-nikki",
+    "murkowski"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Haley Stevens compares Mike Rogers to Lisa Murkowski as a potential independent-minded Republican.",
+   "summary_ko": "헤일리 스티븐스가 마이크 로저스를 리사 머코우스키 같은 독립적 공화당원에 비유했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-d8663967",
+   "date": "2026-11-02",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6190005-trump-hegseth-military-approval-ratings/",
+   "title": "Trump, Hegseth underwater on approval from military members, veterans: Poll",
+   "people": [
+    "trump",
+    "hegseth"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-1e0291b7",
+   "date": "2026-11-02",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcXhoa19NTDZYYm13WUJmSl9nV3p2M3FCNkdERVI1NlgzX09lU2tHd1F0SUFRdWd2dnFwSnlITnI0ajNRVmI3M1JxYTUwSjctdlBQRWZFNmV6cDQ0TjZXYTI4X3d6VDFhcU4zcndYSURfT0Fmb0tMNFlsTU1PZ0trazdCZjRxRkdVNVZTVk94b09rZTNoZlY1NFpvdm9Xd24yTTRXWS1iT3VYOG1x?oc=5",
+   "title": "Stevens mess tests Jeffries, Schumer - Politico",
+   "people": [
+    "jeffries",
+    "schumer"
+   ],
+   "pair": [
+    "jeffries",
+    "schumer"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.6,
+   "summary_en": "The Stevens situation creates a shared political test for Jeffries and Schumer.",
+   "summary_ko": "스티븐스 사태가 제프리스와 슈머에게 공동의 정치적 시험대가 되고 있다.",
+   "classified": true
+  },
+  {
+   "id": "sig-da83e177",
+   "date": "2026-11-02",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOOHpicDBtTVRiMlctSzlVTHQyaGZoVTk1STRsbFFXWnZRQWl6Vm1CX3UyNXN1M0x6MGhUeUxSMVVxV182N3F2Tk5RcUxTRjlfS1dqbmZlbVRJS2dLWjVwc3JIcUJQMWNacHVhM1hoWl9VWE0zdF9oXzNQNHBCRUpULTlUc1FsSjVmLW5XUnVFUWR3SGpKQkFOYTFQVQ?oc=5",
+   "title": "‘You’re fired’: Trump tosses joke at Marco Rubio - CNN",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.7,
+   "summary_en": "Trump jokes 'You're fired' at Rubio in a lighthearted moment.",
+   "summary_ko": "트럼프가 루비오에게 '넌 해고야'라 농담을 던지며 가벼운 분위기를 연출했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-29cdf634",
+   "date": "2026-11-02",
+   "source": "NPR",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBwUmphUjRkSHAybTlsRnlmR1JoeGpMc3BEVlp0T29DdF9nZTVBZ0pLTXlCdjAtRmZWSG1hclFjX1RoclFzN3pybG1BWHZxNmpsZVl1bmNuakM?oc=5",
+   "title": "How Vance's midterm message differs from Trump's and what that says about 2028 : Trump's Terms - NPR",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": false
   },
   {
    "id": "sig-99b6ab04",
@@ -168,6 +592,74 @@
    "summary_en": "Jeffries and Johnson discuss midterm election strategies.",
    "summary_ko": "제프리스와 존슨이 중간선거 전략을 논의했다.",
    "classified": true
+  },
+  {
+   "id": "sig-5d170b23",
+   "date": "2026-11-01",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5nV1ZkenhpM2JBQ0NLRkZkU1d3TEF0dGZtdHotTzNOMHgzOFpzcnFJQmNZU1U2NTdMaldPc1paSGdRV1lPbng2cHpKQmI3MGRIT3JOaW1R?oc=5",
+   "title": "WATCH LIVE: Senate candidate Peggy Flanagan holds rally with Klobuchar, Buttigieg - Fox News",
+   "people": [
+    "buttigieg",
+    "klobuchar"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-79792b1d",
+   "date": "2026-11-01",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYUR2d3NrSzRLUGhsTi1UNVA4MjVlMmVGdzRyb0kxUG5oVFpoUHVVQ05ZX2lRcUtiUndtN3lCSlYwbkY0eFVfcTVHSExDQmQxdDNsNnZKQ0luY3lxcWJJNTlVc0ZEUTRJWTNSbjR6bThhbTNNV1hUU0RNOE52dHdlMjJZQkFoYlQ5dExtdUFCNkdwbVl4RHBKQjVZR2NWdE11U1NR?oc=5",
+   "title": "Trump reacts to Haley Stevens’ endorsement of Mike Rogers - CNN",
+   "people": [
+    "trump",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.8,
+   "summary_en": "Trump responds to Haley Stevens endorsing Mike Rogers.",
+   "summary_ko": "트럼프가 헤일리 스티븐스의 마이크 로저스 지지에 반응했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-f4f6248f",
+   "date": "2026-11-01",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQa3FRY0dWUjdQdzZOekFqcWhfTUNXRDBkd2xsTVkyY0o4OVFMZ2RZaW5hR2U5T3RUY0JIekNNQzRDVGFDcmlPS3pfMjJpUFFpb0lsVkk3RzBwd2s5bTBFem1GUl9vdmdWNnhJb01QaWNPWGkxQ3BMLVFyRm5JMFJnS1lMdGdSd1RuVGlPam1hSll2M3lLald4enBxcGJERlJCeEVCNktfZllxY1pKV0pB?oc=5",
+   "title": "Nov. 1 — Sen. Tim Scott, Rep. Jamie Raskin, Gov. JB Pritzker - NBC News",
+   "people": [
+    "pritzker",
+    "tim-scott"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-9fc9b640",
+   "date": "2026-11-01",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFAzZm5tQ2ZoN3Z1bGNBaHJmYzBCbm5NN1FZbU5XQndVX0c3QmNqUUJzcHhGM1pTWE9qMWJmSF9kNG5MX2J0Tm1RM0VxZDg?oc=5",
+   "title": "Hakeem Jeffries and Mike Johnson on midterms - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "johnson-mike",
+    "jeffries"
+   ],
+   "classified": false
+  },
+  {
+   "id": "sig-f502f7d3",
+   "date": "2026-11-01",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0zWWo0N19WaUFDbm8yTTdHckVRVEZZVVhOZi02VjBvY1dyUEs3V1U5aHlWOEkwYnlRSWJYbDVyXzU4aEpZWnBqc3d4UFg0amhXQjNMdW1n?oc=5",
+   "title": "Rubio: Trump is READY FOR WAR with Iran - Fox News",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "classified": false
   }
  ]
 }
