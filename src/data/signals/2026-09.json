@@ -1922,26 +1922,6 @@
    "classified": true
   },
   {
-   "id": "sig-575d10f7",
-   "date": "2026-09-22",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOemJkdGVpTV9lRVJEdzNBdUp4NlZSMFVDSmFrbTFMS3hNRWhvVi1oV0MtUm4ta1BwTkstYXU5UkNaTzRiVzdLSld2UDZnSHhXeTdfbkFobzlUZVBoaXB1MC1GdjRyWks2N0tSV0lDdGVYaG5oMXZMeV9sc3EzWjZRMnFKcDhHNDRYak04Q0dCeDktb2lDRzd2SkhEWUJkd19XQkHSAacBQVVfeXFMUGdQc1pmZ1dMX0dCVE1sX24zamMzVHFDNThJcXRpMmV5WWRNWmxKdUliTk5KWVJRSzA0dkM5RnBjYTdQVHlBNXhWSjNIcEJKUkZfU2lzbGgwcjZobHMxdGMtMHllMjVSb0lWQlIyNzVZNFVtakQ3czlwTEE3dFRob3JKSDBLNDFyYVBRaGNsYzNhdklmeWdIalVhUjVNbkg3VWNjcExDZXc?oc=5",
-   "title": "Bill Clinton takes veiled public shot at Trump's actions: 'Hard to make up' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "bill-clinton"
-   ],
-   "pair": [
-    "bill-clinton",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Bill Clinton takes a veiled shot at Trump's actions, describing them as hard to make up.",
-   "summary_ko": "빌 클린턴 전 대통령이 트럼프의 행동을 우회적으로 비판하며 '지어내기 힘들 정도'라고 표현했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-7be8b1cb",
    "date": "2026-09-21",
    "source": "The Washington Post",
@@ -7094,7 +7074,15 @@
     "jeffries",
     "schumer"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "jeffries",
+    "schumer"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Commentator Stewart predicts Schumer and Jeffries will disappoint progressives if Democrats win Congress.",
+   "summary_ko": "논평가 스튜어트는 민주당이 의회 다수당이 될 경우 슈머와 제프리스가 진보층을 실망시킬 것이라고 전망했습니다."
   },
   {
    "id": "sig-603c8f4a",
@@ -8390,7 +8378,15 @@
     "biden",
     "obama"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "biden",
+    "obama"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "A DOJ prosecutor resigns after overseeing an investigation targeting officials from both the Biden and Obama administrations.",
+   "summary_ko": "바이든과 오바마 행정부 관리들을 겨냥한 수사를 감독하던 법무부 검사가 사임했습니다."
   },
   {
    "id": "sig-f9972055",
