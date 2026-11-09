@@ -1,6 +1,430 @@
 {
  "signals": [
   {
+   "id": "sig-e17289ed",
+   "date": "2026-11-09",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPbWtxU2FLTlBQc1AzRHFaVDMzbWhhbzRmeEM5N3Q2RFNRZkhKNTg4Nmw0N1lEeE1maUQ2NVEtSmNWN3g5Y0VUb0ZhSW9vN2cyMGZQazVIVzN4eHpnNnVTRWhIYmFna0RSaEN6dkI3b1otWWlCRkgySnZFZEhLSHhycnZVYWhhUnotWFhjVGFnclp2Qjk5aGtRMHRvTno1NmN2ejdsb1VTR3oyTVNmWTI0RkJHY3ozeEpXNHNLa3A3R1otSndmR3BYWXAxWkRXanE1WnktVGlsUEYyMXRmWm00T2N0Vms?oc=5",
+   "title": "Byron Donalds on DeSantis' midterm explanation: ‘I actually don't know what' he is talking about - NBC News",
+   "people": [
+    "donalds",
+    "desantis"
+   ],
+   "pair": [
+    "desantis",
+    "donalds"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Donalds criticizes DeSantis' midterm explanation as incomprehensible.",
+   "summary_ko": "도널즈가 드샌티스의 중간선거 설명을 이해할 수 없다고 비판했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-59d4dd08",
+   "date": "2026-11-09",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6207449-donald-trump-jd-vance-iran-war-gop-midterm-losses/",
+   "title": "Trump: ‘A lot of people didn’t like’ Vance comments blaming midterm losses on Iran war",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Trump publicly criticizes Vance's comments blaming midterm losses on the Iran war.",
+   "summary_ko": "트럼프가 이란 전쟁을 중간선거 패배 원인으로 돌린 밴스 발언을 공개 비판했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-8b0a980f",
+   "date": "2026-11-09",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6208410-biden-memoir-january-6-trump/",
+   "title": "Biden: Jan. 6 riots should follow Trump ‘to his grave’",
+   "people": [
+    "trump",
+    "biden"
+   ],
+   "pair": [
+    "biden",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Biden attacks Trump, saying the January 6 riots should follow him to his grave.",
+   "summary_ko": "바이든이 1월 6일 폭동이 트럼프를 무덤까지 따라가야 한다고 공격했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-f3d5d962",
+   "date": "2026-11-09",
+   "source": "The Hill",
+   "url": "https://thehill.com/video-clips/6208667-watch-live-thomas-massie-pete-hegseth-impeachment-articles-press-conference/",
+   "title": "Watch live: Massie speaks amid Hegseth impeachment drive",
+   "people": [
+    "hegseth",
+    "massie"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Thomas Massie leads an impeachment drive against Defense Secretary Pete Hegseth.",
+   "summary_ko": "토마스 매시가 피트 헤그세스 국방장관에 대한 탄핵 추진을 주도하고 있다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2ea47d2f",
+   "date": "2026-11-09",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6207029-live-updates-trump-congress-lame-duck/",
+   "title": "Live updates: Trump makes impromtu briefing; Massie reads articles of impeachment against Hegseth",
+   "people": [
+    "trump",
+    "hegseth",
+    "massie"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.98,
+   "summary_en": "Rep. Thomas Massie reads articles of impeachment against Defense Secretary Pete Hegseth.",
+   "summary_ko": "토마스 매시 의원이 피트 헤그세스 국방장관에 대한 탄핵 소추안을 낭독했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-a8e8febf",
+   "date": "2026-11-09",
+   "source": "NPR",
+   "url": "https://www.npr.org/2026/11/09/nx-s1-6034483/thomas-massie-impeachment-pete-hegseth",
+   "title": "Thomas Massie files articles of impeachment against Defense Secretary Pete Hegseth",
+   "people": [
+    "hegseth",
+    "massie"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.99,
+   "summary_en": "Rep. Thomas Massie files articles of impeachment against Defense Secretary Pete Hegseth.",
+   "summary_ko": "토마스 매시 의원이 피트 헤그세스 국방장관에 대한 탄핵 소추안을 제출했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-18e6528b",
+   "date": "2026-11-09",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/rubio-defends-trumps-iran-war-not-necessarily-popular-necessary",
+   "title": "Rubio defends Trump's Iran war as not 'necessarily popular, but necessary'",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.95,
+   "summary_en": "Sen. Marco Rubio defends President Trump's Iran war as necessary.",
+   "summary_ko": "마코 루비오 상원의원이 트럼프 대통령의 이란 전쟁을 필요하다고 옹호했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-cab46177",
+   "date": "2026-11-09",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/rubios-defense-trumps-iran-war-draws-sharp-contrast-vances-midterm-blame",
+   "title": "Rubio's defense of Trump's Iran war draws sharp contrast with Vance's midterm blame",
+   "people": [
+    "trump",
+    "vance",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "vance"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Rubio's defense of Trump's Iran war sharply contrasts with Vance blaming it for midterm losses.",
+   "summary_ko": "루비오의 이란 전쟁 옹호가 중간선거 패배를 이란 전쟁 탓으로 돌린 밴스와 대조를 이룬다.",
+   "classified": true
+  },
+  {
+   "id": "sig-6226de8c",
+   "date": "2026-11-09",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/jeffries-vows-democrats-wont-give-dime-trumps-deportation-efforts",
+   "title": "Jeffries vows Democrats won’t ‘give a dime’ to Trump’s deportation efforts",
+   "people": [
+    "trump",
+    "jeffries"
+   ],
+   "pair": [
+    "jeffries",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Hakeem Jeffries vows Democrats will not fund Trump's deportation efforts.",
+   "summary_ko": "하킴 제프리스가 민주당이 트럼프의 추방 노력에 한 푼도 지원하지 않겠다고 다짐했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-5f5d1b13",
+   "date": "2026-11-09",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNjRrbjJUUjcwREthejVZQ291R2ZiU3I1QTdXNU9JWnZTSjAwRnYyc0FNOTJubDhWUmRtNldlSEhNNnVzbllkQkNMb0pfVThFdXFUZXNjVHdDdlc1M2REVUlFOVpvNXVSanVqTEFEclFuRDUxajM2dHVFYldHa05YN3lvd2xCLWl3SlFPZ3VBQjI0QTdSZk9QLWtQRlZQRFZoT283ZXRqOGtZQQ?oc=5",
+   "title": "Democrats are ‘lining up’ to primary Fetterman in 2028, Shapiro says - Washington Examiner",
+   "people": [
+    "shapiro",
+    "fetterman"
+   ],
+   "pair": [
+    "fetterman",
+    "shapiro"
+   ],
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "Shapiro says Democrats are lining up to primary Fetterman in 2028.",
+   "summary_ko": "샤피로가 민주당이 2028년 페터먼 예비선거에 도전할 후보들을 물색 중이라고 밝혔습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-5510fd2e",
+   "date": "2026-11-09",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOc2MwQTU0UkVVYjlCVVF6UzRIcTV1TFgxbzU3R0ctUjNpaTB2MEJ6eHctQ25YSWszSXRtTGFUalRIZDR6TGM1UzJjUlNPRnl1YXQ4c19QSjFlaThlNFMybW1UYS05Wmp2QjlyNDI1ZG1qbkdFTDhRVl9kc0Jub0lLb0lidVFPRFByNHFhV3psRXcxYUh1c3cxaXNCNDlnTkRfX00tNUg5c1FqSnhs?oc=5",
+   "title": "Hegseth critic Don Bacon torn over whether to back impeachment push - Washington Examiner",
+   "people": [
+    "hegseth",
+    "bacon-don"
+   ],
+   "pair": [
+    "bacon-don",
+    "hegseth"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Don Bacon is torn over backing an impeachment push against Hegseth.",
+   "summary_ko": "돈 베이컨이 헤그세스 탄핵 추진 지지 여부를 두고 고심하고 있습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-4da3c1f2",
+   "date": "2026-11-09",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE15ME5kRGVCZHBSZ3RUVDRGWHh0QzNhQXhoMVlJTURiazJhb2hwc1lGUGFEQjhqa2Y3bS1ERVN2a0R3RVI4VjBsNU1iRzFCWUUyNmp6bEpR?oc=5",
+   "title": "WATCH LIVE: Rep. Massie gives press conference on articles of impeachment against Hegseth - Fox News",
+   "people": [
+    "hegseth",
+    "massie"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.98,
+   "summary_en": "Rep. Massie holds a press conference to announce impeachment articles against Hegseth.",
+   "summary_ko": "매시 의원이 헤그세스에 대한 탄핵 소추안을 발표하는 기자회견을 열었습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-ff9999f8",
+   "date": "2026-11-09",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQUxkQkNfS0Q1TlI2YktlN0ZKd1dUbzFMOXVLamhTQldTR3hyckxScm1TUHF1b1BqamRhVDVybVBCTHRkQWRTUDFMbGtIZUtGNFFkRS1JY080ak9XN19iWDl2MFdfU2QzMEkxcEhoUWl1NlN0WjF2ak9Ed1RvOFpieThSclZBR3VKNDJNS1hmMWV3Yjg2Znl2WEtpcmtweDdlNnZKNVZnV1ZyWFBXSDQzQWpueXk2Y21lYXhOalFualdqZng0MVE?oc=5",
+   "title": "Massie suggests DeSantis as war secretary if Hegseth ousted in impeachment push - Washington Examiner",
+   "people": [
+    "hegseth",
+    "massie",
+    "desantis"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Massie proposes DeSantis as a replacement for Hegseth amid an impeachment effort against him.",
+   "summary_ko": "매시 의원이 헤그세스 탄핵 추진 상황에서 디샌티스를 후임 국방장관으로 제안했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-2fc1c869",
+   "date": "2026-11-09",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVjJISkdPXzVQd2NzdHp5Y3RkLTZ0cFBDSGl3YlRuQ013ZldkYkFOSmNWTkFndFNUdHBpdTM2LXhTWWQxbUxVeWZxbmdFMWd5Um9nQmJiLXdjRUtmWnVQRk00UmtPNHlFQnBOWXRCckc3cmEwMmJlZldaRkNBZzdYVENrV2VxN2RlVXpDSkRfYkprQUhsMXJaNHc2Y1Q0SFBTd29YbzlnaWxiT2tLWTViQ2t1RGpoN0hXMzYzdlNtdVM?oc=5",
+   "title": "Jeffries and Massie take questions after new impeachment articles introduced against Hegseth - CBS News",
+   "people": [
+    "hegseth",
+    "massie",
+    "jeffries"
+   ],
+   "pair": [
+    "hegseth",
+    "massie"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Jeffries and Massie address the press after Massie files impeachment articles against Hegseth.",
+   "summary_ko": "제프리스와 매시 의원이 헤그세스 탄핵안 발의 후 기자회견을 가졌습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-74e24cb2",
+   "date": "2026-11-09",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPdmtHM0RxaGtLV2x3NG1JRE90V3R5RjhGWUNuOUhoV0k3WVhwT0l5eGJGRzk5enh4SHN0NGxIV183Vm9yczNud2F0eElLanVlRXYyd1hkM2dCZ3hqV1lzRUFydGZ2ZVcySU9hLXAydzZ0VWpsV1RFZ3RMZFNWMUd2RlduMzY0OWwwb3BZ0gGQAUFVX3lxTE1rcTVhMGRWTlNtUHkyT19DNFk3TzBhVWVtQXZ6Tk5JRTN2TDhGOU9FX2tMTUc2cWhqZlhXSkRLZktGd053TDJtR1hLZDVMaEtTMnZlY2JJTTljUkVzSjNHUmk0RlZVT3R6UGxEM2t0eHhyUnVSSl8wOHkwd0VIYWFENmZ5b1B2a3lRWWl0QXdNeA?oc=5",
+   "title": "Jan. 6 should follow Trump 'to his grave,' Biden says in new memoir - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "biden"
+   ],
+   "pair": [
+    "biden",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Biden says Jan. 6 should follow Trump to his grave in new memoir.",
+   "summary_ko": "바이든이 새 회고록에서 1월 6일 사태가 트럼프를 '무덤까지' 따라다녀야 한다고 비판했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-3e084e83",
+   "date": "2026-11-09",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMk9EUHFHaHZLdGJYVWJtVkFpbFlqTi0tU3JGdmc4WUNya2M5Q0ZRY1pqWlVyRkZQaDJ0T05wcnZMUWt3VTVVUVFlRUNPWFlhWWtYa20xZ3Q5aUY5WW9IZGhvVmx6VGdqWW5tVW00YVY2NjhQdUhVUzNTWkkwclBVNDA2Vk5QbmtlSlprVHVpNFFDaTNtYWhEVEFzUEh6RW5XU2c?oc=5",
+   "title": "Rubio defends Hegseth amid articles of impeachment - NBC News",
+   "people": [
+    "rubio",
+    "hegseth"
+   ],
+   "pair": [
+    "hegseth",
+    "rubio"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Sen. Marco Rubio defends Defense Secretary Pete Hegseth amid impeachment articles.",
+   "summary_ko": "마코 루비오 상원의원이 탄핵 소추안 속에서 피트 헤그세스 국방장관을 옹호했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-9112cd91",
+   "date": "2026-11-09",
+   "source": "AP News",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMERvcmZhZjQ1LXNKMjVUZG42cmxpMUJ5ci1xOEdYVzZ6QjdiRVdiNVpnSGVmdnRZQ3ZKNFNNV3ZnMENHeFY4TnZsLUZmNVozMlRyb25BcEN0YUI0NnFkcjNLMzVaSVpEMHZIMEtLMklNXzZkRDNRNVBKeVR3R2NTamdja09VeG1TZXNFYndua1p1Wk5Hb3RzVkFXeGV1VDd1SURKSURB?oc=5",
+   "title": "Trump’s war against Iran not 'necessarily popular' but needed to stop a nuclear threat, Rubio says - AP News",
+   "people": [
+    "trump",
+    "rubio"
+   ],
+   "pair": [
+    "rubio",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Sen. Marco Rubio says Trump's Iran war is needed to stop a nuclear threat.",
+   "summary_ko": "마코 루비오 상원의원이 트럼프의 이란 전쟁이 핵 위협을 막기 위해 필요하다고 말했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-d13f8f79",
+   "date": "2026-11-09",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbTdMcEttVVZBS2t5TEJ5OXF4d1BrSjNVeGJaNGQwWjlpSTlUVjNRelFaWVZyVTZBTGYwYmV3eDRJdmw0Zk55T21zX2xrWkNYQm5tYllCSzljM3VIWUE0WFFIWkdvbmFsYTYxMTkxeUJHODI2X2dzQ1pZSGVQa1pjakU2a2ZGRVhINEZJS0YyVklsSmxBNzc40gGcAUFVX3lxTE5CallrOWluRkgxdW45R0RuXzhGOWNmTWdGRXhQWnFBWE8tQW9ZbEFMSVBQbzRja3RfcTFERnRpaWtJZzhiZ1VlVUkySzBreUJMZG5CVU94THliQmI3eVRtTFBwYXIxR1RqQUtvVUthWV9fN3ZXOHFOVGdNbDAzNEV4NEMwc3lxOEM4a2JiYlRuMk9WLV80M05kaEhQdQ?oc=5",
+   "title": "Trump says he doesn’t disagree with Vance that Iran war fueled GOP losses - Fox News",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "ally",
+   "confidence": 0.85,
+   "summary_en": "Trump agrees with Vance that the Iran war contributed to GOP midterm losses.",
+   "summary_ko": "트럼프가 이란 전쟁이 공화당 중간선거 패배에 영향을 미쳤다는 밴스의 평가에 동의했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-36119abb",
+   "date": "2026-11-09",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVURBS3RvYzVBZk80YVlDMlpRV2F3YThfSk5kb0d1bE03RUFGZ25sTVdLVS1tbEtWbUZoOHdIaEhrMXNvM2pQRnBXRVlsNUZqSzNYS0hlbzZBYWhtWEh2TUwzcFFLMTdidnlObVV0bk94VWZHVVBRLS05RVlpcHhzdUlTbGNYNGVPVzJaa2N6eEpxN19mbXhlQWp0UXVaUjYxcndiVzdQblVpVlRqTWdldnRObk1INHJpY2U3elJCT2t0LTlpVkw0eGMzYXJ6dw?oc=5",
+   "title": "Slotkin lawyer warns Blanche not to obey Trump’s ‘frivolous’ demand to investigate her - NBC News",
+   "people": [
+    "trump",
+    "slotkin"
+   ],
+   "pair": [
+    "slotkin",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Trump demands investigation of Slotkin; her lawyer warns Blanche not to comply.",
+   "summary_ko": "트럼프가 슬로킨 수사를 요구하자 슬로킨 변호사가 블랑슈에게 불응을 경고했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-d00d9b86",
+   "date": "2026-11-09",
+   "source": "NBC News",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOQUZ1RTVjVHlLN3RyanhMT09KUXc1cU1YalVrTEdoVlJJV1ItVXY3MlNiUW44dlRQbG9GZ0k0dVZWT0hwbF83c2d3MTlFaWNYclhwZy1PN05henI4Sk9SNzhnMU42RVphTjF6MWJPNG9PQ1JoTFkwRXhjUHNrU0VUN29RQ3dEMkZwcGM0S1dvYllPbXBhR1dDTVJ1bFRRaWd0LW9WZGRwMGVtQ0NWd0otRmFCUTFnWEU?oc=5",
+   "title": "Biden says Trump’s Jan. 6 actions ‘should follow him to his grave’ - NBC News",
+   "people": [
+    "trump",
+    "biden"
+   ],
+   "pair": [
+    "biden",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Biden condemns Trump's Jan. 6 actions as something that should haunt him forever.",
+   "summary_ko": "바이든이 트럼프의 1월 6일 행위가 평생 따라다녀야 한다고 비난했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-610c0342",
+   "date": "2026-11-09",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUDZpZW5HQ3JKMTRlekthU2pvZHdvLUtSY0FnWGFsZThjS0hjS1UxWkZ3YUtha2JtUzd3SzNNWUNON05RQmNfeWkyT1ZRMk9ISGdFcmhNNXJqWTJaVENSd20wVEZiWnJGZXdha1l0eEJaV0pSYTZpM3dGTlBwNE5SWHhBcVU2NEZhMWNXTVI2SFJtZw?oc=5",
+   "title": "Trump reacts to Vance’s Iran war post, says he’d make the same call - Politico",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "ally",
+   "confidence": 0.8,
+   "summary_en": "Trump defends Vance saying he would make the same call on Iran war.",
+   "summary_ko": "트럼프가 밴스의 이란 전쟁 게시물에 반응하며 같은 결정을 내렸을 것이라고 옹호했다.",
+   "classified": true
+  },
+  {
    "id": "sig-5188c235",
    "date": "2026-11-08",
    "source": "The Hill",
@@ -35,9 +459,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Sanders urges accountability for Trump but warns against over-investigation.",
-   "summary_ko": "샌더스가 트럼프 책임을 촉구하면서도 과도한 조사에 매몰되지 말 것을 경고했다.",
+   "confidence": 0.75,
+   "summary_en": "Sanders says Democrats must hold Trump accountable but not focus solely on investigations.",
+   "summary_ko": "샌더스가 트럼프 책임을 묻되 수사에만 매몰되지 말아야 한다고 주장했다.",
    "classified": true
   },
   {
@@ -56,8 +480,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Slotkin opposes Schumer's leadership absent a clear plan, hinting at a challenge.",
-   "summary_ko": "슬롯킨이 명확한 계획이 없다면 슈머 지도부에 반대하겠다며 지도부 도전 가능성도 시사했다.",
+   "summary_en": "Slotkin vows to oppose Schumer until she sees a plan, not ruling out leadership challenge.",
+   "summary_ko": "슬로킨이 슈머에 대한 반대 입장을 밝히며 지도부 도전 가능성도 시사했다.",
    "classified": true
   },
   {
@@ -75,9 +499,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Sanders cautions Democrats against excessive Trump investigations.",
-   "summary_ko": "샌더스가 민주당에 트럼프 조사에 지나치게 많은 시간을 쏟지 말라고 경고했다.",
+   "confidence": 0.75,
+   "summary_en": "Sanders warns Democrats that excessive Trump investigations could backfire politically.",
+   "summary_ko": "샌더스가 과도한 트럼프 수사가 역효과를 낼 수 있다고 민주당에 경고했다.",
    "classified": true
   },
   {
@@ -95,9 +519,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Sanders says Democrats must govern, not just investigate Trump.",
-   "summary_ko": "샌더스가 민주당은 트럼프 조사만 할 게 아니라 국정 운영에 집중해야 한다고 강조했다.",
+   "confidence": 0.75,
+   "summary_en": "Sanders warns Democrats against spending all their time investigating Trump.",
+   "summary_ko": "샌더스가 민주당이 트럼프 수사에만 모든 시간을 써선 안 된다고 경고했다.",
    "classified": true
   },
   {
@@ -116,8 +540,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Shapiro confirms Democrats are preparing to primary Fetterman in 2028.",
-   "summary_ko": "샤피로가 2028년 페터먼 상원의원에 대한 민주당 내 경선 도전자들이 줄을 서고 있다고 확인했다.",
+   "summary_en": "Shapiro predicts Democrats will primary Senator Fetterman in 2028.",
+   "summary_ko": "샤피로 주지사가 2028년 민주당이 페터만 상원의원을 상대로 예비선거를 치를 것이라고 전망했습니다.",
    "classified": true
   },
   {
@@ -136,69 +560,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Jeffries endorses impeaching Hegseth as Democrats demand accountability.",
-   "summary_ko": "제프리스가 헤그세스 탄핵을 지지하며 민주당의 책임 추궁 움직임을 주도하고 있다.",
-   "classified": true
-  },
-  {
-   "id": "sig-70dbc5bc",
-   "date": "2026-11-08",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeDh4eC1jTFdGeTg4TW5XZVlOSTZERjJZQTNZem5kbmNVZ3NWWEZpUkI5NnRsazdCZHZCWnRMbmpHcFdIbFRMYndKeFhONGdHTUdTZ3hiRG1fOUZxWW1zLUZxRlgtWGhUdEdpWWVLSGpCakMyWUlGQnF5S003RjROd29Kbkl5cVlJRjlWUExyN2xsX2syZkNjenhkNDdLcms?oc=5",
-   "title": "Hakeem Jeffries has a plan for Donald Trump and for his Democratic critics - CNN",
-   "people": [
-    "trump",
-    "jeffries"
-   ],
-   "pair": [
-    "jeffries",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Jeffries outlines a strategy to counter Trump and manage Democratic critics.",
-   "summary_ko": "제프리스가 트럼프 대응 전략과 당내 비판자 관리 방안을 동시에 제시했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-e17289ed",
-   "date": "2026-11-08",
-   "source": "NBC News",
-   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPbWtxU2FLTlBQc1AzRHFaVDMzbWhhbzRmeEM5N3Q2RFNRZkhKNTg4Nmw0N1lEeE1maUQ2NVEtSmNWN3g5Y0VUb0ZhSW9vN2cyMGZQazVIVzN4eHpnNnVTRWhIYmFna0RSaEN6dkI3b1otWWlCRkgySnZFZEhLSHhycnZVYWhhUnotWFhjVGFnclp2Qjk5aGtRMHRvTno1NmN2ejdsb1VTR3oyTVNmWTI0RkJHY3ozeEpXNHNLa3A3R1otSndmR3BYWXAxWkRXanE1WnktVGlsUEYyMXRmWm00T2N0Vms?oc=5",
-   "title": "Byron Donalds on DeSantis' midterm explanation: ‘I actually don't know what' he is talking about - NBC News",
-   "people": [
-    "donalds",
-    "desantis"
-   ],
-   "pair": [
-    "desantis",
-    "donalds"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Byron Donalds dismisses Ron DeSantis' midterm explanation, saying he doesn't understand it.",
-   "summary_ko": "바이런 도널즈가 론 드샌티스의 중간선거 설명을 이해 못 하겠다며 비판했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-342e1185",
-   "date": "2026-11-08",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPaWVHMXRlME1wSUpCVkJTdGFpenQ1X3gzZm1LbTV1Wk5ndjJ1dmpsaHJLRXYxV0g2UlhaUXVGblhxZUoxWUVVNTNfVFZNcmh4bnpLc1RSZmxQREljaFh5ZHJvWFc2OC1tamVubXpwQXM2Wnk1cHk5dmxxekhjNFNIazRQb3dUanBhUWFueWppZUw2b0tZb1lXanhaUl9CUTlRTVU3Z3M1VQ?oc=5",
-   "title": "Jeffries a ‘hard yes’ on Hegseth impeachment ahead of expected Massie resolution - Washington Examiner",
-   "people": [
-    "hegseth",
-    "massie",
-    "jeffries"
-   ],
-   "pair": [
-    "hegseth",
-    "jeffries"
-   ],
-   "polarity": "feud",
-   "confidence": 0.98,
-   "summary_en": "Hakeem Jeffries commits to voting for Pete Hegseth's impeachment ahead of a resolution.",
-   "summary_ko": "하킴 제프리스가 피트 헤그세스 탄핵 결의안에 찬성표를 던지겠다고 밝혔습니다.",
+   "summary_en": "Jeffries endorses impeachment proceedings against Hegseth as Democrats seek accountability.",
+   "summary_ko": "제프리스가 민주당의 책임 추궁 노력의 일환으로 헤그세스 탄핵 절차를 지지한다.",
    "classified": true
   },
   {
@@ -236,9 +599,70 @@
     "shapiro"
    ],
    "polarity": "feud",
-   "confidence": 0.97,
-   "summary_en": "Josh Shapiro mocks Pete Hegseth's behavior as childish and unprofessional.",
-   "summary_ko": "조시 샤피로가 피트 헤그세스의 행동을 '장난감 병정 놀이하는 8살 아이'에 비유하며 조롱했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Pennsylvania Governor Josh Shapiro mocks Defense Secretary Pete Hegseth as childish.",
+   "summary_ko": "조시 샤피로 펜실베이니아 주지사가 피트 헤그세스 국방장관을 '장난감 병정 놀이하는 8살 아이'라고 조롱했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-89cc912",
+   "date": "2026-11-08",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBoNzhBMm4xTTdiR0t2c1czVEZzN2podVFLcWc3dnViZFRHOWJadjJkWGd4bnNnT2VveDNyVjJBamE0bFBTUmdnMlozMXBvX1ZIbEtYQV9R?oc=5",
+   "title": "Ro Khanna pressed on calls to impeach Hegseth, Trump - Fox News",
+   "people": [
+    "trump",
+    "hegseth",
+    "khanna"
+   ],
+   "pair": [
+    "hegseth",
+    "khanna"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Ro Khanna faces questions about his push to impeach Hegseth.",
+   "summary_ko": "로 칸나 의원이 헤그세스 장관 탄핵 추진 관련 질문에 답했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-33575983",
+   "date": "2026-11-08",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbWlwN29KanhzdTl5NUdCYXdSdk82ejdxbEJiMVlHdmpybWJRZDFKcGJoTWVjN2hRejdsa0FOZzI3QVRIamc2RVpuVGZzVTNRYVBTNjgwN2ZreUpFQzhQdjRVdFZUN3lsV25IRXdjT1pndDBmVnNUMzQxOFJQUmFxMHp4ZnkyXzBYZko2NGpkUk8?oc=5",
+   "title": "Sanders open to impeaching RFK Jr. - CNN",
+   "people": [
+    "rfk-jr",
+    "sanders"
+   ],
+   "pair": [
+    "rfk-jr",
+    "sanders"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Bernie Sanders says he would consider impeaching RFK Jr.",
+   "summary_ko": "버니 샌더스 상원의원이 RFK 주니어 탄핵 가능성을 열어뒀습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-aa6f2e3e",
+   "date": "2026-11-08",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQWFg1bXdpci03eldOQ21waU42a3hTNjhsWktIM2xSeTF2RmFlWFFIYjEwNXEwZG1ONnRHd3NHWnZWUW4za1ZiT3oyX292RDZmNjNlS1BBWnRSeGFMa2VpQlJRMXczQmF1di1UUkgzd0tJMFJXZHNYc3doU2k5R1FMQV8xSkxzZldoWnY5S0wyS0Y?oc=5",
+   "title": "Former RFK Jr. adviser accuses Susie Wiles, other Trump officials of corruption, blocking MAHA policies - CBS News",
+   "people": [
+    "trump",
+    "rfk-jr"
+   ],
+   "pair": [
+    "rfk-jr",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Former RFK Jr. adviser accuses Trump officials of corruption and blocking policies.",
+   "summary_ko": "RFK 주니어 전 보좌관이 트럼프 행정부 관리들의 부패와 정책 방해를 폭로했습니다.",
    "classified": true
   },
   {
@@ -312,9 +736,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.96,
-   "summary_en": "Donald Trump directs DOJ to investigate Democrats for extortion, specifically naming Elissa Slotkin.",
-   "summary_ko": "도널드 트럼프가 민주당을 '공갈' 혐의로 수사하라고 법무부에 지시하며 엘리사 슬로킨을 지목했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Trump directs DOJ to investigate Democrats and specifically names Slotkin in extortion allegations.",
+   "summary_ko": "트럼프가 법무부에 민주당 수사를 지시하며 슬롯킨을 명시적으로 거론해 갈취 혐의를 제기했다.",
    "classified": true
   },
   {
@@ -339,39 +763,23 @@
    "classified": true
   },
   {
-   "id": "sig-8552db7f",
+   "id": "sig-c60bb132",
    "date": "2026-11-07",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM1B3QldGaVBYdTZDM0taSmhXQTgyUEppQVZTZ3FfNDFXUVJUOVM0bFRaMjdDUUZCQ3hXQ253S2ltV2steW5jRzA1U0VjTE5JUm1HWUprWXloUS1nNHBRUVB6WEQ1eWxidlduMkwwU2k5WVlwYUFWeU9YQmhTNXZZY3BHd0tFUDBFZl9aLXVpOGVsOFR6ZjZCUlBR?oc=5",
-   "title": "Rubio defends Trump’s Iran decision: ‘Elected to do the hard things’ - Washington Examiner",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbTlBd1hCclpOT3BxSHpzTHRwSU9Ddy1mOW9SQ3hIcmxIN2FxRk8zY3Frekk3S3REd1k3UFM1V3VHZXBCN3BmNE15a1lMbEpPMFdkdnBzTm1uYTRRck5qM0FMWE82b3BVTERsYllPcHU3ZzV1dnE2RzlUd00wTElRRWVtaTFPczRpeXpJWFphWGxZYTlWcjQ3YXNpSW4yTl9BODFrb1hwMks3b0N40gGyAUFVX3lxTFBKRTRnOUdTWEltXzlhWmJOWEwxR3lHY1hySDhEdWFSOFByRElnUE5RUTdMbFgyMmFqdTZWeUgteGFubzJ5MS1KMTVla2xUbVhwS1lVekttc0tpZDFFdWdzdTltMzdiRm1MUmNITmllRi0xWWFxZnIweU0tVDgzcnJ1NjZkWjMzeUNyWnlOODFTSXVZSjRrZWVUZG4yTjNBTUdYUUdKbGpIMGZUczh6cmM0M1E?oc=5",
+   "title": "Trump ramps up criticism of GOP Sen. Rand Paul amid push to pass his funding bill - ABC News - Breaking News, Latest News and Videos",
    "people": [
     "trump",
-    "rubio"
+    "paul-rand"
    ],
    "pair": [
-    "rubio",
+    "paul-rand",
     "trump"
    ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Marco Rubio defends Trump's Iran decision, stating he was elected to do the hard things.",
-   "summary_ko": "마코 루비오가 트럼프의 이란 결정을 옹호하며 '어려운 일을 하라고 선출됐다'고 밝혔습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-8a083944",
-   "date": "2026-11-06",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOalJtTWh1WFBQX0Q5MzBjdWdKNExGTnhFdld1M3E2c1pLSU1rWlNZbXFBNTFkVndYLW1RUlQyWDFfajdUVHFFRXU2ZFN1Q0lSSi14TTZGbUljeE1kSEcxTUJFVFFzSkUtTy0wQldVOUczNlRuYXdjWnVONFYweC1kbkZkU19FWGN3UXZpZ0pwQlloTXZXVWdsQmdCQ3lQZUhpSVpJUXVxONIBrAFBVV95cUxOU01oVVFfVU9FYVVxZERxeGRmU0pGRHhrVXQxOU1SWXZiZlpGT1gyNVNOeWIxaTBzeDRYSFhZRG5EcTdXR0V4TUFlazBoQmwyOFVFMEFYYVg0M2xua1VrclR2Q1VJc0ktUTZmZkxqTGVUYkRXVDhacnZTd2VtanJ6czdVZHdEMmstS1daVERvWUlacDRybGg1WkNWSjFLZ1h5ZUIwM29sRUx2YTVZ?oc=5",
-   "title": "Rep. Thomas Massie forcing vote on Pete Hegseth's impeachment - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "hegseth",
-    "massie"
-   ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Rep. Thomas Massie is forcing a House vote on articles of impeachment against Defense Secretary Pete Hegseth.",
-   "summary_ko": "토머스 매시 하원의원이 피트 헤그세스 국방장관에 대한 탄핵소추안 표결을 강제하고 있다.",
+   "confidence": 0.9,
+   "summary_en": "Trump intensifies criticism of Senator Rand Paul during funding bill negotiations.",
+   "summary_ko": "트럼프가 예산안 협상 중 랜드 폴 상원의원에 대한 비판을 강화했다.",
    "classified": true
   },
   {
@@ -472,28 +880,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Hillary Clinton demands Elon Musk testify before Congress regardless of any pardon.",
-   "summary_ko": "힐러리 클린턴이 일론 머스크의 사면 여부와 상관없이 의회 증언을 요구했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-97989a8",
-   "date": "2026-11-06",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPV0poaEoxbTVmbE5pVHhpeVRaNXhGejJrT2RhX0ZYR1NxYUlLZERrWFZ0LUoyRUI4cWx6TW5nTGROV2dBeWJxMGFUa09IaGVNb21vR0tKOHo2TFlWNXFVMVpMZk5VV3dCZ0RyWGp0SFVpclkxbFlINDBaN0MyN3NwemNaaGZsRHlmbGtmVnhTaFFkMC1pVGdwbmJyN05VbG5MSXBuVTM0STFQRzhtY0ZyQjBB?oc=5",
-   "title": "DeSantis comes out swinging as Vance takes heat - The Hill",
-   "people": [
-    "vance",
-    "desantis"
-   ],
-   "pair": [
-    "desantis",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "DeSantis attacks while Vance faces criticism in the emerging 2028 GOP primary conflict.",
-   "summary_ko": "드산티스가 공세를 펴는 가운데 밴스가 비판을 받으며 2028년 공화당 경선 갈등이 격화되고 있다.",
+   "summary_en": "Clinton demands Musk testify before Congress regardless of potential pardon.",
+   "summary_ko": "클린턴이 머스크의 사면 여부와 관계없이 의회 증언을 요구하며 압박을 가했다.",
    "classified": true
   },
   {
@@ -698,26 +1086,6 @@
    "classified": true
   },
   {
-   "id": "sig-e3a88a7a",
-   "date": "2026-11-06",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZUlHVDJBVWdsYTFLblYwdXZUMUt3bVNmVWR2dHhYVEo3NURqQ1kwcmFOeWFvRDI5RE5DcnBOTWpYS3lFMUNZQlJUMUUxdGxsejVwTzJRc3BBNmUxV25pUVdpb0RmNXFfWk8wSVN3Q2hJOENrQ2RLNkVHa2VJUHp5NkJOMkRsdWlHTlRvNEYzT3hqcTVzdFJDMTkzOUtXcHJkWG1mOdIBqgFBVV95cUxNbklnOURHYXdvZ1Y0aXVZRzRneV9KbjFRbnV0bjhBTnpOYTJwb19sSEYwdzcyaDRuTDBnX2hBOG5XTFZoWHVZVmp5NDd0SXVSQXY1YjdYUTJReVhkS0dUN2FQcGtQUVprTDFJSFl0MmtDcFFDQTg2U3lmd2RqY2xEOE1FdDJTckNfaFg3anhrcmpiT2k5TjZOV2tZSlBmb3BRZnpMdktRNUJJdw?oc=5",
-   "title": "In Massie's Kentucky district, Trump attacks GOP congressman as 'disloyal to America' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "massie"
-   ],
-   "pair": [
-    "massie",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Trump attacks Rep. Massie as disloyal to America in his Kentucky district.",
-   "summary_ko": "트럼프가 매시 하원의원을 '미국에 불충하다'고 공격하며 켄터키 지역구에서 비판했다.",
-   "classified": true
-  },
-  {
    "id": "sig-19f9fb75",
    "date": "2026-11-06",
    "source": "ABC News",
@@ -818,26 +1186,6 @@
    "classified": true
   },
   {
-   "id": "sig-378bb187",
-   "date": "2026-11-06",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPejAtQmZMaFM4UHFOWGpHeFJ5WmFhMzU0OEpIbFBuN3JPM1FWR2VuelJrTDBjb0NaaFBmSnA1b2stdlFQQ2JFRXRTanVINU5pd0dpOHR3aHQ2M1BOS1RTaF8tQ21odFA4ZEE3SnFhamF6ZUt1dTdqSno4LTYwcWNDZXlDSkFmeW9yaTFJMUtSZ1NPNHBMbTQ1TW5wMm9xR29Vc21ESldCY9IBrAFBVV95cUxPdWdaaWJvYk5IZzRWM0duRFlna3otNGdnaUFsdW1yQms0WVA0SVFJem50ZC1iMnVwdTBWX09SV19vdlBIUmJpdGx3X2pVa3RGWWdjMjNfSDA0Mkg0NzJ1QzdwT3FHSUFOOUNwMmFreEtndXNzRGtCZ29LY2JmYktSNC1RTnVkVWlUS05XWVdCZVFuMVdYcHBiRnUtUTg0aHNLY21INU1KRjZZckNW?oc=5",
-   "title": "Nancy Pelosi Blasts Donald Trump's 'Bizarre' Rhetoric: 'Verbal Poo-Poo' - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "pelosi"
-   ],
-   "pair": [
-    "pelosi",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Former Speaker Pelosi harshly criticizes Trump's rhetoric as 'bizarre' and 'verbal poo-poo'.",
-   "summary_ko": "펠로시 전 하원의장이 트럼프의 수사를 '기괴하다', '말도 안 되는 소리'라며 강하게 비난했다.",
-   "classified": true
-  },
-  {
    "id": "sig-8ba8aea7",
    "date": "2026-11-06",
    "source": "ABC News",
@@ -852,9 +1200,89 @@
     "trump"
    ],
    "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Tulsi Gabbard defers to Trump on whether Iran posed an imminent threat.",
+   "summary_ko": "툴시 개버드가 이란의 '임박한 위협' 여부에 대해 트럼프에게 판단을 맡기며 동조했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-de78a78c",
+   "date": "2026-11-06",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQVk40UTRpc0tnZFA0Q0w0YXYzRjk4VVFKRHZBY2JWSlYwWWwtS1hLcGFjTTBxZjZfR2tvbExoTXkzenJ2LXRDakhZQXNmdXN2S2xlSGs1dFNTU1RVSk1VQ1RDMkNtcWNaRFF5RkUtLXZZZHJWelFfOEFfVk5PQkZjZ2JTVmhQenphYjhjbkc1amPSAZYBQVVfeXFMTzUtR3ExaWJCaTRKNzhrTFVyV0xRTFYzTi1hMTZyeFZJTWtNaDZxdTJTdzBZTWpOTXd0MUlqUmFhNXYwT0VEVGMtZGg1QjluVFlDU19wbi1aTm93N2s3Vl9vd1FDUVJTRkx2WFJkZDM1WGRwZ1dVTTJocUJlc2FpZV9hQTdmWUQxVURrOHBhdXlBYVgtYk9B?oc=5",
+   "title": "Trump and Pence defy pandemic for political gain - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "pence"
+   ],
+   "pair": [
+    "pence",
+    "trump"
+   ],
+   "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Gabbard defers to Trump on Iran threat assessment, aligning with his position.",
-   "summary_ko": "개버드가 이란의 '임박한 위협' 여부를 트럼프 판단에 맡기며 그의 입장에 동조했다.",
+   "summary_en": "Trump and Pence defy pandemic guidelines for political gain.",
+   "summary_ko": "트럼프와 펜스가 정치적 이득을 위해 팬데믹 지침을 무시했습니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-a743a4a7",
+   "date": "2026-11-06",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPSWZpbUh2SWlmNm5DXzB2YzRvOEw1alJZZnQtMjFxWVNReldkUEZneERBdEFiT0J3VDc0TXNuY2w2RThLQnI2ZzduZi1KOFdjUS10UkZhOFVxTEppNV9Ba2F4QVJqRk5QMGJyWHBxV3A2MFdncGhPdjJuSTRYeXJWbEhnX0tCTzMwcmVKNjZGLUZXem9DYXEtYVBBTWxkRGVSM2o4dmhTbXVZRnlpZFY2UzhGU1F1TnNCbWIzaVdBeWFRRldGc1pmQ0tnVGs1bmtSTzE5aEtQb3lZNk9HaDE0emRvYTdZSXZNNFVFd2JENzEzUQ?oc=5",
+   "title": "Tillis on Trump making Stephen Miller WH chief of staff: ‘the worst of all possible choices’ | CNN Politics - CNN",
+   "people": [
+    "trump",
+    "tillis"
+   ],
+   "pair": [
+    "tillis",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Senator Tillis harshly criticizes Trump's potential appointment of Stephen Miller as White House chief of staff.",
+   "summary_ko": "틸리스 상원의원이 트럼프의 스티븐 밀러 백악관 비서실장 기용 가능성을 강력히 비판했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-cfa15296",
+   "date": "2026-11-06",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxObGJQSnltR0FRenB2bzBudGUxNExtbFNOWHo0NHRod05CWjBlSkpfeHN2NnNScEZpQjM5emxfUkV2UTJpZ1BiR0x1RHZPWDVxZXQ2LXgtVk9mb1BPMkpUblUtTjFFWWphWWN4S1d3eF9TWlZncktkcldKanFPQVZZWGl6QUNLRDhTYUsyVVN1aVBNaTdwOXhLVnV0a2YtUdIBowFBVV95cUxOdHRSZV9XTWRIZWxSTVFmV1ZucDBGa0RkeDhTMVl2b3RZVjlWZ1JNTVFxZGZ0cW9RckxjOGRHRE1vSGtXbFgwdE1hMTBtanNvZVF5cWE1UnV1aHJwSTVqbWc4T2YyOHNyaGxJTTZYSW9Uak9rTEVMS1R6MjYzcy1YSV8yLVlDTHJtel9nY01Sd1QtcURqV0hKR25IcEJCWUpfUWVn?oc=5",
+   "title": "Jill Biden says she no longer considers GOP Sen. Lindsey Graham a friend - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "biden",
+    "graham"
+   ],
+   "pair": [
+    "biden",
+    "graham"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Jill Biden ends personal friendship with Senator Graham, signaling deep political rupture.",
+   "summary_ko": "질 바이든이 그레이엄 상원의원과의 개인적 우정을 끝냈다고 밝혀 깊은 정치적 결렬을 시사했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-378bb187",
+   "date": "2026-11-05",
+   "source": "ABC News",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPejAtQmZMaFM4UHFOWGpHeFJ5WmFhMzU0OEpIbFBuN3JPM1FWR2VuelJrTDBjb0NaaFBmSnA1b2stdlFQQ2JFRXRTanVINU5pd0dpOHR3aHQ2M1BOS1RTaF8tQ21odFA4ZEE3SnFhamF6ZUt1dTdqSno4LTYwcWNDZXlDSkFmeW9yaTFJMUtSZ1NPNHBMbTQ1TW5wMm9xR29Vc21ESldCY9IBrAFBVV95cUxPdWdaaWJvYk5IZzRWM0duRFlna3otNGdnaUFsdW1yQms0WVA0SVFJem50ZC1iMnVwdTBWX09SV19vdlBIUmJpdGx3X2pVa3RGWWdjMjNfSDA0Mkg0NzJ1QzdwT3FHSUFOOUNwMmFreEtndXNzRGtCZ29LY2JmYktSNC1RTnVkVWlUS05XWVdCZVFuMVdYcHBiRnUtUTg0aHNLY21INU1KRjZZckNW?oc=5",
+   "title": "Nancy Pelosi Blasts Donald Trump's 'Bizarre' Rhetoric: 'Verbal Poo-Poo' - ABC News - Breaking News, Latest News and Videos",
+   "people": [
+    "trump",
+    "pelosi"
+   ],
+   "pair": [
+    "pelosi",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Nancy Pelosi harshly criticizes Donald Trump's rhetoric as bizarre and 'verbal poo-poo'.",
+   "summary_ko": "낸시 펠로시가 도널드 트럼프의 수사를 '기괴하다'고 맹비난하며 '말똥'에 비유했습니다.",
    "classified": true
   },
   {
@@ -919,26 +1347,6 @@
    "classified": true
   },
   {
-   "id": "sig-378db0d9",
-   "date": "2026-11-05",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6201135-massie-threatens-democrat-impeachment/",
-   "title": "Massie says his Hegseth impeachment resolution ‘much gentler’ than what Democrats plan",
-   "people": [
-    "hegseth",
-    "massie"
-   ],
-   "pair": [
-    "hegseth",
-    "massie"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Massie introduces an impeachment resolution against Hegseth, calling it gentler than Democrats' plans.",
-   "summary_ko": "매시가 헤그세스 탄핵 결의안을 발의하며 민주당 계획보다 온건하다고 설명했다.",
-   "classified": true
-  },
-  {
    "id": "sig-1fed8a55",
    "date": "2026-11-05",
    "source": "Fox News",
@@ -954,8 +1362,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Harris calls for Democrats to aggressively pursue Trump accountability after midterms.",
-   "summary_ko": "해리스가 중간선거 후 민주당에 트럼프의 책임을 묻는 데 '무자비하게' 나서라고 촉구했습니다.",
+   "summary_en": "Kamala Harris demands accountability from Trump and urges Democrats to wield power ruthlessly.",
+   "summary_ko": "카말라 해리스가 트럼프의 책임을 요구하며 민주당에 권력을 '무자비하게' 행사할 것을 촉구했습니다.",
    "classified": true
   },
   {
@@ -973,9 +1381,9 @@
     "hegseth"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Donalds declares he will not vote to impeach Hegseth before leaving Congress.",
-   "summary_ko": "도널즈가 의회를 떠나기 전에 헤그세스 탄핵에 찬성표를 던지지 않겠다고 밝혔습니다.",
+   "confidence": 0.85,
+   "summary_en": "Byron Donalds declares he will not vote to impeach Pete Hegseth before leaving Congress.",
+   "summary_ko": "바이런 도널즈가 의회를 떠나기 전 피트 헤그세스 탄핵에 반대표를 던지겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -1014,8 +1422,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "A Trump adviser pushes for an alternative to Thune as Senate GOP leader, opposing his candidacy.",
-   "summary_ko": "트럼프 측근이 상원 공화당 원내대표로 튠 대신 다른 인물을 지지하며 사실상 반대했습니다.",
+   "summary_en": "A Trump adviser publicly pushes for a rival to Thune for Senate GOP leader, signaling opposition to Thune.",
+   "summary_ko": "트럼프 측근이 상원 공화당 원내대표로 튠 대신 대안을 세워야 한다고 공개 압박했다.",
    "classified": true
   },
   {
@@ -1036,46 +1444,6 @@
    "confidence": 0.98,
    "summary_en": "Trump accuses Obama of treason in the Oval Office.",
    "summary_ko": "트럼프가 집무실에서 오바마를 '반역' 혐의로 비난했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-9716fcf6",
-   "date": "2026-11-05",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUHhPV2p6MUtYR3Byd0c5ZmwyQnNRc2NpM1JtNnlzbkJSSUMtOEgxSkU4dDQ0TzNHQks4SEFBR183WGFEbkJvd0ZEM1FJc2N0UHB1dHBKcGU1Z0ZGNnpyckE3Sm53ek1sY3BNeUhWcFpZTXctX0N6ZllxelRVaXhGazR3RElESzlwTEtXNW1VU2w3ZnNRWHFESEhCOWtBU3gyVG14aExURDJUTVU?oc=5",
-   "title": "Rubio tells NYT serving Trump to end of term 'has always been my plan' - Reuters",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Rubio affirmed his commitment to serve Trump through the end of his term.",
-   "summary_ko": "루비오가 트럼프 임기 끝까지 봉사하는 것이 늘 계획이었다고 확인했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-7cae40b8",
-   "date": "2026-11-05",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9hUzljalhwU3VCYWowVlhfamVCR2trTzdOaEpQdDhPZm5pWmlLSkp5ZkJfcUk4dUVDSTNRTXZDWTcwLUVSZ3BWQ2R6R2g1MHk4QlVtRU5B?oc=5",
-   "title": "It takes a long time to rebuild from the Biden years: Lara Trump on affordability - Fox News",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "pair": [
-    "biden",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Lara Trump criticizes the Biden administration's record on affordability.",
-   "summary_ko": "라라 트럼프가 바이든 행정부의 물가 관리 기록을 비판했다.",
    "classified": true
   },
   {
@@ -1394,9 +1762,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Bill Clinton congratulates Trump on his election victory.",
-   "summary_ko": "빌 클린턴이 트럼프의 선거 승리를 축하했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Former President Bill Clinton congratulates Trump on his election victory, a rare cross-party gesture.",
+   "summary_ko": "빌 클린턴 전 대통령이 트럼프의 당선 승리를 축하하며 드문 초당적 제스처를 보였다.",
    "classified": true
   },
   {
@@ -1435,28 +1803,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Pelosi signals potential further House action against Trump if Senate acquits.",
-   "summary_ko": "펠로시가 상원이 무죄 평결을 내릴 경우 하원이 트럼프에 대한 추가 조치를 취할 수 있음을 시사했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-bdae0b41",
-   "date": "2026-11-05",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPRHd1X1M0VGd6RzVSNmplT0IydklDTWRadHJHQVlWa2VvQkdjRklSd0EwS1JOX1hwZlE3d2JnZy1zckxaRU9ybjJLNXhLUm5JTjROSjliaEdKOW0xS2VpNjY4U0hPY3hpcUd4d1BSdUM3VEUxa3lDTWhWRUQzUHU4X01HMlowZ00tYXdPRjF4bjh6ZElmWXJfcmg5QUhKQdIBowFBVV95cUxNdUtsMkxlOXZ2NGp5emU4eDZsaXBzMXM1UkVWeTNpVUJ2akUzdWN5bVdNYWdpMnJhN3F6VndoYTRxZWgtNlNWU0hCNkxKVl9SUEtXY2wydHRMX0duVzBpZlFydlZvRXFzVGR1Y25meHVsci1ENlRhUUlpRmNYdndtWGNmcFZSc1ZzWUF0VWVESmF2YnBIWU5WaU5mY3VsUF9TVDgw?oc=5",
-   "title": "Biden’s letter to Trump wished him 'all the best in the next four years,' Fox reports - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "pair": [
-    "biden",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Biden sent a letter to Trump wishing him well for the next four years.",
-   "summary_ko": "바이든이 트럼프에게 향후 4년을 잘 보내라는 편지를 보냈다.",
+   "summary_en": "Speaker Pelosi signals the House may pursue further action against Trump if the Senate acquits him.",
+   "summary_ko": "펠로시 의장이 상원이 트럼프를 무죄로 판결할 경우 하원이 추가 조치를 취할 수 있음을 시사했습니다.",
    "classified": true
   },
   {
@@ -1557,26 +1905,6 @@
    "confidence": 0.95,
    "summary_en": "Trump and Sen. Cassidy clash over a war powers vote in a meeting with GOP senators.",
    "summary_ko": "트럼프와 캐시디 상원의원이 공화당 상원의원 회의에서 전쟁권한 투표를 두고 충돌했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-de69cd67",
-   "date": "2026-11-04",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQS1Fmc2ZiZnFmYUNMY0JudEctQl9sTWdTLTB6SDlLUzhBSXF6VDloVzZPXzE4eGZPMlhzdkJ3ZW5PSDlKR1FkZzNieDE5OU4xX1B4UGM2WHlqQ2xmWFo0MUo1TGZKY3pvbW9EQWZieEplbi1uUThPSzJJYTdwd3o3M3pfeE1EVTBmSEZTU3RvNEt6bWVLUl9fOFNHaURrS0dfRmfSAacBQVVfeXFMTkhIdW1YZmpBeDRVMnowaE1JbjlDcWtJUTR0YjByVFk4ODZINS00eXMteEp3VXQ1M2RjR3NHVTJaS1dZc3o4ZVdOaEFCU2FNMTdqN3FXbHJ6RXh2c212OE1LbS00Z2hTUFoxY0I2U2dxS0hFeGJDdkhUOEc5QjV5ZW93QkVsb1JxanFLQzYwa0J1NEwzaDJGbC03azNCeXNzb3JfMl9HejA?oc=5",
-   "title": "'A true American original': Trump eulogizes Sen. Lindsey Graham at Washington funeral - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "graham"
-   ],
-   "pair": [
-    "graham",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump eulogizes Senator Lindsey Graham at his Washington funeral.",
-   "summary_ko": "트럼프가 워싱턴 장례식에서 린지 그레이엄 상원의원을 추도했습니다.",
    "classified": true
   },
   {
@@ -1695,8 +2023,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Pete Buttigieg criticizes Trump's press conference as a 'symbol of incompetence'.",
-   "summary_ko": "피트 부티지지 트럼프의 기자회견을 '무능의 상징'이라고 비판했다.",
+   "summary_en": "Buttigieg calls Trump's Reflecting Pool press conference a 'symbol of incompetence'.",
+   "summary_ko": "부티지지가 트럼프의 리플렉팅 풀 기자회견을 '무능의 상징'이라고 비난했습니다.",
    "classified": true
   },
   {
@@ -1715,8 +2043,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Pete Buttigieg frames early midterm results as an 'unbelievable rejection' of Trump.",
-   "summary_ko": "피트 부티지지가 초기 중간선거 결과를 트럼프에 대한 '믿을 수 없는 거부'로 규정했다.",
+   "summary_en": "Buttigieg calls early midterm results an 'unbelievable rejection' of Trump.",
+   "summary_ko": "부티지지가 초기 중간선거 결과를 트럼프에 대한 '믿을 수 없는 거부'라고 평가했습니다.",
    "classified": true
   },
   {
@@ -1755,8 +2083,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Omar attacks Trump as a bigot after her re-election win.",
-   "summary_ko": "오마르가 재선 승리 후 트럼프를 '편협한 사람'으로 공격했습니다.",
+   "summary_en": "Ilhan Omar lashes out at 'bigot' Trump after winning re-election.",
+   "summary_ko": "일한 오마르가 재선 성공 후 트럼프를 '편협한 사람'이라며 맹비난했습니다.",
    "classified": true
   },
   {
@@ -1775,8 +2103,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Donalds tells Trump 'We are still red' in a phone call.",
-   "summary_ko": "도널즈가 트럼프와의 통화에서 '우리는 여전히 레드(공화당 우세)'라고 말했다.",
+   "summary_en": "Byron Donalds reassured Trump in a phone call that Florida remains Republican.",
+   "summary_ko": "바이런 도널즈가 트럼프와의 통화에서 플로리다가 여전히 공화당 우세임을 확인시켜줬다.",
    "classified": true
   },
   {
@@ -1795,8 +2123,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Greene blames Trump entirely for the midterm loss.",
-   "summary_ko": "그린이 중간선거 패배 책임을 100% 트럼프에게 돌렸습니다.",
+   "summary_en": "Marjorie Taylor Greene blamed Trump entirely for the Republican midterm losses.",
+   "summary_ko": "마조리 테일러 그린이 공화당 중간선거 패배의 책임을 전적으로 트럼프에게 돌렸다.",
    "classified": true
   },
   {
@@ -1835,8 +2163,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Kristi Noem blames Republican election losses on Trump's first-year successes.",
-   "summary_ko": "크리스티 노엠이 공화당 선거 패배의 책임을 트럼프의 1년 차 성과에 돌립니다.",
+   "summary_en": "Noem blames GOP election losses on Trump's first-year successes.",
+   "summary_ko": "노엄이 공화당 선거 패배를 트럼프 1년 차 업적 탓으로 돌렸습니다.",
    "classified": true
   },
   {
@@ -1855,8 +2183,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Jon Ossoff attacks Donald Trump as a 'failed lame-duck president' in his victory speech.",
-   "summary_ko": "존 오소프가 승리 연설에서 도널드 트럼프를 '실패한 레임덕 대통령'으로 공격했다.",
+   "summary_en": "Senator Jon Ossoff attacks Donald Trump as a 'failed lame-duck president' in his victory speech.",
+   "summary_ko": "존 오소프 상원의원이 승리 연설에서 도널드 트럼프를 '실패한 레임덕 대통령'이라며 맹공격했습니다.",
    "classified": true
   },
   {
@@ -1875,8 +2203,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Raphael Warnock condemns the U.S. as 'spiritually sick' for electing Trump twice.",
-   "summary_ko": "라파엘 워녹이 트럼프를 두 번 선출한 미국을 '영적으로 병든 나라'라고 비난했다.",
+   "summary_en": "Sen. Warnock says only a 'spiritually sick' country would elect Trump twice.",
+   "summary_ko": "워녹 상원의원이 트럼프를 두 번 뽑은 나라를 '영적으로 병든 나라'라고 비난했습니다.",
    "classified": true
   },
   {
@@ -1895,8 +2223,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Susan Collins's political struggles are tied to her inability to distance herself from Trump.",
-   "summary_ko": "수전 콜린스가 트럼프와 거리를 두지 못해 정치적 어려움을 겪고 있다.",
+   "summary_en": "NYT analysis says Susan Collins couldn't outrun Trump's influence.",
+   "summary_ko": "뉴욕타임스 분석에 따르면 수전 콜린스가 트럼프의 영향력을 피하지 못했습니다.",
    "classified": true
   },
   {
@@ -2036,8 +2364,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Raphael Warnock condemns the U.S. as 'spiritually sick' for electing Trump twice.",
-   "summary_ko": "라파엘 워녹이 트럼프를 두 번 선출한 미국을 '영적으로 병든 나라'라고 비난했다.",
+   "summary_en": "Sen. Warnock calls the U.S. 'spiritually sick' for electing Trump twice.",
+   "summary_ko": "워녹 상원의원이 트럼프를 두 번 선출한 미국을 '영적으로 병든 나라'라고 비판했습니다.",
    "classified": true
   },
   {
@@ -2076,8 +2404,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Greene expresses strong disappointment with Trump's closing midterm message.",
-   "summary_ko": "그린이 트럼프의 중간선거 막판 메시지에 '매우 실망했다'고 밝혔다.",
+   "summary_en": "Marjorie Taylor Greene expresses disappointment with Trump's closing midterms message.",
+   "summary_ko": "마조리 테일러 그린이 트럼프의 중간선거 마무리 메시지에 실망감을 표했습니다.",
    "classified": true
   },
   {
@@ -2095,9 +2423,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Greene warns a GOP midterm loss would be a complete referendum on Trump's leadership.",
-   "summary_ko": "그린이 공화당 패배 시 트럼프 리더십에 대한 '완전한 심판'이 될 것이라고 경고했다.",
+   "confidence": 0.9,
+   "summary_en": "Marjorie Taylor Greene warns a GOP midterm loss would be a referendum on Trump.",
+   "summary_ko": "마조리 테일러 그린이 공화당이 중간선거에서 패배하면 트럼프에 대한 심판이 될 것이라고 경고했습니다.",
    "classified": true
   },
   {
@@ -2136,8 +2464,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Warnock calls the nation 'spiritually sick' for electing Trump twice, sharply criticizing him.",
-   "summary_ko": "워녹이 트럼프 두 번 당선은 '영적으로 병든' 나라라며 강하게 비판했다.",
+   "summary_en": "Warnock calls the nation 'spiritually sick' for electing Trump twice.",
+   "summary_ko": "워녹이 트럼프 두 번 당선시킨 국가를 '영적으로 병든 나라'라 비난했습니다.",
    "classified": true
   },
   {
@@ -2243,6 +2571,26 @@
    "classified": true
   },
   {
+   "id": "sig-8cd4bbee",
+   "date": "2026-11-03",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8xUE1xeWVkLVRqY01mTHpJMmk5Q2RUN2JZd0RqODdhTklvNktma0lYd2U3eW5WZWZDOHlrdk1VZnZ2cENZZEZncUxBSzBzbUFieVRHN0R3?oc=5",
+   "title": "Ro Khanna criticizes Haley Stevens' endorsement of Mike Rogers - Fox News",
+   "people": [
+    "khanna",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "khanna"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Ro Khanna criticizes Haley Stevens for endorsing Mike Rogers.",
+   "summary_ko": "로 칸나가 헤일리 스티븐스의 마이크 로저스 지지를 비판했습니다.",
+   "classified": true
+  },
+  {
    "id": "sig-91f04d5",
    "date": "2026-11-02",
    "source": "Axios",
@@ -2323,26 +2671,6 @@
    "classified": true
   },
   {
-   "id": "sig-497ec359",
-   "date": "2026-11-02",
-   "source": "The Washington Post",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRW12aHB1Qm0zVGd4RkplQW53cGxHdE8yeC1KUkJwQmMtZGZ1cVZXTnVqQVZOZWhfcG1ELWRHUUF2MHREc0Q5WnFVWTNrTlA2MExrOEJRRFRnXzNlU0dLclBkWG5MUTRRSmxKcGxNZEdlSzVyakRrY3hUc1k0T3F6bHRsUHV6cTJyVXpRbDJXRU1kVVhveHJOanA2OENoemhNYWJDTHk3dGxhQVRXWUlLQ2pINEVnVWpiVXpidXozaEFyUQ?oc=5",
-   "title": "Schumer calls Haley Stevens’s endorsement of a Republican ‘a despicable betrayal’ - The Washington Post",
-   "people": [
-    "haley-nikki",
-    "schumer"
-   ],
-   "pair": [
-    "haley-nikki",
-    "schumer"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Schumer denounces Haley Stevens's endorsement of a Republican as a despicable betrayal.",
-   "summary_ko": "슈머가 헤일리 스티븐스의 공화당 지지 선언을 ‘비열한 배신’이라며 맹비난했다.",
-   "classified": true
-  },
-  {
    "id": "sig-5614ce4f",
    "date": "2026-11-02",
    "source": "Washington Examiner",
@@ -2378,8 +2706,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Josh Shapiro targets Brian Fitzpatrick as Pennsylvania Democrats' top challenge.",
-   "summary_ko": "조시 샤피로가 브라이언 피츠패트릭을 펜실베이니아 민주당의 최대 과제로 지목하며 공략에 나섰다.",
+   "summary_en": "Josh Shapiro targets Brian Fitzpatrick as Pennsylvania Democrats' biggest challenge.",
+   "summary_ko": "조시 샤피로가 브라이언 피츠패트릭을 펜실베이니아 민주당의 최대 과제로 지목하며 공략에 나섰습니다.",
    "classified": true
   },
   {
@@ -2398,8 +2726,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Tom Emmer praises Vance as a campaign workhorse during the midterms.",
-   "summary_ko": "톰 에머가 밴스를 중간선거 기간 '일꾼'이라 칭하며 치하했다.",
+   "summary_en": "Tom Emmer praises JD Vance as a campaign workhorse during midterms.",
+   "summary_ko": "톰 에머가 JD 밴스를 중간선거 기간 '일꾼'이라 칭하며 치하했습니다.",
    "classified": true
   },
   {
@@ -2463,26 +2791,6 @@
    "classified": true
   },
   {
-   "id": "sig-531f4ad2",
-   "date": "2026-11-02",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPemt6NDZhaF8zTExJeHV1d09Ib2wzUWF6eWJiN0dFcmVqM0NORFpYbzF3RlhXSEpqZHNmZFFoY3dJM05YRHVyMWFFaGFYVlo4enBXWjdERTd2VVlsZE1XbThwVmlUbVlxNlc3SU90Z2lFRW9rN2NOVGdTaUo3aVpLYzM5dngyN2RHaVJkelo4dkR3VXZERzVz?oc=5",
-   "title": "Trump and Rubio didn’t build the wall at the Rio Grande — they built it in Guatemala - Washington Examiner",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Article frames Trump and Rubio as partners on border policy extending to Guatemala.",
-   "summary_ko": "기사는 트럼프와 루비오가 과테말라까지 국경 장벽 정책을 함께 추진했음을 시사한다.",
-   "classified": true
-  },
-  {
    "id": "sig-22ffa843",
    "date": "2026-11-02",
    "source": "The Hill",
@@ -2498,8 +2806,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Duckworth condemns Trump's low Halloween flyover and demands answers.",
-   "summary_ko": "더크워스 상원의원이 트럼프의 저공 할로윈 비행에 항의하며 해명을 요구했다.",
+   "summary_en": "Tammy Duckworth condemns Trump's low Halloween flyover and demands answers.",
+   "summary_ko": "탬미 덕워스가 트럼프의 저공 할로윈 비행을 비난하고 해명을 요구했습니다.",
    "classified": true
   },
   {
@@ -2524,26 +2832,6 @@
    "classified": true
   },
   {
-   "id": "sig-2862003a",
-   "date": "2026-11-02",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQjRzVm9MTDlMcDBCUkE0eHBocHhxTG5iSGxEOTh4REZZel9LMVQtRVZPUE5GcDRqN0NfT1JlNVlzbXpIQTFnNFhGN1FGcVhyckVqdHdtenQ4YTFlWlhUMlVxeFY0RWZZbW9FV0hOdERJeEtxNVkyUElwdFpLUW5yeWd0ZHRkaFEyVmlLVDVKSERqeUZKaFE?oc=5",
-   "title": "Shapiro's strategy for tackling measles outbreak: Don't listen to RFK Jr. - Politico",
-   "people": [
-    "rfk-jr",
-    "shapiro"
-   ],
-   "pair": [
-    "rfk-jr",
-    "shapiro"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Shapiro's measles strategy explicitly rejects listening to RFK Jr.",
-   "summary_ko": "샤피로의 홍역 대응 전략이 RFK 주니어의 말을 듣지 말라는 것으로 명시됐다.",
-   "classified": true
-  },
-  {
    "id": "sig-1e8f768f",
    "date": "2026-11-01",
    "source": "CBS News",
@@ -2560,7 +2848,7 @@
    "polarity": "ally",
    "confidence": 0.99,
    "summary_en": "Former President Obama endorses Charles Booker in the Kentucky Senate race.",
-   "summary_ko": "오바마 전 대통령이 켄터키 상원 선거에서 찰스 부커를 지지한다고 발표했습니다.",
+   "summary_ko": "오바마 전 대통령이 켄터키 상원 선거에서 찰스 부커를 지지 선언했다.",
    "classified": true
   },
   {
@@ -2624,26 +2912,6 @@
    "classified": true
   },
   {
-   "id": "sig-f502f7d3",
-   "date": "2026-11-01",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0zWWo0N19WaUFDbm8yTTdHckVRVEZZVVhOZi02VjBvY1dyUEs3V1U5aHlWOEkwYnlRSWJYbDVyXzU4aEpZWnBqc3d4UFg0amhXQjNMdW1n?oc=5",
-   "title": "Rubio: Trump is READY FOR WAR with Iran - Fox News",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.75,
-   "summary_en": "Rubio amplifies Trump's hawkish stance on Iran, showing alignment.",
-   "summary_ko": "루비오가 트럼프의 대이란 강경 노선을 확대하며 동조합니다.",
-   "classified": true
-  },
-  {
    "id": "sig-45236cb2",
    "date": "2026-11-01",
    "source": "CNN",
@@ -2659,8 +2927,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.98,
-   "summary_en": "Senator Warnock directly condemns Senator Cruz's comments about Muslims as bigotry.",
-   "summary_ko": "워녹 상원의원이 크루즈 상원의원의 무슬림 관련 발언을 '순전한 편견'이라고 강력히 비난했습니다.",
+   "summary_en": "Senator Warnock denounces Senator Cruz's comments about Muslims as pure bigotry.",
+   "summary_ko": "워녹 상원의원이 크루즈 상원의원의 무슬림 관련 발언을 '순전한 편견'이라며 강력 비판했다.",
    "classified": true
   },
   {
@@ -2679,8 +2947,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.98,
-   "summary_en": "Donald Trump demands Rep. Ilhan Omar resign amid a federal investigation.",
-   "summary_ko": "도널드 트럼프가 연방 수사를 이유로 일한 오마르 하원의원의 사퇴를 요구했습니다.",
+   "summary_en": "Trump demands Ilhan Omar resign amid a federal probe.",
+   "summary_ko": "트럼프가 연방 수사 중인 일한 오마르에게 사퇴를 요구했다.",
    "classified": true
   },
   {
@@ -2824,6 +3092,27 @@
    "classified": true
   },
   {
+   "id": "sig-382b34fe",
+   "date": "2026-10-30",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9rUUhCVndkOEtCdnZEYmozeHFMVkhoWjRZXy1WNXlFOVBTR0NfX0VFNUU3d0plMzNqLVZyME1KZmxvbE15YXhSeXg5cjNBZmVYek1FVDBR?oc=5",
+   "title": "Joe Manchin Reveals What He Really Thinks About Obama, Biden & the Democrats - Fox News",
+   "people": [
+    "biden",
+    "obama",
+    "manchin"
+   ],
+   "pair": [
+    "manchin",
+    "obama"
+   ],
+   "polarity": "feud",
+   "confidence": 0.8,
+   "summary_en": "Manchin reveals critical views of Obama and the Democratic party.",
+   "summary_ko": "맨친이 오바마와 민주당에 대한 비판적 견해를 밝혔다.",
+   "classified": true
+  },
+  {
    "id": "sig-90805cc1",
    "date": "2026-10-29",
    "source": "The Hill",
@@ -2841,27 +3130,6 @@
    "confidence": 0.9,
    "summary_en": "Governor Newsom issues a warning to Trump as California sends election lawyers to battleground districts.",
    "summary_ko": "뉴섬 주지사가 캘리포니아의 선거 변호사 파견과 함께 트럼프에게 경고를 보냈다.",
-   "classified": true
-  },
-  {
-   "id": "sig-382b34fe",
-   "date": "2026-10-29",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9rUUhCVndkOEtCdnZEYmozeHFMVkhoWjRZXy1WNXlFOVBTR0NfX0VFNUU3d0plMzNqLVZyME1KZmxvbE15YXhSeXg5cjNBZmVYek1FVDBR?oc=5",
-   "title": "Joe Manchin Reveals What He Really Thinks About Obama, Biden & the Democrats - Fox News",
-   "people": [
-    "biden",
-    "obama",
-    "manchin"
-   ],
-   "pair": [
-    "manchin",
-    "obama"
-   ],
-   "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Joe Manchin criticizes Barack Obama and the Democratic Party in a Fox News interview.",
-   "summary_ko": "조 맨친이 폭스뉴스 인터뷰에서 버락 오바마와 민주당을 비판했다.",
    "classified": true
   },
   {
@@ -2900,8 +3168,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump fires Pam Bondi from her position as Attorney General.",
-   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임하다.",
+   "summary_en": "Trump removes Pam Bondi from the attorney general position.",
+   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했다.",
    "classified": true
   },
   {
@@ -2940,8 +3208,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.85,
-   "summary_en": "Trump and Murkowski jointly criticize Peltola over an Alaska ballot report.",
-   "summary_ko": "트럼프와 머코스키가 알래스카 투표지 보고서를 두고 펠톨라를 함께 비판하다.",
+   "summary_en": "Trump and Murkowski jointly criticize Peltola over ballot-stacking allegations.",
+   "summary_ko": "트럼프와 머코스키가 펠톨라의 투표용지 조작 의혹을 함께 비판했다.",
    "classified": true
   },
   {
@@ -3059,9 +3327,9 @@
     "scalise"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Jim Jordan and Steve Scalise compete for House GOP leadership.",
-   "summary_ko": "짐 조던과 스티브 스칼리스가 하원 공화당 지도부를 놓고 경쟁하다.",
+   "confidence": 0.9,
+   "summary_en": "House GOP leadership race pits Jim Jordan against Steve Scalise.",
+   "summary_ko": "하원 공화당 지도부 경선에서 짐 조던과 스티브 스칼리세가 맞붙었다.",
    "classified": true
   },
   {
@@ -3225,26 +3493,6 @@
    "classified": true
   },
   {
-   "id": "sig-18896e54",
-   "date": "2026-10-25",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1ITGRPWU9pdXFjbl9hTXA0aGhpekRmSG51OXRyeXJ1VEQ5d2YwWEVEYWlGRFVXOGNScGtwN2Jrc0Z0SVNQWTZncVE3V1VyR0w4Ny1ZVWt3?oc=5",
-   "title": "Trump weighs pardons after Slotkin's warning to young conservatives - Fox News",
-   "people": [
-    "trump",
-    "slotkin"
-   ],
-   "pair": [
-    "slotkin",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump considers pardons in response to Slotkin's warning to young conservatives.",
-   "summary_ko": "트럼프가 슬롯킨의 젊은 보수층 경고에 대응해 사면을 검토하고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-52125931",
    "date": "2026-10-25",
    "source": "NBC News",
@@ -3260,8 +3508,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Sen. Schiff demands Hegseth testify about Starlink slowdown in Ukraine.",
-   "summary_ko": "시프 상원의원이 헤그세스에게 우크라이나 스타링크 지연 관련 증언을 요구함.",
+   "summary_en": "Sen. Adam Schiff demands Pete Hegseth testify about Starlink slowdown in Ukraine.",
+   "summary_ko": "애덤 시프 상원의원이 피트 헤그세스에게 우크라이나 스타링크 속도 저하 관련 증언을 요구했습니다.",
    "classified": true
   },
   {
@@ -3403,26 +3651,6 @@
    "confidence": 0.95,
    "summary_en": "Senator Tillis called for RFK Jr. to be fired from the administration.",
    "summary_ko": "틸리스 상원의원이 RFK 주니어의 해임을 요구했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-2cc3f718",
-   "date": "2026-10-22",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNVDBZLUNibzY5MkQtNjhBVllMdUFENWFHcUF1bkJlTFJQYVdoQ3liTjNJS3hOLTY3Y25vMUZCMGxPejUwNWF2TnczczBsLXNwM0NpMi16cDdPa25DOHhzaV9QWklGd3p5dkdEQ3JkQzZzVWE5VXlKU2lJZXBFdDNZZE1nWTRkdk9DU215c1AxalZhR0dTMUlILTJnbHYwVHlLczZMQ1BjcDhIUHpjR0g0U0tqWDNlOEdSWVRnSA?oc=5",
-   "title": "Thom Tillis bashes Trump Cabinet members, says they’re ‘costing us more than they are benefiting us’ - Washington Examiner",
-   "people": [
-    "trump",
-    "tillis"
-   ],
-   "pair": [
-    "tillis",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Senator Tillis harshly criticizes Trump's Cabinet members as costly and unhelpful.",
-   "summary_ko": "틸리스 상원의원이 트럼프 내각 구성원들을 강하게 비판합니다.",
    "classified": true
   },
   {
@@ -3621,9 +3849,9 @@
     "slotkin"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Elissa Slotkin and Mike Lee feud over Lee's warning to students not to work for Trump.",
-   "summary_ko": "엘리사 슬롯킨과 마이크 리가 학생들의 트럼프 행정부 근무 경고 문제를 두고 충돌했다.",
+   "confidence": 0.9,
+   "summary_en": "Slotkin and Lee clash over Lee's warning to students not to work for the Trump administration.",
+   "summary_ko": "슬롯킨과 리가 학생들에게 트럼프 행정부에서 일하지 말라고 경고한 것을 두고 충돌했습니다.",
    "classified": true
   },
   {
@@ -3721,9 +3949,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Kristi Noem takes on her third role within the Trump administration.",
-   "summary_ko": "크리스티 노엠이 트럼프 행정부에서 세 번째 직책을 맡게 되었다.",
+   "confidence": 0.9,
+   "summary_en": "Noem takes a third role in the Trump administration, showing continued trust.",
+   "summary_ko": "노엄이 트럼프 행정부에서 세 번째 직책을 맡으며 지속적인 신임을 확인했다.",
    "classified": true
   },
   {
@@ -3784,26 +4012,6 @@
    "confidence": 0.9,
    "summary_en": "Rep. Don Bacon condemns Trump's oil deal with Putin as morally wrong.",
    "summary_ko": "돈 베이컨 의원이 트럼프의 푸틴과의 석유 거래를 도덕적으로 잘못됐다고 비판했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-ab11211c",
-   "date": "2026-10-12",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPLUVzblI2U2ltam1LdmR2dmd0Q3BqUUZaRERBM3MydzdOMjFMVVcxTnM1QngyamVwS3pSVlprZjh6Z3R5WFRKaDRieFc0bXY4eGF4MERMSl9mMGFRanFsdXd5OXB4Z3hMd3FlU3d0QnFQaEdPM0Zobm5wS19CMEUyLVVDWWw0cjA0Yk1vTHdCSG5tV1M3TzdwTlA3N1V2ZnFUUG5WSXJXcmNMMXB6X3lYMEt6eFJaNnAyUGhWbFBWSjlSSjNzRFZN?oc=5",
-   "title": "Sen. John Fetterman faces political risks as Trump pushes for party switch, analyst says - CBS News",
-   "people": [
-    "trump",
-    "fetterman"
-   ],
-   "pair": [
-    "fetterman",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Trump urges Fetterman to switch parties, creating political risk for the senator.",
-   "summary_ko": "트럼프가 페터만에게 당적 변경을 압박하며 정치적 위험을 초래함.",
    "classified": true
   },
   {
@@ -4147,26 +4355,6 @@
    "classified": true
   },
   {
-   "id": "sig-5881ec4f",
-   "date": "2026-10-05",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBma1o4V2NqSkl4bHhsUGx2Ql9wQ2ozT2g0enM3UnZ4aFhhXzdwQ2tXbUV2WmJHWVIxckNUWFl6T1pvTUp4LVlyQXA2T1B1MWsxdTBOWlRR?oc=5",
-   "title": "Democrat civil war? Khanna takes on Schumer - foxnews.com",
-   "people": [
-    "khanna",
-    "schumer"
-   ],
-   "pair": [
-    "khanna",
-    "schumer"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Ro Khanna challenges Chuck Schumer, highlighting Democratic Party tensions.",
-   "summary_ko": "로 칸나가 척 슈머에 도전하며 민주당 내 긴장이 고조되고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-24439ea2",
    "date": "2026-10-05",
    "source": "Politico",
@@ -4205,6 +4393,26 @@
    "summary_en": "Trump urged supporters to call Senator Cotton to pressure him on a daylight saving time bill.",
    "summary_ko": "트럼프 전 대통령이 지지자들에게 톰 코튼 상원의원에게 전화해 서머타임 영구화 법안을 압박할 것을 촉구했습니다.",
    "classified": true
+  },
+  {
+   "id": "sig-9f28c5a1",
+   "date": "2026-10-04",
+   "source": "Fox News",
+   "url": "https://www.foxnews.com/politics/trump-touts-golden-age-ohio-rally-urges-voters-deliver-gop-midterm-wins",
+   "title": "Trump touts ‘golden age’ at Ohio rally, urges voters to deliver GOP midterm wins",
+   "people": [
+    "trump",
+    "golden-jared"
+   ],
+   "classified": true,
+   "pair": [
+    "golden-jared",
+    "trump"
+   ],
+   "polarity": "ally",
+   "confidence": 0.7,
+   "summary_en": "Trump promotes his 'golden age' narrative at an Ohio rally with Jared Golden present.",
+   "summary_ko": "트럼프가 오하이오 유세에서 '황금기' 내러티브를 홍보하며 재러드 골든이 함께했습니다."
   },
   {
    "id": "sig-213a9a8d",
@@ -4867,26 +5075,6 @@
    "classified": true
   },
   {
-   "id": "sig-f295707c",
-   "date": "2026-09-11",
-   "source": "Fox News",
-   "url": "https://www.foxnews.com/politics/pence-group-knocks-vance-plan-pay-stay-at-home-parents-9k-per-child",
-   "title": "EXCLUSIVE: Pence group knocks Vance plan to pay stay-at-home parents up to $9K per child",
-   "people": [
-    "vance",
-    "pence"
-   ],
-   "pair": [
-    "pence",
-    "vance"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Pence-aligned group criticizes Vance's plan to pay stay-at-home parents up to $9K per child.",
-   "summary_ko": "펜스 측 그룹이 밴스의 전업부모 수당 최대 9천 달러 지급 계획을 비판했다.",
-   "classified": true
-  },
-  {
    "id": "sig-3da9a512",
    "date": "2026-09-11",
    "source": "Axios",
@@ -5045,27 +5233,6 @@
    "confidence": 0.85,
    "summary_en": "Pelosi and Omar join Trump and Schiff in an unlikely alliance pushing to onshore a key industry.",
    "summary_ko": "펠로시와 오마르가 트럼프, 시프와 뜻밖의 동맹을 맺고 핵심 산업의 국내 복귀를 추진합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f8c2978f",
-   "date": "2026-09-03",
-   "source": "The Hill",
-   "url": "https://thehill.com/policy/defense/6068468-bacon-tillis-push-hegseth-ouster/",
-   "title": "Bacon echoes Tillis: Hegseth ‘would not be on my team’",
-   "people": [
-    "hegseth",
-    "bacon-don",
-    "tillis"
-   ],
-   "pair": [
-    "bacon-don",
-    "hegseth"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Don Bacon echoes Tillis, saying Hegseth would not be on his team.",
-   "summary_ko": "돈 베이컨이 틸리스에 동조하며 헤그세스가 자신의 팀에 없을 것이라고 말했습니다.",
    "classified": true
   },
   {
@@ -5514,26 +5681,6 @@
    "classified": true
   },
   {
-   "id": "sig-5d52cff8",
-   "date": "2026-07-28",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBvZ3ppUlE1U0FpT3l1dTBTSGdERm1rLVplVnZhajh4VHhaNEVLXzhfN3ROQmc2d2l1T0xDQU5RRHJCaWxRRU9sSzNVdnhPUzBLdVBVVzF1QWtTRkEzdjdaMXl4Q0lVOUdkQ1A1QkJlcElRUDhQUVE?oc=5",
-   "title": "Fauci diaries, released by Sen. Rand Paul, touch on COVID origins and tense relationship with Trump - CBS News",
-   "people": [
-    "trump",
-    "paul-rand"
-   ],
-   "pair": [
-    "paul-rand",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Rand Paul releases Fauci diaries highlighting tense Trump relationship during COVID.",
-   "summary_ko": "랜드 폴이 파우치 일기를 공개하며 코로나 시기 트럼프와의 긴장 관계를 조명했다.",
-   "classified": true
-  },
-  {
    "id": "sig-b5ccb69",
    "date": "2026-07-28",
    "source": "Fox News",
@@ -5551,6 +5698,26 @@
    "confidence": 0.95,
    "summary_en": "Tim Scott praises Lindsey Graham as a patriot, statesman, and dear friend.",
    "summary_ko": "팀 스콧이 린지 그레이엄을 애국자, 정치가, 소중한 친구로 칭송했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-b359b27e",
+   "date": "2026-11-09",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcnVUaldtd2t2VFVRdWlBTElCUmp2TUotd3I3ZmNHRXc3dFNCeWRfd2x6V1JpVlYwV3lDWms1djY4el9vOXFERXV0d3p1X3hXaEhteUJiVl9DdVlPTThxc29lNlFzZXlNYll5V3dWdTZfNTNGQXRKTzZDUW1MTk5WX0dFTWZUQ05iSU02QmZ1eFJudXA0T19uNFJnQ05iWF8wREJYNVJjVHZRd1NUS3JLcG1fWFBlUQ?oc=5",
+   "title": "Thune denies meddling in shadow contest to replace Blackburn in Senate: ‘Not my call’ - Washington Examiner",
+   "people": [
+    "thune",
+    "blackburn"
+   ],
+   "pair": [
+    "blackburn",
+    "thune"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Thune denies meddling in the shadow contest to replace Blackburn in the Senate.",
+   "summary_ko": "튠이 블랙번 상원의원 후임 경쟁에 개입하지 않았다고 부인했습니다.",
    "classified": true
   },
   {
@@ -5580,9 +5747,9 @@
     "scalise"
    ],
    "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Scalise and Jordan compete for House Republican leadership after midterm losses.",
-   "summary_ko": "스칼리스와 조던이 중간선거 패배 후 하원 공화당 대표 자리를 놓고 경쟁하고 있습니다.",
+   "confidence": 0.9,
+   "summary_en": "Steve Scalise and Jim Jordan compete for the House Republican leadership after midterm losses.",
+   "summary_ko": "스티브 스칼리스와 짐 조던이 중간선거 패배 후 하원 공화당 대표 자리를 놓고 경쟁하고 있습니다.",
    "classified": true
   },
   {
@@ -5643,26 +5810,6 @@
    "classified": true
   },
   {
-   "id": "sig-a8264f3c",
-   "date": "2026-10-31",
-   "source": "The Hill",
-   "url": "https://thehill.com/policy/defense/6185793-pete-hegseth-blackburn-tennessee-senate-seat/",
-   "title": "Blackburn’s move to governor leaves Hegseth with potential parachute",
-   "people": [
-    "hegseth",
-    "blackburn"
-   ],
-   "pair": [
-    "blackburn",
-    "hegseth"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Blackburn's gubernatorial run creates a potential opportunity for Hegseth.",
-   "summary_ko": "블랙번의 주지사 출마가 헤그세스에게 잠재적 기회를 만들고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-47126821",
    "date": "2026-10-30",
    "source": "Fox News",
@@ -5689,9 +5836,9 @@
     "whitmer"
    ],
    "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Whitmer says she doesn't seek fights with Trump but won't back down.",
-   "summary_ko": "휘트머가 트럼프와 협력 관련해 싸움을 걸진 않지만 물러서지도 않겠다고 밝힘.",
+   "confidence": 0.8,
+   "summary_en": "Gov. Whitmer says she doesn't seek fights with Trump but won't back down.",
+   "summary_ko": "휘트머 주지사가 트럼프와 싸움을 원치 않지만 물러서지도 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -5716,7 +5863,15 @@
     "musk",
     "abbott-greg"
    ],
-   "classified": false
+   "classified": true,
+   "pair": [
+    "abbott-greg",
+    "musk"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Lawsuit seeks emails between Abbott and Musk.",
+   "summary_ko": "소송이 애벗과 머스크 간의 이메일 공개를 요구합니다."
   },
   {
    "id": "sig-3e9d50ee",
@@ -5821,18 +5976,6 @@
    "confidence": 0.8,
    "summary_en": "CFTC investigates Kinzinger's trades on Kalshi linked to Biden's pardon decisions.",
    "summary_ko": "CFTC가 킨징거의 바이든 사면 관련 칼시 거래를 조사하고 있다."
-  },
-  {
-   "id": "sig-8c5b5d6b",
-   "date": "2026-09-18",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQTk5uZi1ZTXZGMGxjdkRqTTV6SjFyVko0dG5zQ0gwOGxBV1FzWXVacFNsaHR4bFI4c0FqT3BKNzBmSjR4cWlLMmNHWlYyNkV0c084aTgxRkdjX3loTER3OXRxMDJENnpNeVdQR2VYN0lMZE9jVWdxajNIT2ticjdlV2dzNU5WQmNPSEtNWVFCR1NLQjBsWExLMGl3d3dNZzNs?oc=5",
-   "title": "Jets rule out safety Minkah Fitzpatrick against Packers as Jordan Love brings a pass-heavy attack - apnews.com",
-   "people": [
-    "jordan-jim",
-    "fitzpatrick"
-   ],
-   "classified": false
   }
  ]
 }
