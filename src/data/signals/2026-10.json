@@ -117,8 +117,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Harris urges massive midterm turnout and sharply attacks Trump.",
-   "summary_ko": "해리스가 중간선거 대규모 투표를 독려하며 트럼프를 강하게 비판했다.",
+   "summary_en": "Harris attacks Trump while urging high midterm turnout.",
+   "summary_ko": "해리스가 중간선거 높은 투표율을 독려하며 트럼프를 강하게 비판함.",
    "classified": true
   },
   {
@@ -238,7 +238,7 @@
    "polarity": "feud",
    "confidence": 0.9,
    "summary_en": "Trump and Obama exchange attacks in final midterm campaign days.",
-   "summary_ko": "트럼프와 오바마가 중간선거 막판 서로를 공격하며 설전을 벌였다.",
+   "summary_ko": "트럼프와 오바마가 중간선거 막판 서로 공격하며 설전 벌임.",
    "classified": true
   },
   {
@@ -437,9 +437,9 @@
     "obama"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Manchin reveals critical views of Obama and the Democratic party.",
-   "summary_ko": "맨친이 오바마와 민주당에 대한 비판적 견해를 밝혔다.",
+   "confidence": 0.9,
+   "summary_en": "Manchin reveals critical thoughts about Obama and Democrats.",
+   "summary_ko": "맨친이 오바마와 민주당에 대한 비판적 생각을 밝힘.",
    "classified": true
   },
   {
@@ -778,8 +778,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump removes Pam Bondi from the attorney general position.",
-   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했다.",
+   "summary_en": "Trump fires Pam Bondi from attorney general position.",
+   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임함.",
    "classified": true
   },
   {
@@ -937,9 +937,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
+   "confidence": 0.9,
    "summary_en": "Trump and Murkowski jointly criticize Peltola over ballot-stacking allegations.",
-   "summary_ko": "트럼프와 머코스키가 펠톨라의 투표용지 조작 의혹을 함께 비판했다.",
+   "summary_ko": "트럼프와 머코스키가 펠톨라의 투표용지 조작 의혹을 함께 비판함.",
    "classified": true
   },
   {
@@ -1277,9 +1277,9 @@
     "scalise"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "House GOP leadership race pits Jim Jordan against Steve Scalise.",
-   "summary_ko": "하원 공화당 지도부 경선에서 짐 조던과 스티브 스칼리세가 맞붙었다.",
+   "confidence": 0.95,
+   "summary_en": "House GOP leadership race pits Jordan against Scalise in direct competition.",
+   "summary_ko": "하원 공화당 지도부 경선에서 조던과 스칼리지가 직접 경쟁함.",
    "classified": true
   },
   {
@@ -1643,26 +1643,6 @@
    "classified": true
   },
   {
-   "id": "sig-713241b9",
-   "date": "2026-10-27",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPLW5OZE1JdVRyU2IxOEk4bWJhelZubm9oQWRUSzNjM01HeGNXQUJ5TFdab1RuRHdpV2VfMHZwdkRsUW40bkRRTkNkT2RLTnJreWpqaUNvUXdKcjkyRmxuVDFrSWJ6SGNKTm9mTS1XOWRQZ1U4QzV0RHBaR0huUktSYk5xYnl3TkhMRm9N0gGQAUFVX3lxTE56ejNzOEZ2UkFCMDZDcVZaLUJJVVlsbDg5NVB1Mzl6WWk0SEx4cXpnRXVUbHVjRVlnNmhXUkZxUlNhQ1p1Q0s4OGxjU1ZYNENpMEpKYktVaE5MUWR6Qnd4dVNJRlM2Zk9zME92RjRta2dfV3ZzcWM4Yks3UHFyUy1qSzdtMmhDdHNMd3p4NDYtdA?oc=5",
-   "title": "Sanders, Wyden press insurers on Trump ACA coverage terminations - The Hill",
-   "people": [
-    "trump",
-    "sanders"
-   ],
-   "pair": [
-    "sanders",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Bernie Sanders pressures insurers over Trump's termination of ACA coverage.",
-   "summary_ko": "버니 샌더스가 트럼프의 ACA 보장 종료에 대해 보험사들을 압박합니다.",
-   "classified": true
-  },
-  {
    "id": "sig-3b204739",
    "date": "2026-10-27",
    "source": "Fox News",
@@ -1823,6 +1803,66 @@
    "classified": true
   },
   {
+   "id": "sig-99bc90e5",
+   "date": "2026-10-27",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOTjl4ZzAzcjBQWWx0alB3MTg2V0xfaExmTzh4U0hTSXBXWnd0M3N4RmNKQUVFRGtJLXZqcHp4WWdLbUM5d3BjLVFqVTEtWjEzbFpIaVI3RFBqemhfQlZpS2ZQSm0waThBV0NLSjZ5Z3JHTVFHUDFSenZKbmZlMWY5NFJKcDlUeDg?oc=5",
+   "title": "Susan Collins Tries to Outrun Trump’s Shadow in Bid for Sixth Senate Term - WSJ",
+   "people": [
+    "trump",
+    "collins-susan"
+   ],
+   "pair": [
+    "collins-susan",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Susan Collins attempts to distance herself from Trump's influence in her Senate re-election bid.",
+   "summary_ko": "수전 콜린스가 상원 6선 도전에서 트럼프의 영향력에서 벗어나려 시도합니다.",
+   "classified": true
+  },
+  {
+   "id": "sig-adf49283",
+   "date": "2026-10-27",
+   "source": "The Hill",
+   "url": "https://thehill.com/policy/healthcare/6175216-wyden-sanders-target-trump-insurance/",
+   "title": "Sanders, Wyden press insurers on Trump ACA coverage terminations",
+   "people": [
+    "trump",
+    "sanders"
+   ],
+   "classified": true,
+   "pair": [
+    "sanders",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "Sanders and Wyden pressure insurers over Trump administration's termination of ACA coverage.",
+   "summary_ko": "샌더스와 와이든이 트럼프 행정부의 ACA 보장 종료에 대해 보험사들을 압박합니다."
+  },
+  {
+   "id": "sig-322d0334",
+   "date": "2026-10-27",
+   "source": "Washington Examiner",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdFluUzVQU3R5cUpGMG04d1BLcnlfN211X25LQ01jWVRsdDBwLU9uTThVeGprbHhtVmM1b250dE5IZ0JNelBzTVNLSDJicXpFNU10MTI2c01INFEzRDFZcU1WbHY3TU5LbUMwTEZaNmxIQ3dZYUI1aFhLZlN3OUhvSE9oeTFvSDc5cy1ldTkycHloSHJDaFJjTQ?oc=5",
+   "title": "Why Trump’s DOJ skipped the grand jury to drop a Hunter Biden laptop bomb two weeks before midterms - Washington Examiner",
+   "people": [
+    "trump",
+    "biden"
+   ],
+   "classified": true,
+   "pair": [
+    "biden",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Trump's DOJ bypasses standard procedure to release damaging Hunter Biden material before midterms.",
+   "summary_ko": "트럼프의 법무부가 대배심 절차를 건너뛰고 중간선거 직전 헌터 바이든 관련 폭탄 자료를 공개합니다."
+  },
+  {
    "id": "sig-d2726c01",
    "date": "2026-10-26",
    "source": "The New York Times",
@@ -1838,8 +1878,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Barack Obama's 'Cheesecake Factory' jab irritates Trump during a Mississippi campaign stop.",
-   "summary_ko": "버락 오바마의 '치즈케이크 팩토리' 조롱이 미시시피 유세 중 트럼프를 자극했습니다.",
+   "summary_en": "Obama's mocking jab at Trump rankles the former president on the campaign trail.",
+   "summary_ko": "오바마의 조롱 섞인 발언이 유세 중인 트럼프의 심기를 불편하게 했습니다.",
    "classified": true
   },
   {
@@ -2065,6 +2105,26 @@
    "classified": true
   },
   {
+   "id": "sig-672826dc",
+   "date": "2026-10-26",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/state-watch/6171272-live-updates-trump-midterm-elections-iran/",
+   "title": "Live updates: Trump, Vance head to reliably red states to engage GOP base",
+   "people": [
+    "trump",
+    "vance"
+   ],
+   "classified": true,
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Trump and Vance campaign together in solidly Republican states.",
+   "summary_ko": "트럼프와 밴스가 공화당 텃밭 주들을 함께 방문해 기반 결집에 나섰다."
+  },
+  {
    "id": "sig-eeeff139",
    "date": "2026-10-25",
    "source": "The Hill",
@@ -2161,7 +2221,7 @@
    "polarity": "feud",
    "confidence": 0.9,
    "summary_en": "Sen. Adam Schiff demands Pete Hegseth testify about Starlink slowdown in Ukraine.",
-   "summary_ko": "애덤 시프 상원의원이 피트 헤그세스에게 우크라이나 스타링크 속도 저하 관련 증언을 요구했습니다.",
+   "summary_ko": "애덤 시프 상원의원이 피트 헤그세스에게 우크라이나 스타링크 지연 사태에 대해 증언할 것을 요구했습니다.",
    "classified": true
   },
   {
@@ -2340,8 +2400,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama launches searing attacks on Trump and Ramaswamy in campaign return.",
-   "summary_ko": "오바마가 선거 유세 복귀 연설에서 트럼프와 라마스와미를 강도 높게 비판했습니다.",
+   "summary_en": "Former President Obama launches searing attacks on Donald Trump and Vivek Ramaswamy on the campaign trail.",
+   "summary_ko": "버락 오바마 전 대통령이 유세 현장에서 도널드 트럼프와 비벡 라마스와미를 강도 높게 비판했습니다.",
    "classified": true
   },
   {
@@ -2360,8 +2420,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama assails 'cruelty' and indecency from Trump and allies in midterm campaign.",
-   "summary_ko": "오바마가 중간선거 유세 중 트럼프와 동맹들의 '잔혹함'과 부도덕성을 맹비난했습니다.",
+   "summary_en": "Former President Obama assails 'cruelty' and indecency from Donald Trump and his allies in the Midwest.",
+   "summary_ko": "버락 오바마 전 대통령이 중서부 유세에서 도널드 트럼프와 그 측근들의 '잔혹함'과 무례함을 맹비난했습니다.",
    "classified": true
   },
   {
@@ -2540,8 +2600,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama describes Trump as an agent of 'chaos and cruelty' in midterm pitch.",
-   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 묘사했습니다.",
+   "summary_en": "Former President Obama describes Donald Trump as an agent of 'chaos and cruelty' in a midterm pitch.",
+   "summary_ko": "버락 오바마 전 대통령이 중간선거 유세에서 도널드 트럼프를 '혼란과 잔혹함의 대행자'라고 묘사했습니다.",
    "classified": true
   },
   {
@@ -2579,9 +2639,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Trump removes some Canada tariffs to help Sen. Susan Collins politically.",
-   "summary_ko": "트럼프가 수전 콜린스 상원의원을 돕기 위해 캐나다 관세 일부를 철폐합니다.",
+   "confidence": 0.9,
+   "summary_en": "Donald Trump plans to remove some tariffs on Canada to help Sen. Susan Collins politically.",
+   "summary_ko": "도널드 트럼프가 수전 콜린스 상원의원을 돕기 위해 캐나다산 일부 관세 철폐를 계획하고 있습니다.",
    "classified": true
   },
   {
@@ -2980,9 +3040,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Trump directly called Musk requesting he lift Starlink restrictions on Ukraine.",
-   "summary_ko": "트럼프가 머스크에게 직접 전화해 우크라이나 스타링크 제한 해제를 요청했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Trump directly calls Musk asking him to lift Starlink restrictions on Ukraine.",
+   "summary_ko": "트럼프가 머스크에게 직접 전화해 우크라이나 스타링크 제한 해제를 요청했다.",
    "classified": true
   },
   {
@@ -3024,6 +3084,66 @@
    "confidence": 0.9,
    "summary_en": "The White House attacks Biden's border policies ahead of Trump's Florida visit.",
    "summary_ko": "백악관이 트럼프의 플로리다 방문을 앞두고 바이든의 국경 정책을 강하게 비판했다."
+  },
+  {
+   "id": "sig-859d7486",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNFVKSHI4ZjRibU5yQU5pM1RSTHc1ZXAwc1RkQlJDSUFlVk1rbHc3aTNGdFh4MWx4YWg4bkEyX0NYOWRKbHAtQTM4N1FNUDl3MmZscUdPTGZBN1B5M2hLSndZZUxoTWVfVUI2VlZSWGJhRjNkN1pNT1Z6Zlo3Vl91bHhqX2I5S1l6YWc2V3NfaTc2YVBfeE42ZTdndmJya1pna1lMR0RsVEZibU12dUpTb2VSZmZXenk2dnJKcHExcU9CRGxSNlVj?oc=5",
+   "title": "Slotkin wants to stoke fear in young GOP; Swisher predicts Musk for prison?!: Robby Soave | RISING - The Hill",
+   "people": [
+    "musk",
+    "slotkin"
+   ],
+   "classified": true,
+   "pair": [
+    "musk",
+    "slotkin"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Slotkin aims to stoke fear in young Republicans while a commentator predicts Musk will go to prison.",
+   "summary_ko": "슬로킨이 젊은 공화당원들에게 공포를 조장하려 하고, 논평가는 머스크가 감옥에 갈 것이라고 예측했습니다."
+  },
+  {
+   "id": "sig-a0c952c5",
+   "date": "2026-10-23",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWDRxakZERXJDWXJ3QktyallyUGFwUXVXQUZZVmF5ckpZdEszSldYazFGd2p1RnpENlZvaDNSNUY1TWFNNGdhSEFtNUpPaDdXUlZyaDJUMkRta0poZTFZQUEwd0pLbkhGdUl3ZzlSOThnaE9ZUER5cy1Hb0xPRXRRM004ZW5LWDcxbURleFJlamROalJESVF6bnVvUWxDOFBaRXVublJoaXJGWTdoSENiOVFib2tHdw?oc=5",
+   "title": "WSJ reports Musk ordered Starlink pause; Ilhan Omar speaks out after raid | RISING - The Hill",
+   "people": [
+    "musk",
+    "omar-ilhan"
+   ],
+   "classified": true,
+   "pair": [
+    "musk",
+    "omar-ilhan"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "WSJ reports Musk ordered a Starlink pause; Ilhan Omar speaks out following a raid.",
+   "summary_ko": "WSJ가 머스크의 스타링크 중단 명령을 보도한 가운데, 일한 오마르가 압수수색 후 발언했습니다."
+  },
+  {
+   "id": "sig-14b0c189",
+   "date": "2026-10-23",
+   "source": "CNN",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUVYwcjdwRjNESW93Vno4aUw2bUZoNTJ0WEphTFJ1anlfeE4tNEZZb0FVbEJqNU9vRTV6LWFMSTUzODVPWXpvNHNHeDZ3dUFjM2hFcVVyemNGOGh3b0hNd0EzMWVjaXBsMlpHUUpFNW5Bb3QxQmw1OG5pNjE5dFJ4RXVvTVY4TzY1?oc=5",
+   "title": "KFile: Mike Collins joked about pushing Pelosi from a plane, suggested hanging US leaders | CNN Politics - CNN",
+   "people": [
+    "pelosi",
+    "collins-susan"
+   ],
+   "classified": true,
+   "pair": [
+    "collins-susan",
+    "pelosi"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Rep. Mike Collins joked about pushing Pelosi from a plane and suggested hanging US leaders.",
+   "summary_ko": "마이크 콜린스 의원이 펠로시를 비행기에서 밀어버리는 농담을 하고 미 지도자들을 교수형에 처하자고 제안했습니다."
   },
   {
    "id": "sig-a87ee86a",
@@ -3268,6 +3388,47 @@
    "summary_ko": "트럼프와 밴스가 라마스와미 논란을 두고 오하이오 공화당 기득권층에 맞서 공동 전선을 폈다."
   },
   {
+   "id": "sig-11e5957d",
+   "date": "2026-10-22",
+   "source": "NPR",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA4VFE3ODZSSFJ4ZE9PdVVzeFBMdFYwMG1kQ1JmYk5sOE5teFpFOFl1YzlDOWNleDJYcVpna2VaWmdWbHROaXdJdklPOWVfMnpZWG0wTE0wZzhBTjJHMnZHT1FiWlN3cXdZUGpjRDZoTjc1bE5RdTBBQQ?oc=5",
+   "title": "Trump and Obama hit the campaign trail. Will it make a difference for candidates? - NPR",
+   "people": [
+    "trump",
+    "obama"
+   ],
+   "classified": true,
+   "pair": [
+    "obama",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.85,
+   "summary_en": "Trump and Obama both campaign for their parties ahead of the midterms, highlighting their rivalry.",
+   "summary_ko": "트럼프와 오바마가 중간선거를 앞두고 각각 유세에 나서며 대립 구도를 부각했습니다."
+  },
+  {
+   "id": "sig-202b6255",
+   "date": "2026-10-22",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVFNQLVY5eF9Pb0lTXzl2aWl0bDRWS0tlTWZFMjVXbk9QZHlnODN2NTNkSm84a2FMVDJrSHhDNWhlQjJQZjMySjd1ejdVUURMQ2RTNE91UmkxcXpEWDNpQzNzZGpFT3dId1N1blpZYVBvU1V5WGpYNG85cDlka0lwRFliaFQ5OFRBbFI2SDJCa9IBlAFBVV95cUxPMVgtMkFKSHNTN2NTZjlTM1JySDduRGR6SVJxR2lqSWloSEc1UUdkcDV4a3pQWmFXeUcyaXhzRlJMb05pQVhKWjM3OE90aFVOb1RXRTJuRmQtQmVRejhXT0d4Uk1fS2dUOEJxVF8xRVB4cDRxRVNza09UMzVpaGxGOVF4QmFpUHZZNzhzekFHVDU1LV9Q?oc=5",
+   "title": "Tillis says Miller, Hegseth, RFK Jr. should be fired - The Hill",
+   "people": [
+    "hegseth",
+    "rfk-jr",
+    "tillis"
+   ],
+   "pair": [
+    "hegseth",
+    "tillis"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Tillis publicly calls for Hegseth's firing alongside other Trump officials.",
+   "summary_ko": "틸리스가 헤그세스 등 트럼프 행정부 고위 인사들의 해임을 공개 요구했다.",
+   "classified": true
+  },
+  {
    "id": "sig-8305273c",
    "date": "2026-10-21",
    "source": "Washington Examiner",
@@ -3504,8 +3665,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Sen. Collins recruits former Sen. Manchin to showcase her independence.",
-   "summary_ko": "콜린스 상원의원이 맨친 전 의원을 영입해 자신의 독립성을 부각합니다.",
+   "summary_en": "Sen. Collins recruits former Democratic Sen. Manchin to showcase her political independence.",
+   "summary_ko": "콜린스 상원의원이 만친 전 민주당 상원의원을 영입해 자신의 정치적 독립성을 부각하고 있다.",
    "classified": true
   },
   {
@@ -3545,9 +3706,9 @@
     "schumer"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Manchin criticizes Schumer for targeting Sen. Collins.",
-   "summary_ko": "맨친이 슈머의 콜린스 표적화를 '미쳤다'고 비판했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Manchin criticizes Schumer's strategy of targeting Sen. Collins, calling it 'crazy'.",
+   "summary_ko": "만친이 슈머의 콜린스 공략 전략을 '미쳤다'고 비판했다.",
    "classified": true
   },
   {
@@ -3587,8 +3748,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Sen. Collins enlists Manchin to appeal to moderate voters in Maine.",
-   "summary_ko": "콜린스 상원의원이 맨친과 함께 메인주 중도층 공략에 나섰습니다.",
+   "summary_en": "Collins partners with Manchin to appeal to moderate voters while distancing from Trump.",
+   "summary_ko": "콜린스가 트럼프와 거리를 두며 만친과 손잡고 중도층 공략에 나섰다.",
    "classified": true
   },
   {
@@ -3666,9 +3827,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Rubio reassures Zelensky that Trump does not intend to harm Ukraine.",
-   "summary_ko": "루비오가 젤렌스키에게 트럼프가 우크라이나를 해칠 의도가 없다고 전했습니다.",
+   "confidence": 0.85,
+   "summary_en": "Rubio defends Trump's intentions toward Ukraine in talks with Zelensky.",
+   "summary_ko": "루비오가 젤렌스키에게 트럼프가 우크라이나를 해칠 의도가 없다고 옹호했다.",
    "classified": true
   },
   {
@@ -4147,9 +4308,9 @@
     "slotkin"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Slotkin and Lee clash over Lee's warning to students not to work for the Trump administration.",
-   "summary_ko": "슬롯킨과 리가 학생들에게 트럼프 행정부에서 일하지 말라고 경고한 것을 두고 충돌했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Elissa Slotkin and Mike Lee clash over warnings to students about working for the Trump administration.",
+   "summary_ko": "엘리사 슬로킨과 마이크 리가 트럼프 행정부 근무 경고 문제를 두고 충돌했습니다.",
    "classified": true
   },
   {
@@ -4168,8 +4329,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Manchin announces he will campaign alongside Collins in Maine.",
-   "summary_ko": "맨친이 메인주에서 콜린스와 함께 유세할 것이라고 발표했습니다.",
+   "summary_en": "Joe Manchin will campaign alongside Susan Collins in Maine.",
+   "summary_ko": "조 맨친이 메인주에서 수전 콜린스와 함께 유세할 예정입니다.",
    "classified": true
   },
   {
@@ -4208,8 +4369,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Manchin confirms he will campaign with Collins in Maine.",
-   "summary_ko": "맨친이 메인주에서 콜린스와 함께 유세할 것을 확인했습니다.",
+   "summary_en": "Joe Manchin announces he will campaign with Susan Collins in Maine.",
+   "summary_ko": "조 맨친이 메인주에서 수전 콜린스와 함께 유세하겠다고 발표했습니다.",
    "classified": true
   },
   {
@@ -4289,9 +4450,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Obama condemns the Trump officials' probe of Omar as 'appalling,' escalating their conflict.",
-   "summary_ko": "오바마가 트럼프 당국자의 오마르 수사를 '끔찍하다'고 비난하며 갈등이 격화됐다.",
+   "confidence": 0.98,
+   "summary_en": "Obama condemns the Trump administration's investigation of Ilhan Omar as appalling.",
+   "summary_ko": "오바마가 트럼프 행정부의 일한 오마르 수사를 '끔찍하다'고 비난하다.",
    "classified": true
   },
   {
@@ -4351,9 +4512,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Obama speaks out for Omar in response to Trump-era scrutiny, highlighting their ongoing rivalry.",
-   "summary_ko": "오바마가 트럼프 시절의 감시에 맞서 오마르를 위해 발언하며 두 사람의 대립 구도가 이어졌다.",
+   "confidence": 0.9,
+   "summary_en": "Obama speaks out for Ilhan Omar, contrasting with Trump's past attacks on Obama.",
+   "summary_ko": "오바마가 일한 오마르를 위해 발언하며 트럼프의 과거 오바마 공격과 대조된다.",
    "classified": true
   },
   {
@@ -4413,9 +4574,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Former President Obama defends Rep. Ilhan Omar against a Trump administration investigation.",
-   "summary_ko": "오바마 전 대통령이 트럼프 행정부의 조사에 맞서 일한 오마르 의원을 옹호했다.",
+   "confidence": 0.95,
+   "summary_en": "Obama defends Rep. Ilhan Omar against a Trump administration investigation.",
+   "summary_ko": "오바마가 트럼프 행정부의 수사를 받는 일한 오마르 의원을 옹호하다.",
    "classified": true
   },
   {
@@ -4756,9 +4917,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Thune advances toward GOP leadership despite Trump's attacks against him.",
-   "summary_ko": "툰이 트럼프의 공격에도 불구하고 공화당 원내대표직에 무난히 접근하고 있다.",
+   "confidence": 0.9,
+   "summary_en": "Thune advances toward GOP leadership despite Trump's attacks.",
+   "summary_ko": "튠이 트럼프의 공격에도 불구하고 공화당 원내대표직에 무난히 접근하다.",
    "classified": true
   },
   {
@@ -4819,26 +4980,6 @@
    "confidence": 0.9,
    "summary_en": "Trump mocks Ossoff's campaign spending while joking about his own makeup at a rally.",
    "summary_ko": "트럼프가 자신의 화장을 농담 삼으며 오소프의 캠페인 지출을 조롱했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-e1fd11d6",
-   "date": "2026-10-16",
-   "source": "The Washington Post",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNTkhJeUU1UktfeTJfVWRNT3V3T3liSWExR2xRdENvN19QVzFyN1dheVRvbFpRS0FBN005VXpSYUwyeWwzMFdTcmh3aGNpVThCUFRCMXRJM25LZzRHZmJnbUhIbmRnUlNHRW9mYmJEWXJuYkhPMlR2T0JFbWZpSlFYQjZGNHljVVd3LWp6UHQ4enUtQ0NmYmtEdXUxVWR2eEpqdzJnYzRnSk1NS2c?oc=5",
-   "title": "Sen. Susan Collins struggles to name a time she stopped Trump - The Washington Post",
-   "people": [
-    "trump",
-    "collins-susan"
-   ],
-   "pair": [
-    "collins-susan",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.75,
-   "summary_en": "Collins faces scrutiny over her inability to cite an instance where she opposed Trump.",
-   "summary_ko": "콜린스 의원이 트럼프를 저지한 사례를 대지 못해 비판받고 있다.",
    "classified": true
   },
   {
@@ -4917,8 +5058,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Noem takes a third role in the Trump administration, showing continued trust.",
-   "summary_ko": "노엄이 트럼프 행정부에서 세 번째 직책을 맡으며 지속적인 신임을 확인했다.",
+   "summary_en": "Noem transitions to a third role within the Trump administration.",
+   "summary_ko": "놈이 트럼프 행정부에서 세 번째 직책으로 조용히 이동하다.",
    "classified": true
   },
   {
@@ -4976,31 +5117,10 @@
     "graham",
     "trump"
    ],
-   "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Trump bypasses Russian sanctions via a bill named for Graham, undermining his legacy.",
-   "summary_ko": "트럼프가 고 그레이엄 명의 법안으로 러시아 제재를 우회하며 그의 유산을 훼손했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-2bcc3ad5",
-   "date": "2026-10-16",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQd1pGRk90R3NSMUlicjNQWjZuQzNBVkVvTUdKRFdvd1ZoZ2ZXVG4zWkFKelZsWlMySlFJUG1zQUJKbnR6eWN6OENER0FQTkpITk1Peld6aEVBWGFPZEdHcEtJUjJpZXc3b2NGLVRHNlpKdnJWUjJmWDNrcENoc2UzWkVYa2RZdHl1QXfSAY8BQVVfeXFMTWZoRWRUZzJ3eEoyenNiMDVHcGJCWHZuT0tpRmhfWWJNUUFKNllKZ3gyb3dSZHRvNGJGbTRueGNnZDFERW5pZjg0QkZoVmdLR3NzN2JrNUZFZ2ZtVFBfMjRIdjBjUE0yUklNbnlYXzFXbUdad0VKeVl1emdLVm93WWdHZ0lDVDNacEhlbXNyRFE?oc=5",
-   "title": "Collins says she doesn’t regret RFK Jr. vote, tried to block Hegseth - The Hill",
-   "people": [
-    "hegseth",
-    "rfk-jr",
-    "collins-susan"
-   ],
-   "pair": [
-    "collins-susan",
-    "rfk-jr"
-   ],
    "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Susan Collins defends her vote for RFK Jr., stating she has no regrets.",
-   "summary_ko": "수전 콜린스가 RFK 주니어에 대한 자신의 투표를 후회하지 않는다고 밝혔다.",
+   "confidence": 0.7,
+   "summary_en": "Trump signs order bypassing Russian sanctions in a bill honoring Lindsey Graham.",
+   "summary_ko": "트럼프가 고 린지 그레이엄 명의 법안의 러시아 제재를 우회하는 행정명령에 서명하다.",
    "classified": true
   },
   {
@@ -5018,9 +5138,9 @@
     "vance"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "AOC and Vance clash on the campaign trail during a joint event.",
-   "summary_ko": "AOC와 밴스가 합동 유세 현장에서 충돌했다.",
+   "confidence": 0.9,
+   "summary_en": "Ocasio-Cortez clashes with Vance during campaign trail events.",
+   "summary_ko": "오카시오-코르테즈가 유세 중 밴스와 충돌했습니다.",
    "classified": true
   },
   {
@@ -5079,8 +5199,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "A judge found Kristi Noem and Elon Musk worked together to smear a former FEMA official.",
-   "summary_ko": "법원이 크리스티 노엠과 일론 머스크가 전 FEMA 관리를 음해하기 위해 공모했다고 판결했다.",
+   "summary_en": "A judge finds Noem and Musk worked together to smear a former FEMA official.",
+   "summary_ko": "법원이 놈과 머스크가 전 FEMA 관리를 음해하기 위해 공모했다고 판시했습니다.",
    "classified": true
   },
   {
@@ -5458,9 +5578,9 @@
     "trump"
    ],
    "polarity": "ally",
-   "confidence": 0.75,
-   "summary_en": "Thom Tillis approved Trump's judicial nominees despite mocking related prosecutions.",
-   "summary_ko": "톰 틸리스가 관련 기소를 조롱하면서도 트럼프의 사법부 지명자들을 승인했다.",
+   "confidence": 0.85,
+   "summary_en": "Tillis approves Trump's judicial nominees despite mocking related prosecution.",
+   "summary_ko": "틸리스가 관련 기소를 조롱하면서도 트럼프의 사법부 지명자들을 승인했습니다.",
    "classified": true
   },
   {
@@ -5501,26 +5621,6 @@
    "confidence": 0.75,
    "summary_en": "NYT reports Trump backlash threatens Collins's reelection as sole blue-state GOP senator.",
    "summary_ko": "NYT, 트럼프 지지층 반발이 유일한 블루스테이트 공화 상원의원 콜린스 재선 위협 보도.",
-   "classified": true
-  },
-  {
-   "id": "sig-ad6d5a9a",
-   "date": "2026-10-14",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNWHdxWXlmN2ZYWklDT2FlREFOVjhVN3VqWTNJX084YW0tVktrMVY4UTUxa3hMa2Y5M1BvZkRHdUhmSjE5LUNsbTJUSGQxZDJEdF9kaVB2T0l3T0RUSFZhTW9iODktOVZpMmpTMFN3ZXVRV2dfWXY5Vy1iM2FxSm0ySXN3?oc=5",
-   "title": "Ukraine's Starlink restrictions raise suspicions of Musk, Trump retaliation - Axios",
-   "people": [
-    "trump",
-    "musk"
-   ],
-   "pair": [
-    "musk",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.7,
-   "summary_en": "Report raises suspicions that Musk and Trump are coordinating retaliation via Starlink restrictions.",
-   "summary_ko": "머스크와 트럼프가 스타링크 제한을 통해 보복을 공모하고 있다는 의혹이 제기됐다.",
    "classified": true
   },
   {
@@ -5738,9 +5838,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "US immigration authorities raid the home of Ilhan Omar, a vocal Trump critic.",
-   "summary_ko": "미 이민 당국이 트럼프의 강력한 비판자인 일한 오마르의 자택을 급습했다.",
+   "confidence": 0.8,
+   "summary_en": "Immigration authorities raid the home of Ilhan Omar, a prominent Democratic critic of Trump.",
+   "summary_ko": "트럼프의 대표적 민주당 비판자인 일한 오마르의 자택을 이민 당국이 급습했다.",
    "classified": true
   },
   {
@@ -7974,6 +8074,27 @@
    "classified": true
   },
   {
+   "id": "sig-c0af4093",
+   "date": "2026-10-05",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/administration/6130078-vanity-fair-establishment-list-2026/",
+   "title": "Vanity Fair’s ‘new establishment’ list names Vance as Trump ‘heir’ and Rubio as ‘spare’",
+   "people": [
+    "trump",
+    "vance",
+    "rubio"
+   ],
+   "classified": true,
+   "pair": [
+    "trump",
+    "vance"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Vanity Fair labels Vance as Trump's heir and Rubio as spare in new establishment list.",
+   "summary_ko": "배니티페어가 밴스를 트럼프 '후계자', 루비오를 '예비'로 지목하다."
+  },
+  {
    "id": "sig-fefaba49",
    "date": "2026-10-04",
    "source": "The New York Times",
@@ -8635,6 +8756,26 @@
    "classified": true
   },
   {
+   "id": "sig-88e1680d",
+   "date": "2026-10-30",
+   "source": "The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSGRhRDF1UDY2czgzWm9Hb2F0c2J0aWROWkRNRmlNNzJUZDVfQXNkUVlTbFpwWFBEcWo2Wlg2Rk9jSDU2dy1zTVVLaFJaYjUyVkVPRGRlRlp0Q3lyT0tMdml5OFZNZFp6MDYtRmhSWW5mVngyNDVjTnBZNElkcWJHMUNQRkhxMjBzOWtF?oc=5",
+   "title": "Opinion | Can Mitch McConnell Shift Trump’s Russia Policy? - WSJ",
+   "people": [
+    "trump",
+    "mcconnell"
+   ],
+   "pair": [
+    "mcconnell",
+    "trump"
+   ],
+   "polarity": "neutral",
+   "confidence": 0.85,
+   "summary_en": "Opinion piece questions if McConnell can influence Trump's Russia stance.",
+   "summary_ko": "칼럼에서 매코넬이 트럼프의 대러시아 정책에 영향을 줄 수 있을지 논의함.",
+   "classified": true
+  },
+  {
    "id": "sig-1bcc00af",
    "date": "2026-10-29",
    "source": "NBC News",
@@ -8705,26 +8846,6 @@
     "obama"
    ],
    "classified": false
-  },
-  {
-   "id": "sig-88e1680d",
-   "date": "2026-10-29",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSGRhRDF1UDY2czgzWm9Hb2F0c2J0aWROWkRNRmlNNzJUZDVfQXNkUVlTbFpwWFBEcWo2Wlg2Rk9jSDU2dy1zTVVLaFJaYjUyVkVPRGRlRlp0Q3lyT0tMdml5OFZNZFp6MDYtRmhSWW5mVngyNDVjTnBZNElkcWJHMUNQRkhxMjBzOWtF?oc=5",
-   "title": "Opinion | Can Mitch McConnell Shift Trump’s Russia Policy? - WSJ",
-   "people": [
-    "trump",
-    "mcconnell"
-   ],
-   "pair": [
-    "mcconnell",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.6,
-   "summary_en": "Opinion piece questions if McConnell can influence Trump's Russia stance.",
-   "summary_ko": "칼럼에서 매코널이 트럼프의 대러시아 정책에 영향을 줄 수 있을지 논의했다.",
-   "classified": true
   },
   {
    "id": "sig-97472e6d",
@@ -8953,26 +9074,6 @@
    "classified": true
   },
   {
-   "id": "sig-99bc90e5",
-   "date": "2026-10-27",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOTjl4ZzAzcjBQWWx0alB3MTg2V0xfaExmTzh4U0hTSXBXWnd0M3N4RmNKQUVFRGtJLXZqcHp4WWdLbUM5d3BjLVFqVTEtWjEzbFpIaVI3RFBqemhfQlZpS2ZQSm0waThBV0NLSjZ5Z3JHTVFHUDFSenZKbmZlMWY5NFJKcDlUeDg?oc=5",
-   "title": "Susan Collins Tries to Outrun Trump’s Shadow in Bid for Sixth Senate Term - WSJ",
-   "people": [
-    "trump",
-    "collins-susan"
-   ],
-   "pair": [
-    "collins-susan",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Susan Collins campaigns for a sixth Senate term while navigating Trump's influence.",
-   "summary_ko": "수전 콜린스가 트럼프의 영향력을 피해 6선 상원의원 도전에 나섰습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-c121e4aa",
    "date": "2026-10-27",
    "source": "Washington Examiner",
@@ -8991,18 +9092,6 @@
    "summary_en": "A commentary criticizes Barack Obama and Elissa Slotkin for a selective defense of American ideals.",
    "summary_ko": "논평이 버락 오바마와 엘리사 슬로킨이 미국 이상을 선택적으로 옹호한다고 비판합니다.",
    "classified": true
-  },
-  {
-   "id": "sig-adf49283",
-   "date": "2026-10-27",
-   "source": "The Hill",
-   "url": "https://thehill.com/policy/healthcare/6175216-wyden-sanders-target-trump-insurance/",
-   "title": "Sanders, Wyden press insurers on Trump ACA coverage terminations",
-   "people": [
-    "trump",
-    "sanders"
-   ],
-   "classified": false
   },
   {
    "id": "sig-4f87b713",
@@ -9037,18 +9126,6 @@
    "people": [
     "trump",
     "omar-ilhan"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-322d0334",
-   "date": "2026-10-27",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdFluUzVQU3R5cUpGMG04d1BLcnlfN211X25LQ01jWVRsdDBwLU9uTThVeGprbHhtVmM1b250dE5IZ0JNelBzTVNLSDJicXpFNU10MTI2c01INFEzRDFZcU1WbHY3TU5LbUMwTEZaNmxIQ3dZYUI1aFhLZlN3OUhvSE9oeTFvSDc5cy1ldTkycHloSHJDaFJjTQ?oc=5",
-   "title": "Why Trump’s DOJ skipped the grand jury to drop a Hunter Biden laptop bomb two weeks before midterms - Washington Examiner",
-   "people": [
-    "trump",
-    "biden"
    ],
    "classified": false
   },
@@ -9118,18 +9195,6 @@
    "source": "The Hill",
    "url": "https://thehill.com/opinion/campaign/6170572-scummy-political-advertising-lies/",
    "title": "Trump and Vance accelerate downward political spiral",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-672826dc",
-   "date": "2026-10-26",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/state-watch/6171272-live-updates-trump-midterm-elections-iran/",
-   "title": "Live updates: Trump, Vance head to reliably red states to engage GOP base",
    "people": [
     "trump",
     "vance"
@@ -9263,9 +9328,9 @@
     "whitmer"
    ],
    "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Gov. Whitmer says she doesn't seek fights with Trump but won't back down.",
-   "summary_ko": "휘트머 주지사가 트럼프와 싸움을 원치 않지만 물러서지도 않겠다고 밝혔습니다.",
+   "confidence": 0.85,
+   "summary_en": "Gov. Gretchen Whitmer says she doesn't seek fights with Trump but won't back down.",
+   "summary_ko": "그레첸 휘트머 주지사가 트럼프와 싸움을 찾진 않지만 물러서지도 않겠다고 밝혔습니다.",
    "classified": true
   },
   {
@@ -9325,18 +9390,6 @@
    "classified": false
   },
   {
-   "id": "sig-89fe2573",
-   "date": "2026-10-25",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOSVF2VzVlT0pJZTBaNHJ1bzJvczJyS3VPQ0ZKVEtaQmEyeGdEUFdTdXMyZUF4NU1odkpOSm5KVEM3ZlJUTFdrLU41all2c0d3RERtakJxUDl6a0dKams1SmpROHU3QTVPTWNBRUNVNkl0b3NNcFZnSzU3NnI1d2NlY1B1NUPSAYoBQVVfeXFMT2hwQ3J0SzJQeEpNUC1MQ2ZxMndvQ2Z5cTR4dUZYWjFXMnQxRFFaVF9jY2RhQ1BWblBfa3hBZGU0bzF2Wlc3VVV4NVN1X3dNbWNIempSU25QNUJQRWZ0RlZXRE9STFdkME5KMWsyQmZyakp4QTFKRUZBMXdEMVQxbjVGVE0tZjNxMEtB?oc=5",
-   "title": "Whitmer pushes back on Michelle Obama: America is ready to elect a woman president - The Hill",
-   "people": [
-    "obama",
-    "whitmer"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-51a421e2",
    "date": "2026-10-24",
    "source": "The Hill",
@@ -9376,9 +9429,9 @@
     "manchin"
    ],
    "polarity": "neutral",
-   "confidence": 0.7,
+   "confidence": 0.8,
    "summary_en": "Ocasio-Cortez and Manchin make separate campaign appearances in Maine's Senate race.",
-   "summary_ko": "오카시오-코르테즈와 맨친이 메인주 상원 선거에서 각각 별도의 지원 유세를 펼쳤습니다.",
+   "summary_ko": "오카시오-코르테즈와 맨친이 메인주 상원 선거에서 각각 별도의 지원 유세를 펼쳤다.",
    "classified": true
   },
   {
@@ -9438,7 +9491,7 @@
    "polarity": "neutral",
    "confidence": 0.85,
    "summary_en": "Manchin publicly suggests Collins should leave the GOP and become an independent senator.",
-   "summary_ko": "맨친이 콜린스에게 공화당을 탈당해 무소속 의원이 되라고 공개 제안했습니다.",
+   "summary_ko": "맨친이 콜린스에게 공화당을 탈당해 무소속 의원이 되라고 공개 제안했다.",
    "classified": true
   },
   {
@@ -9462,18 +9515,6 @@
    "classified": true
   },
   {
-   "id": "sig-859d7486",
-   "date": "2026-10-23",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNNFVKSHI4ZjRibU5yQU5pM1RSTHc1ZXAwc1RkQlJDSUFlVk1rbHc3aTNGdFh4MWx4YWg4bkEyX0NYOWRKbHAtQTM4N1FNUDl3MmZscUdPTGZBN1B5M2hLSndZZUxoTWVfVUI2VlZSWGJhRjNkN1pNT1Z6Zlo3Vl91bHhqX2I5S1l6YWc2V3NfaTc2YVBfeE42ZTdndmJya1pna1lMR0RsVEZibU12dUpTb2VSZmZXenk2dnJKcHExcU9CRGxSNlVj?oc=5",
-   "title": "Slotkin wants to stoke fear in young GOP; Swisher predicts Musk for prison?!: Robby Soave | RISING - The Hill",
-   "people": [
-    "musk",
-    "slotkin"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-3bfabe96",
    "date": "2026-10-23",
    "source": "The Hill",
@@ -9482,30 +9523,6 @@
    "people": [
     "trump",
     "schumer"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-a0c952c5",
-   "date": "2026-10-23",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWDRxakZERXJDWXJ3QktyallyUGFwUXVXQUZZVmF5ckpZdEszSldYazFGd2p1RnpENlZvaDNSNUY1TWFNNGdhSEFtNUpPaDdXUlZyaDJUMkRta0poZTFZQUEwd0pLbkhGdUl3ZzlSOThnaE9ZUER5cy1Hb0xPRXRRM004ZW5LWDcxbURleFJlamROalJESVF6bnVvUWxDOFBaRXVublJoaXJGWTdoSENiOVFib2tHdw?oc=5",
-   "title": "WSJ reports Musk ordered Starlink pause; Ilhan Omar speaks out after raid | RISING - The Hill",
-   "people": [
-    "musk",
-    "omar-ilhan"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-14b0c189",
-   "date": "2026-10-23",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUVYwcjdwRjNESW93Vno4aUw2bUZoNTJ0WEphTFJ1anlfeE4tNEZZb0FVbEJqNU9vRTV6LWFMSTUzODVPWXpvNHNHeDZ3dUFjM2hFcVVyemNGOGh3b0hNd0EzMWVjaXBsMlpHUUpFNW5Bb3QxQmw1OG5pNjE5dFJ4RXVvTVY4TzY1?oc=5",
-   "title": "KFile: Mike Collins joked about pushing Pelosi from a plane, suggested hanging US leaders | CNN Politics - CNN",
-   "people": [
-    "pelosi",
-    "collins-susan"
    ],
    "classified": false
   },
@@ -9692,22 +9709,10 @@
     "manchin"
    ],
    "polarity": "neutral",
-   "confidence": 0.75,
+   "confidence": 0.85,
    "summary_en": "Ocasio-Cortez and Manchin make competing visits to Maine for the Senate race.",
-   "summary_ko": "오카시오-코르테즈와 맨친이 메인주 상원 선거를 두고 경쟁적으로 방문했습니다.",
+   "summary_ko": "오카시오-코르테즈와 맨친이 메인주 상원 선거를 두고 경쟁적으로 방문했다.",
    "classified": true
-  },
-  {
-   "id": "sig-11e5957d",
-   "date": "2026-10-22",
-   "source": "NPR",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA4VFE3ODZSSFJ4ZE9PdVVzeFBMdFYwMG1kQ1JmYk5sOE5teFpFOFl1YzlDOWNleDJYcVpna2VaWmdWbHROaXdJdklPOWVfMnpZWG0wTE0wZzhBTjJHMnZHT1FiWlN3cXdZUGpjRDZoTjc1bE5RdTBBQQ?oc=5",
-   "title": "Trump and Obama hit the campaign trail. Will it make a difference for candidates? - NPR",
-   "people": [
-    "trump",
-    "obama"
-   ],
-   "classified": false
   },
   {
    "id": "sig-6dab534e",
@@ -9744,9 +9749,9 @@
     "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.65,
+   "confidence": 0.7,
    "summary_en": "Tillis discusses difficulties of serving in Congress during Trump's second term.",
-   "summary_ko": "틸리스가 트럼프 2기 행정부 하에서 의회 의원으로서 겪는 어려움을 토로했습니다.",
+   "summary_ko": "틸리스가 트럼프 2기 행정부 하에서 의회 의원으로서 겪는 어려움을 토로했다.",
    "classified": true
   },
   {
@@ -10021,9 +10026,9 @@
     "trump"
    ],
    "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Senator Rubio reports Trump will take up to 60 days to consider Russia sanctions.",
-   "summary_ko": "루비오 의원이 트럼프가 러시아 제재를 최대 60일간 검토할 것이라고 밝혔다.",
+   "confidence": 0.85,
+   "summary_en": "Rubio states Trump will take up to 60 days to consider Russia sanctions.",
+   "summary_ko": "루비오가 트럼프가 러시아 제재를 검토하는 데 최대 60일이 걸릴 것이라고 밝히다.",
    "classified": true
   },
   {
@@ -10067,62 +10072,6 @@
    "summary_ko": "밴스가 워싱턴을 부패했다고 비판하면서도 트럼프가 연루된 증거는 없다고 주장했습니다."
   },
   {
-   "id": "sig-d9fd8a74",
-   "date": "2026-10-16",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6154786-trump-denies-starlink-outage-cause/",
-   "title": "Trump claims neither he nor Musk caused Ukraine Starlink outage",
-   "people": [
-    "trump",
-    "musk"
-   ],
-   "pair": [
-    "musk",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Trump denies he or Musk caused the Ukraine Starlink outage.",
-   "summary_ko": "트럼프는 자신이나 머스크가 우크라이나 스타링크 장애를 일으키지 않았다고 부인했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-8b37e0df",
-   "date": "2026-10-16",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQVWZKY1R2WjdKSl85TkRGaXhWOWw0OVNfRHZjXzRWMzBWTXhXTDQ3Mzd1ZkpyR3NJRjZhNWVETllIVkJiZklRc21SQVhzS2UxaVp0QkpDOEx5Tlh5Y2JKMTBnR2F6cEhaSC1ocHAtczBHSHBwT0dZdUVCT2hXNXhQaks5STR0bGdKSXl1cm1XbmljLWVNT0dTeDEzOTFXUm9FTV85Ukk3TG0zNGM2U0ZEQl9pWUZPU2JKOHlWVQ?oc=5",
-   "title": "Ossoff reports $33 million fundraising quarter; Collins campaigns in Peachtree City - CBS News",
-   "people": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-f205f0c9",
-   "date": "2026-10-16",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5KZkJCSmpuWVdSWGxDZDRxTXE1cFQwSE5fa2VVUk1tbVZHZ2IyTzRrM2NTS1NXdXhWLWNrdW45Z25YMU14ZHFYUFFuTjVnYmZXMjVEY2l3?oc=5",
-   "title": "Jim Gaffigan has jokes for Trump, Mamdani, Schumer and Brian Kilmeade at Al Smith dinner - Fox News",
-   "people": [
-    "trump",
-    "schumer"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-63de95e0",
-   "date": "2026-10-16",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8tYzUtTWRtN2k5M2JvTUt1N0U1Q09SWlBYZGdGRWJ2aFIwelFVRlJxcUdiNzd4MzNkMG5KTHlFVko3X2UyMlo4dThFZDQxRGV3MWlHV3Fn?oc=5",
-   "title": "Jim Gaffigan roasts Trump, Mamdani, Schumer - Fox News",
-   "people": [
-    "trump",
-    "schumer"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-6793eb50",
    "date": "2026-10-16",
    "source": "CBS News",
@@ -10138,964 +10087,9 @@
    ],
    "polarity": "neutral",
    "confidence": 0.85,
-   "summary_en": "Noem departs her envoy role in the Trump administration, a routine personnel change.",
-   "summary_ko": "노엄이 트럼프 행정부 특사직에서 물러나며 일상적 인사 변동이 이뤄졌다.",
+   "summary_en": "Noem steps down as Trump's envoy to the Shield of the Americas.",
+   "summary_ko": "놈이 트럼프의 '아메리카의 방패' 특사직에서 물러나다.",
    "classified": true
-  },
-  {
-   "id": "sig-e9a0beaf",
-   "date": "2026-10-14",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxObTlVR0J4NWNnMXp5NzFlLVo5VTdWc3phQ2VWQ1hTazRjY2k5MXdfU2hHOGxSc3hxbHJ0bGxhV3FMUDYtZ3F4RmhXS1NiV05rUDFDbDhmYkZfRzVaeWtxeUlfX0d1SUh0dG5lX1ZnRjlGSWx6Ync4M0p6VjVOUkdYeHMzNmhmdW03NVVvaUt4NFNjTHFDdWdvQ1N6anpSTFk4VWVtejNWa1cwYUxILWxOTFVUdmlQazZHUjJfa0JPNjc3Wi1La29MU2RIWFBYWlViT2dUVVpHVW0waEU?oc=5",
-   "title": "Sen. Bill Cassidy on Social Security Reform and Donald Trump’s ‘Majority of One’ - WSJ",
-   "people": [
-    "trump",
-    "cassidy"
-   ],
-   "pair": [
-    "cassidy",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Bill Cassidy discusses Social Security reform and references Trump's 'Majority of One' stance.",
-   "summary_ko": "빌 캐시디가 사회보장 개혁을 논하며 트럼프의 '단독 다수' 입장을 언급했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-edbc31c9",
-   "date": "2026-10-14",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/senate/6148831-tillis-presses-musk-starlink/",
-   "title": "GOP Sen. Tillis asks Musk to explain Ukraine losing access to Starlink",
-   "people": [
-    "musk",
-    "tillis"
-   ],
-   "pair": [
-    "musk",
-    "tillis"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "Sen. Tillis demands Musk explain why Ukraine lost access to Starlink.",
-   "summary_ko": "틸리스 상원의원이 머스크에게 우크라이나의 스타링크 접근 차단 이유를 설명하라고 요구했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-1beeb759",
-   "date": "2026-10-14",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUFA1Y2g4SzFySjliX0dNaW9td3k1WGFyTHY0dzlPc0I2UlRiZ0I0V1BsSmc2V0FNLTlqZTJXdE9JYXVHTk9zWFhBQ2c4djQ0REpfbDd3bzNmOHpkckdqQi05SDVtdnlaRVZJWHM1MjIyZ085N1hLQjhOUWRFTF9GZjgwWmNfb0p4?oc=5",
-   "title": "Obama and Trump bring presidential star power to Ohio's midterm races - Axios",
-   "people": [
-    "trump",
-    "obama"
-   ],
-   "classified": true,
-   "pair": [
-    "obama",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Obama and Trump campaign separately in Ohio, bringing star power to midterm races.",
-   "summary_ko": "오바마와 트럼프가 오하이오 중간선거에서 각각 유세하며 스타 파워를 과시했다."
-  },
-  {
-   "id": "sig-77f0dec7",
-   "date": "2026-10-13",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQR2RHdlM2RURJUHR6N2daM1hRelBlQUFrakRkV0RyY0djMDdWXzcyS0pJU0pDZDRRNU82WTgtWFZfd0ZWTGdhbVRRbHZueGl4TUlfVEg0OC1lSV9hLXQwcEJiaUtyNkJhYnVRTzJEcUJzZXN2QUJTWnNZS1IzWTNTUVdMMjNNZw?oc=5",
-   "title": "Fact check: Breaking down Trump’s rosy comparison to gas prices under Biden - CNN",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "pair": [
-    "biden",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Fact-check analyzes Trump's comparison of gas prices to Biden's term, a policy comparison not an attack.",
-   "summary_ko": "팩트체크가 트럼프의 바이든 시절 개솔린 가격 비교를 분석하며, 이는 공격이 아닌 정책 비교입니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-7a503538",
-   "date": "2026-10-13",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU0V4UjZKbWMxUXg3Z3JwSmRwVUE3YzZqRnBiQVFmWnpyTE9qRFVPdmdnamhaOGhUNmVUeExOc3Z4dTQ2MDRmSk42WkU5c1RNeFJmMG9SemVVWmRBNHV5SGVwZnQtSkNQMWoxTW5CQlRscDZmN0dXVmo4WFd0aWE4Wm5feVNyWnJfd185aGdzcHd3dEVn?oc=5",
-   "title": "Why the MAHA movement is turning on Trump and RFK Jr - ABC News & Headlines – Australian Broadcasting Corporation",
-   "people": [
-    "trump",
-    "rfk-jr"
-   ],
-   "pair": [
-    "rfk-jr",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "The MAHA movement is reportedly turning against both Trump and RFK Jr. simultaneously.",
-   "summary_ko": "MAHA 운동이 트럼프와 RFK 주니어 양쪽 모두에게 등을 돌리고 있다는 보도입니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-230373ba",
-   "date": "2026-10-13",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/campaign/6144802-harris-vance-lead-2028-poll/",
-   "title": "Harris, Vance leading in 2028 presidential polling",
-   "people": [
-    "vance",
-    "harris"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-c113054c",
-   "date": "2026-10-13",
-   "source": "NPR",
-   "url": "https://www.npr.org/2026/10/13/g-s1-147822/up-first-newsletter-trump-ads-funding-campaign-rallies-ilhan-omar",
-   "title": "Government spent millions on Trump ads. And, federal agents raid Ilhan Omar's home",
-   "people": [
-    "trump",
-    "omar-ilhan"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-761dfe6b",
-   "date": "2026-10-13",
-   "source": "Fox News",
-   "url": "https://www.foxnews.com/politics/booker-wowed-gop-challengers-blunt-message-trump",
-   "title": "Booker ‘wowed’ by GOP challenger’s blunt message to Trump",
-   "people": [
-    "trump",
-    "booker"
-   ],
-   "pair": [
-    "booker",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.75,
-   "summary_en": "Booker reacts positively to a GOP challenger's direct message aimed at Trump.",
-   "summary_ko": "부커가 공화당 도전자의 트럼프를 향한 직설적 메시지에 긍정적으로 반응했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-7561ca69",
-   "date": "2026-10-13",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQb1hhM2VrUEpOOHVENzUzQkw3cHNLSU9NVkttWnE1ZGp2XzFBRk05WTc4bUxsZS11YkNxbFVTSDNhMzRMNVRoa1pxVUhmV282eEJwa2ZybFJPSm16RHdhT0tlcWgzak1nb01ySDNYQXNHajRBZmVuVjhYTjBhQVNxLW95ZUprTHljTGtKZGJ2S29FTk1qTl9hbm5RbTFtUQ?oc=5",
-   "title": "Bruce Cassidy on Golden Knights exit, changing his messaging and waiting for another NHL chance - The New York Times",
-   "people": [
-    "golden-jared",
-    "cassidy"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-e0404c54",
-   "date": "2026-10-13",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE55OFVvRlRrRm01eUtsX2ZPWHFOWndsbS05cHR6WUgxYW1VWnVNZjJyLTZhTlNNN1FXS3IzdE9FYVhOT2E1S1hlaEV3Tjk2SDh1QlloRF9vVl9ZSDFNVUNQY3JUZ1AxNGNmbzZjZkxFZWpaaDNLdDkwV293eU5HWnPSAYQBQVVfeXFMT2g2U0EtalhwTWg0a19rdEFlN0JwQlBnSHM3QkZvdExOX0xhSmJteGp3bXFOc1VYQ0xPUERvLTRya21tajB4YUZFdzFlSU11djI5TGVERG1BOXJEZGJwS2NiMy01S1FKMGJjZUhmUmdSRVlXSUFvWnBpNk9sUDJvblV5dGh6?oc=5",
-   "title": "Harris, Vance leading in 2028 presidential polling - The Hill",
-   "people": [
-    "vance",
-    "harris"
-   ],
-   "pair": [
-    "harris",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.95,
-   "summary_en": "Polling shows Harris and Vance as early frontrunners for the 2028 presidential race.",
-   "summary_ko": "여론조사에서 해리스와 밴스가 2028년 대선 초반 선두주자로 나타났다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a1017598",
-   "date": "2026-10-13",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQX3FZdWN2d292R01hWHBvRTRvOVhzUXEyTHl3dVNSQnJ3ZWQwYnh3WnhfeHJtOGhZVUd0UUVVZkZId0dXNEhBWVFhNGJTdEh3VF96WGl3dlZPRGNsQ19JUURSeUhiN1JfS21yWE9qTXJkTmktVEQ1cm9hRVFMWTRiSE1ldkVvbFk?oc=5",
-   "title": "Vance, Altman, Musk, Mamdani, Bieber and More at the DealBook Summit - The New York Times",
-   "people": [
-    "vance",
-    "musk"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-7ea7c822",
-   "date": "2026-10-12",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTEZZTl84VDNxaVFjbXcyV05ZYjhOWEZvRU1JLUlCODcyY284eUpxWnMzNE9wVVp5VF9zTjNhV1JDS0xBZEF3RDV0a05OM211bTNtVWR6RGNnY1FKQ3piUlQ5aWVPVFYyWFFRRU9HejZVdzBZZ1c1R0MxSm1OSW9GakdDcw?oc=5",
-   "title": "Will Rubio, Ossoff and Ocasio-Cortez run for president? - The Hill",
-   "people": [
-    "rubio",
-    "aoc",
-    "ossoff"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-5dba9506",
-   "date": "2026-10-11",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObk1wS3RySllnbGEwYm15dkJzbmxMZTlOdnZtY01ua2xNam9FdUhEXzk0ZC1JblVuNl9tWmM1b2VKVm83TVNnSEw5OW1MODJhNms1TDFDb2hhZFNQMXd1NlVVSHZnal9LMm9rOEpUOTRhSGcxNVI1NHhGQ3drLW1WMGNPR2RlX2M?oc=5",
-   "title": "Newsom typically relishes battling Trump. On letting undocumented college students work, not so much. - Politico",
-   "people": [
-    "trump",
-    "newsom"
-   ],
-   "pair": [
-    "newsom",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Newsom usually battles Trump but aligns on allowing undocumented students to work.",
-   "summary_ko": "뉴섬 주지사가 평소 트럼프와 싸우지만, 서류미비 대학생 취업 허용 문제에서는 입장이 다릅니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-3c37c3fb",
-   "date": "2026-10-10",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZXFCeE1rdDBTLUcwQUtmbnlGTTRtUUtNX0YteVB6LXNYVFNzYmUyNjZISFZ4aHhYNE84OTBqdFNpaFFLb3F0TEx4aXg3ZkRXQkZCa2dvcGlXRDNLZUpKaGlseEd0MmZhcktsdDJoVXN2T3BOaE9Oa3AtMFBoVndCd0J0R09IelZFemxQaXl5X1B1bEowcVc5U2Jxc0RNNHNZamVLWVd6RlRjZm05cThj?oc=5",
-   "title": "Rahm Emanuel advierte de que el ala de Romney y McCain se está separando del Partido Republicano - Fox News",
-   "people": [
-    "romney",
-    "mccain-john"
-   ],
-   "classified": true,
-   "pair": [
-    "mccain-john",
-    "romney"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.75,
-   "summary_en": "Emanuel warns the Romney-McCain wing is drifting from the Republican Party.",
-   "summary_ko": "에마누엘이 롬니-매케인 계파가 공화당에서 멀어지고 있다고 경고했다."
-  },
-  {
-   "id": "sig-5d6ed9bf",
-   "date": "2026-10-09",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWll1S0p0Zks4WnZJVVlpelNweFctSk5yQnRYNUhILWd4UXZSR284SEV2em8zZU11aWVNeDNiNFJYb2FmUGpvcUszaDFpbnREbEhQOGlreloyOFFpd0E5RVpEbmN3SmdxbnRnN0VDNy1zT3Z2Qm9DMVU2S01oZVk1T2JEVXZRcG80ZFJTOA?oc=5",
-   "title": "Mike Ditka tributes pour in from President Trump, former President Obama, Chicago and the NFL - AP News",
-   "people": [
-    "trump",
-    "obama"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-367b7406",
-   "date": "2026-10-09",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6139442-vance-rejects-hasan-execution-livestream/",
-   "title": "Vance on Hegseth plan for livestreamed execution: ‘I’m not going to be watching it’",
-   "people": [
-    "vance",
-    "hegseth"
-   ],
-   "pair": [
-    "hegseth",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Vance distances himself from Hegseth's livestreamed execution plan, saying he won't watch.",
-   "summary_ko": "밴스가 헤그세스의 생중계 처형 계획에 대해 '보지 않겠다'며 거리를 뒀다.",
-   "classified": true
-  },
-  {
-   "id": "sig-bf81bc8",
-   "date": "2026-10-09",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZ2V4M1FjLVFuaGZVUUNQZmtsLTBHalA3RWtRUmdLN2xzZW82dmZmcDB0WVpmYndSYnZINnVHN1FMQ3lOeWhCT1hxQVNraHhOeU90THIxclRGTHRmSEEzR0RWamJfeUhOTllXaTVxMU1KU1lWV3lBWnk4bnlwWnlHbmpvd1IweVJidDcwRTZuOWdOZk9Mamc?oc=5",
-   "title": "Ossoff, Collins debate Iran war, immigration, economy - Axios",
-   "people": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "pair": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.9,
-   "summary_en": "Ossoff and Collins debate Iran, immigration, and the economy in a Georgia Senate race.",
-   "summary_ko": "오소프와 콜린스가 조지아 상원 선거에서 이란, 이민, 경제를 두고 토론을 벌였다.",
-   "classified": true
-  },
-  {
-   "id": "sig-270745d5",
-   "date": "2026-10-09",
-   "source": "The Washington Post",
-   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUHVOTXQ4alJIaVJQclBYSm03Sjg1RjVHYjFjbV9Yd2ZiRlptN2R5YTEyOElfb18xZlVRR2I0eThEemZWRWRpTnVGLUpUdG95ZmJ3UGhLak9Pek5GUFNVSkdrNGhYNk81b3k1bkhzWld0NXp1NnJEcmUxRHZINXh0a1l6SWNtWEE0a29sQUh4NEE2dzFNcThDeC0tUkUzWHkwUWY1N1F0OTRfWUtuZy16c1NOZGlLWmE3S2V1ODFTaG1UZVhmLThmS05SQTMyXzkyN0V6TkhBWHk?oc=5",
-   "title": "Vance, Rubio brush off questions about claim that Guilfoyle asked donor to pay $100K Amex bill - The Washington Post",
-   "people": [
-    "vance",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Vance and Rubio dismiss questions regarding allegations involving Kimberly Guilfoyle and a donor.",
-   "summary_ko": "밴스와 루비오가 킴벌리 길포일과 기부자 관련 의혹 질문에 일축했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c0ac79af",
-   "date": "2026-10-09",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcjdrU1V3elhBdVdMYkQ1a0d5OGxxSy1aZ25CNDVMMmRZNW1GVnh2UEllUFhpXzVFT1pKYVE1R0ZxYUU0SzB0NGZjZTV0dXkzZmdmbjhDQXRESjVsajZKX2hTNmUzb3lCaDJ3UWx3MUJ2YnVTRURmTVJuc1RKU3ZXeXVYQ3RaZzZnNktkZG01c3JJd2toOVdZ?oc=5",
-   "title": "Vance says he won't watch livestream of execution; Trump remains silent - Reuters",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "classified": true,
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Vance declines to watch an execution livestream while Trump stays silent on the matter.",
-   "summary_ko": "밴스가 사형 생중계 시청을 거부한 가운데 트럼프는 침묵을 지켰다."
-  },
-  {
-   "id": "sig-d2a49259",
-   "date": "2026-10-09",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQdkxlYXJhaDRHVl9jMzVEd0ZoaXZGOFBLXzBMa0VWcGItYi1oaGl0QzRSb1ZsQjJKTVRwRnhvLVFfX0tmWUF4RkthVE1wUlhCVU1sYmE4SUZGRGJMcVdzdENHMGlWOWk4VEg3T25qUkFMeld2VXlRNFlyZ3FkSVBlTlZRY1B2NEU?oc=5",
-   "title": "RFK Jr. and Lee Zeldin pressed by Democrats on possible roles in Trump pardons - CBS News",
-   "people": [
-    "trump",
-    "rfk-jr"
-   ],
-   "classified": true,
-   "pair": [
-    "rfk-jr",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Democrats press RFK Jr. and Zeldin about potential roles in future Trump pardons.",
-   "summary_ko": "민주당이 RFK 주니어와 젤딘을 상대로 향후 트럼프 사면에서의 역할 가능성을 추궁했다."
-  },
-  {
-   "id": "sig-eadf273b",
-   "date": "2026-10-09",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQUkZWM2JMU3VHNHdFd3gwc2FLUDlremx6c0p3Ym5LN1NrTE1RNFdpdDJOMGpKY2I2VTdnS0RWT1hYZEswZEl2Q285emhMOHljaFNjNzVrNjNSX0p5cUl2YjM0WXJLS29aTDlvM1h6MTlxT2NTeDVrSE5Nc2o1cGVRY1U4R1NIMWlVNUhQSFB1WkE1VV9ac3Bmb0Y2QWwwWkFhVDhiTnIzaUlzS2dSTWZlRQ?oc=5",
-   "title": "Donalds on AI, Trump and state of play - Politico",
-   "people": [
-    "trump",
-    "donalds"
-   ],
-   "classified": true,
-   "pair": [
-    "donalds",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Byron Donalds discusses AI, Trump, and the current political landscape.",
-   "summary_ko": "바이런 도널즈가 AI, 트럼프, 현재 정치 지형에 대해 논의했다."
-  },
-  {
-   "id": "sig-5ec0e86c",
-   "date": "2026-10-09",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQd2F4OXhOWkZCYnFQZE9Renl4d09JdFNHOGlvTTlud3lGNDEtVm55c3ZDRFBGME5xdVd5Tkd3SVFrdjdDV1FRWXhhUEsyZkYwdjJFV05qaGhwaER0bWdvaG9kUC1NVGRzWk9PSFFFM0swUjZEV2p1NUhWa0VuMlpfMnlFV3BaMHpVTTVmNk5EMTI?oc=5",
-   "title": "‘I’m allowed to have my own viewpoint’: Byron Donalds walks the Trump tightrope - Politico",
-   "people": [
-    "trump",
-    "donalds"
-   ],
-   "pair": [
-    "donalds",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Byron Donalds navigates his relationship with Trump while asserting his own viewpoints.",
-   "summary_ko": "바이런 도널즈가 트럼프와의 관계에서 자신의 견해를 주장하며 줄타기를 하고 있다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a3068ae8",
-   "date": "2026-10-08",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNFB0cVBUSTFCQU5heG5fOEpYdjVMekh1NkluQTRCTjNIbW4xYU1SV1AwTGNRUGNkTEczSGYxRzU2ZmV2ZEJqMXVOQ1dLdFZMN29vZWI4UmRGZGUwMG9SUkNsamZQV2o5VV9kMFFxcXhMZE52RmstUkVYLVhWRV9xRHlCc3RURWVXSHNEVUk5bXNoSHI4U0wwcmVQODFjQQ?oc=5",
-   "title": "Byron Donalds says he is not a ‘yes man’ to Trump - Politico",
-   "people": [
-    "trump",
-    "donalds"
-   ],
-   "pair": [
-    "donalds",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Donalds denies being a 'yes man' to Trump, asserting independence.",
-   "summary_ko": "도널즈가 트럼프의 '예스맨'이 아니라고 부인하며 독립성을 주장했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-95c1164c",
-   "date": "2026-10-08",
-   "source": "The Washington Post",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRVZuX0ZSYW0xYTdUUS1EWDMtYzRXaXVsOEtmTlRPbnJ2UTRYM3czWTdwenJpUGlKUEFXaUNoMXpZRUhvZkxqQng2eTNpZE1BZG5wNldrR0Vid0x4VUNDMGVFZWJyRFRicHp5YjVnYjhtQ0RKSDRRTHpMXzZDWFJ3WkJfdDM2V0RVSHFQc0tIeERYWk9ReVlXQlFBWEdiLXlUWEFQU3oxR0hpRzFxcTBybVhXM09pdw?oc=5",
-   "title": "Takeaways from Georgia Senate debate between Jon Ossoff, Mike Collins - The Washington Post",
-   "people": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "pair": [
-    "collins-susan",
-    "ossoff"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.6,
-   "summary_en": "Ossoff and Collins face off in Georgia Senate debate.",
-   "summary_ko": "오소프와 콜린스가 조지아 상원 토론에서 맞붙었다.",
-   "classified": true
-  },
-  {
-   "id": "sig-a8a4c866",
-   "date": "2026-10-08",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6135113-live-updates-trump-midterm-elections-debates-tech-iran/",
-   "title": "Live updates: Vance lays out work visa penalties for Microsoft, Adobe; Trump to campaign in Alaska",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "classified": true,
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Vance announces work visa penalties for tech firms while Trump campaigns separately in Alaska.",
-   "summary_ko": "밴스가 빅테크에 취업비자 제재를 발표하는 동안 트럼프는 알래스카에서 별도 유세를 벌였다."
-  },
-  {
-   "id": "sig-e620fd70",
-   "date": "2026-10-07",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE15Y1N5b2pZNVIxRWNzT2N6RGhFRnBEZVZOV1FVTURGMjZQT3J4WmV2UlptQkVCZ01Ob2RXcWVRdHBhTXpsZzJtV3pnenZ1aW1PQzc4Z2NKbU9PQkZ3OFQ3bFFvQ0E2aklrUjF5QkJmc2hoTHRkRFlYQnNOWQ?oc=5",
-   "title": "In Maine Senate debate, Collins says she's \"not exactly\" Trump's \"favorite senator\" - CBS News",
-   "people": [
-    "trump",
-    "collins-susan"
-   ],
-   "pair": [
-    "collins-susan",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.75,
-   "summary_en": "Collins acknowledges she is not Trump's favorite senator.",
-   "summary_ko": "콜린스가 자신이 트럼프의 '가장 좋아하는 상원의원'이 아님을 인정했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-1191fc7f",
-   "date": "2026-10-07",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOdkVPc1BDQ2pwcmREWnlRTFZJZmRoUEFXY1lkbVlQZUxpV0Z2S2FsS3l2Y2ZLRUJ6WVZSMjVWOFBXbmdwNEFmTHl3Rmg1NnFLei1KeTF6THZCQjY3aDZ1MjdmM2FsNC1nZ2ZnemtiMC1yYlZ2TzBBWG0wTHlrZlJXN1BkMmYyQ19ZVEJxQU1IaGpTSzBPZUtMc1pIU3TSAaIBQVVfeXFMUHJ0Ym5lOUJpWlhHcXFuaVFPUVQwVmg5VHUyczRGNHJ4WHBNMWdtNGRKTEpHYWJOMkowU1VNSXdJSG90aVowQ0pOQXFidW5iUzZ2dGptRWI2QlFTMkZDLWxNMG1KdUppTUc0d2hiZkhmMWVTVEZwNmdPa2V5YTVGRkdwZDVSMzBVc3Y5MEFqQXVpWTVJRTNOaWMzSEdTMklBVUdR?oc=5",
-   "title": "It depends on who you ask: Trump and Vance offer slightly different takes on the economy - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Trump and Vance present slightly differing perspectives on the economy.",
-   "summary_ko": "트럼프와 밴스가 경제 상황에 대해 다소 다른 견해를 제시했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-31910e57",
-   "date": "2026-10-07",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPY0Z4bE13cDUzNUtoZGZpRnlvdmdLZm84N1FFdjlmTC1rS3hadTZuMlpNaXhjY0pqLVV5dHlhNF8tLXowdU5GTk41N1JiaEN2MEkxSmVwalNTVXJEWUowcFVnaDFxcFVydndMdzhIeW9fSy0tcTZoa05fbTVDaXJsYmREaW0zQ3VSdzJCc2RXVzN2QQ?oc=5",
-   "title": "Jordan Collins Sr. found guilty of murdering his 16-year-old son, dumping body in Twin Cities landfill - CBS News",
-   "people": [
-    "jordan-jim",
-    "collins-susan"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-7d1f8c4b",
-   "date": "2026-10-06",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNMThWMXJFUEVyRlN5dU5DeTkzbEp1bU56VkViQWM5T0d6aTFSS1poZEJBRHdJX3k5Y2NoOURZXzdOVlZoUkI4NXdzOUR6ZGlQLUluU0V3Z2tLdzd6S0dqUTJWX3p4Q0dGTFFiY1dXTl9LRVo1VFo2VEVHT0doZjExTkN5LTZtX0Fia2wySXVZeUJ2LW1NQ095ajQwNDBFVWtZeEYyY1pBOG1LdmtkdG1FdHphWUtWOVdzUUUyZzNXNlhVamM1RGU4MnJoaDVrM2c?oc=5",
-   "title": "Thune presses Trump for more funding toward swinging battleground races red - Washington Examiner",
-   "people": [
-    "trump",
-    "thune"
-   ],
-   "pair": [
-    "thune",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Senator Thune urges Trump to allocate more funding to competitive battleground races.",
-   "summary_ko": "튠 상원의원이 트럼프에게 경합주 선거에 더 많은 자금을 배정할 것을 촉구합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-4476c6fd",
-   "date": "2026-10-06",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TQ0MzVzRta29vVU80WUVqM1B6RDVXNFZtWTBLX2VjWmhtTkJHUnlILWxtVGYwM3RDRlJBUjBnWUh1cUJXVFBNc3JQVHVDMUs2dlRtV1NR?oc=5",
-   "title": "Thom Tillis spars with hosts of 'The View' over Trump - Fox News",
-   "people": [
-    "trump",
-    "tillis"
-   ],
-   "pair": [
-    "tillis",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Tillis debates The View hosts regarding Trump.",
-   "summary_ko": "틸리스가 '더 뷰' 진행자들과 트럼프 관련 논쟁을 벌였다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f27e9c0",
-   "date": "2026-10-06",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/campaign/6131972-abbott-skips-trump-san-antonio-rally/",
-   "title": "Abbott not joining Trump at San Antonio campaign stop",
-   "people": [
-    "trump",
-    "abbott-greg"
-   ],
-   "pair": [
-    "abbott-greg",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Gov. Abbott skips Trump's campaign event in San Antonio.",
-   "summary_ko": "애벗 주지사가 샌안토니오 트럼프 유세 행사에 불참했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c60aa787",
-   "date": "2026-10-06",
-   "source": "Washington Examiner",
-   "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPYlNzZEtIOVZZeW1FWVRBRWlJRS1MTmxNT0xQS3RNbDJPNTdaVWRGVExGSk5qcTF5TERybE5LRklkN3pxUXRNUUJhMTFhVXY1WEMteVh5YmFEMUE4TjJNOWNvN1VaZU02UWJTTWFUYTBGMGIyZ0NwT3NnUV9tWG14NzlvMFFMYm9Sem1IMlU2LXBjWTRKWnhDMW4yNXp5LXpYNDFNcnVnSFFJMG53ZGRpT1JkUmxDT1IyV0Fhd1JnanVaVDk1M2Myc0g4a2NIN0Z1cE1Z?oc=5",
-   "title": "'The View' expected Thom Tillis to bash Trump, but he didn't: Joe Concha - Washington Examiner",
-   "people": [
-    "trump",
-    "tillis"
-   ],
-   "classified": true,
-   "pair": [
-    "tillis",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Thom Tillis was expected to bash Trump on 'The View' but did not.",
-   "summary_ko": "톰 틸리스가 '더 뷰'에서 트럼프를 비판할 것으로 예상됐으나 하지 않았습니다."
-  },
-  {
-   "id": "sig-b4ca162e",
-   "date": "2026-10-06",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa211QzlZM1pjNmhGQnA3QXp4a3VDRThfWk5zTk9zRHpjS2pDSlNCMWJJQTRYbVB6SG12c1BaWHZUb0wwVXdwNU9mR3NSQnpsQ2RqRS02WGlGNjlxNjh5NUpONG5IZXdsVXd1N3hZZXg5Mnp1dTYwSUxlSVhHNURIaW41VG9CMS11Mjgtb1JfcUtFRVQ5bS00VkgxVTFZVzdnYlE?oc=5",
-   "title": "Buttigieg, Gallego and other potential 2028 Democratic contenders set to discuss party’s future at post-midterms meeting - CNN",
-   "people": [
-    "buttigieg",
-    "gallego"
-   ],
-   "pair": [
-    "buttigieg",
-    "gallego"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Buttigieg and Gallego join other potential 2028 contenders for a post-midterms meeting.",
-   "summary_ko": "부티지지와 갈레고가 다른 2028년 대선 주자들과 중간선거 후 회동합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f240fa96",
-   "date": "2026-10-06",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQOGo5cXpKcTluUzFQdjJGMVB3THB4R0duV19HTkRUa0NJMUw0X0RkS0M1c09wNG5pWnd0YjVNLThUOEQ3RWc5d19wS0V4T21HV09raDlIb1lqRUlxa19oclo1anJFeGZqOFpYOEUtRlhyWm1YcHlEeWJkQk5RekpURHZHOTg4aUliTVAtZnVISXo1SloxVDhLVU9hNXc4Y0dhWldQdC12elFLQzNyWklWWlhScThLQQ?oc=5",
-   "title": "As Trump voters sour, Vance is changing his tune - Politico",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Vance adjusts his messaging as Trump's voter support declines, a reactive shift not an attack.",
-   "summary_ko": "트럼프 지지율이 하락하자 밴스가 메시지를 조정하고 있다. 이는 공격이 아닌 반응적 변화다.",
-   "classified": true
-  },
-  {
-   "id": "sig-de255f91",
-   "date": "2026-10-06",
-   "source": "The Hill",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNN29hbGhLdmR5cS1RbVZlckhxcVBOLWg2OXZ4TEI1ZnNFQnRSbFJEMG1LYWkwR19rWXJFeE5sdDdxYnBHUF92WFY0REJCMUdYWl96VkpiY2NyTTZlRlVIazRJeHRkZlBzN1pyOUtfNVVGVi0wY1FVZUhycGJqQ1gxWTNhZ0c?oc=5",
-   "title": "Trump’s Golden Dome faces headwinds with funding uncertain - The Hill",
-   "people": [
-    "trump",
-    "golden-jared"
-   ],
-   "classified": true,
-   "pair": [
-    "golden-jared",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Trump's Golden Dome missile defense initiative faces funding uncertainty and political headwinds.",
-   "summary_ko": "트럼프의 '골든 돔' 미사일 방어 구상이 자금 불확실성과 정치적 역풍에 직면했다."
-  },
-  {
-   "id": "sig-b94b562b",
-   "date": "2026-10-06",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxObDIzR0d2bnQyM1FFOTVpQS1ZTU5FbGhyYnVueWdoVnpwVWRxaV9ZcG85d3ZxWFFia2ZYS1NRRk90NlpzSHlDU0FhZThWNTBSMmRuYkVqclhrQmU5b2N1QVdSTjFJMDNBVjNPb05nLUE4RHljVENFdVgwcXBBX0lxdg?oc=5",
-   "title": "In Iceland, Rubio Dodges a Diplomatic Flap Over a Trump Map - The New York Times",
-   "people": [
-    "trump",
-    "rubio"
-   ],
-   "pair": [
-    "rubio",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.75,
-   "summary_en": "Rubio avoids diplomatic controversy stemming from a Trump map during Iceland visit.",
-   "summary_ko": "루비오가 아이슬란드 방문 중 트럼프 지도 관련 외교적 논란을 피해갔다.",
-   "classified": true
-  },
-  {
-   "id": "sig-4cb5e5e4",
-   "date": "2026-10-06",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMGhxblhfanFURFVnbmJLUmgtYVBxb0ViT2dUcERMcnFiTGF6bE43bFdNaE9Uek5mUUg0MFBWRE9oQWNmcTVLUE9JZFAwcEg2Q3NDS2E0LUxoWmNaMG1UbmtSdUMtWDBDS21pTTZzcEVEWmhaVjhOWXlfcHp6NERhR0hBbDAzTklrTVY1Wg?oc=5",
-   "title": "Susan Collins and Troy Jackson tied in new poll as Jeffries praises Democrats' midterm prospects - CBS News",
-   "people": [
-    "jeffries",
-    "collins-susan"
-   ],
-   "classified": true,
-   "pair": [
-    "collins-susan",
-    "jeffries"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Jeffries praises Democratic midterm prospects while Collins and Jackson are tied in a new poll.",
-   "summary_ko": "제프리스가 민주당 중간선거 전망을 칭찬하는 가운데, 콜린스와 잭슨이 새 여론조사에서 동률을 기록했다."
-  },
-  {
-   "id": "sig-bcd452",
-   "date": "2026-10-06",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbUdCaC1RNktjYk51Mkg4dEpLekpja3ZDeTRPTWNkQjlWc0taNnhaUlJWMHJXN1h1eVlUMmlRakFHdDZ4STZORHlST3ZtS0NaNHBpQkkwVFhpWGYzb2RReHQ1UFl2czhRYS1hdlRDdU5acTBxVmc2T3ByWVF3S2x4S3YwNmdSVWpmNUZRdC1EcDFOdjZkeE5CdE84Rm9kZVdYdnIzUW5YM2p0aEtaM3QzM3hQONIBuAFBVV95cUxNUXJPVmwzWGxDTmVCdnhiMml0QXRRcGtOLUpnOEVlTWFMSkExbnVNU0VKWWp4dnZDb18tLTc5eUdsYURWbjdjVGVmVVRiQVNjQUdOVUJKTWFMTXJpem5IeHBBcEEzOEFyRTRrb1ZzUHFzRWNlNXlJWFNOejBSRHJFZDVveWVuMms0NFk1bUpjeXlVY3lsYjZnZFEwakZoNjF1Q2U1MHJ1QWVBOWpwUWF6cUZrZ2IzMmdV?oc=5",
-   "title": "Biden conspicuously absent from campaign trail as Obama, Harris step up for midterm push - Fox News",
-   "people": [
-    "biden",
-    "harris",
-    "obama"
-   ],
-   "pair": [
-    "biden",
-    "harris"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Biden stays off the campaign trail while Harris and Obama lead the midterm push.",
-   "summary_ko": "바이든이 유세장에 불참한 사이 해리스와 오바마가 중간선거 지원 유세를 주도합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f12d61db",
-   "date": "2026-10-05",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9KdUxuaEktc2VZQlBHcDc4OVZ0WlFjLWlYVjhlVzBnSTdGaXAxa1ZBYWw1ZFN4SFA4SGNkeENsQVY4bUI3bm9IbFdSZ3pLV0JIRTJiVFBB?oc=5",
-   "title": "'LOST THEIR MINDS': Trump rallies Nebraska, Thune warns Republicans - Fox News",
-   "people": [
-    "trump",
-    "thune"
-   ],
-   "pair": [
-    "thune",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Trump campaigns in Nebraska while Thune warns GOP colleagues, showing parallel but separate actions.",
-   "summary_ko": "트럼프가 네브래스카에서 유세하는 동안 튠은 공화당 동료들에게 경고하며, 두 사람은 별개로 행동했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-4db9acfb",
-   "date": "2026-10-05",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/senate/6129187-thom-tillis-donald-trump-midterm-elections/",
-   "title": "Tillis warns of ‘risk’ Trump will lash out if Republicans have bad night in midterms",
-   "people": [
-    "trump",
-    "tillis"
-   ],
-   "pair": [
-    "tillis",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Tillis warns that Trump may lash out if Republicans perform poorly in the midterms.",
-   "summary_ko": "틸리스 의원이 공화당이 중간선거에서 부진할 경우 트럼프가 격하게 반응할 위험이 있다고 경고했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c0af4093",
-   "date": "2026-10-05",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/administration/6130078-vanity-fair-establishment-list-2026/",
-   "title": "Vanity Fair’s ‘new establishment’ list names Vance as Trump ‘heir’ and Rubio as ‘spare’",
-   "people": [
-    "trump",
-    "vance",
-    "rubio"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-9316d80e",
-   "date": "2026-10-03",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbmJMVk5ua2Jsa29kdDB4Y0FMcHF5TFRJR0thOVdidGNRcHhsQWpHaFU0NGl1MU1ReWxlUGpSQWk3ZU94T2JJR3lLZTVJN2NLUnpIR3E3Q1BiWXZNMGdOYTZfcVZYVXhXaGlSQ08ybnJRU001dkNzZVB3UEZZS1Q2ZWNLNWR4MTZZUmpycnhmTDVfdEs1WmRJMjlkNlpsWUc2dV9qTTM4eENPYVNCa3BRUlVEYjhsb3NXbTcyeXhyNzFnN0FF?oc=5",
-   "title": "Byron Donalds Walks a Tightrope of Trump Loyalty in Florida’s Race for Governor - WSJ",
-   "people": [
-    "trump",
-    "donalds"
-   ],
-   "pair": [
-    "donalds",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.6,
-   "summary_en": "Donalds navigates his gubernatorial campaign while managing his relationship with Trump's endorsement.",
-   "summary_ko": "도널즈가 주지사 선거에서 트럼프의 지지를 관리하며 선거운동을 벌이고 있다.",
-   "classified": true
-  },
-  {
-   "id": "sig-56e0f1e1",
-   "date": "2026-10-03",
-   "source": "The Hill",
-   "url": "https://thehill.com/opinion/campaign/6124490-vance-must-champion-working-class/",
-   "title": "The Trump administration needs a crash course in ‘Working Class’ from JD Vance",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "An opinion piece suggests the Trump administration should learn from JD Vance.",
-   "summary_ko": "칼럼이 트럼프 행정부가 JD 밴스에게서 배워야 한다고 주장했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-85b80080",
-   "date": "2026-10-03",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbHRGSWZUNE5tZjNxTGluQ0NQZ1FNZWFaeWxLWTdlRkJmTFJRQVBJd0xXRndiOTBLOW4wWFZfb1UxMEhIY2dmcWpZZUExRDRsQjF3M1BSd1RFb1Q2bklZYldsVlpDNGVIN2pTUk9aNGZXVVBvMHhpeG5TOGJNVmhSN1VseXNjNWh5UDRfMXQ3N2xDTHlWWkZUbXFKc3RBNTcyR29uRnJMSDR6WERvcUZGcHpZX2VtcWM5c1JGMVZVaVdkQmM?oc=5",
-   "title": "Extended interview: Ted Cruz on NIL legislation, Paxton-Talarico, Trump's approval rating and more - CBS News",
-   "people": [
-    "trump",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Ted Cruz discusses Trump's approval rating in extended interview.",
-   "summary_ko": "테드 크루즈 의원이 인터뷰에서 트럼프 지지율을 논의합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-f21b6b84",
-   "date": "2026-10-02",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdjdweVRuYWpGTEVLOVI0S2NjRTVhTi1TYW1fNVFKVEoxZ0hIcmVhY01UdlY0MG9qOGViN1FhLWo1dnB2ZThsMVRkVVI4ZGxLRkpaWnBSUGNCWFpLR2RVV0U2RE05Z1lCdEM2R0V3MFpZeUJrT2x4dlRWdzJYRUNxOGEza3lKSzFwVUNMQW8zZlpNY1daSFFka093?oc=5",
-   "title": "Hawley strikes a different tone from Trump on AI - Politico",
-   "people": [
-    "trump",
-    "hawley"
-   ],
-   "pair": [
-    "hawley",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Sen. Hawley takes a different stance from Trump on AI policy.",
-   "summary_ko": "호울리 상원의원이 AI 정책에서 트럼프와 다른 입장을 취했습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-c5de1817",
-   "date": "2026-10-02",
-   "source": "CNN",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVGdxRElSVS10SGQ5cDh5NjNKWFpyQ2RmOHJsVGkwWkxLcGxwdG16RExCd1lWWGpiZ2gwWG1SZXZ2RHU0aFVOQVFsTHg4NEUyaF92WHBTS3U5MjFuREhnMjMwN1B2SzUyY2RlVjNSY1FpVGw4Z3Fub0FIczh0U0EzU2wwdHhZOGY3ZDdjQ2JId2M4SVptU3c1eG9XbFpnTDB6N3NQTlNyWXJqZjRjTjJaMmpBZWY3SlhIX1BMWlV6UQ?oc=5",
-   "title": "Dem leader Jeffries reacts to Crockett not endorsing Talarico - CNN",
-   "people": [
-    "jeffries",
-    "crockett"
-   ],
-   "pair": [
-    "crockett",
-    "jeffries"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.75,
-   "summary_en": "Jeffries responds to Crockett's refusal to endorse Talarico without direct confrontation.",
-   "summary_ko": "제프리스가 크로켓의 탈라리코 불지지 선언에 반응했으나 직접적 충돌은 없었다.",
-   "classified": true
-  },
-  {
-   "id": "sig-272a2684",
-   "date": "2026-10-02",
-   "source": "The New York Times",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPRmM3a3NCYWp1VGF0N1NWZElZbll0b1hiRm1ENTNQaTdIdGd6WFlfVEhtajdPb3RNUkVFNDRMSzBoZXdmeUl6SUNLX2ItQkxvcUQ1T0xmSS1ibElhOE5acnQwcVp3RDJmaG9CRV9qT0dvZ1RBN1JCQjZKdFczQTZhNWNB?oc=5",
-   "title": "Opinion | This Mistake Doomed Biden. Trump Is Falling Into the Same Trap. - The New York Times",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "pair": [
-    "biden",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.7,
-   "summary_en": "Opinion piece compares Trump's current trajectory to Biden's past mistake without direct interaction.",
-   "summary_ko": "칼럼은 트럼프의 현재 행보를 바이든의 과거 실수와 비교하며 직접적 상호작용은 없음.",
-   "classified": true
-  },
-  {
-   "id": "sig-c116be58",
-   "date": "2026-10-02",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU3Q0a2tJTDBzM1ExSGpMMHBNZ01peER3cjZ3TUY5MjQzdWg0WEVUSUFjOGRuRjBYSkQwWW9mR3RobzFMVmJDWFFvLTVTOGs1aFUwZ1BFMS1sSFUtZWhhMFBEY2VSb2xhOVZ6SmloM05Va1gzMGVGNFpyZkd3dHZRNWpxMEhmSjVfZmlJcW9SZmJDa3pDZEtYQTA0SC1iMU1aZWhoVTJYUHUwNVd6cTg2RF80dHU2b0E?oc=5",
-   "title": "Trump likely to make Jay Clayton AI czar; Fetterman and McCormick on regulating tech - CBS News",
-   "people": [
-    "trump",
-    "fetterman"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-71eb40b5",
-   "date": "2026-10-01",
-   "source": "NBC News",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0J2WjVfM3BBRmY0VDdEc0xKVXBTT0gyYTVjU2dWSWRlSjk4ZTI4UEdCTFJKVWtRZ3hOYi1Dd08xWnlSN1JfcGtrSmFDQ3YzNlFtVlRkRGJrVU9kZnJmbndDemxrRkdrbVNxYWVGYk1SWlExVjBMYXN2bnc0MmJIX29Pak42WnFibGpPc2JHOFdoYVRxMkJ1ZHhSaw?oc=5",
-   "title": "Vance talks 2028, Ted Cruz and a tough midterm climate that could factor into his future - NBC News",
-   "people": [
-    "vance",
-    "cruz"
-   ],
-   "pair": [
-    "cruz",
-    "vance"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Vance discusses 2028 prospects and Cruz's potential candidacy amid challenging midterm conditions.",
-   "summary_ko": "밴스가 2028년 전망과 어려운 중간선거 환경 속 크루즈의 대권 가능성을 논의합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-7a8fcb73",
-   "date": "2026-10-01",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOV3dSXzdJQWVBNzR3Nk1OYXFnVHE2NVBsRm5LeEZHeDZlek02Yk9LcXg2NHRUR0VlajROVEhYbXg4djZEVnNPRkh6MVFCaEh5YzZhNDdiWXJLOGhUR3JFVUItY0hYWkNtUWpzRmdoLV8wMmJYSUZiSjdBSUp1Z2g2MVJ0cUVnYlV3aDFEM2dhLXM2UmdITnFmZ1hXemZpV2JfZ3MxYW10WlJJaUxNSkhlNHlfODVhaXZkaVJHWlNZT0ZEb0lCNlRGc3NlWkdaUQ?oc=5",
-   "title": "Asian Americans swung to Trump in 2024. Andy Kim wants to focus on winning them back. - Politico",
-   "people": [
-    "trump",
-    "kim-andy"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-7f704446",
-   "date": "2026-10-01",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE44VVZCNEl6X2JuNW5ic3BXY01LRXlidzNIMmNEcmpaNE9GcWhtYjg1ZXQxQmhzdWxwY3NUZjhmYXF4ejZKLWRKMk50SGw1RndYcUc1V1R2SUhsbFlpbmFYYkhrY242UGxvaElZc0tPYlZRQWVsQWkzSkNOV3Y?oc=5",
-   "title": "Thune wants to \"codify\" AI safeguards after Trump's AI summit - axios.com",
-   "people": [
-    "trump",
-    "thune"
-   ],
-   "pair": [
-    "thune",
-    "trump"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.8,
-   "summary_en": "Thune seeks to codify AI safeguards following Trump's AI summit.",
-   "summary_ko": "튠이 트럼프의 AI 정상회의 이후 AI 안전장치를 성문화하려 한다.",
-   "classified": true
-  },
-  {
-   "id": "sig-9849e886",
-   "date": "2026-10-01",
-   "source": "Axios",
-   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9lUHlyZVdEb0tRVl9QR0dDV3dGN2lHZnp4anBvMGlsNHFFd3dqNmlwUHAyQk1vVzBfRUI4Yk44ZFZBelhBclROSUhLWEZWM3ZsY3hyZVFERnpDRFNzRkxMUHRYc0RSSXFHMG5QQg?oc=5",
-   "title": "Trump's economic polling sinks, rivaling Biden's worst - Axios",
-   "people": [
-    "trump",
-    "biden"
-   ],
-   "classified": false
   }
  ]
 }
