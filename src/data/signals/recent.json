@@ -800,8 +800,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Hegseth critic Don Bacon is conflicted about supporting an impeachment push against Hegseth, indicating tension.",
-   "summary_ko": "헤그세스 비판론자인 베이컨이 헤그세스 탄핵 추진 지지 여부를 두고 고심 중이며 긴장 관계가 나타납니다.",
+   "summary_en": "Don Bacon is conflicted about supporting impeachment efforts against Pete Hegseth.",
+   "summary_ko": "돈 베이컨이 피트 헤그세스에 대한 탄핵 추진 지지 여부를 두고 고심하고 있다.",
    "classified": true
   },
   {
@@ -842,8 +842,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Rep. Thomas Massie introduces new impeachment articles targeting Defense Secretary Pete Hegseth.",
-   "summary_ko": "토머스 매시 의원이 피트 헤그세스 국방장관을 겨냥한 새로운 탄핵안을 발의했다.",
+   "summary_en": "Rep. Massie introduced new impeachment articles against Defense Secretary Hegseth.",
+   "summary_ko": "매시 의원이 헤그세스 국방장관에 대한 새로운 탄핵안을 발의했다.",
    "classified": true
   },
   {
@@ -2283,9 +2283,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Pete Buttigieg describes early midterm results as an unbelievable rejection of Trump.",
-   "summary_ko": "피트 부티지지가 초기 중간선거 결과를 트럼프에 대한 믿기 힘든 거부라고 평가했습니다.",
+   "confidence": 0.9,
+   "summary_en": "Pete Buttigieg describes midterm results as an unbelievable rejection of Trump.",
+   "summary_ko": "피트 부티지지가 중간선거 결과를 트럼프에 대한 ‘믿을 수 없는 거부’라고 평가했습니다.",
    "classified": true
   },
   {
@@ -2324,8 +2324,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Ilhan Omar calls Trump a bigot after winning re-election despite investigation.",
-   "summary_ko": "일한 오마르가 조사에도 불구하고 재선 승리 후 트럼프를 편견주의자라고 비난했습니다.",
+   "summary_en": "Ilhan Omar calls Trump a bigot after winning re-election.",
+   "summary_ko": "일한 오마르가 재선 성공 후 트럼프를 ‘편협한 사람’이라고 비난했습니다.",
    "classified": true
   },
   {
@@ -2363,9 +2363,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Marjorie Taylor Greene blames Trump 100 percent for midterm losses.",
-   "summary_ko": "마조리 테일러 그린이 중간선거 패배의 책임을 100% 트럼프에게 돌렸습니다.",
+   "confidence": 0.9,
+   "summary_en": "Marjorie Taylor Greene blames Trump entirely for the midterm loss.",
+   "summary_ko": "마조리 테일러 그린이 중간선거 패배 책임을 전적으로 트럼프에게 돌렸습니다.",
    "classified": true
   },
   {
@@ -2464,8 +2464,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "NYT analysis suggests Trump's influence contributed to Susan Collins' political difficulties.",
-   "summary_ko": "NYT 분석에 따르면 트럼프의 영향력이 수전 콜린스의 정치적 곤경에 기여했습니다.",
+   "summary_en": "The article describes how Susan Collins could not escape Trump's political influence.",
+   "summary_ko": "수전 콜린스가 트럼프의 정치적 영향력에서 벗어나지 못했다는 내용입니다.",
    "classified": true
   },
   {
@@ -5722,6 +5722,18 @@
    "classified": true
   },
   {
+   "id": "sig-e43e1a88",
+   "date": "2026-11-11",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/campaign/6213543-hillary-clinton-bye-felicia-boebert/",
+   "title": "Hillary Clinton has 2-word response to Boebert’s projected loss",
+   "people": [
+    "boebert",
+    "hillary"
+   ],
+   "classified": false
+  },
+  {
    "id": "sig-fe16db47",
    "date": "2026-11-10",
    "source": "CBS News",
@@ -5740,6 +5752,18 @@
    "summary_en": "Governor Whitmer requests the Trump administration end food tariffs and reimburse residents.",
    "summary_ko": "휘트머 주지사가 트럼프 행정부에 식품 관세 철폐와 주민 보상을 요청했다.",
    "classified": true
+  },
+  {
+   "id": "sig-54db1c4f",
+   "date": "2026-11-10",
+   "source": "The Hill",
+   "url": "https://thehill.com/homenews/senate/6211474-joni-ernst-pete-hegseth-iran-war/",
+   "title": "Ernst asks if Hegseth ‘being truthful in the way the war is going’",
+   "people": [
+    "hegseth",
+    "ernst"
+   ],
+   "classified": false
   },
   {
    "id": "sig-b359b27e",
@@ -5798,19 +5822,6 @@
    "classified": false
   },
   {
-   "id": "sig-d1a3af0c",
-   "date": "2026-11-04",
-   "source": "CBS News",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQak9nOC1sMUNkeXRTNHpWMWpyb0tTbV9GSk5aM2M1V1RaRjFfMlQ4bXBnNExOTjhINkNJeW1nNXVDSlBnTVVobC01cEFzVUxtV3pLYlhmMjF5T0VLWjNGMnBNVmJ2RU9OLXZIWTZhYjBlc1I2aHp0NS15TmlkRlJlTHJvMW5BYmF3Wkl5YjFaYnczd28?oc=5",
-   "title": "Crockett, Manchin, Stefanik react to early 2026 midterm results - CBS News",
-   "people": [
-    "stefanik",
-    "crockett",
-    "manchin"
-   ],
-   "classified": false
-  },
-  {
    "id": "sig-61ad5ba3",
    "date": "2026-11-04",
    "source": "CBS News",
@@ -5831,6 +5842,19 @@
    "classified": true
   },
   {
+   "id": "sig-d1a3af0c",
+   "date": "2026-11-03",
+   "source": "CBS News",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQak9nOC1sMUNkeXRTNHpWMWpyb0tTbV9GSk5aM2M1V1RaRjFfMlQ4bXBnNExOTjhINkNJeW1nNXVDSlBnTVVobC01cEFzVUxtV3pLYlhmMjF5T0VLWjNGMnBNVmJ2RU9OLXZIWTZhYjBlc1I2aHp0NS15TmlkRlJlTHJvMW5BYmF3Wkl5YjFaYnczd28?oc=5",
+   "title": "Crockett, Manchin, Stefanik react to early 2026 midterm results - CBS News",
+   "people": [
+    "stefanik",
+    "crockett",
+    "manchin"
+   ],
+   "classified": false
+  },
+  {
    "id": "sig-47126821",
    "date": "2026-10-30",
    "source": "Fox News",
@@ -5839,70 +5863,6 @@
    "people": [
     "musk",
     "murphy-chris"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-1f094abd",
-   "date": "2026-10-21",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMi-AJBVV95cUxOZDlURDdhaUF2UU1CLTR1THk5X3RlNkdfR3lweENOdG9aMG1UTzY4VU5URS04RkJXN2ZkZVhTQ1RGX0g5X2NGd1dORnI3NnhFUXhrdjhkNTJJWW1iSTJJYjgtQXlBdGlIV0NpeVRIWjZwRG9veVkxLWhUZjhUeVd2YnVHdzI2bzlCZDRQRzZINUpEQTk2d3VsYmJxOWtqVUdCN0E1VmRObDZ4ZE9Gbmg3dzdtV05pS0FxUjlCdWpvV2dJeHZBT0VJOUpMaXAwSXFEbk5XUndadkkxOWxQaTVzZ2c5Ql96c0dUUFloMFBQa2VKcDg2LU9lS2lRQTVQU2NjTDljaHVZTWVGOGN5MTBRc2ptc0lUd3dleWtBaHNsVndvUWVWazNacXo0S0lsR0VBY3JMdGpWdTFlaXkyYWY2bjRNekI2NWhwMXNNUkphZUdpVEQ2YUVfMHNFeHMtZUJqUHMxNEVWSnUxVWVvdXliVjJrOUpYQ1hh?oc=5",
-   "title": "President Clinton chats with former President Gerald Ford (L), as former President George Bush talks.. - Reuters Connect",
-   "people": [
-    "bill-clinton",
-    "bush-w"
-   ],
-   "classified": false
-  },
-  {
-   "id": "sig-9c27f79",
-   "date": "2026-10-20",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/campaign/6159985-hinojosa-lawsuit-abbott-musk-emails/",
-   "title": "Hinojosa sues for emails between Abbott, Musk",
-   "people": [
-    "musk",
-    "abbott-greg"
-   ],
-   "classified": true,
-   "pair": [
-    "abbott-greg",
-    "musk"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Lawsuit seeks emails between Abbott and Musk.",
-   "summary_ko": "소송이 애벗과 머스크 간의 이메일 공개를 요구합니다."
-  },
-  {
-   "id": "sig-3e9d50ee",
-   "date": "2026-10-19",
-   "source": "The Hill",
-   "url": "https://thehill.com/homenews/campaign/6158459-hinojosa-sues-to-review-confidential-emails-between-musk-abbott/",
-   "title": "Hinojosa sues to review confidential emails between Musk, Abbott",
-   "people": [
-    "musk",
-    "abbott-greg"
-   ],
-   "pair": [
-    "abbott-greg",
-    "musk"
-   ],
-   "polarity": "neutral",
-   "confidence": 0.85,
-   "summary_en": "Lawsuit seeks confidential emails between Musk and Abbott.",
-   "summary_ko": "머스크와 애벗 주지사 간 기밀 이메일 공개를 요구하는 소송이 제기됐습니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-416baffb",
-   "date": "2026-10-19",
-   "source": "AP News",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaHc3LWFZcUswZ2RreVV2OGFBZ0Npdk5hZXlhS29SQjUzWWtadlFkR2NhYnZqelRlUHNib2l4cEpYMFhNSDh0WjdLQnFiZjdVLWNJeUtIejZxZV85Uy1veFdsQURCamxMamFCUkZrc0xFazEtTzlrb19DLUJPdjRmWDZfNmVlY2VPMXdTMkZSaXJmcm53RUc5RUVoeEg4TkE?oc=5",
-   "title": "Democrat Marie Gluesenkamp Perez fights to keep a foothold in Pacific Northwest's Trump country - AP News",
-   "people": [
-    "trump",
-    "perez-marie"
    ],
    "classified": false
   }
