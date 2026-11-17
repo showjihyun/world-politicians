@@ -116,9 +116,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Harris attacks Trump while urging a massive midterm turnout against him.",
-   "summary_ko": "해리스가 트럼프를 공격하며 대규모 중간선거 투표를 독려합니다.",
+   "confidence": 0.95,
+   "summary_en": "Harris attacks Trump directly while mobilizing voters against his election integrity claims.",
+   "summary_ko": "해리스가 트럼프의 선거 부정 주장을 정면 반박하며 유권자 동원에 나섰다.",
    "classified": true
   },
   {
@@ -257,8 +257,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump and Obama exchange attacks in the final midterm campaign stretch.",
-   "summary_ko": "트럼프와 오바마가 중간선거 막판 서로를 공격하며 설전을 벌입니다.",
+   "summary_en": "Trump and Obama exchange public attacks in a heated rhetorical battle before midterms.",
+   "summary_ko": "트럼프와 오바마가 중간선거 직전 격렬한 설전으로 공개 충돌했다.",
    "classified": true
   },
   {
@@ -818,8 +818,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump fires Pam Bondi as attorney general in a decisive personnel move.",
-   "summary_ko": "트럼프가 팸 본디 법무장관을 전격 해임합니다.",
+   "summary_en": "Trump fires Attorney General Pam Bondi, removing her from the cabinet position.",
+   "summary_ko": "트럼프가 팸 본디 법무장관을 해임하며 내각에서 물러나게 했다.",
    "classified": true
   },
   {
@@ -1038,8 +1038,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump and Murkowski jointly attack Peltola over an Alaska ballot report.",
-   "summary_ko": "트럼프와 머코스키가 알래스카 투표지 의혹을 놓고 펠톨라를 함께 공격합니다.",
+   "summary_en": "Trump and Senator Murkowski jointly criticize Rep. Peltola over an Alaska ballot-stacking report.",
+   "summary_ko": "트럼프와 머코스키 상원의원이 알래스카 투표용지 중복 보고서를 두고 펠톨라 의원을 함께 비판했다.",
    "classified": true
   },
   {
@@ -1363,26 +1363,6 @@
    "classified": true
   },
   {
-   "id": "sig-5b574bd",
-   "date": "2026-10-28",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQXNxY09PamVmWXZwNEdHNzhkN3FMNWlTdUJEOUNGVWlIYzVvR3RmcFpqdFZKOGlUcmo2TEhxNHNqa000RktVUngyRFp4dU1nZm9keVNzY21YRzVwdkl0TDctTW41ZTAtS3pJQzNfMU1PRnBtN3ZVM3JIbHdBa2xSRkdBdEFlZWxodUUwM1BDbw?oc=5",
-   "title": "The race the House GOP can’t stop talking about: Jim Jordan vs. Steve Scalise - Politico",
-   "people": [
-    "scalise",
-    "jordan-jim"
-   ],
-   "pair": [
-    "jordan-jim",
-    "scalise"
-   ],
-   "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "House Republicans are fixated on the leadership rivalry between Jim Jordan and Steve Scalise.",
-   "summary_ko": "공화당 하원이 짐 조던과 스티브 스컬리스의 지도부 경쟁에 몰두하고 있다.",
-   "classified": true
-  },
-  {
    "id": "sig-6fb3c1c0",
    "date": "2026-10-28",
    "source": "The Hill",
@@ -1418,28 +1398,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama launches blistering attacks on Trump during his campaign trail return.",
-   "summary_ko": "오바마가 유세 복귀 연설에서 트럼프를 맹렬히 공격합니다.",
-   "classified": true
-  },
-  {
-   "id": "sig-1cc4fcdf",
-   "date": "2026-10-28",
-   "source": "Politico",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSjNRY3lCSmhYaFo1UUp6TkVnWDBKRUcwQkFnRGNjX1VDQjlDdlFLR19ibVZKdnN3bnBJWm40eUo2dnpRXzhaMGNOZ0xCNlp4ZHJzOGZ5WWdFdlRZRUd3VGJxbkFYdjVrNkpNQjZ1RnlXODFtZTN2M2l6STlHQnNCQTA2Q1ZreS1QOFB2VUxnNWw3eDdYd2dxMXVOcmFDMXkzaEc4M1NaMGY?oc=5",
-   "title": "House GOP eyes Jordan vs. Scalise - Politico",
-   "people": [
-    "scalise",
-    "jordan-jim"
-   ],
-   "pair": [
-    "jordan-jim",
-    "scalise"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "House Republicans weigh a leadership contest between Jordan and Scalise.",
-   "summary_ko": "하원 공화당이 조던과 스칼리스 간 지도부 경합 가능성을 주시합니다.",
+   "summary_en": "Former President Obama launches harsh criticisms against Trump and Ramaswamy on the campaign trail.",
+   "summary_ko": "오바마 전 대통령이 유세 현장에서 트럼프와 라마스와미를 강도 높게 비판했다.",
    "classified": true
   },
   {
@@ -2019,7 +1979,7 @@
    "polarity": "feud",
    "confidence": 0.9,
    "summary_en": "Obama mocks Trump's White House as a 'Cheesecake Factory,' rankling Trump.",
-   "summary_ko": "오바마가 트럼프 백악관을 '치즈케이크 팩토리'에 비유해 조롱하며 트럼프를 자극했습니다.",
+   "summary_ko": "오바마가 트럼프 백악관을 '치즈케이크 팩토리'에 비유해 조롱하자 트럼프가 불쾌해했다.",
    "classified": true
   },
   {
@@ -2359,9 +2319,9 @@
     "schiff"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Schiff demands Hegseth testify about the Starlink slowdown in Ukraine.",
-   "summary_ko": "시프가 우크라이나 스타링크 지연 사태와 관련해 헤그세스의 증언을 요구했습니다.",
+   "confidence": 0.8,
+   "summary_en": "Senator Schiff demands Hegseth testify on the Starlink slowdown in Ukraine.",
+   "summary_ko": "시프 상원의원이 헤그세스에게 우크라이나 스타링크 지연 사태에 대해 증언할 것을 요구했다.",
    "classified": true
   },
   {
@@ -2579,9 +2539,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump and Ossoff's rivalry endures nine years after Trump boosted Ossoff's profile.",
-   "summary_ko": "트럼프가 전국적 인물로 키워준 오소프와의 라이벌 관계가 9년째 지속되고 있습니다.",
+   "confidence": 0.85,
+   "summary_en": "A profile notes the enduring rivalry between Trump and Ossoff nine years on.",
+   "summary_ko": "트럼프와 오소프의 9년에 걸친 라이벌 관계가 지속되고 있음을 조명했다.",
    "classified": true
   },
   {
@@ -2721,7 +2681,7 @@
    "polarity": "feud",
    "confidence": 0.95,
    "summary_en": "Obama labels Trump an agent of chaos and cruelty in his midterm election pitch.",
-   "summary_ko": "오바마가 중간선거 지원 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 규정하며 공격했다.",
+   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 규정하며 공격했다.",
    "classified": true
   },
   {
@@ -2745,6 +2705,26 @@
    "classified": true
   },
   {
+   "id": "sig-ca39bbc6",
+   "date": "2026-10-24",
+   "source": "The Hill",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPTVdLSnlPLUtqaHpZN3FJVW9FelBRSEluUlVHSmh2RW1SbWVteVpqODJsUW55VFA1eURvT3RoTVJqWF9LYWNVYktsRTNnME1DTDYzYjhlSmZaMkRHTkRRTzV5Z2RhZWRLVjc0Z3ZCdWdSRlp0cDFVc0dHRFFHczVDR1NR?oc=5",
+   "title": "Barack Obama on Trump White House: ‘Like Saddam Hussein opened a Cheesecake Factory’ - The Hill",
+   "people": [
+    "trump",
+    "obama"
+   ],
+   "pair": [
+    "obama",
+    "trump"
+   ],
+   "polarity": "feud",
+   "confidence": 0.95,
+   "summary_en": "Obama likens Trump's White House to Saddam Hussein opening a Cheesecake Factory.",
+   "summary_ko": "오바마가 트럼프 백악관을 '사담 후세인이 치즈케이크 팩토리를 연 것'에 비유하며 조롱했다.",
+   "classified": true
+  },
+  {
    "id": "sig-6c2036e0",
    "date": "2026-10-23",
    "source": "The Wall Street Journal",
@@ -2760,8 +2740,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump plans tariff relief on Canada to boost Collins's re-election prospects in Maine.",
-   "summary_ko": "트럼프가 캐나다 관세 일부 철회로 메인주 콜린스 의원 재선 지원에 나섰다.",
+   "summary_en": "Trump plans tariff relief on Canada to boost Susan Collins's re-election prospects.",
+   "summary_ko": "트럼프가 수전 콜린스 재선을 돕기 위해 캐나다 관세 일부 철폐를 추진한다.",
    "classified": true
   },
   {
@@ -3261,7 +3241,7 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump directly calls Musk requesting removal of Starlink restrictions on Ukraine.",
+   "summary_en": "Trump directly calls Musk to request lifting Starlink restrictions on Ukraine.",
    "summary_ko": "트럼프가 머스크에게 직접 전화해 우크라이나 스타링크 제한 해제를 요청했다.",
    "classified": true
   },
@@ -3382,8 +3362,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Manchin actively campaigns with Collins to attract moderate voters in Maine.",
-   "summary_ko": "맨친이 콜린스 의원과 함께 메인주 중도층 공략 지원 유세에 나섰다.",
+   "summary_en": "Manchin actively assists Republican Senator Collins in courting moderate voters in Maine.",
+   "summary_ko": "맨친이 공화당 콜린스 의원의 중도층 공략을 적극 지원하고 있다.",
    "classified": true
   },
   {
@@ -3544,8 +3524,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senator Tillis publicly demands the firing of Hegseth alongside Miller and RFK Jr.",
-   "summary_ko": "틸리스 상원의원이 헤그세스 등 3명의 해임을 공개 요구했다.",
+   "summary_en": "Senator Tillis demands the firing of Hegseth along with Miller and RFK Jr.",
+   "summary_ko": "틸리스 상원의원이 헤그세스 등을 해임해야 한다고 주장했다.",
    "classified": true
   },
   {
@@ -3563,9 +3543,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "RFK Jr.'s top adviser Calley Means resigns from the Trump administration.",
-   "summary_ko": "RFK 주니어의 핵심 참모 칼리 민스가 트럼프 행정부에서 사임했습니다.",
+   "confidence": 0.75,
+   "summary_en": "RFK Jr.'s top adviser resigns from Trump administration, signaling tension.",
+   "summary_ko": "RFK 주니어의 핵심 보좌관이 트럼프 행정부에서 사임하며 긴장 관계 시사.",
    "classified": true
   },
   {
@@ -3583,9 +3563,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "RFK Jr.'s top adviser Calley Means resigns from the Trump administration.",
-   "summary_ko": "RFK 주니어의 핵심 참모 칼리 민스가 트럼프 행정부에서 사임했습니다.",
+   "confidence": 0.75,
+   "summary_en": "RFK Jr.'s top adviser resigns from Trump administration, signaling tension.",
+   "summary_ko": "RFK 주니어의 핵심 보좌관이 트럼프 행정부에서 사임하며 긴장 관계 시사.",
    "classified": true
   },
   {
@@ -3845,8 +3825,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Senator Collins recruits Manchin to showcase her bipartisan independence.",
-   "summary_ko": "콜린스 상원의원이 맨친 전 의원을 영입해 자신의 초당적 독립성을 부각합니다.",
+   "summary_en": "Collins recruits Manchin to showcase her independence in Maine.",
+   "summary_ko": "콜린스가 맨친을 영입해 메인주 중도층 공략 및 독립성 부각.",
    "classified": true
   },
   {
@@ -3887,8 +3867,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Manchin criticizes Schumer's effort to unseat Senator Collins.",
-   "summary_ko": "맨친이 슈머의 콜린스 의원 낙선 시도를 '미쳤다'고 비판했습니다.",
+   "summary_en": "Manchin attacks Schumer for targeting Collins in Senate race.",
+   "summary_ko": "맨친이 슈머의 콜린스 공세를 '미쳤다'고 비난하며 대립.",
    "classified": true
   },
   {
@@ -3928,8 +3908,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Collins brings in Manchin to appeal to moderates while distancing from Trump.",
-   "summary_ko": "콜린스가 트럼프와 거리두기하며 맨친과 함께 중도층 공략에 나섰습니다.",
+   "summary_en": "Collins partners with Manchin to appeal to moderate voters.",
+   "summary_ko": "콜린스가 맨친과 손잡고 메인주 중도층 표심 공략.",
    "classified": true
   },
   {
@@ -3991,22 +3971,6 @@
    "confidence": 0.7,
    "summary_en": "Trump praises release of American by Russia while Vance criticizes GOP whining.",
    "summary_ko": "트럼프는 러시아의 미국인 석방을 칭찬하는 반면 밴스는 공화당의 불평을 비판합니다."
-  },
-  {
-   "id": "sig-c12a5e24",
-   "date": "2026-10-21",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPU01uQVNGMzNrVGI2UUFEaGxuQ1V1OG1kcGJFc1RJSF80LUZaRG1IckM5WE1RRDlyRGJUMnI3Q2NpT2hOMjgtalFhQnc5OWhFbnI5N3RrNEhqQkNPcnRVTE1vcVlkMkFDYlFPR3c0RW16bU5nNTRuYkE1T0tMamV0WEVkSTY1UFhKdl9kWnlFZVBUeVRVZ3N3UEJ2M25MbkFPLXVV0gGoAUFVX3lxTE1LYW5McVhCekNEelRRZWlaQ2xoM2QxTXhlU1l2VkJRUElJeXZqOXFRYzhfZEZzMDBiS1RxOUN2c0JvaXEyQmF3TTEtN1hjOWJQOVlvd2Mzemd5Y2xESlZIdjhxcmxUXzl6MmJfQUh6UzZUSWFKb0xibVkwQ3VXWjFkYmJhRi1MUWpnNDJMZUo2VldOdVctdDN2TmVwZHVabmJOdXlVRWlpaQ?oc=5",
-   "title": "Manchin calls Schumer 'crazy' for trying to oust GOP senator in crucial Senate showdown - Fox News",
-   "people": [
-    "manchin",
-    "schumer"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Collins partners with Manchin to appeal to moderate voters in Maine.",
-   "summary_ko": "콜린스가 맨친과 협력해 메인주 중도층 유권자에게 어필합니다.",
-   "classified": true
   },
   {
    "id": "sig-dfb4950f",
@@ -4521,8 +4485,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Senator Mike Lee and Representative Elissa Slotkin clash over Lee's warning to students against working for the Trump administration.",
-   "summary_ko": "마이크 리 상원의원과 엘리사 슬로킨 하원의원이 트럼프 행정부 근무를 경고한 리 의원의 발언을 두고 충돌했습니다.",
+   "summary_en": "Slotkin and Lee clash over Lee's warning to students not to work for the Trump administration.",
+   "summary_ko": "슬로킨과 리가 학생들에게 트럼프 행정부에서 일하지 말라고 경고한 것을 두고 충돌했습니다.",
    "classified": true
   },
   {
@@ -4541,8 +4505,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Senator Joe Manchin announces he will campaign alongside Senator Susan Collins in Maine.",
-   "summary_ko": "조 맨친 상원의원이 수전 콜린스 상원의원의 메인주 선거 유세를 지원하기로 했습니다.",
+   "summary_en": "Manchin announces he will campaign alongside Collins in Maine.",
+   "summary_ko": "맨친이 메인주에서 콜린스와 함께 유세할 것이라고 밝혔습니다.",
    "classified": true
   },
   {
@@ -4581,8 +4545,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.95,
-   "summary_en": "Senator Joe Manchin confirms plans to campaign with Senator Susan Collins in Maine.",
-   "summary_ko": "조 맨친 상원의원이 수전 콜린스 상원의원과 함께 메인주에서 유세할 계획임을 확인했습니다.",
+   "summary_en": "Manchin confirms he will campaign with Collins in Maine.",
+   "summary_ko": "맨친이 메인주에서 콜린스와 함께 유세할 것을 확인했습니다.",
    "classified": true
   },
   {
