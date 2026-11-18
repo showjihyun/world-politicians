@@ -117,8 +117,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Harris attacks Trump directly while mobilizing voters against his election integrity claims.",
-   "summary_ko": "해리스가 트럼프의 선거 부정 주장을 정면 반박하며 유권자 동원에 나섰다.",
+   "summary_en": "Harris attacks Trump with 'too big to rig' rhetoric, escalating their feud.",
+   "summary_ko": "해리스가 '조작 불가능한 투표율' 구호로 트럼프를 맹공하며 갈등 격화.",
    "classified": true
   },
   {
@@ -257,8 +257,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump and Obama exchange public attacks in a heated rhetorical battle before midterms.",
-   "summary_ko": "트럼프와 오바마가 중간선거 직전 격렬한 설전으로 공개 충돌했다.",
+   "summary_en": "Trump and Obama exchange attacks in a 'food fight' during the midterm campaign.",
+   "summary_ko": "트럼프와 오바마가 중간선거 막판 '음식 싸움' 격의 공방을 벌임.",
    "classified": true
   },
   {
@@ -818,8 +818,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump fires Attorney General Pam Bondi, removing her from the cabinet position.",
-   "summary_ko": "트럼프가 팸 본디 법무장관을 해임하며 내각에서 물러나게 했다.",
+   "summary_en": "Trump fires Pam Bondi as attorney general, a decisive hostile act.",
+   "summary_ko": "트럼프가 팸 본디 법무장관을 해임하며 적대적 조치 단행.",
    "classified": true
   },
   {
@@ -1038,8 +1038,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump and Senator Murkowski jointly criticize Rep. Peltola over an Alaska ballot-stacking report.",
-   "summary_ko": "트럼프와 머코스키 상원의원이 알래스카 투표용지 중복 보고서를 두고 펠톨라 의원을 함께 비판했다.",
+   "summary_en": "Trump and Murkowski jointly attack Peltola over ballot-stacking allegations.",
+   "summary_ko": "트럼프와 머코스키가 펠톨라의 투표용지 중복 의혹을 함께 공격함.",
    "classified": true
   },
   {
@@ -1398,8 +1398,48 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Former President Obama launches harsh criticisms against Trump and Ramaswamy on the campaign trail.",
-   "summary_ko": "오바마 전 대통령이 유세 현장에서 트럼프와 라마스와미를 강도 높게 비판했다.",
+   "summary_en": "Barack Obama launches harsh criticisms against Donald Trump and Vivek Ramaswamy on the campaign trail.",
+   "summary_ko": "버락 오바마가 유세 현장에서 도널드 트럼프와 비벡 라마스와미를 강도 높게 비판했다.",
+   "classified": true
+  },
+  {
+   "id": "sig-1cc4fcdf",
+   "date": "2026-10-28",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSjNRY3lCSmhYaFo1UUp6TkVnWDBKRUcwQkFnRGNjX1VDQjlDdlFLR19ibVZKdnN3bnBJWm40eUo2dnpRXzhaMGNOZ0xCNlp4ZHJzOGZ5WWdFdlRZRUd3VGJxbkFYdjVrNkpNQjZ1RnlXODFtZTN2M2l6STlHQnNCQTA2Q1ZreS1QOFB2VUxnNWw3eDdYd2dxMXVOcmFDMXkzaEc4M1NaMGY?oc=5",
+   "title": "House GOP eyes Jordan vs. Scalise - Politico",
+   "people": [
+    "scalise",
+    "jordan-jim"
+   ],
+   "pair": [
+    "jordan-jim",
+    "scalise"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "House Republicans weigh a leadership contest between Jordan and Scalise.",
+   "summary_ko": "하원 공화당이 조던과 스칼리스 간 지도부 경합을 주시함.",
+   "classified": true
+  },
+  {
+   "id": "sig-5b574bd",
+   "date": "2026-10-28",
+   "source": "Politico",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQXNxY09PamVmWXZwNEdHNzhkN3FMNWlTdUJEOUNGVWlIYzVvR3RmcFpqdFZKOGlUcmo2TEhxNHNqa000RktVUngyRFp4dU1nZm9keVNzY21YRzVwdkl0TDctTW41ZTAtS3pJQzNfMU1PRnBtN3ZVM3JIbHdBa2xSRkdBdEFlZWxodUUwM1BDbw?oc=5",
+   "title": "The race the House GOP can’t stop talking about: Jim Jordan vs. Steve Scalise - Politico",
+   "people": [
+    "scalise",
+    "jordan-jim"
+   ],
+   "pair": [
+    "jordan-jim",
+    "scalise"
+   ],
+   "polarity": "feud",
+   "confidence": 0.9,
+   "summary_en": "House Republicans are fixated on the leadership rivalry between Jim Jordan and Steve Scalise.",
+   "summary_ko": "공화당 하원이 짐 조던과 스티브 스칼리스의 지도부 경쟁에 집중하고 있다.",
    "classified": true
   },
   {
@@ -1419,7 +1459,7 @@
    "polarity": "ally",
    "confidence": 0.95,
    "summary_en": "Elon Musk donates $5 million to support Greg Abbott's Texas gubernatorial campaign.",
-   "summary_ko": "일론 머스크가 그레그 애벗 텍사스 주지사 재선 캠페인에 500만 달러를 기부했다.",
+   "summary_ko": "일론 머스크가 그레그 애벗 텍사스 주지사 선거 캠페인에 500만 달러를 기부했다.",
    "classified": true
   },
   {
@@ -1978,8 +2018,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Obama mocks Trump's White House as a 'Cheesecake Factory,' rankling Trump.",
-   "summary_ko": "오바마가 트럼프 백악관을 '치즈케이크 팩토리'에 비유해 조롱하자 트럼프가 불쾌해했다.",
+   "summary_en": "Barack Obama mocks the Trump White House as a 'Cheesecake Factory,' provoking an irritated response from Donald Trump on the campaign trail.",
+   "summary_ko": "버락 오바마 전 대통령이 트럼프 백악관을 '치즈케이크 팩토리'에 비유해 조롱하자, 도널드 트럼프 전 대통령이 유세 현장에서 불쾌감을 드러냈다.",
    "classified": true
   },
   {
@@ -2319,9 +2359,9 @@
     "schiff"
    ],
    "polarity": "feud",
-   "confidence": 0.8,
-   "summary_en": "Senator Schiff demands Hegseth testify on the Starlink slowdown in Ukraine.",
-   "summary_ko": "시프 상원의원이 헤그세스에게 우크라이나 스타링크 지연 사태에 대해 증언할 것을 요구했다.",
+   "confidence": 0.85,
+   "summary_en": "Senator Adam Schiff demands Defense Secretary Pete Hegseth testify regarding the Starlink slowdown in Ukraine.",
+   "summary_ko": "애덤 시프 상원의원이 피트 헤그세스 국방장관에게 우크라이나 스타링크 속도 저하 문제와 관련해 증언할 것을 요구했다.",
    "classified": true
   },
   {
@@ -2500,8 +2540,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama attacks Trump's cruelty and indecency during midterm campaigning in the Midwest.",
-   "summary_ko": "오바마가 중서부 유세에서 트럼프의 잔혹함과 무례함을 강하게 비판했다.",
+   "summary_en": "Barack Obama campaigns in the Midwest, assailing the 'cruelty' and indecency of Donald Trump and his allies.",
+   "summary_ko": "버락 오바마 전 대통령이 중서부 유세에서 도널드 트럼프 전 대통령과 그 동맹들의 '잔인함'과 품위 없음을 강하게 비판했다.",
    "classified": true
   },
   {
@@ -2540,8 +2580,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "A profile notes the enduring rivalry between Trump and Ossoff nine years on.",
-   "summary_ko": "트럼프와 오소프의 9년에 걸친 라이벌 관계가 지속되고 있음을 조명했다.",
+   "summary_en": "A profile of the enduring nine-year political rivalry between Donald Trump and Senator Jon Ossoff.",
+   "summary_ko": "도널드 트럼프 전 대통령과 존 오소프 상원의원 사이의 9년에 걸친 정치적 라이벌 관계가 지속되고 있음을 조명한다.",
    "classified": true
   },
   {
@@ -2680,8 +2720,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama labels Trump an agent of chaos and cruelty in his midterm election pitch.",
-   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 규정하며 공격했다.",
+   "summary_en": "Obama attacks Trump as an agent of chaos and cruelty in a midterm pitch.",
+   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 ‘혼란과 잔혹함’의 대행자라고 공격했다.",
    "classified": true
   },
   {
@@ -2740,8 +2780,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump plans tariff relief on Canada to boost Susan Collins's re-election prospects.",
-   "summary_ko": "트럼프가 수전 콜린스 재선을 돕기 위해 캐나다 관세 일부 철폐를 추진한다.",
+   "summary_en": "Trump plans to remove some Canada tariffs in a bid to help Senator Collins.",
+   "summary_ko": "트럼프가 수전 콜린스 의원을 돕기 위해 캐나다 관세 일부를 철폐할 계획이다.",
    "classified": true
   },
   {
@@ -2921,8 +2961,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump removes some Canadian tariffs in a move that benefits Senator Susan Collins politically.",
-   "summary_ko": "트럼프가 일부 캐나다 관세를 철폐해 수전 콜린스 상원의원에게 정치적 이득을 안겨줬다.",
+   "summary_en": "Trump lifts tariffs on Canadian goods to help Senator Susan Collins politically.",
+   "summary_ko": "트럼프가 캐나다산 제품 관세를 철폐해 수전 콜린스 의원을 정치적으로 지원했다.",
    "classified": true
   },
   {
@@ -3226,23 +3266,23 @@
    "summary_ko": "마이크 콜린스 의원이 펠로시를 비행기에서 밀어버리는 농담을 하고 미 지도자들을 교수형에 처하자고 제안했습니다."
   },
   {
-   "id": "sig-14837bae",
+   "id": "sig-12cd88e1",
    "date": "2026-10-23",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQaXJlSTBTVHFScmtRbGRyTnkyTWlkQ0FrMnBhXzY1TmNlQVFmUUpud1N4RFR2TklOeXBLRzZSajJvbzNJYW9hN2JjbWdEbElRbzkwR1BSQzlhQWVKbWV6YmNRa2M3Z0oxVmhyT1JaOW5pODNzblBVNjVBbmVJOWxQbVBXS2NyU3VTcFlKLWFZLWN3NDllTWdSRmRzU3llcTN4b3lKc3JrTQ?oc=5",
-   "title": "Exclusive | Trump Called Musk and Asked Him to Lift Ukraine Starlink Restrictions - WSJ",
+   "source": "Semafor",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVUljVUVtSVdweWlSOW9rNVQ5aTJGcjQ0T2tIYUZYRGdpZ2lNWEtINzFaTXg4MTQxcmZuUGtKT01fbzl6cHY0N2d4ZUFFdjRMNm00R3VxQ2wwcE5zbUxfbnViVm1MRW9tRjdRZ2tXamFHV1lGcnVWNWZxcjRDRFZGbnBfYlI1SFRCQlRjRzgxNTEzdXlaa2ZiaQ?oc=5",
+   "title": "Exclusive / Manchin suggests Collins should become independent - Semafor",
    "people": [
-    "trump",
-    "musk"
+    "manchin",
+    "collins-susan"
    ],
    "pair": [
-    "musk",
-    "trump"
+    "collins-susan",
+    "manchin"
    ],
-   "polarity": "ally",
+   "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump directly calls Musk to request lifting Starlink restrictions on Ukraine.",
-   "summary_ko": "트럼프가 머스크에게 직접 전화해 우크라이나 스타링크 제한 해제를 요청했다.",
+   "summary_en": "Manchin suggests Senator Collins should switch to independent status.",
+   "summary_ko": "맨친이 콜린스 의원에게 무소속 전환을 제안했다.",
    "classified": true
   },
   {
@@ -3362,8 +3402,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Manchin actively assists Republican Senator Collins in courting moderate voters in Maine.",
-   "summary_ko": "맨친이 공화당 콜린스 의원의 중도층 공략을 적극 지원하고 있다.",
+   "summary_en": "Manchin helps Republican Senator Collins court moderate voters in Maine.",
+   "summary_ko": "맨친이 공화당 콜린스 의원의 중도층 공략을 돕고 있다.",
    "classified": true
   },
   {
@@ -3402,7 +3442,7 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "AOC calls for congressional investigation into Trump administration officials.",
+   "summary_en": "AOC calls for congressional investigation of Trump administration officials.",
    "summary_ko": "AOC가 차기 의회에서 트럼프 행정부 고위 관리들에 대한 조사를 요구했습니다.",
    "classified": true
   },
@@ -3524,8 +3564,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Senator Tillis demands the firing of Hegseth along with Miller and RFK Jr.",
-   "summary_ko": "틸리스 상원의원이 헤그세스 등을 해임해야 한다고 주장했다.",
+   "summary_en": "Senator Tillis calls for Hegseth and others to be fired.",
+   "summary_ko": "틸리스 의원이 헤그세스 등의 해임을 요구했다.",
    "classified": true
   },
   {
@@ -3825,8 +3865,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Collins recruits Manchin to showcase her independence in Maine.",
-   "summary_ko": "콜린스가 맨친을 영입해 메인주 중도층 공략 및 독립성 부각.",
+   "summary_en": "Collins recruits Manchin to showcase her bipartisan independence in Maine.",
+   "summary_ko": "콜린스 의원이 맨친 전 의원을 영입해 자신의 초당적 독립성을 부각시키고 있습니다.",
    "classified": true
   },
   {
@@ -3867,8 +3907,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Manchin attacks Schumer for targeting Collins in Senate race.",
-   "summary_ko": "맨친이 슈머의 콜린스 공세를 '미쳤다'고 비난하며 대립.",
+   "summary_en": "Manchin attacks Schumer's strategy to target Collins in Senate race.",
+   "summary_ko": "맨친이 콜린스 의원을 겨냥한 슈머의 전략을 '미쳤다'고 비판했습니다.",
    "classified": true
   },
   {
@@ -3908,8 +3948,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Collins partners with Manchin to appeal to moderate voters.",
-   "summary_ko": "콜린스가 맨친과 손잡고 메인주 중도층 표심 공략.",
+   "summary_en": "Collins partners with Manchin to appeal to moderate voters in Maine.",
+   "summary_ko": "콜린스 의원이 맨친과 손잡고 메인주 중도층 유권자 공략에 나섰습니다.",
    "classified": true
   },
   {
