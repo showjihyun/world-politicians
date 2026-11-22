@@ -116,9 +116,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Kamala Harris attacks Trump while urging a massive midterm turnout.",
-   "summary_ko": "해리스가 '투표로 압도하자'며 트럼프를 강하게 비판했다.",
+   "confidence": 0.98,
+   "summary_en": "VP Harris attacks Trump while urging a 'too big to rig' midterm turnout.",
+   "summary_ko": "카멀라 해리스 부통령이 '조작 불가능한' 투표율을 독려하며 트럼프를 강하게 비판했다.",
    "classified": true
   },
   {
@@ -216,9 +216,9 @@
     "manchin"
    ],
    "polarity": "ally",
-   "confidence": 0.95,
-   "summary_en": "Joe Manchin praises Haley Stevens's integrity.",
-   "summary_ko": "조 맨친이 헤일리 스티븐스의 진정성을 칭찬했다.",
+   "confidence": 0.9,
+   "summary_en": "Sen. Joe Manchin praises Rep. Haley Stevens' integrity in a bipartisan gesture.",
+   "summary_ko": "조 맨친 상원의원이 헤일리 스티븐스 의원의 진정성을 칭찬하며 초당적 제스처를 보였다.",
    "classified": true
   },
   {
@@ -257,8 +257,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump and Obama exchange attacks in the final days of the midterm campaign.",
-   "summary_ko": "트럼프와 오바마가 중간선거 막판 서로를 공격하며 설전을 벌였다.",
+   "summary_en": "Trump and Obama exchange attacks in a 'food fight' during the final midterm campaign days.",
+   "summary_ko": "트럼프와 오바마가 중간선거 막판 '음식 싸움'이라 불릴 정도로 서로 공격했다.",
    "classified": true
   },
   {
@@ -818,8 +818,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump fires Pam Bondi from her position as attorney general.",
-   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했다.",
+   "summary_en": "Trump fires Bondi as attorney general, ending her tenure abruptly.",
+   "summary_ko": "트럼프가 본디 법무장관을 전격 해임했다.",
    "classified": true
   },
   {
@@ -1038,8 +1038,8 @@
    ],
    "polarity": "ally",
    "confidence": 0.9,
-   "summary_en": "Trump and Murkowski jointly criticize Peltola over an Alaska ballot-stacking report.",
-   "summary_ko": "트럼프와 머코스키가 알래스카 투표용지 중복 보고서를 두고 펠톨라를 함께 비판했다.",
+   "summary_en": "Trump and Murkowski jointly criticize Peltola over ballot-stacking allegations.",
+   "summary_ko": "트럼프와 머코스키가 펠톨라를 투표용지 조작 의혹으로 함께 공격한다.",
    "classified": true
   },
   {
@@ -1398,8 +1398,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama launches harsh attacks against Trump and Ramaswamy upon returning to the campaign trail.",
-   "summary_ko": "오바마가 유세 현장에 복귀해 트럼프와 라마스와미를 강도 높게 공격했다.",
+   "summary_en": "Obama launches harsh criticisms against Trump during campaign return.",
+   "summary_ko": "오바마가 유세 복귀 연설에서 트럼프를 강도 높게 비판한다.",
    "classified": true
   },
   {
@@ -1437,9 +1437,9 @@
     "scalise"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Jim Jordan and Steve Scalise compete in a closely watched House GOP leadership race.",
-   "summary_ko": "짐 조던과 스티브 스칼리세가 주목받는 하원 공화당 지도부 경선에서 맞붙고 있다.",
+   "confidence": 0.95,
+   "summary_en": "Scalise and Jordan compete for House GOP leadership in a heated race.",
+   "summary_ko": "스칼리스와 조던이 하원 공화당 지도부를 놓고 치열하게 경쟁한다.",
    "classified": true
   },
   {
@@ -1923,26 +1923,6 @@
    "classified": true
   },
   {
-   "id": "sig-99bc90e5",
-   "date": "2026-10-27",
-   "source": "The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOTjl4ZzAzcjBQWWx0alB3MTg2V0xfaExmTzh4U0hTSXBXWnd0M3N4RmNKQUVFRGtJLXZqcHp4WWdLbUM5d3BjLVFqVTEtWjEzbFpIaVI3RFBqemhfQlZpS2ZQSm0waThBV0NLSjZ5Z3JHTVFHUDFSenZKbmZlMWY5NFJKcDlUeDg?oc=5",
-   "title": "Susan Collins Tries to Outrun Trump’s Shadow in Bid for Sixth Senate Term - WSJ",
-   "people": [
-    "trump",
-    "collins-susan"
-   ],
-   "pair": [
-    "collins-susan",
-    "trump"
-   ],
-   "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Susan Collins tries to distance herself from Trump's influence in her Senate re-election bid.",
-   "summary_ko": "수전 콜린스가 상원 6선 도전에서 트럼프의 영향력에서 벗어나려 시도합니다.",
-   "classified": true
-  },
-  {
    "id": "sig-adf49283",
    "date": "2026-10-27",
    "source": "The Hill",
@@ -2018,8 +1998,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Obama's Cheesecake Factory jab rankles Trump during Mississippi campaign stop.",
-   "summary_ko": "오바마의 치즈케이크 팩토리 조롱이 미시시피 유세 중 트럼프를 자극했다.",
+   "summary_en": "Obama's 'Cheesecake Factory' jab rankles Trump during a Mississippi campaign stop.",
+   "summary_ko": "오바마의 '치즈케이크 팩토리' 조롱이 미시시피 유세 중 트럼프의 심기를 건드렸다.",
    "classified": true
   },
   {
@@ -2360,8 +2340,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.85,
-   "summary_en": "Schiff says Hegseth should testify on Starlink slowdown in Ukraine.",
-   "summary_ko": "시프 의원이 헤그세스가 우크라이나 스타링크 지연 사태에 대해 증언해야 한다고 주장했다.",
+   "summary_en": "Senator Schiff says Hegseth should testify on the Starlink slowdown in Ukraine.",
+   "summary_ko": "시프 상원의원이 헤그세스가 우크라이나 스타링크 지연 사태에 대해 증언해야 한다고 밝혔다.",
    "classified": true
   },
   {
@@ -2520,8 +2500,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama condemns Trump and allies for cruelty and indecency during Midwest campaign swing.",
-   "summary_ko": "오바마가 중서부 유세 중 트럼프와 동맹들의 잔혹함과 무례함을 비난했다.",
+   "summary_en": "Obama attacks Trump and allies for cruelty and indecency during a Midwest midterm campaign stop.",
+   "summary_ko": "오바마가 중서부 유세에서 트럼프와 동맹들의 잔혹함과 무례함을 맹비난했다.",
    "classified": true
   },
   {
@@ -2700,8 +2680,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama attacks Trump as an agent of chaos and cruelty in a midterm election pitch.",
-   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 맹비난했다.",
+   "summary_en": "Obama labels Trump an agent of chaos and cruelty in his midterm elections pitch.",
+   "summary_ko": "오바마가 중간선거 유세에서 트럼프를 '혼란과 잔혹함의 대행자'로 규정했다.",
    "classified": true
   },
   {
