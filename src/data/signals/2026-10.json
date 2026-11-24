@@ -116,9 +116,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Harris attacks Trump while urging a 'too big to rig' midterm turnout.",
-   "summary_ko": "해리스가 '조작 불가능한' 투표율을 독려하며 트럼프를 강하게 비판했다.",
+   "confidence": 0.95,
+   "summary_en": "Harris attacks Trump while urging massive midterm turnout against him.",
+   "summary_ko": "해리스가 트럼프를 공격하며 중간선거에서 압도적 투표를 독려하다.",
    "classified": true
   },
   {
@@ -202,26 +202,6 @@
    "summary_ko": "콜린스가 선거 전략으로 트럼프와의 거리두기를 택했다."
   },
   {
-   "id": "sig-369028fe",
-   "date": "2026-10-30",
-   "source": "Fox News",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5zNHhpQnRmWVd5dzRwRTlFVjF2djBvdEdlM2V3bEdXTXJpSDFrdVd2UDUyOFQ4UXBVRTRqWEdVRkY0MUZIeGNQT1A5bFdjQjFjdUVHZW1R?oc=5",
-   "title": "Joe Manchin praises Haley Stevens’ integrity - Fox News",
-   "people": [
-    "manchin",
-    "haley-nikki"
-   ],
-   "pair": [
-    "haley-nikki",
-    "manchin"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Joe Manchin publicly praises Haley Stevens' integrity.",
-   "summary_ko": "조 맨친이 헤일리 스티븐스의 청렴성을 공개적으로 칭찬했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-5cb3fd9",
    "date": "2026-10-30",
    "source": "CNN",
@@ -256,9 +236,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
+   "confidence": 0.9,
    "summary_en": "Trump and Obama exchange attacks in the final days of the midterm campaign.",
-   "summary_ko": "트럼프와 오바마가 중간선거 막바지에 서로를 공격하며 설전을 벌였습니다.",
+   "summary_ko": "트럼프와 오바마가 중간선거 막판 서로를 공격하며 설전을 벌이다.",
    "classified": true
   },
   {
@@ -457,9 +437,9 @@
     "obama"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Manchin reveals critical thoughts about Obama and Democrats.",
-   "summary_ko": "맨친이 오바마와 민주당에 대한 비판적 생각을 밝힘.",
+   "confidence": 0.8,
+   "summary_en": "Manchin criticizes Obama and the Democrats in a revealing interview.",
+   "summary_ko": "맨친이 인터뷰에서 오바마와 민주당을 비판하며 속내를 드러내다.",
    "classified": true
   },
   {
@@ -481,6 +461,26 @@
    "confidence": 0.8,
    "summary_en": "Senator Chris Murphy gets defensive when pressed on a Democratic probe into Musk.",
    "summary_ko": "크리스 머피 상원의원이 머스크에 대한 민주당 조사 관련 질문에 방어적으로 대응했다."
+  },
+  {
+   "id": "sig-2550861d",
+   "date": "2026-10-30",
+   "source": "Fox News",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA0S2ZlcUxXNzFWQm9hUS1iQXBjeU02MXFtNVQ0cjVBTkNsYWZCaGQzSHgxbDQtekp5c21XT0Y0aGNaVkhXWUlmNkF2WXVtWmxBd1hzVDdR?oc=5",
+   "title": "Joe Manchin praises Haley Stevens’ integrity - Fox News",
+   "people": [
+    "manchin",
+    "haley-nikki"
+   ],
+   "pair": [
+    "haley-nikki",
+    "manchin"
+   ],
+   "polarity": "ally",
+   "confidence": 0.9,
+   "summary_en": "Manchin praises Haley Stevens' integrity in a Fox News interview.",
+   "summary_ko": "맨친이 폭스뉴스 인터뷰에서 헤일리 스티븐스의 진실성을 칭찬하다.",
+   "classified": true
   },
   {
    "id": "sig-e934bba5",
@@ -637,9 +637,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump and Obama trade insults during the closing week of the midterm election.",
-   "summary_ko": "트럼프와 오바마가 중간선거 마지막 주에 서로를 비난하며 설전을 벌였습니다.",
+   "confidence": 0.95,
+   "summary_en": "Trump and Obama exchange attacks during the final week of the midterm elections.",
+   "summary_ko": "트럼프와 오바마가 중간선거 마지막 주에 서로를 공격하며 설전을 벌였다.",
    "classified": true
   },
   {
@@ -817,9 +817,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
+   "confidence": 0.9,
    "summary_en": "Trump removes Pam Bondi from her position as attorney general.",
-   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했습니다.",
+   "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했다.",
    "classified": true
   },
   {
@@ -880,26 +880,6 @@
    "confidence": 0.95,
    "summary_en": "Trump defends Hegseth, warning Democrats not to impeach him.",
    "summary_ko": "트럼프가 헤그세스를 옹호하며 민주당의 탄핵 시도를 경고했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-23f3e4e",
-   "date": "2026-10-29",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPQm9INjQwOFV2OFBtTHNrV0F6RnF1Z0NmMHJyT1lJMVJBNm4xNm10VzYtdGF3Zl93aUVxNklqNnpld3VXbHFfRTRZWW9MekFMeXJqcHdWc2pJV2xtYXBiRWE3YmFEbGZIa1dGUVRMbVktYXp5Z3dsenJjZFNORjlJaUdGYjVZQ0E0UEt2VFJVUFBxb1NTMjJTRENRSjN5OTFRaXNpLVFKc1ZGR2xzekE?oc=5",
-   "title": "Vance outreach to Iran related to medical supplies, says Trump - Reuters",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "ally",
-   "confidence": 0.85,
-   "summary_en": "Trump confirms JD Vance's outreach to Iran was for medical supplies coordination.",
-   "summary_ko": "트럼프는 밴스의 이란 접촉이 의료물자 조율 관련이라고 확인했다.",
    "classified": true
   },
   {
@@ -1039,7 +1019,7 @@
    "polarity": "ally",
    "confidence": 0.9,
    "summary_en": "Trump and Murkowski jointly criticize Peltola over an Alaska ballot-stacking report.",
-   "summary_ko": "트럼프와 머코스키가 알래스카 투표용지 조작 보고서와 관련해 펠톨라를 함께 비판했습니다.",
+   "summary_ko": "트럼프와 머코스키가 알래스카 투표 조작 보고서를 두고 펠톨라를 함께 비판했다.",
    "classified": true
   },
   {
@@ -1398,8 +1378,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama launches searing attacks on Trump and Ramaswamy upon returning to the campaign trail.",
-   "summary_ko": "오바마가 유세 현장에 복귀해 트럼프와 라마스와미를 강도 높게 비판했습니다.",
+   "summary_en": "Obama launches harsh attacks on Trump and Ramaswamy during his return to the campaign trail.",
+   "summary_ko": "오바마가 선거 유세 복귀 무대에서 트럼프와 라마스와미를 강도 높게 공격했다.",
    "classified": true
   },
   {
@@ -1438,8 +1418,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Steve Scalise and Jim Jordan compete in a high-profile House GOP leadership race.",
-   "summary_ko": "스티브 스칼리스와 짐 조던이 하원 공화당 지도부 자리를 놓고 치열하게 경쟁하고 있습니다.",
+   "summary_en": "Jim Jordan and Steve Scalise compete in a closely watched House GOP leadership race.",
+   "summary_ko": "짐 조던과 스티브 스칼리세가 주목받는 하원 공화당 지도부 경선에서 맞붙고 있다.",
    "classified": true
   },
   {
@@ -1718,8 +1698,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.9,
-   "summary_en": "Trump mocks Obama's understanding of White House renovations following a Cheesecake Factory comment.",
-   "summary_ko": "트럼프가 치즈케이크 팩토리 발언 후 오바마의 백악관 리노베이션 이해도를 조롱했다.",
+   "summary_en": "Trump mocks Obama's Cheesecake Factory comment and claims Obama wouldn't understand White House renovations.",
+   "summary_ko": "트럼프가 오바마의 치즈케이크 팩토리 발언을 조롱하며 오바마가 백악관 리노베이션을 이해하지 못할 것이라고 비난했습니다.",
    "classified": true
   },
   {
@@ -1997,9 +1977,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Trump defends his White House redecorating against Obama's mocking Cheesecake Factory jab.",
-   "summary_ko": "트럼프가 백악관 재단장과 치즈케이크 팩토리 발언을 조롱한 오바마에 맞서 방어했다.",
+   "confidence": 0.95,
+   "summary_en": "Trump defends his White House renovations and Cheesecake Factory preference against Obama's ridicule.",
+   "summary_ko": "트럼프가 백악관 리노베이션과 치즈케이크 팩토리 선호를 오바마의 조롱으로부터 방어했습니다.",
    "classified": true
   },
   {
@@ -2017,9 +1997,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Obama's Cheesecake Factory jab rankles Trump on the campaign trail in Mississippi.",
-   "summary_ko": "오바마의 치즈케이크 팩토리 조롱이 미시시피 유세 중 트럼프를 자극했다.",
+   "confidence": 0.95,
+   "summary_en": "Obama's Cheesecake Factory joke provokes Trump during a Mississippi campaign event.",
+   "summary_ko": "오바마의 치즈케이크 팩토리 농담이 미시시피 유세 중 트럼프를 자극했습니다.",
    "classified": true
   },
   {
