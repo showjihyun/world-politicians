@@ -2,46 +2,6 @@
  "month": "2026-10",
  "signals": [
   {
-   "id": "sig-f1039d41",
-   "date": "2026-10-31",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPclI2ZHpXSWVTME5oVlRzUnR2Q3VMSV84QjZsenRpdlJFRlJwc3ljOWJwZzloN2dVYzkxQTV2cGFRTTVCdHNGbmdUdmtPX2FuNjJmbUhsbHByN2lQdkRTSFg5NkxENXRDdDRjeFVhWDFzVEJOMXJtMVBvNEQ4OFphcFFRVkw3S2ZMckQwem1WdHZJd0HSAZgBQVVfeXFMTURkU1FpZjN0cVgxeGxOLVdHTjh0bnhkXzVYaGZ6anpvckxUZFlJdHQ2Tmo5M1Nja2IzTXRfYmFMaGlwY2ctWGZ5Q1RpY21INW1lbGp6T0FQV0h2ZGk1V3pPLTJ4S01WSGM5Q0pnTDRCc3lkUi01aUpfYllza0VfQkI5S1cyZG1SNEREUzlQbTJNd2ZnanJCS1Y?oc=5",
-   "title": "Lindsey Graham, longtime senator from South Carolina and Trump ally, dies at 71 - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "trump",
-    "graham"
-   ],
-   "pair": [
-    "graham",
-    "trump"
-   ],
-   "polarity": "ally",
-   "confidence": 0.9,
-   "summary_en": "Longtime Trump ally Senator Lindsey Graham dies at age 71.",
-   "summary_ko": "트럼프의 오랜 동맹인 린지 그레이엄 상원의원이 71세로 별세했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-1a94f6f4",
-   "date": "2026-10-31",
-   "source": "ABC News",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxON1lTTWZvaGJOSml0MVludlNkZnN5UFd1Yk5yZXQ3ZlB2ZVo2amh2cHB4VTB4Z3JOMHpLd1ROZTUtUF9tNmxVRjl5Z0owT05kNm92VE1oajJITllsTzJYQlZpYTdKZVlucTJCTGdBZzdJQWtZMkd1a2hadkJrbjZfQk8xaTJNLUdiT19fNWtFZlRmcG9CdWRKNmFnTWNxeUZ0TGQ40gGoAUFVX3lxTE1lRmtaZDdVdE9Cd0cwNkhOQklBM0QxX2hNMnVfVGw0aktwOW96XzJHQWhxelF1M3lFeGhPNkVzOEh1WGs5N1F4S2FtSmx0a2E3VWR1cTQ3cDQydlFLUlNBVk5Nby1QbDR6eGdoUlRFY3FzdDFlaWw4Z3VnMkRIUzh2Ri02bE5DUjBxckV2QXdzd1U0LU8wclFUdi03d0M1aTVoTTREZTlhSA?oc=5",
-   "title": "Sen. Warren demands answers from RFK Jr. over 'calamitous' response to cyclosporiasis outbreak - ABC News - Breaking News, Latest News and Videos",
-   "people": [
-    "rfk-jr",
-    "warren"
-   ],
-   "pair": [
-    "rfk-jr",
-    "warren"
-   ],
-   "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Sen. Warren demands answers from RFK Jr. over his response to a cyclosporiasis outbreak.",
-   "summary_ko": "워런 상원의원이 사이클로스포라증 발병에 대한 RFK 주니어의 대응을 '파국적'이라며 해명을 요구했습니다.",
-   "classified": true
-  },
-  {
    "id": "sig-6b39ff5",
    "date": "2026-10-31",
    "source": "CBS News",
@@ -116,9 +76,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.9,
-   "summary_en": "Kamala Harris attacks Trump while urging a massive midterm turnout.",
-   "summary_ko": "카말라 해리스가 트럼프를 공격하며 중간선거 대규모 투표를 독려했습니다.",
+   "confidence": 0.95,
+   "summary_en": "Vice President Kamala Harris attacks Donald Trump while urging massive midterm turnout.",
+   "summary_ko": "카말라 해리스 부통령이 도널드 트럼프를 공격하며 중간선거에서 압도적 투표를 독려했다.",
    "classified": true
   },
   {
@@ -438,8 +398,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.8,
-   "summary_en": "Manchin criticizes Obama and the Democrats in a revealing interview.",
-   "summary_ko": "맨친이 인터뷰에서 오바마와 민주당을 비판하며 속내를 드러내다.",
+   "summary_en": "Sen. Joe Manchin criticizes former President Obama in a Fox News interview.",
+   "summary_ko": "조 맨친 상원의원이 폭스뉴스 인터뷰에서 버락 오바마 전 대통령을 비판했다.",
    "classified": true
   },
   {
@@ -637,9 +597,9 @@
     "trump"
    ],
    "polarity": "feud",
-   "confidence": 0.95,
-   "summary_en": "Trump and Obama exchange insults in the closing week of the midterm election.",
-   "summary_ko": "트럼프와 오바마가 중간선거 마지막 주에 서로를 비난하고 있습니다.",
+   "confidence": 0.9,
+   "summary_en": "Trump and Obama exchange insults in the final week of the midterm elections.",
+   "summary_ko": "트럼프와 오바마가 중간선거 마지막 주에 서로를 비난했습니다.",
    "classified": true
   },
   {
@@ -738,8 +698,8 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Obama ridicules Trump's excessive government response to a lighthearted joke.",
-   "summary_ko": "오바마가 가벼운 농담에 전 정부적 대응을 한 트럼프를 비웃었다.",
+   "summary_en": "Obama mocks Trump over his response to a Cheesecake Factory joke.",
+   "summary_ko": "오바마가 치즈케이크 팩토리 농담에 대한 트럼프의 대응을 조롱했습니다.",
    "classified": true
   },
   {
@@ -818,7 +778,7 @@
    ],
    "polarity": "feud",
    "confidence": 0.95,
-   "summary_en": "Trump fires Pam Bondi from her position as attorney general.",
+   "summary_en": "Trump removes Pam Bondi from her position as attorney general.",
    "summary_ko": "트럼프가 팸 본디를 법무장관직에서 해임했습니다.",
    "classified": true
   },
@@ -837,9 +797,9 @@
     "thune"
    ],
    "polarity": "feud",
-   "confidence": 0.85,
-   "summary_en": "Thune campaigns aggressively while Schumer faces rejection from fellow Democrats.",
-   "summary_ko": "튠이 적극적으로 유세하는 동안 슈머는 동료 민주당원들로부터 거부당하며 벤치에 머무름.",
+   "confidence": 0.8,
+   "summary_en": "Sen. John Thune campaigns aggressively while contrasting with Sen. Chuck Schumer's absence.",
+   "summary_ko": "존 튠 상원의원이 적극적 유세를 벌이며 척 슈머 상원의원의 불참과 대조된다.",
    "classified": true
   },
   {
@@ -980,26 +940,6 @@
    "confidence": 0.9,
    "summary_en": "Trump mocks Sanders; Sanders responds to the insults.",
    "summary_ko": "트럼프가 샌더스를 조롱하자 샌더스가 대응했다.",
-   "classified": true
-  },
-  {
-   "id": "sig-23f3e4e",
-   "date": "2026-10-29",
-   "source": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPQm9INjQwOFV2OFBtTHNrV0F6RnF1Z0NmMHJyT1lJMVJBNm4xNm10VzYtdGF3Zl93aUVxNklqNnpld3VXbHFfRTRZWW9MekFMeXJqcHdWc2pJV2xtYXBiRWE3YmFEbGZIa1dGUVRMbVktYXp5Z3dsenJjZFNORjlJaUdGYjVZQ0E0UEt2VFJVUFBxb1NTMjJTRENRSjN5OTFRaXNpLVFKc1ZGR2xzekE?oc=5",
-   "title": "Vance outreach to Iran related to medical supplies, says Trump - Reuters",
-   "people": [
-    "trump",
-    "vance"
-   ],
-   "pair": [
-    "trump",
-    "vance"
-   ],
-   "polarity": "ally",
-   "confidence": 0.8,
-   "summary_en": "Trump explains JD Vance's Iran outreach was for medical supplies, defending his deputy.",
-   "summary_ko": "트럼프가 JD 밴스의 이란 접촉이 의료물자 관련이었다고 설명하며 부통령을 옹호했다.",
    "classified": true
   },
   {
